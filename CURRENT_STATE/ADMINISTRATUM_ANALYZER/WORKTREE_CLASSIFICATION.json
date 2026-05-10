@@ -1,10 +1,64 @@
 ﻿{
-    "status_short_count":  20,
-    "modified_count":  0,
+    "status_short_count":  26,
+    "modified_count":  6,
     "untracked_count":  20,
     "deleted_count":  0,
     "renamed_count":  0,
     "classified_changes":  [
+                               {
+                                   "git_status_code":  " M",
+                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
+                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                   "reason":  "Generated analyzer/artifact state output",
+                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                   "may_commit_to_git":  true,
+                                   "may_include_in_chat_bundle":  true
+                               },
+                               {
+                                   "git_status_code":  " M",
+                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                   "reason":  "Generated analyzer/artifact state output",
+                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                   "may_commit_to_git":  true,
+                                   "may_include_in_chat_bundle":  true
+                               },
+                               {
+                                   "git_status_code":  " M",
+                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
+                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                   "reason":  "Generated analyzer/artifact state output",
+                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                   "may_commit_to_git":  true,
+                                   "may_include_in_chat_bundle":  true
+                               },
+                               {
+                                   "git_status_code":  " M",
+                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
+                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                   "reason":  "Generated analyzer/artifact state output",
+                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                   "may_commit_to_git":  true,
+                                   "may_include_in_chat_bundle":  true
+                               },
+                               {
+                                   "git_status_code":  " M",
+                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
+                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                   "reason":  "Public source/docs/state path",
+                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                   "may_commit_to_git":  true,
+                                   "may_include_in_chat_bundle":  true
+                               },
+                               {
+                                   "git_status_code":  " M",
+                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json",
+                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                   "reason":  "Public source/docs/state path",
+                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                   "may_commit_to_git":  true,
+                                   "may_include_in_chat_bundle":  true
+                               },
                                {
                                    "git_status_code":  "??",
                                    "path":  "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md",
@@ -187,7 +241,8 @@
                                }
                            ],
     "public_commit_candidates":  [
-
+                                     "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
+                                     "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json"
                                  ],
     "local_only_ignore_candidates":  [
                                          "OBSERVED/THRONE_REPO_COPY/",
@@ -195,6 +250,10 @@
                                          "ORGANS/ADMINISTRATUM/UTILITY/_BACKUPS/"
                                      ],
     "generated_artifact_candidates":  [
+                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
+                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
+                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
                                           "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md"
                                       ],
     "safe_untracked_candidates":  [

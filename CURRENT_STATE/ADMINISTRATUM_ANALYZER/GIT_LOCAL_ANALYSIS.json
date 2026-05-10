@@ -1,23 +1,23 @@
 ﻿{
     "schema_version":  "IMPERIUM_ADMINISTRATUM_GIT_LOCAL_ANALYSIS_V0_2",
     "task_id":  "TASK-20260510-ADMINISTRATUM-ANALYZER-WORKTREE-CLASSIFIER-AND-FINAL-RECEIPT-SYNC-V0_1",
-    "generated_at":  "2026-05-10T12:22:56.4278464+03:00",
+    "generated_at":  "2026-05-10T12:24:10.1162004+03:00",
     "target":  "FULL_IMPERIUM_SUMMARY",
     "git_reality":  {
                         "root":  "E:\\IMPERIUM",
                         "remote":  "https://github.com/SoulsLike2313/Imperium-.git",
                         "branch":  "master",
-                        "local_head":  "007510058e96878db53cfe5f20ceee6f976fe31e",
-                        "origin_master_head":  "007510058e96878db53cfe5f20ceee6f976fe31e",
-                        "upstream_head":  "007510058e96878db53cfe5f20ceee6f976fe31e",
-                        "ls_remote_master_head":  "007510058e96878db53cfe5f20ceee6f976fe31e",
+                        "local_head":  "c7dc53f5e2d33ba8b712eeba6591d8d0babb795c",
+                        "origin_master_head":  "c7dc53f5e2d33ba8b712eeba6591d8d0babb795c",
+                        "upstream_head":  "c7dc53f5e2d33ba8b712eeba6591d8d0babb795c",
+                        "ls_remote_master_head":  "c7dc53f5e2d33ba8b712eeba6591d8d0babb795c",
                         "working_tree_clean":  false,
-                        "status_short_count":  20,
+                        "status_short_count":  26,
                         "head_matches_origin_master":  true,
                         "head_matches_ls_remote":  true,
                         "origin_matches_ls_remote":  true,
                         "post_push_reality_check_passed":  true,
-                        "analyzer_report_commit":  "007510058e96878db53cfe5f20ceee6f976fe31e",
+                        "analyzer_report_commit":  "c7dc53f5e2d33ba8b712eeba6591d8d0babb795c",
                         "git_reality_verdict":  "LOCAL_CHANGES_PRESENT",
                         "warnings":  [
 
@@ -144,12 +144,66 @@
                             "untracked_recommendation":  "MANUAL_REVIEW_REQUIRED"
                         },
     "worktree_classifier":  {
-                                "status_short_count":  20,
-                                "modified_count":  0,
+                                "status_short_count":  26,
+                                "modified_count":  6,
                                 "untracked_count":  20,
                                 "deleted_count":  0,
                                 "renamed_count":  0,
                                 "classified_changes":  [
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
+                                                               "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                                               "reason":  "Public source/docs/state path",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json",
+                                                               "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                                               "reason":  "Public source/docs/state path",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
                                                            {
                                                                "git_status_code":  "??",
                                                                "path":  "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md",
@@ -332,7 +386,8 @@
                                                            }
                                                        ],
                                 "public_commit_candidates":  [
-
+                                                                 "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
+                                                                 "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json"
                                                              ],
                                 "local_only_ignore_candidates":  [
                                                                      "OBSERVED/THRONE_REPO_COPY/",
@@ -340,6 +395,10 @@
                                                                      "ORGANS/ADMINISTRATUM/UTILITY/_BACKUPS/"
                                                                  ],
                                 "generated_artifact_candidates":  [
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
                                                                       "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md"
                                                                   ],
                                 "safe_untracked_candidates":  [

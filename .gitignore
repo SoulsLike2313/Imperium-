@@ -50,3 +50,22 @@ runtime/
 sessions/
 
 /CHAT_COMPILATIONS_LOCAL/
+
+# Manual worktree cleanup rules
+# Task zip capsules are local transfer/evidence packages, not Git public memory.
+ARTIFACTS/**/00_TASK.zip
+ARTIFACTS/**/*.zip
+
+# Screenshots or archives mentioning SSH_COMMAND_LIBRARY are local/manual-review evidence.
+ARTIFACTS/**/*SSH_COMMAND_LIBRARY*.png
+ARTIFACTS/**/*SSH_COMMAND_LIBRARY*.zip
+EXPLORER/SCREENSHOTS/**/*SSH_COMMAND_LIBRARY*.png
+EXPLORER/SCREENSHOTS/**/*SSH_COMMAND_LIBRARY*.zip
+
+# Local observed repository copies and dashboard backups.
+/OBSERVED/THRONE_REPO_COPY/
+/OBSERVED/VM3_REPO_COPY/
+/ORGANS/ADMINISTRATUM/UTILITY/_BACKUPS/
+
+# Manual cleanup working logs.
+/CURRENT_STATE/MANUAL_WORKTREE_CLEANUP_*/

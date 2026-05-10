@@ -1,0 +1,11 @@
+OWNER_NEXT_ACTION:
+# OWNER NEXT ACTION
+
+- recommended_owner_action: MANUAL_REVIEW_REQUIRED
+- reason: Suspicious/manual/private-risk candidates detected.
+- command_to_run_if_bundle_needed: Manual review required
+- expected_zip_location: E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_<timestamp>.zip
+
+Warning: if MANUAL_REVIEW_REQUIRED, review worktree classifier before any bundle build.
+WORKTREE_CLASSIFICATION_REPORT_PATH: E:\IMPERIUM\CURRENT_STATE\ADMINISTRATUM_ANALYZER\WORKTREE_CLASSIFICATION_REPORT.md
+AnalyzeOnly completed. Bundle build skipped.

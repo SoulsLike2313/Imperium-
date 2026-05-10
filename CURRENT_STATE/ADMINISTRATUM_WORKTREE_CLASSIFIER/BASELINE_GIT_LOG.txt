@@ -1,0 +1,10 @@
+debff5f (HEAD -> master, origin/master, origin/HEAD) record post-push Administratum analyzer verification
+9149560 harden Administratum analyzer with post-push reality checks
+79f785a add Administratum git local analyzer and chat context bundle workflow
+5f16669 repair repo formatting and local ignore rules
+d0e0b33 refine boundary verification report and receipt metadata
+7c433a9 establish Administratum repo-local engineering clean point
+d944b3c update finalize sanitation receipt and verification evidence
+7746a38 finalize git sanitation artifact and repair ignore rules
+002ad12 sanitize repository tracking and exclude private local sources
+94ba002 add Administratum dashboard v0.3 Russian animated continuity UI
