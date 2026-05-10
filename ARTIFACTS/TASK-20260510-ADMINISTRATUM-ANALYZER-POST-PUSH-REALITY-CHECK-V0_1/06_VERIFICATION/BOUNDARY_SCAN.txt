@@ -1,0 +1,6 @@
+BOUNDARY_SCAN
+suspicious_tracked_paths_count=0
+suspicious_history_paths_count=0
+boundary_verdict=NEEDS_IGNORE_REPAIR
+chat_compilations_local_ignored=True
+chat_compilations_check=.gitignore:52:/CHAT_COMPILATIONS_LOCAL/	CHAT_COMPILATIONS_LOCAL

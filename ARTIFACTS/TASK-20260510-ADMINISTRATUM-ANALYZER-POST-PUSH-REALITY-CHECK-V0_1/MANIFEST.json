@@ -1,0 +1,104 @@
+{
+  "schema_version": "MANIFEST_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1",
+  "generated_at": "2026-05-10T11:52:51.3472238+03:00",
+  "root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1",
+  "file_count": 19,
+  "files": [
+    {
+      "path": "00_TASK/TASK.md",
+      "size": 340,
+      "modified_at": "2026-05-10T08:52:51.1006610Z"
+    },
+    {
+      "path": "01_SCRIPT_DELTA/SCRIPTS_UPDATED.md",
+      "size": 505,
+      "modified_at": "2026-05-10T08:52:51.1026139Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/CONTEXT_GAP_REPORT.md",
+      "size": 412,
+      "modified_at": "2026-05-10T08:51:46.9437274Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/GIT_LOCAL_ANALYSIS.json",
+      "size": 19214,
+      "modified_at": "2026-05-10T08:51:46.9349400Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/GIT_REALITY_REPORT.md",
+      "size": 659,
+      "modified_at": "2026-05-10T08:51:46.9417745Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/LAST_VERIFIED_PUBLIC_HEAD.json",
+      "size": 480,
+      "modified_at": "2026-05-10T08:51:46.9456801Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/OWNER_NEXT_ACTION.md",
+      "size": 378,
+      "modified_at": "2026-05-10T08:51:46.9447040Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/PUBLIC_PRIVATE_BOUNDARY_REPORT.md",
+      "size": 765,
+      "modified_at": "2026-05-10T08:51:46.9427511Z"
+    },
+    {
+      "path": "03_REALITY_CHECK/LOCAL_HEAD.txt",
+      "size": 42,
+      "modified_at": "2026-05-10T08:52:51.1445964Z"
+    },
+    {
+      "path": "03_REALITY_CHECK/LS_REMOTE_MASTER_HEAD.txt",
+      "size": 42,
+      "modified_at": "2026-05-10T08:52:51.1491777Z"
+    },
+    {
+      "path": "03_REALITY_CHECK/ORIGIN_MASTER_HEAD.txt",
+      "size": 42,
+      "modified_at": "2026-05-10T08:52:51.1465488Z"
+    },
+    {
+      "path": "03_REALITY_CHECK/POST_PUSH_REALITY_VERDICT.txt",
+      "size": 173,
+      "modified_at": "2026-05-10T08:52:51.1550358Z"
+    },
+    {
+      "path": "04_DOCS_DELTA/DOCS_UPDATED.md",
+      "size": 176,
+      "modified_at": "2026-05-10T08:52:51.1565410Z"
+    },
+    {
+      "path": "05_BUNDLE_TEST/BUNDLE_TEST_RESULT.md",
+      "size": 319,
+      "modified_at": "2026-05-10T08:52:51.1780152Z"
+    },
+    {
+      "path": "06_VERIFICATION/BOUNDARY_SCAN.txt",
+      "size": 248,
+      "modified_at": "2026-05-10T08:52:51.2534120Z"
+    },
+    {
+      "path": "06_VERIFICATION/JSON_VALIDATION.txt",
+      "size": 325,
+      "modified_at": "2026-05-10T08:52:51.1858252Z"
+    },
+    {
+      "path": "06_VERIFICATION/SCRIPT_LINE_COUNT_CHECK.txt",
+      "size": 345,
+      "modified_at": "2026-05-10T08:52:51.1993807Z"
+    },
+    {
+      "path": "07_RECEIPTS/FINAL_RECEIPT.json",
+      "size": 1809,
+      "modified_at": "2026-05-10T08:52:51.3261906Z"
+    },
+    {
+      "path": "08_OWNER_SUMMARY/OWNER_SUMMARY.md",
+      "size": 504,
+      "modified_at": "2026-05-10T08:52:51.3281443Z"
+    }
+  ]
+}

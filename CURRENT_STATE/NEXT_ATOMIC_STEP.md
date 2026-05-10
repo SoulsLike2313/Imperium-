@@ -1,9 +1,3 @@
 # NEXT_ATOMIC_STEP
 
-Use generated chat compilation bundle to produce full IMPERIUM summary; then build VM2 bootstrap workflow.
-
-## Immediate Sequence
-1. Run Administratum analyzer and review `CONTEXT_GAP_REPORT.md`.
-2. Build safe chat compilation zip under `CHAT_COMPILATIONS_LOCAL`.
-3. Upload zip to chat for full summary synthesis.
-4. Start separate VM2 bootstrap workflow task.
+Use Analyzer v0.2 post-push reality report to decide whether full IMPERIUM summary can be written from Git only or requires CHAT_COMPILATIONS_LOCAL bundle.

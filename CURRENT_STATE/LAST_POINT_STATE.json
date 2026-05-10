@@ -1,14 +1,14 @@
 {
   "schema_version": "LAST_POINT_STATE_V0_1",
-  "current_focus": "Administratum-owned Git/local context analysis and chat compilation bundle workflow",
-  "last_completed_task": "TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1",
+  "current_focus": "Administratum Analyzer v0.2 post-push Git/local reality check",
+  "last_completed_task": "TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1",
   "last_completed_artifact": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1",
   "current_repo_remote": "https://github.com/SoulsLike2313/Imperium-.git",
   "current_branch": "master",
   "public_memory_location": "GitHub repository + tracked docs/contracts/scripts",
   "local_private_memory_location": "E:\\IMPERIUM local-only sources and private bundles/indexes",
   "administratum_role_summary": "Operational memory, archive/provenance pointers, current state, routing guidance, and bundle planning support.",
-  "next_atomic_step": "Use generated chat compilation bundle to produce full IMPERIUM summary; then build VM2 bootstrap workflow.",
+  "next_atomic_step": "Use Analyzer v0.2 post-push reality report to decide whether full IMPERIUM summary can be written from Git only or requires CHAT_COMPILATIONS_LOCAL bundle.",
   "forbidden_next_steps": [
     "No Sanctum work",
     "No THRONE sync",
@@ -21,7 +21,10 @@
     "Private/local sources remain outside Git and require controlled bundle flow",
     "No analyzer/bundle-builder implementation in this task",
     "Analyzer and private bundle-builder are not built yet.",
-    "VM2 bootstrap workflow is not built yet."
+    "VM2 bootstrap workflow is not built yet.",
+    "VM2 workflow not built yet.",
+    "Raw private data is not auto-copied.",
+    "Analyzer remains PASS_WITH_LIMITATIONS."
   ],
-  "current_task": "TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1"
+  "current_task": "TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1"
 }

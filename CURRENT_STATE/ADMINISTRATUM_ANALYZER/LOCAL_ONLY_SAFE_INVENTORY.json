@@ -1,65 +1,106 @@
 ﻿{
-    "schema_version":  "LOCAL_ONLY_SAFE_INVENTORY_V0_1",
-    "generated_at":  "2026-05-10T11:31:07.6692475+03:00",
-    "root":  "E:\\IMPERIUM",
-    "private_roots":  [
-                          {
-                              "root":  "SSH_COMMAND_LIBRARY",
-                              "path":  "SSH_COMMAND_LIBRARY",
-                              "exists":  true,
-                              "file_count":  240,
-                              "total_mb":  1.126,
-                              "note":  "RECURSIVE_FILE_COUNT"
-                          },
-                          {
-                              "root":  "ARCHIVE",
-                              "path":  "ARCHIVE",
-                              "exists":  true,
-                              "file_count":  0,
-                              "total_mb":  0,
-                              "note":  "TOP_LEVEL_ONLY"
-                          },
-                          {
-                              "root":  "BUNDLES_LOCAL",
-                              "path":  "BUNDLES_LOCAL",
-                              "exists":  true,
-                              "file_count":  0,
-                              "total_mb":  0,
-                              "note":  "RECURSIVE_FILE_COUNT"
-                          },
-                          {
-                              "root":  "PRIVATE_CONTEXT_LOCAL",
-                              "path":  "PRIVATE_CONTEXT_LOCAL",
-                              "exists":  true,
-                              "file_count":  0,
-                              "total_mb":  0,
-                              "note":  "RECURSIVE_FILE_COUNT"
-                          },
-                          {
-                              "root":  "RUNTIME_LOCAL",
-                              "path":  "RUNTIME_LOCAL",
-                              "exists":  true,
-                              "file_count":  0,
-                              "total_mb":  0,
-                              "note":  "RECURSIVE_FILE_COUNT"
-                          }
-                      ],
-    "observed_presence":  [
-                              {
-                                  "path":  "OBSERVED/THRONE_REPO_COPY",
-                                  "exists":  true
-                              },
-                              {
-                                  "path":  "OBSERVED/VM3_REPO_COPY",
-                                  "exists":  true
-                              },
-                              {
-                                  "path":  "CHAT_COMPILATIONS_LOCAL",
-                                  "exists":  true
-                              }
-                          ],
-    "notes":  [
-                  "Inventory contains only path-level and size/count metadata.",
-                  "No file content is extracted."
-              ]
+    "schema_version":  "LOCAL_ONLY_SAFE_INVENTORY_V0_2",
+    "generated_at":  "2026-05-10T11:51:43.8696389+03:00",
+    "local_private_memory":  {
+                                 "SSH_COMMAND_LIBRARY":  {
+                                                             "exists":  true,
+                                                             "file_count":  240,
+                                                             "total_mb":  1.126,
+                                                             "in_git_tracking":  false,
+                                                             "ignored_by_git":  true,
+                                                             "include_policy":  "SAFE_INDEX_ONLY",
+                                                             "needed_for_full_summary":  true,
+                                                             "needed_for_vm2":  true,
+                                                             "note":  "RECURSIVE_FILE_COUNT"
+                                                         },
+                                 "ARCHIVE":  {
+                                                 "exists":  true,
+                                                 "file_count":  0,
+                                                 "total_mb":  0,
+                                                 "in_git_tracking":  false,
+                                                 "ignored_by_git":  true,
+                                                 "include_policy":  "TOP_LEVEL_INVENTORY_ONLY",
+                                                 "needed_for_full_summary":  false,
+                                                 "needed_for_vm2":  false,
+                                                 "note":  "TOP_LEVEL_ONLY"
+                                             },
+                                 "BUNDLES_LOCAL":  {
+                                                       "exists":  true,
+                                                       "file_count":  0,
+                                                       "total_mb":  0,
+                                                       "in_git_tracking":  false,
+                                                       "ignored_by_git":  true,
+                                                       "include_policy":  "SAFE_INDEX_ONLY",
+                                                       "needed_for_full_summary":  true,
+                                                       "needed_for_vm2":  true,
+                                                       "note":  "RECURSIVE_FILE_COUNT"
+                                                   },
+                                 "PRIVATE_CONTEXT_LOCAL":  {
+                                                               "exists":  true,
+                                                               "file_count":  0,
+                                                               "total_mb":  0,
+                                                               "in_git_tracking":  false,
+                                                               "ignored_by_git":  true,
+                                                               "include_policy":  "OWNER_APPROVAL_REQUIRED",
+                                                               "needed_for_full_summary":  true,
+                                                               "needed_for_vm2":  true,
+                                                               "note":  "RECURSIVE_FILE_COUNT"
+                                                           },
+                                 "RUNTIME_LOCAL":  {
+                                                       "exists":  true,
+                                                       "file_count":  0,
+                                                       "total_mb":  0,
+                                                       "in_git_tracking":  false,
+                                                       "ignored_by_git":  true,
+                                                       "include_policy":  "EXCLUDE_BY_DEFAULT",
+                                                       "needed_for_full_summary":  false,
+                                                       "needed_for_vm2":  false,
+                                                       "note":  "RECURSIVE_FILE_COUNT"
+                                                   },
+                                 "CHAT_COMPILATIONS_LOCAL":  {
+                                                                 "exists":  true,
+                                                                 "file_count":  310,
+                                                                 "total_mb":  1.813,
+                                                                 "in_git_tracking":  false,
+                                                                 "ignored_by_git":  true,
+                                                                 "include_policy":  "LOCAL_BUNDLE_OUTPUT",
+                                                                 "needed_for_full_summary":  true,
+                                                                 "needed_for_vm2":  true,
+                                                                 "note":  "RECURSIVE_FILE_COUNT"
+                                                             },
+                                 "OBSERVED/THRONE_REPO_COPY":  {
+                                                                   "exists":  true,
+                                                                   "file_count":  2,
+                                                                   "total_mb":  767.453,
+                                                                   "in_git_tracking":  false,
+                                                                   "ignored_by_git":  false,
+                                                                   "include_policy":  "INDEX_ONLY_NEVER_SYNC",
+                                                                   "needed_for_full_summary":  false,
+                                                                   "needed_for_vm2":  false,
+                                                                   "note":  "TOP_LEVEL_ONLY"
+                                                               },
+                                 "OBSERVED/VM3_REPO_COPY":  {
+                                                                "exists":  true,
+                                                                "file_count":  2,
+                                                                "total_mb":  143.128,
+                                                                "in_git_tracking":  false,
+                                                                "ignored_by_git":  false,
+                                                                "include_policy":  "INDEX_ONLY",
+                                                                "needed_for_full_summary":  false,
+                                                                "needed_for_vm2":  true,
+                                                                "note":  "TOP_LEVEL_ONLY"
+                                                            }
+                             },
+    "ignored_private_roots":  [
+                                  "SSH_COMMAND_LIBRARY",
+                                  "ARCHIVE",
+                                  "BUNDLES_LOCAL",
+                                  "PRIVATE_CONTEXT_LOCAL",
+                                  "RUNTIME_LOCAL",
+                                  "CHAT_COMPILATIONS_LOCAL"
+                              ],
+    "not_ignored_private_roots":  [
+                                      "OBSERVED/THRONE_REPO_COPY",
+                                      "OBSERVED/VM3_REPO_COPY"
+                                  ]
 }

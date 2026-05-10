@@ -9,28 +9,33 @@ git pull --rebase
 git push origin master
 ```
 
-## Orientation Commands
+## Analyzer v0.2 Commands
 ```powershell
-Get-Content START_HERE.md
-Get-Content CURRENT_STATE\LAST_POINT_STATE.json
-Get-Content DOCS\REPO_MAP.md
-Get-Content DOCS\CHAT_ENTRY_PROTOCOL.md
+powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\TOOLS\administratum_analyze_git_local_context.ps1 -Root E:\IMPERIUM -Target FULL_IMPERIUM_SUMMARY -PostPushRealityCheck
+
+powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\TOOLS\administratum_analyze_git_local_context.ps1 -Root E:\IMPERIUM -Target VM2_WORK -ForVM2 -PostPushRealityCheck
 ```
 
-## Administratum Analyzer / Bundle Commands
+## Workflow Commands
 ```powershell
-powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\TOOLS\administratum_analyze_git_local_context.ps1 -Root E:\IMPERIUM -Target FULL_IMPERIUM_SUMMARY
+# Analyze only
+powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\ORGANS\ADMINISTRATUM\UTILITY\run_administratum_context_bundle_workflow.ps1 -Root E:\IMPERIUM -Target FULL_IMPERIUM_SUMMARY -AnalyzeOnly
 
-powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\TOOLS\administratum_analyze_git_local_context.ps1 -Root E:\IMPERIUM -Target VM2_WORK -ForVM2
+# Analyze + build safe bundle
+powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\ORGANS\ADMINISTRATUM\UTILITY\run_administratum_context_bundle_workflow.ps1 -Root E:\IMPERIUM -Target FULL_IMPERIUM_SUMMARY -BuildBundle
+```
 
+## Builder Direct Command
+```powershell
 powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\TOOLS\build_chat_compilation_from_analysis.ps1 -Root E:\IMPERIUM -TaskId FULL_IMPERIUM_CONTEXT
-
-powershell -ExecutionPolicy Bypass -File E:\IMPERIUM\ORGANS\ADMINISTRATUM\UTILITY\run_administratum_context_bundle_workflow.ps1 -Root E:\IMPERIUM -Target FULL_IMPERIUM_SUMMARY
 ```
 
-## Output
-- Generated chat bundle zip is written under `E:\IMPERIUM\CHAT_COMPILATIONS_LOCAL\`.
+## Read Next Action
+```powershell
+Get-Content E:\IMPERIUM\CURRENT_STATE\ADMINISTRATUM_ANALYZER\OWNER_NEXT_ACTION.md
+```
 
-## Notes
-- Do not include secret SSH commands in repo docs.
-- Any unverified command should be marked as requiring local check.
+## Output Location
+- Bundle zip location: `E:\IMPERIUM\CHAT_COMPILATIONS_LOCAL\`
+
+Do not place secret SSH command bodies, tokens, passwords, or private keys in public docs.

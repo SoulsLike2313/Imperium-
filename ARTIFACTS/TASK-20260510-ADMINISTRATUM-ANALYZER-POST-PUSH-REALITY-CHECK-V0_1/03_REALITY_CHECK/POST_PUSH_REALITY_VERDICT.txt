@@ -1,0 +1,5 @@
+git_reality_verdict=LOCAL_CHANGES_PRESENT
+head_matches_origin_master=True
+head_matches_ls_remote=True
+origin_matches_ls_remote=True
+post_push_reality_check_passed=True

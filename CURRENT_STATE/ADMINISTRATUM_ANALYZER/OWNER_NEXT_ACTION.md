@@ -1,0 +1,6 @@
+﻿# OWNER NEXT ACTION
+
+- recommended_owner_action: FIX_GIT_SYNC_FIRST
+- reason: Git reality mismatch or local changes detected.
+- command: git status --short ; git fetch origin ; git rev-parse HEAD ; git rev-parse origin/master ; git ls-remote origin refs/heads/master
+- expected_zip_location: E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_<timestamp>.zip

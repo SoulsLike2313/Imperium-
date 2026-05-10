@@ -1,25 +1,27 @@
 ﻿{
-    "schema_version":  "ADMINISTRATUM_ANALYZER_RECEIPT_V0_1",
-    "analyzed_at":  "2026-05-10T11:31:07.6692475+03:00",
+    "schema_version":  "ADMINISTRATUM_ANALYZER_RECEIPT_V0_2",
+    "generated_at":  "2026-05-10T11:51:43.8696389+03:00",
     "root":  "E:\\IMPERIUM",
     "target":  "FULL_IMPERIUM_SUMMARY",
-    "branch":  "master",
-    "head":  "5f16669233f88bb5bb350773aa1739c8ccdc771e",
-    "remote":  "https://github.com/SoulsLike2313/Imperium-.git",
+    "analyzer_report_commit":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
+    "git_reality_verdict":  "LOCAL_CHANGES_PRESENT",
+    "public_memory_ready_for_chat":  true,
+    "can_continue_from_git_only":  false,
+    "needs_chat_compilation_bundle":  true,
+    "recommended_owner_action":  "FIX_GIT_SYNC_FIRST",
+    "suspicious_tracked_paths_count":  0,
+    "suspicious_history_paths_count":  0,
+    "raw_secrets_copied":  false,
     "outputs":  [
                     "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\GIT_LOCAL_ANALYSIS.json",
                     "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\RECOMMENDED_CHAT_COMPILATION.json",
                     "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\LOCAL_ONLY_SAFE_INVENTORY.json",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\GIT_PUBLIC_MEMORY_SUMMARY.md",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\GIT_REALITY_REPORT.md",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\PUBLIC_PRIVATE_BOUNDARY_REPORT.md",
                     "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\CONTEXT_GAP_REPORT.md",
-                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\GIT_PUBLIC_MEMORY_SUMMARY.md"
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\OWNER_NEXT_ACTION.md",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\LAST_VERIFIED_PUBLIC_HEAD.json"
                 ],
-    "suspicious_tracked_paths_count":  0,
-    "suspicious_history_paths_count":  0,
-    "raw_secrets_copied":  false,
-    "status":  "PASS_WITH_LIMITATIONS",
-    "limitations":  [
-                        "Path/metadata analysis only; no secret content extraction.",
-                        "Context completeness depends on local private sources and Owner approval.",
-                        "No VM2 execution and no THRONE sync."
-                    ]
+    "status":  "PASS_WITH_LIMITATIONS"
 }

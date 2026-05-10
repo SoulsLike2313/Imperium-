@@ -1,0 +1,6 @@
+# BUNDLE TEST RESULT
+
+- workflow_buildbundle_output_file: E:\IMPERIUM\CURRENT_STATE\ADMINISTRATUM_ANALYZER_POST_PUSH\RUN_WORKFLOW_BUILDBUNDLE_OUTPUT.txt
+- bundle_zip_path: E:\IMPERIUM\CHAT_COMPILATIONS_LOCAL\FULL_IMPERIUM_CONTEXT_20260510_115147.zip
+- bundle_exists: True
+- raw_secrets_copied_default_mode: false
