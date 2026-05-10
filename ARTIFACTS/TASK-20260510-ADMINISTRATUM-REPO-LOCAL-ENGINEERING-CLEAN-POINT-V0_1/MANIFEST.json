@@ -1,7 +1,7 @@
 {
   "schema_version": "MANIFEST_V0_1",
   "task_id": "TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1",
-  "generated_at": "2026-05-10T11:04:30.9461631+03:00",
+  "generated_at": "2026-05-10T11:05:53.4123019+03:00",
   "root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1",
   "file_count": 11,
   "files": [
@@ -52,13 +52,13 @@
     },
     {
       "path": "05_VERIFICATION/PUBLIC_PRIVATE_BOUNDARY_CHECK.txt",
-      "size": 413,
-      "modified_at": "2026-05-10T08:04:08.9309686Z"
+      "size": 1435,
+      "modified_at": "2026-05-10T08:05:40.7264988Z"
     },
     {
       "path": "06_RECEIPTS/FINAL_RECEIPT.json",
       "size": 2043,
-      "modified_at": "2026-05-10T08:04:30.9283262Z"
+      "modified_at": "2026-05-10T08:05:53.3953392Z"
     }
   ]
 }

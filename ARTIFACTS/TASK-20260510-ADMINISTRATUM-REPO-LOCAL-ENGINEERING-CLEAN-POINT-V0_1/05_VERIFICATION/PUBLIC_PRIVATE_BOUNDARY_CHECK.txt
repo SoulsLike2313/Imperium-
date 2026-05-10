@@ -1,10 +1,26 @@
 PUBLIC_PRIVATE_BOUNDARY_CHECK_V0_1
-generated_at: 2026-05-10T11:04:08.9219210+03:00
+generated_at: 2026-05-10T11:05:40.7073807+03:00
 suspicious_tracked_paths_count: 0
 suspicious_history_paths_count: 0
 raw_keyword_tracked_hits: 73
 raw_keyword_history_hits: 75
 raw_note: raw keyword hits may include safe logs/indexes that mention blocked keywords.
+ignored_private_paths_check:
+SSH_COMMAND_LIBRARY => .gitignore:2:/SSH_COMMAND_LIBRARY/	SSH_COMMAND_LIBRARY
+ARCHIVE => .gitignore:1:/ARCHIVE/	ARCHIVE
+BUNDLES_LOCAL => NOT_IGNORED_BY_CURRENT_RULES
+PRIVATE_CONTEXT_LOCAL => NOT_IGNORED_BY_CURRENT_RULES
+RUNTIME_LOCAL => NOT_IGNORED_BY_CURRENT_RULES
+OBSERVED/THRONE_REPO_COPY/sample.tar.gz => .gitignore:7:OBSERVED/THRONE_REPO_COPY/*.tar.gz	OBSERVED/THRONE_REPO_COPY/sample.tar.gz
+OBSERVED/VM3_REPO_COPY/sample.tar.gz => .gitignore:8:OBSERVED/VM3_REPO_COPY/*.tar.gz	OBSERVED/VM3_REPO_COPY/sample.tar.gz
+large_local_only_candidates:
+- SSH_COMMAND_LIBRARY | exists=yes | file_count=240
+- ARCHIVE | exists=yes | file_count=SKIPPED_NO_RECURSIVE_SCAN_POLICY
+- BUNDLES_LOCAL | exists=no | file_count=0
+- PRIVATE_CONTEXT_LOCAL | exists=no | file_count=0
+- RUNTIME_LOCAL | exists=no | file_count=0
+- OBSERVED\THRONE_REPO_COPY | exists=yes | file_count=SKIPPED_NO_RECURSIVE_SCAN_POLICY
+- OBSERVED\VM3_REPO_COPY | exists=yes | file_count=SKIPPED_NO_RECURSIVE_SCAN_POLICY
 status: PASS_WITH_LIMITATIONS
 
 strict_tracked_matches:
