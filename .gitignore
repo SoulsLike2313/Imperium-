@@ -1,23 +1,15 @@
-# IMPERIUM ignore rules
-# We track everything except the old bulk archive.
-
 /ARCHIVE/
+/SSH_COMMAND_LIBRARY/
 
-# Heavy legacy observed repo copies.
-# They are known sources, but must not be committed to GitHub main.
 OBSERVED/THRONE_REPO_COPY/*.tar.gz
 OBSERVED/VM3_REPO_COPY/*.tar.gz
 
-# Generated artifact extraction/check mirrors.
-# These are not live source. They can contain extremely deep paths.
 ARTIFACTS/**/FINAL_BUNDLE_EXTRACT_CHECK/
 ARTIFACTS/**/BUNDLE_EXTRACT_CHECK/
 ARTIFACTS/**/EXTRACT_CHECK/
 ARTIFACTS/**/extract/INPUT_ROOT/
 ARTIFACTS/**/extract/OUTPUT_ROOT/
 
-# TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1
-/SSH_COMMAND_LIBRARY/
 .env
 .env.*
 *.local.json
@@ -40,7 +32,8 @@ sessions*
 *credential*
 *token*
 *secret*
-**pycache**/
+
+__pycache__/
 *.pyc
 node_modules/
 .cache/
@@ -48,4 +41,3 @@ tmp/
 TEMP/
 runtime/
 sessions/
-__pycache__/

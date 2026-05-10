@@ -1,0 +1,23 @@
+{
+  "schema_version": "IMPERIUM_GIT_SANITIZE_FINAL_RECEIPT_V0_1",
+  "task_id": "TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1-FINALIZE-ARTIFACT",
+  "root": "E:\\IMPERIUM",
+  "remote": "https://github.com/SoulsLike2313/Imperium-.git",
+  "branch": "master",
+  "started_at": "2026-05-10T10:29:36.2202598+03:00",
+  "finished_at": "2026-05-10T10:31:53.6672294+03:00",
+  "gitignore_rewritten": true,
+  "artifact_folder_created": true,
+  "ssh_command_library_tracked_remaining_count": 0,
+  "suspicious_tracked_paths_remaining_count": 0,
+  "suspicious_history_paths_remaining_count": 0,
+  "excluded_local_sources_index_created": true,
+  "force_push_performed_this_run": false,
+  "remote_push_performed_this_run": false,
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "History/content sanitation cannot revoke already exposed secrets in external caches/clones.",
+    "Artifact confirms filename/path-level checks only; does not inspect secret values."
+  ],
+  "owner_warning": "If any real secrets were ever exposed publicly, rotate/revoke them. Git history rewriting reduces repository exposure but does not revoke secrets or guarantee removal from all external caches/clones."
+}

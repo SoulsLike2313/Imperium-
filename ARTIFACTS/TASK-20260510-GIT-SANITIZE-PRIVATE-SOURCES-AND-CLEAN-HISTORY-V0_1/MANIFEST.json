@@ -1,0 +1,244 @@
+{
+  "schema_version": "IMPERIUM_MANIFEST_V0_1",
+  "task_id": "TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1-FINALIZE-ARTIFACT",
+  "root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1",
+  "generated_at": "2026-05-10T10:32:12.0334028+03:00",
+  "file_count": 47,
+  "files": [
+    {
+      "path": "STARTED_AT.txt",
+      "size": 35,
+      "modified_at": "2026-05-10T07:29:36.2300544Z"
+    },
+    {
+      "path": "00_TASK/TASK.md",
+      "size": 1218,
+      "modified_at": "2026-05-10T07:31:53.6267793Z"
+    },
+    {
+      "path": "01_EVIDENCE/FINAL_RECEIPT.json",
+      "size": 939,
+      "modified_at": "2026-05-10T07:23:30.1155376Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_add_output.log",
+      "size": 285,
+      "modified_at": "2026-05-10T07:20:26.4556951Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_commit_output.log",
+      "size": 29332,
+      "modified_at": "2026-05-10T07:20:26.8110800Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_filter_repo_module_version.log",
+      "size": 14,
+      "modified_at": "2026-05-10T07:21:41.4937466Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_filter_repo_output_extra.log",
+      "size": 473,
+      "modified_at": "2026-05-10T07:22:24.4514122Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_filter_repo_output_retry.log",
+      "size": 289,
+      "modified_at": "2026-05-10T07:21:43.8130470Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_filter_repo_output.log",
+      "size": 60,
+      "modified_at": "2026-05-10T07:20:56.0527035Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_log_oneline_30_before.txt",
+      "size": 204,
+      "modified_at": "2026-05-10T07:18:53.8879520Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_log_oneline_30_final.txt",
+      "size": 232,
+      "modified_at": "2026-05-10T07:23:30.0218093Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_push_force_output.log",
+      "size": 156,
+      "modified_at": "2026-05-10T07:22:53.3822723Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_remote_v_after_filter_extra.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:22:24.5834926Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_remote_v_after_filter_retry.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:21:43.9426791Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_remote_v_after_filter.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:20:56.1854511Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_remote_v_before.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:18:53.9279815Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_remote_v_final.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:23:30.0618393Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_rm_cached_explicit.log",
+      "size": 21175,
+      "modified_at": "2026-05-10T07:19:54.1571672Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_after_filter_repo.txt",
+      "size": 1798,
+      "modified_at": "2026-05-10T07:20:56.2694161Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_after_filter_retry.txt",
+      "size": 1830,
+      "modified_at": "2026-05-10T07:21:44.0295736Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_pre_filter_repo.txt",
+      "size": 1602,
+      "modified_at": "2026-05-10T07:20:55.9990065Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_short_before.txt",
+      "size": 471,
+      "modified_at": "2026-05-10T07:18:53.8440164Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_short_final.txt",
+      "size": 2322,
+      "modified_at": "2026-05-10T07:23:29.9778742Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_short_post_commit.txt",
+      "size": 1465,
+      "modified_at": "2026-05-10T07:20:26.9057929Z"
+    },
+    {
+      "path": "01_EVIDENCE/git_status_short_pre_commit.txt",
+      "size": 24860,
+      "modified_at": "2026-05-10T07:20:26.3671538Z"
+    },
+    {
+      "path": "01_EVIDENCE/OWNER_SUMMARY.md",
+      "size": 928,
+      "modified_at": "2026-05-10T07:23:30.1184668Z"
+    },
+    {
+      "path": "01_EVIDENCE/pip_install_git_filter_repo.log",
+      "size": 698,
+      "modified_at": "2026-05-10T07:20:55.9033239Z"
+    },
+    {
+      "path": "01_EVIDENCE/pip_show_git_filter_repo.log",
+      "size": 323,
+      "modified_at": "2026-05-10T07:21:41.2981753Z"
+    },
+    {
+      "path": "01_EVIDENCE/STARTED_AT.txt",
+      "size": 35,
+      "modified_at": "2026-05-10T07:18:53.6477732Z"
+    },
+    {
+      "path": "01_EVIDENCE/SUSPICIOUS_TRACKED_FILENAMES_BEFORE.txt",
+      "size": 304,
+      "modified_at": "2026-05-10T07:18:55.6519262Z"
+    },
+    {
+      "path": "01_EVIDENCE/SUSPICIOUS_TRACKED_PATHS_AFTER_INDEX_REMOVAL_BEFORE_EXTRA_RM.txt",
+      "size": 2821,
+      "modified_at": "2026-05-10T07:20:13.2141361Z"
+    },
+    {
+      "path": "01_EVIDENCE/SUSPICIOUS_TRACKED_REMOVAL_SUMMARY.txt",
+      "size": 50,
+      "modified_at": "2026-05-10T07:20:15.0415348Z"
+    },
+    {
+      "path": "01_EVIDENCE/tracked_extract_check_matches_before_rm.txt",
+      "size": 45,
+      "modified_at": "2026-05-10T07:19:54.3817237Z"
+    },
+    {
+      "path": "01_EVIDENCE/tracked_extract_check_removed_count.txt",
+      "size": 3,
+      "modified_at": "2026-05-10T07:19:54.4395026Z"
+    },
+    {
+      "path": "01_EVIDENCE/tracked_file_count_before.txt",
+      "size": 6,
+      "modified_at": "2026-05-10T07:18:54.0148767Z"
+    },
+    {
+      "path": "01_EVIDENCE/verify_counts_after_filter_final.txt",
+      "size": 104,
+      "modified_at": "2026-05-10T07:22:36.2620160Z"
+    },
+    {
+      "path": "01_EVIDENCE/verify_counts_after_filter.txt",
+      "size": 105,
+      "modified_at": "2026-05-10T07:21:57.0568855Z"
+    },
+    {
+      "path": "01_EVIDENCE/verify_history_suspicious_after_filter.txt",
+      "size": 5642,
+      "modified_at": "2026-05-10T07:21:57.0002581Z"
+    },
+    {
+      "path": "02_INDEXES/EXCLUDED_LOCAL_SOURCES.md",
+      "size": 883,
+      "modified_at": "2026-05-10T07:19:40.3658891Z"
+    },
+    {
+      "path": "03_VERIFICATION/GIT_BRANCH_AFTER_FINALIZE.txt",
+      "size": 8,
+      "modified_at": "2026-05-10T07:31:14.9247300Z"
+    },
+    {
+      "path": "03_VERIFICATION/GIT_LOG_AFTER_FINALIZE.txt",
+      "size": 232,
+      "modified_at": "2026-05-10T07:31:14.9657358Z"
+    },
+    {
+      "path": "03_VERIFICATION/GIT_REMOTE_AFTER_FINALIZE.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:31:14.8837236Z"
+    },
+    {
+      "path": "03_VERIFICATION/GIT_STATUS_AFTER_FINALIZE.txt",
+      "size": 2713,
+      "modified_at": "2026-05-10T07:31:14.8446700Z"
+    },
+    {
+      "path": "03_VERIFICATION/HISTORY_SUSPICIOUS_PATHS_AFTER_FINALIZE.txt",
+      "size": 12,
+      "modified_at": "2026-05-10T07:31:15.0623931Z"
+    },
+    {
+      "path": "03_VERIFICATION/TRACKED_SUSPICIOUS_PATHS_AFTER_FINALIZE.txt",
+      "size": 12,
+      "modified_at": "2026-05-10T07:31:15.0350557Z"
+    },
+    {
+      "path": "04_RECEIPTS/FINAL_RECEIPT.json",
+      "size": 1227,
+      "modified_at": "2026-05-10T07:31:53.7390607Z"
+    },
+    {
+      "path": "05_OWNER_SUMMARY/OWNER_SUMMARY.md",
+      "size": 597,
+      "modified_at": "2026-05-10T07:31:53.7400371Z"
+    }
+  ]
+}

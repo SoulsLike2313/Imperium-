@@ -1,0 +1,4 @@
+tracked_suspicious_count=0
+history_suspicious_count=52
+tracked_findstr_exit=1
+history_findstr_exit=0

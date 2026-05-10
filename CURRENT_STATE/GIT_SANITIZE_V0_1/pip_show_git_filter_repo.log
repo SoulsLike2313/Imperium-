@@ -1,0 +1,10 @@
+Name: git-filter-repo
+Version: 2.47.0
+Summary: Quickly rewrite git repository history
+Home-page: https://github.com/newren/git-filter-repo
+Author: 
+Author-email: Elijah Newren <newren@gmail.com>
+License: MIT
+Location: C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages
+Requires: 
+Required-by: 

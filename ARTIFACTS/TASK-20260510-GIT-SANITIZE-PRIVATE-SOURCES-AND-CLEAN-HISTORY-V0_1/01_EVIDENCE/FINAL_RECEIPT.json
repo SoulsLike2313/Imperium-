@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1",
+  "started_at": "2026-05-10T10:18:53.6257591+03:00",
+  "finished_at": "2026-05-10T10:23:29.7975174+03:00",
+  "local_root": "E:\\IMPERIUM",
+  "remote_url": "https://github.com/SoulsLike2313/Imperium-.git",
+  "branch": "master",
+  "gitignore_updated": true,
+  "excluded_local_sources_index_path": "E:\\IMPERIUM\\CURRENT_STATE\\EXCLUDED_LOCAL_SOURCES.md",
+  "history_rewritten": true,
+  "force_pushed": true,
+  "tracked_suspicious_paths_remaining": 0,
+  "history_suspicious_paths_remaining": 0,
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "ARCHIVE recursive scan was skipped by policy; top-level count only in EXCLUDED_LOCAL_SOURCES.md.",
+    "Name-based suspicious scan cannot prove secret content absence inside non-suspicious filenames."
+  ],
+  "warning": "If real secrets were exposed publicly, rotate/revoke them."
+}
