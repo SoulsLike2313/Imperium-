@@ -1,0 +1,5 @@
+BOUNDARY_SCAN
+suspicious_tracked_paths_count=0
+suspicious_history_paths_count=0
+chat_compilations_local_ignored=True
+raw_secrets_copied=false (safe default mode)

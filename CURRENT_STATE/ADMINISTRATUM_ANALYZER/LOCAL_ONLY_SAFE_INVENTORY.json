@@ -1,0 +1,65 @@
+﻿{
+    "schema_version":  "LOCAL_ONLY_SAFE_INVENTORY_V0_1",
+    "generated_at":  "2026-05-10T11:31:07.6692475+03:00",
+    "root":  "E:\\IMPERIUM",
+    "private_roots":  [
+                          {
+                              "root":  "SSH_COMMAND_LIBRARY",
+                              "path":  "SSH_COMMAND_LIBRARY",
+                              "exists":  true,
+                              "file_count":  240,
+                              "total_mb":  1.126,
+                              "note":  "RECURSIVE_FILE_COUNT"
+                          },
+                          {
+                              "root":  "ARCHIVE",
+                              "path":  "ARCHIVE",
+                              "exists":  true,
+                              "file_count":  0,
+                              "total_mb":  0,
+                              "note":  "TOP_LEVEL_ONLY"
+                          },
+                          {
+                              "root":  "BUNDLES_LOCAL",
+                              "path":  "BUNDLES_LOCAL",
+                              "exists":  true,
+                              "file_count":  0,
+                              "total_mb":  0,
+                              "note":  "RECURSIVE_FILE_COUNT"
+                          },
+                          {
+                              "root":  "PRIVATE_CONTEXT_LOCAL",
+                              "path":  "PRIVATE_CONTEXT_LOCAL",
+                              "exists":  true,
+                              "file_count":  0,
+                              "total_mb":  0,
+                              "note":  "RECURSIVE_FILE_COUNT"
+                          },
+                          {
+                              "root":  "RUNTIME_LOCAL",
+                              "path":  "RUNTIME_LOCAL",
+                              "exists":  true,
+                              "file_count":  0,
+                              "total_mb":  0,
+                              "note":  "RECURSIVE_FILE_COUNT"
+                          }
+                      ],
+    "observed_presence":  [
+                              {
+                                  "path":  "OBSERVED/THRONE_REPO_COPY",
+                                  "exists":  true
+                              },
+                              {
+                                  "path":  "OBSERVED/VM3_REPO_COPY",
+                                  "exists":  true
+                              },
+                              {
+                                  "path":  "CHAT_COMPILATIONS_LOCAL",
+                                  "exists":  true
+                              }
+                          ],
+    "notes":  [
+                  "Inventory contains only path-level and size/count metadata.",
+                  "No file content is extracted."
+              ]
+}

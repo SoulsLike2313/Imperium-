@@ -9,6 +9,8 @@ Administratum says where project memory is, what to read, what to collect, what 
 - Repository/local navigation.
 - History/provenance guidance.
 - Task routing and handoff planning.
+- Public Git and local/private context analysis.
+- Chat compilation bundle planning under controlled safety defaults.
 
 ## Administratum Forbidden Authority
 Administratum cannot:

@@ -1,0 +1,25 @@
+﻿{
+    "schema_version":  "ADMINISTRATUM_ANALYZER_RECEIPT_V0_1",
+    "analyzed_at":  "2026-05-10T11:31:07.6692475+03:00",
+    "root":  "E:\\IMPERIUM",
+    "target":  "FULL_IMPERIUM_SUMMARY",
+    "branch":  "master",
+    "head":  "5f16669233f88bb5bb350773aa1739c8ccdc771e",
+    "remote":  "https://github.com/SoulsLike2313/Imperium-.git",
+    "outputs":  [
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\GIT_LOCAL_ANALYSIS.json",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\RECOMMENDED_CHAT_COMPILATION.json",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\LOCAL_ONLY_SAFE_INVENTORY.json",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\CONTEXT_GAP_REPORT.md",
+                    "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\GIT_PUBLIC_MEMORY_SUMMARY.md"
+                ],
+    "suspicious_tracked_paths_count":  0,
+    "suspicious_history_paths_count":  0,
+    "raw_secrets_copied":  false,
+    "status":  "PASS_WITH_LIMITATIONS",
+    "limitations":  [
+                        "Path/metadata analysis only; no secret content extraction.",
+                        "Context completeness depends on local private sources and Owner approval.",
+                        "No VM2 execution and no THRONE sync."
+                    ]
+}

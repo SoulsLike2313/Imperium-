@@ -1,0 +1,8 @@
+5f16669 (HEAD -> master, origin/master, origin/HEAD) repair repo formatting and local ignore rules
+d0e0b33 refine boundary verification report and receipt metadata
+7c433a9 establish Administratum repo-local engineering clean point
+d944b3c update finalize sanitation receipt and verification evidence
+7746a38 finalize git sanitation artifact and repair ignore rules
+002ad12 sanitize repository tracking and exclude private local sources
+94ba002 add Administratum dashboard v0.3 Russian animated continuity UI
+ac8a20e bootstrap IMPERIUM repository without archive

@@ -1,0 +1,61 @@
+﻿{
+    "bundle_type":  "CHAT_COMPILATION_SAFE_V0_1",
+    "target":  "FULL_IMPERIUM_SUMMARY",
+    "timestamp":  "2026-05-10T11:31:07.6692475+03:00",
+    "output_root":  "CHAT_COMPILATIONS_LOCAL",
+    "include_public_paths":  [
+                                 "README.md",
+                                 "START_HERE.md",
+                                 "CURRENT_STATE/LAST_POINT_STATE.json",
+                                 "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+                                 "CURRENT_STATE/DO_NOT_DO.md",
+                                 "DOCS/REPO_MAP.md",
+                                 "DOCS/COMMANDS.md",
+                                 "DOCS/BUNDLE_SYSTEM.md",
+                                 "DOCS/CHAT_ENTRY_PROTOCOL.md",
+                                 "DOCS/PUBLIC_PRIVATE_BOUNDARY.md",
+                                 "DOCS/ADMINISTRATUM_OPERATIONAL_AUTHORITY.md",
+                                 "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json"
+                             ],
+    "include_artifact_paths":  [
+                                   "ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/04_RECEIPTS/FINAL_RECEIPT.json",
+                                   "ARTIFACTS/TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+                                   "ARTIFACTS/TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1/06_RECEIPTS/FINAL_RECEIPT.json"
+                               ],
+    "include_local_safe_indexes":  [
+                                       "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.md",
+                                       "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.json",
+                                       "CURRENT_STATE/EXCLUDED_LOCAL_SOURCES.md",
+                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/CONTEXT_GAP_REPORT.md"
+                                   ],
+    "include_private_candidates":  [
+                                       "SSH_COMMAND_LIBRARY inventory (filenames/sizes only)",
+                                       "BUNDLES_LOCAL inventory (filenames/sizes only)",
+                                       "PRIVATE_CONTEXT_LOCAL inventory (filenames/sizes only)",
+                                       "ARCHIVE top-level inventory only",
+                                       "Selected recent local artifact/bundle indexes"
+                                   ],
+    "exclude_always":  [
+                           "raw private keys",
+                           ".env values",
+                           "tokens",
+                           "passwords",
+                           "cookies",
+                           "sessions",
+                           "full ARCHIVE",
+                           "full SSH_COMMAND_LIBRARY content",
+                           "unselected heavy tar/zip bases",
+                           "THRONE sync material"
+                       ],
+    "owner_approval_required_for":  [
+                                        "Any private raw content beyond safe indexes",
+                                        "Any VM2 connection/address details",
+                                        "Any file classes that may include credentials"
+                                    ],
+    "reasons":  [
+                    "Git alone may not contain local/private operational context",
+                    "Safe bundle improves handoff completeness without exposing raw secrets",
+                    "Supports Owner-driven upload to chat"
+                ]
+}

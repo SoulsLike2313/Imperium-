@@ -1,0 +1,74 @@
+{
+  "schema_version": "MANIFEST_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1",
+  "generated_at": "2026-05-10T11:33:26.6229908+03:00",
+  "root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1",
+  "file_count": 13,
+  "files": [
+    {
+      "path": "00_TASK/TASK.md",
+      "size": 360,
+      "modified_at": "2026-05-10T08:32:47.5913209Z"
+    },
+    {
+      "path": "01_SCRIPTS/SCRIPTS_INDEX.md",
+      "size": 200,
+      "modified_at": "2026-05-10T08:32:47.5932736Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/CONTEXT_GAP_REPORT.md",
+      "size": 900,
+      "modified_at": "2026-05-10T08:31:09.1965519Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/GIT_LOCAL_ANALYSIS.json",
+      "size": 23022,
+      "modified_at": "2026-05-10T08:31:09.1789779Z"
+    },
+    {
+      "path": "02_ANALYZER_OUTPUT/RECOMMENDED_CHAT_COMPILATION.json",
+      "size": 3733,
+      "modified_at": "2026-05-10T08:31:09.1809314Z"
+    },
+    {
+      "path": "03_BUNDLE_BUILDER_OUTPUT/BUNDLE_OUTPUT_SUMMARY.md",
+      "size": 321,
+      "modified_at": "2026-05-10T08:32:47.6655224Z"
+    },
+    {
+      "path": "04_DOCS_DELTA/DOCS_UPDATED.md",
+      "size": 223,
+      "modified_at": "2026-05-10T08:32:47.6674755Z"
+    },
+    {
+      "path": "05_VERIFICATION/BOUNDARY_SCAN.txt",
+      "size": 167,
+      "modified_at": "2026-05-10T08:33:26.5224464Z"
+    },
+    {
+      "path": "05_VERIFICATION/GITIGNORE_CHECK.txt",
+      "size": 65,
+      "modified_at": "2026-05-10T08:33:26.5146349Z"
+    },
+    {
+      "path": "05_VERIFICATION/JSON_VALIDATION.txt",
+      "size": 268,
+      "modified_at": "2026-05-10T08:33:26.4609364Z"
+    },
+    {
+      "path": "05_VERIFICATION/SCRIPT_EXISTENCE_CHECK.txt",
+      "size": 199,
+      "modified_at": "2026-05-10T08:33:26.4209065Z"
+    },
+    {
+      "path": "06_RECEIPTS/FINAL_RECEIPT.json",
+      "size": 1326,
+      "modified_at": "2026-05-10T08:33:26.6015289Z"
+    },
+    {
+      "path": "07_OWNER_SUMMARY/OWNER_SUMMARY.md",
+      "size": 552,
+      "modified_at": "2026-05-10T08:33:26.6034818Z"
+    }
+  ]
+}

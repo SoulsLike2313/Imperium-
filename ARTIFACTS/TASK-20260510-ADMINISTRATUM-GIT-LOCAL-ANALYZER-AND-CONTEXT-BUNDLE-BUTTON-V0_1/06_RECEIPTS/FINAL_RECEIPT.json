@@ -1,0 +1,27 @@
+{
+  "schema_version": "IMPERIUM_ADMINISTRATUM_GIT_LOCAL_ANALYZER_CONTEXT_BUNDLE_RECEIPT_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1",
+  "root": "E:\\IMPERIUM",
+  "remote": "https://github.com/SoulsLike2313/Imperium-.git",
+  "branch": "master",
+  "started_at": "2026-05-10T11:24:50.3625854+03:00",
+  "finished_at": "2026-05-10T11:33:26.5816418+03:00",
+  "analyzer_script_created": true,
+  "bundle_builder_script_created": true,
+  "workflow_launcher_created": true,
+  "analyzer_outputs_created": true,
+  "recommended_compilation_created": true,
+  "safe_bundle_created": true,
+  "safe_bundle_zip_path": "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260510_113105.zip",
+  "chat_compilations_local_ignored": true,
+  "suspicious_tracked_paths_count": 0,
+  "suspicious_history_paths_count": 0,
+  "raw_secrets_copied": false,
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "Bundle workflow defaults to safe metadata/index mode; private raw content is not auto-copied.",
+    "VM2 bootstrap execution is not built in this task.",
+    "No Sanctum/THRONE integration in this task."
+  ],
+  "next_recommended_step": "Use generated chat compilation bundle to produce full IMPERIUM summary; then build VM2 bootstrap workflow."
+}

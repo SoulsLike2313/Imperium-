@@ -1,0 +1,309 @@
+﻿{
+    "schema_version":  "ADMINISTRATUM_GIT_LOCAL_ANALYSIS_V0_1",
+    "analyzed_at":  "2026-05-10T11:31:07.6692475+03:00",
+    "root":  "E:\\IMPERIUM",
+    "remote_expected":  "https://github.com/SoulsLike2313/Imperium-.git",
+    "remote_actual":  "https://github.com/SoulsLike2313/Imperium-.git",
+    "branch":  "master",
+    "head":  "5f16669233f88bb5bb350773aa1739c8ccdc771e",
+    "target":  "FULL_IMPERIUM_SUMMARY",
+    "git_public":  {
+                       "status_short":  [
+                                            " M .gitignore",
+                                            " M CURRENT_STATE/LAST_POINT_STATE.json",
+                                            " M CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+                                            " M DOCS/ADMINISTRATUM_OPERATIONAL_AUTHORITY.md",
+                                            " M DOCS/BUNDLE_SYSTEM.md",
+                                            " M DOCS/COMMANDS.md",
+                                            "?? ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md",
+                                            "?? ARTIFACTS/TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1/03_SCREENSHOTS/058_SSH_COMMAND_LIBRARY.png",
+                                            "?? ARTIFACTS/TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1/06_SCREENSHOTS/062_SSH_COMMAND_LIBRARY.png",
+                                            "?? ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/063_SSH_COMMAND_LIBRARY.png",
+                                            "?? ARTIFACTS/TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1/00_TASK.zip",
+                                            "?? ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/00_TASK.zip",
+                                            "?? ARTIFACTS/TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1/00_TASK.zip",
+                                            "?? CURRENT_STATE/ADMINISTRATUM_ANALYZER/",
+                                            "?? DOCS/CHAT_COMPILATION_PROTOCOL.md",
+                                            "?? EXPLORER/SCREENSHOTS/AUTO-RUN-20260509-112316/058_SSH_COMMAND_LIBRARY.png",
+                                            "?? EXPLORER/SCREENSHOTS/AUTO-RUN-20260509-112316/058_SSH_COMMAND_LIBRARY.zip",
+                                            "?? EXPLORER/SCREENSHOTS/AUTO-RUN-20260509-112849/058_SSH_COMMAND_LIBRARY.png",
+                                            "?? EXPLORER/SCREENSHOTS/AUTO-RUN-20260509-114434/062_SSH_COMMAND_LIBRARY.png",
+                                            "?? EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120030/062_SSH_COMMAND_LIBRARY.png",
+                                            "?? EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/063_SSH_COMMAND_LIBRARY.png",
+                                            "?? OBSERVED/THRONE_REPO_COPY/",
+                                            "?? OBSERVED/VM3_REPO_COPY/",
+                                            "?? ORGANS/ADMINISTRATUM/UTILITY/_BACKUPS/",
+                                            "?? ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1",
+                                            "?? TOOLS/"
+                                        ],
+                       "tracked_file_count":  6465,
+                       "required_file_checks":  [
+                                                    {
+                                                        "path":  "README.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "START_HERE.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "CURRENT_STATE/LAST_POINT_STATE.json",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "CURRENT_STATE/DO_NOT_DO.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/REPO_MAP.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/COMMANDS.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/BUNDLE_SYSTEM.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/CHAT_ENTRY_PROTOCOL.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/PUBLIC_PRIVATE_BOUNDARY.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/ADMINISTRATUM_OPERATIONAL_AUTHORITY.md",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "DOCS/VM2_BOOTSTRAP_PROTOCOL.md",
+                                                        "exists":  true
+                                                    }
+                                                ],
+                       "key_artifact_receipt_checks":  [
+                                                           {
+                                                               "path":  "ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/04_RECEIPTS/FINAL_RECEIPT.json",
+                                                               "exists":  true
+                                                           },
+                                                           {
+                                                               "path":  "ARTIFACTS/TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+                                                               "exists":  true
+                                                           },
+                                                           {
+                                                               "path":  "ARTIFACTS/TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+                                                               "exists":  true
+                                                           }
+                                                       ]
+                   },
+    "local_private":  {
+                          "roots":  [
+                                        {
+                                            "root":  "SSH_COMMAND_LIBRARY",
+                                            "path":  "SSH_COMMAND_LIBRARY",
+                                            "exists":  true,
+                                            "file_count":  240,
+                                            "total_mb":  1.126,
+                                            "note":  "RECURSIVE_FILE_COUNT"
+                                        },
+                                        {
+                                            "root":  "ARCHIVE",
+                                            "path":  "ARCHIVE",
+                                            "exists":  true,
+                                            "file_count":  0,
+                                            "total_mb":  0,
+                                            "note":  "TOP_LEVEL_ONLY"
+                                        },
+                                        {
+                                            "root":  "BUNDLES_LOCAL",
+                                            "path":  "BUNDLES_LOCAL",
+                                            "exists":  true,
+                                            "file_count":  0,
+                                            "total_mb":  0,
+                                            "note":  "RECURSIVE_FILE_COUNT"
+                                        },
+                                        {
+                                            "root":  "PRIVATE_CONTEXT_LOCAL",
+                                            "path":  "PRIVATE_CONTEXT_LOCAL",
+                                            "exists":  true,
+                                            "file_count":  0,
+                                            "total_mb":  0,
+                                            "note":  "RECURSIVE_FILE_COUNT"
+                                        },
+                                        {
+                                            "root":  "RUNTIME_LOCAL",
+                                            "path":  "RUNTIME_LOCAL",
+                                            "exists":  true,
+                                            "file_count":  0,
+                                            "total_mb":  0,
+                                            "note":  "RECURSIVE_FILE_COUNT"
+                                        }
+                                    ],
+                          "observed_presence":  [
+                                                    {
+                                                        "path":  "OBSERVED/THRONE_REPO_COPY",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "OBSERVED/VM3_REPO_COPY",
+                                                        "exists":  true
+                                                    },
+                                                    {
+                                                        "path":  "CHAT_COMPILATIONS_LOCAL",
+                                                        "exists":  true
+                                                    }
+                                                ]
+                      },
+    "boundary":  {
+                     "ignore_checks":  [
+                                           {
+                                               "path":  "SSH_COMMAND_LIBRARY",
+                                               "ignored":  true,
+                                               "detail":  ".gitignore:6:/SSH_COMMAND_LIBRARY/\tSSH_COMMAND_LIBRARY"
+                                           },
+                                           {
+                                               "path":  "ARCHIVE",
+                                               "ignored":  true,
+                                               "detail":  ".gitignore:5:/ARCHIVE/\tARCHIVE"
+                                           },
+                                           {
+                                               "path":  "BUNDLES_LOCAL",
+                                               "ignored":  true,
+                                               "detail":  ".gitignore:7:/BUNDLES_LOCAL/\tBUNDLES_LOCAL"
+                                           },
+                                           {
+                                               "path":  "PRIVATE_CONTEXT_LOCAL",
+                                               "ignored":  true,
+                                               "detail":  ".gitignore:8:/PRIVATE_CONTEXT_LOCAL/\tPRIVATE_CONTEXT_LOCAL"
+                                           },
+                                           {
+                                               "path":  "RUNTIME_LOCAL",
+                                               "ignored":  true,
+                                               "detail":  ".gitignore:9:/RUNTIME_LOCAL/\tRUNTIME_LOCAL"
+                                           },
+                                           {
+                                               "path":  "CHAT_COMPILATIONS_LOCAL",
+                                               "ignored":  true,
+                                               "detail":  ".gitignore:52:/CHAT_COMPILATIONS_LOCAL/\tCHAT_COMPILATIONS_LOCAL"
+                                           }
+                                       ],
+                     "suspicious_tracked_paths_count":  0,
+                     "suspicious_history_paths_count":  0,
+                     "suspicious_tracked_paths":  [
+
+                                                  ],
+                     "suspicious_history_paths":  [
+
+                                                  ],
+                     "untracked_files_count":  26,
+                     "large_untracked_candidates":  [
+                                                        {
+                                                            "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/",
+                                                            "size_mb":  "DIR_UNTRACKED"
+                                                        },
+                                                        {
+                                                            "path":  "EXPLORER/SCREENSHOTS/AUTO-RUN-20260509-112316/058_SSH_COMMAND_LIBRARY.zip",
+                                                            "size_mb":  5.452
+                                                        },
+                                                        {
+                                                            "path":  "OBSERVED/THRONE_REPO_COPY/",
+                                                            "size_mb":  "DIR_UNTRACKED"
+                                                        },
+                                                        {
+                                                            "path":  "OBSERVED/VM3_REPO_COPY/",
+                                                            "size_mb":  "DIR_UNTRACKED"
+                                                        },
+                                                        {
+                                                            "path":  "ORGANS/ADMINISTRATUM/UTILITY/_BACKUPS/",
+                                                            "size_mb":  "DIR_UNTRACKED"
+                                                        },
+                                                        {
+                                                            "path":  "TOOLS/",
+                                                            "size_mb":  "DIR_UNTRACKED"
+                                                        }
+                                                    ]
+                 },
+    "context_gaps":  {
+                         "missing_required_public_paths":  [
+
+                                                           ],
+                         "vm2_checks":  {
+                                            "vm2_bootstrap_protocol_exists":  true,
+                                            "private_vm2_connection_index_known":  false,
+                                            "vm2_target_path_known":  false,
+                                            "private_bundle_policy_known":  true,
+                                            "clone_setup_commands_available":  true
+                                        }
+                     },
+    "recommended_bundle_plan":  {
+                                    "bundle_type":  "CHAT_COMPILATION_SAFE_V0_1",
+                                    "target":  "FULL_IMPERIUM_SUMMARY",
+                                    "timestamp":  "2026-05-10T11:31:07.6692475+03:00",
+                                    "output_root":  "CHAT_COMPILATIONS_LOCAL",
+                                    "include_public_paths":  [
+                                                                 "README.md",
+                                                                 "START_HERE.md",
+                                                                 "CURRENT_STATE/LAST_POINT_STATE.json",
+                                                                 "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+                                                                 "CURRENT_STATE/DO_NOT_DO.md",
+                                                                 "DOCS/REPO_MAP.md",
+                                                                 "DOCS/COMMANDS.md",
+                                                                 "DOCS/BUNDLE_SYSTEM.md",
+                                                                 "DOCS/CHAT_ENTRY_PROTOCOL.md",
+                                                                 "DOCS/PUBLIC_PRIVATE_BOUNDARY.md",
+                                                                 "DOCS/ADMINISTRATUM_OPERATIONAL_AUTHORITY.md",
+                                                                 "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json"
+                                                             ],
+                                    "include_artifact_paths":  [
+                                                                   "ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/04_RECEIPTS/FINAL_RECEIPT.json",
+                                                                   "ARTIFACTS/TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+                                                                   "ARTIFACTS/TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1/06_RECEIPTS/FINAL_RECEIPT.json"
+                                                               ],
+                                    "include_local_safe_indexes":  [
+                                                                       "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.md",
+                                                                       "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.json",
+                                                                       "CURRENT_STATE/EXCLUDED_LOCAL_SOURCES.md",
+                                                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/CONTEXT_GAP_REPORT.md"
+                                                                   ],
+                                    "include_private_candidates":  [
+                                                                       "SSH_COMMAND_LIBRARY inventory (filenames/sizes only)",
+                                                                       "BUNDLES_LOCAL inventory (filenames/sizes only)",
+                                                                       "PRIVATE_CONTEXT_LOCAL inventory (filenames/sizes only)",
+                                                                       "ARCHIVE top-level inventory only",
+                                                                       "Selected recent local artifact/bundle indexes"
+                                                                   ],
+                                    "exclude_always":  [
+                                                           "raw private keys",
+                                                           ".env values",
+                                                           "tokens",
+                                                           "passwords",
+                                                           "cookies",
+                                                           "sessions",
+                                                           "full ARCHIVE",
+                                                           "full SSH_COMMAND_LIBRARY content",
+                                                           "unselected heavy tar/zip bases",
+                                                           "THRONE sync material"
+                                                       ],
+                                    "owner_approval_required_for":  [
+                                                                        "Any private raw content beyond safe indexes",
+                                                                        "Any VM2 connection/address details",
+                                                                        "Any file classes that may include credentials"
+                                                                    ],
+                                    "reasons":  [
+                                                    "Git alone may not contain local/private operational context",
+                                                    "Safe bundle improves handoff completeness without exposing raw secrets",
+                                                    "Supports Owner-driven upload to chat"
+                                                ]
+                                }
+}

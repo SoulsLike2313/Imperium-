@@ -1,11 +1,9 @@
 # NEXT_ATOMIC_STEP
 
-Build Administratum Git/Local Analyzer and Private Task Handoff Bundle Builder v0.1 as a separate scoped task.
+Use generated chat compilation bundle to produce full IMPERIUM summary; then build VM2 bootstrap workflow.
 
-## Inputs
-- `CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.json`
-- `DOCS/BUNDLE_SYSTEM.md`
-- `DOCS/VM2_BOOTSTRAP_PROTOCOL.md`
-
-## Goal
-Deliver deterministic private-context transfer planning without publishing sensitive local sources.
+## Immediate Sequence
+1. Run Administratum analyzer and review `CONTEXT_GAP_REPORT.md`.
+2. Build safe chat compilation zip under `CHAT_COMPILATIONS_LOCAL`.
+3. Upload zip to chat for full summary synthesis.
+4. Start separate VM2 bootstrap workflow task.
