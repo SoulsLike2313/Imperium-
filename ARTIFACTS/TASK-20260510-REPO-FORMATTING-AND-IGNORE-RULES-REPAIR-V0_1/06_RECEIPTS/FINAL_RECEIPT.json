@@ -1,0 +1,30 @@
+{
+  "schema_version": "IMPERIUM_REPO_FORMATTING_REPAIR_RECEIPT_V0_1",
+  "task_id": "TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1",
+  "root": "E:\\IMPERIUM",
+  "remote": "https://github.com/SoulsLike2313/Imperium-.git",
+  "branch": "master",
+  "started_at": "2026-05-10T11:11:41.6955590+03:00",
+  "finished_at": "2026-05-10T11:14:28.3689299+03:00",
+  "gitignore_rewritten": true,
+  "gitignore_line_count": 50,
+  "check_ignore_passed_for": {
+    "SSH_COMMAND_LIBRARY": true,
+    "ARCHIVE": true,
+    "BUNDLES_LOCAL": true,
+    "PRIVATE_CONTEXT_LOCAL": true,
+    "RUNTIME_LOCAL": true
+  },
+  "markdown_files_reformatted_count": 14,
+  "markdown_readability_passed": true,
+  "suspicious_tracked_paths_count": 0,
+  "suspicious_history_paths_count": 0,
+  "last_point_state_updated": true,
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "Analyzer is not built yet.",
+    "Private handoff bundle-builder is not built yet.",
+    "No VM2/UI/Sanctum/THRONE work in this task."
+  ],
+  "next_recommended_step": "Build Administratum Git/Local Analyzer and Private Task Handoff Bundle Builder v0.1."
+}

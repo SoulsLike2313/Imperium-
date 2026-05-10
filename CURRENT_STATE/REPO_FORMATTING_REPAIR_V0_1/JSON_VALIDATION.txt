@@ -1,0 +1,14 @@
+PHASE8_VALIDATION_V0_1
+generated_at: 2026-05-10T11:14:46.8732758+03:00
+PASS gitignore_line_breaks line_count=50
+PASS check_ignore_SSH_COMMAND_LIBRARY
+PASS check_ignore_ARCHIVE
+PASS check_ignore_BUNDLES_LOCAL
+PASS check_ignore_PRIVATE_CONTEXT_LOCAL
+PASS check_ignore_RUNTIME_LOCAL
+PASS suspicious_tracked_count=0
+PASS suspicious_history_count=0
+PASS markdown_readability
+PASS last_point_state_json_parse
+PASS artifact_exists
+PASS git_status_captured

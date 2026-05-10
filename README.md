@@ -1,30 +1,27 @@
 # IMPERIUM
 
-IMPERIUM is a local-first engineering system with explicit evidence, receipts, and organ boundaries.
+IMPERIUM is a local-first engineering system built around explicit evidence, receipts, and organ boundaries.
 
-## Read First
-1. START_HERE.md
-2. CURRENT_STATE/LAST_POINT_STATE.json
-3. DOCS/REPO_MAP.md
-4. DOCS/CHAT_ENTRY_PROTOCOL.md
-5. Relevant organ contracts and scripts
+## Entry Sequence
+1. Read `START_HERE.md`.
+2. Read `CURRENT_STATE/LAST_POINT_STATE.json`.
+3. Read `DOCS/REPO_MAP.md` and `DOCS/CHAT_ENTRY_PROTOCOL.md`.
+4. Move to the relevant organ contracts/scripts for the active task.
 
-## Public vs Local Memory
-- GitHub is public engineering memory for code, contracts, docs, and safe indexes.
-- Local PC keeps private operational memory and sensitive/local-only sources.
-- Task bundles are frozen evidence/handoff capsules when private context transfer is required.
+## Memory Boundary
+- GitHub = public engineering memory for safe source, docs, indexes, and receipts.
+- Local PC = private operational memory.
+- Bundles = frozen evidence and task handoff capsules when private context transfer is needed.
 
 ## Organ Authority
-- Doctrinarium: law/canon gate and validation.
-- Officio Agentis: role/work settings and behavior constraints.
-- Administratum: memory/navigation/archive provenance, current state, routing guidance, handoff orientation.
+- Doctrinarium = law/canon gate.
+- Officio Agentis = role/work settings.
+- Administratum = memory, archivist role, repository/local navigation, history/provenance, task routing, and handoff planning.
 
-Administratum does not declare canon and does not override hard laws.
+Administratum must not declare canon, override hard laws, define agent identity, publish secrets, or sync THRONE without Owner permission.
 
-## Engineering Change Discipline
-- Prefer patch-driven versioned changes (e.g. APPLY_*_Vx_y.ps1) over random manual edits.
-- Keep receipts, manifests, and hashes for important task outputs.
-- Do not publish secrets, private commands, credentials, or local-only sensitive sources.
+## Change Discipline
+New work should be done through PowerShell patch files (versioned patch workflow), not random destructive edits.
 
-## Current Status
-Repository is in engineering-clean bootstrap state with limitations. No green/canon/real-task-ready claim.
+## Current Claim Level
+Engineering-clean bootstrap with limitations. No green/canon/real-task-ready claim.

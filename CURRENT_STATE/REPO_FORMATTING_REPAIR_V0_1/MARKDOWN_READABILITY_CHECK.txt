@@ -1,0 +1,17 @@
+MARKDOWN_READABILITY_CHECK_V0_1
+generated_at: 2026-05-10T11:13:42.1528003+03:00
+FILE=README.md | exists=yes | line_count=27 | first_heading=# IMPERIUM | line_count_gt_5=True
+FILE=START_HERE.md | exists=yes | line_count=25 | first_heading=# START_HERE | line_count_gt_5=True
+FILE=CURRENT_STATE\NEXT_ATOMIC_STEP.md | exists=yes | line_count=11 | first_heading=# NEXT_ATOMIC_STEP | line_count_gt_5=True
+FILE=CURRENT_STATE\DO_NOT_DO.md | exists=yes | line_count=7 | first_heading=# DO_NOT_DO | line_count_gt_5=True
+FILE=CURRENT_STATE\OWNER_DECISION_LOG.md | exists=yes | line_count=10 | first_heading=# OWNER_DECISION_LOG | line_count_gt_5=True
+FILE=CURRENT_STATE\LOCAL_ONLY_SOURCES_INDEX.md | exists=yes | line_count=17 | first_heading=# LOCAL_ONLY_SOURCES_INDEX | line_count_gt_5=True
+FILE=DOCS\REPO_MAP.md | exists=yes | line_count=17 | first_heading=# REPO_MAP | line_count_gt_5=True
+FILE=DOCS\COMMANDS.md | exists=yes | line_count=22 | first_heading=# COMMANDS | line_count_gt_5=True
+FILE=DOCS\BUNDLE_SYSTEM.md | exists=yes | line_count=16 | first_heading=# BUNDLE_SYSTEM | line_count_gt_5=True
+FILE=DOCS\PATCH_WORKFLOW.md | exists=yes | line_count=12 | first_heading=# PATCH_WORKFLOW | line_count_gt_5=True
+FILE=DOCS\CHAT_ENTRY_PROTOCOL.md | exists=yes | line_count=12 | first_heading=# CHAT_ENTRY_PROTOCOL | line_count_gt_5=True
+FILE=DOCS\PUBLIC_PRIVATE_BOUNDARY.md | exists=yes | line_count=12 | first_heading=# PUBLIC_PRIVATE_BOUNDARY | line_count_gt_5=True
+FILE=DOCS\VM2_BOOTSTRAP_PROTOCOL.md | exists=yes | line_count=12 | first_heading=# VM2_BOOTSTRAP_PROTOCOL | line_count_gt_5=True
+FILE=DOCS\ADMINISTRATUM_OPERATIONAL_AUTHORITY.md | exists=yes | line_count=19 | first_heading=# ADMINISTRATUM_OPERATIONAL_AUTHORITY | line_count_gt_5=True
+overall_readability_passed=True

@@ -1,18 +1,12 @@
-# PUBLIC PRIVATE BOUNDARY
+# PUBLIC_PRIVATE_BOUNDARY
 
 ## Safe for Git
-- Source code, scripts, contracts, status files, safe docs.
-- Receipts/manifests/hashes that do not disclose secrets.
-- Safe indexes declaring local/private sources exist.
+- Safe source code, docs, contracts, status files, receipts/manifests/hashes without secrets.
+- Safe indexes that indicate private/local sources exist.
 
 ## Local-Only
-- SSH_COMMAND_LIBRARY/
-- ARCHIVE/
-- BUNDLES_LOCAL/, PRIVATE_CONTEXT_LOCAL/, RUNTIME_LOCAL/
-- legacy observed heavy copies and generated extract/check mirrors
+- `SSH_COMMAND_LIBRARY`, `ARCHIVE`, `BUNDLES_LOCAL`, `PRIVATE_CONTEXT_LOCAL`, `RUNTIME_LOCAL`.
+- Legacy heavy local observed copies and generated extract/check mirrors.
 
-## Private Bundle Required
-Use approved private bundle flow when a worker needs local-only context.
-
-## Never Publish
-- credentials, keys, tokens, passwords, secret command bodies, session/cookie data.
+## Handoff Rule
+Private context moves through Owner-approved bundle flow, not direct public Git publication.

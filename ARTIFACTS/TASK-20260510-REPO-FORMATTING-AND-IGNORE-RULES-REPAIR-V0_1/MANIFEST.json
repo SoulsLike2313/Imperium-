@@ -1,0 +1,74 @@
+{
+  "schema_version": "MANIFEST_V0_1",
+  "task_id": "TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1",
+  "generated_at": "2026-05-10T11:14:28.4004766+03:00",
+  "root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1",
+  "file_count": 13,
+  "files": [
+    {
+      "path": "OWNER_SUMMARY.md",
+      "size": 559,
+      "modified_at": "2026-05-10T08:14:28.3829361Z"
+    },
+    {
+      "path": "00_TASK/TASK.md",
+      "size": 525,
+      "modified_at": "2026-05-10T08:14:28.2114419Z"
+    },
+    {
+      "path": "01_BASELINE/BASELINE_GIT_LOG.txt",
+      "size": 515,
+      "modified_at": "2026-05-10T08:11:41.8486982Z"
+    },
+    {
+      "path": "01_BASELINE/BASELINE_GIT_REMOTE.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T08:11:41.8057401Z"
+    },
+    {
+      "path": "01_BASELINE/BASELINE_GIT_STATUS.txt",
+      "size": 1271,
+      "modified_at": "2026-05-10T08:11:41.7678465Z"
+    },
+    {
+      "path": "02_FORMATTING_REPAIR/FILES_REFORMATTED.md",
+      "size": 442,
+      "modified_at": "2026-05-10T08:14:28.2838283Z"
+    },
+    {
+      "path": "02_FORMATTING_REPAIR/MARKDOWN_READABILITY_CHECK.txt",
+      "size": 1796,
+      "modified_at": "2026-05-10T08:13:42.3234723Z"
+    },
+    {
+      "path": "03_IGNORE_VERIFICATION/CHECK_IGNORE_RESULTS.txt",
+      "size": 409,
+      "modified_at": "2026-05-10T08:11:58.1515056Z"
+    },
+    {
+      "path": "03_IGNORE_VERIFICATION/GITIGNORE_LINE_COUNT.txt",
+      "size": 15,
+      "modified_at": "2026-05-10T08:11:57.8988956Z"
+    },
+    {
+      "path": "04_BOUNDARY_VERIFICATION/HISTORY_SUSPICIOUS_PATHS_AFTER_REPAIR.txt",
+      "size": 12,
+      "modified_at": "2026-05-10T08:12:12.0249304Z"
+    },
+    {
+      "path": "04_BOUNDARY_VERIFICATION/TRACKED_SUSPICIOUS_PATHS_AFTER_REPAIR.txt",
+      "size": 12,
+      "modified_at": "2026-05-10T08:12:11.9980632Z"
+    },
+    {
+      "path": "05_CURRENT_STATE/LAST_POINT_STATE_AFTER_REPAIR.json",
+      "size": 1476,
+      "modified_at": "2026-05-10T08:13:42.3664310Z"
+    },
+    {
+      "path": "06_RECEIPTS/FINAL_RECEIPT.json",
+      "size": 1143,
+      "modified_at": "2026-05-10T08:14:28.3809830Z"
+    }
+  ]
+}

@@ -1,11 +1,12 @@
-# PATCH WORKFLOW
+# PATCH_WORKFLOW
 
-- New app/dashboard/utility versions should be produced with versioned patch scripts, e.g. APPLY_*_Vx_y.ps1.
-- Avoid destructive edits of older versions.
-- Standard pattern:
-  1. Copy previous version to new version path.
-  2. Apply minimal controlled changes.
-  3. Update registry/status references.
-  4. Write receipt + manifest + hashes.
-  5. Run smoke validation if possible.
-  6. Commit/push when approved.
+## Rule
+New work should be done through PowerShell patch files.
+
+## Pattern
+1. Create a versioned patch script (`APPLY_*_Vx_y.ps1`).
+2. Copy previous version to a new version path when applicable.
+3. Apply scoped changes.
+4. Update registry/status pointers.
+5. Write receipt/manifest/hash evidence.
+6. Run smoke validation when possible.

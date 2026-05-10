@@ -1,12 +1,12 @@
-# VM2 BOOTSTRAP PROTOCOL (SKELETON)
+# VM2_BOOTSTRAP_PROTOCOL
 
-This document contains no secrets and no direct SSH endpoints.
+This is a skeleton only. No real endpoints or secrets are stored here.
 
-## Expected Future Flow
-1. Clone Git repository on VM2.
-2. Generate approved task-specific private bundle on PC.
-3. Transfer bundle via approved secure channel.
-4. Apply local setup on VM2.
-5. Verify VM2 state with receipts/manifests/hashes.
+## Expected Flow
+1. VM2 clones Git public repository first.
+2. Owner-approved private bundle is generated on PC.
+3. Private bundle is transferred separately.
+4. Local setup is applied on VM2.
+5. Verification is performed with receipts/manifests/hashes.
 
-Any real endpoint credentials remain outside Git and require Owner approval.
+VM2 execution is not part of this task.

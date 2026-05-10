@@ -1,9 +1,12 @@
-# LOCAL ONLY SOURCES INDEX
+# LOCAL_ONLY_SOURCES_INDEX
 
-- policy: local-only sources stay local and are represented in Git only by safe indexes.
-- no secret content is stored here.
+Safe index of local/private sources. No secret contents are stored here.
 
-| Relative Path | Exists | File Count | Purpose | Secrecy | Include in Private Bundle | Publish to Git | Notes |
+- GitHub = public engineering memory.
+- Local PC = private operational memory.
+- Bundles = frozen evidence/task handoff capsules.
+
+| Relative Path | Exists | File Count | Purpose | Secrecy Level | Include in Private Bundle | Publish to Git | Notes |
 |---|---|---:|---|---|---|---|---|
 | SSH_COMMAND_LIBRARY | yes | 240 | Private SSH/command library | HIGH | manual_only | False | Never publish command bodies or credentials |
 | ARCHIVE | yes | SKIPPED_NO_RECURSIVE_SCAN_POLICY | Historical bulk archive | MEDIUM | manual_only | False | Archive recursive scan is blocked by policy |

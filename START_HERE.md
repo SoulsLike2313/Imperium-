@@ -1,22 +1,25 @@
 # START_HERE
 
-- Current verified point: Git sanitation finalized and repository boundary documented.
-- Last completed task: TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1.
-- Current active priority: establish Administratum-first repo/local engineering clean entrypoint.
-- Next atomic step: run a task-scoped continuity/analyzer follow-up using this orientation layer (separate task).
+## Current Verified Point
+- Repo/local engineering clean entrypoint is established.
+- Git sanitation artifact exists and boundary orientation is documented.
 
-## Where To Look
-- Code/organs: ORGANS/
-- Orientation docs: DOCS/
-- Current state: CURRENT_STATE/
-- Task evidence: ARTIFACTS/
+## Last Completed Task
+- `TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1`
 
-## Local/Private Boundary
-- Local-only sources index: CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.md
-- Excluded local sources: CURRENT_STATE/EXCLUDED_LOCAL_SOURCES.md
+## Current Task
+- `TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1`
+
+## Next Atomic Step
+- Build Administratum Git/Local Analyzer and Private Task Handoff Bundle Builder v0.1 (separate task).
+
+## Read Next
+1. `CURRENT_STATE/LAST_POINT_STATE.json`
+2. `DOCS/REPO_MAP.md`
+3. `DOCS/COMMANDS.md`
+4. `DOCS/PUBLIC_PRIVATE_BOUNDARY.md`
 
 ## Do Not Do
-- Do not publish secrets or private command libraries.
-- Do not treat chat memory as source of truth.
-- Do not claim canon/green/real-task-ready.
-- Do not touch Sanctum or THRONE in this workflow.
+- Do not publish private/local secrets.
+- Do not claim green/canon/real-task-ready.
+- Do not touch Sanctum/THRONE in this flow.
