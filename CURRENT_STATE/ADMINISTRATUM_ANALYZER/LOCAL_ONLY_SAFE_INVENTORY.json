@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  "LOCAL_ONLY_SAFE_INVENTORY_V0_2",
-    "generated_at":  "2026-05-10T12:36:55.2419446+03:00",
+    "generated_at":  "2026-05-10T12:43:06.4408579+03:00",
     "local_private_memory":  {
                                  "SSH_COMMAND_LIBRARY":  {
                                                              "exists":  true,
@@ -54,8 +54,8 @@
                                                    },
                                  "CHAT_COMPILATIONS_LOCAL":  {
                                                                  "exists":  true,
-                                                                 "file_count":  360,
-                                                                 "total_mb":  1.958,
+                                                                 "file_count":  412,
+                                                                 "total_mb":  2.109,
                                                                  "in_git_tracking":  false,
                                                                  "ignored_by_git":  true,
                                                                  "include_policy":  "LOCAL_BUNDLE_OUTPUT",

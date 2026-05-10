@@ -16,4 +16,4 @@
 - Owner-approved PRIVATE_CONTEXT_LOCAL allowlist decision
 
 ## Recommendation
-- recommended_owner_action: RUN_CHAT_COMPILATION_SAFE
+- recommended_owner_action: COMMIT_ANALYZER_ARTIFACTS_OR_IGNORE_GENERATED

@@ -1,0 +1,67 @@
+[
+  {
+    "path": "00_TASK\\TASK.md",
+    "size_bytes": 797,
+    "last_write_time": "2026-05-10T12:45:30.0064767+03:00"
+  },
+  {
+    "path": "01_MANUAL_CLEANUP\\git_status_short_after_ignore_rules.txt",
+    "size_bytes": 792,
+    "last_write_time": "2026-05-10T12:33:51.3775351+03:00"
+  },
+  {
+    "path": "01_MANUAL_CLEANUP\\git_status_short_before.txt",
+    "size_bytes": 2345,
+    "last_write_time": "2026-05-10T12:32:53.9920852+03:00"
+  },
+  {
+    "path": "01_MANUAL_CLEANUP\\staged_before_commit.txt",
+    "size_bytes": 2561,
+    "last_write_time": "2026-05-10T12:35:02.6679452+03:00"
+  },
+  {
+    "path": "02_GIT_VERIFICATION\\GIT_LOG_10.txt",
+    "size_bytes": 697,
+    "last_write_time": "2026-05-10T12:45:47.8082042+03:00"
+  },
+  {
+    "path": "02_GIT_VERIFICATION\\GIT_STATUS_SHORT.txt",
+    "size_bytes": 910,
+    "last_write_time": "2026-05-10T12:45:47.7193576+03:00"
+  },
+  {
+    "path": "02_GIT_VERIFICATION\\LOCAL_HEAD.txt",
+    "size_bytes": 42,
+    "last_write_time": "2026-05-10T12:45:30.1931931+03:00"
+  },
+  {
+    "path": "02_GIT_VERIFICATION\\LS_REMOTE_MASTER_HEAD.txt",
+    "size_bytes": 60,
+    "last_write_time": "2026-05-10T12:45:47.5590647+03:00"
+  },
+  {
+    "path": "02_GIT_VERIFICATION\\ORIGIN_MASTER_HEAD.txt",
+    "size_bytes": 42,
+    "last_write_time": "2026-05-10T12:45:30.2860697+03:00"
+  },
+  {
+    "path": "03_CONTEXT_BUNDLE_RECORD\\LATEST_CONTEXT_BUNDLE.json",
+    "size_bytes": 574,
+    "last_write_time": "2026-05-10T12:45:48.0288564+03:00"
+  },
+  {
+    "path": "03_CONTEXT_BUNDLE_RECORD\\LATEST_CONTEXT_BUNDLE.md",
+    "size_bytes": 529,
+    "last_write_time": "2026-05-10T12:45:47.9663708+03:00"
+  },
+  {
+    "path": "04_RECEIPTS\\FINAL_RECEIPT.json",
+    "size_bytes": 1452,
+    "last_write_time": "2026-05-10T12:45:49.8072576+03:00"
+  },
+  {
+    "path": "05_OWNER_SUMMARY\\OWNER_SUMMARY.md",
+    "size_bytes": 697,
+    "last_write_time": "2026-05-10T12:45:49.8726724+03:00"
+  }
+]

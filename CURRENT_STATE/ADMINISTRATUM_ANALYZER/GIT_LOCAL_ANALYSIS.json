@@ -1,24 +1,24 @@
 ﻿{
     "schema_version":  "IMPERIUM_ADMINISTRATUM_GIT_LOCAL_ANALYSIS_V0_2",
     "task_id":  "TASK-20260510-ADMINISTRATUM-ANALYZER-WORKTREE-CLASSIFIER-AND-FINAL-RECEIPT-SYNC-V0_1",
-    "generated_at":  "2026-05-10T12:36:55.2419446+03:00",
+    "generated_at":  "2026-05-10T12:43:06.4408579+03:00",
     "target":  "FULL_IMPERIUM_SUMMARY",
     "git_reality":  {
                         "root":  "E:\\IMPERIUM",
                         "remote":  "https://github.com/SoulsLike2313/Imperium-.git",
                         "branch":  "master",
-                        "local_head":  "d175713b08858e3ba6bc2775e6dfdead69e905bb",
-                        "origin_master_head":  "d175713b08858e3ba6bc2775e6dfdead69e905bb",
-                        "upstream_head":  "d175713b08858e3ba6bc2775e6dfdead69e905bb",
-                        "ls_remote_master_head":  "d175713b08858e3ba6bc2775e6dfdead69e905bb",
-                        "working_tree_clean":  true,
-                        "status_short_count":  0,
+                        "local_head":  "46d7eee3d2d8d290adc8a21e82d38554d2ffc6e8",
+                        "origin_master_head":  "46d7eee3d2d8d290adc8a21e82d38554d2ffc6e8",
+                        "upstream_head":  "46d7eee3d2d8d290adc8a21e82d38554d2ffc6e8",
+                        "ls_remote_master_head":  "46d7eee3d2d8d290adc8a21e82d38554d2ffc6e8",
+                        "working_tree_clean":  false,
+                        "status_short_count":  7,
                         "head_matches_origin_master":  true,
                         "head_matches_ls_remote":  true,
                         "origin_matches_ls_remote":  true,
                         "post_push_reality_check_passed":  true,
-                        "analyzer_report_commit":  "d175713b08858e3ba6bc2775e6dfdead69e905bb",
-                        "git_reality_verdict":  "CLEAN_SYNCED",
+                        "analyzer_report_commit":  "46d7eee3d2d8d290adc8a21e82d38554d2ffc6e8",
+                        "git_reality_verdict":  "LOCAL_CHANGES_PRESENT",
                         "warnings":  [
 
                                      ]
@@ -88,8 +88,8 @@
                                                    },
                                  "CHAT_COMPILATIONS_LOCAL":  {
                                                                  "exists":  true,
-                                                                 "file_count":  360,
-                                                                 "total_mb":  1.958,
+                                                                 "file_count":  412,
+                                                                 "total_mb":  2.109,
                                                                  "in_git_tracking":  false,
                                                                  "ignored_by_git":  true,
                                                                  "include_policy":  "LOCAL_BUNDLE_OUTPUT",
@@ -145,22 +145,89 @@
                             "untracked_recommendation":  "NONE"
                         },
     "worktree_classifier":  {
-                                "status_short_count":  0,
-                                "modified_count":  0,
+                                "status_short_count":  7,
+                                "modified_count":  7,
                                 "untracked_count":  0,
                                 "deleted_count":  0,
                                 "renamed_count":  0,
                                 "classified_changes":  [
-
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
+                                                               "category":  "GENERATED_ARTIFACT_CANDIDATE",
+                                                               "reason":  "Generated analyzer/artifact state output",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_CHAT_COMPILATION_PATH.txt",
+                                                               "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                                               "reason":  "Public source/docs/state path",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
+                                                               "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                                               "reason":  "Public source/docs/state path",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           },
+                                                           {
+                                                               "git_status_code":  " M",
+                                                               "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json",
+                                                               "category":  "PUBLIC_COMMIT_CANDIDATE",
+                                                               "reason":  "Public source/docs/state path",
+                                                               "recommended_action":  "COMMIT_PUBLIC_CHANGES",
+                                                               "may_commit_to_git":  true,
+                                                               "may_include_in_chat_bundle":  true
+                                                           }
                                                        ],
                                 "public_commit_candidates":  [
-
+                                                                 "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_CHAT_COMPILATION_PATH.txt",
+                                                                 "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
+                                                                 "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json"
                                                              ],
                                 "local_only_ignore_candidates":  [
 
                                                                  ],
                                 "generated_artifact_candidates":  [
-
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
+                                                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md"
                                                                   ],
                                 "safe_untracked_candidates":  [
 
@@ -171,8 +238,8 @@
                                 "private_risk_candidates":  [
 
                                                             ],
-                                "recommended_worktree_action":  "NO_ACTION",
-                                "worktree_verdict":  "WORKTREE_CLEAN"
+                                "recommended_worktree_action":  "COMMIT_ANALYZER_ARTIFACTS_OR_IGNORE_GENERATED",
+                                "worktree_verdict":  "WORKTREE_DIRTY"
                             },
     "context_gap":  {
                         "target":  "FULL_IMPERIUM_SUMMARY",
@@ -256,9 +323,9 @@
                                                 ]
                                 },
     "owner_action":  {
-                         "recommended_owner_action":  "RUN_CHAT_COMPILATION_SAFE",
-                         "reason":  "Public memory is ready but target requires local/private context.",
-                         "command_to_run_if_bundle_needed":  "powershell -ExecutionPolicy Bypass -File E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\UTILITY\\\\run_administratum_context_bundle_workflow.ps1 -Target FULL_IMPERIUM_SUMMARY -BuildBundle",
+                         "recommended_owner_action":  "COMMIT_ANALYZER_ARTIFACTS_OR_IGNORE_GENERATED",
+                         "reason":  "Heads match; generated artifact candidates present.",
+                         "command_to_run_if_bundle_needed":  "Commit analyzer artifacts or ignore purely local generated outputs",
                          "expected_zip_location":  "E:\\\\IMPERIUM\\\\CHAT_COMPILATIONS_LOCAL\\\\FULL_IMPERIUM_CONTEXT_\u003ctimestamp\u003e.zip"
                      },
     "limitations":  [

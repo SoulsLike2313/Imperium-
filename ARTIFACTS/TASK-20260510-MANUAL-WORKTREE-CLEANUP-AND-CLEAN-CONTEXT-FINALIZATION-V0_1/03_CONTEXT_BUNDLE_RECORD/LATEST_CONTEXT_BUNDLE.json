@@ -1,0 +1,11 @@
+{
+  "policy": "CHAT_COMPILATIONS_LOCAL safe context bundle; upload manually to chat; do not commit zip.",
+  "schema_version": "IMPERIUM_CONTEXT_BUNDLE_RECORD_V0_1",
+  "sha256": "b6cc3dad5a0ba8be06fe96f43900f63ec28aa6c8a372f5cb6151b4d310b39e3d",
+  "filename": "FULL_IMPERIUM_CONTEXT_20260510_124310.zip",
+  "path": "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260510_124310.zip",
+  "local_only": true,
+  "task_id": "TASK-20260510-MANUAL-WORKTREE-CLEANUP-AND-CLEAN-CONTEXT-FINALIZATION-V0_1",
+  "size_bytes": 47388,
+  "committed_to_git": false
+}

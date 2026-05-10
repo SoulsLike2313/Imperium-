@@ -1,0 +1,10 @@
+46d7eee (HEAD -> master, origin/master, origin/HEAD) record clean Administratum analyzer verification
+d175713 finalize manual worktree cleanup for analyzer reports
+c7dc53f record post-push worktree classifier verification
+0075100 add Administratum analyzer worktree classifier and receipt sync
+debff5f record post-push Administratum analyzer verification
+9149560 harden Administratum analyzer with post-push reality checks
+79f785a add Administratum git local analyzer and chat context bundle workflow
+5f16669 repair repo formatting and local ignore rules
+d0e0b33 refine boundary verification report and receipt metadata
+7c433a9 establish Administratum repo-local engineering clean point
