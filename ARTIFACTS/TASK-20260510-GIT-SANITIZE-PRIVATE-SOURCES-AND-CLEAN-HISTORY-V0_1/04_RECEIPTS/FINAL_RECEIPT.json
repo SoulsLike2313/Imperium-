@@ -5,7 +5,7 @@
   "remote": "https://github.com/SoulsLike2313/Imperium-.git",
   "branch": "master",
   "started_at": "2026-05-10T10:29:36.2202598+03:00",
-  "finished_at": "2026-05-10T10:31:53.6672294+03:00",
+  "finished_at": "2026-05-10T10:33:22.2867544+03:00",
   "gitignore_rewritten": true,
   "artifact_folder_created": true,
   "ssh_command_library_tracked_remaining_count": 0,
@@ -13,7 +13,7 @@
   "suspicious_history_paths_remaining_count": 0,
   "excluded_local_sources_index_created": true,
   "force_push_performed_this_run": false,
-  "remote_push_performed_this_run": false,
+  "remote_push_performed_this_run": true,
   "status": "PASS_WITH_LIMITATIONS",
   "limitations": [
     "History/content sanitation cannot revoke already exposed secrets in external caches/clones.",

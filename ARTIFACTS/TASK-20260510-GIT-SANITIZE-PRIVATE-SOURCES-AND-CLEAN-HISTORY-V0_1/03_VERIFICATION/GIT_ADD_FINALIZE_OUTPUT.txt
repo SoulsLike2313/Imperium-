@@ -1,0 +1,6 @@
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/00_TASK/TASK.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/01_EVIDENCE/OWNER_SUMMARY.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/01_EVIDENCE/git_rm_cached_explicit.log', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/02_INDEXES/EXCLUDED_LOCAL_SOURCES.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'CURRENT_STATE/GIT_SANITIZE_V0_1/OWNER_SUMMARY.md', LF will be replaced by CRLF the next time Git touches it
