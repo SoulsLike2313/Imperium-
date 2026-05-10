@@ -1,0 +1,5 @@
+d944b3c (HEAD -> master, origin/master) update finalize sanitation receipt and verification evidence
+7746a38 finalize git sanitation artifact and repair ignore rules
+002ad12 sanitize repository tracking and exclude private local sources
+94ba002 add Administratum dashboard v0.3 Russian animated continuity UI
+ac8a20e bootstrap IMPERIUM repository without archive

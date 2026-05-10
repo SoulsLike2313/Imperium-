@@ -1,0 +1,77 @@
+{
+  "schema_version": "LOCAL_ONLY_SOURCES_INDEX_V0_1",
+  "generated_at": "2026-05-10T11:03:31.2311169+03:00",
+  "root": "E:\\IMPERIUM",
+  "items": [
+    {
+      "relative_path": "SSH_COMMAND_LIBRARY",
+      "exists": "yes",
+      "file_count": 240,
+      "purpose": "Private SSH/command library",
+      "secrecy_level": "HIGH",
+      "may_include_in_private_bundle": "manual_only",
+      "may_publish_to_git": false,
+      "notes": "Never publish command bodies or credentials"
+    },
+    {
+      "relative_path": "ARCHIVE",
+      "exists": "yes",
+      "file_count": "SKIPPED_NO_RECURSIVE_SCAN_POLICY",
+      "purpose": "Historical bulk archive",
+      "secrecy_level": "MEDIUM",
+      "may_include_in_private_bundle": "manual_only",
+      "may_publish_to_git": false,
+      "notes": "Archive recursive scan is blocked by policy"
+    },
+    {
+      "relative_path": "BUNDLES_LOCAL",
+      "exists": "no",
+      "file_count": 0,
+      "purpose": "Private task bundle staging",
+      "secrecy_level": "HIGH",
+      "may_include_in_private_bundle": "true",
+      "may_publish_to_git": false,
+      "notes": "Bundle contents depend on task scope"
+    },
+    {
+      "relative_path": "PRIVATE_CONTEXT_LOCAL",
+      "exists": "no",
+      "file_count": 0,
+      "purpose": "Private local context store",
+      "secrecy_level": "HIGH",
+      "may_include_in_private_bundle": "manual_only",
+      "may_publish_to_git": false,
+      "notes": "May not exist yet"
+    },
+    {
+      "relative_path": "RUNTIME_LOCAL",
+      "exists": "no",
+      "file_count": 0,
+      "purpose": "Runtime/local machine artifacts",
+      "secrecy_level": "MEDIUM",
+      "may_include_in_private_bundle": "false",
+      "may_publish_to_git": false,
+      "notes": "May not exist yet"
+    },
+    {
+      "relative_path": "OBSERVED\\THRONE_REPO_COPY",
+      "exists": "yes",
+      "file_count": "SKIPPED_NO_RECURSIVE_SCAN_POLICY",
+      "purpose": "Legacy observed copy (local reference)",
+      "secrecy_level": "HIGH",
+      "may_include_in_private_bundle": "manual_only",
+      "may_publish_to_git": false,
+      "notes": "No recursive scan in this task"
+    },
+    {
+      "relative_path": "OBSERVED\\VM3_REPO_COPY",
+      "exists": "yes",
+      "file_count": "SKIPPED_NO_RECURSIVE_SCAN_POLICY",
+      "purpose": "Legacy observed copy (local reference)",
+      "secrecy_level": "MEDIUM",
+      "may_include_in_private_bundle": "manual_only",
+      "may_publish_to_git": false,
+      "notes": "No recursive scan in this task"
+    }
+  ]
+}

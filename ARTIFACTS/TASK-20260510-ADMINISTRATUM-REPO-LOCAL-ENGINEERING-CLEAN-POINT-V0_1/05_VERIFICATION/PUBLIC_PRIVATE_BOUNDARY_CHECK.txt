@@ -1,0 +1,14 @@
+PUBLIC_PRIVATE_BOUNDARY_CHECK_V0_1
+generated_at: 2026-05-10T11:04:08.9219210+03:00
+suspicious_tracked_paths_count: 0
+suspicious_history_paths_count: 0
+raw_keyword_tracked_hits: 73
+raw_keyword_history_hits: 75
+raw_note: raw keyword hits may include safe logs/indexes that mention blocked keywords.
+status: PASS_WITH_LIMITATIONS
+
+strict_tracked_matches:
+NO_MATCHES
+
+strict_history_matches:
+NO_MATCHES

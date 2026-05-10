@@ -81,5 +81,22 @@
     "Organ ecosystem still has multiple Doctrinarium-reported gaps",
     "Law enforcement remains incomplete across codex set"
   ],
-  "last_verified_at": "2026-05-09T19:38:26.093495+00:00"
+  "last_verified_at": "2026-05-10T11:03:31.2969823+03:00",
+  "capabilities": [
+    "git_public_memory_index",
+    "local_private_boundary_index",
+    "archive_history_retrieval",
+    "current_state_continuity",
+    "task_handoff_bundle_planning",
+    "servitor_scope_routing",
+    "vm2_bootstrap_orientation",
+    "artifact_receipt_registry"
+  ],
+  "forbidden_authority": [
+    "canon_declaration",
+    "hard_law_override",
+    "agent_identity_definition",
+    "secret_publication",
+    "throne_sync_without_owner"
+  ]
 }

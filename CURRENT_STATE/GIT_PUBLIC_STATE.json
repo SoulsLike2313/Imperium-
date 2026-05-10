@@ -1,0 +1,25 @@
+{
+  "schema_version": "GIT_PUBLIC_STATE_V0_1",
+  "remote": "https://github.com/SoulsLike2313/Imperium-.git",
+  "branch": "master",
+  "generated_at": "2026-05-10T11:03:31.2619757+03:00",
+  "scope": "Public engineering memory",
+  "includes": [
+    "Code/system structure",
+    "Organ contracts/status",
+    "Docs",
+    "Safe indexes",
+    "Task artifacts intended for public repo"
+  ],
+  "excludes": [
+    "Private/local sensitive sources",
+    "Secret-bearing data",
+    "Local runtime state not intended for publication"
+  ],
+  "reference_files": [
+    "README.md",
+    "START_HERE.md",
+    "DOCS/",
+    "CURRENT_STATE/"
+  ]
+}

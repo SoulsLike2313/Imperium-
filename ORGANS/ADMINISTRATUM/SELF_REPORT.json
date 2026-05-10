@@ -29,7 +29,24 @@
     "Cross-organ gaps still present (see Doctrinarium all-organs report)",
     "No canon authorization for real-task continuity claims"
   ],
-  "created_at": "2026-05-09T19:38:26.093495+00:00",
-  "last_updated_at": "2026-05-10T05:54:52.556293+00:00",
-  "latest_build_receipt_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452\\BUILD_RECEIPT.json"
+  "created_at": "2026-05-09T22:38:26.093495+03:00",
+  "last_updated_at": "2026-05-10T11:03:31.3067938+03:00",
+  "latest_build_receipt_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452\\BUILD_RECEIPT.json",
+  "capabilities": [
+    "git_public_memory_index",
+    "local_private_boundary_index",
+    "archive_history_retrieval",
+    "current_state_continuity",
+    "task_handoff_bundle_planning",
+    "servitor_scope_routing",
+    "vm2_bootstrap_orientation",
+    "artifact_receipt_registry"
+  ],
+  "forbidden_authority": [
+    "canon_declaration",
+    "hard_law_override",
+    "agent_identity_definition",
+    "secret_publication",
+    "throne_sync_without_owner"
+  ]
 }

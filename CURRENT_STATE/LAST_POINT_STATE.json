@@ -1,0 +1,24 @@
+{
+  "schema_version": "LAST_POINT_STATE_V0_1",
+  "current_focus": "Administratum-first repository/local engineering clean entrypoint",
+  "last_completed_task": "TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1",
+  "last_completed_artifact": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1",
+  "current_repo_remote": "https://github.com/SoulsLike2313/Imperium-.git",
+  "current_branch": "master",
+  "public_memory_location": "GitHub repository + tracked docs/contracts/scripts",
+  "local_private_memory_location": "E:\\IMPERIUM local-only sources and private bundles/indexes",
+  "administratum_role_summary": "Operational memory, archive/provenance pointers, current state, routing guidance, and bundle planning support.",
+  "next_atomic_step": "Run a dedicated follow-up task to build/validate task-scoped private handoff bundle workflow using these indexes.",
+  "forbidden_next_steps": [
+    "No Sanctum work",
+    "No THRONE sync",
+    "No VM2 activation in this step",
+    "No secret publication",
+    "No green/canon/real-task-ready claims"
+  ],
+  "known_limitations": [
+    "Boundary checks are filename/path-level",
+    "Private/local sources remain outside Git and require controlled bundle flow",
+    "No analyzer/bundle-builder implementation in this task"
+  ]
+}

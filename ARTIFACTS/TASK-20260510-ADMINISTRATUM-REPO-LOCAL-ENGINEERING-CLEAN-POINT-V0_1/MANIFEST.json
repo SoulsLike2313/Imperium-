@@ -1,0 +1,64 @@
+{
+  "schema_version": "MANIFEST_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1",
+  "generated_at": "2026-05-10T11:04:30.9461631+03:00",
+  "root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1",
+  "file_count": 11,
+  "files": [
+    {
+      "path": "05_OWNER_SUMMARY.md",
+      "size": 409,
+      "modified_at": "2026-05-10T08:03:33.0815761Z"
+    },
+    {
+      "path": "00_TASK/TASK.md",
+      "size": 389,
+      "modified_at": "2026-05-10T08:03:32.9536757Z"
+    },
+    {
+      "path": "01_BASELINE/BASELINE_GIT_LOG.txt",
+      "size": 368,
+      "modified_at": "2026-05-10T07:58:38.6452217Z"
+    },
+    {
+      "path": "01_BASELINE/BASELINE_GIT_REMOTE.txt",
+      "size": 125,
+      "modified_at": "2026-05-10T07:58:38.6042156Z"
+    },
+    {
+      "path": "01_BASELINE/BASELINE_GIT_STATUS.txt",
+      "size": 1178,
+      "modified_at": "2026-05-10T07:58:38.5671148Z"
+    },
+    {
+      "path": "02_DOCS_CREATED/DOCS_INDEX.md",
+      "size": 277,
+      "modified_at": "2026-05-10T08:03:32.9937049Z"
+    },
+    {
+      "path": "03_CURRENT_STATE/CURRENT_STATE_INDEX.md",
+      "size": 419,
+      "modified_at": "2026-05-10T08:03:33.0073737Z"
+    },
+    {
+      "path": "04_ADMINISTRATUM_CONTRACT_DELTA/CONTRACT_DELTA.md",
+      "size": 568,
+      "modified_at": "2026-05-10T08:03:33.0083506Z"
+    },
+    {
+      "path": "05_VERIFICATION/JSON_VALIDATION.txt",
+      "size": 945,
+      "modified_at": "2026-05-10T08:04:30.8980596Z"
+    },
+    {
+      "path": "05_VERIFICATION/PUBLIC_PRIVATE_BOUNDARY_CHECK.txt",
+      "size": 413,
+      "modified_at": "2026-05-10T08:04:08.9309686Z"
+    },
+    {
+      "path": "06_RECEIPTS/FINAL_RECEIPT.json",
+      "size": 2043,
+      "modified_at": "2026-05-10T08:04:30.9283262Z"
+    }
+  ]
+}
