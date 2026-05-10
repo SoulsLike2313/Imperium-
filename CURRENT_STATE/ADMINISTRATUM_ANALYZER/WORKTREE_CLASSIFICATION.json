@@ -1,181 +1,10 @@
 ﻿{
-    "status_short_count":  43,
-    "modified_count":  19,
-    "untracked_count":  24,
+    "status_short_count":  20,
+    "modified_count":  0,
+    "untracked_count":  20,
     "deleted_count":  0,
     "renamed_count":  0,
     "classified_changes":  [
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/CONTEXT_GAP_REPORT.md",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/OWNER_NEXT_ACTION.md",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/PUBLIC_PRIVATE_BOUNDARY_REPORT.md",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/RECOMMENDED_CHAT_COMPILATION.json",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/UNTRACKED_PATHS_SUMMARY_V0_2.txt",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/LAST_POINT_STATE.json",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "DOCS/BUNDLE_SYSTEM.md",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "DOCS/CHAT_COMPILATION_PROTOCOL.md",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "DOCS/COMMANDS.md",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "TOOLS/administratum_analyze_git_local_context.ps1",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  " M",
-                                   "path":  "TOOLS/build_chat_compilation_from_analysis.ps1",
-                                   "category":  "PUBLIC_COMMIT_CANDIDATE",
-                                   "reason":  "Public source/docs/state path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
                                {
                                    "git_status_code":  "??",
                                    "path":  "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md",
@@ -223,24 +52,6 @@
                                },
                                {
                                    "git_status_code":  "??",
-                                   "path":  "ARTIFACTS/TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1/07_RECEIPTS/POST_PUSH_SUPPLEMENTAL_RECEIPT.json",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  "??",
-                                   "path":  "ARTIFACTS/TASK-20260510-ADMINISTRATUM-ANALYZER-WORKTREE-CLASSIFIER-AND-FINAL-RECEIPT-SYNC-V0_1/",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  "??",
                                    "path":  "ARTIFACTS/TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1/00_TASK.zip",
                                    "category":  "PRIVATE_RISK_CANDIDATE",
                                    "reason":  "Potential private-risk artifact or oversized local file",
@@ -274,24 +85,6 @@
                                    "recommended_action":  "MANUAL_REVIEW_REQUIRED",
                                    "may_commit_to_git":  "manual_review",
                                    "may_include_in_chat_bundle":  "manual_review"
-                               },
-                               {
-                                   "git_status_code":  "??",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/WORKTREE_CLASSIFICATION.json",
-                                   "category":  "SAFE_UNTRACKED_CANDIDATE",
-                                   "reason":  "Safe untracked public path",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
-                               },
-                               {
-                                   "git_status_code":  "??",
-                                   "path":  "CURRENT_STATE/ADMINISTRATUM_ANALYZER/WORKTREE_CLASSIFICATION_REPORT.md",
-                                   "category":  "GENERATED_ARTIFACT_CANDIDATE",
-                                   "reason":  "Generated analyzer/artifact state output",
-                                   "recommended_action":  "COMMIT_PUBLIC_CHANGES",
-                                   "may_commit_to_git":  true,
-                                   "may_include_in_chat_bundle":  true
                                },
                                {
                                    "git_status_code":  "??",
@@ -394,18 +187,7 @@
                                }
                            ],
     "public_commit_candidates":  [
-                                     "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_VERIFIED_PUBLIC_HEAD.json",
-                                     "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LOCAL_ONLY_SAFE_INVENTORY.json",
-                                     "CURRENT_STATE/ADMINISTRATUM_ANALYZER/OWNER_NEXT_ACTION.md",
-                                     "CURRENT_STATE/ADMINISTRATUM_ANALYZER/RECOMMENDED_CHAT_COMPILATION.json",
-                                     "CURRENT_STATE/LAST_POINT_STATE.json",
-                                     "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
-                                     "DOCS/BUNDLE_SYSTEM.md",
-                                     "DOCS/CHAT_COMPILATION_PROTOCOL.md",
-                                     "DOCS/COMMANDS.md",
-                                     "ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1",
-                                     "TOOLS/administratum_analyze_git_local_context.ps1",
-                                     "TOOLS/build_chat_compilation_from_analysis.ps1"
+
                                  ],
     "local_only_ignore_candidates":  [
                                          "OBSERVED/THRONE_REPO_COPY/",
@@ -413,20 +195,9 @@
                                          "ORGANS/ADMINISTRATUM/UTILITY/_BACKUPS/"
                                      ],
     "generated_artifact_candidates":  [
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/ANALYZER_RECEIPT.json",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/CONTEXT_GAP_REPORT.md",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_PUBLIC_MEMORY_SUMMARY.md",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/PUBLIC_PRIVATE_BOUNDARY_REPORT.md",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/UNTRACKED_PATHS_SUMMARY_V0_2.txt",
-                                          "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md",
-                                          "ARTIFACTS/TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1/07_RECEIPTS/POST_PUSH_SUPPLEMENTAL_RECEIPT.json",
-                                          "ARTIFACTS/TASK-20260510-ADMINISTRATUM-ANALYZER-WORKTREE-CLASSIFIER-AND-FINAL-RECEIPT-SYNC-V0_1/",
-                                          "CURRENT_STATE/ADMINISTRATUM_ANALYZER/WORKTREE_CLASSIFICATION_REPORT.md"
+                                          "ARTIFACTS/GENERATED_EXTRACT_CHECKS_INDEX.md"
                                       ],
     "safe_untracked_candidates":  [
-                                      "CURRENT_STATE/ADMINISTRATUM_ANALYZER/WORKTREE_CLASSIFICATION.json",
                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER_POST_PUSH/",
                                       "CURRENT_STATE/ADMINISTRATUM_WORKTREE_CLASSIFIER/"
                                   ],
