@@ -1,18 +1,25 @@
 {
-    "schema_version":  "ADMINISTRATUM_DASHBOARD_REGISTRY_V0_2",
-    "dashboard_id":  "ADMINISTRATUM_WEB_DASHBOARD_V0_2",
-    "version":  "0.2",
-    "purpose":  "Resume-first Continuity Pack builder; exact last-point continuation, not generic summary",
-    "root":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2",
-    "launcher":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_2.ps1",
-    "server":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2\\dashboard_server.py",
-    "url":  "http://127.0.0.1:8792",
-    "primary_button":  "Build Resume Continuity Pack v0.2",
-    "builder_script":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_resume_continuity_pack_v0_2.py",
-    "forbidden_claims":  [
-                             "green",
-                             "canon",
-                             "real-task-ready"
-                         ],
-    "created_at":  "2026-05-10T06:49:33.2244998Z"
+    "schema_version":  "IMPERIUM_DASHBOARD_REGISTRY_V0_3",
+    "updated_at":  "2026-05-10T10:14:18.5411014+03:00",
+    "active_administratum_dashboard":  "WEB_DASHBOARD_V0_3",
+    "dashboards":  [
+                       {
+                           "dashboard_id":  "ADMINISTRATUM_WEB_DASHBOARD_V0_3",
+                           "version":  "0.3",
+                           "path":  "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3",
+                           "launcher":  "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1",
+                           "port":  8792,
+                           "purpose":  "Russian resume-continuity dashboard with build animation",
+                           "claims":  [
+                                          "manual_dashboard",
+                                          "resume_continuity_pack_ui",
+                                          "animated_build_state"
+                                      ],
+                           "forbidden_claims":  [
+                                                    "green",
+                                                    "canon",
+                                                    "real-task-ready"
+                                                ]
+                       }
+                   ]
 }

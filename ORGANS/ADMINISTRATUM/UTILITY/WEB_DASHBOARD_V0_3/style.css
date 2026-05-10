@@ -1,0 +1,282 @@
+:root {
+  color-scheme: dark;
+  --bg: #07090f;
+  --panel: rgba(13, 18, 29, 0.88);
+  --panel-2: rgba(21, 28, 43, 0.92);
+  --line: rgba(190, 205, 255, 0.20);
+  --text: #eef3ff;
+  --muted: #b7c3dc;
+  --soft: #8491ad;
+  --gold: #f1d38a;
+  --cyan: #89d7ff;
+  --ok: #8df2bd;
+  --bad: #ff9a9a;
+  --shadow: rgba(0, 0, 0, 0.42);
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(92, 123, 190, 0.22), transparent 34%),
+    radial-gradient(circle at 80% 0%, rgba(241, 211, 138, 0.12), transparent 28%),
+    linear-gradient(180deg, #0b0f19 0%, var(--bg) 70%);
+  color: var(--text);
+}
+
+.shell {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 38px 0 52px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  border-radius: 26px;
+  padding: 26px;
+  margin-bottom: 18px;
+  box-shadow: 0 28px 90px var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(34, 43, 66, 0.96), rgba(9, 12, 20, 0.96)),
+    radial-gradient(circle at 80% 20%, rgba(137, 215, 255, 0.16), transparent 34%);
+}
+
+.hero:before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(120deg, transparent, rgba(241, 211, 138, 0.14), transparent);
+  transform: translateX(-120%);
+  animation: sheen 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.kicker {
+  color: var(--gold);
+  letter-spacing: 0.22em;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 10px 0 12px;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+}
+
+p, li {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+.lead {
+  max-width: 860px;
+  font-size: 18px;
+}
+
+strong { color: var(--text); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 18px;
+}
+
+.warning {
+  border-color: rgba(255, 154, 154, 0.28);
+}
+
+.action-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+button {
+  border: 0;
+  border-radius: 18px;
+  padding: 16px 20px;
+  min-width: 290px;
+  cursor: pointer;
+  color: #080a0f;
+  background: linear-gradient(135deg, #f4dfaa, #e9f4ff);
+  box-shadow: 0 18px 50px rgba(241, 211, 138, 0.18);
+  transition: transform 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+}
+
+button:hover { transform: translateY(-1px); }
+button:active { transform: translateY(1px); }
+button:disabled { opacity: 0.62; cursor: wait; transform: none; }
+
+.button-main {
+  display: block;
+  font-weight: 900;
+  font-size: 16px;
+}
+
+.button-sub {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.72;
+}
+
+.build-state {
+  color: var(--muted);
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 999px;
+  padding: 11px 14px;
+  font-weight: 700;
+}
+
+.build-state.running { color: var(--cyan); border-color: rgba(137, 215, 255, 0.38); }
+.build-state.done { color: var(--ok); border-color: rgba(141, 242, 189, 0.38); }
+.build-state.failed { color: var(--bad); border-color: rgba(255, 154, 154, 0.38); }
+
+.build-animation {
+  display: none;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid rgba(137, 215, 255, 0.18);
+  border-radius: 24px;
+  background: rgba(4, 7, 12, 0.40);
+}
+
+.build-animation.running { display: grid; }
+
+.orbit {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.core {
+  position: absolute;
+  inset: 48px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff, var(--gold) 38%, rgba(241, 211, 138, 0.12) 72%);
+  box-shadow: 0 0 38px rgba(241, 211, 138, 0.58);
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.ring {
+  position: absolute;
+  border: 1px solid rgba(137, 215, 255, 0.40);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.ring-a {
+  inset: 18px;
+  animation: spin 2.8s linear infinite;
+}
+
+.ring-b {
+  inset: 34px;
+  transform: rotate(64deg);
+  animation: spinReverse 3.5s linear infinite;
+}
+
+.node {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 18px rgba(137, 215, 255, 0.70);
+}
+
+.node-a { top: 18px; left: 70px; animation: blink 1.1s infinite; }
+.node-b { right: 20px; top: 78px; animation: blink 1.4s infinite; }
+.node-c { left: 24px; bottom: 26px; animation: blink 1.7s infinite; }
+
+.build-steps {
+  display: grid;
+  gap: 10px;
+}
+
+.step {
+  color: var(--soft);
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.step.active {
+  color: var(--text);
+  border-color: rgba(137, 215, 255, 0.38);
+  background: rgba(137, 215, 255, 0.08);
+}
+
+.step.done {
+  color: var(--ok);
+  border-color: rgba(141, 242, 189, 0.30);
+}
+
+pre {
+  overflow: auto;
+  white-space: pre-wrap;
+  min-height: 90px;
+  background: rgba(0, 0, 0, 0.32);
+  border-radius: 16px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #dbe7ff;
+}
+
+@keyframes sheen {
+  0%, 55% { transform: translateX(-120%); }
+  82%, 100% { transform: translateX(120%); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg) rotateX(68deg); }
+  to { transform: rotate(360deg) rotateX(68deg); }
+}
+
+@keyframes spinReverse {
+  from { transform: rotate(360deg) rotateY(62deg); }
+  to { transform: rotate(0deg) rotateY(62deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(0.92); opacity: 0.72; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0.45; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@media (max-width: 760px) {
+  .grid, .build-animation { grid-template-columns: 1fr; }
+  button { width: 100%; }
+}

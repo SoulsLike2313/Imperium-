@@ -1,0 +1,21 @@
+{
+    "schema_version":  "IMPERIUM_MANUAL_PATCH_RECEIPT_V0_3",
+    "task_id":  "TASK-20260510-ADMINISTRATUM-DASHBOARD-V0_3-RU-ANIMATED-RESUME-CONTINUITY",
+    "applied_at":  "2026-05-10T10:14:18.5869891+03:00",
+    "root":  "E:\\IMPERIUM",
+    "changed_paths":  [
+                          "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/index.html",
+                          "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/style.css",
+                          "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/app.js",
+                          "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/dashboard_server.py",
+                          "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/README.md",
+                          "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1",
+                          "ORGANS/ADMINISTRATUM/UTILITY/DASHBOARD_REGISTRY.json"
+                      ],
+    "status":  "PASS_WITH_LIMITATIONS",
+    "limitations":  [
+                        "Manual patch only; no autonomous task execution.",
+                        "Uses existing v0.2 resume continuity builder.",
+                        "Does not claim canon, green, or real-task-ready."
+                    ]
+}
