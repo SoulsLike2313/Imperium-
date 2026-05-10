@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  "LOCAL_ONLY_SAFE_INVENTORY_V0_2",
-    "generated_at":  "2026-05-10T12:24:10.1162004+03:00",
+    "generated_at":  "2026-05-10T12:36:55.2419446+03:00",
     "local_private_memory":  {
                                  "SSH_COMMAND_LIBRARY":  {
                                                              "exists":  true,
@@ -67,7 +67,7 @@
                                                                    "file_count":  2,
                                                                    "total_mb":  767.453,
                                                                    "in_git_tracking":  false,
-                                                                   "ignored_by_git":  false,
+                                                                   "ignored_by_git":  true,
                                                                    "include_policy":  "INDEX_ONLY_NEVER_SYNC",
                                                                    "needed_for_full_summary":  false,
                                                                    "needed_for_vm2":  false
@@ -77,7 +77,7 @@
                                                                 "file_count":  2,
                                                                 "total_mb":  143.128,
                                                                 "in_git_tracking":  false,
-                                                                "ignored_by_git":  false,
+                                                                "ignored_by_git":  true,
                                                                 "include_policy":  "INDEX_ONLY",
                                                                 "needed_for_full_summary":  false,
                                                                 "needed_for_vm2":  true
@@ -89,10 +89,11 @@
                                   "BUNDLES_LOCAL",
                                   "PRIVATE_CONTEXT_LOCAL",
                                   "RUNTIME_LOCAL",
-                                  "CHAT_COMPILATIONS_LOCAL"
+                                  "CHAT_COMPILATIONS_LOCAL",
+                                  "OBSERVED/THRONE_REPO_COPY",
+                                  "OBSERVED/VM3_REPO_COPY"
                               ],
     "not_ignored_private_roots":  [
-                                      "OBSERVED/THRONE_REPO_COPY",
-                                      "OBSERVED/VM3_REPO_COPY"
+
                                   ]
 }

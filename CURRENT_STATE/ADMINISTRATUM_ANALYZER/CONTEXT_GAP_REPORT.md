@@ -16,4 +16,4 @@
 - Owner-approved PRIVATE_CONTEXT_LOCAL allowlist decision
 
 ## Recommendation
-- recommended_owner_action: MANUAL_REVIEW_REQUIRED
+- recommended_owner_action: RUN_CHAT_COMPILATION_SAFE

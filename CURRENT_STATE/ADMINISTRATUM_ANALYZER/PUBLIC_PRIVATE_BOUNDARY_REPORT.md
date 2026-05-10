@@ -7,13 +7,13 @@
 - SSH_COMMAND_LIBRARY, ARCHIVE, BUNDLES_LOCAL, PRIVATE_CONTEXT_LOCAL, RUNTIME_LOCAL, CHAT_COMPILATIONS_LOCAL
 
 ## Ignore summary
-- ignored_private_roots: SSH_COMMAND_LIBRARY, ARCHIVE, BUNDLES_LOCAL, PRIVATE_CONTEXT_LOCAL, RUNTIME_LOCAL, CHAT_COMPILATIONS_LOCAL
-- not_ignored_private_roots: OBSERVED/THRONE_REPO_COPY, OBSERVED/VM3_REPO_COPY
+- ignored_private_roots: SSH_COMMAND_LIBRARY, ARCHIVE, BUNDLES_LOCAL, PRIVATE_CONTEXT_LOCAL, RUNTIME_LOCAL, CHAT_COMPILATIONS_LOCAL, OBSERVED/THRONE_REPO_COPY, OBSERVED/VM3_REPO_COPY
+- not_ignored_private_roots: 
 
 ## Suspicious scans
 - suspicious_tracked_paths_count: 0
 - suspicious_history_paths_count: 0
-- boundary_verdict: NEEDS_IGNORE_REPAIR
+- boundary_verdict: CLEAN
 
 ## Must never commit
 - raw keys/tokens/passwords/.env/private command bodies
