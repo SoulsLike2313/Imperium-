@@ -1,0 +1,37 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "scripts": [
+    {
+      "script_id": "TOOL-ADMIN-CREATE-TASK-LAUNCH-CARD",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-ADMIN-CREATE-REPAIR-BRANCH",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-ADMIN-VALIDATE-TASK-LAUNCH-CARD",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-ADMIN-VALIDATE-READ-FIRST-RECEIPT",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-ADMIN-VALIDATE-POLICY-REFS",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-EXPLORER-RUN-TRUTH-AUDIT",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-EXPLORER-RUN-AUTOSCREENSHOT-CHECK",
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "script_id": "TOOL-EXPLORER-RUN-STATIC-READONLY-SCAN",
+      "status": "NOT_IMPLEMENTED"
+    }
+  ]
+}

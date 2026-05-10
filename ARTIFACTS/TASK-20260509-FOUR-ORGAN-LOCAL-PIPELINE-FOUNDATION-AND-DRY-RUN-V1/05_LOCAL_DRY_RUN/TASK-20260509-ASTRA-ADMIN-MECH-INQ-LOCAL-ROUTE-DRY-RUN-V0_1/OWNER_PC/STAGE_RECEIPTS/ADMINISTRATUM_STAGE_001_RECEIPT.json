@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "run_id": "RUN-20260509-DRYRUN-0001",
+  "stage_id": "ADMINISTRATUM-STAGE-001",
+  "status": "PASS",
+  "note": "Launch card and read-first outputs created.",
+  "policy_hash_status": "VERIFIED_NOT_REQUIRED_FOR_DRY_RUN_PASS",
+  "metrics": {
+    "started_at": "2026-05-09T13:49:30",
+    "ended_at": "2026-05-09T13:49:30",
+    "duration_sec": 0,
+    "files_read": 1,
+    "files_written": 1,
+    "scripts_run": 1,
+    "validation_result": "PASS",
+    "repair_attempts": 0,
+    "max_repair_attempts": 2,
+    "risk_score": 1,
+    "confidence_score": 4,
+    "usability_score": 4,
+    "evidence_completeness_score": 4,
+    "drift_count": 0,
+    "duplicate_count": 0,
+    "forbidden_ref_count": 0,
+    "owner_approval_required": false,
+    "owner_approval_reason": "",
+    "next_allowed_action": "MECHANICUS-STAGE-001"
+  },
+  "next_allowed_action": "MECHANICUS-STAGE-001"
+}

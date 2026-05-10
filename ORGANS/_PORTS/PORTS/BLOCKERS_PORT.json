@@ -1,0 +1,11 @@
+{
+  "schema_version": "BLOCKERS_PORT_V0_2",
+  "organ_id": "_PORTS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [],
+  "owner_decisions_needed": [
+    "Owner approval required for canon/final readiness claims."
+  ],
+  "next_action": "Create organ contract/status/report surfaces and update developer/test/script ports."
+}

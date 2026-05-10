@@ -1,0 +1,46 @@
+{
+  "schema_version": "SCRIPT_BACKING_MAP_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "utility_id": "ADMINISTRATUM_WORKBENCH_V0_1",
+  "scripts": [
+    {
+      "script_id": "ADMINISTRATUM_BUILD_CONTINUITY_PACK",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+      "purpose": "Build continuity pack from evidence surfaces",
+      "api_action": "POST /api/build-continuity-pack",
+      "visible_in_dashboard": true
+    },
+    {
+      "script_id": "ADMINISTRATUM_COMPARE_CONTINUITY_PACK",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+      "purpose": "Compare latest continuity pack against previous and Doctrinarium references",
+      "api_action": "auto-run after build",
+      "visible_in_dashboard": true
+    },
+    {
+      "script_id": "ADMINISTRATUM_DASHBOARD_SERVER_V0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\dashboard_server.py",
+      "purpose": "Serve local dashboard API and static UI",
+      "visible_in_dashboard": false
+    }
+  ],
+  "reports_read": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STATUS\\DOCTRINARIUM_STATUS.json"
+  ],
+  "outputs_written": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_*",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS\\CONTINUITY_COMPARISON_*.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json"
+  ],
+  "limitations": [
+    "Only one active action button in v0_1.",
+    "No Sanctum orchestration.",
+    "No canon/green readiness claim."
+  ],
+  "forbidden_claims": [
+    "CANON_V0_1",
+    "REAL_TASK_EXECUTION_READY",
+    "CONTINUITY_GREEN"
+  ]
+}

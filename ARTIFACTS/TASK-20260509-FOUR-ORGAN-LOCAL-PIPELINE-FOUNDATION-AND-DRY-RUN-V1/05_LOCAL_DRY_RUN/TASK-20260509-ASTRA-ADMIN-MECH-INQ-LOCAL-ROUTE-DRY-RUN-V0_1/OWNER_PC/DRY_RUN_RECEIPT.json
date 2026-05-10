@@ -1,0 +1,29 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "run_id": "RUN-20260509-DRYRUN-0001",
+  "created_at_local": "2026-05-09T13:49:30",
+  "route_stages": [
+    "ASTRA-STAGE-001",
+    "ADMINISTRATUM-STAGE-001",
+    "MECHANICUS-STAGE-001",
+    "INQUISITION-STAGE-001",
+    "PC-STAGE-001",
+    "SPECULUM-STAGE-001"
+  ],
+  "performed_stages": [
+    "ASTRA-STAGE-001",
+    "ADMINISTRATUM-STAGE-001",
+    "MECHANICUS-STAGE-001",
+    "INQUISITION-STAGE-001",
+    "PC-STAGE-001"
+  ],
+  "planned_not_performed_stages": [
+    "SPECULUM-STAGE-001"
+  ],
+  "no_vm2": true,
+  "no_throne": true,
+  "no_e2e": true,
+  "no_delete_move": true,
+  "no_watchers": true,
+  "verdict": "PASS_LOCAL_DRY_RUN_ROUTE_FOUNDATION"
+}

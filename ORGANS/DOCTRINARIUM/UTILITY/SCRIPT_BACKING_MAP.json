@@ -1,0 +1,53 @@
+{
+  "schema_version": "SCRIPT_BACKING_MAP_V0_1",
+  "organ_id": "DOCTRINARIUM",
+  "utility_id": "DOCTRINARIUM_WORKBENCH_V0_1",
+  "created_at": "2026-05-09T17:37:17.3291254Z",
+  "scripts": [
+    {
+      "purpose": "Validate Passport, Constitution, Codex, and Doctrine Index",
+      "script_id": "DOCTRINARIUM_VALIDATE_DOCTRINE",
+      "visible_in_utility": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_doctrine.py"
+    },
+    {
+      "purpose": "Validate mandatory law registry and enforcement status",
+      "script_id": "DOCTRINARIUM_VALIDATE_LAWS",
+      "visible_in_utility": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_laws.py"
+    },
+    {
+      "purpose": "Validate all organ folders against organ standard",
+      "script_id": "DOCTRINARIUM_VALIDATE_ALL_ORGANS",
+      "visible_in_utility": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_all_organs.py"
+    },
+    {
+      "purpose": "Validate dedicated utility and script-backed utility requirement for organs",
+      "script_id": "DOCTRINARIUM_VALIDATE_ORGAN_UTILITIES",
+      "visible_in_utility": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_utilities.py"
+    },
+    {
+      "purpose": "Generate Owner-readable and machine-readable Doctrinarium status",
+      "script_id": "DOCTRINARIUM_GENERATE_STATUS_REPORT",
+      "visible_in_utility": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_generate_status_report.py"
+    },
+    {
+      "script_id": "LAUNCH_DOCTRINARIUM_DASHBOARD_V0_8",
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+      "purpose": "Launch current local Doctrinarium web dashboard v0.8",
+      "visible_in_utility": true,
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "added_at": "2026-05-09T18:51:48.8888947Z"
+    }
+  ],
+  "reports": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\DOCTRINARIUM_STATUS_REPORT.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.md"
+  ],
+  "receipts_root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\RECEIPTS",
+  "status_json": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STATUS\\DOCTRINARIUM_STATUS.json"
+}

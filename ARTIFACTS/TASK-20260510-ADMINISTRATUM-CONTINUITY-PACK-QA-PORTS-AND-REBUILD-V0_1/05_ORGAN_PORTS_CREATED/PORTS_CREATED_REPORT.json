@@ -1,0 +1,44 @@
+{
+  "schema_version": "PORTS_CREATED_REPORT_V0_1",
+  "generated_at": "2026-05-10T05:36:32.008340+00:00",
+  "ports_created_count": 6,
+  "ports": [
+    {
+      "organ_id": "DOCTRINARIUM",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS",
+      "status": "STRICT_BOOTSTRAP_GATE",
+      "evidence_level": "PORT_EVIDENCE_STRONGER"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS",
+      "status": "BOOTSTRAP",
+      "evidence_level": "PORT_BOOTSTRAP"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "evidence_level": "PORT_BOOTSTRAP"
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "evidence_level": "PORT_BOOTSTRAP"
+    },
+    {
+      "organ_id": "INQUISITION",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "evidence_level": "PORT_BOOTSTRAP"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS",
+      "status": "MINIMAL_SCOPE_ACTIVE",
+      "evidence_level": "PORT_BOOTSTRAP"
+    }
+  ],
+  "registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json"
+}

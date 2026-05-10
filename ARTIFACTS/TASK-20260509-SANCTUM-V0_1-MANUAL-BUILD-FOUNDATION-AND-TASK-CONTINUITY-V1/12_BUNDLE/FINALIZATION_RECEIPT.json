@@ -1,0 +1,23 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "run_id": "RUN-20260509-SANCTUM-FOUNDATION-0001",
+  "finalization_at_local": "2026-05-09T14:43:34",
+  "bundle_zip": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1\\12_BUNDLE\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1.zip",
+  "bundle_zip_sha256": "889ca7bbb2f89c45d52c2fee359a7c6cf61d82ed6cb9636225defa404a3a0477",
+  "bundle_sidecar": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1\\12_BUNDLE\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1.zip.sha256",
+  "packaging_model": {
+    "content_manifest_excludes": [
+      "CONTENT_MANIFEST.json",
+      "SHA256SUMS.txt",
+      "12_BUNDLE"
+    ],
+    "sha256sums_includes": "payload + CONTENT_MANIFEST",
+    "sha256sums_excludes": [
+      "SHA256SUMS.txt",
+      "12_BUNDLE"
+    ],
+    "finalization_receipt_outside_zip_payload": true,
+    "no_final_zip_self_reference_in_manifest": true
+  },
+  "verdict": "PASS_FINALIZATION"
+}

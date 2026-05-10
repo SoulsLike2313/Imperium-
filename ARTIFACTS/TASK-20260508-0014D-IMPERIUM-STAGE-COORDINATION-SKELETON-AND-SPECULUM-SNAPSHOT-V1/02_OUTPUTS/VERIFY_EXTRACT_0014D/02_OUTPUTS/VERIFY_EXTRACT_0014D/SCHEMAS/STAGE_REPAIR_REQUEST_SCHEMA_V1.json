@@ -1,0 +1,19 @@
+{
+  "schema_id": "STAGE_REPAIR_REQUEST_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "contour_id",
+    "error_class",
+    "recoverable",
+    "requested_by",
+    "timestamp_utc",
+    "evidence_refs"
+  ],
+  "error_class_allowed": [
+    "RECOVERABLE",
+    "FATAL",
+    "OWNER_REQUIRED"
+  ]
+}

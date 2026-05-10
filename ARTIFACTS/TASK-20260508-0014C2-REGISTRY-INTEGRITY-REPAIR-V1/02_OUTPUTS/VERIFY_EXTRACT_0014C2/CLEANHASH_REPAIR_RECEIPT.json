@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1",
+  "run_id": "RUN-20260508-0001",
+  "status": "PASS",
+  "repairs": {
+    "top_level_manifest_sha_order_fixed": true,
+    "top_level_sha256s_machine_checkable": true,
+    "manifest_hash_entry_valid": true,
+    "sha_paths_posix_relative_only": true,
+    "zip_paths_hygiene_clean": true,
+    "readonly_explorer_flag_updated": true
+  },
+  "proofs_preserved": {
+    "installed_root_runtime_smoke": true,
+    "local_final_assembly_dryrun_receipt": true,
+    "local_final_assembly_dryrun_report": true,
+    "dependency_closure_report": true,
+    "imperium_address_map": true,
+    "tools_master_index": true,
+    "sanctum_prep_notes": true
+  },
+  "constraints": {
+    "vm2_contact": false,
+    "real_e2e": false,
+    "throne_transfer": false,
+    "watchers": false,
+    "latest_logic": false
+  },
+  "verification_report_ref": "07_REPORTS/CLEANHASH_VERIFICATION_0014C1.json"
+}

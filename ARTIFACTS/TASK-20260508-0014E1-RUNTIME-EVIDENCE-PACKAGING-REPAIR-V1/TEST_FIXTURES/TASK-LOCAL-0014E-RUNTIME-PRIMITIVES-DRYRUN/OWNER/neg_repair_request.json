@@ -1,0 +1,18 @@
+{
+  "repair_id": "REPAIR-92371801-b258-40ce-a959-a92b231bd29a",
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-NEG-REPAIR",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "STAGE_REPAIR_REQUEST",
+  "timestamp_utc": "2026-05-08T20:37:25Z",
+  "original_failure_receipt_ref": "RECEIPTS/fatal_failure_receipt.json",
+  "original_stage_id": "STAGE-NEG-REPAIR",
+  "original_run_id": "RUN-0001",
+  "repair_type": "MANIFEST_REPAIR",
+  "recoverable": false,
+  "requires_owner": true,
+  "proposed_repair_stage_id": "STAGE-REPAIR-001",
+  "proposed_repair_run_id": "RUN-REPAIR-001"
+}

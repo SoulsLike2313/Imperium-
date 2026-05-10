@@ -1,0 +1,102 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "snapshot_folder": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1\\INTERIM_CONTINUITY_20260509_SANCTUM_VISUAL_ITERATION_HANDOFF\\02_SANCTUM_SOURCE_SNAPSHOT",
+  "files": [
+    {
+      "file": "sanctum_v0_1.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_1.py",
+      "note": "v0.1 = basic shell",
+      "size_bytes": 12745,
+      "last_write_time": "2026-05-09T15:01:13"
+    },
+    {
+      "file": "sanctum_v0_2.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_2.py",
+      "note": "v0.2-v0.24 = visual/HUD evolution",
+      "size_bytes": 24289,
+      "last_write_time": "2026-05-09T16:10:32"
+    },
+    {
+      "file": "sanctum_v0_21.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_21.py",
+      "note": "v0.2-v0.24 = visual/HUD evolution",
+      "size_bytes": 26802,
+      "last_write_time": "2026-05-09T16:13:38"
+    },
+    {
+      "file": "sanctum_v0_22.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_22.py",
+      "note": "v0.2-v0.24 = visual/HUD evolution",
+      "size_bytes": 27876,
+      "last_write_time": "2026-05-09T16:16:37"
+    },
+    {
+      "file": "sanctum_v0_23.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_23.py",
+      "note": "v0.2-v0.24 = visual/HUD evolution",
+      "size_bytes": 30684,
+      "last_write_time": "2026-05-09T16:18:19"
+    },
+    {
+      "file": "sanctum_v0_24.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_24.py",
+      "note": "v0.2-v0.24 = visual/HUD evolution",
+      "size_bytes": 33305,
+      "last_write_time": "2026-05-09T16:20:46"
+    },
+    {
+      "file": "sanctum_v0_25.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_25.py",
+      "note": "v0.25 = better orbital mission board",
+      "size_bytes": 30797,
+      "last_write_time": "2026-05-09T16:24:03"
+    },
+    {
+      "file": "sanctum_v0_26.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_26.py",
+      "note": "v0.26 = unified planet map with hover tooltip",
+      "size_bytes": 28419,
+      "last_write_time": "2026-05-09T16:31:29"
+    },
+    {
+      "file": "sanctum_v0_27.py",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/sanctum_v0_27.py",
+      "note": "v0.27 = attempted stable render fix, but flicker still observed",
+      "size_bytes": 29343,
+      "last_write_time": "2026-05-09T16:33:28"
+    },
+    {
+      "file": "README.md",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/README.md",
+      "note": "project readme snapshot",
+      "size_bytes": 444,
+      "last_write_time": "2026-05-09T16:33:33"
+    },
+    {
+      "file": "SANCTUM_STATUS.json",
+      "copied": true,
+      "relative_path": "02_SANCTUM_SOURCE_SNAPSHOT/SANCTUM_STATUS.json",
+      "note": "status snapshot",
+      "size_bytes": 461,
+      "last_write_time": "2026-05-09T16:33:33"
+    }
+  ],
+  "missing_files": [],
+  "semantic_index": {
+    "v0.1": "basic shell",
+    "v0.2-v0.24": "visual/HUD evolution",
+    "v0.25": "better orbital mission board",
+    "v0.26": "unified planet map with hover tooltip",
+    "v0.27": "attempted stable render fix, but flicker still observed"
+  }
+}

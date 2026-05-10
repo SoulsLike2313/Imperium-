@@ -1,0 +1,16 @@
+{
+  "schema_version": "EXPLORER_ARCHIVE_POLICY_V1",
+  "policy_id": "POLICY-EXPLORER-ARCHIVE-V1",
+  "archive_path": "E:\\IMPERIUM\\ARCHIVE",
+  "archive_status": "COLD_STORAGE",
+  "active_process_participation": false,
+  "recursive_scan_by_truth_audit": "DISABLED",
+  "recursive_scan_by_explorer": "NOT_ALLOWED_AS_AUTOMATIC_OPERATION",
+  "manual_browsing_policy": "TOP_LEVEL_VISIBLE; DEEP_HISTORY_NOT_ACTIVE",
+  "required_node_type": "ARCHIVE_COLD_STORAGE",
+  "required_display_lines": [
+    "ARCHIVE_POLICY: COLD_STORAGE_TOP_LEVEL_ONLY",
+    "ARCHIVE_RECURSIVE_SCAN: DISABLED",
+    "ARCHIVE_ACTIVE_PROCESS: FALSE"
+  ]
+}

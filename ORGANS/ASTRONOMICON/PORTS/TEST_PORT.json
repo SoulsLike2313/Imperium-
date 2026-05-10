@@ -1,0 +1,15 @@
+{
+  "schema_version": "TEST_PORT_V0_2",
+  "organ_id": "ASTRONOMICON",
+  "tests": [
+    {
+      "test_id": "ASTRONOMICON_SCRIPT_COMPILE",
+      "test_type": "compile",
+      "command": "python -m py_compile E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\astronomicon_load_route.py",
+      "expected_result": "exit_code_0",
+      "latest_result": "UNKNOWN",
+      "latest_report_path": null,
+      "skipped_reason": null
+    }
+  ]
+}

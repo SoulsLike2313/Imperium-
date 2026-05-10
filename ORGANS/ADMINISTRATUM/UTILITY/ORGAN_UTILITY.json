@@ -1,0 +1,36 @@
+{
+  "schema_version": "ORGAN_UTILITY_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "utility_id": "ADMINISTRATUM_WORKBENCH_V0_1",
+  "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD_ACTIVE",
+  "owner_facing_name": "Administratum Workbench v0_1",
+  "utility_type": "CLI_REPORT_WORKBENCH",
+  "is_gui": false,
+  "source_of_truth": "reports_receipts_status_json_not_ui",
+  "required_inputs": [
+    "ORGAN_STATUS.json",
+    "ORGAN_CONTRACT.json",
+    "SELF_REPORT.json",
+    "CONTINUITY/PACKS/*/CONTINUITY_PACK.json",
+    "CONTINUITY/COMPARISONS/*.json",
+    "REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json"
+  ],
+  "visible_outputs": [
+    "CONTINUITY/PACKS",
+    "CONTINUITY/COMPARISONS",
+    "REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json"
+  ],
+  "forbidden_claims": [
+    "CANON_V0_1",
+    "REAL_TASK_EXECUTION_READY",
+    "CONTINUITY_GREEN",
+    "ALL_MEMORY_COMPLETE",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY"
+  ],
+  "current_limitations": [
+    "Only one active dashboard action button is implemented in v0_1.",
+    "Continuity pack remains PASS_WITH_LIMITATIONS mode.",
+    "No Sanctum integration."
+  ]
+}

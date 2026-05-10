@@ -1,0 +1,32 @@
+{
+  "schema_version": "DOCTRINE_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+  "run_id": "RUN-20260509-190325-8cc655e4",
+  "actor": "PC_SERVITOR",
+  "phase": "PHASE_1_SOURCE_SEARCH",
+  "input_paths": [
+    "E:\\IMPERIUM\\OBSERVED",
+    "E:\\IMPERIUM\\ORGANS",
+    "E:\\IMPERIUM\\ARTIFACTS"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1\\01_SOURCE_SEARCH\\SOURCE_SEARCH_REPORT.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1\\01_SOURCE_SEARCH\\SOURCE_SEARCH_REPORT.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\OBSERVED": "DIR_PRESENT_NO_FILE_HASH",
+    "E:\\IMPERIUM\\ORGANS": "DIR_PRESENT_NO_FILE_HASH",
+    "E:\\IMPERIUM\\ARTIFACTS": "DIR_PRESENT_NO_FILE_HASH",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1\\01_SOURCE_SEARCH\\SOURCE_SEARCH_REPORT.md": "c23fc22a194d1240faf2512dd69e50ba5e6a692b37e17e88e315f9ce01703f2f",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1\\01_SOURCE_SEARCH\\SOURCE_SEARCH_REPORT.json": "e19544cbc9404fb4e3651ad45c2addbc83a8ff21338b646334f9c5f0f6b2cf53"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "next_action": "Proceed to source snapshots.",
+  "created_at": "2026-05-09T16:12:22.5560554Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Источники паспорта и конституции найдены и ранжированы; archive-like поддеревья пропущены."
+}

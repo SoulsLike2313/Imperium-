@@ -1,0 +1,224 @@
+[
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\__init__.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\__init__.py",
+    "size_bytes": 40,
+    "sha256": "98e0b5726ae02e10c618773adbfdb60672218d9b845450f63e02c19c48423ea2"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\AGENT_FINAL_RESPONSE.txt",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\AGENT_FINAL_RESPONSE.txt",
+    "size_bytes": 909,
+    "sha256": "47920331aec2826c2b90be5b2886a1471e593cb25d3c27de3cd018670b24f197"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\barrier_verify.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\barrier_verify.py",
+    "size_bytes": 14502,
+    "sha256": "f0cefda2ae7125812d72468eeef65614af0d9b9496449eee51b77f00538f8f72"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\barrier_verify_example.ps1",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\barrier_verify_example.ps1",
+    "size_bytes": 837,
+    "sha256": "5dfd386351ba0baf058f1db0438128fa0df1ebb99bdcee5e786bd446015fcaee"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\fetch_vm2_bundle_example.ps1",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\fetch_vm2_bundle_example.ps1",
+    "size_bytes": 1238,
+    "sha256": "e2afc28d4efa6c51f2011ab2d8f53235c8799f10463bae8667e2e60c7414e7af"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\final_bundle_assemble_example.ps1",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\final_bundle_assemble_example.ps1",
+    "size_bytes": 920,
+    "sha256": "f15b2edcc59135353fec9218b40718ed77faa460bcc4873d465640767f9185ff"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\send_prompt_example.ps1",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\examples\\send_prompt_example.ps1",
+    "size_bytes": 937,
+    "sha256": "917061162fad6395761dc1f95413c461de6c4c043ee10c408fc5c2afa7e78688"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\fetch_vm2_stage_bundle.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\fetch_vm2_stage_bundle.py",
+    "size_bytes": 17081,
+    "sha256": "1dbf4eca58487a098d92300f7a9965e8326a63d940de0fbb21b93362d5d9e60a"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\final_bundle_assemble.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\final_bundle_assemble.py",
+    "size_bytes": 10212,
+    "sha256": "7ca0ae5a3f157d40d14698faaf1318da641d2d2a85f3f659d444a5cf0f5968b6"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\__init__.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\__init__.py",
+    "size_bytes": 53,
+    "sha256": "734275265476a9e9a8b0799aa65552aeb728bc01c162f682d690f408fac9c641"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\id_validation.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\id_validation.py",
+    "size_bytes": 3099,
+    "sha256": "e15e4a40770eb5b58bb98fedb642cda56d7d03ba083f0a3412108e695cc68613"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\ledger_utils.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\ledger_utils.py",
+    "size_bytes": 4800,
+    "sha256": "68a98b90a0f647a1622bc6c45ff6fd59ab2ca2ea8c01f7f2dc1a0f69038b14ea"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\manifest_utils.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\manifest_utils.py",
+    "size_bytes": 2504,
+    "sha256": "dd2d078ad1f70bde949fac1d6d2a3b28bc41e3105bd3ed117693e48b395ee248"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\owner_report.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\owner_report.py",
+    "size_bytes": 1656,
+    "sha256": "89448ef76d853c9da6da5322dd79cd8537cb1f2411dbf36f200f299bc9197f04"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\path_safety.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\path_safety.py",
+    "size_bytes": 1043,
+    "sha256": "37d6a4423eb7647d04ef6a77bd33b5294efc5e5b8d89b685ea7a089de33f4a78"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\provenance_utils.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\provenance_utils.py",
+    "size_bytes": 6476,
+    "sha256": "5e9271c3a451b91412ba565cc1c03595a2ff99555a633740b5a6681f9e30b2c1"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\sha256_utils.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\lib\\sha256_utils.py",
+    "size_bytes": 1949,
+    "sha256": "dbdc12a610188a8fbf6b7e0add1b8aa5e0ebdb0ebdf9120025411839ba96ef8f"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\MANIFEST.json",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\MANIFEST.json",
+    "size_bytes": 8433,
+    "sha256": "30138aa3cd9da5ae59c630a832c1a5e4ec35b57d84f09b43191c5e6129407ce6"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\OWNER_SUMMARY.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\OWNER_SUMMARY.md",
+    "size_bytes": 551,
+    "sha256": "5ede9efa2adeecc2f97717b053ee4dd75e8c36fe58ead3f79a9535472174c7b2"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\README.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\README.md",
+    "size_bytes": 568,
+    "sha256": "9c9a66273b882abfa2f51e283be54f7ef0b3da87c79d35d0d86b8b40bbeb8094"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SCRIPT_ACCEPTANCE_TESTS.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SCRIPT_ACCEPTANCE_TESTS.md",
+    "size_bytes": 1284,
+    "sha256": "cc4b91af17e695743a54c6cb0da44188b0474305fba0c0aa05f7752359417d41"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SCRIPT_USAGE_EXAMPLES.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SCRIPT_USAGE_EXAMPLES.md",
+    "size_bytes": 5348,
+    "sha256": "de1d519e9033f72104d8065f52905f5107e7bfa22b5f2eb18a04bfa14fa05cb4"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\send_prompt_to_vm2.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\send_prompt_to_vm2.py",
+    "size_bytes": 10686,
+    "sha256": "7a9536880ac36d4b00d29b95a3f1c80e4369661b095ac0a04c8f6f9cc1600671"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SHA256SUMS.txt",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SHA256SUMS.txt",
+    "size_bytes": 4205,
+    "sha256": "346e1ab7185ebd040c4c36a84b423c3af30db7a86323452fa2ca6822a95fa695"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SPECULUM_REVIEW_REQUEST.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\SPECULUM_REVIEW_REQUEST.md",
+    "size_bytes": 843,
+    "sha256": "e953a8b28c74c6fe1c72e6043f7a15c2a9479126c2f0b339c5c48dc4f795dedd"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\task_status_append.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\task_status_append.py",
+    "size_bytes": 4902,
+    "sha256": "2683e5ae9126de064b0559f425d9dd80b7a426a3752292a76e7ab7020fe5971c"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\task_status_view.py",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\task_status_view.py",
+    "size_bytes": 3466,
+    "sha256": "ecd06d55d8e9172c35b0eec5cab495f6cd5388f6bc2847fd2b64e553abf028ee"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\TOOL_LAYOUT_RECEIPT.json",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\TOOL_LAYOUT_RECEIPT.json",
+    "size_bytes": 892,
+    "sha256": "d5004f4cc49b2bc2aca8263ed5e38878737dd6ce8294d72f91cfffc95d128135"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\TOOLS_INDEX.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\TOOLS_INDEX.md",
+    "size_bytes": 1952,
+    "sha256": "a6c8b6b483c6974b72bb027442d0588f2c576686874cb4a0b7dcd7ff9e24be7b"
+  },
+  {
+    "relative_path": "03_RECEIPTS\\TASK_0014_IMPLEMENTATION_RECEIPT.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\03_RECEIPTS\\TASK_0014_IMPLEMENTATION_RECEIPT.md",
+    "size_bytes": 638,
+    "sha256": "76d832ea5f579ae69a41054cce4725a64b5187f2945a1180a0f83cf19d621e58"
+  },
+  {
+    "relative_path": "07_REPORTS\\BLOCKED_OR_DEFERRED_ITEMS.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\07_REPORTS\\BLOCKED_OR_DEFERRED_ITEMS.md",
+    "size_bytes": 214,
+    "sha256": "dd738eb7611d4f716ca4691baa4091c1f719e89151d0b76f0847028252bf7541"
+  },
+  {
+    "relative_path": "07_REPORTS\\OUTPUT_REPORT.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\07_REPORTS\\OUTPUT_REPORT.md",
+    "size_bytes": 496,
+    "sha256": "6b3a765f4f901ebe1715e048c6fff6bc5e90623c9f3fe28974a97e2ab976b8cd"
+  },
+  {
+    "relative_path": "07_REPORTS\\SPECULUM_REVIEW_REQUEST.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\07_REPORTS\\SPECULUM_REVIEW_REQUEST.md",
+    "size_bytes": 429,
+    "sha256": "1cf251018f6832cd4d052dd759219b8407aff8916fd59899eb1c2215edcf69df"
+  },
+  {
+    "relative_path": "08_OWNER_SUMMARY\\OWNER_SUMMARY.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\08_OWNER_SUMMARY\\OWNER_SUMMARY.md",
+    "size_bytes": 422,
+    "sha256": "3de429c0373480caba9c8586a97fd6eb4118dd95cfe5e3759186a1b8706082e1"
+  },
+  {
+    "relative_path": "09_SOURCE_POINTERS\\SOURCE_POINTERS.md",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\09_SOURCE_POINTERS\\SOURCE_POINTERS.md",
+    "size_bytes": 451,
+    "sha256": "fcfcfe51ecda07c03ee54f7dd5577158fb391998200a4d02cf94cc5e157350a1"
+  },
+  {
+    "relative_path": "FINAL_STEP_BUNDLE\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1_FINAL_STEP_BUNDLE.zip",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\FINAL_STEP_BUNDLE\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1_FINAL_STEP_BUNDLE.zip",
+    "size_bytes": 38297,
+    "sha256": "0a1f5409d129b8d6621d19fd34484422d3cc3138a11dd5b846c0159f912d0e9d"
+  },
+  {
+    "relative_path": "FINAL_STEP_BUNDLE\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1_FINAL_STEP_BUNDLE.zip.sha256",
+    "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\FINAL_STEP_BUNDLE\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1_FINAL_STEP_BUNDLE.zip.sha256",
+    "size_bytes": 283,
+    "sha256": "85e684b8f7c45ab4dcabee95e4472fb2b34c52a33062f33f0b7bea5d1ca4393d"
+  }
+]

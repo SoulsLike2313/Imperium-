@@ -1,0 +1,38 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_01_DOCTRINE_VALIDATION",
+  "script_id": "DOCTRINARIUM_VALIDATE_DOCTRINE",
+  "script_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_doctrine.py",
+  "script_sha256": "85e64f66252c2ccf0a1ae8230748342b29e000d9590c19d4f83ca2cd769bfa73",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CONSTITUTION_OF_IMPERIUM.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\01_DOCTRINE_VALIDATION\\DOCTRINE_VALIDATION_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\01_DOCTRINE_VALIDATION\\DOCTRINE_VALIDATION_REPORT.md"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\01_DOCTRINE_VALIDATION\\DOCTRINE_VALIDATION_REPORT.json": "d1388918595cfd7e37c6ccdab35fc26a0085ebc87fa280ad08c22c7ff3bf7d5f",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\01_DOCTRINE_VALIDATION\\DOCTRINE_VALIDATION_REPORT.md": "7dc3d6f94572f6378e32c6ab8b6f5930b9f6b6ebcc408d55ee690bf0507413d4"
+  },
+  "verdict": "PASS_DOCTRINE_TRIAD_PRESENT_CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Owner approval is still required before canon-ready real-task execution."
+  ],
+  "next_action": "Proceed to law registry build/validation",
+  "created_at": "2026-05-09T16:58:31.595961+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

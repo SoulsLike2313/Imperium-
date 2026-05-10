@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1",
+  "stage_id": "STAGE-PC-001",
+  "run_id": "RUN-20260509-0014",
+  "contour_id": "VM2",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "OWNER_MANUAL_PC",
+  "status": "PASS",
+  "failure_reason": "",
+  "timestamp_utc": "2026-05-08T21:37:20Z",
+  "prompt_file": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1\\VM2_INBOX_PACKAGE\\VM2_STAGE_PROMPT.md",
+  "prompt_sha256": "b26e65821ce46c422c62dc59934809802cf040941b8cd49025abc8126ac86e0b",
+  "remote_prompt_path": "/home/vboxuser2/IMPERIUM_WORKER_ROOM/01_INBOX/tasks/TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1/STAGE-PC-001/RUN-20260509-0014/PROMPT.md",
+  "dispatch_mode": "DRY_RUN",
+  "commands": [
+    "dry-run enabled; no SSH/SCP command executed"
+  ],
+  "deleted_anything": false,
+  "moved_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false,
+  "provenance_ref": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1\\PC_PREP\\DISPATCH_PROVENANCE.json",
+  "verdict": "PASS"
+}

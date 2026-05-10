@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "versions": [
+    {
+      "version": "0.1",
+      "type": "LOCAL_DRY_RUN_FOUNDATION",
+      "created_by": "build_task_launch_card_from_astra.py"
+    }
+  ]
+}

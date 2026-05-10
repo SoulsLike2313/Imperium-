@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "script": "barrier_verify.py",
+  "barrier_result": "BARRIER_FAIL",
+  "status": "FAIL",
+  "failure_reason": "missing manifest; missing sha256s; missing receipt; missing provenance; receipt without parseable provenance; no task events in ledger; stage evidence missing: STAGE-005-BARRIER; no origin index items for task",
+  "timestamp_utc": "2026-05-08T17:48:19Z",
+  "verdict": "FAIL",
+  "deleted_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false
+}

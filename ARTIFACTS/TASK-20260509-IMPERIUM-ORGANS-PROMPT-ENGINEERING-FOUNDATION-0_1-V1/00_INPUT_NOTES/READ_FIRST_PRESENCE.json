@@ -1,0 +1,39 @@
+{
+  "checked_at_local": "2026-05-09T12:06:11",
+  "files": [
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\README.md",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\CHANGELOG.md",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0.py",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\POLICIES\\EXPLORER_BASELINE_POLICY.json",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\POLICIES\\EXPLORER_ARCHIVE_POLICY.json",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\VERIFY\\static_readonly_source_scan_v1_0.py",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\VERIFY\\explorer_truth_audit_v1_0.py",
+      "status": "FOUND"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v1_0.py",
+      "status": "FOUND"
+    }
+  ],
+  "missing_count": 0,
+  "missing": []
+}

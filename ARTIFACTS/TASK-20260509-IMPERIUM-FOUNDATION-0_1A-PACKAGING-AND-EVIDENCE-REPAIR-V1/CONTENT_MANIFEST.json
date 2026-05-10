@@ -1,0 +1,709 @@
+{
+  "schema_version": "CONTENT_MANIFEST_V1",
+  "task_id": "TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+  "created_at_local": "2026-05-09T12:34:23",
+  "artifact_root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+  "file_count": 138,
+  "excluded": [
+    "CONTENT_MANIFEST.json",
+    "SHA256SUMS.txt",
+    "07_BUNDLE/**",
+    "final zip",
+    "final zip sidecar",
+    "__pycache__/**",
+    "*.pyc",
+    "*.pyo"
+  ],
+  "files": [
+    {
+      "path": "OWNER_SUMMARY.md",
+      "size_bytes": 1117,
+      "sha256": "08d6363fa68fd16faef5aef09b3840b7f9a2ecbd0525f5b1887fedfa2626440b"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/imperium_explorer_v1_0a.py",
+      "size_bytes": 25943,
+      "sha256": "2fe934f03171376e27ae47cfad1db37d2890fb4dc4107a8f028782de4b1d3c40"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/POLICIES/EXPLORER_ARCHIVE_POLICY.json",
+      "size_bytes": 620,
+      "sha256": "67279b79b2f7fe119442199687cfa66c12cffd966bafbe618499159470db5409"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/POLICIES/EXPLORER_ARCHIVE_POLICY.md",
+      "size_bytes": 572,
+      "sha256": "6314c589f2e66e81208d9f1575289e0aa6c3a8b99fee54e04958c43339312ff1"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/POLICIES/EXPLORER_BASELINE_POLICY.json",
+      "size_bytes": 1448,
+      "sha256": "e668b3ad2bc18d2c76ff664c7a45599475d46ce92d98dacc26ceca28c282a506"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/POLICIES/EXPLORER_BASELINE_POLICY.md",
+      "size_bytes": 726,
+      "sha256": "a0d4ba3a4222b63f597e6b7a2ff1ed3615527ccff554947059cf6f9b81e65bac"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/001_IMPERIUM.png",
+      "size_bytes": 77392,
+      "sha256": "fdcb7469b800d140530bccd947a68ef00b8b53c1ede887ac58b4571d62e6b4d2"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/002_ARTIFACTS.png",
+      "size_bytes": 128622,
+      "sha256": "6c90d4424f93234a09740e03a9c9804a1dbf43745f15fce40c6e7ae2454fe4b6"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/003__MANUAL_PROOFS.png",
+      "size_bytes": 128881,
+      "sha256": "e6917c35d14a9eac3867d58671ab975ccc3995175dd5af6a0e6b583d5e80c5fe"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/004_EXPLORER.png",
+      "size_bytes": 127680,
+      "sha256": "4e43b64ba5fab964b46c73190a125fbbe3fd867f38c531190f382c47c0cd7216"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/005_README_md.png",
+      "size_bytes": 133295,
+      "sha256": "3715a98f8a26ce8567c17808263513087934d7a66c4cd6dc1ff8901877629115"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/006_CHANGELOG_md.png",
+      "size_bytes": 131333,
+      "sha256": "66f36568b22392420f8c44463751c5f214d53424d5e7fafddfd7cfed07576876"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/007_imperium_explorer_v1_0a_py.png",
+      "size_bytes": 125790,
+      "sha256": "eb4378a5ec43730139af6191a1ba9e259cd1900fbba1388a7254e69d30fcf580"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/008_EXPLORER_BASELINE_POLICY_json.png",
+      "size_bytes": 139308,
+      "sha256": "0a9911ec3bab52e421d699ad0ad0f70f939aba64f3d28510da531c792bc9cbcd"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/009_EXPLORER_BASELINE_POLICY_md.png",
+      "size_bytes": 128852,
+      "sha256": "7d0f026539614423f9c9705d5439acd6eb60e62a96b2183056e9e8682f50ed6e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/010_EXPLORER_ARCHIVE_POLICY_json.png",
+      "size_bytes": 141849,
+      "sha256": "dbab910476f8651bc703b58b47db0a8b3daad1ffe400395ff0d7e6b2323953c3"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/011_EXPLORER_ARCHIVE_POLICY_md.png",
+      "size_bytes": 131576,
+      "sha256": "eae0470aeb05a8b5acf6397d46338232131ea0b3b7ee750eb247f1bb9d47944b"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/012_ARCHIVE.png",
+      "size_bytes": 133383,
+      "sha256": "c853b19e5c78bd4102d01e70244ba8e2f30ece18027cfb9f260c097d18dafd69"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/013_TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING.png",
+      "size_bytes": 120127,
+      "sha256": "74fa538ac6ddd37914f40cd88c2466b3075b2e8f1bcefbc09cd6f4bd7321efa2"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/014_TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR.png",
+      "size_bytes": 110573,
+      "sha256": "224de9c9a51ebd11c906e00bea923531c672fd2f7568bd3caa0e12375da4ad6c"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/015_TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1.png",
+      "size_bytes": 110930,
+      "sha256": "1eb4fa89bd50fe9dbbb841da1c60eeb2cf515875981e152566e5111c942bf8e2"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/016_TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP.png",
+      "size_bytes": 107002,
+      "sha256": "b15b1d4dcff7f3f2a7748aa2b7a8f41185d7d541bd20a9e4d1c0787c2b4a135b"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/017_TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR.png",
+      "size_bytes": 106084,
+      "sha256": "df1c665fcae2d9e588258d2e4248b0d81228ee7eaa45b63974d2dd6a3692341b"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/018_TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION.png",
+      "size_bytes": 107573,
+      "sha256": "0acd2a8c9c291e9a4ff980f5d41dcff8c044e80915f6e551ad2b22d0093b9b59"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/019_TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST.png",
+      "size_bytes": 107159,
+      "sha256": "61d1e004c3e72b6cbf06bb8b67dedb2b8f8a6616a9dc18bd84fa46bfd13042cb"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/020_TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1.png",
+      "size_bytes": 106612,
+      "sha256": "227d9a595bf4e771b51b9a32700322e62d7c6b252233454b4bbb86690fc66571"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/021_TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1.png",
+      "size_bytes": 106440,
+      "sha256": "fb6f09f33d342d02382df2816fdcb675d817a9d4a6371518b5f2ed1cbd8e46ea"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/022_TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1.png",
+      "size_bytes": 106653,
+      "sha256": "d367eabf425b52934832043a98495b9caa1d73eb32078bfad62d60a1639d52dd"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/023_TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1.png",
+      "size_bytes": 106786,
+      "sha256": "bbad9d336206e1fd6814961b0d4eb60ffa7921aec216bbd8431aaba5cc8bb9f3"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/024_TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1.png",
+      "size_bytes": 108676,
+      "sha256": "7d59c0946f89583a6787963be200a401e8deb34ef01a75249331e820d470aa5d"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/025_TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1.png",
+      "size_bytes": 108625,
+      "sha256": "994619c2e9078edfd94e7480ccd213af59a2d0b881edf1ec8a701309462f6c68"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/026_TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1.png",
+      "size_bytes": 108476,
+      "sha256": "2cdc578d14d2531cb79779027915565adac75a19638c5ef90b97cf6baf4eb4b7"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/027_TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1.png",
+      "size_bytes": 109106,
+      "sha256": "7ca1e02d1eabf36cfeec46c207e869db123bbf5c28bb11e4ad538d2da1a8a16e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/028_TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1.png",
+      "size_bytes": 112838,
+      "sha256": "13e3a0c6d0105d2e56c2eaea4fe360b37b8f693f2db6ae07a8b3cd3344cbfaec"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/029_TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1.png",
+      "size_bytes": 112987,
+      "sha256": "d4b3f19e6aded7e475d077892ad5a0e4003bb8a0859ee6d02714ea75c15cbca0"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/030_TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1.png",
+      "size_bytes": 116873,
+      "sha256": "a7c6fbbc9f55a9a26412343ee9032f09331caea4bf2d7e16a94f1a5abb3915be"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/031_RECEIPT_SCHEMA_V1_json.png",
+      "size_bytes": 110064,
+      "sha256": "387080cb69ba3d9d9f65062ae434f71f1056fdd2583b8a7436ece90e4801bc70"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/032_TOOL_LAYOUT_RECEIPT_json.png",
+      "size_bytes": 123436,
+      "sha256": "d5b95699404687b5e0d8b7acda06944da6769f8d8b95c60085a3bc33e675d5f4"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/033_TOOL_LAYOUT_RECEIPT_json.png",
+      "size_bytes": 127158,
+      "sha256": "18b086227ed742d057beb55f019bc4920fd2ed43fd195c73763e866a1f542230"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/034_BARRIER_RECEIPT_json.png",
+      "size_bytes": 116711,
+      "sha256": "50b0a097cbb82c3b1a295f3baeadf29d289b4c73cf6c6e017bba8ab5523f27ef"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/035_fetch_fail_FETCH_RECEIPT_json.png",
+      "size_bytes": 120827,
+      "sha256": "9c1eb360270d78647d4ef3b354067608c50f394a2f5b1f7f90ebbe6f8e519c10"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/036_latest_reject_DISPATCH_RECEIPT_json.png",
+      "size_bytes": 119675,
+      "sha256": "b66c2cb60836c3ac3f97155a7970f88d061f51fd60b3518055972beba8fd45df"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/037_send_fail_DISPATCH_RECEIPT_json.png",
+      "size_bytes": 122643,
+      "sha256": "ea3efd2fc00fe29659064dc218d58d47b1518b0aad026fda44a4dd7506b55edc"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/038_FINAL_ASSEMBLY_RECEIPT_json.png",
+      "size_bytes": 124642,
+      "sha256": "6b2dd7d873059a5091ca80e011134f25ea053028ec9273e613aed3d7076cb9e6"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/039_MANIFEST_json.png",
+      "size_bytes": 121061,
+      "sha256": "ed9173b4d1c193d16afadbb11f00b4c9549f5db7b8aaeb73cf3be439148f6c94"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/040_MANIFEST_json.png",
+      "size_bytes": 121747,
+      "sha256": "b3637c904139b21da6675e0f20b4345486685bb396ab8ce7a1e06344e0da124a"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/041_MANIFEST_json.png",
+      "size_bytes": 123841,
+      "sha256": "53fd301718b387451f044c9c12e4a60fe625eb6a0ad030329c554395ce9af5a5"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/042_MANIFEST_json.png",
+      "size_bytes": 120321,
+      "sha256": "95996cd9f7bf93bae237bebf33213e3268e8c0a5a2d61e9fe79416f1a580fad3"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/043_MANIFEST_json.png",
+      "size_bytes": 119595,
+      "sha256": "6db91a23863e0a2cf8a0c8d16b0c3a9a6c916f88361462dd4f875310137b42cd"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/044_MANIFEST_json.png",
+      "size_bytes": 122582,
+      "sha256": "8303c8832c0d099e1fc72d6f5e600779cff5175643f33ed748ebccdfd02cc9c9"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/045_MANIFEST_json.png",
+      "size_bytes": 121391,
+      "sha256": "4681c4d7d30e34b2dbaad2e85b053c834df198793a0e1e331472f996ab34188f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/046_MANIFEST_json.png",
+      "size_bytes": 121659,
+      "sha256": "37182365a543343494ce8cec6e0d4f073b570f3288d548e66adda80d81413eca"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/047_TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING_FINAL_STEP_BUNDLE_zip.png",
+      "size_bytes": 104628,
+      "sha256": "504bc4cac30490273684461bc68d6b8bd17761cb682fe97159e6f8ae08456725"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/048_IMPERIUM_LIGHT_SNAPSHOT_20260507_164459_zip.png",
+      "size_bytes": 109590,
+      "sha256": "4b1760072459adf9a8f7e9a4b344175637c6a9cc6f6b169566fd4e29ba916b9f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/049_PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703_zip.png",
+      "size_bytes": 110978,
+      "sha256": "81dc835ec58e980a17e40aa129cd7c6fbe52c3dc0a793040384cc0a804ccdef8"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/050_PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344_zip.png",
+      "size_bytes": 110293,
+      "sha256": "05d82d0e8656be91c6d6495311857d333fce204c74140580d6e0196674d5940e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/051_PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711_zip.png",
+      "size_bytes": 109695,
+      "sha256": "345d6650adf60affda31cace5275592779975c1fa089f2a88bbdcb685e9c5d89"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/052_ASTRA.png",
+      "size_bytes": 114942,
+      "sha256": "5e369cae600f95d90bc8af6f046ebaaba3007c27b4f08ab13855f9dfe48e9d62"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/053_ASTRA.png",
+      "size_bytes": 111952,
+      "sha256": "674265430b9dd51f43238e52e10f82a05342d7e94f080011f35533d082148636"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/054_ASTRA.png",
+      "size_bytes": 107559,
+      "sha256": "1883b1461f3a2423cbfb0be37b5cc7541724839de28131ab4d25a143f5b0474a"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/055_astronomicon.png",
+      "size_bytes": 108224,
+      "sha256": "b7096141813ff91431c37e6b610306085dc9fd0229e5e94b468791eda286050c"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/056_astronomicon.png",
+      "size_bytes": 115388,
+      "sha256": "8bdac8fdf16c3bfda480dc6a8dee7aa0c123c7ae8ff801d13e5c1837998ac521"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/057_administratum.png",
+      "size_bytes": 114165,
+      "sha256": "01e329386ef06ae627ea856be5c226a06c63c80ecbd6f0954cb19c5db4898e31"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/058_administratum.png",
+      "size_bytes": 105812,
+      "sha256": "910bf53b538586e120459326f5ad2caa2a600641400e79ff504073cab362f06f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/059_administratum.png",
+      "size_bytes": 108934,
+      "sha256": "f5d5a1c277199da291c651246f7d523a60aa7b8be632630ffc5194eb5052451c"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/060_OBSERVED.png",
+      "size_bytes": 106394,
+      "sha256": "69fcec5ae5191aeca3c8cc87187234503c995ddda9542c2342d6f55acc7b997e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/061_ORGANS.png",
+      "size_bytes": 108278,
+      "sha256": "45254057b024a72827b83b9386ea11d8f6013ab189900338e90a8442a998c6bc"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/062_PC_ENGINEERING_ROOM.png",
+      "size_bytes": 107762,
+      "sha256": "20073643eb204fda92f0232b4ecdd6b09f90f7bc4023f1d7104eef1b108aacb4"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/063_SSH_COMMAND_LIBRARY.png",
+      "size_bytes": 105978,
+      "sha256": "227bd85b84c7c01e918c7caa857c040c419dcd7769b91fd519969d18da5fa954"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/064_imperium_explorer_v0_3_py.png",
+      "size_bytes": 111797,
+      "sha256": "308435bf856c4cc01c7e05e016d2be385546a7120d02dddf3fd20fa3a318e9da"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/065_imperium_explorer_v0_4_py.png",
+      "size_bytes": 111998,
+      "sha256": "ad7546616cd4ee09805517eb8880c35c25533fb71ead793d00a8a2e47d79a0b7"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/066_imperium_explorer_v0_5_py.png",
+      "size_bytes": 111855,
+      "sha256": "7afe99c40c29714c05e9dd568b4cb906f40617c6e6e64ec75b5450fc5e90e027"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/067_VERIFY.png",
+      "size_bytes": 114955,
+      "sha256": "196751b695fccbb55a8eb8677af1fd988e9829e9adc01409a754125cb9cd2fbe"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/068_SCREENSHOTS.png",
+      "size_bytes": 114964,
+      "sha256": "16dbc58a17e0f1914808a5f281cd373eac5e74036ddac4c28dc9c473e041d920"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/AUTO_SCREENSHOT_TRUTH_CHECK_REPORT.json",
+      "size_bytes": 48189,
+      "sha256": "254cd0cbf3ce820a0be56ed150d90840494bbeff8fba334afbf893a63d5ea3e8"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/AUTO_SCREENSHOT_TRUTH_CHECK_REPORT.md",
+      "size_bytes": 693,
+      "sha256": "8a8461572b38f9875f55ab94d6620b3b97eafabf9d7e3f24cb36dc47af8cca7a"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/SCREENSHOT_GALLERY.md",
+      "size_bytes": 33364,
+      "sha256": "743c7901d03f421914f6563b1705a9bbaa5fc36fdc7cc130b455ab0f4aae47b1"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/auto_explorer_screenshot_truth_check_v1_0a.py",
+      "size_bytes": 16506,
+      "sha256": "eb2dceaf6e824096451783e022e8ff9e071983ef931daf221a5f8d91e21ac9a7"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/explorer_truth_audit_v1_0a.py",
+      "size_bytes": 14156,
+      "sha256": "b2f493f54a07cd5f3408416e93cc8d7d90a68f9c1b5037f2681d0a4001f8e168"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/static_readonly_source_scan_v1_0a.py",
+      "size_bytes": 2820,
+      "sha256": "9e012e3b38f3086ddc6f6a0ff3f9ab65b65a7223d1379bb17580fd7c1b6ee1eb"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/RUN-V1_0A-20260509-120751/EXPLORER_TRUTH_AUDIT_REPORT.json",
+      "size_bytes": 20732,
+      "sha256": "c587609409e0fce8b4ccfef1ff016694e8d13f71190cf2027f6d687caa2c32fd"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/RUN-V1_0A-20260509-120751/EXPLORER_TRUTH_AUDIT_REPORT.md",
+      "size_bytes": 2043,
+      "sha256": "eb3a0c5c52efe143799fdb6b209999f50b18d62f7eb002e9ebb94f1dbedd40bf"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
+      "size_bytes": 215,
+      "sha256": "7ab4525730bd050d31bc41907f199e35a8561730a3fba80107be13d4ba76a604"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/README.md",
+      "size_bytes": 301,
+      "sha256": "9e164f69ab49643057ceca6ab93ea691c7af9bdc6f31c2b3f240021985ad98f6"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASK_REGISTRY.json",
+      "size_bytes": 141,
+      "sha256": "977ab95b8425b1a2314df5467d64e9dd2e9fb638d2bf48cd9be0ba664229d87e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/ADDRESSES/ADDRESS_REGISTRY.json",
+      "size_bytes": 285,
+      "sha256": "a55f639d58dfa15ad9992d5d98d57e078691991b69bcac2b16402493878d13cd"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/ADDRESSES/READ_ROUTE_REGISTRY.json",
+      "size_bytes": 329,
+      "sha256": "8d86516aa5c4145bb937f0f027c19e420204060ddad83afee3e925ab22ee9bcd"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/OUTPUT_RULES/ARTIFACT_OUTPUT_POLICY.json",
+      "size_bytes": 184,
+      "sha256": "078326fb7c574b8ceb9c9f2aa85b544de484de97abf96133081a93cb5276026e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/OUTPUT_RULES/BUNDLE_OUTPUT_POLICY.json",
+      "size_bytes": 184,
+      "sha256": "ca9678c49531968037330094a1429ae9316e770990a926ae984a4dc465fd18ae"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/CLAIMS_ALLOWED_DENIED_MATRIX.json",
+      "size_bytes": 501,
+      "sha256": "41b0d3c481f4677fcc40fc72396ee88e062793cdfe4633c9f0c173252cc60b4f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/LANGUAGE_POLICY.json",
+      "size_bytes": 352,
+      "sha256": "25eec7842ca08203844e7df57f3a41ab92f16df332f0924d8138a006361c7bf8"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_DELETE_POLICY.json",
+      "size_bytes": 142,
+      "sha256": "a90b0f0389bcd884ec032b17116f25e83fab54a20490fa2f07b5163c0be0b6f0"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_LATEST_POLICY.json",
+      "size_bytes": 155,
+      "sha256": "85551c08102a20aaf39ec4032152694993bdc029094345183d609f636ab6c7dc"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_THRONE_POLICY.json",
+      "size_bytes": 127,
+      "sha256": "db231e1a2e607923b2d8fab382e27c0497bd5fe04b49e6291954d4224f32ecce"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_WATCHERS_POLICY.json",
+      "size_bytes": 145,
+      "sha256": "6b5931d221dbc23b9664de0ee9f457d3b8425a465e300b664c6dbf77c5b35fcf"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/STAGE_ID_POLICY.json",
+      "size_bytes": 458,
+      "sha256": "f2c9a694a3eecfafb85dc96b5755a3740ec9bc9f1f46b3b594728058790ea8d5"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/READ_FIRST_RECEIPT_SCHEMA.json",
+      "size_bytes": 235,
+      "sha256": "c100739e0e54804d530080a9e6279034eb98091c0255fe300211da165cbb0e52"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/TASK_LAUNCH_CARD_SCHEMA.json",
+      "size_bytes": 401,
+      "sha256": "8c7fb5e42f50a6d42c362a472c4e6479a6ae5f23850f4e4f7fe0abc27fd2991a"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/TASK_STAGE_MAP_SCHEMA.json",
+      "size_bytes": 173,
+      "sha256": "0c4bbf546e62b517c25163a56745b9768505ddd307657960a373d0ddffbd6b1d"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/TASK_VERSION_CHAIN_SCHEMA.json",
+      "size_bytes": 176,
+      "sha256": "79357813e595d9a976ea1d8d6e6f5d0403901ff9911aa34b65c7f3a307efbf85"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/create_repair_branch.py",
+      "size_bytes": 3300,
+      "sha256": "c6c6fb4104edda7d616b92c3997db94c33c91b40e5688d2b5f9d63fa82bec882"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/create_task_launch_card.py",
+      "size_bytes": 2288,
+      "sha256": "4ef9732198f5beff9ee71fca0734413514bdd53f3fac4970123df406490d21d3"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/validate_policy_refs.py",
+      "size_bytes": 1287,
+      "sha256": "482f5c2382d7619f57de674287e9f3ea49a882194174ecbef39a5fea7a59218c"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/validate_read_first_receipt.py",
+      "size_bytes": 2150,
+      "sha256": "7cde00b5f2e7a2293cf9f4bee45fb95a48eccf37e8e71fbdb609c573d96ca13f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/validate_task_launch_card.py",
+      "size_bytes": 3714,
+      "sha256": "755786ce3190c4c671ae3813e8013c64d2771be350c8b512d6a0dd22a1f9ae9c"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_LAUNCH_CARD.json",
+      "size_bytes": 2373,
+      "sha256": "8fd2feacf792ded264e0eed4f7529f85f2040bd6a0483a22e36b869d8e97799e"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_READ_FIRST.md",
+      "size_bytes": 407,
+      "sha256": "29c1041ac148abdfa0c6527ef253f7ff87a31e138e2427f45ee615c5287fdc6a"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_STAGE_MAP.json",
+      "size_bytes": 324,
+      "sha256": "2d707a8c7d2ae81cd8ececa58b75d00495482f27c43ff57dbefa4dace4fffd44"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_VERSION_CHAIN.json",
+      "size_bytes": 190,
+      "sha256": "2c6d92fbf65d7a04a6fcd271fb249f05ab5088cd30dfff531d9874c222000aa2"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/BLOCKER_BEACONS.json",
+      "size_bytes": 343,
+      "sha256": "7224815ceb8b50126c92f7055b272ecb8b2f386b94ff6cd2409c01bab0de5d8f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/CAMPAIGN_STATE.json",
+      "size_bytes": 409,
+      "sha256": "7c54a77d3eed5f82f067db414331a72ab12feb9451f99d02c53d969ae5094f3d"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/NEXT_ALLOWED_ACTION.json",
+      "size_bytes": 193,
+      "sha256": "1a874535d5dda830bd9b3bf95e5c3de62bcc0442fdd657183ee858b1089d3f86"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/ORGAN_STATUS.json",
+      "size_bytes": 213,
+      "sha256": "d9f8fc6107d5f4de0b9680be2c8b3ad74e17cc7a068b1f1a762aa324a2baa5ff"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/README.md",
+      "size_bytes": 249,
+      "sha256": "3aa687ae4d9acbcb363e9de91faa24d45535ca4aaa866c50e323abcf5c11378b"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/REPAIR_BRANCH_POLICY.json",
+      "size_bytes": 166,
+      "sha256": "2e067e148bf9e4e89793ec0ffaf32ffe48797e813a9491035eb771646a5a7003"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/ROADMAP.md",
+      "size_bytes": 305,
+      "sha256": "e1394e18f44c140c4c1c6654d74fe7527a7a364f76fe5cc4d0804a33ad2c0346"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/TASK_DEPENDENCY_GRAPH.json",
+      "size_bytes": 472,
+      "sha256": "6201e5e5b631dd113c36ff7384bf95ccdc27f59cb8478eba8097c4a6ea844f71"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/TASK_VERSION_CHAINS.json",
+      "size_bytes": 62,
+      "sha256": "c39e8343109f4a53f1c51dad4e4fa363ceba003a692d077ce4470781d8e335bf"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/ORGAN_STATUS.json",
+      "size_bytes": 206,
+      "sha256": "a3689b1c7172155626b928d64a61d1d920f8fbf8433fff9758381336c1bbeb01"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/README.md",
+      "size_bytes": 272,
+      "sha256": "5709f32d62ab90152340022543d6df58270fd619ac319f35f652645ef0fa792f"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPT_REGISTRY.json",
+      "size_bytes": 933,
+      "sha256": "71a65f276fb84a858e637e742d475b34697bd7261b7fb8836a99ed9caa9173eb"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/VALIDATOR_REGISTRY.json",
+      "size_bytes": 488,
+      "sha256": "6ae4a22ca73d5148a746a351bc18c5aa6b6c0ada52418b22c0330e96e58ec937"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/REPAIR_SCRIPTS/REPAIR_SCRIPT_INDEX.json",
+      "size_bytes": 165,
+      "sha256": "95881d39971f39c2620fb1eff1b698d802d72ddb3e9bbfcf34c34609d59b5f2b"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/RISK/TOOL_RISK_CLASSIFICATION.json",
+      "size_bytes": 206,
+      "sha256": "fb20b6b51b362c2749ffe4d9954e9ea30ed18fec1e0505b8d08585e13532143d"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCHEMAS/SCRIPT_CONTRACT_SCHEMA.json",
+      "size_bytes": 231,
+      "sha256": "3db514f67e4922671c26ca259014637a3194f245345ca8a747258cfebe8ce333"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCHEMAS/VALIDATOR_CONTRACT_SCHEMA.json",
+      "size_bytes": 204,
+      "sha256": "665039db7adc425e001060db7e0520871609566039e277ab331a2d035baa3e4a"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/build_manifest.py",
+      "size_bytes": 1748,
+      "sha256": "6960ea566846ed31fff85a82d04fe0c48ec624048e6a10bdca1bfcc83bd1a107"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/build_sha256sums.py",
+      "size_bytes": 1393,
+      "sha256": "79594bfdeb09cd754cc63ddf905651215524395c4c71328753b645b9b02ef319"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/scan_python_readonly_safety.py",
+      "size_bytes": 2653,
+      "sha256": "3a974ae0e004c6faea06373a7f5b3d385fed1b031e60b62b6e7589c498534565"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/TESTS/TEST_COMMAND_INDEX.json",
+      "size_bytes": 158,
+      "sha256": "a1f2defe1e744b7c5b4af5d8c967942936b4da4cbc62515f5972ba51af5e140e"
+    },
+    {
+      "path": "01_PACKAGING_POLICY/PACKAGING_FINALIZATION_POLICY.json",
+      "size_bytes": 869,
+      "sha256": "e1e541d982d2faeecc82d02ba91a749654f0c7ec24568574f3181d27d12e7659"
+    },
+    {
+      "path": "01_PACKAGING_POLICY/PACKAGING_FINALIZATION_POLICY.md",
+      "size_bytes": 541,
+      "sha256": "a970f8d1449a7c8990714fb6dd71f9d12659fddba739e52dfe60cef4023f6ffd"
+    },
+    {
+      "path": "02_VALIDATION/INTERNAL_HASH_VALIDATION_REPORT.json",
+      "size_bytes": 139,
+      "sha256": "ad6ffe03e6990995eef03384c7f898321d57e8b68c98a4d2c4dd94e9ca63bd3e"
+    },
+    {
+      "path": "02_VALIDATION/JSON_PARSE_REPORT.json",
+      "size_bytes": 5348,
+      "sha256": "f01201eb9a6e0a6ce422c3e04b3ddb134082f0f6c2f4c62cfd0de41cd28f8139"
+    },
+    {
+      "path": "02_VALIDATION/PLACEHOLDER_HASH_SCAN_REPORT.json",
+      "size_bytes": 102,
+      "sha256": "aa1ef131ecdd2c95cb859dabb2b2a9dfd68821436993f74bcd2066c8af5aa1d5"
+    },
+    {
+      "path": "02_VALIDATION/PYTHON_COMPILE_REPORT.json",
+      "size_bytes": 1661,
+      "sha256": "e9fc71f0968c00ebb33b24b1761178517be0575983eafdc0663dcc97999f13a0"
+    },
+    {
+      "path": "03_NEGATIVE_TESTS/NEGATIVE_TESTS_REPORT.json",
+      "size_bytes": 1706,
+      "sha256": "b28799d70ea1309bd130f8f07695f43c2d1621db7d37914717b27b0c348743d3"
+    },
+    {
+      "path": "05_RECEIPTS/FOUNDATION_0_1A_RECEIPT.json",
+      "size_bytes": 881,
+      "sha256": "461b437efa2c18f863d0a0c9f8b03a3e46af6538dc4b9875ff735b6f504b9e8f"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-NEG-WAIT",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "STAGE_WAIT_FOR_SIGNAL",
+  "timestamp_utc": "2026-05-08T20:37:25Z",
+  "stop_type": "GATE_TIMEOUT",
+  "status": "GATE_TIMEOUT",
+  "human_readable_reason": "timeout_reached",
+  "next_allowed_action": "owner_or_repair_decision"
+}

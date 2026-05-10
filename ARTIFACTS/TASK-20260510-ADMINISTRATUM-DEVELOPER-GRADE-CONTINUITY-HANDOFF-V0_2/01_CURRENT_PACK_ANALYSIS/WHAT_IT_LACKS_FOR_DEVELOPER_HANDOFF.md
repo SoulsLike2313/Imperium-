@@ -1,0 +1,15 @@
+# WHAT IT LACKS FOR DEVELOPER HANDOFF
+
+- DEVELOPER_HANDOFF
+- CODE_INDEX.json
+- SCRIPT_ENTRYPOINTS.json
+- DASHBOARD_INDEX.json
+- RUNBOOK.md
+- TEST_MATRIX.json
+- KNOWN_FAILURES.md
+- NEXT_DEVELOPMENT_QUEUE.md
+- ROLE_CONTEXT_INDEX.json
+- BUILDER_DIFF_SUMMARY.json
+- SAFE_EDIT_POLICY.json
+- DEVELOPER_ENTRYPOINT_FOR_NEW_CHAT.md
+- Developer-grade layer with code/script/test/runbook/role-context artifacts is missing.

@@ -1,0 +1,35 @@
+{
+  "schema_version": "ADMINISTRATUM_DASHBOARD_BUILD_REPORT_V0_1",
+  "generated_at": "2026-05-09T19:56:10.037667+00:00",
+  "dashboard_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1",
+  "url": "http://127.0.0.1:8792",
+  "launcher_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_1.ps1",
+  "active_action_buttons": [
+    "BUILD_CONTINUITY_PACK"
+  ],
+  "safe_navigation_buttons": [
+    "Open Continuity Packs folder",
+    "Open Reports folder",
+    "Open Administratum folder",
+    "Reload Data"
+  ],
+  "api_endpoints": [
+    {
+      "method": "GET",
+      "path": "/api/data"
+    },
+    {
+      "method": "POST",
+      "path": "/api/build-continuity-pack"
+    },
+    {
+      "method": "POST",
+      "path": "/api/open?target=packs|reports|administratum"
+    }
+  ],
+  "script_hashes": {
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\dashboard_server.py": "9b1084a17d0da82ce75fd3614521025280fae0f55a01ab214179310c09ad5280",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\app.js": "e0df3384305c3ca8420f1614abfa3f3fd420b2ac2e95e250bc6030c1831aef47"
+  },
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

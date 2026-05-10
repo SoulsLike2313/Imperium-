@@ -1,0 +1,25 @@
+total 52K
+drwxrwxr-x 13 vboxuser2 vboxuser2 4.0K May  8 15:32 .
+drwxr-x--- 22 vboxuser2 vboxuser2 4.0K May  8 13:52 ..
+drwxrwxr-x  3 vboxuser2 vboxuser2 4.0K May  8 15:32 01_INBOX
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 02_ACTIVE
+drwxrwxr-x  3 vboxuser2 vboxuser2 4.0K May  8 15:32 03_OUTBOX
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 04_RECEIPTS
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 05_MANIFESTS
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 06_HASHES
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 07_LOCAL_TOOLS
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 08_CONFIG_TEMPLATES
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 09_LOCAL_STATE
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 99_WORKER_STATUS
+drwxrwxr-x  3 vboxuser2 vboxuser2 4.0K May  8 13:52 INBOX
+total 12K
+drwxrwxr-x  3 vboxuser2 vboxuser2 4.0K May  8 15:32 .
+drwxrwxr-x 13 vboxuser2 vboxuser2 4.0K May  8 15:32 ..
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 tasks
+total 12K
+drwxrwxr-x  3 vboxuser2 vboxuser2 4.0K May  8 15:32 .
+drwxrwxr-x 13 vboxuser2 vboxuser2 4.0K May  8 15:32 ..
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 stage_bundles
+total 8.0K
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:32 .
+drwxrwxr-x 13 vboxuser2 vboxuser2 4.0K May  8 15:32 ..

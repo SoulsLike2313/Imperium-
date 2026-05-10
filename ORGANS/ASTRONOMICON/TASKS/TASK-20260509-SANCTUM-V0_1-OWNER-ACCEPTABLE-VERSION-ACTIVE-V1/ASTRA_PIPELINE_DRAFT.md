@@ -1,0 +1,132 @@
+# Astra Pipeline Draft
+
+{
+  "schema_version": "ASTRA_TASK_RECORD_V1_FOR_ACTIVE_SANCTUM_TASK",
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "created_at_local": "2026-05-09T15:08:39",
+  "route_status": "ACTIVE_OWNER_MANUAL_BUILD",
+  "pipeline_profile": "MANUAL_OWNER_ROUTE",
+  "owner_goal": "Довести Sanctum до приемлемой Owner версии. Sanctum v0.1 сейчас является manual client shell: Astra Utility + Explorer + task list + stage map + notes. Следующая работа должна идти по IMPERIUM pipeline, с фиксацией stage start/end, receipts, bugs, fixes, validation, artifacts and continuity pack.",
+  "current_known_status": {
+    "sanctum_v0_1_created": true,
+    "sanctum_smoke_check_run": true,
+    "sanctum_final_acceptable_version": false,
+    "owner_candidate_decision": "PENDING"
+  },
+  "stage_map": [
+    {
+      "stage_number": 1,
+      "stage_id": "ASTRA-STAGE-001",
+      "organ_or_executor": "ASTRONOMICON",
+      "title": "Register Sanctum active task",
+      "purpose": "Зафиксировать задачу, scope, stage map, pass criteria, next allowed action.",
+      "status": "PASS_ALREADY_CREATED_BY_THIS_REGISTRATION",
+      "expected_artifacts": [
+        "ASTRA_TASK_RECORD.json",
+        "STAGE_MAP.json",
+        "PASS_CRITERIA.json",
+        "NEXT_ALLOWED_ACTION.json",
+        "ROUTE_STATUS.json"
+      ]
+    },
+    {
+      "stage_number": 2,
+      "stage_id": "ADMINISTRATUM-STAGE-001",
+      "organ_or_executor": "ADMINISTRATUM",
+      "title": "Sanctum address and read-first map",
+      "purpose": "Дать адреса Astra Utility, Explorer, Sanctum root, notes, screenshots, receipts, artifacts.",
+      "status": "PLANNED",
+      "expected_artifacts": [
+        "SANCTUM_ADDRESS_MAP.json",
+        "READ_FIRST_ROUTE.md",
+        "OUTPUT_ROOTS.json",
+        "RECEIPT_REQUIREMENTS.json"
+      ]
+    },
+    {
+      "stage_number": 3,
+      "stage_id": "MECHANICUS-STAGE-001",
+      "organ_or_executor": "MECHANICUS",
+      "title": "Sanctum scripts and validators map",
+      "purpose": "Определить compile/json/screenshot/manifest/hash/bundle/check scripts для ручной сборки Sanctum.",
+      "status": "PLANNED",
+      "expected_artifacts": [
+        "SANCTUM_SCRIPT_MAP.json",
+        "VALIDATOR_MAP.json",
+        "MISSING_SCRIPTS.md"
+      ]
+    },
+    {
+      "stage_number": 4,
+      "stage_id": "INQUISITION-STAGE-001",
+      "organ_or_executor": "INQUISITION",
+      "title": "Sanctum anti-heresy preflight",
+      "purpose": "Проверить no fake green, no source-of-truth claim, no live organs, no VM2/THRONE/E2E/watchers/delete.",
+      "status": "PLANNED",
+      "expected_artifacts": [
+        "INQUISITION_PREFLIGHT_REPORT.json",
+        "FORBIDDEN_CLAIMS_REPORT.md",
+        "FORBIDDEN_ACTIONS_REPORT.md"
+      ]
+    },
+    {
+      "stage_number": 5,
+      "stage_id": "PC-STAGE-001",
+      "organ_or_executor": "OWNER_LOGOS_MANUAL",
+      "title": "Manual Sanctum iteration",
+      "purpose": "Ручная доработка Sanctum v0.1/v0.x по Owner решениям, с receipts, screenshots, notes, bugs and fixes.",
+      "status": "ACTIVE",
+      "expected_artifacts": [
+        "SANCTUM_SOURCE",
+        "MANUAL_NOTES",
+        "SCREENSHOTS",
+        "BUGS_AND_FIXES.md",
+        "STAGE_RECEIPTS"
+      ]
+    },
+    {
+      "stage_number": 6,
+      "stage_id": "SPECULUM-STAGE-001",
+      "organ_or_executor": "LOGOS_SPECULUM",
+      "title": "Hard review after Owner candidate",
+      "purpose": "Speculum проверяет artifact only after Owner decides version is candidate-worthy.",
+      "status": "PLANNED_NOT_STARTED",
+      "expected_artifacts": [
+        "SPECULUM_REVIEW_REQUEST.md",
+        "SPECULUM_REVIEW.md"
+      ]
+    }
+  ],
+  "next_allowed_action": {
+    "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+    "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+    "action": "CONTINUE_MANUAL_SANCTUM_ITERATION",
+    "current_mode": "OWNER_LOGOS_MANUAL_BUILD",
+    "allowed_next": [
+      "improve_sanctum_ui_manually",
+      "run_smoke_screenshot_check",
+      "record_manual_notes",
+      "collect_artifacts",
+      "ask_speculum_for_review_after_owner_candidate"
+    ],
+    "not_allowed": [
+      "VM2_ACTIVATION",
+      "THRONE_CONTACT",
+      "E2E_RUN",
+      "WATCHERS",
+      "BACKGROUND_AUTOMATION",
+      "DELETE_MOVE",
+      "LIVE_ORGAN_CLAIM",
+      "CONTINUITY_GREEN_CLAIM"
+    ]
+  },
+  "non_claims": [
+    "Sanctum is not source of truth.",
+    "Sanctum is not live organ.",
+    "Sanctum is not E2E.",
+    "No VM2.",
+    "No THRONE.",
+    "No continuity green."
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "index_parse_ok": true,
+  "tool_count": 35,
+  "missing_field_entry_count": 0,
+  "active_tool_count": 15,
+  "active_tool_ids": [
+    "CORE_ID_VALIDATION",
+    "CORE_SHA256_UTILS",
+    "CORE_MANIFEST_UTILS",
+    "CORE_PROVENANCE_UTILS",
+    "CORE_LEDGER_UTILS",
+    "CORE_OWNER_REPORT",
+    "CORE_PATH_SAFETY",
+    "CORE_REGISTRY_UTILS",
+    "PC_VM2_SEND_PROMPT",
+    "PC_VM2_FETCH_STAGE_BUNDLE",
+    "PC_BARRIER_VERIFY",
+    "PC_FINAL_BUNDLE_ASSEMBLE",
+    "PC_TASK_STATUS_APPEND",
+    "PC_TASK_STATUS_VIEW",
+    "READONLY_EXPLORER"
+  ],
+  "unknown_active": [],
+  "status": "PASS"
+}

@@ -1,0 +1,11 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-NEG-WAIT",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "waiting_for_stage_id": "STAGE-999",
+  "status": "GATE_TIMEOUT",
+  "reason": "timeout_reached",
+  "max_attempts": 2,
+  "timeout_sec": 1
+}

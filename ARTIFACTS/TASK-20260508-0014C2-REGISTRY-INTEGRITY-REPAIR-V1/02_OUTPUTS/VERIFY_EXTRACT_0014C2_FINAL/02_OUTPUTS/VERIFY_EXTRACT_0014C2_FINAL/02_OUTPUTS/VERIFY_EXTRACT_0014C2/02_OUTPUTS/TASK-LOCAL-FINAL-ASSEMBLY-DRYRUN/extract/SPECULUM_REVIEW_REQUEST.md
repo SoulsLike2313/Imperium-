@@ -1,0 +1,1 @@
+# Speculum request fixture

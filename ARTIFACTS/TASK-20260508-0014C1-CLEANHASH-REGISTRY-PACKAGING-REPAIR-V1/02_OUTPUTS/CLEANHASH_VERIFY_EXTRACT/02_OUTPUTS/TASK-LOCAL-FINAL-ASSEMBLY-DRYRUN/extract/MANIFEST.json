@@ -1,0 +1,80 @@
+{
+  "manifest_version": "IMPERIUM_MANIFEST_V1",
+  "identity": {
+    "task_id": "TASK-20260508-1414-LOCAL-FINAL-ASSEMBLY-DRYRUN",
+    "stage_id": "STAGE-FINAL-ASSEMBLY",
+    "run_id": "RUN-00000000-0000",
+    "contour_id": "PC",
+    "producer_type": "PC_SERVITOR",
+    "producer_id": "PC-SERVITOR-LOCAL-DRYRUN"
+  },
+  "file_count": 12,
+  "files": [
+    {
+      "relative_path": "AGENT_FINAL_RESPONSE.txt",
+      "size_bytes": 579,
+      "sha256": "dcbb506359668735cdfa916127f6ac9f8b9c48e2c39127af9aa850798aa45986"
+    },
+    {
+      "relative_path": "BARRIER_REPORT.json",
+      "size_bytes": 200,
+      "sha256": "55005129694c892392d8df93173a602f982ffd832c2be85fae23115f4991b627"
+    },
+    {
+      "relative_path": "FINAL_PROVENANCE.json",
+      "size_bytes": 1063,
+      "sha256": "88e0231100360a5e3b2971c2473e2f37c18d2bbcc4450b852997eed7a64f0393"
+    },
+    {
+      "relative_path": "ORIGIN_INDEX.json",
+      "size_bytes": 65,
+      "sha256": "02f4c5f8e8e798047f872964bae2660eb098e73a4bbea06acec3421b42a7939a"
+    },
+    {
+      "relative_path": "OWNER_SUMMARY.md",
+      "size_bytes": 25,
+      "sha256": "987789aebcd7168d3e475739423f5ec8e3c70fe6934a99500fccf2d9c5f1bafe"
+    },
+    {
+      "relative_path": "SPECULUM_REVIEW_REQUEST.md",
+      "size_bytes": 28,
+      "sha256": "2a5043755331666cfbe3d91e6c97c91bb8aabea3231f504339bb6a52f3cbb178"
+    },
+    {
+      "relative_path": "TASK_STATUS_LEDGER.jsonl",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "INPUT_ROOT/artifact.txt",
+      "size_bytes": 18,
+      "sha256": "7fe761b94a5759af99bb3f05b61462773c84adca4c48728500c64ea5ed0decaf"
+    },
+    {
+      "relative_path": "INPUT_ROOT/receipts/fake_pc_stage_receipt.json",
+      "size_bytes": 190,
+      "sha256": "e6ec20df05fe3a322c105603ebbde645a073f8864b209f384230522d0bf111e5"
+    },
+    {
+      "relative_path": "INPUT_ROOT/receipts/fake_vm2_stage_receipt.json",
+      "size_bytes": 192,
+      "sha256": "3b6bd4983a8855125390768695ddafc0226f60bcb57e163636264db0dd5de0d9"
+    },
+    {
+      "relative_path": "INPUT_ROOT/stage_bundle/OUTPUT_MANIFEST.json",
+      "size_bytes": 138,
+      "sha256": "b3ec3067470455bc23e5abdbced17a4fab84cf875c32224d82ae08ee7c5d9074"
+    },
+    {
+      "relative_path": "INPUT_ROOT/nested/deep/file.txt",
+      "size_bytes": 16,
+      "sha256": "7c34ee71d06fedccc4e3657dc089a3089cebb136731adfc6c02b1f3a6b9fe5ae"
+    }
+  ],
+  "notes": [
+    "Final bundle assembly output"
+  ],
+  "bundle_sha256_location": "external_sidecar_sha256",
+  "bundle_self_hash_embedded": false,
+  "bundle_self_hash_sidecar_pattern": "<final_bundle>.zip.sha256"
+}

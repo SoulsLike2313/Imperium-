@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "current_stage": "PC-STAGE-001",
+  "current_status": "ACTIVE_NOT_COMPLETE",
+  "latest_attempted_sanctum_version": "v0.27",
+  "known_issue": "flickering_or_occasional_blank_unified_map_still_occurs",
+  "owner_decision": "stop_here_create_continuity_pack_continue_in_new_logos_prime_chat",
+  "non_claims": {
+    "task_complete": false,
+    "final_artifact": false,
+    "speculum_ready_final_bundle": false,
+    "sanctum_final_accepted": false,
+    "sanctum_baseline": false,
+    "sanctum_production_ready": false,
+    "continuity_green": false
+  },
+  "captured_at_local": "2026-05-09T16:39:16",
+  "captured_at_utc": "2026-05-09T13:39:16+00:00"
+}

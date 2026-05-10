@@ -1,0 +1,28 @@
+{
+  "schema_version": "HARDENING_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_3_PATCHES",
+  "input_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\02_SCRIPT_AUDIT\\ORGAN_SCRIPT_AUDIT.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\03_PATCHES\\PATCH_LOG.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\03_PATCHES\\PATCH_LOG.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\02_SCRIPT_AUDIT\\ORGAN_SCRIPT_AUDIT.json": "f609cde6ad21627d53c33f9f68bb56bf9a5f19cc07e6c332241efb96924511ae",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\03_PATCHES\\PATCH_LOG.md": "f4daaefb42f1e157aa0a4ac2a0f69293a58081b160e34bfc143e8476d47ea5cb",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\03_PATCHES\\PATCH_LOG.json": "43af3e525c4a5f065b1562e503eba38cdcee53f708ee923dc11029e4947535c9"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "next_action": "Proceed to doctrine status and replay checks.",
+  "created_at": "2026-05-09T15:20:56.7310534Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Применены минимальные hardening-патчи без расширения функционала."
+}

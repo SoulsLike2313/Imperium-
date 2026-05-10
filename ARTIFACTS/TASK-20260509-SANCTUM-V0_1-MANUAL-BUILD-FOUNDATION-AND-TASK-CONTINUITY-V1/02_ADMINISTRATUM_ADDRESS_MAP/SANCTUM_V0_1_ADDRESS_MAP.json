@@ -1,0 +1,118 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "run_id": "RUN-20260509-SANCTUM-FOUNDATION-0001",
+  "sanctum_task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+  "address_map_version": "0.1",
+  "paths": {
+    "astra_utility_source": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_4.py",
+    "explorer_source": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0a.py",
+    "astronomicon_tasks_root": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS",
+    "planned_sanctum_root": "E:\\IMPERIUM\\SANCTUM",
+    "planned_sanctum_source": "E:\\IMPERIUM\\SANCTUM\\sanctum_v0_1.py",
+    "planned_sanctum_readme": "E:\\IMPERIUM\\SANCTUM\\README.md",
+    "planned_sanctum_manual_notes_folder": "E:\\IMPERIUM\\SANCTUM\\MANUAL_NOTES",
+    "planned_sanctum_receipts_folder": "E:\\IMPERIUM\\SANCTUM\\RECEIPTS",
+    "planned_sanctum_screenshots_folder": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS",
+    "planned_sanctum_artifact_root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+    "current_foundation_artifact_root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1"
+  },
+  "policy_refs": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\STAGE_ID_POLICY.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_THRONE_POLICY.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_WATCHERS_POLICY.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_LATEST_POLICY.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_DELETE_POLICY.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\CLAIMS_ALLOWED_DENIED_MATRIX.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\LANGUAGE_POLICY.json",
+      "exists": true
+    }
+  ],
+  "port_contract_refs": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\ASTRA_TO_ADMINISTRATUM_PORT_CONTRACT.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\ADMINISTRATUM_TO_MECHANICUS_PORT_CONTRACT.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\MECHANICUS_TO_INQUISITION_PORT_CONTRACT.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\INQUISITION_TO_OWNER_PC_PORT_CONTRACT.json",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\SPECULUM_REVIEW_PORT_CONTRACT.json",
+      "exists": true
+    }
+  ],
+  "validation_script_refs": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_manifest.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_sha256sums.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\VERIFY\\explorer_truth_audit_v1_0a.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v1_0a.py",
+      "exists": true
+    }
+  ],
+  "write_rules": {
+    "sanctum_v0_1_write_scope": [
+      "E:\\IMPERIUM\\SANCTUM",
+      "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1"
+    ],
+    "forbidden_actions": [
+      "NO_DELETE",
+      "NO_MOVE",
+      "NO_RENAME_EXISTING_CANON",
+      "NO_VM2",
+      "NO_THRONE",
+      "NO_E2E",
+      "NO_WATCHERS",
+      "NO_BACKGROUND_AUTOMATION",
+      "NO_LATEST_BUNDLE_LOGIC"
+    ]
+  }
+}

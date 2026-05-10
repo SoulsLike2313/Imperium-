@@ -1,0 +1,29 @@
+{
+  "schema_id": "ADMINISTRATUM_TASK_DECOMPOSITION_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_map",
+    "contour_assignments",
+    "dependency_map",
+    "pass_criteria"
+  ],
+  "stage_record": {
+    "stage_id": "string",
+    "contour_id": "PC|VM2|OWNER_MANUAL",
+    "required_tool_ids": [
+      "string"
+    ],
+    "inputs": [
+      "string"
+    ],
+    "outputs": [
+      "string"
+    ],
+    "pass_criteria": [
+      "string"
+    ],
+    "stop_conditions": [
+      "string"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "draft_route_policy_hash_status": "POLICY_HASH_PENDING",
+  "draft_route_placeholder_allowed": true,
+  "pass_receipts_with_placeholder": [],
+  "verdict": "PASS_POLICY_HASH_PLACEHOLDER_TEST"
+}

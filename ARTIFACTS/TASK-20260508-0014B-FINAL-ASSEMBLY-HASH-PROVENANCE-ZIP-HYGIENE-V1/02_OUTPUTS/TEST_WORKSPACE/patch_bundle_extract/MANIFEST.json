@@ -1,0 +1,76 @@
+{
+  "manifest_version": "IMPERIUM_PATCH_MANIFEST_V1",
+  "task_id": "TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1",
+  "file_count": 13,
+  "files": [
+    {
+      "relative_path": "AGENT_FINAL_RESPONSE.txt",
+      "size_bytes": 966,
+      "sha256": "42f9a912d30db74948752ec0ce1c69798aa49393551292c39d3514d3fcb850ac"
+    },
+    {
+      "relative_path": "final_bundle_assemble.py",
+      "size_bytes": 15176,
+      "sha256": "036114e08b3046f5a84170ca2784ef808046b8a431142fabb99c13686c201e4b"
+    },
+    {
+      "relative_path": "lib/manifest_utils.py",
+      "size_bytes": 2504,
+      "sha256": "dd2d078ad1f70bde949fac1d6d2a3b28bc41e3105bd3ed117693e48b395ee248"
+    },
+    {
+      "relative_path": "lib/owner_report.py",
+      "size_bytes": 1656,
+      "sha256": "89448ef76d853c9da6da5322dd79cd8537cb1f2411dbf36f200f299bc9197f04"
+    },
+    {
+      "relative_path": "lib/path_safety.py",
+      "size_bytes": 1043,
+      "sha256": "37d6a4423eb7647d04ef6a77bd33b5294efc5e5b8d89b685ea7a089de33f4a78"
+    },
+    {
+      "relative_path": "lib/provenance_utils.py",
+      "size_bytes": 7676,
+      "sha256": "517178d4e5c7983a0aa42adb20dc4eb6d342ba070eea0356c4268a75f550caa7"
+    },
+    {
+      "relative_path": "lib/sha256_utils.py",
+      "size_bytes": 3042,
+      "sha256": "f8464526fc5f02a094f3ec50432a46edb5bd616b957947d5daa537550f87e377"
+    },
+    {
+      "relative_path": "OWNER_SUMMARY.md",
+      "size_bytes": 758,
+      "sha256": "883226ab248c2ce39a37e64c51feb0695f6e6e84f08c168daef6a0a1caa078e1"
+    },
+    {
+      "relative_path": "REPAIR_TEST_RESULTS.md",
+      "size_bytes": 1650,
+      "sha256": "c404a89e8f86693f7e8987db790f5fa5a43ce7716b235cf748b7f214493ec911"
+    },
+    {
+      "relative_path": "SPECULUM_REVIEW_REQUEST.md",
+      "size_bytes": 760,
+      "sha256": "1e45fcec9ef13b2ac63ab8c0c7cf3fa37fb39db6a5f17e4f3c007a28b1a55f17"
+    },
+    {
+      "relative_path": "TOOL_LAYOUT_RECEIPT.json",
+      "size_bytes": 1078,
+      "sha256": "07c3b98814240c2fb6a388e193364d10b6cd3612cadf636a849f014d4e591796"
+    },
+    {
+      "relative_path": "TOOLS_INDEX.md",
+      "size_bytes": 2148,
+      "sha256": "f01665280ae4264e9432acf83cc4710aa7c40b7fa8d74bcf4397b4ebaaf0f884"
+    },
+    {
+      "relative_path": "UPDATED_SCRIPT_ACCEPTANCE_TESTS.md",
+      "size_bytes": 1281,
+      "sha256": "3cb8e9917c4b3c33ab56d86caf507b7cc275b70883a7254f08be227fda8b7f06"
+    }
+  ],
+  "notes": [
+    "Patch snapshot for final assembly hash/provenance/zip hygiene repair.",
+    "No PC-VM2 E2E executed in this patch task."
+  ]
+}

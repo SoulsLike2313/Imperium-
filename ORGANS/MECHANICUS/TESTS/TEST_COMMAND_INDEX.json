@@ -1,0 +1,8 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "commands": [
+    "python --help",
+    "python -m py_compile <script>",
+    "python <script> --help"
+  ]
+}

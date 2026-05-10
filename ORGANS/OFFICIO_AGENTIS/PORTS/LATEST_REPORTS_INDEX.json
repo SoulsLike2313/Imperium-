@@ -1,0 +1,29 @@
+{
+  "schema_version": "LATEST_REPORTS_INDEX_V0_1",
+  "organ_id": "OFFICIO_AGENTIS",
+  "generated_at": "2026-05-10T05:36:32.004435+00:00",
+  "owner_approval_state": "UNKNOWN",
+  "status": "MINIMAL_SCOPE_ACTIVE",
+  "source_paths": [
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_STATUS.json"
+  ],
+  "latest_known_reports": [],
+  "latest_known_receipts": [],
+  "dashboard_refs": [],
+  "blockers": [],
+  "limitations": [
+    "No canon/green claim from continuity port alone."
+  ],
+  "next_actions": [
+    "update organ formalization evidence and keep port current"
+  ],
+  "do_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY"
+  ],
+  "evidence_level": "PORT_BOOTSTRAP",
+  "stale_if_older_than_hours": 24,
+  "last_verified_at": "2026-05-10T05:36:32.005411+00:00"
+}

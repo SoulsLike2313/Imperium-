@@ -1,0 +1,131 @@
+{
+  "schema_version": "LAW_REGISTRY_REPORT_V0_1",
+  "verdict": "PASS_LAW_REGISTRY_CREATED_WITH_ENFORCEMENT_GAPS",
+  "blockers": [],
+  "warnings": [
+    "Laws not fully enforced: ['LAW-001', 'LAW-002', 'LAW-003', 'LAW-004', 'LAW-005', 'LAW-006', 'LAW-007', 'LAW-008', 'LAW-009', 'LAW-010', 'LAW-011', 'LAW-012', 'LAW-013', 'LAW-014', 'LAW-015', 'LAW-016', 'LAW-017', 'LAW-018', 'LAW-019', 'LAW-020', 'LAW-021', 'LAW-022', 'LAW-023', 'LAW-024', 'LAW-025']",
+    "HARD_BLOCK laws not fully enforced (real-task blockers): ['LAW-001', 'LAW-002', 'LAW-003', 'LAW-005', 'LAW-006', 'LAW-007', 'LAW-008', 'LAW-009', 'LAW-010', 'LAW-011', 'LAW-012', 'LAW-013', 'LAW-014', 'LAW-015', 'LAW-016', 'LAW-017', 'LAW-019', 'LAW-021', 'LAW-022', 'LAW-023', 'LAW-024']"
+  ],
+  "limitations": [
+    "Law registry is scaffold-level; several laws remain not fully enforced.",
+    "Real task execution is blocked until HARD_BLOCK laws are enforced or owner-approved."
+  ],
+  "not_fully_enforced_laws": [
+    "LAW-001",
+    "LAW-002",
+    "LAW-003",
+    "LAW-004",
+    "LAW-005",
+    "LAW-006",
+    "LAW-007",
+    "LAW-008",
+    "LAW-009",
+    "LAW-010",
+    "LAW-011",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-015",
+    "LAW-016",
+    "LAW-017",
+    "LAW-018",
+    "LAW-019",
+    "LAW-020",
+    "LAW-021",
+    "LAW-022",
+    "LAW-023",
+    "LAW-024",
+    "LAW-025"
+  ],
+  "hard_block_laws_without_full_enforcement": [
+    "LAW-001",
+    "LAW-002",
+    "LAW-003",
+    "LAW-005",
+    "LAW-006",
+    "LAW-007",
+    "LAW-008",
+    "LAW-009",
+    "LAW-010",
+    "LAW-011",
+    "LAW-012",
+    "LAW-013",
+    "LAW-014",
+    "LAW-015",
+    "LAW-016",
+    "LAW-017",
+    "LAW-019",
+    "LAW-021",
+    "LAW-022",
+    "LAW-023",
+    "LAW-024"
+  ],
+  "checks": [
+    {
+      "check": "mandatory file exists",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\MANDATORY_LAWS.json"
+    },
+    {
+      "check": "index file exists",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\LAW_INDEX.json"
+    },
+    {
+      "check": "address file exists",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\LAW_ADDRESS_REGISTRY.json"
+    },
+    {
+      "check": "enforcement file exists",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\LAW_ENFORCEMENT_MAP.json"
+    },
+    {
+      "check": "All 25 mandatory laws present",
+      "ok": true,
+      "detail": "present=25 required=25"
+    },
+    {
+      "check": "Law IDs unique",
+      "ok": true,
+      "detail": "total=25 unique=25"
+    },
+    {
+      "check": "Each law has violation verdict",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Each law has severity",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Each law has source reference",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "Each law has enforcement status",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "LAW_INDEX covers all mandatory laws",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "LAW_ADDRESS_REGISTRY covers all mandatory laws",
+      "ok": true,
+      "detail": "missing=[]"
+    },
+    {
+      "check": "LAW_ENFORCEMENT_MAP covers all mandatory laws",
+      "ok": true,
+      "detail": "missing=[]"
+    }
+  ],
+  "created_at": "2026-05-09T16:54:09.219621+00:00"
+}

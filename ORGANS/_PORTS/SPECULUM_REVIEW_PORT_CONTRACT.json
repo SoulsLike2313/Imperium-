@@ -1,0 +1,21 @@
+{
+  "schema_version": "ORGAN_PORT_CONTRACT_V0_1",
+  "port_id": "OWNER_PC_TO_SPECULUM_REVIEW",
+  "status": "CONTRACT_ONLY",
+  "source_organ": "OWNER_PC_MANUAL",
+  "target_organ": "SPECULUM",
+  "required_inputs_for_review": [
+    "CONTENT_MANIFEST.json",
+    "SHA256SUMS.txt",
+    "FINALIZATION_RECEIPT.json",
+    "stage_receipts",
+    "validation_reports"
+  ],
+  "review_scope": [
+    "non-claims compliance",
+    "forbidden refs and fake green checks",
+    "stage loop evidence completeness",
+    "packaging hygiene"
+  ],
+  "notes": "Speculum stage is planned review stage; not performed in this local dry-run foundation."
+}

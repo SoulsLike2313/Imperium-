@@ -1,0 +1,188 @@
+{
+  "schema_version": "ADMINISTRATUM_ACTIVE_TASKS_V0_1",
+  "generated_at": "2026-05-10T05:54:52.246166+00:00",
+  "tasks": [
+    {
+      "task_id": "TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+      "task_name": "Study real IMPERIUM, compare latest continuity pack against reality, install continuity ports, harden generator, build new pack, compare old vs new vs real state",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+      "task_name": "Formalize Administratum as a Doctrinarium-compliant organ, build Administratum dashboard v0_1, and implement one verified button: Build Continuity Pack",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+      "has_finalization": true,
+      "finalization_receipt_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+    },
+    {
+      "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+      "task_name": "Build strict Doctrinarium doctrine/law/organ-standard scaffold v0_1 with validators and expected-error report",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+      "has_finalization": true,
+      "finalization_receipt_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\12_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+    },
+    {
+      "task_id": "TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+      "task_name": "Extract existing Constitution and Passport from OBSERVED, edit into Doctrinarium v0_1 canon candidates, and place them in the correct Doctrinarium doctrine location",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+      "task_name": "Build minimal organ-gated memory spine and run local smoke test",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    },
+    {
+      "task_id": "TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1",
+      "task_name": null,
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1",
+      "has_finalization": false,
+      "finalization_receipt_path": null
+    }
+  ]
+}

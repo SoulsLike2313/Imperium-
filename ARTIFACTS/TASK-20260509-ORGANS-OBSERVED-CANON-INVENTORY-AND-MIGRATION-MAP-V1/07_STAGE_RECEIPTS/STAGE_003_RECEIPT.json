@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+  "stage": "STAGE_003_PROMPT_ENGINEERING_CANON_INDEX",
+  "created_at_local": "2026-05-09T13:01:00",
+  "outputs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\03_PROMPT_ENGINEERING_CANON\\PROMPT_ENGINEERING_CANON_INDEX.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\03_PROMPT_ENGINEERING_CANON\\PROMPT_ENGINEERING_CANON_INDEX.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\03_PROMPT_ENGINEERING_CANON\\PASSPORT_CONSTITUTION_INDEX.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\03_PROMPT_ENGINEERING_CANON\\CANON_CONFLICTS_OR_UNKNOWN.md"
+  ],
+  "metrics": {
+    "total_canon_candidates": 22158,
+    "passport_hits_count": 312,
+    "constitution_hits_count": 1403,
+    "low_confidence_canon_candidates": 22085
+  },
+  "validation": {
+    "checks": [
+      "all required stage 3 outputs exist",
+      "PROMPT_ENGINEERING_CANON_INDEX.json parses",
+      "passport/constitution index generated"
+    ],
+    "errors": [],
+    "verdict": "PASS"
+  },
+  "destructive_actions_performed": false
+}

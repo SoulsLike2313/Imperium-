@@ -1,0 +1,10 @@
+# PYTHON TOOL POINTERS
+
+send_prompt_to_vm2:
+E:\IMPERIUM\SSH_COMMAND_LIBRARY\06_TOOLS\send_prompt_to_vm2.py
+
+fetch_vm2_stage_bundle:
+E:\IMPERIUM\SSH_COMMAND_LIBRARY\06_TOOLS\fetch_vm2_stage_bundle.py
+
+registration_artifact:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION

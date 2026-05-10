@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "STAGE_SIGNAL_EMIT",
+  "timestamp_utc": "2026-05-08T20:37:23Z",
+  "action": "STAGE_SIGNAL_EMIT",
+  "status": "PASS",
+  "failure_reason": null,
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "signal_ref": "SIGNALS/stage1_completed_signal.json",
+  "signal_type": "STAGE_COMPLETED",
+  "signal_id": "SIG-256ce598-df49-4837-83cf-4919fecae336"
+}

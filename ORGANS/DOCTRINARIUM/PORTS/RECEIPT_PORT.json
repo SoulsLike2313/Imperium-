@@ -1,0 +1,12 @@
+{
+  "schema_version": "RECEIPT_PORT_V0_2",
+  "organ_id": "DOCTRINARIUM",
+  "latest_receipts": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\RECEIPTS\\dashboard_v0_8_technical_registration_receipt.json"
+  ],
+  "finalization_receipts": [
+    "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+  ],
+  "manifests": [],
+  "hash_files": []
+}

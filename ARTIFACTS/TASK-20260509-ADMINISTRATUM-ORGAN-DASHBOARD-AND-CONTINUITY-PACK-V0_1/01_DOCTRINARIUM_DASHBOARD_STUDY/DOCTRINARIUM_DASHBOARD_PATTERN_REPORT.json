@@ -1,0 +1,112 @@
+{
+  "schema_version": "DOCTRINARIUM_DASHBOARD_PATTERN_REPORT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "source_dashboard": {
+    "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+    "root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+    "url": "http://127.0.0.1:8791",
+    "handoff_zip": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF.zip",
+    "handoff_finalization_receipt": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+  },
+  "pattern_findings": {
+    "core_files_required": [
+      "index.html",
+      "style.css",
+      "app.js",
+      "dashboard_server.py",
+      "DASHBOARD_STATUS.json or versioned status json",
+      "dashboard launcher ps1",
+      "DASHBOARD_REGISTRY.json",
+      "ORGAN_UTILITY.json",
+      "WORKBENCH_STATUS.json",
+      "SCRIPT_BACKING_MAP.json",
+      "technical registration receipt",
+      "dashboard manifest and sha256 sums"
+    ],
+    "server_pattern": {
+      "tech": "Python ThreadingHTTPServer + SimpleHTTPRequestHandler",
+      "binding": "127.0.0.1 fixed local port",
+      "static_serving": "serves dashboard root (index/css/js)",
+      "api_style": "JSON endpoints with explicit status codes and error payloads",
+      "subprocess_pattern": "calls PowerShell launcher/scripts for real backend actions",
+      "security_notes": "endpoint target whitelist for open-folder actions"
+    },
+    "app_js_pattern": {
+      "data_source": "/api/data polling/reload",
+      "render_style": "single-page sections with card/table rendering from JSON",
+      "actions": "buttons mapped to explicit backend endpoints; no fake local-only success",
+      "state": "client-side state object + renderAll pipeline",
+      "error_signal": "toast/error surface and reload after action"
+    },
+    "css_pattern": {
+      "approach": "tokenized color vars + dashboard panel system + responsive grid",
+      "ui_type": "organ diagnostics UI, not canonical source-of-truth",
+      "note": "visual style can differ; script-backing/evidence plumbing is the mandatory part"
+    },
+    "api_endpoints_observed": [
+      {
+        "method": "GET",
+        "path": "/api/data",
+        "purpose": "aggregate organ status/gaps/laws/paths"
+      },
+      {
+        "method": "POST",
+        "path": "/api/refresh",
+        "purpose": "run backend refresh script"
+      },
+      {
+        "method": "POST",
+        "path": "/api/open-organ",
+        "purpose": "open local organ folder (safe path)"
+      },
+      {
+        "method": "POST",
+        "path": "/api/open",
+        "purpose": "open whitelisted local folders"
+      }
+    ],
+    "playwright_audit_pattern": {
+      "source": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+      "verdict": "PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT",
+      "checks_type": [
+        "page loads",
+        "metrics render",
+        "navigation routes",
+        "api response",
+        "interaction smoke",
+        "no console/page errors"
+      ],
+      "evidence": "json+md report + screenshots"
+    },
+    "registry_status_manifest_receipt_pattern": {
+      "dashboard_registry": "declares current dashboard id/version/url/launcher/manifest",
+      "organ_utility": "declares utility role, forbidden claims, limitations, visible outputs",
+      "workbench_status": "declares utility health/script-backed status/blockers",
+      "script_backing_map": "maps visible utility to concrete scripts",
+      "manifest_hashes": "dashboard-local file manifest and hashlist",
+      "receipt": "technical registration receipt references produced files and hashes"
+    }
+  },
+  "must_copy_for_administratum": [
+    "script-backed endpoint for each active dashboard action",
+    "explicit JSON API with failure propagation",
+    "utility registry/status/backing files",
+    "manifest+hashes+receipt evidence chain",
+    "playwright or API smoke evidence report"
+  ],
+  "must_not_copy_blindly": [
+    "Doctrinarium semantics (laws/doctrine metrics) as Administratum logic",
+    "Doctrinarium refresh endpoint name/workflow",
+    "Doctrinarium forbidden-claim text without Administratum-specific adaptation",
+    "hardcoded paths to Doctrinarium reports as Admin source-of-truth"
+  ],
+  "required_changes_for_administratum": [
+    "domain model: memory/address/current_state/chronology/continuity pack",
+    "single active action button: BUILD CONTINUITY PACK via POST /api/build-continuity-pack",
+    "include latest continuity pack, comparison verdict, build receipt, and missing evidence surface",
+    "port change to 8792 and separate launcher",
+    "explicit limitation that continuity is not green/canon by default"
+  ],
+  "created_at": "2026-05-09T19:36:02.438783+00:00"
+}

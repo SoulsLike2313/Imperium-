@@ -1,0 +1,144 @@
+{
+  "started_at": "2026-05-09T18:10:00.810Z",
+  "url": "http://127.0.0.1:8787",
+  "checks": [
+    {
+      "name": "Header visible",
+      "ok": true,
+      "detail": "text=Doctrinarium Control Panel count=1"
+    },
+    {
+      "name": "Real task metric visible",
+      "ok": true,
+      "detail": "text=Real task execution count=1"
+    },
+    {
+      "name": "Bootstrap metric visible",
+      "ok": true,
+      "detail": "text=Bootstrap / review count=1"
+    },
+    {
+      "name": "Laws metric visible",
+      "ok": true,
+      "detail": "text=Laws not enforced count=1"
+    },
+    {
+      "name": "Organ blockers metric visible",
+      "ok": true,
+      "detail": "text=Organ blockers count=1"
+    },
+    {
+      "name": "Animated background canvas exists",
+      "ok": true,
+      "detail": "canvas#bgCanvas count=1"
+    },
+    {
+      "name": "Sparkline canvas exists",
+      "ok": true,
+      "detail": "canvas#sparkCanvas count=1"
+    },
+    {
+      "name": "API /api/data status",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "API has status JSON",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has organ gaps JSON",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has utility JSON",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has laws JSON",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Organs checked >= 1",
+      "ok": true,
+      "detail": "value=7"
+    },
+    {
+      "name": "Blockers visible",
+      "ok": true,
+      "detail": "value=62"
+    },
+    {
+      "name": "Navigation: Organ Health",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation: Major Gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation: Utility Matrix",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation: Laws & Codex",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation: Paths",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation: Dashboard",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Reload Data clicked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "BLOCKED rendered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "OWNER REVIEW rendered",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "62 or blockers text rendered",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "screenshots": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\01_dashboard_initial.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\02_organ_health.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\03_major_gaps.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\04_utility_matrix.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\05_laws_codex.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\06_paths.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\07_dashboard_return.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT\\screenshots\\08_after_reload_data.png"
+  ],
+  "errors": [
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (File not found)"
+    }
+  ],
+  "finished_at": "2026-05-09T18:10:08.964Z",
+  "pass": true
+}

@@ -1,0 +1,22 @@
+{
+  "schema_id": "STAGE_TRACE_EVENT_SCHEMA_V1",
+  "required": [
+    "event_id",
+    "task_id",
+    "stage_id",
+    "run_id",
+    "contour_id",
+    "producer_type",
+    "producer_id",
+    "event_type",
+    "status",
+    "timestamp_utc"
+  ],
+  "optional": [
+    "artifact_ref",
+    "artifact_sha256",
+    "receipt_ref",
+    "provenance_ref",
+    "notes"
+  ]
+}

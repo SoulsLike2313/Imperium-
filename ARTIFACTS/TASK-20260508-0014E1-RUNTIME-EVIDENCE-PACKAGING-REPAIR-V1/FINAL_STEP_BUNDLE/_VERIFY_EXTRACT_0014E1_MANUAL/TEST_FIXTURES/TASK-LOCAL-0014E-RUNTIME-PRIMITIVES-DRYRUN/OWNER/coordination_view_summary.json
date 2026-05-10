@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-002",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "task_map_present": true,
+  "dependency_map_present": true,
+  "ledger_events": 4,
+  "signals_count": 2,
+  "acks_count": 1,
+  "receipts_count": 11,
+  "gates_count": 1,
+  "heartbeats_count": 0,
+  "inquisition_reports_count": 0,
+  "note": "View is evidence-based and does not assert PASS without gate/receipt evidence.",
+  "ledger_parse_errors": []
+}

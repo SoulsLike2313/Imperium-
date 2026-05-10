@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "status": "PASS",
+  "issues": [],
+  "signal_ref": "SIGNALS/stage1_completed_signal.json",
+  "ack_required": true
+}

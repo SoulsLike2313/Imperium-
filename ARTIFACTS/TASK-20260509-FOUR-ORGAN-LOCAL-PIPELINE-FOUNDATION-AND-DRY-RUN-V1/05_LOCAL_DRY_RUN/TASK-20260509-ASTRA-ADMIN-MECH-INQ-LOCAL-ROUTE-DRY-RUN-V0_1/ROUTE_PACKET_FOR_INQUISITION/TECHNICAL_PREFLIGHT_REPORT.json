@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "checks": [
+    "script_registry_parse",
+    "validator_registry_parse",
+    "local_only_contract"
+  ],
+  "verdict": "PASS_TECHNICAL_PREFLIGHT"
+}

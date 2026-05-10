@@ -1,0 +1,54 @@
+{
+  "task_id": "TASK-EXAMPLE-12-STAGE-PARALLEL",
+  "run_id": "RUN-0001",
+  "stages": [
+    {
+      "stage_id": "PC-STAGE-001",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "VM2-STAGE-002",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "PC-STAGE-003",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "VM2-STAGE-004",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "PC-STAGE-005",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "VM2-STAGE-006",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "PC-STAGE-007",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "PC-STAGE-008",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "VM2-STAGE-009",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "PC-STAGE-010",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "VM2-STAGE-011",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "PC-STAGE-012",
+      "contour_id": "PC"
+    }
+  ]
+}

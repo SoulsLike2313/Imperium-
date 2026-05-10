@@ -1,0 +1,27 @@
+{
+  "created_at_local": "2026-05-09T13:53:37",
+  "script_count": 21,
+  "scripts": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_read_first_route.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_task_launch_card_from_astra.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_repair_branch.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_task_launch_card.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_policy_refs.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_read_first_receipt.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\create_astra_task_record.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\export_astra_route.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\generate_deletion_proposal.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_manifest.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_sha256sums.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_validator_selection.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\scan_python_readonly_safety.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\select_scripts_for_route.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\validate_script_registry.py"
+  ]
+}

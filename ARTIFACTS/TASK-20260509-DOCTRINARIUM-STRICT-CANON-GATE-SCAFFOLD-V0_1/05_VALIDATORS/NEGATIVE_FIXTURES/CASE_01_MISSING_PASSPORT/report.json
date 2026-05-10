@@ -1,0 +1,98 @@
+{
+  "schema_version": "DOCTRINE_VALIDATION_REPORT_V0_1",
+  "verdict": "REPAIR_REQUIRED",
+  "blockers": [
+    "Missing required doctrine file: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\ROOT\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md"
+  ],
+  "warnings": [],
+  "limitations": [],
+  "doctrine_paths": {
+    "passport": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\ROOT\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md",
+    "constitution": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\ROOT\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CONSTITUTION_OF_IMPERIUM.md",
+    "codex": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\ROOT\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+    "doctrine_index": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\ROOT\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json"
+  },
+  "checks": [
+    {
+      "check": "Passport exists",
+      "ok": false,
+      "detail": "Missing required doctrine file: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\ROOT\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md"
+    },
+    {
+      "check": "Constitution exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Codex exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrine index exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrine index lists all triad documents",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Required read order matches expected triad order",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "CONSTITUTION_OF_IMPERIUM hash matches DOCTRINE_INDEX",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "CODEX_IMPERIUM hash matches DOCTRINE_INDEX",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrine index status is canon-candidate owner-review-required",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "owner_approved false unless explicit owner artifact exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "canon_for_real_task_execution is false",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Constitution has no placeholder marker",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Constitution does not claim CANON_V0_1",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Codex has no placeholder marker",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Codex does not claim CANON_V0_1",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Real task execution remains blocked before owner approval",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "created_at": "2026-05-09T16:58:31.039282+00:00"
+}

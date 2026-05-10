@@ -1,0 +1,1346 @@
+{
+  "map_id": "IMPERIUM_FOLDER_SEMANTIC_MAP_V1",
+  "task_id": "TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1",
+  "status": "draft_baseline",
+  "language": "english",
+  "root": "E:\\\\IMPERIUM",
+  "root_allowed_folders": [
+    "ARCHIVE",
+    "ARTIFACTS",
+    "OBSERVED",
+    "PC_ENGINEERING_ROOM",
+    "SSH_COMMAND_LIBRARY"
+  ],
+  "folder_records": [
+    {
+      "path": "E:\\IMPERIUM\\ARCHIVE",
+      "name": "ARCHIVE",
+      "zone_type": "major_zone",
+      "role": "Archive zone for old, inactive, or legacy materials that should not stay in active root.",
+      "what_lives_here": [
+        "Historical imports",
+        "Legacy batches",
+        "Old task context"
+      ],
+      "allowed_writes": [
+        "Owner-approved archival moves",
+        "Archive manifests and rollback notes"
+      ],
+      "forbidden_writes": [
+        "Active task outputs without task routing",
+        "Secrets without redaction"
+      ],
+      "inputs": [
+        "Legacy folders from root hygiene",
+        "Inactive snapshots"
+      ],
+      "outputs": [
+        "Archived folders and manifests"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "OBSERVED",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use ARCHIVE for storage, not for active execution outputs.",
+      "status": "archive",
+      "canon_status": "not_canon",
+      "artifact_policy": "Keep archive evidence pointers in ARTIFACTS by TASK_ID when relevant.",
+      "owner_review_required": true,
+      "notes": [
+        "No delete policy applies."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS",
+      "name": "ARTIFACTS",
+      "zone_type": "major_zone",
+      "role": "Primary evidence root for task outputs, proofs, manifests, and final bundles by TASK_ID.",
+      "what_lives_here": [
+        "Task folders",
+        "Receipts",
+        "Hashes",
+        "Final bundles"
+      ],
+      "allowed_writes": [
+        "Files under E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\...",
+        "Index updates by task scope"
+      ],
+      "forbidden_writes": [
+        "Raw secrets",
+        "Untracked random files",
+        "Root-level dumps"
+      ],
+      "inputs": [
+        "Task inputs and source pointers"
+      ],
+      "outputs": [
+        "Task outputs and final bundle artifacts"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY",
+        "ARCHIVE"
+      ],
+      "agent_instruction": "Always write task outputs into a dedicated TASK_ID folder.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All proofs and bundles must be registered by TASK_ID.",
+      "owner_review_required": false,
+      "notes": [
+        "Artifacts are evidence surfaces, not canonical authority."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED",
+      "name": "OBSERVED",
+      "zone_type": "major_zone",
+      "role": "Read-only historical and observed contour copies for reference analysis.",
+      "what_lives_here": [
+        "Observed copies",
+        "Historical contour snapshots",
+        "Legacy observed imports"
+      ],
+      "allowed_writes": [
+        "Only owner-approved observed imports",
+        "Read-only mapping notes"
+      ],
+      "forbidden_writes": [
+        "Mutation of observed copies",
+        "Task output bundles"
+      ],
+      "inputs": [
+        "Imported observed folders"
+      ],
+      "outputs": [
+        "Reference-only snapshots"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARCHIVE"
+      ],
+      "agent_instruction": "Treat OBSERVED content as read-only reference unless a dedicated task says otherwise.",
+      "status": "observed",
+      "canon_status": "not_canon",
+      "artifact_policy": "Use ARTIFACTS for proof of analysis performed on observed copies.",
+      "owner_review_required": true,
+      "notes": [
+        "No deep mutation from root mapping tasks."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM",
+      "name": "PC_ENGINEERING_ROOM",
+      "zone_type": "major_zone",
+      "role": "Active engineering headquarters for architecture, reviews, labs, maps, and decision preparation.",
+      "what_lives_here": [
+        "System maps",
+        "Architecture docs",
+        "Review and test materials",
+        "Owner decision drafts"
+      ],
+      "allowed_writes": [
+        "Engineering docs, maps, and lab outputs"
+      ],
+      "forbidden_writes": [
+        "THRONE writes",
+        "Untracked root-level task outputs"
+      ],
+      "inputs": [
+        "Task questions",
+        "Observed references",
+        "SSH diagnostics summaries"
+      ],
+      "outputs": [
+        "Engineering maps, plans, and controlled reports"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "SSH_COMMAND_LIBRARY",
+        "OBSERVED"
+      ],
+      "agent_instruction": "Keep active engineering work here; publish proof copies to ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Any task result proof should also be stored under ARTIFACTS\\<TASK_ID>\\.",
+      "owner_review_required": false,
+      "notes": [
+        "Engineering room is not admission authority."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY",
+      "name": "SSH_COMMAND_LIBRARY",
+      "zone_type": "major_zone",
+      "role": "Library of SSH route knowledge, diagnostics, tools, and tested recipes.",
+      "what_lives_here": [
+        "Route profiles",
+        "Send/fetch/open instructions",
+        "Diagnostics",
+        "Tools",
+        "Baseline route contexts"
+      ],
+      "allowed_writes": [
+        "Route docs and helper scripts",
+        "Diagnostics receipts"
+      ],
+      "forbidden_writes": [
+        "Private key contents",
+        "Raw credentials",
+        "Unrelated task bundles"
+      ],
+      "inputs": [
+        "Route requirements and diagnostics results"
+      ],
+      "outputs": [
+        "Reusable route instructions and helper tools"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Keep route tools here; keep usage proof in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Route usage evidence must be copied or pointed from ARTIFACTS by TASK_ID.",
+      "owner_review_required": false,
+      "notes": [
+        "No secrets in route docs."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\00_SYSTEM_MAPS",
+      "name": "00_SYSTEM_MAPS",
+      "zone_type": "system_maps",
+      "role": "System maps, folder maps, address maps, and machine-readable structure maps.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 00_SYSTEM_MAPS purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\01_CURRENT_STATE",
+      "name": "01_CURRENT_STATE",
+      "zone_type": "current_state",
+      "role": "Current working state, active baseline, blocked areas, and current truth snapshot.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 01_CURRENT_STATE purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\02_ARCHITECTURE_ATLAS",
+      "name": "02_ARCHITECTURE_ATLAS",
+      "zone_type": "architecture_atlas",
+      "role": "Architecture, contours, organs, authority model, and task/stage/run model.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 02_ARCHITECTURE_ATLAS purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\03_OWNER_DECISIONS",
+      "name": "03_OWNER_DECISIONS",
+      "zone_type": "owner_decisions",
+      "role": "Owner decision records: approve, reject, block, rerun, repair, defer.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 03_OWNER_DECISIONS purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\04_REVIEW_BENCH",
+      "name": "04_REVIEW_BENCH",
+      "zone_type": "review_bench",
+      "role": "Review inputs and outputs for Logos and Speculum, including blocker lists.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 04_REVIEW_BENCH purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\05_TEST_LAB",
+      "name": "05_TEST_LAB",
+      "zone_type": "test_lab",
+      "role": "Smoke tests, fixtures, validators, hardware probe, and resource checks.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 05_TEST_LAB purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\06_ORGANS_WORKSHOP",
+      "name": "06_ORGANS_WORKSHOP",
+      "zone_type": "organs_workshop",
+      "role": "Organ templates and pilot organs before operational use.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 06_ORGANS_WORKSHOP purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\07_WORKER_TEMPLATE_LAB",
+      "name": "07_WORKER_TEMPLATE_LAB",
+      "zone_type": "worker_template_lab",
+      "role": "Worker room templates, VM2 protocol drafts, and stage bundle rules.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 07_WORKER_TEMPLATE_LAB purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\08_LOCAL_LLM_LAB",
+      "name": "08_LOCAL_LLM_LAB",
+      "zone_type": "local_llm_lab",
+      "role": "Local LLM candidates, resource policy, wrappers, and code-health tasks.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 08_LOCAL_LLM_LAB purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\09_INTERNET_RESEARCH_GATEWAY",
+      "name": "09_INTERNET_RESEARCH_GATEWAY",
+      "zone_type": "internet_research_gateway",
+      "role": "Controlled internet research, source registry, and no-secrets policy.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 09_INTERNET_RESEARCH_GATEWAY purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\10_RECEIPTS_AND_AUDIT",
+      "name": "10_RECEIPTS_AND_AUDIT",
+      "zone_type": "receipts_and_audit",
+      "role": "Audit records and engineering-room operation receipts.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 10_RECEIPTS_AND_AUDIT purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\11_QUARANTINE_NO_DELETE",
+      "name": "11_QUARANTINE_NO_DELETE",
+      "zone_type": "quarantine_no_delete",
+      "role": "Move-only quarantine planning, rollback notes, and no-delete evidence.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 11_QUARANTINE_NO_DELETE purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\99_DASHBOARD",
+      "name": "99_DASHBOARD",
+      "zone_type": "dashboard",
+      "role": "Plain dashboard data for active tasks, blockers, barriers, and latest verified bundles.",
+      "what_lives_here": [
+        "Folder-specific engineering materials"
+      ],
+      "allowed_writes": [
+        "Scoped documents and receipts"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Out-of-scope binaries"
+      ],
+      "inputs": [
+        "Engineering inputs from active tasks"
+      ],
+      "outputs": [
+        "Engineering outputs and planning docs"
+      ],
+      "related_zones": [
+        "PC_ENGINEERING_ROOM",
+        "ARTIFACTS"
+      ],
+      "agent_instruction": "Write only files that match 99_DASHBOARD purpose and keep evidence in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Task-level proof copy belongs in ARTIFACTS.",
+      "owner_review_required": false,
+      "notes": [
+        "Subfolder policy follows engineering room boundaries."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\00_CONNECTION_PROFILES",
+      "name": "00_CONNECTION_PROFILES",
+      "zone_type": "connection_profiles",
+      "role": "Redacted route profiles, aliases, allowed actions, and forbidden actions.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\01_SEND_PROMPT_TO_VM",
+      "name": "01_SEND_PROMPT_TO_VM",
+      "zone_type": "send_prompt_to_vm",
+      "role": "Dispatch instructions and future scripts for prompt and task packages.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\02_FETCH_FROM_VM",
+      "name": "02_FETCH_FROM_VM",
+      "zone_type": "fetch_from_vm",
+      "role": "Fetch instructions and future scripts for stage bundles by TASK/STAGE/CONTOUR/RUN.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\03_OPEN_ON_VM",
+      "name": "03_OPEN_ON_VM",
+      "zone_type": "open_on_vm",
+      "role": "Safe manual access commands for remote paths and shell checks.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\04_DIAGNOSTICS",
+      "name": "04_DIAGNOSTICS",
+      "zone_type": "diagnostics",
+      "role": "SSH alive checks, remote path checks, ls proof, sha256 proof, and permission checks.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\05_SUCCESSFUL_RECIPES",
+      "name": "05_SUCCESSFUL_RECIPES",
+      "zone_type": "successful_recipes",
+      "role": "Verified working SSH and SCP recipes only.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS",
+      "name": "06_TOOLS",
+      "zone_type": "tools",
+      "role": "Reusable SSH and SCP helper scripts, hash helpers, and redaction helpers.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\VM2_ROUTE_BASELINE_20260508_1651",
+      "name": "VM2_ROUTE_BASELINE_20260508_1651",
+      "zone_type": "vm2_route_baseline",
+      "role": "VM2 route baseline context; proof copies belong in ARTIFACTS.",
+      "what_lives_here": [
+        "Route-specific docs and helper content"
+      ],
+      "allowed_writes": [
+        "Route docs, tools, diagnostics notes"
+      ],
+      "forbidden_writes": [
+        "Private keys",
+        "Passwords",
+        "Raw tokens"
+      ],
+      "inputs": [
+        "Route requirements"
+      ],
+      "outputs": [
+        "Route instructions and scripts"
+      ],
+      "related_zones": [
+        "SSH_COMMAND_LIBRARY",
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM"
+      ],
+      "agent_instruction": "Use this folder for route tooling; register proof of use in ARTIFACTS.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "Proof of route execution must be saved in ARTIFACTS task folders.",
+      "owner_review_required": false,
+      "notes": [
+        "Keep redacted and safe content only."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\00_AGENT_MAP.md",
+      "name": "00_AGENT_MAP.md",
+      "zone_type": "task_agent_map",
+      "role": "Task-local map for agents.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\01_INPUTS",
+      "name": "01_INPUTS",
+      "zone_type": "task_inputs",
+      "role": "Inputs used by the task.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\02_OUTPUTS",
+      "name": "02_OUTPUTS",
+      "zone_type": "task_outputs",
+      "role": "Generated outputs from task execution.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\03_RECEIPTS",
+      "name": "03_RECEIPTS",
+      "zone_type": "task_receipts",
+      "role": "Proof records that task actions happened.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\04_MANIFESTS",
+      "name": "04_MANIFESTS",
+      "zone_type": "task_manifests",
+      "role": "File lists, folder lists, and bundle manifests.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\05_HASHES",
+      "name": "05_HASHES",
+      "zone_type": "task_hashes",
+      "role": "SHA256 and integrity files.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\06_BUNDLES",
+      "name": "06_BUNDLES",
+      "zone_type": "task_bundles",
+      "role": "Stage or intermediate bundles.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\07_REPORTS",
+      "name": "07_REPORTS",
+      "zone_type": "task_reports",
+      "role": "Technical reports, blocker reports, and verdicts.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\08_OWNER_SUMMARY",
+      "name": "08_OWNER_SUMMARY",
+      "zone_type": "task_owner_summary",
+      "role": "Human-facing summary for Owner.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\09_SOURCE_POINTERS",
+      "name": "09_SOURCE_POINTERS",
+      "zone_type": "task_source_pointers",
+      "role": "Original path to new path source pointers.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\<TASK_ID>\\FINAL_STEP_BUNDLE",
+      "name": "FINAL_STEP_BUNDLE",
+      "zone_type": "task_final_bundle",
+      "role": "Final zip and sha256 for the task.",
+      "what_lives_here": [
+        "Task-scoped evidence content"
+      ],
+      "allowed_writes": [
+        "Task-scoped files only"
+      ],
+      "forbidden_writes": [
+        "Secrets",
+        "Unrelated files",
+        "Files without task relation"
+      ],
+      "inputs": [
+        "Task inputs and references"
+      ],
+      "outputs": [
+        "Task evidence outputs"
+      ],
+      "related_zones": [
+        "ARTIFACTS",
+        "PC_ENGINEERING_ROOM",
+        "SSH_COMMAND_LIBRARY"
+      ],
+      "agent_instruction": "Keep this section task-scoped and do not mix unrelated artifacts.",
+      "status": "active",
+      "canon_status": "not_canon",
+      "artifact_policy": "All files must remain inside the matching TASK_ID folder.",
+      "owner_review_required": false,
+      "notes": [
+        "Standard structure for every task artifact folder."
+      ]
+    }
+  ],
+  "rules": [
+    "Root contains only major folders.",
+    "Task artifacts must be stored under E:\\\\IMPERIUM\\\\ARTIFACTS\\\\<TASK_ID>\\\\.",
+    "No secrets in maps or semantic descriptors."
+  ],
+  "notes": [
+    "This is a draft baseline semantic map and should be refined by review tasks."
+  ]
+}

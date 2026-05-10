@@ -1,0 +1,10 @@
+{
+  "receipt_type": "TASK_START_RECEIPT",
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "created_at_local": "2026-05-09T15:08:39",
+  "status": "TASK_REGISTERED_AND_START_CONTINUITY_PACK_CREATED",
+  "smoke_check_verdict": "PASS_SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK",
+  "missing_inputs": [],
+  "next_allowed_action": "CONTINUE_MANUAL_SANCTUM_ITERATION"
+}

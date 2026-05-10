@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "run_id": "RUN-20260509-DRYRUN-0001",
+  "forbidden_hits": {
+    "latest_bundle": [],
+    "throne": [],
+    "watcher_autosync": []
+  },
+  "destructive_hits": [],
+  "destructive_effective": [],
+  "forbidden_ref_count": 0,
+  "verdict": "PASS_FORBIDDEN_REFS"
+}

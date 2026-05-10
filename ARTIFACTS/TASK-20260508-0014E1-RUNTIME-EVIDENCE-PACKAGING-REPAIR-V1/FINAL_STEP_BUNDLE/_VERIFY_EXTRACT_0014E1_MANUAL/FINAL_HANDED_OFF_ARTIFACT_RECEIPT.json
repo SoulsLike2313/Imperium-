@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+  "source_task_id": "TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1",
+  "final_bundle_name": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1_FINAL_STEP_BUNDLE.zip",
+  "final_bundle_sha256": "d3269fe45a49240df04e11baf03c45abae31e7608428456665b2266d0252f4e2",
+  "sha256_sidecar_name": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1_FINAL_STEP_BUNDLE.zip.sha256",
+  "produced_at_utc": "2026-05-08T20:53:08Z",
+  "producer_type": "PC_SERVITOR",
+  "artifact_status": "FINAL_HANDED_OFF",
+  "evidence_status": "CLEAN_EVIDENCE_REPAIRED",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "supersedes_note": "Older 0014E packaging validation was stale and is superseded by 0014E1 validation."
+}

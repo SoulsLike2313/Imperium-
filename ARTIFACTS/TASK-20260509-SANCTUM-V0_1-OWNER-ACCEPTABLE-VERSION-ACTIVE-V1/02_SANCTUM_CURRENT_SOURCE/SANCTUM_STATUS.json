@@ -1,0 +1,25 @@
+{
+  "sanctum_version": "0.1",
+  "status": "MANUAL_CLIENT_SHELL_EXPERIMENT",
+  "created_or_updated_at_local": "2026-05-09T15:03:25",
+  "allowed_capabilities": [
+    "open_astra_utility",
+    "open_explorer",
+    "list_astronomicon_tasks",
+    "show_stage_map",
+    "show_next_allowed_action",
+    "open_task_folder",
+    "save_manual_notes"
+  ],
+  "forbidden_capabilities": [
+    "vm2_contact",
+    "throne_contact",
+    "e2e_run",
+    "watchers",
+    "background_automation",
+    "delete_move",
+    "live_organ_claim",
+    "continuity_green_claim"
+  ],
+  "truth_statement": "Sanctum is not source of truth. Truth remains in files, receipts, manifests, hashes, audits and reviews."
+}

@@ -1,0 +1,71 @@
+{
+  "schema_version": "DEVELOPER_PORT_STANDARD_V0_2",
+  "generated_at": "2026-05-10T06:14:42.626405+00:00",
+  "owner": "ADMINISTRATUM",
+  "ports": {
+    "DEVELOPER_PORT.json": [
+      "schema_version",
+      "organ_id",
+      "developer_summary",
+      "primary_code_paths",
+      "primary_scripts",
+      "primary_dashboards",
+      "launch_commands",
+      "test_commands",
+      "safe_edit_roots",
+      "forbidden_edit_roots",
+      "current_dev_target",
+      "known_failures",
+      "next_patch_recommendation",
+      "evidence_paths",
+      "stale_if_older_than_hours",
+      "last_verified_at",
+      "limitations",
+      "do_not_claim"
+    ],
+    "SCRIPT_PORT.json": [
+      "schema_version",
+      "organ_id",
+      "scripts[]:{script_id,path,purpose,inputs,outputs,launch_command,last_known_test_status,sha256}"
+    ],
+    "TEST_PORT.json": [
+      "schema_version",
+      "organ_id",
+      "tests[]:{test_id,test_type,command,expected_result,latest_result,latest_report_path,skipped_reason}"
+    ],
+    "DASHBOARD_PORT.json": [
+      "schema_version",
+      "organ_id",
+      "dashboard_id",
+      "version",
+      "root",
+      "launcher",
+      "url",
+      "backend",
+      "frontend",
+      "status",
+      "audit_status",
+      "latest_audit_report",
+      "known_ui_issues"
+    ],
+    "RECEIPT_PORT.json": [
+      "schema_version",
+      "organ_id",
+      "latest_receipts",
+      "finalization_receipts",
+      "manifests",
+      "hash_files"
+    ],
+    "BLOCKERS_PORT.json": [
+      "schema_version",
+      "organ_id",
+      "blockers",
+      "warnings",
+      "limitations",
+      "owner_decisions_needed",
+      "next_action"
+    ]
+  },
+  "fallback_rule": "UNKNOWN_OR_NEEDS_FORMALIZATION_IF_NO_EVIDENCE",
+  "created_by": "PC_SERVITOR"
+}

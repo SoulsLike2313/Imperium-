@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-LATEST-001",
+  "stage_id": "STAGE-NEG-LATEST",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "IDENTITY_VALIDATE",
+  "timestamp_utc": "2026-05-08T20:37:25Z",
+  "action": "IDENTITY_VALIDATE",
+  "status": "FAIL",
+  "failure_reason": "latest_pattern_task_id;latest_pattern_stage_id",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "errors": [
+    "latest_pattern_task_id",
+    "latest_pattern_stage_id"
+  ]
+}

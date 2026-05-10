@@ -1,0 +1,18 @@
+{
+  "schema_version": "PACKAGING_FINALIZATION_POLICY_V1",
+  "policy_id": "POLICY-PACKAGING-FINALIZATION-V1",
+  "purpose": "Prevent self-referential bundle hash/manifest loops.",
+  "rules": [
+    "CONTENT_MANIFEST.json lists payload files only.",
+    "CONTENT_MANIFEST.json excludes final ZIP and final ZIP sidecar.",
+    "CONTENT_MANIFEST.json excludes 07_BUNDLE.",
+    "CONTENT_MANIFEST.json excludes itself.",
+    "CONTENT_MANIFEST.json excludes SHA256SUMS.txt.",
+    "SHA256SUMS.txt lists payload files plus CONTENT_MANIFEST.json.",
+    "SHA256SUMS.txt excludes itself.",
+    "FINALIZATION_RECEIPT.json lives outside the zipped payload in 07_BUNDLE.",
+    "FINALIZATION_RECEIPT.json records final ZIP SHA256 and sidecar SHA256.",
+    "No final ZIP or sidecar may appear in internal payload manifest."
+  ],
+  "status": "BINDING_FOR_FOUNDATION_0_1A"
+}

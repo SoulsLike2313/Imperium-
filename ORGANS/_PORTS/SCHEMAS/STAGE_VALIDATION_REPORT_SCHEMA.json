@@ -1,0 +1,13 @@
+{
+  "schema_id": "STAGE_VALIDATION_REPORT_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "checks",
+    "errors",
+    "verdict"
+  ],
+  "notes": "Validation report per stage; errors must be explicit."
+}

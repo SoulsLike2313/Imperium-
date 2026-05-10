@@ -1,0 +1,9 @@
+{
+  "generated_at": "2026-05-10T05:52:45.779458+00:00",
+  "real_organs_count": 6,
+  "registry_organs_count": 6,
+  "missing_ports_for_real_organs": [],
+  "extra_registry_organs": [],
+  "issues": [],
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

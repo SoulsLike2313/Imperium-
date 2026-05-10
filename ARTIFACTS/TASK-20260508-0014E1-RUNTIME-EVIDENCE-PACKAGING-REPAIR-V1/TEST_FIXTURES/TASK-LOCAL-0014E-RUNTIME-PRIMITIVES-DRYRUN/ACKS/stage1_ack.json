@@ -1,0 +1,15 @@
+{
+  "ack_id": "ACK-c1b9a289-9864-4181-a05e-22b484cb9f3d",
+  "ack_for_signal_id": "SIG-256ce598-df49-4837-83cf-4919fecae336",
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "STAGE_SIGNAL_ACK",
+  "timestamp_utc": "2026-05-08T20:37:23Z",
+  "ack_by_contour_id": "LOCAL_TEST",
+  "ack_status": "ACKED",
+  "signal_hash_seen": "5b94579bfa6b7d7e29215eb36f7465dd351b2794265473ca8d9e49eca18cb933",
+  "ack_hash": "534baa175af500ac4b708c6e3995271f39d16cbc6811861c727fd5557447c179"
+}

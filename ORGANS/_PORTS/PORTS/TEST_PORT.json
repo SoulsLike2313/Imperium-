@@ -1,0 +1,15 @@
+{
+  "schema_version": "TEST_PORT_V0_2",
+  "organ_id": "_PORTS",
+  "tests": [
+    {
+      "test_id": "_PORTS_SCRIPT_COMPILE",
+      "test_type": "compile",
+      "command": "UNVERIFIED_COMMAND_NEEDS_PC_SERVITOR_CHECK",
+      "expected_result": "exit_code_0",
+      "latest_result": "UNKNOWN",
+      "latest_report_path": null,
+      "skipped_reason": "No known script evidence in current scan"
+    }
+  ]
+}

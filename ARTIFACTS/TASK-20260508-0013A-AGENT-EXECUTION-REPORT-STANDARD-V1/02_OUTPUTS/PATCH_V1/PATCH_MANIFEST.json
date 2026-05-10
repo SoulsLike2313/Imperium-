@@ -1,0 +1,68 @@
+{
+  "patch_id": "TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1",
+  "base_bundle": "TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1_FINAL_STEP_BUNDLE.zip",
+  "base_bundle_sha256": "be5c05b37110d9a2a52a0769d701690332ecec94bd3e3f12349356f804a2e953",
+  "created_at_utc": "2026-05-08T17:14:58Z",
+  "required_file_count": 9,
+  "files": [
+    {
+      "file_name": "AGENT_EXECUTION_REPORT_STANDARD_V1.md",
+      "relative_path": "02_OUTPUTS/PATCH_V1/AGENT_EXECUTION_REPORT_STANDARD_V1.md",
+      "exists": true,
+      "size_bytes": 1234
+    },
+    {
+      "file_name": "UPDATED_VALIDATION_RULES_V1.md",
+      "relative_path": "02_OUTPUTS/PATCH_V1/UPDATED_VALIDATION_RULES_V1.md",
+      "exists": true,
+      "size_bytes": 1145
+    },
+    {
+      "file_name": "UPDATED_SCRIPT_REPAIR_REQUIREMENTS_V1.md",
+      "relative_path": "02_OUTPUTS/PATCH_V1/UPDATED_SCRIPT_REPAIR_REQUIREMENTS_V1.md",
+      "exists": true,
+      "size_bytes": 990
+    },
+    {
+      "file_name": "UPDATED_FINAL_TASK_BUNDLE_CONTRACT_V1.md",
+      "relative_path": "02_OUTPUTS/PATCH_V1/UPDATED_FINAL_TASK_BUNDLE_CONTRACT_V1.md",
+      "exists": true,
+      "size_bytes": 1069
+    },
+    {
+      "file_name": "UPDATED_SPECULUM_REVIEW_REQUEST.md",
+      "relative_path": "02_OUTPUTS/PATCH_V1/UPDATED_SPECULUM_REVIEW_REQUEST.md",
+      "exists": true,
+      "size_bytes": 725
+    },
+    {
+      "file_name": "UPDATED_OWNER_SUMMARY.md",
+      "relative_path": "02_OUTPUTS/PATCH_V1/UPDATED_OWNER_SUMMARY.md",
+      "exists": true,
+      "size_bytes": 398
+    },
+    {
+      "file_name": "PATCH_MANIFEST.json",
+      "relative_path": "02_OUTPUTS/PATCH_V1/PATCH_MANIFEST.json",
+      "exists": true,
+      "size_bytes": 2246
+    },
+    {
+      "file_name": "PATCH_SHA256SUMS.txt",
+      "relative_path": "02_OUTPUTS/PATCH_V1/PATCH_SHA256SUMS.txt",
+      "exists": false,
+      "size_bytes": 0
+    },
+    {
+      "file_name": "PATCH_OWNER_REPORT.txt",
+      "relative_path": "02_OUTPUTS/PATCH_V1/PATCH_OWNER_REPORT.txt",
+      "exists": true,
+      "size_bytes": 967
+    }
+  ],
+  "notes": [
+    "Patch-only protocol contract update.",
+    "No E2E execution.",
+    "No script implementation."
+  ]
+}

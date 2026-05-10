@@ -1,0 +1,52 @@
+{
+  "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+  "run_id": "RUN-20260509-0014",
+  "operator": "PC_SERVITOR_Codex",
+  "started_at_utc": "2026-05-09T06:40:00Z",
+  "ended_at_utc": "2026-05-09T07:55:29Z",
+  "canonical_stage_id_format": "<CONTOUR>-STAGE-<THREE_DIGIT_NUMBER>",
+  "legacy_stage_id_format": "STAGE-<CONTOUR>-<THREE_DIGIT_NUMBER>",
+  "files_scanned_count": 1640,
+  "files_with_stage_id_mentions_count": 377,
+  "files_patched_count": 23,
+  "tests_run_count": 12,
+  "tests_passed_count": 12,
+  "tests_failed_count": 0,
+  "active_tools_patched": [
+    "SSH_COMMAND_LIBRARY/06_TOOLS/01_CORE_LIB/id_validation.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/lib/id_validation.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/lib/common_runtime.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/stage_wait_for_signal.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/stage_gate_decide.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/stage_repair_request.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/barrier_verify.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/final_bundle_assemble.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/barrier_verify.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/final_bundle_assemble.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/send_prompt_to_vm2.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/fetch_vm2_stage_bundle.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/20_CONTINUITY/continuity_scan_known_blockers.py"
+  ],
+  "docs_patched": [
+    "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/README.md",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/examples/README.md",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/examples/send_prompt_example.ps1",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/examples/fetch_vm2_bundle_example.ps1",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/SCRIPT_USAGE_EXAMPLES.md",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/examples/send_prompt_example.ps1",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/examples/fetch_vm2_bundle_example.ps1",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/STAGE_ID_POLICY.md"
+  ],
+  "schemas_patched": [
+    "SSH_COMMAND_LIBRARY/06_TOOLS/01_CORE_LIB/id_validation.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/lib/id_validation.py",
+    "SSH_COMMAND_LIBRARY/06_TOOLS/STAGE_ID_POLICY.json"
+  ],
+  "legacy_artifacts_detected": true,
+  "legacy_artifacts_rewritten": false,
+  "verdict": "PASS_STAGE_ID_SCHEMA_REPAIRED",
+  "remaining_blockers": [
+    "This task did not execute 0014F full local dry-run / 0014G / 0015 by design."
+  ],
+  "next_recommended_task": "TASK-20260509-0014F-FULL-LOCAL-STAGE-COORDINATION-DRY-RUN-V1"
+}

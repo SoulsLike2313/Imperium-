@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STAGE_REPAIR_ATTEMPT",
+  "type": "object",
+  "required": [
+    "task_id",
+    "run_id",
+    "stage_id",
+    "attempt_number",
+    "reason",
+    "repair_action",
+    "validation_result"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "attempt_number": {
+      "type": "integer"
+    },
+    "max_attempts": {
+      "type": "integer"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "repair_action": {
+      "type": "string"
+    },
+    "validation_result": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": "TASK_RECIPE_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+  "task_name": "Extract existing Constitution and Passport from OBSERVED, edit into Doctrinarium v0_1 canon candidates, and place them in the correct Doctrinarium doctrine location",
+  "mode": "DOCTRINE_EXTRACTION_CANON_CANDIDATE",
+  "root_path": "E:\\IMPERIUM",
+  "allowed_search_areas": [
+    "E:\\IMPERIUM\\OBSERVED",
+    "E:\\IMPERIUM\\ORGANS",
+    "E:\\IMPERIUM\\ARTIFACTS"
+  ],
+  "forbidden_areas": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "archive_skip_subtree_names": [
+    "ARCHIVE",
+    "Archive",
+    "archive",
+    "_archive",
+    "00_ARCHIVE",
+    "OLD",
+    "old",
+    "deprecated",
+    "DEPRECATED"
+  ],
+  "target_doctrine_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE",
+  "rules": {
+    "no_fake_canon": true,
+    "owner_review_required": true,
+    "canon_for_real_task_execution": false,
+    "no_destructive_actions": true,
+    "no_archive_scan": true,
+    "no_sanctum_work": true,
+    "no_vm2": true,
+    "no_throne": true
+  }
+}

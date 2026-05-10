@@ -1,0 +1,27 @@
+{
+  "scan_name": "EXPLORER_V1_0A_STATIC_READ_ONLY_SOURCE_SCAN",
+  "created_at_local": "2026-05-09T12:07:51",
+  "source": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0a.py",
+  "allowed_ui_side_effects": [
+    "clipboard_copy_path",
+    "subprocess.Popen(['explorer', ...]) for Open in Explorer"
+  ],
+  "forbidden_patterns_checked": [
+    "write_text",
+    "open_write_mode",
+    "unlink",
+    "remove",
+    "rmdir",
+    "shutil_move",
+    "shutil_copy",
+    "requests",
+    "urllib",
+    "socket",
+    "paramiko",
+    "watchdog",
+    "threading",
+    "multiprocessing"
+  ],
+  "findings": [],
+  "verdict": "PASS_STATIC_READ_ONLY_SCAN"
+}

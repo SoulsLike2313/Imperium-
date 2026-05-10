@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "big_script_bootstrap_protocol",
+  "protocol_id": "BIG_SCRIPT_BOOTSTRAP_PROTOCOL_V1",
+  "status": "candidate",
+  "target_platform": "windows_pc_support",
+  "required_pattern": {
+    "runner_file_required": true,
+    "json_config_required_for_long_args": true,
+    "short_invocation_required": true,
+    "phase_split_recommended": true,
+    "per_phase_logs_required": true,
+    "phase_markers_required": true,
+    "resumable_execution_required": true
+  },
+  "forbidden": [
+    "huge_inline_shell_payload",
+    "no_log_long_run",
+    "non_resumable_long_execution"
+  ]
+}

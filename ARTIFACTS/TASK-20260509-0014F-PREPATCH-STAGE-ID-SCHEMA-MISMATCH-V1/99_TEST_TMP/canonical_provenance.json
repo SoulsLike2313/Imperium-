@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+  "stage_id": "VM2-STAGE-001",
+  "run_id": "RUN-20260509-0001",
+  "contour_id": "VM2",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "pc_servitor_main",
+  "executor_role": "dispatch_operator",
+  "creation_mode": "SCRIPTED",
+  "created_at_utc": "2026-05-09T07:53:47Z",
+  "produced_on_host_class": "PC",
+  "source_bundle_name": "PROMPT.md",
+  "source_bundle_sha256": "33dc7e0541243f4245ffb24bb571c090e5b874329d10a6808eba1d16fd933678",
+  "parent_bundle_refs": [],
+  "transfer_method": "NONE",
+  "transfer_actor": "pc_servitor_main",
+  "manual_touchpoints": [],
+  "authority_level": "WORKING_ARTIFACT",
+  "acceptance_scope": "dispatch_pre_stage_execution",
+  "verification_status": "RECEIPT_VERIFIED"
+}

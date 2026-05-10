@@ -1,0 +1,51 @@
+{
+  "schema_version": "ORGAN_UTILITY_V0_1",
+  "organ_id": "DOCTRINARIUM",
+  "utility_id": "DOCTRINARIUM_WORKBENCH_V0_1",
+  "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD_ACTIVE",
+  "owner_facing_name": "Doctrinarium Workbench v0_1",
+  "utility_type": "CLI_REPORT_WORKBENCH",
+  "is_gui": false,
+  "source_of_truth": "reports_receipts_status_json_not_ui",
+  "declared_at": "2026-05-09T17:37:17.3291254Z",
+  "required_inputs": [
+    "DOCTRINE/DOCTRINE_INDEX.json",
+    "LAWS/MANDATORY_LAWS.json",
+    "LAWS/LAW_INDEX.json",
+    "LAWS/LAW_ENFORCEMENT_MAP.json",
+    "STANDARDS/ORGAN_CANONIZATION_STANDARD.json",
+    "REPORTS/ALL_ORGANS_GAP_REPORT.json",
+    "REPORTS/ORGAN_UTILITY_GAP_REPORT.json",
+    "STATUS/DOCTRINARIUM_STATUS.json"
+  ],
+  "visible_outputs": [
+    "REPORTS/DOCTRINARIUM_STATUS_REPORT.md",
+    "REPORTS/ALL_ORGANS_GAP_REPORT.md",
+    "REPORTS/ORGAN_UTILITY_GAP_REPORT.md",
+    "STATUS/DOCTRINARIUM_STATUS.json"
+  ],
+  "forbidden_claims": [
+    "CANON_V0_1",
+    "PASS_CANON_READY",
+    "REAL_TASK_EXECUTION_READY",
+    "CONTINUITY_GREEN"
+  ],
+  "current_limitations": [
+    "No GUI yet",
+    "No caller API yet",
+    "No semantic consistency engine yet",
+    "Doctrine triad still requires Owner approval",
+    "Hard laws are not fully enforced"
+  ],
+  "dashboards": [
+    {
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "version": "0.8",
+      "type": "LOCAL_WEB_DASHBOARD",
+      "url": "http://127.0.0.1:8791",
+      "launcher_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+      "manifest_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_MANIFEST_V0_8.json",
+      "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1",
+  "dryrun_task_id": "TASK-20260508-1414-LOCAL-FINAL-ASSEMBLY-DRYRUN",
+  "status": "PASS",
+  "checks": {
+    "zip_exists": true,
+    "sidecar_exists": true,
+    "internal_sha_ok": true,
+    "internal_sha_missing": [],
+    "internal_sha_mismatch_count": 0,
+    "zip_posix_hygiene_ok": true,
+    "zip_bad_entries": [],
+    "final_provenance_no_pending": true,
+    "final_provenance_source_sha_status": "EXTERNAL_HASH_RECORDED_IN_SIDECAR",
+    "manifest_sidecar_declared": true,
+    "external_sha_filename_only": true,
+    "ledger_has_final_bundle_created": true,
+    "receipt_exists": true,
+    "agent_final_response_exists": true
+  },
+  "no_vm2_contact": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_autosync": true,
+  "created_at_utc": "2026-05-08T18:33:25Z"
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "LATEST_REPORTS_INDEX_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "generated_at": "2026-05-10T05:36:31.990766+00:00",
+  "owner_approval_state": "UNKNOWN",
+  "status": "BOOTSTRAP",
+  "source_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+  ],
+  "latest_known_reports": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ORGAN_SELF_REPORT.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.md"
+  ],
+  "latest_known_receipts": [],
+  "dashboard_refs": [
+    {
+      "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+      "url": "http://127.0.0.1:8792",
+      "launcher_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_1.ps1",
+      "registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json"
+    }
+  ],
+  "blockers": [
+    "Cross-organ gaps still present (see Doctrinarium all-organs report)",
+    "No canon authorization for real-task continuity claims"
+  ],
+  "limitations": [
+    "No canon/green claim from continuity port alone."
+  ],
+  "next_actions": [
+    "update organ formalization evidence and keep port current"
+  ],
+  "do_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY"
+  ],
+  "evidence_level": "PORT_BOOTSTRAP",
+  "stale_if_older_than_hours": 24,
+  "last_verified_at": "2026-05-10T05:36:31.991742+00:00"
+}

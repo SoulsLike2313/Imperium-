@@ -1,0 +1,11 @@
+{
+  "reports": [
+    {
+      "folder": "SANCTUM-SMOKE-20260509-150325",
+      "report_json": "SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK_REPORT.json",
+      "verdict": "PASS_SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK",
+      "checks_failed": 0
+    }
+  ],
+  "count": 1
+}

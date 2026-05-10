@@ -1,0 +1,114 @@
+{
+  "schema_version": "ADMINISTRATUM_ORGAN_SNAPSHOT_V0_1",
+  "generated_at": "2026-05-09T19:51:07.426484+00:00",
+  "organs": [
+    {
+      "organ_id": "_PORTS",
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS",
+      "status": "UNKNOWN",
+      "dashboard_exists": false,
+      "dashboard_id": null,
+      "utility_exists": false,
+      "blockers": [],
+      "latest_report_path": null,
+      "next_recommended_fix": [
+        "create ORGAN_CONTRACT.json",
+        "create ORGAN_STATUS.json",
+        "create RECEIPTS directory",
+        "declare organ utility/dashboard"
+      ]
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+      "status": "BOOTSTRAP",
+      "dashboard_exists": true,
+      "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+      "utility_exists": true,
+      "blockers": [
+        "Cross-organ gaps still present (see Doctrinarium all-organs report)",
+        "No canon authorization for real-task continuity claims"
+      ],
+      "latest_report_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json",
+      "next_recommended_fix": []
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "dashboard_exists": false,
+      "dashboard_id": null,
+      "utility_exists": false,
+      "blockers": [],
+      "latest_report_path": null,
+      "next_recommended_fix": [
+        "create ORGAN_CONTRACT.json",
+        "create RECEIPTS directory",
+        "declare organ utility/dashboard"
+      ]
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM",
+      "status": "STRICT_BOOTSTRAP_GATE",
+      "dashboard_exists": true,
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "utility_exists": true,
+      "blockers": [
+        "Owner approval artifact for canon doctrine is missing",
+        "Hard laws are not fully enforced"
+      ],
+      "latest_report_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+      "next_recommended_fix": []
+    },
+    {
+      "organ_id": "INQUISITION",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "dashboard_exists": false,
+      "dashboard_id": null,
+      "utility_exists": false,
+      "blockers": [],
+      "latest_report_path": null,
+      "next_recommended_fix": [
+        "create ORGAN_CONTRACT.json",
+        "create RECEIPTS directory",
+        "declare organ utility/dashboard"
+      ]
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "dashboard_exists": false,
+      "dashboard_id": null,
+      "utility_exists": false,
+      "blockers": [],
+      "latest_report_path": null,
+      "next_recommended_fix": [
+        "create ORGAN_CONTRACT.json",
+        "create RECEIPTS directory",
+        "declare organ utility/dashboard"
+      ]
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS",
+      "status": "MINIMAL_SCOPE_ACTIVE",
+      "dashboard_exists": false,
+      "dashboard_id": null,
+      "utility_exists": false,
+      "blockers": [],
+      "latest_report_path": null,
+      "next_recommended_fix": [
+        "create ORGAN_CONTRACT.json",
+        "declare organ utility/dashboard"
+      ]
+    }
+  ],
+  "summary": {
+    "total_organs": 7,
+    "with_dashboards": 2,
+    "total_blockers": 4
+  }
+}

@@ -1,0 +1,6 @@
+# DEVELOPER PORTS SNAPSHOT
+
+- registry: E:\IMPERIUM\ORGANS\ADMINISTRATUM\ADDRESS_REGISTRY\DEVELOPER_PORTS.json
+- organs: 7
+- with_dashboards: 2
+- with_scripts: 6

@@ -1,0 +1,9 @@
+{
+  "schema_id": "ASTRONOMICON_TASK_MAP_SCHEMA_V1",
+  "task_id": "string",
+  "run_id": "string",
+  "stages": [],
+  "dependency_map_ref": "string",
+  "sync_points": [],
+  "status": "draft"
+}

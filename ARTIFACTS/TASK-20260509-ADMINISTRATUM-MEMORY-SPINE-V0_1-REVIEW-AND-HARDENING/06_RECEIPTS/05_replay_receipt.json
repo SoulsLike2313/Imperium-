@@ -1,0 +1,30 @@
+{
+  "schema_version": "HARDENING_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_5_REPLAY",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\imperium_task_start.ps1"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\05_REPLAY\\REPLAY_LOG.txt",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\05_REPLAY\\REPLAY_RESULT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\05_REPLAY\\POST_REPLAY_RECEIPT_CHECK.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\imperium_task_start.ps1": "e1933d5b2b7cbeda1f34835ed7e81044825b13165e62682502c175280ff30aae",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\05_REPLAY\\REPLAY_LOG.txt": "eb38784848231e6e930f69e12349af848d31cf66394807e0db8cd59c76559c3c",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\05_REPLAY\\REPLAY_RESULT.json": "61275e1a3bdd39440d0a1eeef0037c26c24ed263abea0ae6fc5a3666549657aa",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\05_REPLAY\\POST_REPLAY_RECEIPT_CHECK.json": "530ddcadaa1d07466c36aa75edb71b1597472919bdec8efa9e72cdbb604c41cb"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "next_action": "Proceed to current state and continuity review.",
+  "created_at": "2026-05-09T15:20:56.7908510Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Replay smoke test выполнен после hardening; проверка receipt_chain до 08 подтверждена."
+}

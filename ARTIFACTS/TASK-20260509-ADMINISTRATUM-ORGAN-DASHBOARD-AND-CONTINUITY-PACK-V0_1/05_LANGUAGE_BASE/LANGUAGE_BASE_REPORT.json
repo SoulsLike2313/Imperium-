@@ -1,0 +1,39 @@
+{
+  "schema_version": "LANGUAGE_BASE_REPORT_V0_1",
+  "generated_at": "2026-05-09T19:56:10.039620+00:00",
+  "lexicon_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON",
+  "files": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON\\COMMENTARY_LEXICON.json",
+      "exists": true,
+      "sha256": "b990f366e6377a11afd287ff11ff64e84f9abf693f4504f654804fd49356d3f2"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON\\COMMENTARY_TEMPLATES.json",
+      "exists": true,
+      "sha256": "25d95d6b24e6741b94792e2ac8af8da8467a52cde7e12b3967a3fe6cf2837671"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON\\COMMENTARY_RULES.json",
+      "exists": true,
+      "sha256": "7ff5e5287fcab5c920887d5fb3535d9bc522b662f7e615354446e02528ba5d75"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON\\COMMENTARY_STATUS_PHRASES.json",
+      "exists": true,
+      "sha256": "9448ae22093400dd7477312eba2a3936b430fc5a7e1cc0f9269b03bf25b86075"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON\\LANGUAGE_BASE_STATUS.json",
+      "exists": true,
+      "sha256": "9a6e6f8d21c2a3b44a3190c20d36db23be6903dc89f7403161fcde5298064fd8"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON\\LANGUAGE_BASE_SOURCE_REQUEST.md",
+      "exists": true,
+      "sha256": "447d7611c290cc70122d3892735d5c0e2453c6b5260bcbc88a4ee5dbf6c52e40"
+    }
+  ],
+  "external_download_performed": false,
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

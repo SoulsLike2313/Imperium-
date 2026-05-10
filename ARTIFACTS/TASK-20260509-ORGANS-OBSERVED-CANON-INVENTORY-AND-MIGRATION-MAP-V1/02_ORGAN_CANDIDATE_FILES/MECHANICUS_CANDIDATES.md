@@ -1,0 +1,61 @@
+# MECHANICUS CANDIDATES
+
+Total: 56
+
+## High/Medium confidence candidates
+- `ARTIFACTS/TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1/02_OUTPUTS/VERIFY_EXTRACT_0014D/02_OUTPUTS/VERIFY_EXTRACT_0014D/ORGANS/MECHANICUS_RECOVERABLE_ERROR_CLASSIFICATION_V1.md` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1/02_OUTPUTS/VERIFY_EXTRACT_0014D/ORGANS/MECHANICUS_RECOVERABLE_ERROR_CLASSIFICATION_V1.md` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1/ORGANS/MECHANICUS_RECOVERABLE_ERROR_CLASSIFICATION_V1.md` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1/ORGANS/MECHANICUS_RECOVERABLE_ERROR_CLASSIFICATION_V1.md` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/CONTINUITY_PACK/ORGAN_PORTS/STUB_RECEIPTS/MECHANICUS_STUB_SELF_REPORT_RECEIPT.json` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/CONTINUITY_PACK/ORGAN_PORTS/STUB_REPORTS/MECHANICUS_STUB_SELF_REPORT.json` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/RECEIPTS/ORGAN_STUB_RECEIPTS/MECHANICUS_STUB_SELF_REPORT_RECEIPT.json` | class=artifact | action=candidate_for_review | confidence=medium
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/ORGAN_STATUS.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/README.md` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/REPAIR_SCRIPTS/REPAIR_SCRIPT_INDEX.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/RISK/TOOL_RISK_CLASSIFICATION.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCHEMAS/SCRIPT_CONTRACT_SCHEMA.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCHEMAS/VALIDATOR_CONTRACT_SCHEMA.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/build_manifest.py` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/build_sha256sums.py` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/scan_python_readonly_safety.py` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPT_REGISTRY.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/TESTS/TEST_COMMAND_INDEX.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/VALIDATOR_REGISTRY.json` | class=artifact | action=candidate_for_migration | confidence=high
+- `OBSERVED/THRONE_REPO_COPY/FULL_COPY/IMPERIUM/CANON/machine_readable/planning/FUTURE_AUTOMATION_HOOK_NOTE_V1.json` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/THRONE_REPO_COPY/FULL_COPY/IMPERIUM/CANON/pre_dark_age/foundation_v0/evidence/resource_proof_matrices/admission_blockers_or_notes.json` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/THRONE_REPO_COPY/FULL_COPY/IMPERIUM/OPERATIONS/organs/mechanicus_v1/app/__pycache__/mechanicus_cli.cpython-312.pyc` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/THRONE_REPO_COPY/FULL_COPY/IMPERIUM/OPERATIONS/organs/mechanicus_v1/app/mechanicus_cli.py` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/THRONE_REPO_COPY/FULL_COPY/IMPERIUM/OPERATIONS/organs/mechanicus_v1/bin/mechanicus` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/THRONE_REPO_COPY/FULL_COPY/IMPERIUM/docs/governance/IMPERIUM_ADEPTUS_MECHANICUS_CANON_V1.md` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/VM3_POST_REPAIR_MECHANICUS_OUTPUT.txt` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_admission/STEP_VM1_THRONE_OWNER_GATED_LAWFUL_ADMISSION_AND_POST_ADMISSION_PROOF_V1_20260426T131121Z/gate_mechanicus_audit.err` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_admission/STEP_VM1_THRONE_OWNER_GATED_LAWFUL_ADMISSION_AND_POST_ADMISSION_PROOF_V1_20260426T131121Z/gate_mechanicus_audit.out` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_admission/STEP_VM1_THRONE_OWNER_GATED_LAWFUL_ADMISSION_AND_POST_ADMISSION_PROOF_V1_20260426T131121Z/gate_mechanicus_audit.rc` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_repair/ARTIFACTS/reviews/STEP_VM1_POST_ADMISSION_VALIDATION_REPAIR_AND_FANOUT_CLOSURE_V1_20260426T133007Z/gate_mechanicus_audit_post_repair.err` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_repair/ARTIFACTS/reviews/STEP_VM1_POST_ADMISSION_VALIDATION_REPAIR_AND_FANOUT_CLOSURE_V1_20260426T133007Z/gate_mechanicus_audit_post_repair.out` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_repair/ARTIFACTS/reviews/STEP_VM1_POST_ADMISSION_VALIDATION_REPAIR_AND_FANOUT_CLOSURE_V1_20260426T133007Z/gate_mechanicus_audit_post_repair.rc` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_repair/ARTIFACTS/reviews/STEP_VM1_POST_ADMISSION_VALIDATION_REPAIR_AND_FANOUT_CLOSURE_V1_20260426T133007Z/gate_mechanicus_audit_post_repair_rerun.err` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_repair/ARTIFACTS/reviews/STEP_VM1_POST_ADMISSION_VALIDATION_REPAIR_AND_FANOUT_CLOSURE_V1_20260426T133007Z/gate_mechanicus_audit_post_repair_rerun.out` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_POST_ADMISSION_GOVERNANCE_TRUST_GATE_CLOSURE_AND_CLEAN_AUDIT_PREP_V1_20260426T185307Z/vm1_evidence_input/unpacked_repair/ARTIFACTS/reviews/STEP_VM1_POST_ADMISSION_VALIDATION_REPAIR_AND_FANOUT_CLOSURE_V1_20260426T133007Z/gate_mechanicus_audit_post_repair_rerun.rc` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/ARTIFACTS/reviews/STEP_VM3_SELF_SERVICE_INPUT_ACQUISITION_COPY_NORMALIZATION_AND_PROMT1_COMPLETION_V3_20260426T222731Z/00_inputs/pc_total_audit_bundle/03_codebase_audit/MISSING_DEPENDENCIES_TABLE.csv` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/CANON/machine_readable/planning/FUTURE_AUTOMATION_HOOK_NOTE_V1.json` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/OPERATIONS/organs/mechanicus_v1/app/__pycache__/mechanicus_cli.cpython-312.pyc` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/OPERATIONS/organs/mechanicus_v1/app/mechanicus_cli.py` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/OPERATIONS/organs/mechanicus_v1/bin/mechanicus` | class=observed_copy | action=do_not_touch | confidence=medium
+- `OBSERVED/VM3_REPO_COPY/FULL_COPY/IMPERIUM/docs/governance/IMPERIUM_ADEPTUS_MECHANICUS_CANON_V1.md` | class=observed_copy | action=do_not_touch | confidence=medium
+- `ORGANS/MECHANICUS/ORGAN_STATUS.json` | class=unknown | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/README.md` | class=unknown | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/REPAIR_SCRIPTS/REPAIR_SCRIPT_INDEX.json` | class=registry | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/RISK/TOOL_RISK_CLASSIFICATION.json` | class=unknown | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCHEMAS/SCRIPT_CONTRACT_SCHEMA.json` | class=schema | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCHEMAS/VALIDATOR_CONTRACT_SCHEMA.json` | class=schema | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPTS/__pycache__/build_manifest.cpython-312.pyc` | class=unknown | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPTS/__pycache__/build_sha256sums.cpython-312.pyc` | class=unknown | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPTS/__pycache__/scan_python_readonly_safety.cpython-312.pyc` | class=unknown | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPTS/build_manifest.py` | class=script | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPTS/build_sha256sums.py` | class=script | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPTS/scan_python_readonly_safety.py` | class=script | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/SCRIPT_REGISTRY.json` | class=policy | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/TESTS/TEST_COMMAND_INDEX.json` | class=registry | action=keep_indexed | confidence=high
+- `ORGANS/MECHANICUS/VALIDATOR_REGISTRY.json` | class=policy | action=keep_indexed | confidence=high

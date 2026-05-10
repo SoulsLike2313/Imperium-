@@ -1,0 +1,439 @@
+{
+  "checked_at_local": "2026-05-09T12:06:11",
+  "roots": [
+    {
+      "path": "e:\\IMPERIUM\\ARTIFACTS",
+      "exists": true,
+      "top_level_items": [
+        {
+          "name": "_MANUAL_PROOFS",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-TEST-VM2-PYTHON-SEND",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "00_AGENT_MAP.md",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "ARTIFACT_ROUTING_POLICY.md",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "ARTIFACT_TASK_FOLDER_TEMPLATE.md",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "INDEX.csv",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "INDEX.json",
+          "is_dir": false,
+          "is_file": true
+        }
+      ],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    },
+    {
+      "path": "e:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+      "exists": true,
+      "top_level_items": [
+        {
+          "name": "TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-20260509-EXPLORER-MANUAL-BUILD-V0_1-V0_3-PROOF",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "TASK-TEST-VM2-PROMPT-COPY",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "00_AGENT_MAP.md",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "MANUAL_PROOFS_INDEX.csv",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "MANUAL_PROOFS_INDEX.json",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "README.md",
+          "is_dir": false,
+          "is_file": true
+        }
+      ],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    },
+    {
+      "path": "e:\\IMPERIUM\\EXPLORER",
+      "exists": true,
+      "top_level_items": [
+        {
+          "name": "__pycache__",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "POLICIES",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "SCREENSHOTS",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "VERIFY",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "CHANGELOG.md",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v0_1.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v0_2.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v0_3.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v0_4.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v0_5.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v0_6.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v1_0.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "imperium_explorer_v1_0a.py",
+          "is_dir": false,
+          "is_file": true
+        },
+        {
+          "name": "README.md",
+          "is_dir": false,
+          "is_file": true
+        }
+      ],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    },
+    {
+      "path": "e:\\IMPERIUM\\ORGANS",
+      "exists": true,
+      "top_level_items": [
+        {
+          "name": "ADMINISTRATUM",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "ASTRONOMICON",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "MECHANICUS",
+          "is_dir": true,
+          "is_file": false
+        }
+      ],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    },
+    {
+      "path": "e:\\IMPERIUM\\PC_ENGINEERING_ROOM",
+      "exists": true,
+      "top_level_items": [
+        {
+          "name": "00_SYSTEM_MAPS",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "01_CURRENT_STATE",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "02_ARCHITECTURE_ATLAS",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "03_OWNER_DECISIONS",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "04_REVIEW_BENCH",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "05_TEST_LAB",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "06_ORGANS_WORKSHOP",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "07_WORKER_TEMPLATE_LAB",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "08_LOCAL_LLM_LAB",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "09_INTERNET_RESEARCH_GATEWAY",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "10_RECEIPTS_AND_AUDIT",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "11_QUARANTINE_NO_DELETE",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "99_DASHBOARD",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "00_README_RU.md",
+          "is_dir": false,
+          "is_file": true
+        }
+      ],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    },
+    {
+      "path": "e:\\IMPERIUM\\TOOLS",
+      "exists": false,
+      "top_level_items": [],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    },
+    {
+      "path": "e:\\IMPERIUM\\ARCHIVE",
+      "exists": true,
+      "top_level_items": [
+        {
+          "name": "2026_04_DELETE_LATER",
+          "is_dir": true,
+          "is_file": false
+        },
+        {
+          "name": "ROOT_CLEANUP_20260508_1731",
+          "is_dir": true,
+          "is_file": false
+        }
+      ],
+      "scan_mode": "TOP_LEVEL_ONLY"
+    }
+  ],
+  "archive_recursive_scan": "DISABLED"
+}

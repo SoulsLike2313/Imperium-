@@ -1,0 +1,136 @@
+{
+  "generated_at_utc": "2026-05-09T06:14:18Z",
+  "collectors": [
+    {
+      "collector_id": "COLLECT_ADDRESSES",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_ARTIFACTS",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_MANUAL_PROOFS",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_TOOLS",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_RECEIPTS",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_LEDGERS",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_KNOWN_BLOCKERS",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "BUILD_PACK",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "VERIFY_PACK",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "OWNER_SUMMARY",
+      "enabled": true,
+      "status": "ACTIVE_LOCAL",
+      "failure_policy": "FATAL_FOR_PACK_INTEGRITY",
+      "notes": "Implemented in 0016A/0016A1 continuity subsystem."
+    },
+    {
+      "collector_id": "COLLECT_SANCTUM_READINESS",
+      "enabled": false,
+      "status": "FUTURE_SLOT",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "notes": "Reserved future organ self-report collector slot."
+    },
+    {
+      "collector_id": "COLLECT_CONTOUR_CAPABILITY_PROFILES",
+      "enabled": false,
+      "status": "FUTURE_SLOT",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "notes": "Reserved future organ self-report collector slot."
+    },
+    {
+      "collector_id": "COLLECT_ADMINISTRATUM_SELF_REPORT",
+      "enabled": false,
+      "status": "CONTRACT_ONLY",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "stub_generated": true,
+      "not_real_organ_report": true,
+      "notes": "Future self-report collector for Administratum; 0016B only generates stub artifacts."
+    },
+    {
+      "collector_id": "COLLECT_MECHANICUS_SELF_REPORT",
+      "enabled": false,
+      "status": "CONTRACT_ONLY",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "stub_generated": true,
+      "not_real_organ_report": true,
+      "notes": "Future self-report collector for Mechanicus; 0016B only generates stub artifacts."
+    },
+    {
+      "collector_id": "COLLECT_INQUISITION_SELF_REPORT",
+      "enabled": false,
+      "status": "CONTRACT_ONLY",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "stub_generated": true,
+      "not_real_organ_report": true,
+      "notes": "Future self-report collector for Inquisition; 0016B only generates stub artifacts."
+    },
+    {
+      "collector_id": "COLLECT_ASTRONOMICON_SELF_REPORT",
+      "enabled": false,
+      "status": "CONTRACT_ONLY",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "stub_generated": true,
+      "not_real_organ_report": true,
+      "notes": "Future self-report collector for Astronomicon; 0016B only generates stub artifacts."
+    },
+    {
+      "collector_id": "COLLECT_THRONE_SELF_REPORT",
+      "enabled": false,
+      "status": "FUTURE_SLOT",
+      "failure_policy": "NON_FATAL_UNTIL_IMPLEMENTED",
+      "stub_generated": true,
+      "not_real_organ_report": true,
+      "notes": "Future self-report collector for Throne; 0016B only generates stub artifacts."
+    }
+  ],
+  "future_collectors_count": 7,
+  "verdict": "PARTIAL"
+}

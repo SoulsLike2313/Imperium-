@@ -1,0 +1,10 @@
+{
+  "organ": "ASTRONOMICON",
+  "status": "ORGAN_SCAFFOLD_0_1",
+  "maturity": [
+    "CONTRACT_ONLY",
+    "READ_ROUTE_SCAFFOLD_PRESENT",
+    "NOT_IMPLEMENTED"
+  ],
+  "campaign_engine": "NOT_IMPLEMENTED"
+}

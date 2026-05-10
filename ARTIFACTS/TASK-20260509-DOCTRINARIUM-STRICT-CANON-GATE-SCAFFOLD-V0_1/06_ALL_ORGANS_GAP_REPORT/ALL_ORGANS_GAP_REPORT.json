@@ -1,0 +1,1085 @@
+{
+  "schema_version": "ALL_ORGANS_GAP_REPORT_V0_1",
+  "verdict": "PASS_ALL_ORGANS_GAP_REPORT_CREATED_WITH_EXPECTED_ERRORS",
+  "root_scanned": "E:\\IMPERIUM\\ORGANS",
+  "total_organs_checked": 7,
+  "classification_summary": {
+    "FOLDER_ONLY": 1,
+    "UNKNOWN": 5,
+    "SCAFFOLD": 1
+  },
+  "total_blockers_found": 62,
+  "major_gaps": [
+    {
+      "organ": "_PORTS",
+      "gap": "Missing README.md: E:\\IMPERIUM\\ORGANS\\_PORTS\\README.md"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "Missing ORGAN_STATUS.json: E:\\IMPERIUM\\ORGANS\\_PORTS\\ORGAN_STATUS.json"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\_PORTS\\ORGAN_CONTRACT.json"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "Missing SCRIPTS directory and non_script_role is not explicit"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\_PORTS\\RECEIPTS"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "No self-report/status report file found"
+    },
+    {
+      "organ": "_PORTS",
+      "gap": "current_blockers field not found in status/contract"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_CONTRACT.json"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\RECEIPTS"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "No self-report/status report file found"
+    },
+    {
+      "organ": "ADMINISTRATUM",
+      "gap": "current_blockers field not found in status/contract"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\ORGAN_CONTRACT.json"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\RECEIPTS"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "No self-report/status report file found"
+    },
+    {
+      "organ": "ASTRONOMICON",
+      "gap": "current_blockers field not found in status/contract"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\INQUISITION\\ORGAN_CONTRACT.json"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\INQUISITION\\RECEIPTS"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "No self-report/status report file found"
+    },
+    {
+      "organ": "INQUISITION",
+      "gap": "current_blockers field not found in status/contract"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\MECHANICUS\\ORGAN_CONTRACT.json"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\MECHANICUS\\RECEIPTS"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "No self-report/status report file found"
+    },
+    {
+      "organ": "MECHANICUS",
+      "gap": "current_blockers field not found in status/contract"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_CONTRACT.json"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "No self-report/status report file found"
+    },
+    {
+      "organ": "OFFICIO_AGENTIS",
+      "gap": "current_blockers field not found in status/contract"
+    }
+  ],
+  "skipped": [],
+  "organs": [
+    {
+      "organ_id": "_PORTS",
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS",
+      "classification": "FOLDER_ONLY",
+      "folder_exists": true,
+      "readme_exists": false,
+      "organ_status_exists": false,
+      "organ_contract_exists": false,
+      "scripts_exists": false,
+      "receipts_exists": false,
+      "self_report_exists": false,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": false,
+          "detail": "Missing README.md: E:\\IMPERIUM\\ORGANS\\_PORTS\\README.md"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": false,
+          "detail": "Missing ORGAN_STATUS.json: E:\\IMPERIUM\\ORGANS\\_PORTS\\ORGAN_STATUS.json"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": false,
+          "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\_PORTS\\ORGAN_CONTRACT.json"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": false,
+          "detail": "Missing SCRIPTS directory and non_script_role is not explicit"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": false,
+          "detail": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\_PORTS\\RECEIPTS"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": false,
+          "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": false,
+          "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": false,
+          "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": false,
+          "detail": "required_receipts missing in ORGAN_CONTRACT"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": false,
+          "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": false,
+          "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": false,
+          "detail": "No self-report/status report file found"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": false,
+          "detail": "current_blockers field not found in status/contract"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [
+        "Missing README.md: E:\\IMPERIUM\\ORGANS\\_PORTS\\README.md",
+        "Missing ORGAN_STATUS.json: E:\\IMPERIUM\\ORGANS\\_PORTS\\ORGAN_STATUS.json",
+        "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\_PORTS\\ORGAN_CONTRACT.json",
+        "Missing SCRIPTS directory and non_script_role is not explicit",
+        "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\_PORTS\\RECEIPTS",
+        "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+        "forbidden_roots missing or empty in ORGAN_CONTRACT",
+        "entrypoints missing or empty in ORGAN_CONTRACT",
+        "required_receipts missing in ORGAN_CONTRACT",
+        "responsibilities missing or empty in ORGAN_CONTRACT",
+        "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+        "No self-report/status report file found",
+        "current_blockers field not found in status/contract"
+      ],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.417818+00:00",
+      "allowed_writes_present": false,
+      "forbidden_roots_present": false,
+      "entrypoints_present": false,
+      "required_receipts_present": false,
+      "current_blockers": [],
+      "owner_approval_state_value": "UNKNOWN",
+      "why_not_canon": [
+        "Missing ORGAN_CONTRACT.json",
+        "Missing ORGAN_STATUS.json",
+        "Has standard validation blockers",
+        "No owner approval evidence for canon claim"
+      ]
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+      "classification": "UNKNOWN",
+      "folder_exists": true,
+      "readme_exists": true,
+      "organ_status_exists": true,
+      "organ_contract_exists": false,
+      "scripts_exists": true,
+      "receipts_exists": false,
+      "self_report_exists": false,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": false,
+          "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_CONTRACT.json"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": false,
+          "detail": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\RECEIPTS"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": false,
+          "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": false,
+          "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": false,
+          "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": false,
+          "detail": "required_receipts missing in ORGAN_CONTRACT"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": false,
+          "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": false,
+          "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": false,
+          "detail": "No self-report/status report file found"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": false,
+          "detail": "current_blockers field not found in status/contract"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [
+        "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_CONTRACT.json",
+        "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\RECEIPTS",
+        "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+        "forbidden_roots missing or empty in ORGAN_CONTRACT",
+        "entrypoints missing or empty in ORGAN_CONTRACT",
+        "required_receipts missing in ORGAN_CONTRACT",
+        "responsibilities missing or empty in ORGAN_CONTRACT",
+        "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+        "No self-report/status report file found",
+        "current_blockers field not found in status/contract"
+      ],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.418793+00:00",
+      "allowed_writes_present": false,
+      "forbidden_roots_present": false,
+      "entrypoints_present": false,
+      "required_receipts_present": false,
+      "current_blockers": [],
+      "owner_approval_state_value": "UNKNOWN",
+      "why_not_canon": [
+        "Missing ORGAN_CONTRACT.json",
+        "Has standard validation blockers",
+        "No owner approval evidence for canon claim"
+      ]
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+      "classification": "UNKNOWN",
+      "folder_exists": true,
+      "readme_exists": true,
+      "organ_status_exists": true,
+      "organ_contract_exists": false,
+      "scripts_exists": true,
+      "receipts_exists": false,
+      "self_report_exists": false,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": false,
+          "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\ORGAN_CONTRACT.json"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": false,
+          "detail": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\RECEIPTS"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": false,
+          "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": false,
+          "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": false,
+          "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": false,
+          "detail": "required_receipts missing in ORGAN_CONTRACT"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": false,
+          "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": false,
+          "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": false,
+          "detail": "No self-report/status report file found"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": false,
+          "detail": "current_blockers field not found in status/contract"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [
+        "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\ORGAN_CONTRACT.json",
+        "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\RECEIPTS",
+        "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+        "forbidden_roots missing or empty in ORGAN_CONTRACT",
+        "entrypoints missing or empty in ORGAN_CONTRACT",
+        "required_receipts missing in ORGAN_CONTRACT",
+        "responsibilities missing or empty in ORGAN_CONTRACT",
+        "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+        "No self-report/status report file found",
+        "current_blockers field not found in status/contract"
+      ],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.419769+00:00",
+      "allowed_writes_present": false,
+      "forbidden_roots_present": false,
+      "entrypoints_present": false,
+      "required_receipts_present": false,
+      "current_blockers": [],
+      "owner_approval_state_value": "UNKNOWN",
+      "why_not_canon": [
+        "Missing ORGAN_CONTRACT.json",
+        "Has standard validation blockers",
+        "No owner approval evidence for canon claim"
+      ]
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM",
+      "classification": "SCAFFOLD",
+      "folder_exists": true,
+      "readme_exists": true,
+      "organ_status_exists": true,
+      "organ_contract_exists": true,
+      "scripts_exists": true,
+      "receipts_exists": true,
+      "self_report_exists": true,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.420746+00:00",
+      "allowed_writes_present": true,
+      "forbidden_roots_present": true,
+      "entrypoints_present": true,
+      "required_receipts_present": true,
+      "current_blockers": [
+        "Owner approval artifact for canon doctrine is missing",
+        "Hard laws are not fully enforced"
+      ],
+      "owner_approval_state_value": "OWNER_REVIEW_REQUIRED",
+      "why_not_canon": [
+        "No owner approval evidence for canon claim"
+      ]
+    },
+    {
+      "organ_id": "INQUISITION",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION",
+      "classification": "UNKNOWN",
+      "folder_exists": true,
+      "readme_exists": true,
+      "organ_status_exists": true,
+      "organ_contract_exists": false,
+      "scripts_exists": true,
+      "receipts_exists": false,
+      "self_report_exists": false,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": false,
+          "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\INQUISITION\\ORGAN_CONTRACT.json"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": false,
+          "detail": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\INQUISITION\\RECEIPTS"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": false,
+          "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": false,
+          "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": false,
+          "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": false,
+          "detail": "required_receipts missing in ORGAN_CONTRACT"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": false,
+          "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": false,
+          "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": false,
+          "detail": "No self-report/status report file found"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": false,
+          "detail": "current_blockers field not found in status/contract"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [
+        "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\INQUISITION\\ORGAN_CONTRACT.json",
+        "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\INQUISITION\\RECEIPTS",
+        "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+        "forbidden_roots missing or empty in ORGAN_CONTRACT",
+        "entrypoints missing or empty in ORGAN_CONTRACT",
+        "required_receipts missing in ORGAN_CONTRACT",
+        "responsibilities missing or empty in ORGAN_CONTRACT",
+        "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+        "No self-report/status report file found",
+        "current_blockers field not found in status/contract"
+      ],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.422699+00:00",
+      "allowed_writes_present": false,
+      "forbidden_roots_present": false,
+      "entrypoints_present": false,
+      "required_receipts_present": false,
+      "current_blockers": [],
+      "owner_approval_state_value": "UNKNOWN",
+      "why_not_canon": [
+        "Missing ORGAN_CONTRACT.json",
+        "Has standard validation blockers",
+        "No owner approval evidence for canon claim"
+      ]
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+      "classification": "UNKNOWN",
+      "folder_exists": true,
+      "readme_exists": true,
+      "organ_status_exists": true,
+      "organ_contract_exists": false,
+      "scripts_exists": true,
+      "receipts_exists": false,
+      "self_report_exists": false,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": false,
+          "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\MECHANICUS\\ORGAN_CONTRACT.json"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": false,
+          "detail": "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\MECHANICUS\\RECEIPTS"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": false,
+          "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": false,
+          "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": false,
+          "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": false,
+          "detail": "required_receipts missing in ORGAN_CONTRACT"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": false,
+          "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": false,
+          "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": false,
+          "detail": "No self-report/status report file found"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": false,
+          "detail": "current_blockers field not found in status/contract"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [
+        "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\MECHANICUS\\ORGAN_CONTRACT.json",
+        "Missing RECEIPTS directory: E:\\IMPERIUM\\ORGANS\\MECHANICUS\\RECEIPTS",
+        "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+        "forbidden_roots missing or empty in ORGAN_CONTRACT",
+        "entrypoints missing or empty in ORGAN_CONTRACT",
+        "required_receipts missing in ORGAN_CONTRACT",
+        "responsibilities missing or empty in ORGAN_CONTRACT",
+        "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+        "No self-report/status report file found",
+        "current_blockers field not found in status/contract"
+      ],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.423676+00:00",
+      "allowed_writes_present": false,
+      "forbidden_roots_present": false,
+      "entrypoints_present": false,
+      "required_receipts_present": false,
+      "current_blockers": [],
+      "owner_approval_state_value": "UNKNOWN",
+      "why_not_canon": [
+        "Missing ORGAN_CONTRACT.json",
+        "Has standard validation blockers",
+        "No owner approval evidence for canon claim"
+      ]
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS",
+      "classification": "UNKNOWN",
+      "folder_exists": true,
+      "readme_exists": true,
+      "organ_status_exists": true,
+      "organ_contract_exists": false,
+      "scripts_exists": true,
+      "receipts_exists": true,
+      "self_report_exists": false,
+      "checks": [
+        {
+          "check": "organ folder exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "README exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_STATUS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "ORGAN_CONTRACT exists",
+          "ok": false,
+          "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_CONTRACT.json"
+        },
+        {
+          "check": "SCRIPTS exists or non-script role explicit",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "RECEIPTS exists",
+          "ok": true,
+          "detail": "ok"
+        },
+        {
+          "check": "allowed_write_roots defined",
+          "ok": false,
+          "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "forbidden_roots defined",
+          "ok": false,
+          "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "entrypoints defined",
+          "ok": false,
+          "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "required_receipts defined",
+          "ok": false,
+          "detail": "required_receipts missing in ORGAN_CONTRACT"
+        },
+        {
+          "check": "responsibilities defined",
+          "ok": false,
+          "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "excluded responsibilities defined",
+          "ok": false,
+          "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+        },
+        {
+          "check": "self-report or equivalent exists",
+          "ok": false,
+          "detail": "No self-report/status report file found"
+        },
+        {
+          "check": "current blockers visible",
+          "ok": false,
+          "detail": "current_blockers field not found in status/contract"
+        },
+        {
+          "check": "no CANON_V0_1 claim without owner evidence",
+          "ok": true,
+          "detail": "ok"
+        }
+      ],
+      "blockers": [
+        "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_CONTRACT.json",
+        "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+        "forbidden_roots missing or empty in ORGAN_CONTRACT",
+        "entrypoints missing or empty in ORGAN_CONTRACT",
+        "required_receipts missing in ORGAN_CONTRACT",
+        "responsibilities missing or empty in ORGAN_CONTRACT",
+        "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+        "No self-report/status report file found",
+        "current_blockers field not found in status/contract"
+      ],
+      "warnings": [],
+      "owner_approval_state": {
+        "evidence_path": null,
+        "evidence_exists": false
+      },
+      "created_at": "2026-05-09T16:54:09.424653+00:00",
+      "allowed_writes_present": false,
+      "forbidden_roots_present": false,
+      "entrypoints_present": false,
+      "required_receipts_present": false,
+      "current_blockers": [],
+      "owner_approval_state_value": "UNKNOWN",
+      "why_not_canon": [
+        "Missing ORGAN_CONTRACT.json",
+        "Has standard validation blockers",
+        "No owner approval evidence for canon claim"
+      ]
+    }
+  ],
+  "created_at": "2026-05-09T16:54:09.425628+00:00"
+}

@@ -1,0 +1,33 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "for_sanctum_build": [
+    {
+      "policy_id": "POLICY-STAGE-ID-CANON-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\STAGE_ID_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-CLAIMS-MATRIX-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\CLAIMS_ALLOWED_DENIED_MATRIX.json"
+    },
+    {
+      "policy_id": "POLICY-NO-THRONE-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_THRONE_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-NO-WATCHERS-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_WATCHERS_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-NO-LATEST-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_LATEST_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-NO-DELETE-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_DELETE_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-LANGUAGE-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\LANGUAGE_POLICY.json"
+    }
+  ]
+}

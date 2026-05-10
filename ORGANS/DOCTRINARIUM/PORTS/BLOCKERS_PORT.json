@@ -1,0 +1,16 @@
+{
+  "schema_version": "BLOCKERS_PORT_V0_2",
+  "organ_id": "DOCTRINARIUM",
+  "blockers": [
+    "Owner approval artifact for canon doctrine is missing",
+    "Hard laws are not fully enforced"
+  ],
+  "warnings": [],
+  "limitations": [
+    "No canon/green claim from continuity port alone."
+  ],
+  "owner_decisions_needed": [
+    "Owner approval required for canon/final readiness claims."
+  ],
+  "next_action": "Improve law enforcement coverage and close organ utility/contract gaps."
+}

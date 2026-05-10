@@ -1,0 +1,59 @@
+{
+  "schema_version": "ADMINISTRATUM_COMMENTARY_LEXICON_V0_1",
+  "status_words": [
+    "PASS",
+    "BLOCKED",
+    "WARNING",
+    "REPAIR_REQUIRED",
+    "OWNER_DECISION_REQUIRED",
+    "UNKNOWN"
+  ],
+  "evidence_words": [
+    "receipt",
+    "manifest",
+    "hash",
+    "report",
+    "dashboard",
+    "validator",
+    "script",
+    "path"
+  ],
+  "organ_words": [
+    "Doctrinarium",
+    "Administratum",
+    "Inquisition",
+    "Mechanicus",
+    "Astronomicon",
+    "Officio Agentis"
+  ],
+  "continuity_words": [
+    "current_state",
+    "chronology",
+    "next_action",
+    "blocker",
+    "limitation",
+    "diff",
+    "handoff"
+  ],
+  "cause_phrases": [
+    "missing contract",
+    "missing self-report",
+    "missing receipt",
+    "not fully enforced",
+    "owner approval required",
+    "evidence path missing"
+  ],
+  "recommendation_phrases": [
+    "create contract",
+    "run validator",
+    "compare continuity",
+    "record receipt",
+    "do not claim canon"
+  ],
+  "certainty_labels": [
+    "confirmed_by_receipt",
+    "inferred_from_report",
+    "missing_evidence",
+    "needs_owner_decision"
+  ]
+}

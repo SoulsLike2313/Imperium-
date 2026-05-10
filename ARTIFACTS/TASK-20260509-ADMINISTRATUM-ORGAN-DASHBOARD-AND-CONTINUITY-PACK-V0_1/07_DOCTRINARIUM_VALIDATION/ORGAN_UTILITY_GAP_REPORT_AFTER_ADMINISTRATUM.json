@@ -1,0 +1,288 @@
+{
+  "schema_version": "ORGAN_UTILITY_GAP_REPORT_V0_1",
+  "verdict": "PASS_WITH_UTILITY_WARNINGS",
+  "root_scanned": "E:\\IMPERIUM\\ORGANS",
+  "utility_rules": [
+    "ORGAN_REQUIRES_DEDICATED_UTILITY",
+    "ORGAN_UTILITY_REQUIRES_SCRIPTS"
+  ],
+  "created_at": "2026-05-09T19:56:46.814110+00:00",
+  "organs": [
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+      "organ_status": "BOOTSTRAP",
+      "utility_declared": true,
+      "utility_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY",
+      "script_backed": true,
+      "backing_evidence": {
+        "scripts_exists": true,
+        "reports_exists": true,
+        "receipts_exists": true,
+        "status_exists": true,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": true,
+          "detail": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": true,
+          "detail": {
+            "scripts_exists": true,
+            "reports_exists": true,
+            "receipts_exists": true,
+            "status_exists": true,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+      "organ_status": "ORGAN_SCAFFOLD_0_1",
+      "utility_declared": true,
+      "utility_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES",
+      "script_backed": false,
+      "backing_evidence": {
+        "scripts_exists": true,
+        "reports_exists": false,
+        "receipts_exists": false,
+        "status_exists": true,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": true,
+          "detail": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": false,
+          "detail": {
+            "scripts_exists": true,
+            "reports_exists": false,
+            "receipts_exists": false,
+            "status_exists": true,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "ORGAN_UTILITY_REQUIRES_SCRIPTS before CANON_CANDIDATE/CANON_V0_1 promotion"
+      ]
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM",
+      "organ_status": "STRICT_BOOTSTRAP_GATE",
+      "utility_declared": true,
+      "utility_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY",
+      "script_backed": true,
+      "backing_evidence": {
+        "scripts_exists": true,
+        "reports_exists": true,
+        "receipts_exists": true,
+        "status_exists": true,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": true,
+          "detail": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": true,
+          "detail": {
+            "scripts_exists": true,
+            "reports_exists": true,
+            "receipts_exists": true,
+            "status_exists": true,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": []
+    },
+    {
+      "organ_id": "INQUISITION",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION",
+      "organ_status": "ORGAN_SCAFFOLD_0_1",
+      "utility_declared": false,
+      "utility_path": null,
+      "script_backed": false,
+      "backing_evidence": {
+        "scripts_exists": true,
+        "reports_exists": true,
+        "receipts_exists": false,
+        "status_exists": true,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": false,
+          "detail": "No dedicated utility/workbench/console declaration found"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": false,
+          "detail": {
+            "scripts_exists": true,
+            "reports_exists": true,
+            "receipts_exists": false,
+            "status_exists": true,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "ORGAN_REQUIRES_DEDICATED_UTILITY before CANON_CANDIDATE/CANON_V0_1 promotion"
+      ]
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+      "organ_status": "ORGAN_SCAFFOLD_0_1",
+      "utility_declared": false,
+      "utility_path": null,
+      "script_backed": false,
+      "backing_evidence": {
+        "scripts_exists": true,
+        "reports_exists": false,
+        "receipts_exists": false,
+        "status_exists": true,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": false,
+          "detail": "No dedicated utility/workbench/console declaration found"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": false,
+          "detail": {
+            "scripts_exists": true,
+            "reports_exists": false,
+            "receipts_exists": false,
+            "status_exists": true,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "ORGAN_REQUIRES_DEDICATED_UTILITY before CANON_CANDIDATE/CANON_V0_1 promotion"
+      ]
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS",
+      "organ_status": "MINIMAL_SCOPE_ACTIVE",
+      "utility_declared": false,
+      "utility_path": null,
+      "script_backed": false,
+      "backing_evidence": {
+        "scripts_exists": true,
+        "reports_exists": false,
+        "receipts_exists": true,
+        "status_exists": true,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": false,
+          "detail": "No dedicated utility/workbench/console declaration found"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": false,
+          "detail": {
+            "scripts_exists": true,
+            "reports_exists": false,
+            "receipts_exists": true,
+            "status_exists": true,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "ORGAN_REQUIRES_DEDICATED_UTILITY before CANON_CANDIDATE/CANON_V0_1 promotion"
+      ]
+    },
+    {
+      "organ_id": "_PORTS",
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS",
+      "organ_status": "UNKNOWN",
+      "utility_declared": false,
+      "utility_path": null,
+      "script_backed": false,
+      "backing_evidence": {
+        "scripts_exists": false,
+        "reports_exists": false,
+        "receipts_exists": false,
+        "status_exists": false,
+        "script_backing_map_exists": false,
+        "script_backing_map_path": null
+      },
+      "checks": [
+        {
+          "check": "dedicated utility declared",
+          "ok": false,
+          "detail": "No dedicated utility/workbench/console declaration found"
+        },
+        {
+          "check": "utility backed by scripts/reports/receipts/status",
+          "ok": false,
+          "detail": {
+            "scripts_exists": false,
+            "reports_exists": false,
+            "receipts_exists": false,
+            "status_exists": false,
+            "script_backing_map_exists": false,
+            "script_backing_map_path": null
+          }
+        }
+      ],
+      "blockers": [],
+      "warnings": [
+        "ORGAN_REQUIRES_DEDICATED_UTILITY before CANON_CANDIDATE/CANON_V0_1 promotion"
+      ]
+    }
+  ],
+  "summary": {
+    "total_organs_checked": 7,
+    "utility_declared_count": 3,
+    "script_backed_count": 2,
+    "blocking_utility_failures": 0,
+    "warnings_count": 5
+  }
+}

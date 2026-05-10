@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-TEST-0014B-OK",
+  "notes": [
+    "local test"
+  ],
+  "stage_id": "STAGE-TEST",
+  "barrier_result": "BARRIER_PASS",
+  "contour_id": "PC",
+  "run_id": "RUN-TEST-001"
+}

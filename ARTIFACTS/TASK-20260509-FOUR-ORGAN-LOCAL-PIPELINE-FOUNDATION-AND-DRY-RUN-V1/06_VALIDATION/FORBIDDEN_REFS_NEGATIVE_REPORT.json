@@ -1,0 +1,37 @@
+{
+  "scan_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1\\06_VALIDATION\\FORBIDDEN_REF_TEST_INPUT",
+  "findings": {
+    "latest_bundle": [
+      {
+        "path": "latest.txt",
+        "count": 1
+      }
+    ],
+    "throne": [
+      {
+        "path": "throne.txt",
+        "count": 1
+      }
+    ],
+    "watcher_autosync": [
+      {
+        "path": "watcher.txt",
+        "count": 1
+      }
+    ],
+    "destructive_delete": [
+      {
+        "path": "delete.txt",
+        "count": 1
+      }
+    ]
+  },
+  "destructive_effective": [
+    {
+      "path": "delete.txt",
+      "count": 1
+    }
+  ],
+  "forbidden_ref_count": 4,
+  "verdict": "FAIL_FORBIDDEN_REFS_SCAN"
+}

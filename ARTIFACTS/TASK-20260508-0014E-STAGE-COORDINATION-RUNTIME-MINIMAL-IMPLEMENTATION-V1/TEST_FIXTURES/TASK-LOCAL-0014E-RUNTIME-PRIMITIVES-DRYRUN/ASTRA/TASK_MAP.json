@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "run_id": "RUN-0001",
+  "stages": [
+    {
+      "stage_id": "STAGE-001",
+      "contour_id": "LOCAL_TEST"
+    },
+    {
+      "stage_id": "STAGE-002",
+      "contour_id": "LOCAL_TEST"
+    }
+  ]
+}

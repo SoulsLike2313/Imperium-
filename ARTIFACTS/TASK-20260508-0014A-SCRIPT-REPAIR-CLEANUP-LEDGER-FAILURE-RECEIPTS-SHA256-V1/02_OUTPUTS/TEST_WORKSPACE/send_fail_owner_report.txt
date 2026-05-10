@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1/STAGE-002-SEND-FAILURE/send_prompt_to_vm2.py
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+FAIL
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Выполнен dispatch wrapper с обязательными TASK/STAGE/RUN и provenance проверками.
+На ошибках формируется FAIL receipt и пишется STAGE_FAILED событие в append-only ledger.
+E2E не запускался, THRONE transfer и watchers не использовались.
+Следующий шаг: после устранения входной ошибки повторить dispatch тем же идентификаторным набором.

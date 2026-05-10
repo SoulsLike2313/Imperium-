@@ -1,0 +1,55 @@
+{
+  "python_files_checked": 12,
+  "compile_errors": 0,
+  "rows": [
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/imperium_explorer_v1_0a.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/auto_explorer_screenshot_truth_check_v1_0a.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/explorer_truth_audit_v1_0a.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/static_readonly_source_scan_v1_0a.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/create_repair_branch.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/create_task_launch_card.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/validate_policy_refs.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/validate_read_first_receipt.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCRIPTS/validate_task_launch_card.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/build_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/build_sha256sums.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPTS/scan_python_readonly_safety.py",
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS_PYTHON_COMPILE"
+}

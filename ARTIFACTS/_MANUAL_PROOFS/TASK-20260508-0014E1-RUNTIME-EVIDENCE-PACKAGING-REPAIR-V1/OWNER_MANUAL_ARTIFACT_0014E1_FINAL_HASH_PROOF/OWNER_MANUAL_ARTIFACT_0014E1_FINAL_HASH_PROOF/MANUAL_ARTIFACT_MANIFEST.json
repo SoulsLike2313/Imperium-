@@ -1,0 +1,31 @@
+{
+  "task_id": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+  "artifact_id": "OWNER_MANUAL_ARTIFACT_0014E1_FINAL_HASH_PROOF",
+  "producer_type": "OWNER_MANUAL",
+  "producer_id": "OWNER",
+  "created_at_utc": "2026-05-08T21:12:18Z",
+  "artifact_status": "PASS_AS_OWNER_MANUAL_HASH_PROOF",
+  "purpose": "Manual final hash proof for 0014E1 bundle; confirms final zip sidecar is correct and internal reports are stale.",
+  "files": [
+    {
+      "file_name": "OWNER_MANUAL_FINAL_HASH_RECEIPT_0014E1.json",
+      "size_bytes": 2476,
+      "sha256": "a1b5fb01792caffcbd1cf2e0dceaeb79945aad5eda62af2bf997081c1ba99180"
+    },
+    {
+      "file_name": "OWNER_MANUAL_FINAL_HASH_RECEIPT_0014E1.json.sha256",
+      "size_bytes": 111,
+      "sha256": "c45d173d1a20940a8929951e8e51f337d8e22b36a8558c792e7c74a5fdeafc3f"
+    },
+    {
+      "file_name": "OWNER_MANUAL_FINAL_HASH_SUMMARY_0014E1.md",
+      "size_bytes": 522,
+      "sha256": "35900106dd571ed8d8b65202aefdb032895cc3bb02d1e941d5c9e3ce9a76f757"
+    },
+    {
+      "file_name": "OWNER_MANUAL_LEDGER_EVENT_0014E1.jsonl",
+      "size_bytes": 680,
+      "sha256": "edabd909482ffb29517409996207d9a7f7568834a020aae146f539435b34983e"
+    }
+  ]
+}

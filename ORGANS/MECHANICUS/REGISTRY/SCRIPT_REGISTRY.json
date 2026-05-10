@@ -1,0 +1,19 @@
+{
+  "schema_version": "SCRIPT_REGISTRY_V0_1",
+  "scripts": [
+    {
+      "script_id": "MECH_DUMMY_STAGE_V0_1",
+      "stage_type": "DUMMY_SAFE_WRITE",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\mechanicus_dummy_stage.py",
+      "safety_level": "LOW",
+      "forbidden_actions": [
+        "delete",
+        "archive_scan",
+        "network",
+        "vm2_contact",
+        "throne_contact",
+        "watcher"
+      ]
+    }
+  ]
+}

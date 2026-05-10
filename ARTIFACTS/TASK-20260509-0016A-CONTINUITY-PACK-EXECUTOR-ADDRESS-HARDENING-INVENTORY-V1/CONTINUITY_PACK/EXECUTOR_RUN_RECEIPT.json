@@ -1,0 +1,64 @@
+{
+  "task_id": "TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1",
+  "run_id": "RUN-20260509-001346",
+  "started_at_utc": "2026-05-09T00:13:46Z",
+  "mode": "manual-visible",
+  "status": "RUNNING",
+  "producer_type": "PC_SERVITOR",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "steps": [
+    {
+      "step_id": "STEP-001",
+      "name": "Address hardening check",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-001_ADDRESS_HARDENING_CHECK.json"
+    },
+    {
+      "step_id": "STEP-002",
+      "name": "Artifact inventory",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-002_ARTIFACT_INVENTORY.json"
+    },
+    {
+      "step_id": "STEP-003",
+      "name": "Manual proofs inventory",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-003_MANUAL_PROOFS_INVENTORY.json"
+    },
+    {
+      "step_id": "STEP-004",
+      "name": "Tools and tasks inventory",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-004_TOOLS_AND_TASKS_INVENTORY.json"
+    },
+    {
+      "step_id": "STEP-005",
+      "name": "Receipts scan",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-005_RECEIPTS_SCAN.json"
+    },
+    {
+      "step_id": "STEP-006",
+      "name": "Ledgers scan",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-006_LEDGERS_SCAN.json"
+    },
+    {
+      "step_id": "STEP-007",
+      "name": "Known blockers scan",
+      "verdict": "PARTIAL",
+      "exit_code": 0,
+      "step_receipt": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1\\RECEIPTS\\STEP_RECEIPTS\\STEP-007_KNOWN_BLOCKERS_SCAN.json"
+    }
+  ]
+}

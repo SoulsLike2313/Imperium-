@@ -1,0 +1,28 @@
+{
+  "schema_version": "TASK_PHASE_RECEIPT_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+  "run_id": "RUN-20260510-083108",
+  "phase": "PHASE_3_OLD_PACK_VS_REALITY_QA",
+  "script_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_qa_continuity_pack_against_reality.py",
+  "script_hash": "986044110baba16ed7f6848d98c0eecdff3c8c1b50f28f9cd38739845c6a8748",
+  "input_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\01_REAL_IMPERIUM_SCAN\\REAL_IMPERIUM_STATE.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\02_OLD_PACK_INSPECTION\\OLD_PACK_INVENTORY.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\03_OLD_PACK_VS_REALITY_QA\\OLD_PACK_VS_REALITY_QA.json"
+  ],
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [],
+  "warnings": [
+    "old_pack_verdict=OLD_PACK_CONTRADICTS_REALITY"
+  ],
+  "limitations": [],
+  "next_action": "Proceed to next planned phase.",
+  "created_at": "2026-05-10T05:56:56.964933+00:00",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

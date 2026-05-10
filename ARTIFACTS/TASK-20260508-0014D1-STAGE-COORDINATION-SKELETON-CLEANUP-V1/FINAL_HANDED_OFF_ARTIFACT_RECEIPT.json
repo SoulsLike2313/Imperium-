@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1",
+  "bundle_name": "TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1_FINAL_STEP_BUNDLE.zip",
+  "final_bundle_sha256": "SEE_EXTERNAL_SIDECAR",
+  "sha256_sidecar_name": "TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1_FINAL_STEP_BUNDLE.zip.sha256",
+  "created_at_utc": "2026-05-08T20:12:48Z",
+  "producer_type": "PC_SERVITOR",
+  "artifact_status": "FINAL_HANDED_OFF",
+  "source_bundle_ref": "TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1_FINAL_STEP_BUNDLE.zip",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "self_hash_policy": "Bundle self-hash is authoritative only in external sidecar; embedded self-hash is intentionally not used.",
+  "hash_ambiguity_note": "Previous packaging-validation hash may refer to pre-handoff build and must not override the final sidecar hash."
+}

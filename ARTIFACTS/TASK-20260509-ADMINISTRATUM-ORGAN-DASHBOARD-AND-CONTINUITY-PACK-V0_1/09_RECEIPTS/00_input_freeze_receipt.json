@@ -1,0 +1,32 @@
+{
+  "schema_version": "ADMINISTRATUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "phase": "PHASE_00_INPUT_FREEZE",
+  "input_paths": [
+    "E:\\IMPERIUM"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\TASK_RECIPE.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\INPUT_FREEZE.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\INPUT_FREEZE.json"
+  ],
+  "script_paths": [],
+  "script_hashes": {},
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\TASK_RECIPE.json": "a201531aa5b45b52b29b4a555d5a96ec73ba04de2f87dcc22a2cd0168ab832f6",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\INPUT_FREEZE.md": "37e2e3fad7e00fd7b6b5d2e6326eb57ba9d1fcc4f7bae372113ecfc2164bd4c5",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\INPUT_FREEZE.json": "9dd2914d192d842a8218db4d474399c4a93e5de7e2c01e44966c3e8d068c995b"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [],
+  "next_action": "Study Doctrinarium dashboard pattern",
+  "created_at": "2026-05-09T19:57:55.051852+00:00",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

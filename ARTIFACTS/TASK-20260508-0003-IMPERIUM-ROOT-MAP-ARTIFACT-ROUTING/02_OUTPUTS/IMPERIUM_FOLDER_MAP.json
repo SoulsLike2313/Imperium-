@@ -1,0 +1,253 @@
+{
+  "map_id": "IMPERIUM_FOLDER_MAP_BASELINE_V1",
+  "root": "E:\\\\IMPERIUM",
+  "status": "draft_baseline",
+  "created_by": "PC_SERVITOR",
+  "purpose": "machine-readable root folder map for agents and future Administratum",
+  "rules": {
+    "root_contains_only_major_zones": true,
+    "task_artifacts_go_to": "E:\\\\IMPERIUM\\\\ARTIFACTS\\\\<TASK_ID>\\\\",
+    "do_not_delete_without_owner_approval": true,
+    "throne_write_allowed": false,
+    "vm_write_allowed_without_route_task": false
+  },
+  "zones": [
+    {
+      "name": "ARCHIVE",
+      "path": "E:\\IMPERIUM\\ARCHIVE",
+      "type": "major_zone",
+      "purpose": "major semantic zone at root level",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "ARTIFACTS",
+      "path": "E:\\IMPERIUM\\ARTIFACTS",
+      "type": "artifacts_root",
+      "purpose": "task evidence, receipts, manifests, bundles, owner summaries",
+      "write_policy": "task outputs only under TASK_ID folders",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "docs",
+      "path": "E:\\IMPERIUM\\docs",
+      "type": "major_zone",
+      "purpose": "major semantic zone at root level",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "IMPERIUM_LIGHT_SNAPSHOT_20260507_164459",
+      "path": "E:\\IMPERIUM\\IMPERIUM_LIGHT_SNAPSHOT_20260507_164459",
+      "type": "diagnostic_bundle",
+      "purpose": "step-bound analysis/snapshot bundle zone",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "legacy"
+    },
+    {
+      "name": "OBSERVED",
+      "path": "E:\\IMPERIUM\\OBSERVED",
+      "type": "observed_copy",
+      "purpose": "read-only observed copies for reference only",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "observed"
+    },
+    {
+      "name": "OBSERVED_VM3_REPO_COPY",
+      "path": "E:\\IMPERIUM\\OBSERVED_VM3_REPO_COPY",
+      "type": "observed_copy",
+      "purpose": "read-only observed copies for reference only",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "observed"
+    },
+    {
+      "name": "PC_ARTIFACTS_VAULT",
+      "path": "E:\\IMPERIUM\\PC_ARTIFACTS_VAULT",
+      "type": "artifact_vault_old",
+      "purpose": "legacy proof vault prior to ARTIFACTS root routing baseline",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "needs_review"
+    },
+    {
+      "name": "PC_ENGINEERING_ROOM",
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM",
+      "type": "engineering_room",
+      "purpose": "engineering analysis, labs, review and decision prep",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711",
+      "path": "E:\\IMPERIUM\\PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711",
+      "type": "diagnostic_bundle",
+      "purpose": "step-bound analysis/snapshot bundle zone",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "legacy"
+    },
+    {
+      "name": "PC_OWNER_TEST_BENCH",
+      "path": "E:\\IMPERIUM\\PC_OWNER_TEST_BENCH",
+      "type": "owner_test_bench",
+      "purpose": "owner-side validation/test bench materials",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813",
+      "path": "E:\\IMPERIUM\\PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813",
+      "type": "diagnostic_bundle",
+      "purpose": "step-bound analysis/snapshot bundle zone",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "legacy"
+    },
+    {
+      "name": "PROMPT_OUTBOX_TO_VM3",
+      "path": "E:\\IMPERIUM\\PROMPT_OUTBOX_TO_VM3",
+      "type": "prompt_outbox",
+      "purpose": "prompt drafts/ready/sent lanes and transport receipts",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "SSH_COMMAND_LIBRARY",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY",
+      "type": "ssh_library",
+      "purpose": "ssh routes, dispatch tools, route manifests and recipes",
+      "write_policy": "write only by scoped task policy",
+      "forbidden": [
+        "raw_secrets",
+        "unapproved_delete",
+        "untracked_random_outputs"
+      ],
+      "status": "active"
+    }
+  ],
+  "root_files": [
+    {
+      "name": "IMPERIUM_LIGHT_SNAPSHOT_20260507_164459.zip",
+      "path": "E:\\IMPERIUM\\IMPERIUM_LIGHT_SNAPSHOT_20260507_164459.zip",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703.zip",
+      "path": "E:\\IMPERIUM\\PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703.zip",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703.zip.sha256",
+      "path": "E:\\IMPERIUM\\PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703.zip.sha256",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344.sha256",
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344.sha256",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344.zip",
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344.zip",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.sha256",
+      "path": "E:\\IMPERIUM\\PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.sha256",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip",
+      "path": "E:\\IMPERIUM\\PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813.sha256",
+      "path": "E:\\IMPERIUM\\PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813.sha256",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    },
+    {
+      "name": "PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813.zip",
+      "path": "E:\\IMPERIUM\\PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813.zip",
+      "type": "zip_or_hash_in_root",
+      "recommended_action": "route_to_artifacts_later",
+      "owner_review_required": true
+    }
+  ],
+  "notes": [
+    "This map is a draft and should be updated as folder meanings mature."
+  ]
+}

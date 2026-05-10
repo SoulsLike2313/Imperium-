@@ -1,0 +1,9 @@
+{
+  "name": "doctrinarium-v08-playwright-audit",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

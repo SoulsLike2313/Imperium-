@@ -1,0 +1,368 @@
+﻿{
+    "task_id":  "TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1",
+    "artifact_root":  "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1",
+    "created_at_local":  "2026-05-09T11:32:29",
+    "file_count":  72,
+    "files":  [
+                  {
+                      "path":  "OWNER_SUMMARY.md",
+                      "size_bytes":  2013,
+                      "sha256":  "b5d41d593d8a7f9e8f4c9f0482902353e35d7abcbd512b0aa01485e1b3310d8d"
+                  },
+                  {
+                      "path":  "00_SOURCE\\CHANGELOG.md",
+                      "size_bytes":  2178,
+                      "sha256":  "7326c46417b6a6f714b0565ce032e15abc2c1cfce417b9f11bcadc09dde94a98"
+                  },
+                  {
+                      "path":  "00_SOURCE\\imperium_explorer_v0_6.py",
+                      "size_bytes":  25470,
+                      "sha256":  "97bdb6c28360b3117819a9f05473bdc5ab0ea55fdf873c15b495d32869b6c130"
+                  },
+                  {
+                      "path":  "00_SOURCE\\README.md",
+                      "size_bytes":  1241,
+                      "sha256":  "911b7a74b5ed2c5402ca6996c2e83984c8bdbe5a3feeb6fec74782872f09043d"
+                  },
+                  {
+                      "path":  "01_TRUTH_AUDIT\\EXPLORER_TRUTH_AUDIT_REPORT.json",
+                      "size_bytes":  20141,
+                      "sha256":  "008d54acdf392e96d07823beaeffc5624c1ad1b99e9e51a44dc6412c7e3ca233"
+                  },
+                  {
+                      "path":  "01_TRUTH_AUDIT\\EXPLORER_TRUTH_AUDIT_REPORT.md",
+                      "size_bytes":  2470,
+                      "sha256":  "cdad89aa3c3edb556d95830aa14abd77043b14fc0bca2141107779f1af2ecb8d"
+                  },
+                  {
+                      "path":  "02_SCREENSHOT_TRUTH_CHECK\\AUTO_SCREENSHOT_TRUTH_CHECK_REPORT.json",
+                      "size_bytes":  43504,
+                      "sha256":  "9f1edacaf5335f2509077b380db5c6e1cd56ea5bf9b375689ecd3d2cfd46d546"
+                  },
+                  {
+                      "path":  "02_SCREENSHOT_TRUTH_CHECK\\AUTO_SCREENSHOT_TRUTH_CHECK_REPORT.md",
+                      "size_bytes":  679,
+                      "sha256":  "9227c415c6a29ba42c23b11165b33ec28fc81af29e4cb8e4511cac1f00e06b95"
+                  },
+                  {
+                      "path":  "02_SCREENSHOT_TRUTH_CHECK\\SCREENSHOT_GALLERY.md",
+                      "size_bytes":  30772,
+                      "sha256":  "d0fa669990f4f752134a573478bd15acc4f075243425053f180330f9223ea6ea"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\001_IMPERIUM.png",
+                      "size_bytes":  76576,
+                      "sha256":  "ffc4e4c9943986d080a12daf499413b4a3ef082596bab632d4048223da9d9457"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\002_ARTIFACTS.png",
+                      "size_bytes":  124995,
+                      "sha256":  "0dbe47acbed5ef884d29a6ab59cf54b759a1c191a8163baf977e6c238b7a7717"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\003__MANUAL_PROOFS.png",
+                      "size_bytes":  128539,
+                      "sha256":  "5b6a2f1e8972acd65bff550241294251ade95e4333976c6c8546d09b880bac95"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\004_EXPLORER.png",
+                      "size_bytes":  125819,
+                      "sha256":  "8ee2017304deb132233048940ccccec9928867439b5f005f520d82df87a13671"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\005_README_md.png",
+                      "size_bytes":  135205,
+                      "sha256":  "f45f8bff3e23c4a63110d2f5f8b96f003b2ce639d8066b8c399e464ad33b1cf3"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\006_imperium_explorer_v0_3_py.png",
+                      "size_bytes":  126995,
+                      "sha256":  "e110d5ee2f5828ef6e8e056bdaeaf67211688162cd3f500d7dbdb7e4abcf6c84"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\007_imperium_explorer_v0_4_py.png",
+                      "size_bytes":  127197,
+                      "sha256":  "a54df4932deafe3e66020867e6f5dfef28e1a190ecd01b43034fd4f8c87d6786"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\008_ARCHIVE.png",
+                      "size_bytes":  128167,
+                      "sha256":  "0a37773e11c47e10460b288d12f67a32351e4e8f5fd7962af308e646318204d0"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\009_TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING.png",
+                      "size_bytes":  119983,
+                      "sha256":  "cf03a6c61f3252f7b25fceec244c3f86cf4864ac2e99c80fdc2162f3831527bc"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\010_TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR.png",
+                      "size_bytes":  109938,
+                      "sha256":  "0ee02bf8a519cc82bc14165b4a9e3838a0755460446baf9b27b6d290d27d8b87"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\011_TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1.png",
+                      "size_bytes":  110111,
+                      "sha256":  "e8bf8c1ca9a4c7386d148b9a54e61db45c4fde8bc9a1f4662ec809ef5d69503d"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\012_TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP.png",
+                      "size_bytes":  106218,
+                      "sha256":  "6145d4d9f8df98a88b72154dc276847f06bb6663f155b7bf26c7873e3450fbe6"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\013_TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR.png",
+                      "size_bytes":  105609,
+                      "sha256":  "fafe98c332af8d0de408ffa40c10e1a593fb525e0de77bd2b576b4347c8183dd"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\014_TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION.png",
+                      "size_bytes":  107442,
+                      "sha256":  "2ba47b358426370831335932cecadc06fcb862f51358371024ebd74fd4f9bc62"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\015_TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST.png",
+                      "size_bytes":  107317,
+                      "sha256":  "371db862f47b1eaa3eaccea18828774f366b849328ae443c2f207e5cceeef7b8"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\016_TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1.png",
+                      "size_bytes":  106642,
+                      "sha256":  "c18a617bce9ea6b3d8e326ef11224bffa8623b7408b06b57e9ff98599f312983"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\017_TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1.png",
+                      "size_bytes":  106248,
+                      "sha256":  "b155266c50923165065004cdff1b3eee045dac776dc86afe95c867abe9e405bd"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\018_TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1.png",
+                      "size_bytes":  106201,
+                      "sha256":  "a41d6c1c2bb525ba1f150a4ceb6f8871158f0f859207a89e26a12010d04cb68f"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\019_TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1.png",
+                      "size_bytes":  106026,
+                      "sha256":  "481bc61e6a15813e52b112c017c01521a49b4192a16004fce79f6b8216302a6e"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\020_TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1.png",
+                      "size_bytes":  108048,
+                      "sha256":  "9f00f8f6aa80daffcc45abc1c542ef04c88ddf0caca9a6bec2c88d2f9b239a63"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\021_TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1.png",
+                      "size_bytes":  108310,
+                      "sha256":  "38910d57d46adbf47fa80ec88fd2f1f4c9a6ce728b77368894d7ab13771f4a32"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\022_TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1.png",
+                      "size_bytes":  108397,
+                      "sha256":  "d71d6c754e3a01b15e3b1cf2def0267c18582a0d30731d3bcc143d8dafacd26e"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\023_TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1.png",
+                      "size_bytes":  109056,
+                      "sha256":  "66e2b54c0dd90d83e20b0f084adaea9990f0f9374a3d7cdb51cdeee41deeabb9"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\024_TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1.png",
+                      "size_bytes":  112692,
+                      "sha256":  "81e4b50cf4a7cd758854a08c6366a14a42ee1e1b6a1313acefe8cfeb5fffb7f8"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\025_TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1.png",
+                      "size_bytes":  112715,
+                      "sha256":  "a0aad81d8c658928b36e0273ccc52c582c21da1a695c5b60eaad7a5e1a64a9be"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\026_TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1.png",
+                      "size_bytes":  116576,
+                      "sha256":  "829111ada6c452e4681051e592b1638f9021d7b2cec2a0ade493a175b963eff4"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\027_RECEIPT_SCHEMA_V1_json.png",
+                      "size_bytes":  109536,
+                      "sha256":  "b42dbe79dc7a7f0752ebd240e2f9890ef51bb0ae75c67e867b409dbc0dffef92"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\028_TOOL_LAYOUT_RECEIPT_json.png",
+                      "size_bytes":  123198,
+                      "sha256":  "d8dcc577cc94c3f3462d08607fbc3593ae60fbe7edaf786ef01e09f3a8fa92ba"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\029_TOOL_LAYOUT_RECEIPT_json.png",
+                      "size_bytes":  127066,
+                      "sha256":  "ffc61dbf2686b5a8b00ba5c6ccf24572e3503647161eba98880b5c2bfd95486f"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\030_BARRIER_RECEIPT_json.png",
+                      "size_bytes":  116214,
+                      "sha256":  "2837d1c1f5b3fb7fe3e10f32b1d87186cc83ceea5ddf96572fb070b16fddc54a"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\031_fetch_fail_FETCH_RECEIPT_json.png",
+                      "size_bytes":  120532,
+                      "sha256":  "53237a3cdc7ffc06216120a1fb17115964dabc74e32fe3e577917c454da98615"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\032_latest_reject_DISPATCH_RECEIPT_json.png",
+                      "size_bytes":  119244,
+                      "sha256":  "c672141d04fb9d7e8c68b167756932ffeec021784ff999387df831d14545f965"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\033_send_fail_DISPATCH_RECEIPT_json.png",
+                      "size_bytes":  122306,
+                      "sha256":  "e3282801b3afbef45a0277a8249ab85544079f2da04917f96b837f55fb13c7e2"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\034_FINAL_ASSEMBLY_RECEIPT_json.png",
+                      "size_bytes":  124006,
+                      "sha256":  "03bfee334bcf3cd8a09ea430af940b23d0ccad2844c43ac3a3260068c2e3daa4"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\035_MANIFEST_json.png",
+                      "size_bytes":  120752,
+                      "sha256":  "7a4397b22db0258f90e91b1176b6586ea77c4eec733daadd2c66460fad550b2e"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\036_MANIFEST_json.png",
+                      "size_bytes":  121468,
+                      "sha256":  "0097c3491aae41447adf770f2954fe32d6c3f668f1af8e99f8ae0b67c8eaa0a4"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\037_MANIFEST_json.png",
+                      "size_bytes":  123669,
+                      "sha256":  "c372895624150224598f75d5b0ed84edad33c33c5c3db1589717fe89e59fb338"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\038_MANIFEST_json.png",
+                      "size_bytes":  119839,
+                      "sha256":  "2a7fd51428feae3d4886486bf9fd345b20b5910800f097801a64d425e712426c"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\039_MANIFEST_json.png",
+                      "size_bytes":  119185,
+                      "sha256":  "887cc8628c86e01cf8c2de42eb93a8309e0b94c0a6ef1a52367250d8a28bb9e0"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\040_MANIFEST_json.png",
+                      "size_bytes":  122278,
+                      "sha256":  "d9237da798129e9ceab4d221e964f3025d09860b6b6c4be4b44a06affa8d2ba0"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\041_MANIFEST_json.png",
+                      "size_bytes":  120916,
+                      "sha256":  "b40b7e35d455af0a4d1e85f3618587da5e17f214cc0f8b22aa534999955b0036"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\042_MANIFEST_json.png",
+                      "size_bytes":  121390,
+                      "sha256":  "1ef9aab90613c797b10b9a1c16c779a2bd534526722bb444576e7d8f37301c82"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\043_TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING_FINAL_STEP_BUNDLE_zip.png",
+                      "size_bytes":  104338,
+                      "sha256":  "9569c29dd6f8bfb79a8160b228f7b944f7cf767d9c5effd23bad186c8fa78ca3"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\044_IMPERIUM_LIGHT_SNAPSHOT_20260507_164459_zip.png",
+                      "size_bytes":  109297,
+                      "sha256":  "b910c8dfc7851806bc56f37d869382b2db2ee1470e705050832d11b603a042be"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\045_PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703_zip.png",
+                      "size_bytes":  110610,
+                      "sha256":  "35fe29723feeaed60d4c5c297d636cf894b4e793c73ef38f527a6510ae5cde5d"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\046_PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344_zip.png",
+                      "size_bytes":  109551,
+                      "sha256":  "b73944ba26b5aef2b63a02ad49decb752e483c8d44bf9dfa9cfb75fdd1ee4f02"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\047_PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711_zip.png",
+                      "size_bytes":  109299,
+                      "sha256":  "19ea1ef2a1ec316ab314464dac400c05c8957423266c0e4e6d9c82308f3139cd"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\048_ASTRA.png",
+                      "size_bytes":  114499,
+                      "sha256":  "ef16062852ff1c34e457fe3e59441d4b29bb94eca11897866c8fe2240ebc01e8"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\049_ASTRA.png",
+                      "size_bytes":  111632,
+                      "sha256":  "3e6cf3b5477cf4e207ab4d3e97242812e4220fd3539cf6ceaa12197a3894e2b1"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\050_ASTRA.png",
+                      "size_bytes":  107441,
+                      "sha256":  "7ba5c91acd27b4862104715578c959146cfdb281c0fce0afeaad092e3f9e5cc5"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\051_astronomicon.png",
+                      "size_bytes":  110143,
+                      "sha256":  "908447c3bc451f0082114bb8b06c4984d1660d5e31bc4e4f8c5830e1342a1f5f"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\052_astronomicon.png",
+                      "size_bytes":  114950,
+                      "sha256":  "36f1788ff356caf07c2b865b99628802dfec412d0f6e669e05d2cc31eeab6415"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\053_administratum.png",
+                      "size_bytes":  113855,
+                      "sha256":  "ccf422133f468b4faa470c0feda144bb4732355a05212e02a3fb0b807d012f66"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\054_administratum.png",
+                      "size_bytes":  105599,
+                      "sha256":  "807af0f87432f6e880fffabf0a367a3f941c912e9c4f8711c2c18bca80d2db28"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\055_administratum.png",
+                      "size_bytes":  108601,
+                      "sha256":  "71083c55811bad15bb9eced891903a69ed723ffd0e41b17c5b369f46944e75b6"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\056_OBSERVED.png",
+                      "size_bytes":  105842,
+                      "sha256":  "3f9250066a9b0c1769d3f0e6eab215ee55795a8b76704493d32b3793ba648394"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\057_PC_ENGINEERING_ROOM.png",
+                      "size_bytes":  107681,
+                      "sha256":  "cbfc62c607179a03be5c26b1f76dca71516f391675e84e47fc1cc6f7d1181091"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\058_SSH_COMMAND_LIBRARY.png",
+                      "size_bytes":  105466,
+                      "sha256":  "76adab16bc694f7fcb900e8e88c270caa2cb5428834d6c7f7f95a1cde9563a11"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\059_CHANGELOG_md.png",
+                      "size_bytes":  117709,
+                      "sha256":  "38187e4a61f5fb5d3ae976cecd129814a4f75f473d467b38e66dae7777d2be28"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\060_imperium_explorer_v0_5_py.png",
+                      "size_bytes":  111389,
+                      "sha256":  "1ba446c17749c8a137301ca61ea67b7a8b77b083f0b220902dc238f62ada5a68"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\061_VERIFY.png",
+                      "size_bytes":  104406,
+                      "sha256":  "c851285882a03800ba288e71d3debd8e9be2ea5da370bc82a1b7e7fd98ade75d"
+                  },
+                  {
+                      "path":  "03_SCREENSHOTS\\062_SCREENSHOTS.png",
+                      "size_bytes":  104971,
+                      "sha256":  "89b2921616092b8bae434f140bb701b6219542eb4a3272af1353d2b64c213a8a"
+                  },
+                  {
+                      "path":  "05_RECEIPTS\\EXPLORER_V0_6_BASELINE_RECEIPT.json",
+                      "size_bytes":  1246,
+                      "sha256":  "04ef1dc73c3205ac9e86e7babcd6bafcb0e21e012c38fd940f98cf3c26bd6898"
+                  }
+              ]
+}

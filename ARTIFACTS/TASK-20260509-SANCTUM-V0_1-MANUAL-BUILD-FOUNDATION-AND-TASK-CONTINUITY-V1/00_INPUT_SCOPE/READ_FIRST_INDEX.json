@@ -1,0 +1,73 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "run_id": "RUN-20260509-SANCTUM-FOUNDATION-0001",
+  "indexed_at_local": "2026-05-09T14:34:36",
+  "items": [
+    {
+      "order": 1,
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 2,
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 3,
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 4,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 5,
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 6,
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 7,
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 8,
+      "path": "E:\\IMPERIUM\\EXPLORER",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 9,
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 10,
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+      "status": "FOUND",
+      "type": "directory"
+    },
+    {
+      "order": 11,
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+      "status": "FOUND",
+      "type": "directory"
+    }
+  ]
+}

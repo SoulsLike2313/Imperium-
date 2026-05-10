@@ -1,0 +1,39 @@
+{
+  "index_version": "ORIGIN_INDEX_SCHEMA_V1",
+  "items": [
+    {
+      "origin_key": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1|VM2-STAGE-001|RUN-20260509-0001|VM2|PC_SERVITOR|pc_servitor_main|33dc7e0541243f4245ffb24bb571c090e5b874329d10a6808eba1d16fd933678",
+      "base_key": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1|VM2-STAGE-001|RUN-20260509-0001|VM2|PC_SERVITOR|pc_servitor_main",
+      "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+      "stage_id": "VM2-STAGE-001",
+      "run_id": "RUN-20260509-0001",
+      "contour_id": "VM2",
+      "producer_type": "PC_SERVITOR",
+      "producer_id": "pc_servitor_main",
+      "artifact_name": "PROMPT.md",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1\\99_TEST_TMP\\PROMPT.md",
+      "artifact_sha256": "33dc7e0541243f4245ffb24bb571c090e5b874329d10a6808eba1d16fd933678",
+      "provenance_ref": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1\\99_TEST_TMP\\canonical_provenance.json",
+      "receipt_ref": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1\\99_TEST_TMP\\canonical_receipt.json",
+      "origin_status": "UNIQUE",
+      "updated_at_utc": "2026-05-09T07:01:17Z"
+    },
+    {
+      "origin_key": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1|VM2-STAGE-001|RUN-20260509-0001|VM2|PC_SERVITOR|pc_servitor_main|33dc7e0541243f4245ffb24bb571c090e5b874329d10a6808eba1d16fd933678",
+      "base_key": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1|VM2-STAGE-001|RUN-20260509-0001|VM2|PC_SERVITOR|pc_servitor_main",
+      "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+      "stage_id": "VM2-STAGE-001",
+      "run_id": "RUN-20260509-0001",
+      "contour_id": "VM2",
+      "producer_type": "PC_SERVITOR",
+      "producer_id": "pc_servitor_main",
+      "artifact_name": "PROMPT.md",
+      "artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1\\99_TEST_TMP\\PROMPT.md",
+      "artifact_sha256": "33dc7e0541243f4245ffb24bb571c090e5b874329d10a6808eba1d16fd933678",
+      "provenance_ref": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1\\99_TEST_TMP\\canonical_provenance.json",
+      "receipt_ref": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1\\99_TEST_TMP\\canonical_receipt.json",
+      "origin_status": "DUPLICATE_SAME_HASH",
+      "updated_at_utc": "2026-05-09T07:53:47Z"
+    }
+  ]
+}

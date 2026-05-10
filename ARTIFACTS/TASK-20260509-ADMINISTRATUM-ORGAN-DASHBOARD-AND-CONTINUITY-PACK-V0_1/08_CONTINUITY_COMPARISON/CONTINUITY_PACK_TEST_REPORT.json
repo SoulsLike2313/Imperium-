@@ -1,0 +1,36 @@
+{
+  "schema_version": "CONTINUITY_PACK_TEST_REPORT_V0_1",
+  "generated_at": "2026-05-09T19:55:14.205097+00:00",
+  "latest_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158",
+  "latest_pack_json_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158\\CONTINUITY_PACK.json",
+  "latest_comparison_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS\\CONTINUITY_COMPARISON_20260509_225159.json",
+  "comparison_verdict": "PASS_CONTINUITY_PACK_BUILT_AND_COMPARED_WITH_LIMITATIONS",
+  "what_pack_captured": [
+    "active task and current completed point",
+    "doctrinarium v0.8 dashboard/playwright references",
+    "law status and limitations",
+    "do-not-do list",
+    "evidence paths",
+    "role-neutral chat entrypoint"
+  ],
+  "what_pack_missed": [],
+  "checks": {
+    "captured_continuity_state": true,
+    "contains_doctrinarium_v08_handoff": true,
+    "contains_playwright_pass": true,
+    "contains_latest_gaps_reference": true,
+    "contains_latest_next_action": true,
+    "contains_do_not_do": true,
+    "usable_new_chat_entry": true,
+    "role_neutral": true,
+    "avoids_fake_green": true
+  },
+  "usable_for_new_chat_entry": true,
+  "role_neutral": true,
+  "avoids_fake_green": true,
+  "limitations": [
+    "Continuity pack is bootstrap evidence surface, not canon approval.",
+    "Does not prove continuity green."
+  ],
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "ADMINISTRATUM_CONTINUITY_STATUS_V0_1",
+  "pack_id": "CONTINUITY_PACK_20260510_082210",
+  "latest_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "previous_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158",
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "known_blockers_count": 4,
+  "limitations": [
+    "No continuity green claim.",
+    "Role is not embedded; Owner provides role separately.",
+    "Canon approval is outside Administratum authority."
+  ],
+  "created_at": "2026-05-10T05:22:10.501570+00:00"
+}

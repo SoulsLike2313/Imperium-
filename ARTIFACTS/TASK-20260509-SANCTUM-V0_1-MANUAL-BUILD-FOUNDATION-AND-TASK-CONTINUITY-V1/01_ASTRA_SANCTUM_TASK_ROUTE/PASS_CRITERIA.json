@@ -1,0 +1,11 @@
+{
+  "schema_version": "ASTRA_PASS_CRITERIA_V0_4",
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+  "RUN_ID": "RUN-20260509-SANCTUM-0001",
+  "minimum_requirements": [
+    "stage receipts per stage",
+    "validation reports per stage",
+    "no fake green",
+    "no VM2/THRONE/E2E activation"
+  ]
+}

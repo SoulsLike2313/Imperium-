@@ -1,0 +1,38 @@
+{
+  "tools_root": "e:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS",
+  "active_tools_count": 15,
+  "class_count": 8,
+  "legacy_or_blocked_count": 6,
+  "last_verified_utc_max": "2026-05-08T18:35:29Z",
+  "class_counts": {
+    "CORE_LIB": 8,
+    "PC_VM2_PIPELINE": 6,
+    "CONTINUITY": 4,
+    "BUNDLE_VALIDATION": 4,
+    "OWNER_MANUAL": 3,
+    "READONLY_EXPLORER": 1,
+    "SANCTUM_PREP": 3,
+    "LEGACY_QUARANTINE": 6
+  },
+  "status_counts": {
+    "ACTIVE": 8,
+    "ACTIVE_NEEDS_SPECULUM": 7,
+    "PLACEHOLDER_CONTRACT": 14,
+    "LEGACY_CANDIDATE": 6
+  }
+}
+ШАГ:
+READONLY_EXPLORER/summary
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Выполнен read-only обзор реестра инструментов без изменений файлов системы.
+Показаны адреса, статусы и карта потока для Owner/PC/VM2 сценария.
+Сетевые действия, VM2/THRONE доступ и автоматизация не выполнялись.
+Следующий шаг: использовать tool_id из реестра в TASK-0015 после Speculum go/no-go.
+

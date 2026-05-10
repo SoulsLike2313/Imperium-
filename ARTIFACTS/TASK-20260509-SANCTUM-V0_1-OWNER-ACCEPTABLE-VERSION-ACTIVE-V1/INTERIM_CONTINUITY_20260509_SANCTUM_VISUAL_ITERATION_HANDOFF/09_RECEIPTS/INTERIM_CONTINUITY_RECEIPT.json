@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "created_at_local": "2026-05-09T16:40:29",
+  "type": "INTERIM_CONTINUITY_HANDOFF_ONLY",
+  "status": "ACTIVE_NOT_COMPLETE",
+  "latest_sanctum_version": "v0.27",
+  "main_blocker": "flickering_or_occasional_blank_unified_map",
+  "pass_conditions": {
+    "active_task_route_exists_or_missing_honestly_recorded": true,
+    "current_sanctum_source_snapshot_exists": true,
+    "v0_27_issue_recorded": true,
+    "next_chat_handoff_exists": true,
+    "validation_passes": true,
+    "clean_bundle_exists": true
+  },
+  "validation_verdict": "PASS_VALIDATION_INTERIM_CONTINUITY",
+  "final_verdict": "PASS_INTERIM_CONTINUITY_PACK_READY_FOR_NEW_LOGOS_PRIME_CHAT",
+  "non_claims": {
+    "task_closed": false,
+    "final_artifact_claim": false,
+    "owner_accepted_final_version_claim": false,
+    "speculum_ready_final_bundle_claim": false,
+    "continuity_green": false
+  },
+  "next_action": "FIX_SANCTUM_VISUAL_STABILITY_AND_CONTINUE_VISUAL_BASELINE"
+}

@@ -1,0 +1,12 @@
+{
+  "schema_id": "PIPELINE_RUN_LEDGER_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "run_id",
+    "task_route_version",
+    "route_status",
+    "stages"
+  ],
+  "notes": "Run ledger for local route progression."
+}

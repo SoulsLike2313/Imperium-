@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+  "stage_id": "STAGE-VM2-001",
+  "run_id": "RUN-20260509-0001",
+  "contour_id": "VM2",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "pc_servitor_main",
+  "status": "FAIL",
+  "failure_reason": "Legacy STAGE_ID format rejected for new artifacts: STAGE-VM2-001. Use <CONTOUR>-STAGE-<THREE_DIGITS>, for example PC-STAGE-001.",
+  "timestamp_utc": "2026-05-09T07:53:57Z",
+  "provenance_ref": "",
+  "deleted_anything": false,
+  "moved_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false,
+  "verdict": "FAIL"
+}

@@ -1,0 +1,16 @@
+ERROR: output-dir contains forbidden latest-pattern: e:\IMPERIUM\ARTIFACTS\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\02_OUTPUTS\TEST_WORKSPACE\final_output_latest
+���:
+TASK-20260508-1411-FINAL-ASSEMBLY-LATEST/final_bundle_assemble.py
+
+�����:
+N/A
+
+�������:
+FAIL
+
+����������� ��� OWNER:
+Final assembly ������ �������� ������ ����� BARRIER_PASS � ����� ����� BLOCKED/FAIL receipt.
+�� �������� ����������� FINAL_ASSEMBLY_RECEIPT � ������� STAGE_FAILED ������� � ledger.
+���������� SHA256SUMS ����� archive-relative POSIX ����, ������� .sha256 ������� filename-only.
+E2E � ���� ������ �� ����������, THRONE � watchers �������� �������������.
+

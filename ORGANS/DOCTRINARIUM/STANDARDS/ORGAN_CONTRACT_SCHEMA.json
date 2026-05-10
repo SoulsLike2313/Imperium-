@@ -1,0 +1,18 @@
+{
+  "schema_version": "ORGAN_CONTRACT_SCHEMA_V0_1",
+  "required_fields": [
+    "organ_id",
+    "status",
+    "owner_approval_state",
+    "allowed_write_roots",
+    "forbidden_roots",
+    "entrypoints",
+    "required_receipts",
+    "responsibilities",
+    "explicitly_not_responsible_for",
+    "known_limitations",
+    "current_blockers",
+    "last_verified_at"
+  ],
+  "created_at": "2026-05-09T16:51:44.169297+00:00"
+}

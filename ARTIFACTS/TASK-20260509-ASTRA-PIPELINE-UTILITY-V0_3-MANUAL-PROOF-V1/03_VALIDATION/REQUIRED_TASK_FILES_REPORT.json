@@ -1,0 +1,41 @@
+{
+  "required_task_files": [
+    {
+      "file": "ASTRA_TASK_RECORD.json",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\ASTRA_TASK_RECORD.json",
+      "exists": true
+    },
+    {
+      "file": "STAGE_MAP.json",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\STAGE_MAP.json",
+      "exists": true
+    },
+    {
+      "file": "PASS_CRITERIA.json",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\PASS_CRITERIA.json",
+      "exists": true
+    },
+    {
+      "file": "NEXT_ALLOWED_ACTION.json",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\NEXT_ALLOWED_ACTION.json",
+      "exists": true
+    },
+    {
+      "file": "PIPELINE_PROFILE.json",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\PIPELINE_PROFILE.json",
+      "exists": true
+    },
+    {
+      "file": "OWNER_TASK_BRIEF.md",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\OWNER_TASK_BRIEF.md",
+      "exists": true
+    },
+    {
+      "file": "ASTRA_PIPELINE_DRAFT.md",
+      "source_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\ASTRA_PIPELINE_DRAFT.md",
+      "exists": true
+    }
+  ],
+  "missing_required_task_files": [],
+  "verdict": "PASS_REQUIRED_TASK_FILES_PRESENT"
+}

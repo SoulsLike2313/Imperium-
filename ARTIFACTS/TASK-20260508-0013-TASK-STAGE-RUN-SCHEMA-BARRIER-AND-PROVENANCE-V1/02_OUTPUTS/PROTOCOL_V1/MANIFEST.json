@@ -1,0 +1,119 @@
+{
+  "manifest_id": "TASK_0013_PROTOCOL_MANIFEST_V1",
+  "task_id": "TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1",
+  "generated_at_utc": "2026-05-08T17:08:39Z",
+  "file_count": 18,
+  "files": [
+    {
+      "file_name": "BARRIER_PROTOCOL_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/BARRIER_PROTOCOL_V1.md",
+      "size_bytes": 1676,
+      "sha256": "ae3fe9b9e2edd1cfc48074009489bed3f667b696a9bc66564a202ca12003a83a"
+    },
+    {
+      "file_name": "BUNDLE_PROVENANCE_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/BUNDLE_PROVENANCE_SCHEMA_V1.md",
+      "size_bytes": 1197,
+      "sha256": "6acb263053f617526ca9f4d1e74e3cf544acb3d821fe4a290defe6103df0c2a8"
+    },
+    {
+      "file_name": "EXECUTOR_INDEX_CONTRACT_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/EXECUTOR_INDEX_CONTRACT_V1.md",
+      "size_bytes": 743,
+      "sha256": "1de97fd37db28cfd5babb31e204ed919294626365cc8429b31dee5784d8ac396"
+    },
+    {
+      "file_name": "FINAL_TASK_BUNDLE_CONTRACT_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/FINAL_TASK_BUNDLE_CONTRACT_V1.md",
+      "size_bytes": 812,
+      "sha256": "d53d4b062072a0071b76bcf34aa9216276e9951f95f3453d9877644c79f32906"
+    },
+    {
+      "file_name": "ORIGIN_INDEX_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/ORIGIN_INDEX_SCHEMA_V1.md",
+      "size_bytes": 901,
+      "sha256": "8c1108796965c08d1b0de89c6862c3e8f1e66dc4ee145e36562400b8a80665a5"
+    },
+    {
+      "file_name": "OWNER_SUMMARY.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/OWNER_SUMMARY.md",
+      "size_bytes": 550,
+      "sha256": "992dbd757e5ae83fab3867bb41e3aebb00df8ba699fa0a0fc5bf9f29106c0216"
+    },
+    {
+      "file_name": "PARALLEL_EXECUTION_PROTOCOL_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/PARALLEL_EXECUTION_PROTOCOL_V1.md",
+      "size_bytes": 999,
+      "sha256": "ceebdddcd40dcb5b7bb2bd2b9a3a57359c69b7c16bb1074f39250b4314a21e40"
+    },
+    {
+      "file_name": "RECEIPT_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/RECEIPT_SCHEMA_V1.md",
+      "size_bytes": 1073,
+      "sha256": "7ea3a1e54f027e397e6517cc54defffc85e2ad064ff5ac47ae3b137b59c33bf8"
+    },
+    {
+      "file_name": "RUN_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/RUN_SCHEMA_V1.md",
+      "size_bytes": 897,
+      "sha256": "37f7cd7aff26c4c0ef2f9132588a44f48f2224c136cfe1848f5fbe48922636ff"
+    },
+    {
+      "file_name": "SCRIPT_REPAIR_REQUIREMENTS_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/SCRIPT_REPAIR_REQUIREMENTS_V1.md",
+      "size_bytes": 1709,
+      "sha256": "d8b1f6dc641dc7230e34b9f17c3ae4490a1d531b77bd51eabab1e8e00fd35b64"
+    },
+    {
+      "file_name": "SPECULUM_REVIEW_REQUEST.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/SPECULUM_REVIEW_REQUEST.md",
+      "size_bytes": 701,
+      "sha256": "a9e4833e9f4926291c52b721c12c45ef7e4bd8cbed90acc72a167a33de83b569"
+    },
+    {
+      "file_name": "STAGE_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/STAGE_SCHEMA_V1.md",
+      "size_bytes": 993,
+      "sha256": "66563e1a8b56c8b838e7b27ef0290b2bb04bca979bf2bf8a1f3262f1e0ca61f2"
+    },
+    {
+      "file_name": "TASK_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/TASK_SCHEMA_V1.md",
+      "size_bytes": 1153,
+      "sha256": "2ad72ba0d15e2a06a9ac27845cee05e5f35f6ac6fe8274f0259b834dcaf4f083"
+    },
+    {
+      "file_name": "TASK_STATE_MACHINE_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/TASK_STATE_MACHINE_V1.md",
+      "size_bytes": 966,
+      "sha256": "e6858b95aeec21dc5429f1162e6993b73b374e9d0d06e4a03ae2ff14bc891496"
+    },
+    {
+      "file_name": "TASK_STATUS_LEDGER_SCHEMA_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/TASK_STATUS_LEDGER_SCHEMA_V1.md",
+      "size_bytes": 936,
+      "sha256": "cec65cca3c193deb5885f0806b7fb097cee04f9dd31e4d9408d9ba92c614e390"
+    },
+    {
+      "file_name": "VALIDATION_RULES_V1.md",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/VALIDATION_RULES_V1.md",
+      "size_bytes": 1252,
+      "sha256": "995908e7842aeb10094ac2b7ac358d787e32e49d16fbb8f11f8549a371021bcf"
+    },
+    {
+      "file_name": "MANIFEST.json",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/MANIFEST.json",
+      "size_bytes": 4314,
+      "sha256": "45bd09c7b8bdb08976ec8290a7c8238cb842c62b3f6d80d26c7adfd5ed7766ca"
+    },
+    {
+      "file_name": "SHA256SUMS.txt",
+      "relative_path": "02_OUTPUTS/PROTOCOL_V1/SHA256SUMS.txt",
+      "size_bytes": 1601,
+      "sha256": "dcffe77ac9bcc95acd91a58f1f7394a36917da11f9e64b88eba9334294f6904d"
+    }
+  ],
+  "notes": [
+    "SHA256SUMS.txt includes all files and marks self-hash as SELF_HASH_UNAVAILABLE by design."
+  ]
+}

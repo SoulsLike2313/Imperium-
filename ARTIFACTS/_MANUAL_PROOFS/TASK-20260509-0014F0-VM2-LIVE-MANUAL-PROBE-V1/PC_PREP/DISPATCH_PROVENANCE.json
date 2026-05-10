@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1",
+  "stage_id": "STAGE-PC-001",
+  "run_id": "RUN-20260509-0014",
+  "contour_id": "VM2",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "OWNER_MANUAL_PC",
+  "executor_role": "dispatch_operator",
+  "creation_mode": "SCRIPTED",
+  "created_at_utc": "2026-05-08T21:38:07Z",
+  "produced_on_host_class": "PC",
+  "source_bundle_name": "VM2_STAGE_PROMPT.md",
+  "source_bundle_sha256": "b26e65821ce46c422c62dc59934809802cf040941b8cd49025abc8126ac86e0b",
+  "parent_bundle_refs": [],
+  "transfer_method": "SSH_SEND",
+  "transfer_actor": "OWNER_MANUAL_PC",
+  "manual_touchpoints": [],
+  "authority_level": "WORKING_ARTIFACT",
+  "acceptance_scope": "dispatch_pre_stage_execution",
+  "verification_status": "RECEIPT_VERIFIED"
+}

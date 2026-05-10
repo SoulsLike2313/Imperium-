@@ -1,0 +1,539 @@
+[
+  {
+    "registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+    "relative_path": "ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+    "mtime_utc": "2026-05-10T06:49:33.270388+00:00",
+    "data": {
+      "schema_version": "ADMINISTRATUM_DASHBOARD_REGISTRY_V0_2",
+      "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_2",
+      "version": "0.2",
+      "purpose": "Resume-first Continuity Pack builder; exact last-point continuation, not generic summary",
+      "root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2",
+      "launcher": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_2.ps1",
+      "server": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2\\dashboard_server.py",
+      "url": "http://127.0.0.1:8792",
+      "primary_button": "Build Resume Continuity Pack v0.2",
+      "builder_script": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_resume_continuity_pack_v0_2.py",
+      "forbidden_claims": [
+        "green",
+        "canon",
+        "real-task-ready"
+      ],
+      "created_at": "2026-05-10T06:49:33.2244998Z"
+    }
+  },
+  {
+    "registry_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+    "mtime_utc": "2026-05-09T18:51:49.959196+00:00",
+    "data": {
+      "schema_version": "DOCTRINARIUM_DASHBOARD_REGISTRY_V0_1",
+      "organ_id": "DOCTRINARIUM",
+      "current_dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "dashboards": [
+        {
+          "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+          "version": "0.8",
+          "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+          "url": "http://127.0.0.1:8791",
+          "root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+          "launcher_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+          "manifest_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_MANIFEST_V0_8.json",
+          "manifest_sha256": "4e5985993ea8c24118a8c3b5d0c2ddef70c74f0e5b474260ea3fe4d9ac1d6e26",
+          "created_at": "2026-05-09T18:51:48.8888947Z",
+          "notes_ru": "Текущая рабочая hard dashboard-ветка Doctrinarium. Не Sanctum, не v1, но уже полезная органная utility surface."
+        }
+      ]
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\DASHBOARD_STATUS_V0_1.json",
+    "relative_path": "ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\DASHBOARD_STATUS_V0_1.json",
+    "mtime_utc": "2026-05-09T19:48:15.254943+00:00",
+    "data": {
+      "schema_version": "ADMINISTRATUM_DASHBOARD_STATUS_V0_1",
+      "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+      "organ_id": "ADMINISTRATUM",
+      "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+      "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD",
+      "url": "http://127.0.0.1:8792",
+      "active_action_buttons": [
+        "BUILD_CONTINUITY_PACK"
+      ],
+      "safe_navigation_buttons": [
+        "Open Continuity Packs folder",
+        "Open Reports folder",
+        "Open Administratum folder",
+        "Reload Data"
+      ],
+      "forbidden_claims": [
+        "CANON_V0_1",
+        "REAL_TASK_EXECUTION_READY",
+        "CONTINUITY_GREEN",
+        "ALL_MEMORY_COMPLETE",
+        "SANCTUM_READY",
+        "ALL_ORGANS_READY"
+      ]
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2\\DASHBOARD_STATUS_V0_1.json",
+    "relative_path": "ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2\\DASHBOARD_STATUS_V0_1.json",
+    "mtime_utc": "2026-05-09T19:48:15.254943+00:00",
+    "data": {
+      "schema_version": "ADMINISTRATUM_DASHBOARD_STATUS_V0_1",
+      "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+      "organ_id": "ADMINISTRATUM",
+      "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+      "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD",
+      "url": "http://127.0.0.1:8792",
+      "active_action_buttons": [
+        "BUILD_CONTINUITY_PACK"
+      ],
+      "safe_navigation_buttons": [
+        "Open Continuity Packs folder",
+        "Open Reports folder",
+        "Open Administratum folder",
+        "Reload Data"
+      ],
+      "forbidden_claims": [
+        "CANON_V0_1",
+        "REAL_TASK_EXECUTION_READY",
+        "CONTINUITY_GREEN",
+        "ALL_MEMORY_COMPLETE",
+        "SANCTUM_READY",
+        "ALL_ORGANS_READY"
+      ]
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_8_TECHNICAL.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_8_TECHNICAL.json",
+    "mtime_utc": "2026-05-09T18:51:49.533414+00:00",
+    "data": {
+      "schema_version": "DOCTRINARIUM_DASHBOARD_STATUS_V0_8_TECHNICAL",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "organ_id": "DOCTRINARIUM",
+      "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+      "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD",
+      "current_for_owner_use": true,
+      "canon_status": "NOT_CANON_V1",
+      "sanctum_status": "NOT_IN_SANCTUM_YET",
+      "url": "http://127.0.0.1:8791",
+      "launcher_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+      "dashboard_root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+      "manifest_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_MANIFEST_V0_8.json",
+      "manifest_sha256": "4e5985993ea8c24118a8c3b5d0c2ddef70c74f0e5b474260ea3fe4d9ac1d6e26",
+      "sha256sums_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_SHA256SUMS_V0_8.txt",
+      "sha256sums_sha256": "e3d2ffd8ce6f78ea231a06647f6aafe82fca4b7725f17b3a3d131ae08b9ed2e5",
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\MANDATORY_LAWS.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "capabilities": [
+        "dashboard metrics",
+        "organ health overview",
+        "organ detail drawer",
+        "risk matrix",
+        "priority fix queue",
+        "major gaps",
+        "laws and codex page",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder actions"
+      ],
+      "forbidden_claims": [
+        "CANON_V0_1",
+        "SANCTUM_READY",
+        "REAL_TASK_EXECUTION_READY",
+        "CONTINUITY_GREEN",
+        "ALL_LAWS_ENFORCED",
+        "ALL_ORGANS_READY"
+      ],
+      "created_at": "2026-05-09T18:51:48.8888947Z"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_8.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_8.json",
+    "mtime_utc": "2026-05-09T18:47:50.846022+00:00",
+    "data": {
+      "added": [
+        "smoother background animation",
+        "optimized canvas resizing",
+        "reduced particle density",
+        "smoother sparkline",
+        "smoother drawer transition",
+        "softer hover motion while preserving hard visual style"
+      ],
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_8",
+      "url": "http://127.0.0.1:8791",
+      "based_on": "WEB_DASHBOARD_V0_7",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+      "created_at": "2026-05-09T18:47:50.8305017Z",
+      "organ_id": "DOCTRINARIUM",
+      "status": "CREATED_AND_PY_COMPILE_PASSED"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_7\\DASHBOARD_STATUS_V0_7.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_7\\DASHBOARD_STATUS_V0_7.json",
+    "mtime_utc": "2026-05-09T18:45:42.057677+00:00",
+    "data": {
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_7.ps1",
+      "url": "http://127.0.0.1:8790",
+      "created_at": "2026-05-09T18:45:42.0422648Z",
+      "organ_id": "DOCTRINARIUM",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_7",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_7",
+      "added": [
+        "organ detail drawer",
+        "clickable organ cards",
+        "clickable dashboard organ rows",
+        "open organ folder endpoint",
+        "copy organ path action",
+        "priority actions per selected organ"
+      ],
+      "status": "CREATED_AND_PY_COMPILE_PASSED"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_7.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_7.json",
+    "mtime_utc": "2026-05-09T18:45:42.057677+00:00",
+    "data": {
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_7.ps1",
+      "url": "http://127.0.0.1:8790",
+      "created_at": "2026-05-09T18:45:42.0422648Z",
+      "organ_id": "DOCTRINARIUM",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_7",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_7",
+      "added": [
+        "organ detail drawer",
+        "clickable organ cards",
+        "clickable dashboard organ rows",
+        "open organ folder endpoint",
+        "copy organ path action",
+        "priority actions per selected organ"
+      ],
+      "status": "CREATED_AND_PY_COMPILE_PASSED"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6_FIXED\\DASHBOARD_STATUS_V0_6_FIXED.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6_FIXED\\DASHBOARD_STATUS_V0_6_FIXED.json",
+    "mtime_utc": "2026-05-09T18:43:28.855430+00:00",
+    "data": {
+      "status": "CREATED_AND_PY_COMPILE_PASSED",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_6_FIXED",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_6_fixed.ps1",
+      "created_at": "2026-05-09T18:43:28.8545162Z",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_6_FIXED",
+      "organ_id": "DOCTRINARIUM",
+      "url": "http://127.0.0.1:8789"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_7\\DASHBOARD_STATUS_V0_6_FIXED.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_7\\DASHBOARD_STATUS_V0_6_FIXED.json",
+    "mtime_utc": "2026-05-09T18:43:28.855430+00:00",
+    "data": {
+      "status": "CREATED_AND_PY_COMPILE_PASSED",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_6_FIXED",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_6_fixed.ps1",
+      "created_at": "2026-05-09T18:43:28.8545162Z",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_6_FIXED",
+      "organ_id": "DOCTRINARIUM",
+      "url": "http://127.0.0.1:8789"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_6_FIXED.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_6_FIXED.json",
+    "mtime_utc": "2026-05-09T18:43:28.855430+00:00",
+    "data": {
+      "status": "CREATED_AND_PY_COMPILE_PASSED",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_6_FIXED",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_6_fixed.ps1",
+      "created_at": "2026-05-09T18:43:28.8545162Z",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_6_FIXED",
+      "organ_id": "DOCTRINARIUM",
+      "url": "http://127.0.0.1:8789"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6\\DASHBOARD_STATUS_V0_6.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6\\DASHBOARD_STATUS_V0_6.json",
+    "mtime_utc": "2026-05-09T18:22:07.725449+00:00",
+    "data": {
+      "status": "WEB_DASHBOARD_V0_6_CREATED",
+      "added": [
+        "computed organ risk score",
+        "priority fix queue",
+        "risk matrix view",
+        "gap type computation in API",
+        "hard dashboard branch preserved separately from soft"
+      ],
+      "focus": "usefulness_before_visual_polish",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_6.ps1",
+      "created_at": "2026-05-09T18:22:07.7093842Z",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_6",
+      "url": "http://127.0.0.1:8789",
+      "organ_id": "DOCTRINARIUM",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_6"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\DASHBOARD_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\DASHBOARD_STATUS.json",
+    "mtime_utc": "2026-05-09T18:07:37.743168+00:00",
+    "data": {
+      "dashboard_type": "LOCAL_WEB_DASHBOARD",
+      "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+      "created_at": "2026-05-09T18:07:37.7414594Z",
+      "status": "WEB_DASHBOARD_CREATED",
+      "organ_id": "DOCTRINARIUM",
+      "capabilities": [
+        "dashboard metrics",
+        "organ health cards",
+        "major gap list",
+        "law cards",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder buttons"
+      ],
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "limitations": [
+        "not Sanctum",
+        "not canon v1",
+        "local dashboard only",
+        "depends on existing Doctrinarium reports",
+        "refresh calls existing manual launcher"
+      ],
+      "url": "http://127.0.0.1:8787",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_SOFT\\DASHBOARD_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_SOFT\\DASHBOARD_STATUS.json",
+    "mtime_utc": "2026-05-09T18:07:37.743168+00:00",
+    "data": {
+      "dashboard_type": "LOCAL_WEB_DASHBOARD",
+      "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+      "created_at": "2026-05-09T18:07:37.7414594Z",
+      "status": "WEB_DASHBOARD_CREATED",
+      "organ_id": "DOCTRINARIUM",
+      "capabilities": [
+        "dashboard metrics",
+        "organ health cards",
+        "major gap list",
+        "law cards",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder buttons"
+      ],
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "limitations": [
+        "not Sanctum",
+        "not canon v1",
+        "local dashboard only",
+        "depends on existing Doctrinarium reports",
+        "refresh calls existing manual launcher"
+      ],
+      "url": "http://127.0.0.1:8787",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6\\DASHBOARD_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6\\DASHBOARD_STATUS.json",
+    "mtime_utc": "2026-05-09T18:07:37.743168+00:00",
+    "data": {
+      "dashboard_type": "LOCAL_WEB_DASHBOARD",
+      "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+      "created_at": "2026-05-09T18:07:37.7414594Z",
+      "status": "WEB_DASHBOARD_CREATED",
+      "organ_id": "DOCTRINARIUM",
+      "capabilities": [
+        "dashboard metrics",
+        "organ health cards",
+        "major gap list",
+        "law cards",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder buttons"
+      ],
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "limitations": [
+        "not Sanctum",
+        "not canon v1",
+        "local dashboard only",
+        "depends on existing Doctrinarium reports",
+        "refresh calls existing manual launcher"
+      ],
+      "url": "http://127.0.0.1:8787",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6_FIXED\\DASHBOARD_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6_FIXED\\DASHBOARD_STATUS.json",
+    "mtime_utc": "2026-05-09T18:07:37.743168+00:00",
+    "data": {
+      "dashboard_type": "LOCAL_WEB_DASHBOARD",
+      "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+      "created_at": "2026-05-09T18:07:37.7414594Z",
+      "status": "WEB_DASHBOARD_CREATED",
+      "organ_id": "DOCTRINARIUM",
+      "capabilities": [
+        "dashboard metrics",
+        "organ health cards",
+        "major gap list",
+        "law cards",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder buttons"
+      ],
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "limitations": [
+        "not Sanctum",
+        "not canon v1",
+        "local dashboard only",
+        "depends on existing Doctrinarium reports",
+        "refresh calls existing manual launcher"
+      ],
+      "url": "http://127.0.0.1:8787",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_7\\DASHBOARD_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_7\\DASHBOARD_STATUS.json",
+    "mtime_utc": "2026-05-09T18:07:37.743168+00:00",
+    "data": {
+      "dashboard_type": "LOCAL_WEB_DASHBOARD",
+      "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+      "created_at": "2026-05-09T18:07:37.7414594Z",
+      "status": "WEB_DASHBOARD_CREATED",
+      "organ_id": "DOCTRINARIUM",
+      "capabilities": [
+        "dashboard metrics",
+        "organ health cards",
+        "major gap list",
+        "law cards",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder buttons"
+      ],
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "limitations": [
+        "not Sanctum",
+        "not canon v1",
+        "local dashboard only",
+        "depends on existing Doctrinarium reports",
+        "refresh calls existing manual launcher"
+      ],
+      "url": "http://127.0.0.1:8787",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+    }
+  },
+  {
+    "status_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS.json",
+    "mtime_utc": "2026-05-09T18:07:37.743168+00:00",
+    "data": {
+      "dashboard_type": "LOCAL_WEB_DASHBOARD",
+      "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+      "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+      "created_at": "2026-05-09T18:07:37.7414594Z",
+      "status": "WEB_DASHBOARD_CREATED",
+      "organ_id": "DOCTRINARIUM",
+      "capabilities": [
+        "dashboard metrics",
+        "organ health cards",
+        "major gap list",
+        "law cards",
+        "utility matrix",
+        "animated canvas background",
+        "local refresh button",
+        "open folder buttons"
+      ],
+      "reads": [
+        "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "STATUS\\DOCTRINARIUM_STATUS.json",
+        "LAWS\\LAW_INDEX.json",
+        "LAWS\\LAW_ENFORCEMENT_MAP.json",
+        "DOCTRINE\\DOCTRINE_INDEX.json"
+      ],
+      "limitations": [
+        "not Sanctum",
+        "not canon v1",
+        "local dashboard only",
+        "depends on existing Doctrinarium reports",
+        "refresh calls existing manual launcher"
+      ],
+      "url": "http://127.0.0.1:8787",
+      "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+    }
+  }
+]

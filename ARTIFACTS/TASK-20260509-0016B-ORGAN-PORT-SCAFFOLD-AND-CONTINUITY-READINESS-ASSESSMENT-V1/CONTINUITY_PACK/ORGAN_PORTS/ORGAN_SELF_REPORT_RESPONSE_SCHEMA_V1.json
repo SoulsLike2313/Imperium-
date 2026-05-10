@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "organ-self-report-response-schema-v1",
+  "title": "Organ Self Report Response V1",
+  "type": "object",
+  "required": [
+    "organ_id",
+    "report_type",
+    "status",
+    "self_report_port_status",
+    "current_state",
+    "metrics",
+    "known_blockers",
+    "recent_history_points",
+    "open_questions",
+    "next_recommended_actions",
+    "evidence_refs",
+    "receipt_ref",
+    "generated_at_utc",
+    "notes"
+  ],
+  "properties": {
+    "organ_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "PARTIAL",
+        "BLOCKED",
+        "NOT_IMPLEMENTED",
+        "NOT_YET_AVAILABLE",
+        "ERROR"
+      ]
+    },
+    "self_report_port_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "current_state": {
+      "type": "object"
+    },
+    "metrics": {
+      "type": "object"
+    },
+    "known_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recent_history_points": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipt_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

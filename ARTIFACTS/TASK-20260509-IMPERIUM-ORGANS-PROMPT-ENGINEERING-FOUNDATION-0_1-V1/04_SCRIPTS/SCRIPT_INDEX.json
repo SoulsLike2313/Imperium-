@@ -1,0 +1,14 @@
+{
+  "created_scripts": [
+    "e:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_repair_branch.py",
+    "e:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_task_launch_card.py",
+    "e:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_policy_refs.py",
+    "e:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_read_first_receipt.py",
+    "e:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card.py",
+    "e:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_manifest.py",
+    "e:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_sha256sums.py",
+    "e:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\scan_python_readonly_safety.py"
+  ],
+  "scripts_count": 8,
+  "status": "READ_ROUTE_SCAFFOLD_0_1"
+}

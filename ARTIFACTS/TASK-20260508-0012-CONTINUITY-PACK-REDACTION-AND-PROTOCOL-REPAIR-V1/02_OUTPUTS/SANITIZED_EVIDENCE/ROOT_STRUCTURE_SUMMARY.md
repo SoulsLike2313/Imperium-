@@ -1,0 +1,10 @@
+# ROOT STRUCTURE SUMMARY (SANITIZED)
+
+Accepted root folders:
+- ARCHIVE
+- ARTIFACTS
+- OBSERVED
+- PC_ENGINEERING_ROOM
+- SSH_COMMAND_LIBRARY
+
+Task outputs are expected under ARTIFACTS\<TASK_ID>.

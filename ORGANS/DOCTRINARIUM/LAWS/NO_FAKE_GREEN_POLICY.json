@@ -1,0 +1,1 @@
+{"policy":"NO_FAKE_GREEN","rule":"Never report PASS unless checks actually passed."}

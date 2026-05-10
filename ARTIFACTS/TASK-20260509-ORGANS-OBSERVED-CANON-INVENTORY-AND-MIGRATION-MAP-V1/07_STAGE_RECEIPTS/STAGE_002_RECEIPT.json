@@ -1,0 +1,52 @@
+{
+  "task_id": "TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+  "stage": "STAGE_002_ORGAN_CLASSIFICATION",
+  "created_at_local": "2026-05-09T13:00:07",
+  "outputs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\02_ORGAN_CANDIDATE_FILES\\ORGAN_FILE_INDEX.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\02_ORGAN_CANDIDATE_FILES\\ORGAN_FILE_INDEX.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\02_ORGAN_CANDIDATE_FILES\\ADMINISTRATUM_CANDIDATES.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\02_ORGAN_CANDIDATE_FILES\\MECHANICUS_CANDIDATES.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\02_ORGAN_CANDIDATE_FILES\\ASTRONOMICON_CANDIDATES.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\02_ORGAN_CANDIDATE_FILES\\INQUISITION_CANDIDATES.md"
+  ],
+  "metrics": {
+    "total_classified_files": 27786,
+    "organ_counts": {
+      "UNKNOWN": 23543,
+      "ADMINISTRATUM": 1135,
+      "ASTRONOMICON": 444,
+      "INQUISITION": 728,
+      "AMBIGUOUS": 1880,
+      "MECHANICUS": 56
+    },
+    "content_class_counts": {
+      "artifact": 6174,
+      "policy": 72,
+      "unknown": 271,
+      "report": 55,
+      "old_copy": 16,
+      "schema": 14,
+      "registry": 19,
+      "canon": 2,
+      "script": 14,
+      "observed_copy": 21149
+    },
+    "action_counts": {
+      "keep_indexed": 6154,
+      "candidate_for_review": 298,
+      "owner_decision_needed": 87,
+      "candidate_for_migration": 98,
+      "do_not_touch": 21149
+    }
+  },
+  "validation": {
+    "checks": [
+      "all required stage 2 outputs exist",
+      "ORGAN_FILE_INDEX.json parses"
+    ],
+    "errors": [],
+    "verdict": "PASS"
+  },
+  "destructive_actions_performed": false
+}

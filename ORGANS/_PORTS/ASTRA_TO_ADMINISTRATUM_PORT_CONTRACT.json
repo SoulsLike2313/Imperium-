@@ -1,0 +1,23 @@
+{
+  "schema_version": "ORGAN_PORT_CONTRACT_V0_1",
+  "port_id": "ASTRA_TO_ADMINISTRATUM",
+  "status": "CONTRACT_ONLY",
+  "source_organ": "ASTRONOMICON",
+  "target_organ": "ADMINISTRATUM",
+  "required_outputs_from_source": [
+    "ASTRA_TASK_RECORD.json",
+    "STAGE_MAP.json",
+    "PASS_CRITERIA.json",
+    "NEXT_ALLOWED_ACTION.json",
+    "BLOCKER_BEACONS.json",
+    "PIPELINE_PROFILE.json",
+    "ROUTE_STATUS.json"
+  ],
+  "required_validations": [
+    "stage_id_policy_check",
+    "policy_refs_present",
+    "policy_hashes_status_present",
+    "no_forbidden_activation_flags"
+  ],
+  "notes": "Foundation scaffold only. No live organ claim."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_id": "ASTRONOMICON_CONTOUR_VIEW_SCHEMA_V1",
+  "task_id": "string",
+  "contour_id": "PC|VM2|OWNER_MANUAL",
+  "assigned_stages": [
+    "stage_id"
+  ],
+  "required_tools": [
+    "tool_id"
+  ],
+  "forbidden_actions": [
+    "string"
+  ]
+}

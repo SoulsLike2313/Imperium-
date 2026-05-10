@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "registered_at_local": "2026-05-09T15:08:39",
+  "status": "ACTIVE_TASK_REGISTERED",
+  "purpose": "Довести Sanctum до приемлемой Owner версии. Sanctum v0.1 сейчас является manual client shell: Astra Utility + Explorer + task list + stage map + notes. Следующая работа должна идти по IMPERIUM pipeline, с фиксацией stage start/end, receipts, bugs, fixes, validation, artifacts and continuity pack.",
+  "one_major_task_one_chat_policy": true,
+  "current_chat_scope": "Build Sanctum to Owner-acceptable version and collect evidence.",
+  "close_condition": "Owner declares candidate/complete, artifact packaged, review/repair handled, continuity pack created."
+}

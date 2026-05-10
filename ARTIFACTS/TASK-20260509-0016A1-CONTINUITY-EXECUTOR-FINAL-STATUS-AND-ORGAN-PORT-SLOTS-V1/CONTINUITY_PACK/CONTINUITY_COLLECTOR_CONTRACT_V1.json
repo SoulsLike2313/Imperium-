@@ -1,0 +1,17 @@
+{
+  "schema_id": "CONTINUITY_COLLECTOR_CONTRACT_V1",
+  "description": "Collector contract for current scanners and future organ self-report collectors.",
+  "required_fields": [
+    "collector_id",
+    "enabled",
+    "status",
+    "failure_policy",
+    "input_contract",
+    "output_contract"
+  ],
+  "failure_policy_enum": [
+    "FATAL_FOR_PACK_INTEGRITY",
+    "NON_FATAL_UNTIL_IMPLEMENTED",
+    "BLOCK_AND_ESCALATE"
+  ]
+}

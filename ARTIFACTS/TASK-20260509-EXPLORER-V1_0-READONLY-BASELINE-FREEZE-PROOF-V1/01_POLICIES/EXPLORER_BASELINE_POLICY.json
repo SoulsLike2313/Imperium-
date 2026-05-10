@@ -1,0 +1,57 @@
+{
+  "schema_version": "EXPLORER_BASELINE_POLICY_V1",
+  "policy_id": "POLICY-EXPLORER-BASELINE-V1",
+  "baseline_version": "1.0",
+  "baseline_file": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0.py",
+  "status": "READ_ONLY_VISUAL_MIRROR_BASELINE_CANDIDATE",
+  "definition": "Explorer 1.0 is a local Python/Tkinter read-only visual mirror of E:\\IMPERIUM.",
+  "source_of_truth": [
+    "filesystem",
+    "manifests",
+    "SHA256SUMS",
+    "receipts",
+    "truth audits",
+    "screenshot truth checks",
+    "Speculum reviews",
+    "Owner decisions"
+  ],
+  "not_source_of_truth": true,
+  "allowed_capabilities": [
+    "show_tree",
+    "show_node_type",
+    "show_path",
+    "show_direct_folder_file_counts",
+    "show_direct_markers",
+    "preview_small_text_files",
+    "copy_path_to_clipboard",
+    "open_path_in_windows_explorer",
+    "manual_refresh"
+  ],
+  "allowed_ui_side_effects": [
+    "clipboard_copy_path",
+    "open_path_in_windows_explorer"
+  ],
+  "forbidden_capabilities": [
+    "write_files",
+    "edit_files",
+    "delete_files",
+    "move_files",
+    "sync",
+    "vm2_contact",
+    "throne_contact",
+    "e2e_run",
+    "watchers",
+    "background_automation",
+    "auto_repair",
+    "continuity_pack_execution"
+  ],
+  "forbidden_claims": [
+    "Sanctum ready",
+    "Aquarium ready",
+    "organs implemented",
+    "PC-VM2 E2E ready",
+    "THRONE connected",
+    "CONTINUITY_GREEN",
+    "Explorer proves all historical semantics"
+  ]
+}

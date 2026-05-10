@@ -1,0 +1,12 @@
+{
+  "task_id": "TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR",
+  "stage_id": "PC-STAGE-001",
+  "run_id": "RUN-20260509-0001",
+  "read_files": [
+    "E:/IMPERIUM/EXPLORER/README.md",
+    "E:/IMPERIUM/EXPLORER/CHANGELOG.md"
+  ],
+  "policy_hashes": {
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/STAGE_ID_POLICY.json": "placeholder"
+  }
+}

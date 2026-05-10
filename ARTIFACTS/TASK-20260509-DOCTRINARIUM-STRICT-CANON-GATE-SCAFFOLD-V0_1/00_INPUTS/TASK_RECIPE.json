@@ -1,0 +1,35 @@
+{
+  "schema_version": "TASK_RECIPE_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "task_name": "Build strict Doctrinarium doctrine/law/organ-standard scaffold v0_1 with validators and expected-error report",
+  "mode": "CAREFUL_LOCAL_IMPLEMENTATION",
+  "root_path": "E:\\IMPERIUM",
+  "expected_doctrine_status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+  "expected_canon_for_real_task_execution": false,
+  "allowed_write_areas": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM"
+  ],
+  "forbidden_areas": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "policies": {
+    "no_sanctum": true,
+    "no_archive_scan": true,
+    "no_vm2": true,
+    "no_throne": true,
+    "no_gui": true,
+    "no_fake_canon": true,
+    "no_fake_green": true
+  },
+  "expected_final_verdicts": [
+    "PASS_DOCTRINARIUM_SCAFFOLD_V0_1_WITH_EXPECTED_ORGAN_ERRORS",
+    "PASS_BOOTSTRAP_ONLY",
+    "OWNER_DECISION_REQUIRED_FOR_CANON_DOCTRINE",
+    "REPAIR_REQUIRED",
+    "BLOCKED",
+    "FAIL_PROTOCOL_VIOLATION"
+  ]
+}

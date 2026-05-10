@@ -1,0 +1,92 @@
+{
+  "schema_version": "DEVELOPER_PORTS_REGISTRY_V0_2",
+  "generated_at": "2026-05-10T06:14:42.626405+00:00",
+  "owner": "ADMINISTRATUM",
+  "task_id": "TASK-20260510-ADMINISTRATUM-DEVELOPER-GRADE-CONTINUITY-HANDOFF-V0_2",
+  "ports": [
+    {
+      "organ_id": "ADMINISTRATUM",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\BLOCKERS_PORT.json",
+      "status": "BOOTSTRAP",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\BLOCKERS_PORT.json",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\BLOCKERS_PORT.json",
+      "status": "STRICT_BOOTSTRAP_GATE",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    },
+    {
+      "organ_id": "INQUISITION",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\BLOCKERS_PORT.json",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\BLOCKERS_PORT.json",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\BLOCKERS_PORT.json",
+      "status": "MINIMAL_SCOPE_ACTIVE",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    },
+    {
+      "organ_id": "_PORTS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS",
+      "developer_port_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS\\DEVELOPER_PORT.json",
+      "script_port_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS\\SCRIPT_PORT.json",
+      "test_port_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS\\TEST_PORT.json",
+      "dashboard_port_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS\\DASHBOARD_PORT.json",
+      "receipt_port_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS\\RECEIPT_PORT.json",
+      "blockers_port_path": "E:\\IMPERIUM\\ORGANS\\_PORTS\\PORTS\\BLOCKERS_PORT.json",
+      "status": "UNKNOWN",
+      "last_verified_at": "2026-05-10T06:14:42.626405+00:00"
+    }
+  ]
+}

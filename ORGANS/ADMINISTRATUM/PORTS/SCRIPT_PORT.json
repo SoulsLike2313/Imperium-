@@ -1,0 +1,176 @@
+{
+  "schema_version": "SCRIPT_PORT_V0_2",
+  "organ_id": "ADMINISTRATUM",
+  "scripts": [
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_BUILD_CONTINUITY_CANDIDATE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_candidate.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_candidate.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "158a928300a2ae6da5199c2dfa5029b721ee88dd1a2555b329611583715c9c1d"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_BUILD_CONTINUITY_PACK",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "e275dc5b022822ec716314260eb0132b720787e09ff4c880b0a01963cef1d841"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_BUILD_CURRENT_STATE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_current_state.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_current_state.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "0425aa83d60df7b478ff22ccdb187a895977b35150cb2a165e2de7f339359bd6"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_COMPARE_CONTINUITY_PACK",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "8b3febe630df26e0aaeafe3db906107483359b4c694e7c36bc4843b17e9648ff"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_QA_CONTINUITY_PACK_AGAINST_REALITY",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_qa_continuity_pack_against_reality.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_qa_continuity_pack_against_reality.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "986044110baba16ed7f6848d98c0eecdff3c8c1b50f28f9cd38739845c6a8748"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_RECORD_EVENT",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_record_event.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_record_event.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "40fb571886d48d8940ebe2ccc9d61532108fb5febb299be2faa8b528d5eda7eb"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_SCAN_REAL_IMPERIUM_STATE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_scan_real_imperium_state.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_scan_real_imperium_state.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "b4a9ee4e1cbe136adedcd84ed9fecdcb10713a3f0a228f9756028eaf8a2dbeb1"
+    },
+    {
+      "script_id": "ADMINISTRATUM_ADMINISTRATUM_VIEW_TASK_TIMELINE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_view_task_timeline.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_view_task_timeline.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "165a391952a8bffb7795694b59470238b658f34bfbd8fcac5c4e79a0153ce131"
+    },
+    {
+      "script_id": "ADMINISTRATUM_BUILD_READ_FIRST_ROUTE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_read_first_route.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_read_first_route.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "4f2f419a7001aec7af258dcc1f04e6f381ebb949b5b35367fbe0f60d2ad20521"
+    },
+    {
+      "script_id": "ADMINISTRATUM_BUILD_TASK_LAUNCH_CARD_FROM_ASTRA",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_task_launch_card_from_astra.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_task_launch_card_from_astra.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "7e740578078a8e424bb228d38cb9c517467f4a91b0c03d54a4530029b44df746"
+    },
+    {
+      "script_id": "ADMINISTRATUM_CREATE_REPAIR_BRANCH",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_repair_branch.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_repair_branch.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "c6c6fb4104edda7d616b92c3997db94c33c91b40e5688d2b5f9d63fa82bec882"
+    },
+    {
+      "script_id": "ADMINISTRATUM_CREATE_TASK_LAUNCH_CARD",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_task_launch_card.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_task_launch_card.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "4ef9732198f5beff9ee71fca0734413514bdd53f3fac4970123df406490d21d3"
+    },
+    {
+      "script_id": "ADMINISTRATUM_IMPERIUM_TASK_START",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\imperium_task_start.ps1",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\imperium_task_start.ps1",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "e1933d5b2b7cbeda1f34835ed7e81044825b13165e62682502c175280ff30aae"
+    },
+    {
+      "script_id": "ADMINISTRATUM_VALIDATE_POLICY_REFS",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_policy_refs.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_policy_refs.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "482f5c2382d7619f57de674287e9f3ea49a882194174ecbef39a5fea7a59218c"
+    },
+    {
+      "script_id": "ADMINISTRATUM_VALIDATE_READ_FIRST_RECEIPT",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_read_first_receipt.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_read_first_receipt.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "7cde00b5f2e7a2293cf9f4bee45fb95a48eccf37e8e71fbdb609c573d96ca13f"
+    },
+    {
+      "script_id": "ADMINISTRATUM_VALIDATE_TASK_LAUNCH_CARD",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "755786ce3190c4c671ae3813e8013c64d2771be350c8b512d6a0dd22a1f9ae9c"
+    },
+    {
+      "script_id": "ADMINISTRATUM_VALIDATE_TASK_LAUNCH_CARD_V0_2",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "c2a993e446ae18517bb45b45162b246c6e83afa6d5e1b898e2ff7f025cf138d0"
+    }
+  ]
+}

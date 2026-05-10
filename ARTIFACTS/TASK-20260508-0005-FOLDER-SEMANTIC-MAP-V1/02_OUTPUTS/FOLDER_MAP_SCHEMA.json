@@ -1,0 +1,47 @@
+{
+  "schema_id": "FOLDER_MAP_SCHEMA_V1",
+  "description": "Simple schema for IMPERIUM folder semantic records.",
+  "fields": {
+    "path": "string",
+    "name": "string",
+    "zone_type": "string",
+    "role": "string",
+    "what_lives_here": "string[]",
+    "allowed_writes": "string[]",
+    "forbidden_writes": "string[]",
+    "inputs": "string[]",
+    "outputs": "string[]",
+    "related_zones": "string[]",
+    "agent_instruction": "string",
+    "status": "string",
+    "canon_status": "string",
+    "artifact_policy": "string",
+    "owner_review_required": "boolean",
+    "notes": "string[]"
+  },
+  "allowed_status": [
+    "active",
+    "passive",
+    "archive",
+    "observed",
+    "planned",
+    "blocked",
+    "review_required"
+  ],
+  "allowed_canon_status": [
+    "not_canon",
+    "canon_candidate",
+    "canon_source",
+    "not_applicable"
+  ],
+  "required": [
+    "path",
+    "name",
+    "zone_type",
+    "role",
+    "status",
+    "canon_status",
+    "artifact_policy"
+  ],
+  "dependencies": []
+}

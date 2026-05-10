@@ -1,0 +1,15 @@
+���:
+TASK-20260508-1410-FINAL-ASSEMBLY-TEST/final_bundle_assemble.py
+
+�����:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\02_OUTPUTS\TEST_WORKSPACE\final_output\TASK-20260508-1410-FINAL-ASSEMBLY-TEST_FINAL_TASK_BUNDLE.zip
+
+�������:
+PASS
+
+����������� ��� OWNER:
+Final assembly ������ �������� ������ ����� BARRIER_PASS � ����� ����� BLOCKED/FAIL receipt.
+�� �������� ����������� FINAL_ASSEMBLY_RECEIPT � ������� STAGE_FAILED ������� � ledger.
+���������� SHA256SUMS ����� archive-relative POSIX ����, ������� .sha256 ������� filename-only.
+E2E � ���� ������ �� ����������, THRONE � watchers �������� �������������.
+

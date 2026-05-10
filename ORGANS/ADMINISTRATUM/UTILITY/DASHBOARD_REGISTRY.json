@@ -1,0 +1,18 @@
+{
+    "schema_version":  "ADMINISTRATUM_DASHBOARD_REGISTRY_V0_2",
+    "dashboard_id":  "ADMINISTRATUM_WEB_DASHBOARD_V0_2",
+    "version":  "0.2",
+    "purpose":  "Resume-first Continuity Pack builder; exact last-point continuation, not generic summary",
+    "root":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2",
+    "launcher":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_2.ps1",
+    "server":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_2\\dashboard_server.py",
+    "url":  "http://127.0.0.1:8792",
+    "primary_button":  "Build Resume Continuity Pack v0.2",
+    "builder_script":  "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_resume_continuity_pack_v0_2.py",
+    "forbidden_claims":  [
+                             "green",
+                             "canon",
+                             "real-task-ready"
+                         ],
+    "created_at":  "2026-05-10T06:49:33.2244998Z"
+}

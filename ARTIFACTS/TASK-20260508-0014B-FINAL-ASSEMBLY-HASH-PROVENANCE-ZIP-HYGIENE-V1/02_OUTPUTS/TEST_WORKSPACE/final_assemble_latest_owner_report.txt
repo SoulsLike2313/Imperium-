@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-1411-FINAL-ASSEMBLY-LATEST/final_bundle_assemble.py
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+FAIL
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Final assembly строго разрешён только после BARRIER_PASS и иначе выдаёт BLOCKED/FAIL receipt.
+На неуспехе формируется FINAL_ASSEMBLY_RECEIPT и пишется STAGE_FAILED событие в ledger.
+Внутренний SHA256SUMS пишет archive-relative POSIX пути, внешний .sha256 остаётся filename-only.
+E2E в этой задаче не выполнялся, THRONE и watchers остаются заблокированы.

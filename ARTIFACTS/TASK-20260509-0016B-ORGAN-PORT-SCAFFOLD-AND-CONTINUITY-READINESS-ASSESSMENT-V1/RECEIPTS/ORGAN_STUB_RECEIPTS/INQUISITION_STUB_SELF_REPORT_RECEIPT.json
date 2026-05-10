@@ -1,0 +1,16 @@
+{
+  "receipt_type": "ORGAN_SELF_REPORT_STUB_RECEIPT_V1",
+  "organ_id": "INQUISITION",
+  "query_id": "QUERY-EXAMPLE-001",
+  "task_id": "TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1",
+  "status": "NOT_IMPLEMENTED",
+  "self_report_port_status": "CONTRACT_ONLY",
+  "output_report": "E:/IMPERIUM/ARTIFACTS/TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/CONTINUITY_PACK/ORGAN_PORTS/STUB_REPORTS/INQUISITION_STUB_SELF_REPORT.json",
+  "generated_at_utc": "2026-05-09T06:14:28Z",
+  "restrictions": {
+    "no_vm2_contact": true,
+    "no_e2e": true,
+    "no_throne_transfer": true,
+    "no_fake_metrics": true
+  }
+}

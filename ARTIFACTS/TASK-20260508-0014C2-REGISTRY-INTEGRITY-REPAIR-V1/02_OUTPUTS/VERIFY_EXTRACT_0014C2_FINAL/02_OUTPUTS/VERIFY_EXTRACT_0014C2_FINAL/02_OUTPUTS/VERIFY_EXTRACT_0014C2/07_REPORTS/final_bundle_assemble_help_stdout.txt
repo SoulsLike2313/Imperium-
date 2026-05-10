@@ -1,0 +1,27 @@
+usage: final_bundle_assemble.py [-h] --task-id TASK_ID --task-root TASK_ROOT
+                                --barrier-report BARRIER_REPORT --input-root
+                                INPUT_ROOT --output-dir OUTPUT_DIR
+                                --ledger-path LEDGER_PATH --origin-index-path
+                                ORIGIN_INDEX_PATH --owner-summary
+                                OWNER_SUMMARY --speculum-review-request
+                                SPECULUM_REVIEW_REQUEST --producer-id
+                                PRODUCER_ID
+                                [--approved-registry-path APPROVED_REGISTRY_PATH]
+                                [--owner-report-output OWNER_REPORT_OUTPUT]
+
+Assemble final task bundle after BARRIER_PASS
+
+options:
+  -h, --help            show this help message and exit
+  --task-id TASK_ID
+  --task-root TASK_ROOT
+  --barrier-report BARRIER_REPORT
+  --input-root INPUT_ROOT
+  --output-dir OUTPUT_DIR
+  --ledger-path LEDGER_PATH
+  --origin-index-path ORIGIN_INDEX_PATH
+  --owner-summary OWNER_SUMMARY
+  --speculum-review-request SPECULUM_REVIEW_REQUEST
+  --producer-id PRODUCER_ID
+  --approved-registry-path APPROVED_REGISTRY_PATH
+  --owner-report-output OWNER_REPORT_OUTPUT

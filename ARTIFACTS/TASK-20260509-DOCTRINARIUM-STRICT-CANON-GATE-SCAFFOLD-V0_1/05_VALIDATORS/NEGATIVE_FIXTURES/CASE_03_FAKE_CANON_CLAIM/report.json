@@ -1,0 +1,98 @@
+{
+  "organ_id": "FAKE_ORGAN",
+  "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_03_FAKE_CANON_CLAIM\\ORGANS\\FAKE_ORGAN",
+  "classification": "BLOCKED",
+  "folder_exists": true,
+  "readme_exists": true,
+  "organ_status_exists": true,
+  "organ_contract_exists": true,
+  "scripts_exists": true,
+  "receipts_exists": true,
+  "self_report_exists": true,
+  "checks": [
+    {
+      "check": "organ folder exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "README exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "ORGAN_STATUS exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "ORGAN_CONTRACT exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "SCRIPTS exists or non-script role explicit",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "RECEIPTS exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "allowed_write_roots defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "forbidden_roots defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "entrypoints defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "required_receipts defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "responsibilities defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "excluded responsibilities defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "self-report or equivalent exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "current blockers visible",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "no CANON_V0_1 claim without owner evidence",
+      "ok": false,
+      "detail": "Organ claims CANON_V0_1 without owner approval evidence"
+    }
+  ],
+  "blockers": [
+    "Organ claims CANON_V0_1 without owner approval evidence"
+  ],
+  "warnings": [],
+  "owner_approval_state": {
+    "evidence_path": null,
+    "evidence_exists": false
+  },
+  "created_at": "2026-05-09T16:58:31.287438+00:00"
+}

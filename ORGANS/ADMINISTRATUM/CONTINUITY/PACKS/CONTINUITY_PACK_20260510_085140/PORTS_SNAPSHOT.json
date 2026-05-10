@@ -1,0 +1,256 @@
+{
+  "schema_version": "PORTS_SNAPSHOT_V0_1",
+  "generated_at": "2026-05-10T05:51:40.694571+00:00",
+  "registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json",
+  "ports": [
+    {
+      "schema_version": "CONTINUITY_PORT_V0_1",
+      "organ_id": "ADMINISTRATUM",
+      "port_status": "PORT_READY",
+      "status": "BOOTSTRAP",
+      "owner_approval_state": "UNKNOWN",
+      "source_paths": [
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_STATUS.json",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+        "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+      ],
+      "latest_known_reports": [
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ORGAN_SELF_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.md"
+      ],
+      "latest_known_receipts": [],
+      "dashboard_refs": [
+        {
+          "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+          "url": "http://127.0.0.1:8792",
+          "launcher_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_1.ps1",
+          "registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json"
+        }
+      ],
+      "blockers": [
+        "Cross-organ gaps still present (see Doctrinarium all-organs report)",
+        "No canon authorization for real-task continuity claims"
+      ],
+      "limitations": [
+        "No canon/green claim from continuity port alone."
+      ],
+      "next_actions": [
+        "update organ formalization evidence and keep port current"
+      ],
+      "do_not_claim": [
+        "continuity green",
+        "canon v0 1",
+        "all organs ready",
+        "real task execution ready"
+      ],
+      "evidence_level": "PORT_BOOTSTRAP",
+      "stale_if_older_than_hours": 24,
+      "last_verified_at": "2026-05-10T05:36:31.991742+00:00",
+      "port_dir": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS",
+      "missing_port_files": [],
+      "is_stale": false,
+      "age_hours": 0.2524019938888889
+    },
+    {
+      "schema_version": "CONTINUITY_PORT_V0_1",
+      "organ_id": "ASTRONOMICON",
+      "port_status": "PORT_READY",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "owner_approval_state": "UNKNOWN",
+      "source_paths": [
+        "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\ORGAN_STATUS.json"
+      ],
+      "latest_known_reports": [],
+      "latest_known_receipts": [],
+      "dashboard_refs": [],
+      "blockers": [],
+      "limitations": [
+        "No canon/green claim from continuity port alone."
+      ],
+      "next_actions": [
+        "update organ formalization evidence and keep port current"
+      ],
+      "do_not_claim": [
+        "continuity green",
+        "canon v0 1",
+        "all organs ready",
+        "real task execution ready"
+      ],
+      "evidence_level": "PORT_BOOTSTRAP",
+      "stale_if_older_than_hours": 24,
+      "last_verified_at": "2026-05-10T05:36:31.994671+00:00",
+      "port_dir": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS",
+      "missing_port_files": [],
+      "is_stale": false,
+      "age_hours": 0.2524017227777778
+    },
+    {
+      "schema_version": "CONTINUITY_PORT_V0_1",
+      "organ_id": "DOCTRINARIUM",
+      "port_status": "PORT_READY",
+      "status": "STRICT_BOOTSTRAP_GATE",
+      "owner_approval_state": "OWNER_REVIEW_REQUIRED",
+      "source_paths": [
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STATUS\\DOCTRINARIUM_STATUS.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\MANDATORY_LAWS.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+        "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+        "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+      ],
+      "latest_known_reports": [
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\DOCTRINARIUM_STATUS_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ORGAN_SELF_REPORT.json",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\DOCTRINARIUM_STATUS_REPORT.md",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.md",
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.md"
+      ],
+      "latest_known_receipts": [
+        "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\RECEIPTS\\dashboard_v0_8_technical_registration_receipt.json"
+      ],
+      "dashboard_refs": [
+        {
+          "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+          "url": "http://127.0.0.1:8791",
+          "launcher_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+          "registry_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\DASHBOARD_REGISTRY.json"
+        }
+      ],
+      "blockers": [
+        "Owner approval artifact for canon doctrine is missing",
+        "Hard laws are not fully enforced"
+      ],
+      "limitations": [
+        "No canon/green claim from continuity port alone."
+      ],
+      "next_actions": [
+        "update organ formalization evidence and keep port current"
+      ],
+      "do_not_claim": [
+        "continuity green",
+        "canon v0 1",
+        "all organs ready",
+        "real task execution ready"
+      ],
+      "evidence_level": "PORT_EVIDENCE_STRONGER",
+      "stale_if_older_than_hours": 24,
+      "last_verified_at": "2026-05-10T05:36:31.985885+00:00",
+      "port_dir": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS",
+      "missing_port_files": [],
+      "is_stale": false,
+      "age_hours": 0.25240470555555555
+    },
+    {
+      "schema_version": "CONTINUITY_PORT_V0_1",
+      "organ_id": "INQUISITION",
+      "port_status": "PORT_READY",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "owner_approval_state": "UNKNOWN",
+      "source_paths": [
+        "E:\\IMPERIUM\\ORGANS\\INQUISITION\\ORGAN_STATUS.json"
+      ],
+      "latest_known_reports": [],
+      "latest_known_receipts": [],
+      "dashboard_refs": [],
+      "blockers": [],
+      "limitations": [
+        "No canon/green claim from continuity port alone."
+      ],
+      "next_actions": [
+        "update organ formalization evidence and keep port current"
+      ],
+      "do_not_claim": [
+        "continuity green",
+        "canon v0 1",
+        "all organs ready",
+        "real task execution ready"
+      ],
+      "evidence_level": "PORT_BOOTSTRAP",
+      "stale_if_older_than_hours": 24,
+      "last_verified_at": "2026-05-10T05:36:32.001506+00:00",
+      "port_dir": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS",
+      "missing_port_files": [],
+      "is_stale": false,
+      "age_hours": 0.2524009088888889
+    },
+    {
+      "schema_version": "CONTINUITY_PORT_V0_1",
+      "organ_id": "MECHANICUS",
+      "port_status": "PORT_READY",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "owner_approval_state": "UNKNOWN",
+      "source_paths": [
+        "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\ORGAN_STATUS.json"
+      ],
+      "latest_known_reports": [],
+      "latest_known_receipts": [],
+      "dashboard_refs": [],
+      "blockers": [],
+      "limitations": [
+        "No canon/green claim from continuity port alone."
+      ],
+      "next_actions": [
+        "update organ formalization evidence and keep port current"
+      ],
+      "do_not_claim": [
+        "continuity green",
+        "canon v0 1",
+        "all organs ready",
+        "real task execution ready"
+      ],
+      "evidence_level": "PORT_BOOTSTRAP",
+      "stale_if_older_than_hours": 24,
+      "last_verified_at": "2026-05-10T05:36:31.998576+00:00",
+      "port_dir": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS",
+      "missing_port_files": [],
+      "is_stale": false,
+      "age_hours": 0.2524019938888889
+    },
+    {
+      "schema_version": "CONTINUITY_PORT_V0_1",
+      "organ_id": "OFFICIO_AGENTIS",
+      "port_status": "PORT_READY",
+      "status": "MINIMAL_SCOPE_ACTIVE",
+      "owner_approval_state": "UNKNOWN",
+      "source_paths": [
+        "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_STATUS.json"
+      ],
+      "latest_known_reports": [],
+      "latest_known_receipts": [],
+      "dashboard_refs": [],
+      "blockers": [],
+      "limitations": [
+        "No canon/green claim from continuity port alone."
+      ],
+      "next_actions": [
+        "update organ formalization evidence and keep port current"
+      ],
+      "do_not_claim": [
+        "continuity green",
+        "canon v0 1",
+        "all organs ready",
+        "real task execution ready"
+      ],
+      "evidence_level": "PORT_BOOTSTRAP",
+      "stale_if_older_than_hours": 24,
+      "last_verified_at": "2026-05-10T05:36:32.005411+00:00",
+      "port_dir": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS",
+      "missing_port_files": [],
+      "is_stale": false,
+      "age_hours": 0.25240063777777777
+    }
+  ],
+  "summary": {
+    "total_ports": 6,
+    "missing_count": 0,
+    "stale_count": 0,
+    "fallback_warnings": []
+  }
+}

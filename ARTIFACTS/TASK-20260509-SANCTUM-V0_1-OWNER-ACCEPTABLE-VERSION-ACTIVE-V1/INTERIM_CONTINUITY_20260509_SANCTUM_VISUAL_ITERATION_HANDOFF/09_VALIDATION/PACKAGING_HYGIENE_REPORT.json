@@ -1,0 +1,8 @@
+{
+  "pycache_dirs": [],
+  "pyc_files": [],
+  "pyo_files": [],
+  "no_pycache_pyc_pyo": true,
+  "no_final_zip_self_reference": true,
+  "verdict": "PASS_PACKAGING_HYGIENE"
+}

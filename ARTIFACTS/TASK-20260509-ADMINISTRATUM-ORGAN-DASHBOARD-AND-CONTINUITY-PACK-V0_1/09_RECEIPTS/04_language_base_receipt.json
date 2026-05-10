@@ -1,0 +1,32 @@
+{
+  "schema_version": "ADMINISTRATUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "phase": "PHASE_05_LANGUAGE_BASE",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\LEXICON"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\05_LANGUAGE_BASE\\LANGUAGE_BASE_REPORT.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\05_LANGUAGE_BASE\\LANGUAGE_BASE_REPORT.json"
+  ],
+  "script_paths": [],
+  "script_hashes": {},
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\05_LANGUAGE_BASE\\LANGUAGE_BASE_REPORT.md": "597badca128eebf3c9faef8891ca0ecdfe716ed35195bd302b11785719fe09ac",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\05_LANGUAGE_BASE\\LANGUAGE_BASE_REPORT.json": "a11d0b3e3a2af4eaa82d2c72b1c180ccacfe8389e6a92f0f5d7b146b0394ab09"
+  },
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Local seed lexicon only; no external corpus/model download performed."
+  ],
+  "next_action": "Build dashboard and registry",
+  "created_at": "2026-05-09T19:57:55.122322+00:00",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

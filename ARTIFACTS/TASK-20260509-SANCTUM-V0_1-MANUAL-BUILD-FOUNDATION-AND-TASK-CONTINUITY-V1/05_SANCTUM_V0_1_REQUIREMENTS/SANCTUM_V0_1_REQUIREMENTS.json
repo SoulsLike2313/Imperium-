@@ -1,0 +1,37 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+  "version": "v0.1",
+  "status": "EXPERIMENT_MANUAL_BUILD_FOUNDATION",
+  "app_type": "LOCAL_PYTHON_TKINTER_CLIENT_SHELL",
+  "required_features": [
+    "Open Astra Utility",
+    "Open Explorer",
+    "Task list from E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS",
+    "Selected task details panel",
+    "Display STAGE_MAP if present",
+    "Display NEXT_ALLOWED_ACTION if present",
+    "Display ROUTE_STATUS if present",
+    "Manual notes area",
+    "Open selected task folder",
+    "Refresh task list"
+  ],
+  "allowed_ui_utilities": [
+    "Astra Utility",
+    "Explorer"
+  ],
+  "forbidden_for_v0_1": [
+    "VM2 activation",
+    "THRONE integration",
+    "E2E control",
+    "watchers/background automation",
+    "auto-agent control",
+    "delete/move actions",
+    "continuity pack button"
+  ],
+  "non_claims": [
+    "Sanctum is not source of truth",
+    "Sanctum is not organ",
+    "Sanctum is not live executor",
+    "No live organ implemented claim"
+  ]
+}

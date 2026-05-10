@@ -1,0 +1,15 @@
+ШАГ:
+TASK-20260508-1414-LOCAL-FINAL-ASSEMBLY-DRYRUN/final_bundle_assemble.py
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+FAIL
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Final assembly строго разрешён только после BARRIER_PASS и иначе выдаёт BLOCKED/FAIL receipt.
+Пути строго ограничены --task-root, build dir создаётся timestamped без silent delete.
+Внутренний SHA256SUMS пишет archive-relative POSIX пути, внешний .sha256 остаётся filename-only.
+E2E в этой задаче не выполнялся, THRONE и watchers остаются заблокированы.
+

@@ -1,0 +1,19 @@
+{
+  "python_files_checked": 3,
+  "compile_errors": 0,
+  "rows": [
+    {
+      "path": "00_SOURCE/astra_pipeline_utility_v0_1.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_SOURCE/astra_pipeline_utility_v0_2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "00_SOURCE/astra_pipeline_utility_v0_3.py",
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS_PYTHON_COMPILE"
+}

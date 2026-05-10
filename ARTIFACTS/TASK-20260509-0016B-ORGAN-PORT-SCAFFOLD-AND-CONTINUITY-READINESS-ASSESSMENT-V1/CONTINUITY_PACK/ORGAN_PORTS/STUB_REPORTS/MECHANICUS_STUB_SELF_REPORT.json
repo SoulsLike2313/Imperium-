@@ -1,0 +1,37 @@
+{
+  "organ_id": "MECHANICUS",
+  "report_type": "ORGAN_SELF_REPORT_STUB_V1",
+  "status": "NOT_IMPLEMENTED",
+  "self_report_port_status": "CONTRACT_ONLY",
+  "current_state": {
+    "implementation_state": "CONTRACT_ONLY",
+    "has_real_script": false,
+    "has_real_metrics": false,
+    "query_id": "QUERY-EXAMPLE-001"
+  },
+  "metrics": {
+    "available": false,
+    "reason": "Stub report: real organ metrics are not implemented."
+  },
+  "known_blockers": [
+    "Mechanicus organ implementation is not present.",
+    "No real organ metrics script exists."
+  ],
+  "recent_history_points": [
+    "0016B scaffold created organ self-report contract without real organ implementation."
+  ],
+  "open_questions": [
+    "Which task will implement the real organ script and tests?"
+  ],
+  "next_recommended_actions": [
+    "Keep status as contract-only until real implementation with tests exists.",
+    "Run Speculum review before claiming production readiness."
+  ],
+  "evidence_refs": [
+    "ORGAN_PORT_CONTRACT_V1.md",
+    "ORGAN_PORT_REGISTRY.json"
+  ],
+  "receipt_ref": "E:/IMPERIUM/ARTIFACTS/TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/CONTINUITY_PACK/ORGAN_PORTS/STUB_RECEIPTS/MECHANICUS_STUB_SELF_REPORT_RECEIPT.json",
+  "generated_at_utc": "2026-05-09T06:14:28Z",
+  "notes": "Honest stub report. No fake organ metrics."
+}

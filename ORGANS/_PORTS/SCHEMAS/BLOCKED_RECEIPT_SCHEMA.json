@@ -1,0 +1,13 @@
+{
+  "schema_id": "BLOCKED_RECEIPT_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "status",
+    "blocked_reason",
+    "owner_action_required"
+  ],
+  "notes": "Use when semantic/destructive/conflict decision is required."
+}

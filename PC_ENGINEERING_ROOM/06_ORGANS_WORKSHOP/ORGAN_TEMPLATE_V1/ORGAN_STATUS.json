@@ -1,0 +1,11 @@
+{
+  "organ_name": "ORGAN_TEMPLATE_V1",
+  "status": "template_only",
+  "canon_authority": false,
+  "owner_review_required": true,
+  "last_checked": "",
+  "inputs_ready": false,
+  "scripts_ready": false,
+  "tests_ready": false,
+  "receipts_ready": false
+}

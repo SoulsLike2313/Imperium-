@@ -1,0 +1,23 @@
+# SAFE EDIT POLICY
+
+## Safe Edit Roots
+- E:\IMPERIUM\ARTIFACTS
+- E:\IMPERIUM\ORGANS\ADMINISTRATUM
+- E:\IMPERIUM\ORGANS\DOCTRINARIUM\PORTS
+- E:\IMPERIUM\ORGANS\ASTRONOMICON\PORTS
+- E:\IMPERIUM\ORGANS\MECHANICUS\PORTS
+- E:\IMPERIUM\ORGANS\INQUISITION\PORTS
+- E:\IMPERIUM\ORGANS\OFFICIO_AGENTIS\PORTS
+- E:\IMPERIUM\ORGANS\_PORTS\PORTS
+
+## Forbidden Edit Roots
+- E:\IMPERIUM\ARCHIVE
+- E:\IMPERIUM\SANCTUM
+- E:\IMPERIUM\THRONE
+
+## Rules
+- No delete/move/cleanup operations unless explicitly approved.
+- No Archive recursive scan.
+- No Sanctum edits.
+- No VM2/THRONE calls.
+- No secret/credential material in continuity artifacts.

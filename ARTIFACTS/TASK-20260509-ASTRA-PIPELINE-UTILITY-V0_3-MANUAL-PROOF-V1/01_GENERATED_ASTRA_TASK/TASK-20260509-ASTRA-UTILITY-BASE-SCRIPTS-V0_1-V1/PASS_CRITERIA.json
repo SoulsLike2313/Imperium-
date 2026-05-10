@@ -1,0 +1,108 @@
+{
+  "schema_version": "ASTRA_PASS_CRITERIA_V0_2",
+  "task_id": "TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+  "stage_pass_criteria": [
+    {
+      "stage_id": "ASTRA-STAGE-001",
+      "organ": "ASTRONOMICON",
+      "pass_criteria": [
+        "Owner goal сохранён без расширения scope.",
+        "Stage map создан.",
+        "Pass criteria заданы.",
+        "Next allowed action задан.",
+        "Blockers перечислены.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ]
+    },
+    {
+      "stage_id": "ADMINISTRATUM-STAGE-001",
+      "organ": "ADMINISTRATUM",
+      "pass_criteria": [
+        "Read-first route создан.",
+        "Policy refs перечислены.",
+        "Output root задан.",
+        "Receipt requirements заданы.",
+        "No latest-bundle logic.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ]
+    },
+    {
+      "stage_id": "MECHANICUS-STAGE-001",
+      "organ": "MECHANICUS",
+      "pass_criteria": [
+        "Allowed scripts/tools перечислены.",
+        "Validator commands перечислены.",
+        "Tool risk classification указана.",
+        "No unsafe script execution.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ]
+    },
+    {
+      "stage_id": "INQUISITION-STAGE-001",
+      "organ": "INQUISITION",
+      "pass_criteria": [
+        "Drift/duplicate/fake-green checks выполнены.",
+        "Legacy stage IDs проверены.",
+        "Placeholder hashes проверены.",
+        "Deletion only as proposal.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ]
+    },
+    {
+      "stage_id": "PC-STAGE-001",
+      "organ": "PC_SERVITOR",
+      "pass_criteria": [
+        "Stage выполнен по утверждённому route.",
+        "Validation PASS before next stage.",
+        "Safe repair attempted only if bounded.",
+        "BLOCKED_RECEIPT created if semantic conflict.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ]
+    },
+    {
+      "stage_id": "PC-STAGE-002",
+      "organ": "PC_SERVITOR",
+      "pass_criteria": [
+        "Stage выполнен по утверждённому route.",
+        "Validation PASS before next stage.",
+        "Safe repair attempted only if bounded.",
+        "BLOCKED_RECEIPT created if semantic conflict.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ]
+    },
+    {
+      "stage_id": "SPECULUM-STAGE-001",
+      "organ": "LOGOS_SPECULUM",
+      "pass_criteria": [
+        "Bundle + sidecar provided.",
+        "Evidence reviewed.",
+        "Verdict issued.",
+        "Next action or blockers listed."
+      ]
+    }
+  ]
+}

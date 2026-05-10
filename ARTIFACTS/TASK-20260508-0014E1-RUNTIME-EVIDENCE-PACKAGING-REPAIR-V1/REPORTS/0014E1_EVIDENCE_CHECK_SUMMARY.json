@@ -1,0 +1,30 @@
+{
+  "zip_sha256": "679d20e86f5e34b5efbb4188f9490e90bd92031ec353d02570e683202ef960ea",
+  "sidecar_matches_zip": true,
+  "sha256s_verified_count": 90,
+  "sha256s_missing_count": 0,
+  "sha256s_mismatch_count": 0,
+  "sha256s_invalid_lines": 0,
+  "manifest_file_count": 91,
+  "actual_zip_member_count": 91,
+  "zip_path_hygiene": {
+    "backslash_count": 0,
+    "absolute_path_count": 0,
+    "traversal_count": 0
+  },
+  "cache_files": {
+    "count": 0,
+    "entries": []
+  },
+  "python_compile_errors": [],
+  "json_parse_errors": [],
+  "constraints": {
+    "no_vm2_contact": true,
+    "no_real_e2e": true,
+    "no_throne": true,
+    "no_watchers": true,
+    "no_latest": true
+  },
+  "verdict": "PASS_AS_LOCAL_RUNTIME_PRIMITIVES",
+  "issues": []
+}

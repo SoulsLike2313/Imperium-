@@ -1,0 +1,32 @@
+{
+  "schema_version": "ORGAN_PORT_CONTRACT_V0_1",
+  "port_id": "INQUISITION_TO_OWNER_PC",
+  "status": "CONTRACT_ONLY",
+  "source_organ": "INQUISITION",
+  "target_organ": "OWNER_PC_MANUAL",
+  "required_outputs_from_source": [
+    "INQUISITION_PREFLIGHT_REPORT.json",
+    "DRIFT_DUPLICATE_REPORT.json",
+    "FORBIDDEN_REFS_REPORT.json",
+    "FAKE_GREEN_REPORT.json",
+    "DELETION_PROPOSALS.md",
+    "INQUISITION_STOP_OR_PASS_RECEIPT.json"
+  ],
+  "required_owner_outputs": [
+    "MANUAL_EXECUTION_PLAN.md",
+    "STAGE_RECEIPTS/",
+    "VALIDATION_REPORTS/",
+    "FINAL_ARTIFACT_BUNDLE"
+  ],
+  "owner_approval_required_for": [
+    "delete_move_quarantine",
+    "canon_migration",
+    "THRONE",
+    "VM2_activation",
+    "E2E_activation",
+    "watcher_or_background_process",
+    "semantic_scope_change",
+    "canon_claim_admission"
+  ],
+  "notes": "Deletion script may produce proposal only. Never delete in this foundation."
+}

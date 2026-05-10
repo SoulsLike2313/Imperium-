@@ -1,0 +1,46 @@
+{
+  "schema_version": "SCRIPT_PORT_V0_2",
+  "organ_id": "ASTRONOMICON",
+  "scripts": [
+    {
+      "script_id": "ASTRONOMICON_ASTRONOMICON_LOAD_ROUTE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\astronomicon_load_route.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\astronomicon_load_route.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "35127a3871fb742965d5b9027a38c66a1c40d86a63249abaab307737f3e5b640"
+    },
+    {
+      "script_id": "ASTRONOMICON_CREATE_ASTRA_TASK_RECORD",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\create_astra_task_record.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\create_astra_task_record.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "4b280c6bdc2782f82bc9eba0f0e00f7397cbb48d3d591cd6cd05330b06a809d0"
+    },
+    {
+      "script_id": "ASTRONOMICON_EXPORT_ASTRA_ROUTE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\export_astra_route.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\export_astra_route.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "a6310dbe2f6cc1a9e5e1897c9b5f5bfadb55395fb37423dae399c87ba43408b2"
+    },
+    {
+      "script_id": "ASTRONOMICON_VALIDATE_ASTRA_ROUTE",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "8b037a689e0079afbce4454c1af6312f8c5c778064122acc2fbefbedc29d0a3a"
+    }
+  ]
+}

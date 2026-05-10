@@ -1,0 +1,175 @@
+{
+  "check_name": "SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK",
+  "run_id": "SANCTUM-SMOKE-20260509-150325",
+  "created_at_local": "2026-05-09T15:03:28",
+  "sanctum_script": "E:\\IMPERIUM\\SANCTUM\\sanctum_v0_1.py",
+  "astra_utility": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_4.py",
+  "explorer_script": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0a.py",
+  "screenshots_folder": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325",
+  "screenshots": [
+    {
+      "label": "start",
+      "task_id": null,
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325\\01_start.png"
+    },
+    {
+      "label": "refreshed_task_list",
+      "task_id": null,
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325\\02_refreshed_task_list.png"
+    },
+    {
+      "label": "task_01",
+      "task_id": "TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325\\03_task_01.png"
+    },
+    {
+      "label": "task_02",
+      "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325\\04_task_02.png"
+    },
+    {
+      "label": "notes_preview",
+      "task_id": "TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325\\05_notes_preview.png"
+    }
+  ],
+  "checks": [
+    {
+      "check": "sanctum_script_exists",
+      "passed": true,
+      "detail": "E:\\IMPERIUM\\SANCTUM\\sanctum_v0_1.py"
+    },
+    {
+      "check": "astra_tasks_root_exists",
+      "passed": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS"
+    },
+    {
+      "check": "astra_utility_candidate_exists",
+      "passed": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_4.py"
+    },
+    {
+      "check": "explorer_candidate_exists",
+      "passed": true,
+      "detail": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0a.py"
+    },
+    {
+      "check": "astronomicon_tasks_found",
+      "passed": true,
+      "detail": "tasks_count=2"
+    },
+    {
+      "check": "task_list_loaded_in_ui",
+      "passed": true,
+      "detail": "ui_count=2, disk_count=2"
+    },
+    {
+      "check": "screenshots_created",
+      "passed": true,
+      "detail": "screenshots=5"
+    },
+    {
+      "check": "no_task_sample_missing_required_files",
+      "passed": true,
+      "detail": "sampled=2"
+    }
+  ],
+  "checks_total": 8,
+  "checks_failed": 0,
+  "task_sample_validations": [
+    {
+      "task_id": "TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+      "task_root": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+      "expected_files": [
+        {
+          "name": "ASTRA_TASK_RECORD.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\ASTRA_TASK_RECORD.json",
+          "exists": true
+        },
+        {
+          "name": "STAGE_MAP.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\STAGE_MAP.json",
+          "exists": true
+        },
+        {
+          "name": "PASS_CRITERIA.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\PASS_CRITERIA.json",
+          "exists": true
+        },
+        {
+          "name": "NEXT_ALLOWED_ACTION.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\NEXT_ALLOWED_ACTION.json",
+          "exists": true
+        },
+        {
+          "name": "PIPELINE_PROFILE.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\PIPELINE_PROFILE.json",
+          "exists": true
+        },
+        {
+          "name": "OWNER_TASK_BRIEF.md",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\OWNER_TASK_BRIEF.md",
+          "exists": true
+        },
+        {
+          "name": "ASTRA_PIPELINE_DRAFT.md",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1\\ASTRA_PIPELINE_DRAFT.md",
+          "exists": true
+        }
+      ],
+      "missing_count": 0
+    },
+    {
+      "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+      "task_root": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+      "expected_files": [
+        {
+          "name": "ASTRA_TASK_RECORD.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\ASTRA_TASK_RECORD.json",
+          "exists": true
+        },
+        {
+          "name": "STAGE_MAP.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\STAGE_MAP.json",
+          "exists": true
+        },
+        {
+          "name": "PASS_CRITERIA.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\PASS_CRITERIA.json",
+          "exists": true
+        },
+        {
+          "name": "NEXT_ALLOWED_ACTION.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\NEXT_ALLOWED_ACTION.json",
+          "exists": true
+        },
+        {
+          "name": "PIPELINE_PROFILE.json",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\PIPELINE_PROFILE.json",
+          "exists": true
+        },
+        {
+          "name": "OWNER_TASK_BRIEF.md",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\OWNER_TASK_BRIEF.md",
+          "exists": true
+        },
+        {
+          "name": "ASTRA_PIPELINE_DRAFT.md",
+          "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1\\ASTRA_PIPELINE_DRAFT.md",
+          "exists": true
+        }
+      ],
+      "missing_count": 0
+    }
+  ],
+  "verdict": "PASS_SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK",
+  "safety_statement": {
+    "no_vm2": true,
+    "no_throne": true,
+    "no_e2e": true,
+    "no_watchers": true,
+    "no_delete_move": true,
+    "manual_ui_smoke_only": true
+  }
+}

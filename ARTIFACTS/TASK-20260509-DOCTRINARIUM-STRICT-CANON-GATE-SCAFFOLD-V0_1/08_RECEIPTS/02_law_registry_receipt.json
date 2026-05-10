@@ -1,0 +1,43 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_02_LAW_REGISTRY",
+  "script_id": "DOCTRINARIUM_VALIDATE_LAWS",
+  "script_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_laws.py",
+  "script_sha256": "291e686efb2851b72b318e5dba6c5c46149f9e0f8c3cb5d6933e2549e634218f",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\MANDATORY_LAWS.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\LAW_INDEX.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\LAW_ADDRESS_REGISTRY.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\LAWS\\LAW_ENFORCEMENT_MAP.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\02_LAW_REGISTRY\\LAW_REGISTRY_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\02_LAW_REGISTRY\\LAW_REGISTRY_REPORT.md"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\02_LAW_REGISTRY\\LAW_REGISTRY_REPORT.json": "bef119cdef195d14fa5f3d44e87b3246805a75ce1b0c2358eb469af83ed0075d",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\02_LAW_REGISTRY\\LAW_REGISTRY_REPORT.md": "aed48ec02072b344e391a65e27951155e710eb7ed586751ab402e64d32735474"
+  },
+  "verdict": "PASS_LAW_REGISTRY_CREATED_WITH_ENFORCEMENT_GAPS",
+  "blockers": [],
+  "warnings": [
+    "Laws not fully enforced: ['LAW-001', 'LAW-002', 'LAW-003', 'LAW-004', 'LAW-005', 'LAW-006', 'LAW-007', 'LAW-008', 'LAW-009', 'LAW-010', 'LAW-011', 'LAW-012', 'LAW-013', 'LAW-014', 'LAW-015', 'LAW-016', 'LAW-017', 'LAW-018', 'LAW-019', 'LAW-020', 'LAW-021', 'LAW-022', 'LAW-023', 'LAW-024', 'LAW-025']",
+    "HARD_BLOCK laws not fully enforced (real-task blockers): ['LAW-001', 'LAW-002', 'LAW-003', 'LAW-005', 'LAW-006', 'LAW-007', 'LAW-008', 'LAW-009', 'LAW-010', 'LAW-011', 'LAW-012', 'LAW-013', 'LAW-014', 'LAW-015', 'LAW-016', 'LAW-017', 'LAW-019', 'LAW-021', 'LAW-022', 'LAW-023', 'LAW-024']"
+  ],
+  "limitations": [
+    "Law registry is scaffold-level; several laws remain not fully enforced.",
+    "Real task execution is blocked until HARD_BLOCK laws are enforced or owner-approved."
+  ],
+  "next_action": "Proceed to organ standard validation",
+  "created_at": "2026-05-09T16:58:31.605723+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

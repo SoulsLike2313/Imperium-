@@ -1,0 +1,68 @@
+{
+  "task_id": "TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+  "created_at_local": "2026-05-09T13:36:01",
+  "mode": "LOCAL_FOUR_ORGAN_FOUNDATION_DRY_RUN_NO_E2E",
+  "read_first_presence": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_3.py",
+      "exists": true,
+      "type": "file"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+      "exists": true,
+      "type": "dir"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+      "exists": true,
+      "type": "dir"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+      "exists": true,
+      "type": "dir"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+      "exists": true,
+      "type": "dir"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION",
+      "exists": false,
+      "type": "missing"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+      "exists": true,
+      "type": "dir"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+      "exists": true,
+      "type": "dir"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+      "exists": true,
+      "type": "dir"
+    }
+  ],
+  "missing_read_first_inputs": [
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION"
+  ],
+  "archive_scan_policy": "TOP_LEVEL_ONLY",
+  "archive_top_level_index": [
+    {
+      "path": "E:\\IMPERIUM\\ARCHIVE\\2026_04_DELETE_LATER",
+      "name": "2026_04_DELETE_LATER",
+      "is_dir": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARCHIVE\\ROOT_CLEANUP_20260508_1731",
+      "name": "ROOT_CLEANUP_20260508_1731",
+      "is_dir": true
+    }
+  ]
+}

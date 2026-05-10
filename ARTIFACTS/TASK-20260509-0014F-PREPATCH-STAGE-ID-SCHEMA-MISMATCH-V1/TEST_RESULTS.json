@@ -1,0 +1,84 @@
+{
+  "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+  "run_id": "RUN-20260509-0014",
+  "generated_at_utc": "2026-05-09T07:55:29Z",
+  "tests_run_count": 12,
+  "tests_passed_count": 12,
+  "tests_failed_count": 0,
+  "tests": [
+    {
+      "name": "test_canonical_accepts_pc_001",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_canonical_accepts_vm2_001",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_canonical_accepts_pc_999",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_legacy_rejects_stage_pc_001",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_legacy_rejects_stage_vm2_001",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rejects_underscore_variant",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rejects_short_numeric_variant",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rejects_empty_stage_id",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_rejects_unknown_contour",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "test_stage_coordination_identity_rejects_legacy_stage_id",
+      "type": "unit",
+      "result": "PASS"
+    },
+    {
+      "name": "tool_dry_run_accepts_vm2_stage_001",
+      "type": "integration_static",
+      "tool": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/send_prompt_to_vm2.py",
+      "input_stage_id": "VM2-STAGE-001",
+      "expected_exit_code": 0,
+      "actual_exit_code": 0,
+      "result": "PASS"
+    },
+    {
+      "name": "tool_dry_run_rejects_legacy_stage_vm2_001",
+      "type": "integration_static",
+      "tool": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/send_prompt_to_vm2.py",
+      "input_stage_id": "STAGE-VM2-001",
+      "expected_exit_code": 1,
+      "actual_exit_code": 1,
+      "result": "PASS"
+    }
+  ],
+  "evidence": {
+    "unittest_output": "99_TEST_TMP/unittest_output.txt",
+    "tool_test_exit_codes": "99_TEST_TMP/tool_test_exit_codes.txt",
+    "tool_test_canonical_receipt": "99_TEST_TMP/canonical_receipt.json",
+    "tool_test_legacy_receipt": "99_TEST_TMP/legacy_receipt.json"
+  }
+}

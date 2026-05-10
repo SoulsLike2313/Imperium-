@@ -1,0 +1,7 @@
+source_path,finding_type,example_redacted,action,status,notes
+E:\IMPERIUM\SSH_COMMAND_LIBRARY\00_CONNECTION_PROFILES\VM2_ROUTE.local.json,local_only_config,REDACTED_LOCAL_ROUTE_VALUE,excluded_from_copy,done,local-only route config
+E:\IMPERIUM\SSH_COMMAND_LIBRARY\00_CONNECTION_PROFILES\VM2_LOCAL_ACCESS_COMMANDS.local.md,local_only_config,REDACTED_LOCAL_ROUTE_VALUE,excluded_from_copy,done,local-only access commands
+E:\IMPERIUM\SSH_COMMAND_LIBRARY\05_SUCCESSFUL_RECIPES\PC_TO_VM2_WORKER_ROOM_RECIPES.md,raw_command_example,REDACTED_USER@REDACTED_HOST,used_redacted_summary_only,done,shareable pack keeps placeholders only
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1\07_REPORTS\NEW_CHAT_HANDOFF.md,local_user_host,REDACTED_LOCAL_ROUTE_VALUE,rewritten_as_redacted_v2,done,removed local route context
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1\02_OUTPUTS\SSH_LIBRARY_SUMMARY\VM3_TO_PC_FETCH_LATEST_BUNDLE_TESTED_OK.md,latest_bundle_recipe,REDACTED_HISTORICAL_ONLY,marked_historical_blocked,done,legacy VM3 latest flow blocked for new protocol
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1\02_OUTPUTS\SSH_LIBRARY_SUMMARY\PC_TO_VM3_PROMPT_HANDOFF_TESTED_OK_20260507.md,legacy_vm3_route,REDACTED_HISTORICAL_ONLY,marked_historical_blocked,done,legacy VM3 route remains historical only

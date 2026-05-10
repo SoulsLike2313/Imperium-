@@ -1,0 +1,15 @@
+{
+  "schema_version": "DASHBOARD_PORT_V0_2",
+  "organ_id": "OFFICIO_AGENTIS",
+  "dashboard_id": "UNKNOWN",
+  "version": "UNKNOWN",
+  "root": null,
+  "launcher": null,
+  "url": null,
+  "backend": null,
+  "frontend": null,
+  "status": "UNKNOWN",
+  "audit_status": "UNKNOWN",
+  "latest_audit_report": null,
+  "known_ui_issues": []
+}

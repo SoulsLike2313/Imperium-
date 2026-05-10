@@ -1,0 +1,35 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "report_type": "ORGAN_SELF_REPORT_STUB_V1",
+  "status": "NOT_IMPLEMENTED",
+  "self_report_port_status": "CONTRACT_ONLY",
+  "current_state": {
+    "implementation_state": "CONTRACT_ONLY",
+    "has_real_script": false,
+    "has_real_metrics": false,
+    "query_id": "QUERY-EXAMPLE-001"
+  },
+  "metrics": {
+    "available": false,
+    "reason": "Stub report: real organ metrics are not implemented."
+  },
+  "known_blockers": [
+    "Administratum organ implementation is not present."
+  ],
+  "recent_history_points": [
+    "0016B scaffold created organ self-report contract without real organ implementation."
+  ],
+  "open_questions": [
+    "Which task will implement the real organ script and tests?"
+  ],
+  "next_recommended_actions": [
+    "Keep status as contract-only until real implementation with tests exists."
+  ],
+  "evidence_refs": [
+    "ORGAN_PORT_CONTRACT_V1.md",
+    "ORGAN_PORT_REGISTRY.json"
+  ],
+  "receipt_ref": "STUB_RECEIPTS/ADMINISTRATUM_STUB_SELF_REPORT_RECEIPT.json",
+  "generated_at_utc": "2026-05-09T06:14:18Z",
+  "notes": "Honest stub report. No fake organ metrics."
+}

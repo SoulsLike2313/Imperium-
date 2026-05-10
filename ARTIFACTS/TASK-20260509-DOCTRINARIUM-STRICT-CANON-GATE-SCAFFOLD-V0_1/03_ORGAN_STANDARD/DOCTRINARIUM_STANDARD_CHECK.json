@@ -1,0 +1,96 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM",
+  "classification": "SCAFFOLD",
+  "folder_exists": true,
+  "readme_exists": true,
+  "organ_status_exists": true,
+  "organ_contract_exists": true,
+  "scripts_exists": true,
+  "receipts_exists": true,
+  "self_report_exists": true,
+  "checks": [
+    {
+      "check": "organ folder exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "README exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "ORGAN_STATUS exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "ORGAN_CONTRACT exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "SCRIPTS exists or non-script role explicit",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "RECEIPTS exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "allowed_write_roots defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "forbidden_roots defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "entrypoints defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "required_receipts defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "responsibilities defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "excluded responsibilities defined",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "self-report or equivalent exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "current blockers visible",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "no CANON_V0_1 claim without owner evidence",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "blockers": [],
+  "warnings": [],
+  "owner_approval_state": {
+    "evidence_path": null,
+    "evidence_exists": false
+  },
+  "created_at": "2026-05-09T16:52:18.673881+00:00"
+}

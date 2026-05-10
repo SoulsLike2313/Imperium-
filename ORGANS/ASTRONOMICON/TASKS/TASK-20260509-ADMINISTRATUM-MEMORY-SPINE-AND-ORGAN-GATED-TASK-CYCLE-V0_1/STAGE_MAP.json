@@ -1,0 +1,17 @@
+{
+  "schema_version": "STAGE_MAP_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "stages": [
+    {
+      "stage_id": "STAGE-001",
+      "stage_type": "DUMMY_SAFE_WRITE",
+      "executor_contour": "PC",
+      "expected_output": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\02_OUTPUTS\\dummy_stage_output.json",
+      "forbidden_paths": [
+        "E:\\IMPERIUM\\ARCHIVE",
+        "E:\\IMPERIUM\\SANCTUM",
+        "E:\\IMPERIUM\\THRONE"
+      ]
+    }
+  ]
+}

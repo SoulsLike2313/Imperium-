@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+  "created_at_local": "2026-05-09T13:51:46",
+  "checks": {
+    "json_parse": "PASS_JSON_PARSE_CREATED_OUTPUTS",
+    "python_compile": "PASS_PYTHON_COMPILE_CREATED_SCRIPTS",
+    "help_check": "PASS_HELP_CHECK_CREATED_SCRIPTS",
+    "stage_id_tests": "PASS_STAGE_ID_POLICY_TESTS",
+    "forbidden_refs_negative_tests": "PASS_FORBIDDEN_REFS_NEGATIVE_TESTS",
+    "policy_hash_placeholder_tests": "PASS_POLICY_HASH_PLACEHOLDER_TEST",
+    "packaging_hygiene_pre": "PASS_PACKAGING_HYGIENE_PRE"
+  },
+  "verdict": "PASS_VALIDATION_PRE_PACKAGING"
+}

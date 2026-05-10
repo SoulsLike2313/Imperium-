@@ -1,0 +1,240 @@
+{
+  "audit_id": "DOCTRINARIUM_DASHBOARD_V0_8_PLAYWRIGHT_AUDIT",
+  "started_at": "2026-05-09T19:17:11.795Z",
+  "url": "http://127.0.0.1:8791",
+  "checks": [
+    {
+      "name": "Header visible",
+      "ok": true,
+      "detail": "text=\"Doctrinarium Control Panel\" count=1"
+    },
+    {
+      "name": "Real task card visible",
+      "ok": true,
+      "detail": "text=\"REAL TASK EXECUTION\" count=1"
+    },
+    {
+      "name": "Laws metric visible",
+      "ok": true,
+      "detail": "text=\"LAWS NOT ENFORCED\" count=1"
+    },
+    {
+      "name": "Blockers metric visible",
+      "ok": true,
+      "detail": "text=\"ORGAN BLOCKERS\" count=1"
+    },
+    {
+      "name": "Background canvas exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Spark canvas exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Dashboard nav exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Priority nav exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Risk nav exists",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API /api/data returns OK",
+      "ok": true,
+      "detail": "status=200"
+    },
+    {
+      "name": "API has status",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has gaps",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has utility",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has laws",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "API has useful metrics",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Organs checked >= 1",
+      "ok": true,
+      "detail": "value=7"
+    },
+    {
+      "name": "Blockers visible >= 1",
+      "ok": true,
+      "detail": "value=62"
+    },
+    {
+      "name": "Priority fixes generated",
+      "ok": true,
+      "detail": "value=18"
+    },
+    {
+      "name": "Risk matrix generated",
+      "ok": true,
+      "detail": "value=7"
+    },
+    {
+      "name": "Navigation opens Laws & Codex",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Laws page not empty",
+      "ok": true,
+      "detail": "lawCards=26"
+    },
+    {
+      "name": "Laws page contains Codex registry",
+      "ok": true,
+      "detail": "Codex source visible"
+    },
+    {
+      "name": "Laws page contains law identifiers",
+      "ok": true,
+      "detail": "LAW-* visible"
+    },
+    {
+      "name": "Navigation opens Organ Health",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Organ cards rendered",
+      "ok": true,
+      "detail": "count=7"
+    },
+    {
+      "name": "Organ detail drawer opens",
+      "ok": true,
+      "detail": "visible=1"
+    },
+    {
+      "name": "Drawer shows risk",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Drawer shows evidence",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Drawer shows priority actions",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation opens Major Gaps",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Major gaps rendered",
+      "ok": true,
+      "detail": "count=62"
+    },
+    {
+      "name": "Navigation opens Utility Matrix",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Utility cards rendered",
+      "ok": true,
+      "detail": "count=7"
+    },
+    {
+      "name": "Navigation opens Priority Fixes",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Priority fix cards rendered",
+      "ok": true,
+      "detail": "count=18"
+    },
+    {
+      "name": "Navigation opens Risk Matrix",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Risk matrix cards rendered",
+      "ok": true,
+      "detail": "count=7"
+    },
+    {
+      "name": "Navigation opens Paths",
+      "ok": true,
+      "detail": "active=1"
+    },
+    {
+      "name": "Paths page has report paths",
+      "ok": true,
+      "detail": "text=\"Reports\" count=2"
+    },
+    {
+      "name": "Reload Data clicked",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "Navigation opens Dashboard",
+      "ok": true,
+      "detail": "active=1"
+    }
+  ],
+  "screenshots": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\01_dashboard_initial.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\02_laws_codex.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\03_organ_health.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\04_organ_detail_drawer.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\05_major_gaps.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\06_utility_matrix.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\07_priority_fixes.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\08_risk_matrix.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\09_paths.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\10_after_reload_data.png",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\PLAYWRIGHT_AUDIT_V0_8\\screenshots\\11_dashboard_return.png"
+  ],
+  "console_warnings": [],
+  "page_errors": [],
+  "metrics": {
+    "organs_checked": 7,
+    "total_blockers": 62,
+    "utility_declared": 2,
+    "utility_backed": 1,
+    "laws_total": 25,
+    "laws_not_enforced": 25,
+    "priority_fixes": 18,
+    "risk_items": 7
+  },
+  "finished_at": "2026-05-09T19:17:22.453Z",
+  "verdict": "PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT",
+  "pass": true
+}

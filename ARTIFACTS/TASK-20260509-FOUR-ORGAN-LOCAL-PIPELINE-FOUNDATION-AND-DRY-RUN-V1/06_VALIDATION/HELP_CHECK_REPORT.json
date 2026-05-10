@@ -1,0 +1,60 @@
+{
+  "created_at_local": "2026-05-09T13:51:45",
+  "files_checked": 13,
+  "help_fail_count": 0,
+  "rows": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\create_astra_task_record.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\export_astra_route.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_read_first_route.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_task_launch_card_from_astra.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\select_scripts_for_route.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\validate_script_registry.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_validator_selection.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py",
+      "returncode": 0
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\generate_deletion_proposal.py",
+      "returncode": 0
+    }
+  ],
+  "verdict": "PASS_HELP_CHECK_CREATED_SCRIPTS"
+}

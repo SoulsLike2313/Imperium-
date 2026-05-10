@@ -1,0 +1,83 @@
+{
+  "generated_at_utc": "2026-05-09T00:27:38Z",
+  "manual_proofs_root": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+  "counts": {
+    "total": 4,
+    "manual_probe": 1,
+    "full_e2e": 0,
+    "unknown": 3
+  },
+  "records": [
+    {
+      "task_id": "TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF",
+      "proof_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS\\TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF",
+      "proof_type": "OWNER_MANUAL_PROOF",
+      "has_zip": true,
+      "has_zip_sha256": true,
+      "has_receipt": true,
+      "has_receipt_sha256": false,
+      "has_summary": true,
+      "has_ledger_event": false,
+      "has_manifest": false,
+      "has_sha256s": true,
+      "evidence_verdict": "UNKNOWN",
+      "scope": "MANUAL_PROOF",
+      "important_findings": [],
+      "modified_time": 1778256100.711519
+    },
+    {
+      "task_id": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+      "proof_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS\\TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+      "proof_type": "OWNER_MANUAL_PROOF",
+      "has_zip": true,
+      "has_zip_sha256": true,
+      "has_receipt": true,
+      "has_receipt_sha256": true,
+      "has_summary": true,
+      "has_ledger_event": true,
+      "has_manifest": false,
+      "has_sha256s": false,
+      "evidence_verdict": "UNKNOWN",
+      "scope": "MANUAL_PROOF",
+      "important_findings": [],
+      "modified_time": 1778274901.834615
+    },
+    {
+      "task_id": "TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1",
+      "proof_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS\\TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1",
+      "proof_type": "OWNER_MANUAL_PROOF",
+      "has_zip": true,
+      "has_zip_sha256": true,
+      "has_receipt": true,
+      "has_receipt_sha256": false,
+      "has_summary": true,
+      "has_ledger_event": true,
+      "has_manifest": false,
+      "has_sha256s": false,
+      "evidence_verdict": "PASS",
+      "scope": "MANUAL_PROBE",
+      "important_findings": [
+        "stage_id_schema_mismatch_detected"
+      ],
+      "modified_time": 1778276695.3433187
+    },
+    {
+      "task_id": null,
+      "proof_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS\\TASK-TEST-VM2-PROMPT-COPY",
+      "proof_type": "OWNER_MANUAL_PROOF",
+      "has_zip": false,
+      "has_zip_sha256": false,
+      "has_receipt": false,
+      "has_receipt_sha256": false,
+      "has_summary": false,
+      "has_ledger_event": false,
+      "has_manifest": false,
+      "has_sha256s": false,
+      "evidence_verdict": "UNKNOWN",
+      "scope": "MANUAL_PROOF",
+      "important_findings": [],
+      "modified_time": 1778255352.5599802
+    }
+  ],
+  "verdict": "PASS"
+}

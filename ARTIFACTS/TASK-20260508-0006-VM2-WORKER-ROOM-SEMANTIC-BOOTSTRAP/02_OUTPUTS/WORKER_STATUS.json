@@ -1,0 +1,16 @@
+{
+  "contour_id": "VM2",
+  "worker_root": "~/IMPERIUM_WORKER_ROOM",
+  "status": "worker_room_semantic_bootstrap_created",
+  "canon_authority": false,
+  "admission_authority": false,
+  "last_bootstrap_task_id": "TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP",
+  "ready_for_task_package_receive": true,
+  "ready_for_stage_execution": false,
+  "ready_for_fetch_protocol": false,
+  "notes": [
+    "Worker room structure and semantic maps created.",
+    "Stage execution scripts are not created yet.",
+    "Fetch protocol is not created yet."
+  ]
+}

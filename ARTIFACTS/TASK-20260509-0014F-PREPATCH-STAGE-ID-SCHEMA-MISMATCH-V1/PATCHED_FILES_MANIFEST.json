@@ -1,0 +1,100 @@
+{
+  "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+  "run_id": "RUN-20260509-0014",
+  "generated_at_utc": "2026-05-09T07:55:29Z",
+  "files_patched_count": 23,
+  "patched_files": [
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/01_CORE_LIB/id_validation.py",
+      "sha256": "b1a601d298d0255859468c71317e845529886a271dae8de8fe6be32601697210"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/lib/id_validation.py",
+      "sha256": "b1a601d298d0255859468c71317e845529886a271dae8de8fe6be32601697210"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/lib/common_runtime.py",
+      "sha256": "a55b4ffbfbaa6ca87ebd9178beda094513697d9037f6cacc4b0c778f13e8e358"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/stage_wait_for_signal.py",
+      "sha256": "d16f096d18b906f34a65ad313b13d0861a97b7e0f3f6f47f1f3af1048d699265"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/stage_gate_decide.py",
+      "sha256": "6f3affeb6e5fb48ba9b1f82c2143667aab636e6cc14b3db853a183ebe5df1f89"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/15_STAGE_COORDINATION/stage_repair_request.py",
+      "sha256": "4ad23590c60a572a06ef6a0bc45fee5163b4313b0248a448ad718c9feed5a26d"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/barrier_verify.py",
+      "sha256": "f2c4bd9f9feda17ecce89aee7cf2d10b5e8ce5b7a3949fa07be10977932c5926"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/final_bundle_assemble.py",
+      "sha256": "e4b376a4ae1286da7bf663688bd96762fb820ac31f05bc7b475bddcd182004e3"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/barrier_verify.py",
+      "sha256": "a8b12703bc4e03620b06e494d2946f768994a9b0ecf7e35cdd1339fa9c95ea1e"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/final_bundle_assemble.py",
+      "sha256": "b284f4575acd711889d3c10a80eefd569407fd6d9fdb7cdf345b07795e388203"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/send_prompt_to_vm2.py",
+      "sha256": "b9da8970af7cbec86543bd0913a228d5e6e95d66b3ef10c1bc74c051a230dc78"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/fetch_vm2_stage_bundle.py",
+      "sha256": "55cc897687f9eb6fad4d139784d2ef2d8bc2ae632a49c3d092a43a6b04b3c0f4"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/examples/send_prompt_example.ps1",
+      "sha256": "1ad369098af1205b20c99e42b31e2cecf3e646a450ca27109ae162d54612ba79"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/examples/fetch_vm2_bundle_example.ps1",
+      "sha256": "f1c9320e105887c6083da6b03ad724c0c2a424b00bc7128f78a22c05e5fd4522"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/examples/send_prompt_example.ps1",
+      "sha256": "1ad369098af1205b20c99e42b31e2cecf3e646a450ca27109ae162d54612ba79"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/examples/fetch_vm2_bundle_example.ps1",
+      "sha256": "f1c9320e105887c6083da6b03ad724c0c2a424b00bc7128f78a22c05e5fd4522"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/imperium_pipeline/SCRIPT_USAGE_EXAMPLES.md",
+      "sha256": "fea141b343b9d05221a26807f3fc482898a477aff33dc393cd39d8469f6bcefd"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/README.md",
+      "sha256": "47f7814f7b99ae8e93c9dc049a94c94d5957ef5c5a72e8f1082c444776fb91cb"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/10_PC_VM2_PIPELINE/examples/README.md",
+      "sha256": "11cc402f608f710f5d0b874fe718d3ee0c884084e3df5bcf6f0ae78133bb15e1"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/20_CONTINUITY/continuity_scan_known_blockers.py",
+      "sha256": "93e412d6df88d25cbb23e71321729e91202d0071e38815346aafa34f2046e222"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/tests/test_stage_id_schema.py",
+      "sha256": "a3d7a45511599993c519624fcb4f5a137741057c86671346fe0b92b14d4fa919"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/STAGE_ID_POLICY.md",
+      "sha256": "634d240483a0e18e218367441cefc7100ce5a6dc8307be4421b5ce13163181a3"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/06_TOOLS/STAGE_ID_POLICY.json",
+      "sha256": "7facfbb136bcbfd33141c53ae88bf696331edd2eaff1ef4339ef22c1a3f964c5"
+    }
+  ]
+}

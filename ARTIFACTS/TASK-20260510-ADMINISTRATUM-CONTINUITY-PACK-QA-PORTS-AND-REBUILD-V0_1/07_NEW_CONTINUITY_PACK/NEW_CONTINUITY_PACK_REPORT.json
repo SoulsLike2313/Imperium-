@@ -1,0 +1,71 @@
+{
+  "schema_version": "NEW_CONTINUITY_PACK_REPORT_V0_1",
+  "generated_at": "2026-05-10T05:55:38.892071+00:00",
+  "new_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200",
+  "required_files_missing": [],
+  "required_files_ok": true,
+  "files": [
+    {
+      "name": "CONTINUITY_PACK.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\CONTINUITY_PACK.json",
+      "exists": true,
+      "sha256": "9cb0266d740264512572931e89644df70890c2a8fd4af58e388f9fe7a80d7224"
+    },
+    {
+      "name": "CONTINUITY_PACK.md",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\CONTINUITY_PACK.md",
+      "exists": true,
+      "sha256": "14183d1270052ce6925b4c21c72ea58cfb364dc745163c3d6b21d3cbb861d2a7"
+    },
+    {
+      "name": "IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md",
+      "exists": true,
+      "sha256": "21951fb0aa9263e58e3852c8da52e54bf90c4e75346ced02510fce63838d61bc"
+    },
+    {
+      "name": "PORTS_SNAPSHOT.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\PORTS_SNAPSHOT.json",
+      "exists": true,
+      "sha256": "3789d56d16df06b22da557ae002ecb89aede6c617433059976a1ce9245bc48ee"
+    },
+    {
+      "name": "PORT_MISSING_REPORT.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\PORT_MISSING_REPORT.json",
+      "exists": true,
+      "sha256": "c27dd262199f024266e1fb89c5300acb65103bc563a042c05f9fe607187357c7"
+    },
+    {
+      "name": "PORT_STALENESS_REPORT.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\PORT_STALENESS_REPORT.json",
+      "exists": true,
+      "sha256": "d9c84cedd030eb153ef02b8fd2b6921fa80d12e87d6fa59564a486a326da887a"
+    },
+    {
+      "name": "HANDOFF_SUFFICIENCY_REPORT.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\HANDOFF_SUFFICIENCY_REPORT.json",
+      "exists": true,
+      "sha256": "b9885ef1852db8412080d71e7a0fdd90d8ed354f836b9f4a8edef9781477af59"
+    },
+    {
+      "name": "MANIFEST.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\MANIFEST.json",
+      "exists": true,
+      "sha256": "3c9ebe56962a5724fdc9ae468b19a324846da93e0436fb712cc5fc986093daa2"
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\SHA256SUMS.txt",
+      "exists": true,
+      "sha256": "a86b06bd4210c2d63c7e7ad1bc0f304ee93bbd561b85897f24921b37ea00fb26"
+    },
+    {
+      "name": "BUILD_RECEIPT.json",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200\\BUILD_RECEIPT.json",
+      "exists": true,
+      "sha256": "21fd5e3731bd3a2154346fcafda2b078818aecd2f8d97fe52845cd09f231b681"
+    }
+  ],
+  "build_receipt_verdict": "PASS_WITH_LIMITATIONS",
+  "handoff_sufficiency_verdict": "NEW_PACK_SUFFICIENT_FOR_BOOTSTRAP_NEW_CHAT_HANDOFF_WITH_LIMITATIONS"
+}

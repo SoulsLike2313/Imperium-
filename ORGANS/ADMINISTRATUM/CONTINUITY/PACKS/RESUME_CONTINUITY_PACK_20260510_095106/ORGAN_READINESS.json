@@ -1,0 +1,76 @@
+[
+  {
+    "organ_id": "ADMINISTRATUM",
+    "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_STATUS.json",
+    "relative_path": "ORGANS\\ADMINISTRATUM\\ORGAN_STATUS.json",
+    "mtime_utc": "2026-05-09T19:38:26.096425+00:00",
+    "status": "BOOTSTRAP",
+    "classification_target": "SCAFFOLD",
+    "current_dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+    "blockers": [
+      "Cross-organ gaps still present (see Doctrinarium all-organs report)",
+      "No canon authorization for real-task continuity claims"
+    ],
+    "limitations": [
+      "One active dashboard action button only in this task",
+      "No continuity green claim",
+      "No canon claim",
+      "No Sanctum integration"
+    ]
+  },
+  {
+    "organ_id": "ORGANS",
+    "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_STATUS.json",
+    "relative_path": "ORGANS\\DOCTRINARIUM\\ORGAN_STATUS.json",
+    "mtime_utc": "2026-05-09T16:51:44.173203+00:00",
+    "status": "STRICT_BOOTSTRAP_GATE",
+    "classification_target": null,
+    "current_dashboard_id": null,
+    "blockers": null,
+    "limitations": null
+  },
+  {
+    "organ_id": "ORGANS",
+    "path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_STATUS.json",
+    "relative_path": "ORGANS\\OFFICIO_AGENTIS\\ORGAN_STATUS.json",
+    "mtime_utc": "2026-05-09T14:52:28.412065+00:00",
+    "status": "MINIMAL_SCOPE_ACTIVE",
+    "classification_target": null,
+    "current_dashboard_id": null,
+    "blockers": null,
+    "limitations": null
+  },
+  {
+    "organ_id": "ORGANS",
+    "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\ORGAN_STATUS.json",
+    "relative_path": "ORGANS\\INQUISITION\\ORGAN_STATUS.json",
+    "mtime_utc": "2026-05-09T10:42:10.717485+00:00",
+    "status": "ORGAN_SCAFFOLD_0_1",
+    "classification_target": null,
+    "current_dashboard_id": null,
+    "blockers": null,
+    "limitations": null
+  },
+  {
+    "organ_id": "ORGANS",
+    "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\ORGAN_STATUS.json",
+    "relative_path": "ORGANS\\ASTRONOMICON\\ORGAN_STATUS.json",
+    "mtime_utc": "2026-05-09T09:02:51.279424+00:00",
+    "status": "ORGAN_SCAFFOLD_0_1",
+    "classification_target": null,
+    "current_dashboard_id": null,
+    "blockers": null,
+    "limitations": null
+  },
+  {
+    "organ_id": "ORGANS",
+    "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\ORGAN_STATUS.json",
+    "relative_path": "ORGANS\\MECHANICUS\\ORGAN_STATUS.json",
+    "mtime_utc": "2026-05-09T09:02:51.278447+00:00",
+    "status": "ORGAN_SCAFFOLD_0_1",
+    "classification_target": null,
+    "current_dashboard_id": null,
+    "blockers": null,
+    "limitations": null
+  }
+]

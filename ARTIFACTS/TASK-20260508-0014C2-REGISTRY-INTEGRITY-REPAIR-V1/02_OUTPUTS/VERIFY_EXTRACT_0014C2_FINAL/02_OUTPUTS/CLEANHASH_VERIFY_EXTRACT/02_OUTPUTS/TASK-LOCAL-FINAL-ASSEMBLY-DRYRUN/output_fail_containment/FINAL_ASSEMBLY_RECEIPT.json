@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-20260508-1414-LOCAL-FINAL-ASSEMBLY-DRYRUN",
+  "status": "FAIL",
+  "failure_reason": "owner-summary is outside --task-root and not in approved-registry scope: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1\\OWNER_SUMMARY.md",
+  "timestamp_utc": "2026-05-08T18:38:11Z",
+  "barrier_report": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1\\02_OUTPUTS\\TASK-LOCAL-FINAL-ASSEMBLY-DRYRUN\\barrier_report.json",
+  "verdict": "FAIL",
+  "deleted_anything": false,
+  "build_dir_clean_performed": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false
+}

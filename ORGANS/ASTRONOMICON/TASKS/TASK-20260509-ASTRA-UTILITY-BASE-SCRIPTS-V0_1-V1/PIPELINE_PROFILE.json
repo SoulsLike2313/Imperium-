@@ -1,0 +1,7 @@
+{
+  "key": "PC_LOCAL_ROUTE",
+  "label": "PC Local Route",
+  "description": "PC Servitor performs local-only task. No VM2, no THRONE.",
+  "vm2_allowed": false,
+  "manual_heavy": false
+}

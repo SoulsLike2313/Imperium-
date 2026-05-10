@@ -1,0 +1,14 @@
+{
+  "schema_id": "REPAIR_ATTEMPT_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "attempt_number",
+    "repair_scope",
+    "repair_result",
+    "rerun_validation_verdict"
+  ],
+  "notes": "Bounded safe repair attempts only."
+}

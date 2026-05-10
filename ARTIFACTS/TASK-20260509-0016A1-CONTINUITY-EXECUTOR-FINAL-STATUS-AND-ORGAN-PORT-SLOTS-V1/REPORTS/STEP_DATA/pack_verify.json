@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-05-09T00:27:43Z",
+  "task_root": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1",
+  "pack_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1\\CONTINUITY_PACK",
+  "required_files_missing": [],
+  "internal_sha256s": {
+    "verified_count": 49,
+    "missing_count": 0,
+    "mismatch_count": 0,
+    "invalid_count": 0,
+    "errors": []
+  },
+  "zip_exists": true,
+  "zip_sha256": "c99b2ba647ec6c98c59a87659c0b6192f54aa5c83c06fb62adeab8b89164847f",
+  "sidecar_exists": true,
+  "sidecar_matches_zip": true,
+  "zip_bad_paths": [],
+  "zip_cache_entries": [],
+  "latest_source_findings": [],
+  "executor_receipt_status": "PARTIAL",
+  "verdict": "PASS",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest_logic": true
+}

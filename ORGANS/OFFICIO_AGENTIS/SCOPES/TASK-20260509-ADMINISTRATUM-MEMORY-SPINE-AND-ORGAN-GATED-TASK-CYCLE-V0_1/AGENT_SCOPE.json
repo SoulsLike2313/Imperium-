@@ -1,0 +1,29 @@
+{
+  "schema_version": "AGENT_SCOPE_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "allowed_actions": [
+    "read_task_recipe",
+    "write_allowed_output_paths_only",
+    "append_memory_events",
+    "run_one_dummy_safe_stage",
+    "write_receipts_and_audit",
+    "stop_on_blocked_or_fail"
+  ],
+  "forbidden_actions": [
+    "delete",
+    "move",
+    "cleanup",
+    "archive_recursive_scan",
+    "sanctum_modification",
+    "vm2_activation",
+    "throne_contact",
+    "watcher_background_process",
+    "final_readiness_claim",
+    "baseline_claim_without_owner_acceptance"
+  ],
+  "owner_report_language": "ru",
+  "reporting_style": "evidence_first",
+  "stop_on_uncertainty": true,
+  "stop_on_blocked_gate": true,
+  "created_at": "2026-05-09T15:15:18.425252+00:00"
+}

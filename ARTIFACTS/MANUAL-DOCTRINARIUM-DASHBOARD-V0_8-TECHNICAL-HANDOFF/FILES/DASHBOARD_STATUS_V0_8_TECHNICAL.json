@@ -1,0 +1,48 @@
+{
+  "schema_version": "DOCTRINARIUM_DASHBOARD_STATUS_V0_8_TECHNICAL",
+  "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+  "organ_id": "DOCTRINARIUM",
+  "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+  "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD",
+  "current_for_owner_use": true,
+  "canon_status": "NOT_CANON_V1",
+  "sanctum_status": "NOT_IN_SANCTUM_YET",
+  "url": "http://127.0.0.1:8791",
+  "launcher_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+  "dashboard_root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+  "manifest_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_MANIFEST_V0_8.json",
+  "manifest_sha256": "4e5985993ea8c24118a8c3b5d0c2ddef70c74f0e5b474260ea3fe4d9ac1d6e26",
+  "sha256sums_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_SHA256SUMS_V0_8.txt",
+  "sha256sums_sha256": "e3d2ffd8ce6f78ea231a06647f6aafe82fca4b7725f17b3a3d131ae08b9ed2e5",
+  "reads": [
+    "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+    "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+    "STATUS\\DOCTRINARIUM_STATUS.json",
+    "LAWS\\LAW_INDEX.json",
+    "LAWS\\MANDATORY_LAWS.json",
+    "LAWS\\LAW_ENFORCEMENT_MAP.json",
+    "DOCTRINE\\DOCTRINE_INDEX.json"
+  ],
+  "capabilities": [
+    "dashboard metrics",
+    "organ health overview",
+    "organ detail drawer",
+    "risk matrix",
+    "priority fix queue",
+    "major gaps",
+    "laws and codex page",
+    "utility matrix",
+    "animated canvas background",
+    "local refresh button",
+    "open folder actions"
+  ],
+  "forbidden_claims": [
+    "CANON_V0_1",
+    "SANCTUM_READY",
+    "REAL_TASK_EXECUTION_READY",
+    "CONTINUITY_GREEN",
+    "ALL_LAWS_ENFORCED",
+    "ALL_ORGANS_READY"
+  ],
+  "created_at": "2026-05-09T18:51:48.8888947Z"
+}

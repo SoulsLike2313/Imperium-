@@ -1,0 +1,390 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "generated_at_local": "2026-05-09T14:43:34",
+  "rules": {
+    "exclude": [
+      "CONTENT_MANIFEST.json",
+      "SHA256SUMS.txt",
+      "12_BUNDLE"
+    ],
+    "note": "Manifest excludes itself, SHA256SUMS and 12_BUNDLE by policy."
+  },
+  "files_count": 75,
+  "files": [
+    {
+      "path": "00_INPUT_SCOPE/ARCHIVE_TOP_LEVEL_INDEX.json",
+      "size_bytes": 509,
+      "sha256": "a3aca43852d7c9601d2d9060877b2ac2c79c506809092e928731e4199db1f369"
+    },
+    {
+      "path": "00_INPUT_SCOPE/ARCHIVE_TOP_LEVEL_INDEX.md",
+      "size_bytes": 109,
+      "sha256": "8f7dd4a99721978c9372a68d439559f98d61755b165a45eb7c1472d77a372ef3"
+    },
+    {
+      "path": "00_INPUT_SCOPE/READ_FIRST_INDEX.json",
+      "size_bytes": 1929,
+      "sha256": "4e3eb4740fb3e4faa8db709b6710f463806b84c89d63e88daf8171225629876f"
+    },
+    {
+      "path": "00_INPUT_SCOPE/READ_FIRST_INDEX.md",
+      "size_bytes": 678,
+      "sha256": "df57c2254e417f60711026568b6f52df97d202a8b03d4baa44ffb14d824f8e97"
+    },
+    {
+      "path": "00_INPUT_SCOPE/SANCTUM_TASK_OWNER_TEXT.md",
+      "size_bytes": 521,
+      "sha256": "222d2ce295b9edaa9897846f7cd740e64581d439ed4f67e08f71aebfebff6792"
+    },
+    {
+      "path": "00_INPUT_SCOPE/TASK_SCOPE.md",
+      "size_bytes": 403,
+      "sha256": "45b053e5364f17bbc4d055d3e692d5e78dc2457beb8cc92a41ec13245d1c132e"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/ASTRA_PIPELINE_DRAFT.md",
+      "size_bytes": 173,
+      "sha256": "a141f9d9a25f0289948768e801f4ec37a0aa12d1607a510ff1298277885e5de6"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/ASTRA_TASK_RECORD.json",
+      "size_bytes": 6269,
+      "sha256": "f60d4ece2a85eaaad69b2d4e5d42a75bc7b407e82ef7d1ef2486922a051f955c"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/EXPORT_REPORT.json",
+      "size_bytes": 1620,
+      "sha256": "1090b7cc44d21955729295c5ef0a583d997c9aebe7bae5f1578a129e3d365665"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/NEXT_ALLOWED_ACTION.json",
+      "size_bytes": 259,
+      "sha256": "9742461cd3ebb0a260f930ab7ff730d11c6e5592f12e82f4e19e4daebd7488d7"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/OWNER_TASK_BRIEF.md",
+      "size_bytes": 728,
+      "sha256": "901a21f1b13affe51b048fbcf9e65cf10367b261aa55bc3ed615c8253a50d17e"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/PASS_CRITERIA.json",
+      "size_bytes": 326,
+      "sha256": "d05e0eda458750d1db60d2aa150afaccc9fcbc45ac72523123c1acba4b0aa864"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/PIPELINE_PROFILE.json",
+      "size_bytes": 205,
+      "sha256": "4447d19280e2ccd8db7691288510adc47defb18c993d7f6da87daa7d02765535"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/ROUTE_STATUS.json",
+      "size_bytes": 394,
+      "sha256": "ef3976934c6e643b5bf806d07795ae4975c5b5188891ecc5962adb8836b7cbea"
+    },
+    {
+      "path": "01_ASTRA_SANCTUM_TASK_ROUTE/STAGE_MAP.json",
+      "size_bytes": 4996,
+      "sha256": "43772216e16af3d26462ddbfec98fa63ab632947a48b4a8c2788851e49b40333"
+    },
+    {
+      "path": "02_ADMINISTRATUM_ADDRESS_MAP/OUTPUT_ROOTS_FOR_SANCTUM_BUILD.json",
+      "size_bytes": 984,
+      "sha256": "501166fae71d24fc3c7be2124a01a0fa2361a044c7c265b63d10ef154e494dfa"
+    },
+    {
+      "path": "02_ADMINISTRATUM_ADDRESS_MAP/POLICY_REFS_FOR_SANCTUM_BUILD.json",
+      "size_bytes": 1164,
+      "sha256": "2e80ee1879d4677ff3a354715381a421aba14bd0c654f8a2aeb2e3b4560826ea"
+    },
+    {
+      "path": "02_ADMINISTRATUM_ADDRESS_MAP/READ_FIRST_ROUTE_FOR_SANCTUM_BUILD.md",
+      "size_bytes": 661,
+      "sha256": "44492621f627255be05f7f3b960b73080c987b6c0ccf516b68b24aa927597dfd"
+    },
+    {
+      "path": "02_ADMINISTRATUM_ADDRESS_MAP/RECEIPT_REQUIREMENTS_FOR_SANCTUM_BUILD.json",
+      "size_bytes": 683,
+      "sha256": "5c75a7dc6aec485e0f9d70146ee54d265016c7d9f0782e47df549c4c8887ade5"
+    },
+    {
+      "path": "02_ADMINISTRATUM_ADDRESS_MAP/SANCTUM_V0_1_ADDRESS_MAP.json",
+      "size_bytes": 4150,
+      "sha256": "f6ed02b43796791c407e5be8fabfec40a29b9fd748bc227516dd52f772c9d506"
+    },
+    {
+      "path": "02_ADMINISTRATUM_ADDRESS_MAP/SANCTUM_V0_1_ADDRESS_MAP.md",
+      "size_bytes": 631,
+      "sha256": "6799b5be31c6ebda716f28379296835f5616903e9f3bfefe45c31075908984d3"
+    },
+    {
+      "path": "03_MECHANICUS_SCRIPT_MAP/SANCTUM_V0_1_MISSING_SCRIPTS.md",
+      "size_bytes": 304,
+      "sha256": "6f265c1432c3a00850b4d4254dba73d4259484fab35fe045ed89d6a0b0a19249"
+    },
+    {
+      "path": "03_MECHANICUS_SCRIPT_MAP/SANCTUM_V0_1_SCRIPT_MAP.json",
+      "size_bytes": 5065,
+      "sha256": "cddead2e65980a28d6a7f4c4baa8f14fc59996cd23a125d29873c0ab17fe46e2"
+    },
+    {
+      "path": "03_MECHANICUS_SCRIPT_MAP/SANCTUM_V0_1_SCRIPT_MAP.md",
+      "size_bytes": 455,
+      "sha256": "e298931b33365c2b109a4b7c211714d4576a7b965e11fa02280f119bbd8e407f"
+    },
+    {
+      "path": "03_MECHANICUS_SCRIPT_MAP/SANCTUM_V0_1_VALIDATOR_MAP.json",
+      "size_bytes": 959,
+      "sha256": "03a4d62831d36f94f71f326f59e295a365ee0144b59e2c7046697f8df2850dab"
+    },
+    {
+      "path": "04_INQUISITION_PREFLIGHT/DUPLICATE_DRIFT_RISK_NOTES.md",
+      "size_bytes": 387,
+      "sha256": "67f8571b637a82494890849a5f6a1a8486481463290f162db5f80d96f243cef5"
+    },
+    {
+      "path": "04_INQUISITION_PREFLIGHT/FORBIDDEN_ACTIONS_CHECK.md",
+      "size_bytes": 227,
+      "sha256": "0d9b7fb9b448fb8150b1a23a3aa99b89b78aad001f7c0e25312a405d0c1d8bbd"
+    },
+    {
+      "path": "04_INQUISITION_PREFLIGHT/FORBIDDEN_CLAIMS_CHECK.md",
+      "size_bytes": 192,
+      "sha256": "64f35e452843a32538d40222d62572f79b6cb3cd90288fa966b9bfa53030a429"
+    },
+    {
+      "path": "04_INQUISITION_PREFLIGHT/SANCTUM_V0_1_PREFLIGHT_REPORT.json",
+      "size_bytes": 774,
+      "sha256": "e1d9060533fcb7e3004174f2b6af19193831073acb2723b71fd68abd9c47856a"
+    },
+    {
+      "path": "04_INQUISITION_PREFLIGHT/SANCTUM_V0_1_PREFLIGHT_REPORT.md",
+      "size_bytes": 376,
+      "sha256": "e402bd83fc227dab71a141e4062d92f46d0b498da264716a9551d17d1f62fa11"
+    },
+    {
+      "path": "05_SANCTUM_V0_1_REQUIREMENTS/SANCTUM_V0_1_NON_GOALS.md",
+      "size_bytes": 249,
+      "sha256": "70e1245d31130e0f958a82cb1efeb6d04f45f121621e4260d70777ddb0057e3d"
+    },
+    {
+      "path": "05_SANCTUM_V0_1_REQUIREMENTS/SANCTUM_V0_1_REQUIREMENTS.json",
+      "size_bytes": 1057,
+      "sha256": "47b4d4b37fc3fbe7927a1a708b045f6c7ed89f1bef8eec37da91156ecd21ebdb"
+    },
+    {
+      "path": "05_SANCTUM_V0_1_REQUIREMENTS/SANCTUM_V0_1_REQUIREMENTS.md",
+      "size_bytes": 566,
+      "sha256": "3579a08c522920b4c89f3752daaff760d12de80aadc814010985e720435128b8"
+    },
+    {
+      "path": "05_SANCTUM_V0_1_REQUIREMENTS/SANCTUM_V0_1_UI_LAYOUT.md",
+      "size_bytes": 448,
+      "sha256": "d601948a1b7a6bf468ee6ccf437d0297a95cc94984cc717356b8e3abae157e4b"
+    },
+    {
+      "path": "05_SANCTUM_V0_1_REQUIREMENTS/SANCTUM_V0_1_VERSION_POLICY.md",
+      "size_bytes": 248,
+      "sha256": "b57a7afe2972e5f7001805663b4870e84ed14c34b0bca44e50fbf967aa1be7fb"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_BLOCKED_RECEIPT_SCHEMA.json",
+      "size_bytes": 599,
+      "sha256": "09b5945c3e690be0fe2bc6b164caf87377d06501b0795557f3153339a4cd8c89"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_END_RECEIPT_SCHEMA.json",
+      "size_bytes": 1508,
+      "sha256": "7b8fc1b07bfdcf8eeac1d952b341ce7d652dff056f0c575becc1b33c12689211"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_LEDGER_POLICY.md",
+      "size_bytes": 495,
+      "sha256": "5435d4d1c516606a9670baef69354466a1a5cff22763e7784047e616a19fe875"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_LIFECYCLE_SCHEMA.json",
+      "size_bytes": 1999,
+      "sha256": "6ff547321f947056f17568271e8f52223f46b715d974d06cbfe7692147470423"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_METRICS_POLICY.md",
+      "size_bytes": 227,
+      "sha256": "1a074a2cb619640b75936ff0d21fb0236f9aebd7fd7028346225888f770c268d"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_REPAIR_ATTEMPT_SCHEMA.json",
+      "size_bytes": 728,
+      "sha256": "e242f4499aeef7eea9e69acffe619802f92865c54972a37b547839e21796d78a"
+    },
+    {
+      "path": "06_STAGE_LIFECYCLE/STAGE_START_RECEIPT_SCHEMA.json",
+      "size_bytes": 604,
+      "sha256": "6d3912108d9a2dc85572d96cb35c0ccc7e9f1a8045feba30cb1061f20365fecd"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/MEGA_PASS_EXIT_POLICY.md",
+      "size_bytes": 203,
+      "sha256": "14a6eeb23e6464e6cbbb0bb0df743190e0750e82bc8890dd07ff4151b62d56b6"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/NEW_CHAT_HANDOFF_POLICY.md",
+      "size_bytes": 214,
+      "sha256": "33101b4dd0f44863c2f7456f66aa3c068930df1e2baf3da3c865fc121f2fe01a"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/TASK_ACTIVE_SNAPSHOT_SCHEMA.json",
+      "size_bytes": 724,
+      "sha256": "babe1c558fe28d2b3b2d3357da221bef60e6a96900c45b94e9caa617b9032445"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/TASK_CHAT_LIFECYCLE_POLICY.json",
+      "size_bytes": 745,
+      "sha256": "58344c9b91b2d6ce45ffa37924354e58633909e101d906b0516ed91bbc1d43b9"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/TASK_CHAT_LIFECYCLE_POLICY.md",
+      "size_bytes": 269,
+      "sha256": "502debcdd26e61e0e14d25add3aa45c275333852eba489475171563b56580917"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/TASK_END_MEGA_PASS_SCHEMA.json",
+      "size_bytes": 541,
+      "sha256": "ac514e434d3b76e6d4ee6037557883cde98391d71cd5bc51c648bbfcea0020a1"
+    },
+    {
+      "path": "07_TASK_CONTINUITY_MODEL/TASK_START_CONTINUITY_PACK_SCHEMA.json",
+      "size_bytes": 698,
+      "sha256": "79799650bf1ecbb7870c7718df6661d18da778f9dd24a2c0c7af00ddb8373254"
+    },
+    {
+      "path": "08_MANUAL_BUILD_PLAN/SANCTUM_V0_1_ACCEPTANCE_CRITERIA.md",
+      "size_bytes": 267,
+      "sha256": "ae3c77a48ca6ab60930b55198ba659e24e09d23463df29d9f4e3ea616e9735f5"
+    },
+    {
+      "path": "08_MANUAL_BUILD_PLAN/SANCTUM_V0_1_ARTIFACT_PLAN.md",
+      "size_bytes": 229,
+      "sha256": "8f34214d091ea83a172373f22b5026cfaf8505950f4ff26d450b5ddbbba85ebe"
+    },
+    {
+      "path": "08_MANUAL_BUILD_PLAN/SANCTUM_V0_1_MANUAL_BUILD_PLAN.md",
+      "size_bytes": 419,
+      "sha256": "acc25be948c7fcd5445a4d8e7915b1c363073b0dbf59eda429a3d5168f8cff06"
+    },
+    {
+      "path": "08_MANUAL_BUILD_PLAN/SANCTUM_V0_1_MANUAL_BUILD_STAGES.json",
+      "size_bytes": 2051,
+      "sha256": "4d4154afca37e741f51626c6b8a8b393cec7bb153fbda14a6737029c366b52b0"
+    },
+    {
+      "path": "09_VALIDATION/ASTRA_ROUTE_VALIDATE_REPORT.json",
+      "size_bytes": 177,
+      "sha256": "ecbfdc69ca6c4f94679f2f2a20eaab2f3931f7f99d41a8a6adb367de00607a0d"
+    },
+    {
+      "path": "09_VALIDATION/FORBIDDEN_ACTIONS_REPORT.json",
+      "size_bytes": 348,
+      "sha256": "aa5135a7c0fecc3eaab4da3629ebb32f6d82a780bd4e81acbfed69952badccb2"
+    },
+    {
+      "path": "09_VALIDATION/FORBIDDEN_CLAIMS_REPORT.json",
+      "size_bytes": 317,
+      "sha256": "1a65cdedaf8767883bde2c26fc06193bee889efa4ba1ed8c667d718e9856deeb"
+    },
+    {
+      "path": "09_VALIDATION/JSON_PARSE_REPORT.json",
+      "size_bytes": 201,
+      "sha256": "88452a19557657ed6738ec592b48084f22c7fae5919546974035e06fce53491b"
+    },
+    {
+      "path": "09_VALIDATION/PACKAGING_HYGIENE_REPORT.json",
+      "size_bytes": 415,
+      "sha256": "9938e7910f337258dcd5ea5c50a82555a7b8fd695a8de76299e6a038027916e3"
+    },
+    {
+      "path": "09_VALIDATION/PYTHON_COMPILE_REPORT.json",
+      "size_bytes": 1706,
+      "sha256": "cab52f76187675a6dbeac526e3c52d1d82eb9d7a42f4601f86988c7b007f8196"
+    },
+    {
+      "path": "09_VALIDATION/REQUIRED_FILES_REPORT.json",
+      "size_bytes": 257,
+      "sha256": "e0bd6e73aaf6c343fce698d4644eb37ae76e0e839097a4fd4989a795cae1283b"
+    },
+    {
+      "path": "09_VALIDATION/VALIDATION_SUMMARY.md",
+      "size_bytes": 445,
+      "sha256": "6f753e6feccbfe15dbb62cd0da2e3ec96469d969950d04f2fb1a67ad660bb304"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_001_RECEIPT.json",
+      "size_bytes": 542,
+      "sha256": "e0115495650636c4e8c73b3d75e0df4f65c1e4e9577b98736e328d52c0b96245"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_002_RECEIPT.json",
+      "size_bytes": 549,
+      "sha256": "3fc6709cf095b36b90f35ea4ea6c00a912fbb91ec91506c1a27499633eef9564"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_003_RECEIPT.json",
+      "size_bytes": 538,
+      "sha256": "99c3897cff4ada2772863f060c155919e047b659db44b2d8777904d87388b657"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_004_RECEIPT.json",
+      "size_bytes": 541,
+      "sha256": "cf5cfc5f344c865db9feb47230828d67b08ee20bb4aa99e9bc022dc091a4652a"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_005_RECEIPT.json",
+      "size_bytes": 521,
+      "sha256": "0f0c31a4172c31335317e661086b3572010bd77181d640152ac61dda1ef57f66"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_006_RECEIPT.json",
+      "size_bytes": 528,
+      "sha256": "fb4c2648ddcd7cde772ef52b0bc7780da37f6d05cd51586abdc8e4c38542b167"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_007_RECEIPT.json",
+      "size_bytes": 524,
+      "sha256": "371549267d1619a6dd0085baf8eb18bdb8be9365af32fdbed113b2f5eaffa316"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_008_RECEIPT.json",
+      "size_bytes": 515,
+      "sha256": "896e91c475f3df885bc25142d63b3bb26a2c56551b5bf9a3b941617ae70e82b7"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_009_RECEIPT.json",
+      "size_bytes": 522,
+      "sha256": "38a88189c51a6faf8b4253af6e6e7fd6f05d4c3f320fcb6ca5a128f522a236cf"
+    },
+    {
+      "path": "10_RECEIPTS/STAGE_010_RECEIPT.json",
+      "size_bytes": 607,
+      "sha256": "ad850cf1ff23fad93ec41ca27bfe8b6be4c29d3c22fb2f61647b25b8aafeb800"
+    },
+    {
+      "path": "11_REPORTS/PHASE_PROGRESS.md",
+      "size_bytes": 355,
+      "sha256": "bed4e119bcd7962d0a58ef9e417dd9f6753427d89ed1d1645e1e5b2cd11228d4"
+    },
+    {
+      "path": "FOUNDATION_RECEIPT.json",
+      "size_bytes": 1938,
+      "sha256": "965dc729f190bdf34c16c2a72c5b2f52dd3a74c8101cdd5c7b06087947a56627"
+    },
+    {
+      "path": "OWNER_SUMMARY.md",
+      "size_bytes": 4247,
+      "sha256": "6657c368b42baf786da7ca9d3a5758466aa5bf751712247bf41cf21f51e33f9d"
+    },
+    {
+      "path": "SANCTUM_MANUAL_BUILD_FOUNDATION_REPORT.md",
+      "size_bytes": 666,
+      "sha256": "0c58b382aebb9c82445d096719545b757e59a2532b4370fe1eb3434a44d50d86"
+    }
+  ]
+}

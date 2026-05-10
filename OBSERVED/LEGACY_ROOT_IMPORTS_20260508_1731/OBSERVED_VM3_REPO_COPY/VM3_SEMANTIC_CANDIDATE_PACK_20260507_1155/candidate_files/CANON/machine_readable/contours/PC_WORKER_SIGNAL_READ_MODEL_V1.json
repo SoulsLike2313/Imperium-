@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0.0",
+  "kind": "pc_worker_signal_read_model",
+  "model_id": "PC_WORKER_SIGNAL_READ_MODEL_V1",
+  "status": "candidate",
+  "pc_role": "support_audit_only",
+  "truth_center": "throne_only",
+  "read_targets": [
+    "runtime/contours/signals/vm1/LATEST_SIGNAL.json",
+    "runtime/contours/signals/vm3/LATEST_SIGNAL.json"
+  ],
+  "stale_threshold_seconds": 900,
+  "missing_or_stale_display": "unknown",
+  "bundle_fetch_rule": {
+    "if_bundle_path_present": "fetch_and_record_receipt",
+    "if_missing": "wait_or_request_update"
+  },
+  "forbidden": [
+    "pc_signal_as_canon_truth",
+    "pc_writer_promotion",
+    "pc_admission_execution"
+  ]
+}

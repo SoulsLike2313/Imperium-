@@ -1,0 +1,56 @@
+{
+  "schema_version": "SCRIPT_PORT_V0_2",
+  "organ_id": "INQUISITION",
+  "scripts": [
+    {
+      "script_id": "INQUISITION_DETECT_DUPLICATE_STAGE_IDS",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "45d022b0c8c80591385b41f0aeadfd18cc1029701a5cbb92cd082d582a857dfe"
+    },
+    {
+      "script_id": "INQUISITION_DETECT_FORBIDDEN_REFS",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "db2254b29ff05b83044c2a8acdae2adb5765ad0169b96c4fdc5b0191e8ca022a"
+    },
+    {
+      "script_id": "INQUISITION_GENERATE_DELETION_PROPOSAL",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\generate_deletion_proposal.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\generate_deletion_proposal.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "5fd2b6eaf5217d6611f66bf8e265eaa33877aca4b8fbd7171608b12af819ae67"
+    },
+    {
+      "script_id": "INQUISITION_INQUISITION_POST_STAGE_AUDIT",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\inquisition_post_stage_audit.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\inquisition_post_stage_audit.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "5fc6b4d43b267e939135d3a92155aeeca68e5c02d820e98ad02b6d5df1e9a4e8"
+    },
+    {
+      "script_id": "INQUISITION_RUN_INQUISITION_PREFLIGHT",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py",
+      "purpose": "NEEDS_FORMALIZED_DESCRIPTION",
+      "inputs": [],
+      "outputs": [],
+      "launch_command": "python 'E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py'",
+      "last_known_test_status": "UNKNOWN",
+      "sha256": "e74674c4a69553dd5df42725555d6204b39d0a5226eaf34f3d7876a0f97351ae"
+    }
+  ]
+}

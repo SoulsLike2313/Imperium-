@@ -1,0 +1,62 @@
+{
+  "schema_version": "POST_REPLAY_RECEIPT_CHECK_V0_1",
+  "reviewed_task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "receipts_00_08": {
+    "00_doctrinarium_preflight_receipt.json": {
+      "exists": true,
+      "verdict": "BOOTSTRAP_NOT_CANON",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\00_doctrinarium_preflight_receipt.json"
+    },
+    "01_officio_agentis_scope_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_SCOPE_READY",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\01_officio_agentis_scope_receipt.json"
+    },
+    "02_administratum_context_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_CONTEXT_RECORDED",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\02_administratum_context_receipt.json"
+    },
+    "03_astronomicon_route_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_ROUTE_READY",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\03_astronomicon_route_receipt.json"
+    },
+    "04_mechanicus_script_resolution_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_SCRIPT_RESOLVED",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\04_mechanicus_script_resolution_receipt.json"
+    },
+    "05_stage_001_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_STAGE_EXECUTED",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\05_stage_001_receipt.json"
+    },
+    "06_inquisition_post_stage_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_AUDIT",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\06_inquisition_post_stage_receipt.json"
+    },
+    "07_task_summary_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_CURRENT_STATE_READY",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\07_task_summary_receipt.json"
+    },
+    "08_continuity_candidate_receipt.json": {
+      "exists": true,
+      "verdict": "PASS_CONTINUITY_CANDIDATE_READY",
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\08_continuity_candidate_receipt.json"
+    }
+  },
+  "receipts_00_08_exist": true,
+  "continuity_candidate_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\07_CONTINUITY_CANDIDATE\\CONTINUITY_CANDIDATE.json",
+  "continuity_receipt_chain_count": 9,
+  "continuity_receipt_chain_includes_08": true,
+  "doctrinarium_verdict": "BOOTSTRAP_NOT_CANON",
+  "doctrine_limitation_visible": true,
+  "inquisition_verdict": "PASS_AUDIT",
+  "inquisition_passed": true,
+  "finalization_verdict": "PASS_BOOTSTRAP_WITH_DOCTRINE_LIMITATION",
+  "final_verdict_honest_given_doctrine_state": true,
+  "created_at": "2026-05-09T15:15:47.5522130Z"
+}

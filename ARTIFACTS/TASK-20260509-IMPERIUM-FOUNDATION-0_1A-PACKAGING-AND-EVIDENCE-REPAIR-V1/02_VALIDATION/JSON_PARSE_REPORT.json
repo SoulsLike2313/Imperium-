@@ -1,0 +1,167 @@
+{
+  "json_files_checked": 40,
+  "json_parse_errors": 0,
+  "rows": [
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/POLICIES/EXPLORER_ARCHIVE_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/POLICIES/EXPLORER_BASELINE_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/SCREENSHOTS/AUTO-RUN-V1_0A-20260509-120801/AUTO_SCREENSHOT_TRUTH_CHECK_REPORT.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/RUN-V1_0A-20260509-120751/EXPLORER_TRUTH_AUDIT_REPORT.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/ADDRESSES/ADDRESS_REGISTRY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/ADDRESSES/READ_ROUTE_REGISTRY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/OUTPUT_RULES/ARTIFACT_OUTPUT_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/OUTPUT_RULES/BUNDLE_OUTPUT_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/CLAIMS_ALLOWED_DENIED_MATRIX.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/LANGUAGE_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_DELETE_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_LATEST_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_THRONE_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/NO_WATCHERS_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/POLICIES/STAGE_ID_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/READ_FIRST_RECEIPT_SCHEMA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/TASK_LAUNCH_CARD_SCHEMA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/TASK_STAGE_MAP_SCHEMA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/SCHEMAS/TASK_VERSION_CHAIN_SCHEMA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASK_REGISTRY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_LAUNCH_CARD.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_STAGE_MAP.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ADMINISTRATUM/TASKS/TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR/TASK_VERSION_CHAIN.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/BLOCKER_BEACONS.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/CAMPAIGN_STATE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/NEXT_ALLOWED_ACTION.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/ORGAN_STATUS.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/REPAIR_BRANCH_POLICY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/TASK_DEPENDENCY_GRAPH.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/ASTRONOMICON/TASK_VERSION_CHAINS.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/ORGAN_STATUS.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/REPAIR_SCRIPTS/REPAIR_SCRIPT_INDEX.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/RISK/TOOL_RISK_CLASSIFICATION.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCHEMAS/SCRIPT_CONTRACT_SCHEMA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCHEMAS/VALIDATOR_CONTRACT_SCHEMA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/SCRIPT_REGISTRY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/TESTS/TEST_COMMAND_INDEX.json",
+      "status": "PASS"
+    },
+    {
+      "path": "00_CONTENT_SNAPSHOT/ORGANS/MECHANICUS/VALIDATOR_REGISTRY.json",
+      "status": "PASS"
+    },
+    {
+      "path": "01_PACKAGING_POLICY/PACKAGING_FINALIZATION_POLICY.json",
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS_JSON_PARSE"
+}

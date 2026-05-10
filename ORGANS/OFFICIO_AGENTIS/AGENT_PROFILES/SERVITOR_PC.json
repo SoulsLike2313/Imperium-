@@ -1,0 +1,6 @@
+{
+  "profile_id": "SERVITOR_PC",
+  "actor": "PC_SERVITOR",
+  "execution_contour": "LOCAL_SAFE_ONLY",
+  "capabilities": ["file_write_allowed_scopes_only", "receipt_generation", "smoke_stage_execution"]
+}

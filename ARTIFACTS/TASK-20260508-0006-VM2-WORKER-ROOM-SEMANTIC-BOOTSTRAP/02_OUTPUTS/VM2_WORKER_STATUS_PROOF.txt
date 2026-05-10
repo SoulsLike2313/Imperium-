@@ -1,0 +1,5 @@
+total 12K
+drwxrwxr-x  2 vboxuser2 vboxuser2 4.0K May  8 15:35 .
+drwxrwxr-x 13 vboxuser2 vboxuser2 4.0K May  8 15:35 ..
+-rw-rw-r--  1 vboxuser2 vboxuser2  568 May  8 15:35 WORKER_STATUS.json
+WORKER_STATUS_OK

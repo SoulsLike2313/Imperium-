@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "action_hits": {
+    "vm2_activation": [],
+    "throne_contact": [],
+    "e2e_run": [],
+    "watcher_create": [],
+    "delete_move_action": [],
+    "migration_action": []
+  },
+  "action_hit_count": 0,
+  "verdict": "PASS_FORBIDDEN_ACTIONS"
+}

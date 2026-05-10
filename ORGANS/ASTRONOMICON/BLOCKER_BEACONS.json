@@ -1,0 +1,13 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "blockers": [
+    "organs are scaffold only, not implemented",
+    "Explorer baseline needs Speculum approval",
+    "Sanctum blocked",
+    "Aquarium blocked",
+    "E2E blocked",
+    "THRONE blocked",
+    "Continuity GREEN not claimed",
+    "continuity pack button not implemented"
+  ]
+}

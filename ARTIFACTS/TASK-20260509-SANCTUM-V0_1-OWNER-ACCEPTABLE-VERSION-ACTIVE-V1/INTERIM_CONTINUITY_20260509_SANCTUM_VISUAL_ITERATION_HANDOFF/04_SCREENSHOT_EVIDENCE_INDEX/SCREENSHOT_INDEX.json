@@ -1,0 +1,15 @@
+{
+  "root": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS",
+  "exists": true,
+  "folders": [
+    {
+      "folder": "SANCTUM-SMOKE-20260509-150325",
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325",
+      "file_count": 9,
+      "report_json": "SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK_REPORT.json",
+      "report_md": "SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK_REPORT.md",
+      "smoke_verdict": "PASS_SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK"
+    }
+  ],
+  "top_level_files": []
+}

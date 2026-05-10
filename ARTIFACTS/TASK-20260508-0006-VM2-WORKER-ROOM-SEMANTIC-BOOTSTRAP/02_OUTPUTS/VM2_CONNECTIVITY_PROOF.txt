@@ -1,0 +1,4 @@
+vboxuser2
+/home/vboxuser2
+GPT2
+VM2_WORKER_ROOM_BOOTSTRAP_CHECK

@@ -1,0 +1,15 @@
+{
+  "schema_version": "DASHBOARD_PORT_V0_2",
+  "organ_id": "DOCTRINARIUM",
+  "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+  "version": "0.8",
+  "root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+  "launcher": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+  "url": "http://127.0.0.1:8791",
+  "backend": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\dashboard_server.py",
+  "frontend": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\app.js",
+  "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+  "audit_status": "PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT",
+  "latest_audit_report": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+  "known_ui_issues": []
+}

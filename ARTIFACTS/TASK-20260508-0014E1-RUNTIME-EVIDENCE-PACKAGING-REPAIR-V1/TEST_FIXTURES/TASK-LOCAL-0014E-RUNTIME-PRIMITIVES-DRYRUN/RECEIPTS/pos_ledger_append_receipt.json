@@ -1,0 +1,19 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "LEDGER_APPEND",
+  "timestamp_utc": "2026-05-08T20:37:23Z",
+  "action": "LEDGER_APPEND",
+  "status": "PASS",
+  "failure_reason": null,
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "event_id": "EVT-2514f8e0-d811-42bd-a406-1725de823dba",
+  "event_hash": "0b9bb895997657b8c0f5105f0e04a2469a87c6c4a13bbec739ee1f383fd155b9"
+}

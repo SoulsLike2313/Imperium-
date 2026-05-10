@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "validators": [
+    {
+      "name": "validate_astra_route",
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+      "exists": true
+    },
+    {
+      "name": "validate_task_launch_card_v0_2",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py",
+      "exists": true
+    },
+    {
+      "name": "inquisition_preflight",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py",
+      "exists": true
+    },
+    {
+      "name": "duplicate_stage_ids",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py",
+      "exists": true
+    },
+    {
+      "name": "forbidden_refs",
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+      "exists": true
+    }
+  ]
+}

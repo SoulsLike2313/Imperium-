@@ -1,0 +1,10 @@
+{
+  "schema_id": "ASTRONOMICON_SYNC_POINT_SCHEMA_V1",
+  "sync_point_id": "string",
+  "depends_on": [
+    "stage_id"
+  ],
+  "mode": "ALL|ANY",
+  "timeout_sec": 0,
+  "on_timeout": "BLOCK|OWNER_DECISION_REQUIRED"
+}

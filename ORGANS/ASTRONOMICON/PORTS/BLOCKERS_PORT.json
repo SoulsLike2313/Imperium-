@@ -1,0 +1,13 @@
+{
+  "schema_version": "BLOCKERS_PORT_V0_2",
+  "organ_id": "ASTRONOMICON",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "No canon/green claim from continuity port alone."
+  ],
+  "owner_decisions_needed": [
+    "Owner approval required for canon/final readiness claims."
+  ],
+  "next_action": "Create organ contract/status/report surfaces and update developer/test/script ports."
+}

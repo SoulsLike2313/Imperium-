@@ -1,0 +1,22 @@
+{
+  "schema_version": "ADMINISTRATUM_LANGUAGE_BASE_STATUS_V0_1",
+  "status": "LOCAL_SEED_READY",
+  "mode": "CONTROLLED_TEMPLATE_LEXICON",
+  "external_download_performed": false,
+  "can_support": [
+    "continuity comments",
+    "state summaries",
+    "blocker explanations",
+    "next-action recommendations",
+    "diff comments"
+  ],
+  "cannot_support": [
+    "open-domain generation",
+    "unbounded reasoning",
+    "large-model semantic inference"
+  ],
+  "limitations": [
+    "Small curated vocabulary only.",
+    "Owner approval required for any external lexicon source import."
+  ]
+}

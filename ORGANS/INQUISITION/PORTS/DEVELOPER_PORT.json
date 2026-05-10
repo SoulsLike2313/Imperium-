@@ -1,0 +1,53 @@
+{
+  "schema_version": "DEVELOPER_PORT_V0_2",
+  "organ_id": "INQUISITION",
+  "developer_summary": "UNKNOWN_OR_NEEDS_FORMALIZATION",
+  "primary_code_paths": [
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS"
+  ],
+  "primary_scripts": [
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\generate_deletion_proposal.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\inquisition_post_stage_audit.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py"
+  ],
+  "primary_dashboards": [],
+  "launch_commands": [
+    "python 'E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py'"
+  ],
+  "test_commands": [
+    "python -m py_compile <script.py>",
+    "Invoke-WebRequest http://127.0.0.1:<port>/api/data"
+  ],
+  "safe_edit_roots": [
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS"
+  ],
+  "forbidden_edit_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "current_dev_target": "NEEDS_FORMALIZATION",
+  "known_failures": [],
+  "next_patch_recommendation": "Create organ contract/status/report surfaces and update developer/test/script ports.",
+  "evidence_paths": [
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\ORGAN_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\CONTINUITY_PORT.json",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\LATEST_REPORTS_INDEX.json",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\LATEST_RECEIPTS_INDEX.json"
+  ],
+  "stale_if_older_than_hours": 24,
+  "last_verified_at": "2026-05-10T06:14:42.626405+00:00",
+  "limitations": [
+    "Bootstrap/developer handoff scope only.",
+    "No canon or continuity green claim."
+  ],
+  "do_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY"
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "organ_name": "Administratum",
+  "status": "BOOTSTRAP",
+  "responsibilities": [
+    "own memory/index state",
+    "own address registry",
+    "own current state snapshots",
+    "own chronology/timeline surfaces",
+    "build continuity packs",
+    "compare continuity packs",
+    "report handoff integrity",
+    "collect organ reports as evidence",
+    "report missing state explicitly"
+  ],
+  "explicitly_not_responsible_for": [
+    "approving canon doctrine",
+    "replacing Owner decisions",
+    "executing arbitrary task stages",
+    "enforcing laws directly",
+    "repairing other organs directly",
+    "writing THRONE",
+    "editing Sanctum",
+    "archive recursive scan without Owner approval",
+    "declaring continuity green without supporting evidence"
+  ],
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1"
+  ],
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "entrypoints": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\dashboard_server.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_1.ps1"
+  ],
+  "scripts": [
+    "administratum_build_continuity_pack.py",
+    "administratum_compare_continuity_pack.py",
+    "dashboard_server.py",
+    "app.js"
+  ],
+  "required_receipts": [
+    "09_RECEIPTS/02_administratum_organ_formalization_receipt.json",
+    "09_RECEIPTS/03_continuity_engine_receipt.json",
+    "09_RECEIPTS/05_dashboard_build_receipt.json",
+    "09_RECEIPTS/06_button_test_receipt.json"
+  ],
+  "expected_reports": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.md",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS"
+  ],
+  "dashboard_requirement": {
+    "required": true,
+    "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+    "script_backed_required": true,
+    "active_action_buttons_allowed": [
+      "BUILD_CONTINUITY_PACK"
+    ]
+  },
+  "continuity_pack_requirement": {
+    "required": true,
+    "pack_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS",
+    "comparison_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS"
+  },
+  "owner_approval_state": "OWNER_REVIEW_REQUIRED",
+  "known_limitations": [
+    "No Sanctum integration in v0_1",
+    "No VM2/THRONE integration",
+    "Continuity quality depends on available organ evidence files",
+    "No canon claims are allowed from this surface"
+  ],
+  "current_blockers": [
+    "Organ ecosystem still has multiple Doctrinarium-reported gaps",
+    "Law enforcement remains incomplete across codex set"
+  ],
+  "last_verified_at": "2026-05-09T19:38:26.093495+00:00"
+}

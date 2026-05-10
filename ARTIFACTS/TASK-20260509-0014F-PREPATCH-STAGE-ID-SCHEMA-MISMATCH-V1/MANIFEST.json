@@ -1,0 +1,60 @@
+{
+  "task_id": "TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+  "generated_at_utc": "2026-05-09T07:55:51Z",
+  "required_artifacts": [
+    {
+      "path": "OWNER_SUMMARY.md",
+      "size_bytes": 1643,
+      "sha256": "97b6d485f46869008f7ec8b7751e46d9ab377ac241c3f5894106b74ef2ecc307"
+    },
+    {
+      "path": "STAGE_ID_POLICY.md",
+      "size_bytes": 1865,
+      "sha256": "634d240483a0e18e218367441cefc7100ce5a6dc8307be4421b5ce13163181a3"
+    },
+    {
+      "path": "STAGE_ID_POLICY.json",
+      "size_bytes": 1646,
+      "sha256": "7facfbb136bcbfd33141c53ae88bf696331edd2eaff1ef4339ef22c1a3f964c5"
+    },
+    {
+      "path": "STAGE_ID_MISMATCH_SCAN_REPORT.json",
+      "size_bytes": 339894,
+      "sha256": "084267b7108fb529c691bf3eafa1e9e828d9f78d847ed2be24d1339e9918e564"
+    },
+    {
+      "path": "STAGE_ID_MISMATCH_SCAN_REPORT.md",
+      "size_bytes": 3977,
+      "sha256": "3f88f02229adc39a0d97322ad54da03a4d92bc16e272dcba6b902a0697ff1a0f"
+    },
+    {
+      "path": "PATCHED_FILES_MANIFEST.json",
+      "size_bytes": 4475,
+      "sha256": "88d416f280558c73b8d9c350136a9bd53f91b10561daa412cc31536e9bf6a97c"
+    },
+    {
+      "path": "TEST_RESULTS.json",
+      "size_bytes": 2342,
+      "sha256": "28891049141b818af38e36a9ee2d9c3506679f17749656c63da3248ab1431d20"
+    },
+    {
+      "path": "TEST_RESULTS.md",
+      "size_bytes": 933,
+      "sha256": "31e3b1c153959d17da545a0d198b23b59c99dcce729d3cc1d831b29595aab313"
+    },
+    {
+      "path": "REPAIR_RECEIPT.json",
+      "size_bytes": 2818,
+      "sha256": "b9543e339ba4125bcf503818711e987d70ed1ace748457c1d83e348b116d652f"
+    },
+    {
+      "path": "RUN_LEDGER.jsonl",
+      "size_bytes": 1045,
+      "sha256": "88809f43f2fd0cc5dce041b538cd440bb5c1a0a9a400fdb00fb32715e5b5e7d9"
+    }
+  ],
+  "notes": [
+    "SHA256SUMS.txt is generated after MANIFEST.json and includes MANIFEST.json hash.",
+    "Historical legacy artifacts were not rewritten."
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-05-10T05:54:52.537742+00:00",
+  "pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "checks": [
+    {
+      "check": "mentions_doctrinarium_v0_8_playwright_pass",
+      "ok": false,
+      "detail": "None"
+    },
+    {
+      "check": "mentions_administratum_v0_1_finalization",
+      "ok": true,
+      "detail": "."
+    },
+    {
+      "check": "includes_ports_registry",
+      "ok": true,
+      "detail": "None"
+    },
+    {
+      "check": "includes_next_action",
+      "ok": true,
+      "detail": "['build Administratum dashboard', 'run continuity pack', 'compare continuity pack', 'build next organ or visual hardening']"
+    },
+    {
+      "check": "includes_do_not_do",
+      "ok": true,
+      "detail": "['no fake green', 'no canon claim', 'no Archive scan', 'no Sanctum claim', 'no VM2 activation', 'no THRONE', 'no delete', 'no latest guessing']"
+    },
+    {
+      "check": "includes_limitations",
+      "ok": true,
+      "detail": "['Continuity pack is evidence-based but not canon authority.', 'No continuity green claim is allowed.', 'Owner role selection is provided separately from this pack.']"
+    },
+    {
+      "check": "includes_evidence_paths",
+      "ok": true,
+      "detail": "['doctrinarium_handoff_finalization', 'doctrinarium_handoff_zip', 'doctrinarium_playwright_report', 'doctrinarium_status', 'doctrinarium_gap_report', 'administratum_status', 'administratum_contract', 'administratum_self_report']"
+    },
+    {
+      "check": "entrypoint_role_neutral",
+      "ok": false,
+      "detail": ""
+    },
+    {
+      "check": "ports_cover_real_organs",
+      "ok": false,
+      "detail": "['ADMINISTRATUM', 'ASTRONOMICON', 'DOCTRINARIUM', 'INQUISITION', 'MECHANICUS', 'OFFICIO_AGENTIS']"
+    },
+    {
+      "check": "ports_registry_not_empty",
+      "ok": true,
+      "detail": "count=6"
+    },
+    {
+      "check": "references_selected_old_pack",
+      "ok": false,
+      "detail": "expected=E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210 actual=None"
+    },
+    {
+      "check": "required_new_pack_files_present",
+      "ok": false,
+      "detail": "['IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md', 'HANDOFF_SUFFICIENCY_REPORT.json', 'PORTS_SNAPSHOT.json']"
+    }
+  ],
+  "issues": [
+    "mentions_doctrinarium_v0_8_playwright_pass: None",
+    "entrypoint_role_neutral: ",
+    "ports_cover_real_organs: ['ADMINISTRATUM', 'ASTRONOMICON', 'DOCTRINARIUM', 'INQUISITION', 'MECHANICUS', 'OFFICIO_AGENTIS']",
+    "references_selected_old_pack: expected=E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210 actual=None",
+    "required_new_pack_files_present: ['IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md', 'HANDOFF_SUFFICIENCY_REPORT.json', 'PORTS_SNAPSHOT.json']"
+  ],
+  "critical_failures": [
+    {
+      "check": "mentions_doctrinarium_v0_8_playwright_pass",
+      "ok": false,
+      "detail": "None"
+    },
+    {
+      "check": "entrypoint_role_neutral",
+      "ok": false,
+      "detail": ""
+    },
+    {
+      "check": "required_new_pack_files_present",
+      "ok": false,
+      "detail": "['IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md', 'HANDOFF_SUFFICIENCY_REPORT.json', 'PORTS_SNAPSHOT.json']"
+    }
+  ],
+  "verdict": "NEW_PACK_INSUFFICIENT_FOR_RELIABLE_HANDOFF"
+}

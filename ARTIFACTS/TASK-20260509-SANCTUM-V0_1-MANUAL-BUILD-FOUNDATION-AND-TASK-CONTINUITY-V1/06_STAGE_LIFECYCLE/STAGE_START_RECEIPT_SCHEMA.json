@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STAGE_START_RECEIPT",
+  "type": "object",
+  "required": [
+    "task_id",
+    "run_id",
+    "stage_id",
+    "started_at",
+    "executor"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "stage_title": {
+      "type": "string"
+    },
+    "executor": {
+      "type": "string"
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "string"
+    }
+  }
+}

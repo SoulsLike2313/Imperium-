@@ -1,0 +1,197 @@
+{
+  "tools_root": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+  "active_tools_count": 15,
+  "class_count": 8,
+  "legacy_or_blocked_count": 6,
+  "last_verified_utc_max": "2026-05-08T19:18:14Z",
+  "class_counts": {
+    "CORE_LIB": 8,
+    "PC_VM2_PIPELINE": 6,
+    "CONTINUITY": 4,
+    "BUNDLE_VALIDATION": 4,
+    "OWNER_MANUAL": 3,
+    "READONLY_EXPLORER": 1,
+    "SANCTUM_PREP": 3,
+    "LEGACY_QUARANTINE": 6
+  },
+  "status_counts": {
+    "ACTIVE": 8,
+    "ACTIVE_NEEDS_SPECULUM": 7,
+    "PLACEHOLDER_CONTRACT": 14,
+    "LEGACY_CANDIDATE": 6
+  },
+  "registry_integrity_receipt_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\REGISTRY_INTEGRITY_RECEIPT.json",
+  "registry_integrity_status": "PASS",
+  "registry_integrity_warnings": [],
+  "registry_integrity_receipt": {
+    "task_id": "TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+    "producer_type": "PC_SERVITOR",
+    "producer_id": "PC-SERVITOR-0014C2",
+    "tools_root": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+    "registry_path": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\00_REGISTRY\\TOOLS_MASTER_INDEX.json",
+    "total_tools_count": 35,
+    "active_tools_count": 15,
+    "active_needs_speculum_count": 7,
+    "placeholder_count": 14,
+    "legacy_count": 6,
+    "blocked_count": 0,
+    "hash_checked_count": 15,
+    "hash_match_count": 15,
+    "hash_mismatch_count": 0,
+    "missing_file_count": 0,
+    "invalid_status_count": 0,
+    "unknown_active_tools_count": 0,
+    "verdict": "PASS",
+    "checked_at_utc": "2026-05-08T19:18:14Z",
+    "no_vm2": true,
+    "no_e2e": true,
+    "no_throne": true,
+    "no_watchers": true,
+    "no_latest": true
+  },
+  "registry_hash_verification": {
+    "active_checked_count": 15,
+    "active_hash_match_count": 15,
+    "active_hash_mismatch_count": 0,
+    "missing_active_files_count": 0,
+    "unknown_active_tools_count": 0,
+    "details": [
+      {
+        "tool_id": "CORE_ID_VALIDATION",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\id_validation.py",
+        "registry_sha256": "e15e4a40770eb5b58bb98fedb642cda56d7d03ba083f0a3412108e695cc68613",
+        "actual_sha256": "e15e4a40770eb5b58bb98fedb642cda56d7d03ba083f0a3412108e695cc68613",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_SHA256_UTILS",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\sha256_utils.py",
+        "registry_sha256": "f8464526fc5f02a094f3ec50432a46edb5bd616b957947d5daa537550f87e377",
+        "actual_sha256": "f8464526fc5f02a094f3ec50432a46edb5bd616b957947d5daa537550f87e377",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_MANIFEST_UTILS",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\manifest_utils.py",
+        "registry_sha256": "446250903f694998e0c9b010283d38b3efa409ff32adfbff0dd603a0a4e3b31e",
+        "actual_sha256": "446250903f694998e0c9b010283d38b3efa409ff32adfbff0dd603a0a4e3b31e",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_PROVENANCE_UTILS",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\provenance_utils.py",
+        "registry_sha256": "517178d4e5c7983a0aa42adb20dc4eb6d342ba070eea0356c4268a75f550caa7",
+        "actual_sha256": "517178d4e5c7983a0aa42adb20dc4eb6d342ba070eea0356c4268a75f550caa7",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_LEDGER_UTILS",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\ledger_utils.py",
+        "registry_sha256": "8806aa9e7e88a41c006a6a104cecde1c6b9f209c129857a6b9f42d557da0c380",
+        "actual_sha256": "8806aa9e7e88a41c006a6a104cecde1c6b9f209c129857a6b9f42d557da0c380",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_OWNER_REPORT",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\owner_report.py",
+        "registry_sha256": "89448ef76d853c9da6da5322dd79cd8537cb1f2411dbf36f200f299bc9197f04",
+        "actual_sha256": "89448ef76d853c9da6da5322dd79cd8537cb1f2411dbf36f200f299bc9197f04",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_PATH_SAFETY",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\path_safety.py",
+        "registry_sha256": "37d6a4423eb7647d04ef6a77bd33b5294efc5e5b8d89b685ea7a089de33f4a78",
+        "actual_sha256": "37d6a4423eb7647d04ef6a77bd33b5294efc5e5b8d89b685ea7a089de33f4a78",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "CORE_REGISTRY_UTILS",
+        "status": "ACTIVE",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\01_CORE_LIB\\registry_utils.py",
+        "registry_sha256": "18e4bbb21af409414aa6b4c673b54fdc19e2937634d4dbd29b64c4bca4f4da12",
+        "actual_sha256": "18e4bbb21af409414aa6b4c673b54fdc19e2937634d4dbd29b64c4bca4f4da12",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "PC_VM2_SEND_PROMPT",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\10_PC_VM2_PIPELINE\\send_prompt_to_vm2.py",
+        "registry_sha256": "9d2acaf247827384da6700f573c0e5e70d5a1f34ef49c41117f94fd51df0f238",
+        "actual_sha256": "9d2acaf247827384da6700f573c0e5e70d5a1f34ef49c41117f94fd51df0f238",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "PC_VM2_FETCH_STAGE_BUNDLE",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\10_PC_VM2_PIPELINE\\fetch_vm2_stage_bundle.py",
+        "registry_sha256": "b7c0dbec3c50d6f456e3dfe7ff258b2880df9fc7e2c4ed5ce047213084f9c10d",
+        "actual_sha256": "b7c0dbec3c50d6f456e3dfe7ff258b2880df9fc7e2c4ed5ce047213084f9c10d",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "PC_BARRIER_VERIFY",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\10_PC_VM2_PIPELINE\\barrier_verify.py",
+        "registry_sha256": "ac1856c8bf9a1a8b56b8ff81b4937d9301de7ce233ada41154cd8ef2e1cd2132",
+        "actual_sha256": "ac1856c8bf9a1a8b56b8ff81b4937d9301de7ce233ada41154cd8ef2e1cd2132",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "PC_FINAL_BUNDLE_ASSEMBLE",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\10_PC_VM2_PIPELINE\\final_bundle_assemble.py",
+        "registry_sha256": "73b4f88a931b1149f2f2bb295018be5311ff51831dc5c44e5f2570ab886ac5b9",
+        "actual_sha256": "73b4f88a931b1149f2f2bb295018be5311ff51831dc5c44e5f2570ab886ac5b9",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "PC_TASK_STATUS_APPEND",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\10_PC_VM2_PIPELINE\\task_status_append.py",
+        "registry_sha256": "06b1bf08acc6efbbf106d009fab0b90fd7e550fda35886e67fbdecfea0078da3",
+        "actual_sha256": "06b1bf08acc6efbbf106d009fab0b90fd7e550fda35886e67fbdecfea0078da3",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "PC_TASK_STATUS_VIEW",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\10_PC_VM2_PIPELINE\\task_status_view.py",
+        "registry_sha256": "0f53dc343588fc55c999f7c5d72a612e165089b0d4173593c1ab8e5a4148ed99",
+        "actual_sha256": "0f53dc343588fc55c999f7c5d72a612e165089b0d4173593c1ab8e5a4148ed99",
+        "match": "PASS"
+      },
+      {
+        "tool_id": "READONLY_EXPLORER",
+        "status": "ACTIVE_NEEDS_SPECULUM",
+        "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\50_READONLY_EXPLORER\\imperium_readonly_explorer.py",
+        "registry_sha256": "34c5622288477abcd8f24d0e0782a6f313d3a371b669b8d6f2749a9ec64a5b70",
+        "actual_sha256": "34c5622288477abcd8f24d0e0782a6f313d3a371b669b8d6f2749a9ec64a5b70",
+        "match": "PASS"
+      }
+    ],
+    "status": "PASS"
+  }
+}
+ШАГ:
+READONLY_EXPLORER/summary
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Выполнен read-only обзор реестра инструментов без изменений файлов системы.
+Показаны адреса, статусы и карта потока для Owner/PC/VM2 сценария с индикатором целостности реестра.
+Сетевые действия, VM2/THRONE доступ и автоматизация не выполнялись.
+Следующий шаг: использовать tool_id из реестра после Speculum go/no-go и registry integrity PASS.
+

@@ -1,0 +1,9 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "risk_classes": {
+    "READ_ONLY_SCAN": "LOW",
+    "VALIDATION": "LOW",
+    "LAUNCH_CARD_WRITE": "MEDIUM",
+    "REPAIR_BRANCH_STUB_WRITE": "MEDIUM"
+  }
+}

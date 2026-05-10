@@ -1,0 +1,15 @@
+{
+  "schema_version": "TEST_PORT_V0_2",
+  "organ_id": "MECHANICUS",
+  "tests": [
+    {
+      "test_id": "MECHANICUS_SCRIPT_COMPILE",
+      "test_type": "compile",
+      "command": "python -m py_compile E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_manifest.py",
+      "expected_result": "exit_code_0",
+      "latest_result": "UNKNOWN",
+      "latest_report_path": null,
+      "skipped_reason": null
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schema_id": "STAGE_STOP_REASON_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "contour_id",
+    "stop_type",
+    "reason",
+    "timestamp_utc",
+    "evidence_refs"
+  ],
+  "stop_type_allowed": [
+    "BLOCKED",
+    "FAIL",
+    "CONFLICT",
+    "TIMEOUT",
+    "OWNER_DECISION_REQUIRED",
+    "FAIL_FATAL"
+  ]
+}

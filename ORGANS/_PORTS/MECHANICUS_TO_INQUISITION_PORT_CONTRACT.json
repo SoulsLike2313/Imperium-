@@ -1,0 +1,22 @@
+{
+  "schema_version": "ORGAN_PORT_CONTRACT_V0_1",
+  "port_id": "MECHANICUS_TO_INQUISITION",
+  "status": "CONTRACT_ONLY",
+  "source_organ": "MECHANICUS",
+  "target_organ": "INQUISITION",
+  "required_outputs_from_source": [
+    "SCRIPT_SELECTION.json",
+    "VALIDATOR_SELECTION.json",
+    "TOOL_CONTRACTS.json",
+    "TEST_COMMANDS.json",
+    "RISK_CLASSIFICATION.json",
+    "TECHNICAL_PREFLIGHT_REPORT.json"
+  ],
+  "required_validations": [
+    "script_registry_parse",
+    "validator_registry_parse",
+    "tool_contracts_declared",
+    "local_only_tools_only"
+  ],
+  "notes": "Foundation scaffold only. No live pipeline claim."
+}

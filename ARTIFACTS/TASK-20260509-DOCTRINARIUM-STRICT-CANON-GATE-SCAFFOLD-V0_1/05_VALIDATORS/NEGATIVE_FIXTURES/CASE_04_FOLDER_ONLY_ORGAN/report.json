@@ -1,0 +1,110 @@
+{
+  "organ_id": "EMPTY_ORGAN",
+  "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN",
+  "classification": "FOLDER_ONLY",
+  "folder_exists": true,
+  "readme_exists": false,
+  "organ_status_exists": false,
+  "organ_contract_exists": false,
+  "scripts_exists": false,
+  "receipts_exists": false,
+  "self_report_exists": false,
+  "checks": [
+    {
+      "check": "organ folder exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "README exists",
+      "ok": false,
+      "detail": "Missing README.md: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\README.md"
+    },
+    {
+      "check": "ORGAN_STATUS exists",
+      "ok": false,
+      "detail": "Missing ORGAN_STATUS.json: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\ORGAN_STATUS.json"
+    },
+    {
+      "check": "ORGAN_CONTRACT exists",
+      "ok": false,
+      "detail": "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\ORGAN_CONTRACT.json"
+    },
+    {
+      "check": "SCRIPTS exists or non-script role explicit",
+      "ok": false,
+      "detail": "Missing SCRIPTS directory and non_script_role is not explicit"
+    },
+    {
+      "check": "RECEIPTS exists",
+      "ok": false,
+      "detail": "Missing RECEIPTS directory: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\RECEIPTS"
+    },
+    {
+      "check": "allowed_write_roots defined",
+      "ok": false,
+      "detail": "allowed_write_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "check": "forbidden_roots defined",
+      "ok": false,
+      "detail": "forbidden_roots missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "check": "entrypoints defined",
+      "ok": false,
+      "detail": "entrypoints missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "check": "required_receipts defined",
+      "ok": false,
+      "detail": "required_receipts missing in ORGAN_CONTRACT"
+    },
+    {
+      "check": "responsibilities defined",
+      "ok": false,
+      "detail": "responsibilities missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "check": "excluded responsibilities defined",
+      "ok": false,
+      "detail": "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT"
+    },
+    {
+      "check": "self-report or equivalent exists",
+      "ok": false,
+      "detail": "No self-report/status report file found"
+    },
+    {
+      "check": "current blockers visible",
+      "ok": false,
+      "detail": "current_blockers field not found in status/contract"
+    },
+    {
+      "check": "no CANON_V0_1 claim without owner evidence",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "blockers": [
+    "Missing README.md: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\README.md",
+    "Missing ORGAN_STATUS.json: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\ORGAN_STATUS.json",
+    "Missing ORGAN_CONTRACT.json: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\ORGAN_CONTRACT.json",
+    "Missing SCRIPTS directory and non_script_role is not explicit",
+    "Missing RECEIPTS directory: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\ORGANS\\EMPTY_ORGAN\\RECEIPTS",
+    "allowed_write_roots missing or empty in ORGAN_CONTRACT",
+    "forbidden_roots missing or empty in ORGAN_CONTRACT",
+    "entrypoints missing or empty in ORGAN_CONTRACT",
+    "required_receipts missing in ORGAN_CONTRACT",
+    "responsibilities missing or empty in ORGAN_CONTRACT",
+    "explicitly_not_responsible_for missing or empty in ORGAN_CONTRACT",
+    "No self-report/status report file found",
+    "current_blockers field not found in status/contract"
+  ],
+  "warnings": [],
+  "owner_approval_state": {
+    "evidence_path": null,
+    "evidence_exists": false
+  },
+  "created_at": "2026-05-09T16:58:31.382142+00:00"
+}

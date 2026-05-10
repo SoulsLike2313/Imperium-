@@ -1,0 +1,39 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_05_ALL_ORGANS_GAP_REPORT",
+  "script_id": "DOCTRINARIUM_VALIDATE_ALL_ORGANS",
+  "script_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_all_organs.py",
+  "script_sha256": "4ae0e11439160e78aa43e00c34f6dc2cba001bae82838912bf5db3a5ce6936bc",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\06_ALL_ORGANS_GAP_REPORT\\ALL_ORGANS_GAP_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\06_ALL_ORGANS_GAP_REPORT\\ALL_ORGANS_GAP_REPORT.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.md"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\06_ALL_ORGANS_GAP_REPORT\\ALL_ORGANS_GAP_REPORT.json": "61d844481e32fe990992672d8f6d2e8ac4bc3b5f90acca78520476040a2704ae",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\06_ALL_ORGANS_GAP_REPORT\\ALL_ORGANS_GAP_REPORT.md": "67ce6abfbcf19eb61ce0934a95a05482b1df1555f28925c2c10ed925483b6c6b",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.json": "61d844481e32fe990992672d8f6d2e8ac4bc3b5f90acca78520476040a2704ae",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\ALL_ORGANS_GAP_REPORT.md": "67ce6abfbcf19eb61ce0934a95a05482b1df1555f28925c2c10ed925483b6c6b"
+  },
+  "verdict": "PASS_ALL_ORGANS_GAP_REPORT_CREATED_WITH_EXPECTED_ERRORS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Expected errors are diagnostic outputs and do not indicate full canon readiness."
+  ],
+  "next_action": "Generate doctrinarium status report",
+  "created_at": "2026-05-09T16:58:31.634037+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

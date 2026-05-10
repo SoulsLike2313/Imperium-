@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STAGE_BLOCKED_RECEIPT",
+  "type": "object",
+  "required": [
+    "task_id",
+    "run_id",
+    "stage_id",
+    "blocked_reason",
+    "owner_action_required"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "blocked_reason": {
+      "type": "string"
+    },
+    "owner_action_required": {
+      "type": "boolean"
+    },
+    "owner_action_note": {
+      "type": "string"
+    }
+  }
+}

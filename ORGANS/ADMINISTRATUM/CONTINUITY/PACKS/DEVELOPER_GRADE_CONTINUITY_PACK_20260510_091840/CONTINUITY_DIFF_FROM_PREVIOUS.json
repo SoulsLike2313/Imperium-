@@ -1,0 +1,14 @@
+{
+  "schema_version": "CONTINUITY_DIFF_FROM_PREVIOUS_V0_1",
+  "generated_at": "2026-05-10T05:54:52.264716+00:00",
+  "previous_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085319",
+  "current_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452",
+  "changes": [
+    {
+      "field": "ports_missing_count",
+      "old": 0,
+      "new": 0
+    }
+  ],
+  "has_changes": true
+}

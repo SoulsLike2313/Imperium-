@@ -1,0 +1,38 @@
+{
+  "schema_version": "TASK_RECIPE_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "task_name": "Build minimal organ-gated memory spine and run local smoke test",
+  "mode": "SMOKE_TEST",
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "allowed_outputs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM",
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION"
+  ],
+  "required_organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ADMINISTRATUM",
+    "ASTRONOMICON",
+    "MECHANICUS",
+    "INQUISITION"
+  ],
+  "expected_stage_count": 1,
+  "final_claim_limit": {
+    "may_claim": [
+      "smoke test result only"
+    ],
+    "may_not_claim": [
+      "full system readiness",
+      "canon doctrine if Passport/Constitution missing"
+    ]
+  }
+}

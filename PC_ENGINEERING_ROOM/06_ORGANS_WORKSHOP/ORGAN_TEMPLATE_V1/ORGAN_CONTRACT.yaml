@@ -1,0 +1,16 @@
+organ_name:
+engineering_alias:
+purpose:
+authority_level:
+allowed_inputs:
+allowed_outputs:
+forbidden_actions:
+scripts:
+inbox_ports:
+outbox_ports:
+receipt_policy:
+config_policy:
+runtime_policy:
+owner_review_required:
+throne_admission_allowed: false
+notes:

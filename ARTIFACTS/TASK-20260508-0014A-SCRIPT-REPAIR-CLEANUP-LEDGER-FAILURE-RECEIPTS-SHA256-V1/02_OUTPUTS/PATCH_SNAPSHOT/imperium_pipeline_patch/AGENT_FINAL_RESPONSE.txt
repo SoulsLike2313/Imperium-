@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1
+
+БАНДЛ:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\FINAL_STEP_BUNDLE\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1_PATCH_BUNDLE.zip
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Исправлены ошибки timestamp в ledger, failure receipts/events в send/fetch и блокировка финальной сборки без BARRIER_PASS.
+Добавлена portable запись внешнего .sha256 с именем файла без абсолютного Windows-пути.
+Локальные smoke/regression проверки пройдены, E2E не запускался, THRONE и watchers не затрагивались.
+Следующий шаг: Speculum review этого patch bundle перед TASK-0015 tiny E2E.

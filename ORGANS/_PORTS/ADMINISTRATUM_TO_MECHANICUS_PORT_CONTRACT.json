@@ -1,0 +1,23 @@
+{
+  "schema_version": "ORGAN_PORT_CONTRACT_V0_1",
+  "port_id": "ADMINISTRATUM_TO_MECHANICUS",
+  "status": "CONTRACT_ONLY",
+  "source_organ": "ADMINISTRATUM",
+  "target_organ": "MECHANICUS",
+  "required_outputs_from_source": [
+    "TASK_LAUNCH_CARD.json",
+    "TASK_READ_FIRST.md",
+    "TASK_OUTPUT_MAP.json",
+    "POLICY_REFS.json",
+    "ADDRESS_REFS.json",
+    "RECEIPT_REQUIREMENTS.json",
+    "TASK_VERSION_CHAIN.json"
+  ],
+  "required_validations": [
+    "launch_card_required_fields",
+    "stage_id_policy_check",
+    "policy_ref_paths_exist",
+    "output_map_declared"
+  ],
+  "notes": "Foundation scaffold only. No autonomous execution."
+}

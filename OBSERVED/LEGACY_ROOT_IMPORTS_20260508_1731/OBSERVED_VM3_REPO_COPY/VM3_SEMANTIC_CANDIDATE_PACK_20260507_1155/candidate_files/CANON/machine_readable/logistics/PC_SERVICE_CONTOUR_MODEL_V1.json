@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.2.0",
+  "kind": "pc_service_contour_model",
+  "model_id": "PC_SERVICE_CONTOUR_MODEL_V1",
+  "status": "active_candidate",
+  "truth_center": {
+    "contour": "throne",
+    "exclusive_canon_authority": true
+  },
+  "writer_class": {
+    "allowed_contours": [
+      "vm1",
+      "vm2",
+      "vm3"
+    ],
+    "pc_allowed_to_write_work_copies": false,
+    "pc_allowed_for_admission": false
+  },
+  "pc_role": {
+    "contour": "pc",
+    "role_class": "windows_service_support_non_writer",
+    "owner_facing_ui_language": "ru",
+    "ui_model": "thin_launcher_over_scripts",
+    "routing_intelligence_in_ui_forbidden": true,
+    "admission_authority": false,
+    "canon_truth_authority": false,
+    "primary_owner_actions": [
+      "send_prompt",
+      "pull_latest_bundle"
+    ]
+  },
+  "runtime_update_boundary": {
+    "runtime_artifact_lives_on_pc": true,
+    "pc_local_edits_class": [
+      "diagnostic",
+      "sandbox_patch",
+      "repair_note"
+    ],
+    "pc_local_edits_direct_source_truth": false,
+    "source_truth_update_authority": "worker_contours_only",
+    "required_update_cycle": [
+      "worker_source_fix",
+      "worker_rebuild",
+      "worker_delivery_to_pc",
+      "runtime_reproof"
+    ]
+  },
+  "service_zones_windows": {
+    "all_review_bundles": "E:/IMPERIUM/IMPERIUM_ALL_REVIEW/bundles",
+    "all_review_receipts": "E:/IMPERIUM/IMPERIUM_ALL_REVIEW/receipts",
+    "service_state": "E:/IMPERIUM/IMPERIUM_SERVICE_STATE",
+    "service_tasks": "E:/IMPERIUM/IMPERIUM_SERVICE_TASKS",
+    "service_mirror_canon": "E:/IMPERIUM/IMPERIUM_SERVICE_MIRROR/canon"
+  },
+  "active_writer_resolution": {
+    "primary_source": "CANON/machine_readable/optimization/CONTOUR_RUNTIME_BINDING_V1.json",
+    "mirror_source": "E:/IMPERIUM/IMPERIUM_SERVICE_MIRROR/canon/CANON/machine_readable/optimization/CONTOUR_RUNTIME_BINDING_V1.json",
+    "fallback_snapshot_allowed": true,
+    "fallback_requires_receipt_note": true
+  },
+  "linked_laws": [
+    "CANON/DOCTRINE/CROSS_CONTOUR_WORKING_ARTIFACT_RETRIEVAL_LAW_V1.md",
+    "CANON/DOCTRINE/PC_RUNTIME_UPDATE_BOUNDARY_LAW_V1.md",
+    "CANON/machine_readable/logistics/PC_RUNTIME_UPDATE_BOUNDARY_LAW_V1.json",
+    "CANON/machine_readable/logistics/WORKING_ARTIFACT_SOURCE_PRIORITY_MODEL_V1.json"
+  ],
+  "forbidden": [
+    "second_truth_center",
+    "pc_as_writer_contour",
+    "pc_as_admission_contour",
+    "routing_intelligence_inside_ui",
+    "parallel_competing_registry_without_lawful_need"
+  ],
+  "active_phase": {
+    "phase_id": "DYNAMIC_VM_WORKER_SESSION_FOUNDATION_V1",
+    "active_contours": [
+      "throne",
+      "pc",
+      "vm3"
+    ],
+    "worker_class_equal_contours": [
+      "vm1",
+      "vm2",
+      "vm3"
+    ],
+    "dynamic_active_worker": {
+      "enabled": true,
+      "current_task_worker": "vm3",
+      "resolution_source": "runtime/contours/signals/vm3/LATEST_SIGNAL.json"
+    },
+    "vm1_status": "available_for_evidence_or_owner_gated_continuation",
+    "vm2_status": "frozen_do_not_touch_until_owner_reactivation",
+    "throne_helper_role": "channel_bootstrap_and_truth_hub"
+  },
+  "generated_at_utc": "2026-04-26T21:33:06Z"
+}

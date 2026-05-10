@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "dependencies": [
+    {
+      "stage_id": "STAGE-002",
+      "depends_on": [
+        "STAGE-001"
+      ],
+      "mode": "ALL",
+      "requires_ack": [
+        "ACK_REQUIRED"
+      ]
+    }
+  ]
+}

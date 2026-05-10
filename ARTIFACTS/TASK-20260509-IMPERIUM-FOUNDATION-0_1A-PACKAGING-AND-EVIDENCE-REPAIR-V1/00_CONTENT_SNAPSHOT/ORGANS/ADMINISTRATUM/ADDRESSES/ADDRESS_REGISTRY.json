@@ -1,0 +1,10 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "addresses": {
+    "imperium_root": "E:/IMPERIUM",
+    "artifacts_root": "E:/IMPERIUM/ARTIFACTS",
+    "explorer_root": "E:/IMPERIUM/EXPLORER",
+    "organs_root": "E:/IMPERIUM/ORGANS",
+    "archive_root": "E:/IMPERIUM/ARCHIVE"
+  }
+}

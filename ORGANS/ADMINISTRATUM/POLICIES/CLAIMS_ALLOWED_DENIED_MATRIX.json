@@ -1,0 +1,20 @@
+{
+  "policy_id": "POLICY-CLAIMS-MATRIX-0_1",
+  "status": "PROMPT_ENGINEERING_FILE_BASE_0_1",
+  "allowed_status_terms": [
+    "ORGAN_SCAFFOLD_0_1",
+    "READ_ROUTE_SCAFFOLD_0_1",
+    "PROMPT_ENGINEERING_FILE_BASE_0_1",
+    "EXPLORER_V1_0A_CANDIDATE",
+    "NOT_IMPLEMENTED"
+  ],
+  "denied_claims": [
+    "CONTINUITY_GREEN",
+    "organs implemented",
+    "Sanctum ready",
+    "Aquarium ready",
+    "PC↔VM2 E2E ready",
+    "THRONE connected",
+    "production automation ready"
+  ]
+}

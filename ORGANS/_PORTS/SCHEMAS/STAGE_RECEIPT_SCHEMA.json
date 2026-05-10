@@ -1,0 +1,15 @@
+{
+  "schema_id": "STAGE_RECEIPT_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "status",
+    "started_at",
+    "ended_at",
+    "validation_result",
+    "next_allowed_action"
+  ],
+  "notes": "Foundation schema for stage loop receipts."
+}

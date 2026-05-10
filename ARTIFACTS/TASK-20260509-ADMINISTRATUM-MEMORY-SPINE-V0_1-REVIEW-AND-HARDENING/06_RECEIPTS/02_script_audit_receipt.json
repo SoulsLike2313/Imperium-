@@ -1,0 +1,25 @@
+{
+  "schema_version": "HARDENING_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_2_SCRIPT_AUDIT",
+  "input_paths": [],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\02_SCRIPT_AUDIT\\ORGAN_SCRIPT_AUDIT.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\02_SCRIPT_AUDIT\\ORGAN_SCRIPT_AUDIT.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\02_SCRIPT_AUDIT\\ORGAN_SCRIPT_AUDIT.md": "664b3bae16a8a36cf71a58f632c715ff01663a739c327853a254e696a15bb8fa",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\02_SCRIPT_AUDIT\\ORGAN_SCRIPT_AUDIT.json": "f609cde6ad21627d53c33f9f68bb56bf9a5f19cc07e6c332241efb96924511ae"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "next_action": "Proceed to patch review and replay.",
+  "created_at": "2026-05-09T15:20:56.7055093Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Проверены орган-скрипты с hash/рисками и проверками запретных действий."
+}

@@ -1,0 +1,70 @@
+﻿{
+    "task_id":  "TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1",
+    "artifact_type":  "EXPLORER_V1_0_READONLY_BASELINE_FREEZE_PROOF",
+    "status":  "PASS_EXPLORER_V1_0_READONLY_VISUAL_MIRROR_BASELINE",
+    "created_at_local":  "2026-05-09T11:46:59",
+    "explorer_version":  "1.0",
+    "explorer_source":  "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0.py",
+    "static_readonly_scan":  {
+                                 "verdict":  "PASS_STATIC_READ_ONLY_SCAN",
+                                 "pass":  true
+                             },
+    "truth_audit":  {
+                        "verdict":  "PASS_TRUTH_SNAPSHOT_READY_FOR_SCREENSHOT_COMPARE",
+                        "pass":  true,
+                        "run_id":  "RUN-V1_0-20260509-114429",
+                        "total_nodes_scanned_excluding_archive_contents":  28173,
+                        "archive_roots_skipped_recursive_count":  1,
+                        "task_folders_count":  105,
+                        "receipts_count":  575,
+                        "manifests_count":  126,
+                        "bundles_count":  307
+                    },
+    "autoscreenshot_truth_check":  {
+                                       "verdict":  "PASS_AUTOSCREENSHOT_TRUTH_COMPARE",
+                                       "pass":  true,
+                                       "run_id":  "AUTO-RUN-20260509-114434",
+                                       "targets_total":  67,
+                                       "screenshots_created":  67,
+                                       "checks_total":  89,
+                                       "checks_passed":  89,
+                                       "checks_failed":  0
+                                   },
+    "baseline_definition":  "Explorer 1.0 is a local read-only visual mirror of E:\\IMPERIUM. It is not the source of truth.",
+    "source_of_truth":  [
+                            "filesystem",
+                            "manifests",
+                            "SHA256SUMS",
+                            "receipts",
+                            "truth audits",
+                            "screenshot truth checks",
+                            "Speculum reviews",
+                            "Owner decisions"
+                        ],
+    "allowed_ui_side_effects":  [
+                                    "clipboard_copy_path",
+                                    "open_path_in_windows_explorer"
+                                ],
+    "forbidden_claims":  [
+                             "Sanctum ready",
+                             "Aquarium ready",
+                             "organs implemented",
+                             "PC-VM2 E2E ready",
+                             "THRONE connected",
+                             "CONTINUITY_GREEN",
+                             "Explorer proves all historical semantics"
+                         ],
+    "forbidden_actions":  [
+                              "write_files",
+                              "edit_files",
+                              "delete_files",
+                              "move_files",
+                              "vm2_contact",
+                              "throne_contact",
+                              "e2e_run",
+                              "watchers",
+                              "background_automation",
+                              "continuity_pack_execution"
+                          ],
+    "recommended_next":  "SPECULUM_REVIEW_EXPLORER_V1_0_BASELINE_FREEZE_PROOF"
+}

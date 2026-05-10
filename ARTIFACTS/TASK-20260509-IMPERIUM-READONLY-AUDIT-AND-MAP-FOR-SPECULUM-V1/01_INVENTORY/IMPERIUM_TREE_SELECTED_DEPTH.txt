@@ -1,0 +1,788 @@
+E:\IMPERIUM
+├── ARCHIVE/ [SKIP_SUBTREE:ARCHIVE_LIKE]
+├── ARTIFACTS/
+│   ├── _MANUAL_PROOFS/
+│   │   ├── TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF/
+│   │   ├── TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1/
+│   │   ├── TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1/
+│   │   ├── TASK-20260509-EXPLORER-MANUAL-BUILD-V0_1-V0_3-PROOF/
+│   │   ├── TASK-TEST-VM2-PROMPT-COPY/
+│   │   ├── 00_AGENT_MAP.md
+│   │   ├── MANUAL_PROOFS_INDEX.csv
+│   │   ├── MANUAL_PROOFS_INDEX.json
+│   │   └── README.md
+│   ├── TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR/
+│   │   ├── 01_INPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   └── 08_OWNER_SUMMARY/
+│   ├── TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION/
+│   │   ├── 00_AGENT_MAP/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   └── FINAL_STEP_BUNDLE/
+│   ├── TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST/
+│   │   ├── 00_AGENT_MAP/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   └── FINAL_STEP_BUNDLE/
+│   ├── TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1/
+│   │   ├── 00_AGENT_MAP/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   └── FINAL_STEP_BUNDLE/
+│   ├── TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   └── FINAL_STEP_BUNDLE/
+│   ├── TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   └── FINAL_STEP_BUNDLE/
+│   ├── TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   └── 00_AGENT_MAP.md
+│   ├── TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1/
+│   │   ├── 00_REGISTRY/
+│   │   ├── 01_CORE_LIB/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── 10_PC_VM2_PIPELINE/
+│   │   ├── 20_CONTINUITY/
+│   │   ├── 30_BUNDLE_VALIDATION/
+│   │   ├── 40_OWNER_MANUAL/
+│   │   ├── 50_READONLY_EXPLORER/
+│   │   ├── 60_SANCTUM_PREP/
+│   │   ├── 90_LEGACY_QUARANTINE/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── 00_AGENT_MAP.md
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── DEPENDENCY_CLOSURE_REPORT.md
+│   │   ├── IMPERIUM_ADDRESS_MAP_V1.json
+│   │   ├── IMPERIUM_ADDRESS_MAP_V1.md
+│   │   ├── INSTALLED_ROOT_RUNTIME_SMOKE_RECEIPT.json
+│   │   ├── LEGACY_SCAN_REPORT.md
+│   │   ├── LOCAL_FINAL_ASSEMBLY_DRYRUN_RECEIPT.json
+│   │   ├── LOCAL_FINAL_ASSEMBLY_DRYRUN_REPORT.md
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── REPAIR_TEST_RESULTS.md
+│   │   ├── SCRIPT_ACCEPTANCE_TESTS.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── SPECULUM_REVIEW_REQUEST.md
+│   ├── TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/
+│   │   ├── 00_REGISTRY/
+│   │   ├── 01_CORE_LIB/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── 10_PC_VM2_PIPELINE/
+│   │   ├── 20_CONTINUITY/
+│   │   ├── 30_BUNDLE_VALIDATION/
+│   │   ├── 40_OWNER_MANUAL/
+│   │   ├── 50_READONLY_EXPLORER/
+│   │   ├── 60_SANCTUM_PREP/
+│   │   ├── 90_LEGACY_QUARANTINE/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── 00_AGENT_MAP.md
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── CLEANHASH_REPAIR_RECEIPT.json
+│   │   ├── CLEANHASH_REPAIR_REPORT.md
+│   │   ├── DEPENDENCY_CLOSURE_REPORT.md
+│   │   ├── IMPERIUM_ADDRESS_MAP_V1.json
+│   │   ├── IMPERIUM_ADDRESS_MAP_V1.md
+│   │   ├── INSTALLED_ROOT_RUNTIME_SMOKE_RECEIPT.json
+│   │   ├── LEGACY_SCAN_REPORT.md
+│   │   ├── LOCAL_FINAL_ASSEMBLY_DRYRUN_RECEIPT.json
+│   │   ├── LOCAL_FINAL_ASSEMBLY_DRYRUN_REPORT.md
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── REPAIR_TEST_RESULTS.md
+│   │   ├── SCRIPT_ACCEPTANCE_TESTS.md
+│   │   ├── SHA256SUMS.txt
+│   │   ├── SPECULUM_REVIEW_REQUEST.md
+│   │   └── UPDATED_REPAIR_TEST_RESULTS.md
+│   ├── TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1/
+│   │   ├── 00_REGISTRY/
+│   │   ├── 01_CORE_LIB/
+│   │   ├── 01_INPUTS/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   ├── 06_BUNDLES/
+│   │   ├── 07_REPORTS/
+│   │   ├── 08_OWNER_SUMMARY/
+│   │   ├── 09_SOURCE_POINTERS/
+│   │   ├── 10_PC_VM2_PIPELINE/
+│   │   ├── 20_CONTINUITY/
+│   │   ├── 30_BUNDLE_VALIDATION/
+│   │   ├── 40_OWNER_MANUAL/
+│   │   ├── 50_READONLY_EXPLORER/
+│   │   ├── 60_SANCTUM_PREP/
+│   │   ├── 90_LEGACY_QUARANTINE/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── 00_AGENT_MAP.md
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── CLEANHASH_REPAIR_RECEIPT.json
+│   │   ├── CLEANHASH_REPAIR_REPORT.md
+│   │   ├── DEPENDENCY_CLOSURE_REPORT.md
+│   │   ├── GENERATED_ARTIFACTS_POLICY.md
+│   │   ├── IMPERIUM_ADDRESS_MAP_V1.json
+│   │   ├── IMPERIUM_ADDRESS_MAP_V1.md
+│   │   ├── INSTALLED_ROOT_RUNTIME_SMOKE_RECEIPT.json
+│   │   ├── LEGACY_SCAN_REPORT.md
+│   │   ├── LOCAL_FINAL_ASSEMBLY_DRYRUN_RECEIPT.json
+│   │   ├── LOCAL_FINAL_ASSEMBLY_DRYRUN_REPORT.md
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── REGISTRY_INTEGRITY_RECEIPT.json
+│   │   ├── REGISTRY_INTEGRITY_REPORT.md
+│   │   ├── REGISTRY_REPAIR_TEST_RESULTS.md
+│   │   ├── REPAIR_TEST_RESULTS.md
+│   │   ├── SCRIPT_ACCEPTANCE_TESTS.md
+│   │   └── SHA256SUMS.txt
+│   │   └── ... (2 more files omitted)
+│   ├── TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1/
+│   │   ├── 02_OUTPUTS/
+│   │   ├── 07_REPORTS/
+│   │   ├── 15_STAGE_COORDINATION/
+│   │   ├── EXAMPLES/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── ORGANS/
+│   │   ├── PROMPT_SKELETONS/
+│   │   ├── SCHEMAS/
+│   │   ├── SPECULUM_SNAPSHOT/
+│   │   ├── 0014D_IMPLEMENTATION_ROADMAP.md
+│   │   ├── 0014E_STAGE_COORDINATION_IMPLEMENTATION_PLAN.md
+│   │   ├── 0014F_LOCAL_COORDINATION_DRYRUN_PLAN.md
+│   │   ├── 0015_FULL_E2E_PREPARATION_PLAN.md
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── IMPERIUM_EXECUTION_LAW_V1.md
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   ├── SKELETON_VALIDATION_RECEIPT.json
+│   │   ├── SKELETON_VALIDATION_REPORT.md
+│   │   ├── SPECULUM_SNAPSHOT_RECEIPT.json
+│   │   └── TOOLS_REGISTRY_UPDATE_PLAN.md
+│   ├── TASK-20260508-0014D1-STAGE-COORDINATION-SKELETON-CLEANUP-V1/
+│   │   ├── 15_STAGE_COORDINATION/
+│   │   ├── EXAMPLES/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── ORGANS/
+│   │   ├── PROMPT_SKELETONS/
+│   │   ├── SCHEMAS/
+│   │   ├── SPECULUM_SNAPSHOT/
+│   │   ├── 0014D_IMPLEMENTATION_ROADMAP.md
+│   │   ├── 0014E_STAGE_COORDINATION_IMPLEMENTATION_PLAN.md
+│   │   ├── 0014F_LOCAL_COORDINATION_DRYRUN_PLAN.md
+│   │   ├── 0015_FULL_E2E_PREPARATION_PLAN.md
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── CLEANUP_RECEIPT.json
+│   │   ├── CLEANUP_REPORT.md
+│   │   ├── FINAL_HANDED_OFF_ARTIFACT_RECEIPT.json
+│   │   ├── GENERATED_ARTIFACTS_POLICY.md
+│   │   ├── IMPERIUM_EXECUTION_LAW_V1.md
+│   │   ├── MANIFEST.json
+│   │   ├── NO_GO_FOR_TINY_E2E_UNTIL_0014E_0014F_PASS.md
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   ├── SPECULUM_REVIEW_REQUEST.md
+│   │   └── TOOLS_REGISTRY_UPDATE_PLAN.md
+│   ├── TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1/
+│   │   ├── 15_STAGE_COORDINATION/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── REPORTS/
+│   │   ├── TEST_FIXTURES/
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── MANIFEST.json
+│   │   ├── NO_GO_FOR_VM2_UNTIL_0014F_0014G_PASS.md
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── SPECULUM_REVIEW_REQUEST.md
+│   ├── TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1/
+│   │   ├── 15_STAGE_COORDINATION/
+│   │   ├── FINAL_STEP_BUNDLE/
+│   │   ├── REPORTS/
+│   │   ├── TEST_FIXTURES/
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── FINAL_HANDED_OFF_ARTIFACT_RECEIPT.json
+│   │   ├── MANIFEST.json
+│   │   ├── NO_GO_FOR_VM2_UNTIL_0014F_0014G_PASS.md
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── SPECULUM_REVIEW_REQUEST.md
+│   ├── TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1/
+│   │   ├── 99_TEST_TMP/
+│   │   ├── 99_TEST_TMP.zip
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── PATCHED_FILES_MANIFEST.json
+│   │   ├── REPAIR_RECEIPT.json
+│   │   ├── RUN_LEDGER.jsonl
+│   │   ├── SHA256SUMS.txt
+│   │   ├── STAGE_ID_MISMATCH_SCAN_REPORT.json
+│   │   ├── STAGE_ID_MISMATCH_SCAN_REPORT.md
+│   │   ├── STAGE_ID_POLICY.json
+│   │   ├── STAGE_ID_POLICY.md
+│   │   ├── TEST_RESULTS.json
+│   │   └── TEST_RESULTS.md
+│   ├── TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1/
+│   │   ├── 20_CONTINUITY_SCRIPTS_COPY/
+│   │   ├── CONTINUITY_PACK/
+│   │   ├── RECEIPTS/
+│   │   ├── REPORTS/
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── CONTINUITY_PACK.zip.sha256
+│   │   ├── CONTINUITY_PACK0016А.zip
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── SPECULUM_REVIEW_REQUEST.md
+│   ├── TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1/
+│   │   ├── 20_CONTINUITY_SCRIPTS_COPY/
+│   │   ├── CONTINUITY_PACK/
+│   │   ├── RECEIPTS/
+│   │   ├── REPORTS/
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── CONTINUITY_PACK 0016А1.zip
+│   │   ├── CONTINUITY_PACK.zip.sha256
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── SPECULUM_REVIEW_REQUEST.md
+│   ├── TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/
+│   │   ├── CONTINUITY_PACK/
+│   │   ├── ORGAN_PORTS/
+│   │   ├── RECEIPTS/
+│   │   ├── REPORTS/
+│   │   ├── AGENT_FINAL_RESPONSE.txt
+│   │   ├── CONTINUITY_PACK.zip.sha256
+│   │   ├── CONTINUITY_PACK0016B.zip
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── SPECULUM_REVIEW_REQUEST.md
+│   ├── TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1/
+│   │   ├── 00_SOURCE/
+│   │   ├── 01_GENERATED_ASTRA_TASK/
+│   │   ├── 02_MANUAL_PROOF/
+│   │   ├── 03_VALIDATION/
+│   │   ├── 04_SPECULUM_REQUEST/
+│   │   ├── 05_RECEIPTS/
+│   │   ├── 06_REPORTS/
+│   │   ├── 07_BUNDLE/
+│   │   ├── CONTENT_MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1/
+│   │   ├── 00_SOURCE/
+│   │   ├── 01_TRUTH_AUDIT/
+│   │   ├── 02_SCREENSHOT_TRUTH_CHECK/
+│   │   ├── 03_SCREENSHOTS/
+│   │   ├── 04_REPORTS/
+│   │   ├── 05_RECEIPTS/
+│   │   ├── 06_BUNDLE/
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1/
+│   │   ├── 00_SOURCE/
+│   │   ├── 01_POLICIES/
+│   │   ├── 02_PROOF_TOOLS/
+│   │   ├── 03_STATIC_READONLY_SCAN/
+│   │   ├── 04_TRUTH_AUDIT/
+│   │   ├── 05_SCREENSHOT_TRUTH_CHECK/
+│   │   ├── 06_SCREENSHOTS/
+│   │   ├── 07_RECEIPTS/
+│   │   ├── 08_BUNDLE/
+│   │   ├── MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1/
+│   │   ├── 00_INPUT_SCOPE/
+│   │   ├── 01_ASTRA_V0_4_REPAIR/
+│   │   ├── 02_FOUR_ORGAN_PORTS/
+│   │   ├── 03_STAGE_LOOP_AND_METRICS/
+│   │   ├── 04_ORGAN_SCRIPTS/
+│   │   ├── 05_LOCAL_DRY_RUN/
+│   │   ├── 06_VALIDATION/
+│   │   ├── 07_STAGE_RECEIPTS/
+│   │   ├── 08_REPORTS/
+│   │   ├── 09_BUNDLE/
+│   │   ├── ASTRA_V0_4_REPAIR_REPORT.md
+│   │   ├── CONTENT_MANIFEST.json
+│   │   ├── FOUNDATION_DRY_RUN_RECEIPT.json
+│   │   ├── FOUR_ORGAN_PIPELINE_FOUNDATION_REPORT.md
+│   │   ├── LOCAL_DRY_RUN_REPORT.md
+│   │   ├── ORGAN_PORTS_REPORT.md
+│   │   ├── ORGAN_SCRIPT_REPORT.md
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SHA256SUMS.txt
+│   │   ├── STAGE_LOOP_AND_METRICS_REPORT.md
+│   │   └── VALIDATION_REPORT.md
+│   ├── TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/
+│   │   ├── 00_CONTENT_SNAPSHOT/
+│   │   ├── 01_PACKAGING_POLICY/
+│   │   ├── 02_VALIDATION/
+│   │   ├── 03_NEGATIVE_TESTS/
+│   │   ├── 04_REPORTS/
+│   │   ├── 05_RECEIPTS/
+│   │   ├── 06_FINALIZATION_MODEL/
+│   │   ├── 07_BUNDLE/
+│   │   ├── CONTENT_MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1/
+│   │   ├── 00_INPUT_NOTES/
+│   │   ├── 01_EXPLORER_REPAIR/
+│   │   ├── 02_ORGAN_SCAFFOLD/
+│   │   ├── 03_PROMPT_ENGINEERING_BASE/
+│   │   ├── 04_SCRIPTS/
+│   │   ├── 05_VALIDATION/
+│   │   ├── 06_RECEIPTS/
+│   │   ├── 07_BUNDLE/
+│   │   ├── EXPLORER_V1_0A_REPAIR_REPORT.md
+│   │   ├── FOUNDATION_RECEIPT.json
+│   │   ├── FOUNDATION_STATUS.md
+│   │   ├── MANIFEST.json
+│   │   ├── ORGAN_SCAFFOLD_REPORT.md
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── PROMPT_ENGINEERING_BASE_REPORT.md
+│   │   ├── SCRIPT_REGISTRY_REPORT.md
+│   │   ├── SHA256SUMS.txt
+│   │   └── VALIDATION_REPORT.md
+│   ├── TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1/
+│   │   ├── 00_README/
+│   │   ├── 01_INVENTORY/
+│   │   ├── 02_TASKS/
+│   │   ├── 03_SANCTUM/
+│   │   ├── 04_CONTINUITY/
+│   │   ├── 05_ORGANS_AND_PORTS/
+│   │   ├── 06_RISKS/
+│   │   ├── 07_SPECULUM_INPUT/
+│   │   ├── 08_MACHINE_READABLE/
+│   │   ├── 09_RECEIPTS/
+│   │   └── 11_BUNDLE/
+│   ├── TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/
+│   │   ├── 00_INPUT_SCOPE/
+│   │   ├── 01_OBSERVED_SCAN/
+│   │   ├── 02_ORGAN_CANDIDATE_FILES/
+│   │   ├── 03_PROMPT_ENGINEERING_CANON/
+│   │   ├── 04_DUPLICATES_AND_DRIFT/
+│   │   ├── 05_MIGRATION_CANDIDATES/
+│   │   ├── 06_OWNER_DECISION_NEEDED/
+│   │   ├── 07_STAGE_RECEIPTS/
+│   │   ├── 08_VALIDATION/
+│   │   ├── 09_BUNDLE/
+│   │   ├── CONTENT_MANIFEST.json
+│   │   ├── FOUNDATION_INVENTORY_RECEIPT.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1/
+│   │   ├── 00_INPUT_SCOPE/
+│   │   ├── 01_ASTRA_SANCTUM_TASK_ROUTE/
+│   │   ├── 02_ADMINISTRATUM_ADDRESS_MAP/
+│   │   ├── 03_MECHANICUS_SCRIPT_MAP/
+│   │   ├── 04_INQUISITION_PREFLIGHT/
+│   │   ├── 05_SANCTUM_V0_1_REQUIREMENTS/
+│   │   ├── 06_STAGE_LIFECYCLE/
+│   │   ├── 07_TASK_CONTINUITY_MODEL/
+│   │   ├── 08_MANUAL_BUILD_PLAN/
+│   │   ├── 09_VALIDATION/
+│   │   ├── 10_RECEIPTS/
+│   │   ├── 11_REPORTS/
+│   │   ├── 12_BUNDLE/
+│   │   ├── CONTENT_MANIFEST.json
+│   │   ├── FOUNDATION_RECEIPT.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   ├── SANCTUM_MANUAL_BUILD_FOUNDATION_REPORT.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1/
+│   │   ├── 00_TASK_REGISTRATION/
+│   │   ├── 01_ASTRA_ROUTE/
+│   │   ├── 02_SANCTUM_CURRENT_SOURCE/
+│   │   ├── 03_SMOKE_EVIDENCE/
+│   │   ├── 04_CONTINUITY_PACK/
+│   │   ├── 05_ROLE_ENTRY_CARDS/
+│   │   ├── 06_STAGE_LIFECYCLE/
+│   │   ├── 07_RECEIPTS/
+│   │   ├── 08_VALIDATION/
+│   │   ├── 09_BUNDLE/
+│   │   ├── INTERIM_CONTINUITY_20260509_SANCTUM_VISUAL_ITERATION_HANDOFF/
+│   │   ├── CONTENT_MANIFEST.json
+│   │   ├── OWNER_SUMMARY.md
+│   │   └── SHA256SUMS.txt
+│   ├── TASK-TEST-VM2-PYTHON-SEND/
+│   │   ├── 01_INPUTS/
+│   │   ├── 03_RECEIPTS/
+│   │   ├── 04_MANIFESTS/
+│   │   ├── 05_HASHES/
+│   │   └── 07_REPORTS/
+│   ├── 00_AGENT_MAP.md
+│   ├── ARTIFACT_ROUTING_POLICY.md
+│   ├── ARTIFACT_TASK_FOLDER_TEMPLATE.md
+│   ├── INDEX.csv
+│   └── INDEX.json
+├── EXPLORER/
+│   ├── __pycache__/ [SKIP_SUBTREE:NOISE]
+│   ├── POLICIES/
+│   │   ├── EXPLORER_ARCHIVE_POLICY.json
+│   │   ├── EXPLORER_ARCHIVE_POLICY.md
+│   │   ├── EXPLORER_BASELINE_POLICY.json
+│   │   └── EXPLORER_BASELINE_POLICY.md
+│   ├── SCREENSHOTS/
+│   │   ├── AUTO-RUN-20260509-111755/
+│   │   ├── AUTO-RUN-20260509-112316/
+│   │   ├── AUTO-RUN-20260509-112849/
+│   │   ├── AUTO-RUN-20260509-114434/
+│   │   ├── AUTO-RUN-V1_0A-20260509-120030/
+│   │   ├── AUTO-RUN-V1_0A-20260509-120801/
+│   │   └── RUN-20260509-111555/
+│   ├── VERIFY/
+│   │   ├── __pycache__/ [SKIP_SUBTREE:NOISE]
+│   │   ├── RUN-20260509-111424/
+│   │   ├── RUN-20260509-112746/
+│   │   ├── RUN-V1_0-20260509-114429/
+│   │   ├── RUN-V1_0A-20260509-120022/
+│   │   ├── RUN-V1_0A-20260509-120751/
+│   │   ├── auto_explorer_screenshot_truth_check_v0_1.py
+│   │   ├── auto_explorer_screenshot_truth_check_v0_2.py
+│   │   ├── auto_explorer_screenshot_truth_check_v0_3.py
+│   │   ├── auto_explorer_screenshot_truth_check_v1_0.py
+│   │   ├── auto_explorer_screenshot_truth_check_v1_0a.py
+│   │   ├── build_explorer_v0_6_baseline_artifact.ps1
+│   │   ├── build_explorer_v1_0_baseline_artifact.ps1
+│   │   ├── build_foundation_0_1a_content_package.py
+│   │   ├── explorer_truth_audit_v0_2.py
+│   │   ├── explorer_truth_audit_v1_0.py
+│   │   ├── explorer_truth_audit_v1_0a.py
+│   │   ├── EXPLORER_V1_0_STATIC_READ_ONLY_SCAN_REPORT.json
+│   │   ├── EXPLORER_V1_0_STATIC_READ_ONLY_SCAN_REPORT.md
+│   │   ├── EXPLORER_V1_0A_STATIC_READ_ONLY_SCAN_REPORT.json
+│   │   ├── EXPLORER_V1_0A_STATIC_READ_ONLY_SCAN_REPORT.md
+│   │   ├── make_explorer_screenshots_v0_1.ps1
+│   │   ├── patch_explorer_v0_6_archive_truth.py
+│   │   ├── static_readonly_source_scan_v1_0.py
+│   │   └── static_readonly_source_scan_v1_0a.py
+│   ├── CHANGELOG.md
+│   ├── imperium_explorer_v0_1.py
+│   ├── imperium_explorer_v0_2.py
+│   ├── imperium_explorer_v0_3.py
+│   ├── imperium_explorer_v0_4.py
+│   ├── imperium_explorer_v0_5.py
+│   ├── imperium_explorer_v0_6.py
+│   ├── imperium_explorer_v1_0.py
+│   ├── imperium_explorer_v1_0a.py
+│   └── README.md
+├── OBSERVED/
+│   ├── LEGACY_ROOT_IMPORTS_20260508_1731/
+│   │   ├── OBSERVED_VM3_REPO_COPY/
+│   │   ├── 00_AGENT_MAP.md
+│   │   ├── MOVED_HERE_MANIFEST.csv
+│   │   └── ROLLBACK_NOTES.md
+│   ├── THRONE_REPO_COPY/
+│   │   ├── FULL_COPY/
+│   │   ├── THRONE_IMPERIUM_OBSERVED_COPY.tar.gz
+│   │   └── THRONE_IMPERIUM_OBSERVED_COPY.tar.gz.sha256
+│   └── VM3_REPO_COPY/
+│       ├── FULL_COPY/
+│       ├── VM3_IMPERIUM_OBSERVED_COPY.tar.gz
+│       └── VM3_IMPERIUM_OBSERVED_COPY.tar.gz.sha256
+├── ORGANS/
+│   ├── _PORTS/
+│   │   ├── SCHEMAS/
+│   │   ├── ADMINISTRATUM_TO_MECHANICUS_PORT_CONTRACT.json
+│   │   ├── ASTRA_TO_ADMINISTRATUM_PORT_CONTRACT.json
+│   │   ├── FOUR_ORGAN_PIPELINE_OVERVIEW.md
+│   │   ├── INQUISITION_TO_OWNER_PC_PORT_CONTRACT.json
+│   │   ├── MECHANICUS_TO_INQUISITION_PORT_CONTRACT.json
+│   │   └── SPECULUM_REVIEW_PORT_CONTRACT.json
+│   ├── ADMINISTRATUM/
+│   │   ├── ADDRESSES/
+│   │   ├── OUTPUT_RULES/
+│   │   ├── POLICIES/
+│   │   ├── PORTS/
+│   │   ├── SCHEMAS/
+│   │   ├── SCRIPTS/
+│   │   ├── TASKS/
+│   │   ├── ORGAN_STATUS.json
+│   │   ├── README.md
+│   │   └── TASK_REGISTRY.json
+│   ├── ASTRONOMICON/
+│   │   ├── PORTS/
+│   │   ├── SCRIPTS/
+│   │   ├── TASKS/
+│   │   ├── UTILITIES/
+│   │   ├── BLOCKER_BEACONS.json
+│   │   ├── CAMPAIGN_STATE.json
+│   │   ├── NEXT_ALLOWED_ACTION.json
+│   │   ├── ORGAN_STATUS.json
+│   │   ├── README.md
+│   │   ├── REPAIR_BRANCH_POLICY.json
+│   │   ├── ROADMAP.md
+│   │   ├── TASK_DEPENDENCY_GRAPH.json
+│   │   └── TASK_VERSION_CHAINS.json
+│   ├── INQUISITION/
+│   │   ├── POLICIES/
+│   │   ├── PORTS/
+│   │   ├── SCRIPTS/
+│   │   ├── ORGAN_STATUS.json
+│   │   └── README.md
+│   └── MECHANICUS/
+│       ├── PORTS/
+│       ├── REPAIR_SCRIPTS/
+│       ├── RISK/
+│       ├── SCHEMAS/
+│       ├── SCRIPTS/
+│       ├── TESTS/
+│       ├── ORGAN_STATUS.json
+│       ├── README.md
+│       ├── SCRIPT_REGISTRY.json
+│       └── VALIDATOR_REGISTRY.json
+├── PC_ENGINEERING_ROOM/
+│   ├── 00_SYSTEM_MAPS/
+│   │   ├── 00_AGENT_MAP.md
+│   │   ├── FOLDER_AGENT_MAP_TEMPLATE.md
+│   │   ├── FOLDER_MAP_SCHEMA.json
+│   │   ├── IMPERIUM_FOLDER_MAP.json
+│   │   ├── IMPERIUM_FOLDER_SEMANTIC_MAP.csv
+│   │   ├── IMPERIUM_FOLDER_SEMANTIC_MAP.json
+│   │   ├── IMPERIUM_FOLDER_SEMANTIC_MAP.md
+│   │   ├── IMPERIUM_ROOT_AGENT_MAP.md
+│   │   ├── ROOT_CLEANUP_CANDIDATES.csv
+│   │   └── ROOT_STRUCTURE_BASELINE_REPORT_RU.md
+│   ├── 01_CURRENT_STATE/
+│   ├── 02_ARCHITECTURE_ATLAS/
+│   ├── 03_OWNER_DECISIONS/
+│   ├── 04_REVIEW_BENCH/
+│   ├── 05_TEST_LAB/
+│   ├── 06_ORGANS_WORKSHOP/
+│   │   ├── ORGAN_TEMPLATE_V1/
+│   │   └── ORGAN_MIGRATION_PLAN.md
+│   ├── 07_WORKER_TEMPLATE_LAB/
+│   ├── 08_LOCAL_LLM_LAB/
+│   │   └── LOCAL_LLM_PLAN.md
+│   ├── 09_INTERNET_RESEARCH_GATEWAY/
+│   │   └── INTERNET_ACCESS_POLICY.md
+│   ├── 10_RECEIPTS_AND_AUDIT/
+│   ├── 11_QUARANTINE_NO_DELETE/
+│   ├── 99_DASHBOARD/
+│   └── 00_README_RU.md
+├── SANCTUM/
+│   ├── __pycache__/ [SKIP_SUBTREE:NOISE]
+│   ├── NOTES/
+│   ├── RECEIPTS/
+│   ├── SCREENSHOTS/
+│   │   └── SANCTUM-SMOKE-20260509-150325/
+│   ├── VERIFY/
+│   │   ├── patch_sanctum_v0_22_to_v0_23_visual.py
+│   │   ├── patch_sanctum_v0_23_to_v0_24_hud.py
+│   │   ├── patch_sanctum_v0_26_to_v0_27_stable_render.py
+│   │   ├── register_sanctum_active_task_and_build_start_continuity_pack.py
+│   │   └── sanctum_v0_1_smoke_screenshot_check.py
+│   ├── README.md
+│   ├── SANCTUM_STATUS.json
+│   ├── sanctum_v0_1.py
+│   ├── sanctum_v0_2.py
+│   ├── sanctum_v0_21.py
+│   ├── sanctum_v0_22.py
+│   ├── sanctum_v0_23.py
+│   ├── sanctum_v0_24.py
+│   ├── sanctum_v0_25.py
+│   ├── sanctum_v0_26.py
+│   └── sanctum_v0_27.py
+└── SSH_COMMAND_LIBRARY/
+    ├── 00_CONNECTION_PROFILES/
+    │   ├── VM2_LOCAL_ACCESS_COMMANDS.local.md
+    │   ├── VM2_ROUTE.local.json
+    │   └── VM2_ROUTE_ALIAS.md
+    ├── 01_SEND_PROMPT_TO_VM/
+    ├── 02_FETCH_FROM_VM/
+    ├── 03_OPEN_ON_VM/
+    ├── 04_DIAGNOSTICS/
+    │   └── SSH_KEYS_TARGETS_REPORT_20260507_105346.txt
+    ├── 05_SUCCESSFUL_RECIPES/
+    │   ├── LEGACY_VM3_RECIPES_POLICY.md
+    │   ├── PC_TO_VM2_PROMPT_DISPATCH_AND_OPEN_RECIPE.md
+    │   ├── PC_TO_VM2_PYTHON_TOOLS_RECIPE.md
+    │   ├── PC_TO_VM2_WORKER_ROOM_RECIPES.md
+    │   ├── PC_TO_VM3_PROMPT_HANDOFF_TESTED_OK_20260507.md
+    │   └── VM3_TO_PC_FETCH_LATEST_BUNDLE_TESTED_OK.md
+    ├── 06_TOOLS/
+    │   ├── 00_REGISTRY/
+    │   ├── 01_CORE_LIB/
+    │   ├── 10_PC_VM2_PIPELINE/
+    │   ├── 15_STAGE_COORDINATION/
+    │   ├── 20_CONTINUITY/
+    │   ├── 30_BUNDLE_VALIDATION/
+    │   ├── 40_OWNER_MANUAL/
+    │   ├── 50_READONLY_EXPLORER/
+    │   ├── 60_SANCTUM_PREP/
+    │   ├── 90_LEGACY_QUARANTINE/
+    │   ├── __pycache__/ [SKIP_SUBTREE:NOISE]
+    │   ├── imperium_pipeline/
+    │   ├── PC_TO_VM3_PROMPT_HANDOFF/
+    │   ├── tests/
+    │   ├── VM3_TO_PC_FETCH_BUNDLE/
+    │   ├── fetch_vm2_stage_bundle.py
+    │   ├── LEGACY_SCAN_REPORT.md
+    │   ├── LEGACY_TOOL_NOTE_TASK_0014.md
+    │   ├── send_prompt_to_vm2.py
+    │   ├── STAGE_ID_POLICY.json
+    │   ├── STAGE_ID_POLICY.md
+    │   └── WRITE_SSH_LIBRARY_MANIFESTS.py
+    ├── VM2_ROUTE_BASELINE_20260508_1651/
+    │   ├── 01_ROUTE_MATRIX/
+    │   ├── 02_VM3_REFERENCE_REVIEW/
+    │   ├── 03_SMOKE_TEST_PROMPT_DISPATCH/
+    │   ├── 04_LIBRARY_REGISTRATION/
+    │   ├── 99_SECURITY_NOTES/
+    │   ├── 00_README_RU.md
+    │   ├── ARTIFACT_POINTER.md
+    │   └── FINAL_SERVITOR_REPORT_RU.md
+    ├── 00_MACHINE_README.json
+    ├── README_AGENT.md
+    ├── VM2_ROUTE_BASELINE_20260508_1651.zip
+    └── VM2_ROUTE_BASELINE_20260508_1651.zip.sha256

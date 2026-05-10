@@ -1,0 +1,29 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "type": "INTERIM_HANDOFF_ONLY",
+  "status": "ACTIVE_NOT_COMPLETE",
+  "latest_version": "sanctum_v0_27.py",
+  "most_promising_direction": "sanctum_v0_26.py",
+  "blocker": "flickering_or_blank_map",
+  "pass_conditions": {
+    "current_point_recorded": true,
+    "source_history_exists_or_missing_honestly_recorded": true,
+    "astra_task_state_exists_or_missing_honestly_recorded": true,
+    "current_blocker_recorded": true,
+    "next_chat_handoff_exists": true,
+    "stage_map_extract_exists": true,
+    "validation_passes": true,
+    "clean_bundle_exists": true
+  },
+  "validation_verdict": "PASS_VALIDATION_INTERIM_CONTINUITY",
+  "final_verdict": "PASS_INTERIM_CONTINUITY_PACK_READY_FOR_NEW_LOGOS_PRIME_CHAT",
+  "non_claims": {
+    "final_artifact": false,
+    "task_complete": false,
+    "speculum_final_review_done": false,
+    "baseline_accepted": false,
+    "continuity_green": false
+  },
+  "created_at_local": "2026-05-09T16:56:09"
+}

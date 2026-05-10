@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "RUN_ID": "RUN-20260509-DRYRUN-0001",
+  "TASK_ROUTE_VERSION": "0.1",
+  "ASTRA_ROUTE_STATUS": "DRAFT",
+  "allowed_values": [
+    "DRAFT",
+    "OWNER_REVIEW",
+    "APPROVED_FOR_ADMINISTRATUM_ROUTE",
+    "BLOCKED"
+  ],
+  "policy_hash_status": "POLICY_HASH_PENDING",
+  "updated_at_local": "2026-05-09T13:48:18"
+}

@@ -1,0 +1,10 @@
+{
+  "schema_version": "CONTINUITY_PACK_ENGINE_REPORT_V0_1",
+  "generated_at": "2026-05-09T19:56:10.036690+00:00",
+  "build_script_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+  "build_script_sha256": "4c19664cb8aad363af2da46da3714eefbdd13c30a08faa2b66cd7c3cf1e2981e",
+  "packs_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS",
+  "latest_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158",
+  "latest_build_receipt": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158\\BUILD_RECEIPT.json",
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

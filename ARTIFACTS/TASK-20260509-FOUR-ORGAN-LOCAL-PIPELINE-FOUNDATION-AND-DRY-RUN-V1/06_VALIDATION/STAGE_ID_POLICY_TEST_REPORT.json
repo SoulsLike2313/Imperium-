@@ -1,0 +1,53 @@
+{
+  "canonical_regex": "^(PC|VM2|SPECULUM|ADMINISTRATUM|MECHANICUS|ASTRA|INQUISITION)-STAGE-[0-9]{3}$",
+  "positive_rows": [
+    {
+      "value": "ASTRA-STAGE-001",
+      "pass": true
+    },
+    {
+      "value": "ADMINISTRATUM-STAGE-001",
+      "pass": true
+    },
+    {
+      "value": "MECHANICUS-STAGE-001",
+      "pass": true
+    },
+    {
+      "value": "INQUISITION-STAGE-001",
+      "pass": true
+    },
+    {
+      "value": "PC-STAGE-001",
+      "pass": true
+    },
+    {
+      "value": "SPECULUM-STAGE-001",
+      "pass": true
+    }
+  ],
+  "negative_rows": [
+    {
+      "value": "STAGE-PC-001",
+      "pass_should_be_false": true
+    },
+    {
+      "value": "STAGE-VM2-001",
+      "pass_should_be_false": true
+    },
+    {
+      "value": "PC_STAGE_001",
+      "pass_should_be_false": true
+    },
+    {
+      "value": "INQUISITION_STAGE_001",
+      "pass_should_be_false": true
+    },
+    {
+      "value": "",
+      "pass_should_be_false": true
+    }
+  ],
+  "errors": [],
+  "verdict": "PASS_STAGE_ID_POLICY_TESTS"
+}

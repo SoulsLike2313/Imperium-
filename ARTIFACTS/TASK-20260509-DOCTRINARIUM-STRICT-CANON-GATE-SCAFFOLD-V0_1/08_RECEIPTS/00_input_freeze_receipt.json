@@ -1,0 +1,35 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_00_INPUT_FREEZE",
+  "script_id": null,
+  "script_path": null,
+  "script_sha256": null,
+  "input_paths": [
+    "E:\\IMPERIUM"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\00_INPUTS\\TASK_RECIPE.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\00_INPUTS\\INPUT_FREEZE.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\00_INPUTS\\INPUT_FREEZE.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\00_INPUTS\\TASK_RECIPE.json": "30fc2c2c2c708163848d11be2cc5328b06107b4bc0faa17ff685e601aeb324b6",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\00_INPUTS\\INPUT_FREEZE.md": "1339ec5078eea7d2dd38baa12a907c74335e6e70798e514d02a3735de889e37a",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\00_INPUTS\\INPUT_FREEZE.json": "6d9626cf294d0b7565f7c4e9602c74b2c84da4da47fd14d80980a797d0bf9397"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [],
+  "next_action": "Run doctrine triad validation",
+  "created_at": "2026-05-09T16:58:31.584245+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

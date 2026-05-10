@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "scan_mode": "TOP_LEVEL_ONLY_NO_RECURSIVE_SCAN",
+  "archive_root": "E:\\IMPERIUM\\ARCHIVE",
+  "items": [
+    {
+      "name": "2026_04_DELETE_LATER",
+      "path": "E:\\IMPERIUM\\ARCHIVE\\2026_04_DELETE_LATER",
+      "kind": "directory"
+    },
+    {
+      "name": "ROOT_CLEANUP_20260508_1731",
+      "path": "E:\\IMPERIUM\\ARCHIVE\\ROOT_CLEANUP_20260508_1731",
+      "kind": "directory"
+    }
+  ]
+}

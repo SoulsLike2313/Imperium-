@@ -1,0 +1,19 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "ARTIFACT_MANIFEST_WRITE",
+  "timestamp_utc": "2026-05-08T20:37:24Z",
+  "action": "ARTIFACT_MANIFEST_WRITE",
+  "status": "PASS",
+  "failure_reason": null,
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "manifest_ref": "ARTIFACTS/manifests/stage1_manifest_v2.json",
+  "artifact_count": 1
+}

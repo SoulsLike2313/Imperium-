@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-05-10T05:54:52.539695+00:00",
+  "pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452",
+  "checks": [
+    {
+      "check": "mentions_doctrinarium_v0_8_playwright_pass",
+      "ok": true,
+      "detail": "PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT"
+    },
+    {
+      "check": "mentions_administratum_v0_1_finalization",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+    },
+    {
+      "check": "includes_ports_registry",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json"
+    },
+    {
+      "check": "includes_next_action",
+      "ok": true,
+      "detail": "['Review new continuity comparison and close top missing or stale port items.', 'Update weak organ ports from UNKNOWN to evidence-backed values.', 'Run Doctrinarium validators after organ-side hardening.', 'Keep continuity handoff in bootstrap limitations mode.']"
+    },
+    {
+      "check": "includes_do_not_do",
+      "ok": true,
+      "detail": "['no fake green', 'no canon claim', 'no archive scan', 'no sanctum changes', 'no vm2 activation', 'no throne contact', 'no delete', 'no latest guessing']"
+    },
+    {
+      "check": "includes_limitations",
+      "ok": true,
+      "detail": "['Continuity pack remains bootstrap evidence context only.', 'Ports exist but several organs still expose weak or unknown fields.', 'No canon or real-task readiness claim is allowed from this pack alone.']"
+    },
+    {
+      "check": "includes_evidence_paths",
+      "ok": true,
+      "detail": "['doctrinarium_handoff_finalization', 'doctrinarium_handoff_zip', 'doctrinarium_playwright_report', 'administratum_v0_1_finalization', 'ports_registry', 'old_pack_reference', 'old_pack_qa']"
+    },
+    {
+      "check": "entrypoint_role_neutral",
+      "ok": true,
+      "detail": "This is the latest IMPERIUM continuity state. Owner will provide role separately. Use evidence paths, not chat memory. Current verified point is: Ports-first continuity collection "
+    },
+    {
+      "check": "ports_cover_real_organs",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "ports_registry_not_empty",
+      "ok": true,
+      "detail": "count=6"
+    },
+    {
+      "check": "references_selected_old_pack",
+      "ok": true,
+      "detail": "expected=E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210 actual=E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210"
+    },
+    {
+      "check": "required_new_pack_files_present",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "issues": [],
+  "critical_failures": [],
+  "verdict": "NEW_PACK_SUFFICIENT_FOR_BOOTSTRAP_NEW_CHAT_HANDOFF_WITH_LIMITATIONS"
+}

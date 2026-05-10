@@ -1,0 +1,6 @@
+item_name,item_path,item_type,status,allowed_in_root,notes
+ARCHIVE,E:\IMPERIUM\ARCHIVE,folder,allowed_major_zone,YES,OK
+ARTIFACTS,E:\IMPERIUM\ARTIFACTS,folder,allowed_major_zone,YES,OK
+OBSERVED,E:\IMPERIUM\OBSERVED,folder,allowed_major_zone,YES,OK
+PC_ENGINEERING_ROOM,E:\IMPERIUM\PC_ENGINEERING_ROOM,folder,allowed_major_zone,YES,OK
+SSH_COMMAND_LIBRARY,E:\IMPERIUM\SSH_COMMAND_LIBRARY,folder,allowed_major_zone,YES,OK

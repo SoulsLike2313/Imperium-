@@ -1,0 +1,18 @@
+{
+  "tool_layout_id": "TASK-20260508-0014-LAYOUT-V1",
+  "task_id": "TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1",
+  "chosen_tools_root": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\imperium_pipeline",
+  "preferred_layout_used": false,
+  "reason": "Existing tools root already existed in SSH_COMMAND_LIBRARY\\06_TOOLS. Repaired scripts were consolidated there to avoid root scattering.",
+  "legacy_scripts_marked": [
+    "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\send_prompt_to_vm2.py",
+    "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\fetch_vm2_stage_bundle.py"
+  ],
+  "new_layout_paths": {
+    "scripts": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\imperium_pipeline",
+    "lib": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\imperium_pipeline\\lib",
+    "examples": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\imperium_pipeline\\examples"
+  },
+  "last_patch_task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "last_patch_scope": "ledger_timestamp_failure_receipts_portable_sha256"
+}

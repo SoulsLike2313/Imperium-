@@ -1,0 +1,16 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "summary": "Strict bootstrap/canon-candidate gate scaffold created with validators and expected-gap reporting.",
+  "known_limitations": [
+    "Owner approval artifact for canon doctrine is missing",
+    "Hard laws are not fully enforced"
+  ],
+  "current_blockers": [
+    "Owner approval artifact for canon doctrine is missing",
+    "Hard laws are not fully enforced"
+  ],
+  "last_verified_at": "2026-05-09T16:51:44.173202+00:00",
+  "evidence_refs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\01_DOCTRINE_VALIDATION\\DOCTRINE_VALIDATION_REPORT.json"
+  ]
+}

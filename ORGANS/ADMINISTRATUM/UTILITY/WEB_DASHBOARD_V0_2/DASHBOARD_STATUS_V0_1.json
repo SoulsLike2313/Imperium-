@@ -1,0 +1,25 @@
+{
+  "schema_version": "ADMINISTRATUM_DASHBOARD_STATUS_V0_1",
+  "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+  "utility_status": "SCRIPT_BACKED_WEB_DASHBOARD",
+  "url": "http://127.0.0.1:8792",
+  "active_action_buttons": [
+    "BUILD_CONTINUITY_PACK"
+  ],
+  "safe_navigation_buttons": [
+    "Open Continuity Packs folder",
+    "Open Reports folder",
+    "Open Administratum folder",
+    "Reload Data"
+  ],
+  "forbidden_claims": [
+    "CANON_V0_1",
+    "REAL_TASK_EXECUTION_READY",
+    "CONTINUITY_GREEN",
+    "ALL_MEMORY_COMPLETE",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY"
+  ]
+}

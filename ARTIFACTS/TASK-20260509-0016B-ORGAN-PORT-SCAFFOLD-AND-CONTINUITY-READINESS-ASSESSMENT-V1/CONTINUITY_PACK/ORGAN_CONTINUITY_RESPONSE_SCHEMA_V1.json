@@ -1,0 +1,26 @@
+{
+  "schema_id": "ORGAN_CONTINUITY_RESPONSE_SCHEMA_V1",
+  "type": "object",
+  "required": [
+    "organ_id",
+    "report_type",
+    "status",
+    "current_state",
+    "metrics",
+    "known_blockers",
+    "recent_history_points",
+    "open_questions",
+    "next_recommended_actions",
+    "evidence_refs",
+    "receipt_ref",
+    "generated_at_utc"
+  ],
+  "allowed_status": [
+    "PASS",
+    "PARTIAL",
+    "BLOCKED",
+    "NOT_IMPLEMENTED",
+    "NOT_YET_AVAILABLE",
+    "ERROR"
+  ]
+}

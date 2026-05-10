@@ -1,0 +1,21 @@
+{
+  "schema_id": "STAGE_GATE_DECISION_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "contour_id",
+    "decision",
+    "reason",
+    "timestamp_utc"
+  ],
+  "decision_allowed": [
+    "GATE_READY",
+    "GATE_WAITING",
+    "GATE_BLOCKED",
+    "GATE_FAIL",
+    "GATE_CONFLICT",
+    "GATE_TIMEOUT",
+    "OWNER_DECISION_REQUIRED"
+  ]
+}

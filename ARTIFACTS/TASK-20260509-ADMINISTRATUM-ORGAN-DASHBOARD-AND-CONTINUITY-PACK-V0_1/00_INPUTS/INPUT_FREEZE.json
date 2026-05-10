@@ -1,0 +1,37 @@
+{
+  "schema_version": "INPUT_FREEZE_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "root_path": "E:\\IMPERIUM",
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM"
+  ],
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "doctrinarium_handoff": {
+    "finalization_receipt": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json",
+    "zip_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF.zip",
+    "zip_sha256": "21b44c3f793949ac70e4d005d2fcdf42579b092b413cf609cba4451bd28cd426"
+  },
+  "policy_obligations": {
+    "no_archive_scan": true,
+    "no_sanctum_work": true,
+    "no_vm2_activation": true,
+    "no_throne_contact": true,
+    "no_background_watchers": true,
+    "no_delete_or_move": true,
+    "no_fake_green": true,
+    "no_fake_canon": true
+  },
+  "expected_final_verdict": "PASS_ADMINISTRATUM_DASHBOARD_AND_CONTINUITY_PACK_V0_1_WITH_LIMITATIONS",
+  "limitations": [
+    "Administratum remains BOOTSTRAP/SCAFFOLD.",
+    "No Sanctum integration in this task.",
+    "Only one active dashboard action button is implemented."
+  ],
+  "frozen_at": "2026-05-09T19:33:50.622580+00:00"
+}

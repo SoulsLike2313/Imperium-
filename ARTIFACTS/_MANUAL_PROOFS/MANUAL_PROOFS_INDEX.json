@@ -1,0 +1,16 @@
+[
+  {
+    "item": "TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF",
+    "source_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF",
+    "target_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS\\TASK-20260508-0007-PC-VM2-MANUAL-SSH-PROMPT-OPEN-PROOF",
+    "action": "MOVED",
+    "notes": "Moved manual proof artifact into _MANUAL_PROOFS."
+  },
+  {
+    "item": "TASK-TEST-VM2-PROMPT-COPY",
+    "source_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-TEST-VM2-PROMPT-COPY",
+    "target_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS\\TASK-TEST-VM2-PROMPT-COPY",
+    "action": "MOVED",
+    "notes": "Moved manual proof artifact into _MANUAL_PROOFS."
+  }
+]

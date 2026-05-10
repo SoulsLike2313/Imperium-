@@ -1,0 +1,11 @@
+{
+  "schema_version": "ASTRA_PASS_CRITERIA_V0_4",
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "RUN_ID": "RUN-20260509-DRYRUN-0001",
+  "minimum_requirements": [
+    "stage receipts per stage",
+    "validation reports per stage",
+    "no fake green",
+    "no VM2/THRONE/E2E activation"
+  ]
+}

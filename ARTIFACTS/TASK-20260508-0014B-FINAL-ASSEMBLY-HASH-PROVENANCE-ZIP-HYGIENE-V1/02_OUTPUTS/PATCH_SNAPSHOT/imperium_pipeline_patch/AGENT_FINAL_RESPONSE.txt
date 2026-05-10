@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1
+
+БАНДЛ:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\FINAL_STEP_BUNDLE\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1_PATCH_BUNDLE.zip
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Исправлена сборка final bundle: внутренний SHA256SUMS теперь использует относительные POSIX-пути для вложенных файлов.
+FINAL_PROVENANCE внутри zip больше не содержит PENDING, а hash финального zip фиксируется внешним sidecar .sha256.
+Проверены zip-path hygiene и portable checksum sidecar, локальные регрессионные тесты пройдены без E2E.
+Следующий шаг: Speculum hard-review, затем решение по запуску TASK-0015 tiny E2E.

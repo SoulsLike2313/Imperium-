@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1",
+  "stage_id": "STAGE-PC-001",
+  "run_id": "RUN-20260509-0014",
+  "contour_id": "PC",
+  "actor_id": "OWNER_MANUAL",
+  "producer_type": "OWNER_MANUAL",
+  "receipt_type": "PC_MANUAL_FETCH_VM2_RESULT",
+  "status": "PASS",
+  "created_at_utc": "2026-05-08T21:44:11Z",
+  "remote_run_dir": "/home/vboxuser2/IMPERIUM_WORKER_ROOM/01_INBOX/tasks/TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1/STAGE-PC-001/RUN-20260509-0014",
+  "local_return_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F0-VM2-LIVE-MANUAL-PROBE-V1\\VM2_RETURNED",
+  "result_file": "VM2_LIVE_PROBE_RESULT.md",
+  "result_sha256": "f7f2f7b029975c49ad8324c23f8ae491a3a7cd9b38156293de84aabe30b22efb",
+  "vm2_receipt_file": "VM2_LIVE_PROBE_RECEIPT.json",
+  "vm2_receipt_sha256": "51b6036cb93b75e807243ee2b172cb81978e406cb38c0cc20d29433d93946154",
+  "touched_vm2": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "no_full_e2e_claim": true
+}

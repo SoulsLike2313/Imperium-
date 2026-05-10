@@ -1,0 +1,26 @@
+{
+  "schema_version": "DOCTRINE_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+  "run_id": "RUN-20260509-190325-8cc655e4",
+  "actor": "PC_SERVITOR",
+  "phase": "PHASE_7_ORGAN_STATUS_UPDATE",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_STATUS.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json": "dbdf1991039a21444cbf9efeb87ce8cea198a3bdf203909e495090ee609e54ac",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_STATUS.json": "4caeb99f64679fbb31abb6b01b618c1445e154279f5298f1708e1e61b3c9dbbe"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "next_action": "Proceed to task summary and packaging.",
+  "created_at": "2026-05-09T16:12:22.6881457Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "ORGAN_STATUS обновлен без преждевременного canon-ready claim."
+}

@@ -1,0 +1,16 @@
+{
+  "schema_version": "RESUME_CONTINUITY_BUILD_RECEIPT_V0_2",
+  "task_id": "TASK-20260510-ADMINISTRATUM-RESUME-CONTINUITY-PACK-V0_2-MANUAL",
+  "pack_id": "RESUME_CONTINUITY_PACK_20260510_095106",
+  "pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\RESUME_CONTINUITY_PACK_20260510_095106",
+  "generated_at_utc": "2026-05-10T06:51:53.001812+00:00",
+  "verdict": "PASS_RESUME_CONTINUITY_PACK_V0_2_WITH_LIMITATIONS",
+  "owner_latest_decision_captured": true,
+  "start_here_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\RESUME_CONTINUITY_PACK_20260510_095106\\START_HERE.md",
+  "last_point_state_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\RESUME_CONTINUITY_PACK_20260510_095106\\LAST_POINT_STATE.json",
+  "limitations": [
+    "Human review still required.",
+    "Does not claim canon/green/real-task-ready.",
+    "Depends on local artifact/receipt presence at build time."
+  ]
+}

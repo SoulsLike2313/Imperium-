@@ -1,0 +1,30 @@
+{
+  "schema_version": "HARDENING_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_4_DOCTRINE_STATUS",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\04_DOCTRINE\\DOCTRINE_STATUS.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\04_DOCTRINE\\DOCTRINE_STATUS.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE": "DIR_PRESENT_NO_FILE_HASH",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\04_DOCTRINE\\DOCTRINE_STATUS.md": "3d2ec21c5719f8e4bffe1f03daf1edbbe945ee41d37cf0da711060f04cf0fa4b",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\04_DOCTRINE\\DOCTRINE_STATUS.json": "e47844accabf1fc5d647a16a82cac715114cae2321ee300042e3c2e1485b975e"
+  },
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [
+    "Doctrine remains non-canon placeholder; real-task doctrine gate remains limited."
+  ],
+  "next_action": "Proceed with bootstrap-limited replay validation.",
+  "created_at": "2026-05-09T15:20:56.7562928Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Статус доктрины зафиксирован: placeholder и требование Owner review."
+}

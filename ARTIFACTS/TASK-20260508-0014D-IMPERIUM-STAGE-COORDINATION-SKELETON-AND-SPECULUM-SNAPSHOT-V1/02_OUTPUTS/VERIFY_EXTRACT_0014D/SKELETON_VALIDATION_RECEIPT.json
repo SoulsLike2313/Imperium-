@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+  "checked_at_utc": "2026-05-08T19:53:28Z",
+  "json_parse_errors": 0,
+  "python_compile_errors": 0,
+  "marker_errors": 0,
+  "missing_required": 0,
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest_logic": true,
+  "verdict": "PASS"
+}

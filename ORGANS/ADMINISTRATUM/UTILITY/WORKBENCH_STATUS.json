@@ -1,0 +1,21 @@
+{
+  "schema_version": "WORKBENCH_STATUS_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "utility_id": "ADMINISTRATUM_WORKBENCH_V0_1",
+  "status": "SCRIPT_BACKED_WEB_DASHBOARD_ACTIVE",
+  "script_backed": true,
+  "gui_available": false,
+  "active_action_buttons": [
+    "BUILD_CONTINUITY_PACK"
+  ],
+  "safe_navigation_buttons": [
+    "Open Continuity Packs folder",
+    "Open Reports folder",
+    "Open Administratum folder",
+    "Reload Data"
+  ],
+  "blockers": [
+    "No canon claim allowed.",
+    "No continuity green claim allowed."
+  ]
+}

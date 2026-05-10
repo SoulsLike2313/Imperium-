@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "organ-self-report-query-schema-v1",
+  "title": "Organ Self Report Query V1",
+  "type": "object",
+  "required": [
+    "query_id",
+    "task_id",
+    "requester",
+    "requested_sections",
+    "evidence_required",
+    "redaction_required",
+    "include_metrics",
+    "include_history",
+    "include_next_actions",
+    "output_contract_version",
+    "created_at_utc"
+  ],
+  "properties": {
+    "query_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requester": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requested_sections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "evidence_required": {
+      "type": "boolean"
+    },
+    "redaction_required": {
+      "type": "boolean"
+    },
+    "include_metrics": {
+      "type": "boolean"
+    },
+    "include_history": {
+      "type": "boolean"
+    },
+    "include_next_actions": {
+      "type": "boolean"
+    },
+    "output_contract_version": {
+      "type": "string",
+      "const": "V1"
+    },
+    "created_at_utc": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,982 @@
+{
+  "audit_name": "IMPERIUM_EXPLORER_AUTO_SCREENSHOT_TRUTH_CHECK_V0_2",
+  "run_id": "AUTO-RUN-20260509-112316",
+  "created_at_local": "2026-05-09T11:24:02",
+  "explorer_script": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_5.py",
+  "truth_audit_report": "E:\\IMPERIUM\\EXPLORER\\VERIFY\\RUN-20260509-111424\\EXPLORER_TRUTH_AUDIT_REPORT.json",
+  "output_folder": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316",
+  "targets_total": 62,
+  "screenshots_created": 62,
+  "checks_total": 80,
+  "checks_passed": 78,
+  "checks_failed": 2,
+  "targets": [
+    {
+      "path": "E:\\IMPERIUM",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "IMPERIUM_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\001_IMPERIUM.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "IMPERIUM_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 6
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "ARTIFACTS_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\002_ARTIFACTS.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "ARTIFACTS_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 27
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "MANUAL_PROOFS_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\003__MANUAL_PROOFS.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "MANUAL_PROOFS_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 5
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "EXPLORER_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\004_EXPLORER.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "EXPLORER_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 2
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": false,
+          "expected": 6
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\README.md",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "MARKDOWN_FILE",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\005_README_md.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\README.md"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "MARKDOWN_FILE"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_3.py",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "PYTHON_SCRIPT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\006_imperium_explorer_v0_3_py.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_3.py"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "PYTHON_SCRIPT"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_4.py",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "PYTHON_SCRIPT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\007_imperium_explorer_v0_4_py.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_4.py"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "PYTHON_SCRIPT"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARCHIVE",
+      "source": "truth_audit.archive_top_index",
+      "expected_type": "ARCHIVE_COLD_STORAGE",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\008_ARCHIVE.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARCHIVE"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": false,
+          "expected": "ARCHIVE_COLD_STORAGE"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 2
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\009_TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\010_TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\011_TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\012_TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\013_TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\014_TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\015_TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\016_TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\017_TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\018_TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\019_TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0013A-AGENT-EXECUTION-REPORT-STANDARD-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\020_TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\021_TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\022_TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\023_TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\024_TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\025_TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+      "source": "truth_audit.sample_task_folders",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\026_TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1\\02_OUTPUTS\\SCHEMAS\\RECEIPT_SCHEMA_V1.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\027_RECEIPT_SCHEMA_V1_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0012-CONTINUITY-PACK-REDACTION-AND-PROTOCOL-REPAIR-V1\\02_OUTPUTS\\SCHEMAS\\RECEIPT_SCHEMA_V1.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\TOOL_LAYOUT_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\028_TOOL_LAYOUT_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\TOOL_LAYOUT_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\TOOL_LAYOUT_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\029_TOOL_LAYOUT_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\TOOL_LAYOUT_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\BARRIER_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\030_BARRIER_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\BARRIER_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\fetch_fail_FETCH_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\031_fetch_fail_FETCH_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\fetch_fail_FETCH_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\latest_reject_DISPATCH_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\032_latest_reject_DISPATCH_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\latest_reject_DISPATCH_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\send_fail_DISPATCH_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\033_send_fail_DISPATCH_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\send_fail_DISPATCH_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output\\FINAL_ASSEMBLY_RECEIPT.json",
+      "source": "truth_audit.sample_receipts",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\034_FINAL_ASSEMBLY_RECEIPT_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output\\FINAL_ASSEMBLY_RECEIPT.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1\\02_OUTPUTS\\PROTOCOL_V1\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\035_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0013-TASK-STAGE-RUN-SCHEMA-BARRIER-AND-PROVENANCE-V1\\02_OUTPUTS\\PROTOCOL_V1\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\036_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\\02_OUTPUTS\\TOOL_SNAPSHOT\\imperium_pipeline\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\037_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\038_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\extracted_bundle\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\039_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\extracted_bundle\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output\\TASK-20260508-1410-FINAL-ASSEMBLY-TEST_FINAL_TASK_BUNDLE_CONTENT\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\040_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output\\TASK-20260508-1410-FINAL-ASSEMBLY-TEST_FINAL_TASK_BUNDLE_CONTENT\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output\\TASK-TEST-0014B-OK_FINAL_TASK_BUNDLE_CONTENT\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\041_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output\\TASK-TEST-0014B-OK_FINAL_TASK_BUNDLE_CONTENT\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\patch_bundle_extract\\MANIFEST.json",
+      "source": "truth_audit.sample_manifests",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\042_MANIFEST_json.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\patch_bundle_extract\\MANIFEST.json"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING\\FINAL_STEP_BUNDLE\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING_FINAL_STEP_BUNDLE.zip",
+      "source": "truth_audit.sample_bundles",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\043_TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING_FINAL_STEP_BUNDLE_zip.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING\\FINAL_STEP_BUNDLE\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING_FINAL_STEP_BUNDLE.zip"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\IMPERIUM_LIGHT_SNAPSHOT_20260507_164459.zip",
+      "source": "truth_audit.sample_bundles",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\044_IMPERIUM_LIGHT_SNAPSHOT_20260507_164459_zip.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\IMPERIUM_LIGHT_SNAPSHOT_20260507_164459.zip"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703.zip",
+      "source": "truth_audit.sample_bundles",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\045_PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703_zip.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\PC_ARTIFACTS_VAULT_BOOTSTRAP_AND_VM2_ROUTE_PROOF_REGISTRATION_20260508_1703.zip"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344.zip",
+      "source": "truth_audit.sample_bundles",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\046_PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344_zip.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\PC_ENGINEERING_ROOM_BOOTSTRAP_V1_20260508_1344.zip"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip",
+      "source": "truth_audit.sample_bundles",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\047_PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711_zip.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR\\01_INPUTS\\ROOT_LEVEL_FILES_MOVED_FROM_ROOT\\PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1\\TEST_FIXTURES\\TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN\\ASTRA",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\048_ASTRA.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1\\TEST_FIXTURES\\TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN\\ASTRA"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1\\FINAL_STEP_BUNDLE\\_VERIFY_EXTRACT_0014E1_MANUAL\\TEST_FIXTURES\\TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN\\ASTRA",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\049_ASTRA.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1\\FINAL_STEP_BUNDLE\\_VERIFY_EXTRACT_0014E1_MANUAL\\TEST_FIXTURES\\TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN\\ASTRA"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1\\TEST_FIXTURES\\TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN\\ASTRA",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\050_ASTRA.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1\\TEST_FIXTURES\\TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN\\ASTRA"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED\\THRONE_REPO_COPY\\FULL_COPY\\IMPERIUM\\CANON\\DOCTRINE\\astronomicon",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\051_astronomicon.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\OBSERVED\\THRONE_REPO_COPY\\FULL_COPY\\IMPERIUM\\CANON\\DOCTRINE\\astronomicon"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED\\THRONE_REPO_COPY\\FULL_COPY\\IMPERIUM\\CANON\\registry\\astronomicon",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\052_astronomicon.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\OBSERVED\\THRONE_REPO_COPY\\FULL_COPY\\IMPERIUM\\CANON\\registry\\astronomicon"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED\\THRONE_REPO_COPY\\FULL_COPY\\IMPERIUM\\runtime\\administratum",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\053_administratum.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\OBSERVED\\THRONE_REPO_COPY\\FULL_COPY\\IMPERIUM\\runtime\\administratum"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED\\VM3_REPO_COPY\\FULL_COPY\\IMPERIUM\\runtime\\administratum",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\054_administratum.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\OBSERVED\\VM3_REPO_COPY\\FULL_COPY\\IMPERIUM\\runtime\\administratum"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED\\VM3_REPO_COPY\\FULL_COPY\\IMPERIUM\\STAGING\\bridge_exchange\\sanctum_tasks\\vm3_inbox\\STEP_VM3_CONTOUR_WORKER_HEARTBEAT_AND_HANDOFF_FOUNDATION_V1_20260426T212732Z\\surfaces_snapshot\\runtime\\administratum",
+      "source": "truth_audit.sample_organ_scaffolds",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\055_administratum.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\OBSERVED\\VM3_REPO_COPY\\FULL_COPY\\IMPERIUM\\STAGING\\bridge_exchange\\sanctum_tasks\\vm3_inbox\\STEP_VM3_CONTOUR_WORKER_HEARTBEAT_AND_HANDOFF_FOUNDATION_V1_20260426T212732Z\\surfaces_snapshot\\runtime\\administratum"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\OBSERVED",
+      "source": "root_direct_child",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\056_OBSERVED.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\OBSERVED"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM",
+      "source": "root_direct_child",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\057_PC_ENGINEERING_ROOM.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY",
+      "source": "root_direct_child",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\058_SSH_COMMAND_LIBRARY.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\CHANGELOG.md",
+      "source": "explorer_control_files",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\059_CHANGELOG_md.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_5.py",
+      "source": "explorer_control_files",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\060_imperium_explorer_v0_5_py.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_5.py"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\VERIFY",
+      "source": "explorer_control_files",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\061_VERIFY.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\VERIFY"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS",
+      "source": "explorer_control_files",
+      "expected_type": null,
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-112316\\062_SCREENSHOTS.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS"
+        }
+      ]
+    }
+  ],
+  "verdict": "PARTIAL_SCREENSHOTS_CREATED_WITH_TRUTH_MISMATCHES",
+  "read_only_statement": [
+    "This script controls the Explorer GUI programmatically.",
+    "It writes only screenshots and verification reports.",
+    "It does not modify IMPERIUM data.",
+    "It does not contact VM2.",
+    "It does not touch THRONE.",
+    "It does not run E2E."
+  ]
+}

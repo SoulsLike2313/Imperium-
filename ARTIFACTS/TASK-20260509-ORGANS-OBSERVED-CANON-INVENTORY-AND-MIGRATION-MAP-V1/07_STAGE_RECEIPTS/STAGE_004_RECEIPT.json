@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+  "stage": "STAGE_004_DUPLICATES_AND_DRIFT",
+  "created_at_local": "2026-05-09T13:03:09",
+  "outputs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\04_DUPLICATES_AND_DRIFT\\DUPLICATE_DRIFT_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\04_DUPLICATES_AND_DRIFT\\DUPLICATE_DRIFT_REPORT.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\04_DUPLICATES_AND_DRIFT\\LEGACY_STAGE_ID_FINDINGS.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\04_DUPLICATES_AND_DRIFT\\FORBIDDEN_REFERENCE_FINDINGS.md"
+  ],
+  "metrics": {
+    "duplicate_filenames_count": 2368,
+    "similar_task_names_count": 69,
+    "legacy_stage_id_files_count": 41,
+    "placeholder_policy_hash_files_count": 756,
+    "throne_ref_files_count": 3515,
+    "watchers_ref_files_count": 804,
+    "report_claims_missing_outputs_count": 0
+  },
+  "validation": {
+    "checks": [
+      "all required stage 4 outputs exist",
+      "DUPLICATE_DRIFT_REPORT.json parses"
+    ],
+    "errors": [],
+    "verdict": "PASS"
+  },
+  "archive_recursive_scan_performed": false,
+  "destructive_actions_performed": false
+}

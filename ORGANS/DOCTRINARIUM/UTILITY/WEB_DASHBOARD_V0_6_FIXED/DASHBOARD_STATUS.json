@@ -1,0 +1,36 @@
+{
+  "dashboard_type": "LOCAL_WEB_DASHBOARD",
+  "server_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD\\dashboard_server.py",
+  "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_5.ps1",
+  "created_at": "2026-05-09T18:07:37.7414594Z",
+  "status": "WEB_DASHBOARD_CREATED",
+  "organ_id": "DOCTRINARIUM",
+  "capabilities": [
+    "dashboard metrics",
+    "organ health cards",
+    "major gap list",
+    "law cards",
+    "utility matrix",
+    "animated canvas background",
+    "local refresh button",
+    "open folder buttons"
+  ],
+  "reads": [
+    "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+    "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+    "STATUS\\DOCTRINARIUM_STATUS.json",
+    "LAWS\\LAW_INDEX.json",
+    "LAWS\\LAW_ENFORCEMENT_MAP.json",
+    "DOCTRINE\\DOCTRINE_INDEX.json"
+  ],
+  "limitations": [
+    "not Sanctum",
+    "not canon v1",
+    "local dashboard only",
+    "depends on existing Doctrinarium reports",
+    "refresh calls existing manual launcher"
+  ],
+  "url": "http://127.0.0.1:8787",
+  "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_5",
+  "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_5"
+}

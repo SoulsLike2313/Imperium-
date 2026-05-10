@@ -1,0 +1,259 @@
+{
+  "schema_version": "TASK_MANIFEST_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "created_at": "2026-05-09T20:01:28.544055+00:00",
+  "self_reference_policy": {
+    "zip_not_in_manifest": true,
+    "sidecar_not_in_manifest": true,
+    "manifest_self_entry": false
+  },
+  "files": [
+    {
+      "relative_path": "00_INPUTS/INPUT_FREEZE.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\INPUT_FREEZE.json",
+      "size_bytes": 1566,
+      "sha256": "9dd2914d192d842a8218db4d474399c4a93e5de7e2c01e44966c3e8d068c995b"
+    },
+    {
+      "relative_path": "00_INPUTS/INPUT_FREEZE.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\INPUT_FREEZE.md",
+      "size_bytes": 1166,
+      "sha256": "37e2e3fad7e00fd7b6b5d2e6326eb57ba9d1fcc4f7bae372113ecfc2164bd4c5"
+    },
+    {
+      "relative_path": "00_INPUTS/TASK_RECIPE.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\00_INPUTS\\TASK_RECIPE.json",
+      "size_bytes": 1990,
+      "sha256": "a201531aa5b45b52b29b4a555d5a96ec73ba04de2f87dcc22a2cd0168ab832f6"
+    },
+    {
+      "relative_path": "01_DOCTRINARIUM_DASHBOARD_STUDY/DOCTRINARIUM_DASHBOARD_PATTERN_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\01_DOCTRINARIUM_DASHBOARD_STUDY\\DOCTRINARIUM_DASHBOARD_PATTERN_REPORT.json",
+      "size_bytes": 5117,
+      "sha256": "adae8b66e2f6a6d9c9e9944ac04d69d051e2e60b19b120e6c245e878618a0ffc"
+    },
+    {
+      "relative_path": "01_DOCTRINARIUM_DASHBOARD_STUDY/DOCTRINARIUM_DASHBOARD_PATTERN_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\01_DOCTRINARIUM_DASHBOARD_STUDY\\DOCTRINARIUM_DASHBOARD_PATTERN_REPORT.md",
+      "size_bytes": 3510,
+      "sha256": "69f180bf64698e9896db18b2fcbbbe67beae443a9069b5469956d0896df84e26"
+    },
+    {
+      "relative_path": "02_ADMINISTRATUM_ORGAN_FORMALIZATION/ADMINISTRATUM_ORGAN_FORMALIZATION_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\02_ADMINISTRATUM_ORGAN_FORMALIZATION\\ADMINISTRATUM_ORGAN_FORMALIZATION_REPORT.json",
+      "size_bytes": 2691,
+      "sha256": "572f7924b7bccb6af6ca166a11ad0554073ea81e6f25d332a542105da93b5448"
+    },
+    {
+      "relative_path": "02_ADMINISTRATUM_ORGAN_FORMALIZATION/ADMINISTRATUM_ORGAN_FORMALIZATION_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\02_ADMINISTRATUM_ORGAN_FORMALIZATION\\ADMINISTRATUM_ORGAN_FORMALIZATION_REPORT.md",
+      "size_bytes": 427,
+      "sha256": "f4c1dc5f918bd079af362755e02e8f9c84eb14001c12f157781a79a4e219fda4"
+    },
+    {
+      "relative_path": "03_CONTINUITY_PACK_ENGINE/CONTINUITY_PACK_ENGINE_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\03_CONTINUITY_PACK_ENGINE\\CONTINUITY_PACK_ENGINE_REPORT.json",
+      "size_bytes": 689,
+      "sha256": "82167a8d7d7cdd1f4928065b03256c91f7dc57daa255d3f52412f8e9cec597ec"
+    },
+    {
+      "relative_path": "03_CONTINUITY_PACK_ENGINE/CONTINUITY_PACK_ENGINE_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\03_CONTINUITY_PACK_ENGINE\\CONTINUITY_PACK_ENGINE_REPORT.md",
+      "size_bytes": 377,
+      "sha256": "2275c2a423175e9bf42048430788b43c27ead0f9fcfae5fc68409fc6df4af780"
+    },
+    {
+      "relative_path": "04_ADMINISTRATUM_DASHBOARD/ADMINISTRATUM_DASHBOARD_BUILD_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\04_ADMINISTRATUM_DASHBOARD\\ADMINISTRATUM_DASHBOARD_BUILD_REPORT.json",
+      "size_bytes": 1234,
+      "sha256": "5e92d651c3e6c879fe9128d1da9560460a36c5a3e00e69c6fc5ff40bc297397a"
+    },
+    {
+      "relative_path": "04_ADMINISTRATUM_DASHBOARD/ADMINISTRATUM_DASHBOARD_BUILD_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\04_ADMINISTRATUM_DASHBOARD\\ADMINISTRATUM_DASHBOARD_BUILD_REPORT.md",
+      "size_bytes": 222,
+      "sha256": "163142bff25324e7ac730164da7cad3b181ba608eab2e2d6b27ebe688755d125"
+    },
+    {
+      "relative_path": "05_LANGUAGE_BASE/LANGUAGE_BASE_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\05_LANGUAGE_BASE\\LANGUAGE_BASE_REPORT.json",
+      "size_bytes": 1551,
+      "sha256": "a11d0b3e3a2af4eaa82d2c72b1c180ccacfe8389e6a92f0f5d7b146b0394ab09"
+    },
+    {
+      "relative_path": "05_LANGUAGE_BASE/LANGUAGE_BASE_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\05_LANGUAGE_BASE\\LANGUAGE_BASE_REPORT.md",
+      "size_bytes": 523,
+      "sha256": "597badca128eebf3c9faef8891ca0ecdfe716ed35195bd302b11785719fe09ac"
+    },
+    {
+      "relative_path": "06_TESTS/PLAYWRIGHT_SKIPPED_REASON.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\06_TESTS\\PLAYWRIGHT_SKIPPED_REASON.md",
+      "size_bytes": 207,
+      "sha256": "fdfe6325f5d38f0bcadef77cf1f31fdee7c1c4469ef66290964143044ee9d495"
+    },
+    {
+      "relative_path": "06_TESTS/playwright_smoke_admin_v0_1.js",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\06_TESTS\\playwright_smoke_admin_v0_1.js",
+      "size_bytes": 3877,
+      "sha256": "4db37177c604ba6de0acf95f51038aba18174c463a0a74d9d1d975c0e743a2e9"
+    },
+    {
+      "relative_path": "06_TESTS/playwright_smoke_admin_v0_1.py",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\06_TESTS\\playwright_smoke_admin_v0_1.py",
+      "size_bytes": 3740,
+      "sha256": "8eeb651e9f84ea3fb859efc517f4a1ab2b297b344d6e52132c18a2d6c7d087cd"
+    },
+    {
+      "relative_path": "06_TESTS/TEST_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\06_TESTS\\TEST_REPORT.json",
+      "size_bytes": 4928,
+      "sha256": "025a0310b38eb401edccdafe509424000eabad3032ba495c94b89297fec5d776"
+    },
+    {
+      "relative_path": "06_TESTS/TEST_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\06_TESTS\\TEST_REPORT.md",
+      "size_bytes": 382,
+      "sha256": "27125538a56d981312e83eb7fab7bc691855fc420f793d073f183237896703e3"
+    },
+    {
+      "relative_path": "06_TESTS/TEST_RESULTS_RAW.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\06_TESTS\\TEST_RESULTS_RAW.json",
+      "size_bytes": 4521,
+      "sha256": "4c3b40cfae9c534e1574f40c328649bf0e4840d28be22e03cd7f7351d38bc5ba"
+    },
+    {
+      "relative_path": "07_DOCTRINARIUM_VALIDATION/ALL_ORGANS_GAP_REPORT_AFTER_ADMINISTRATUM.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\07_DOCTRINARIUM_VALIDATION\\ALL_ORGANS_GAP_REPORT_AFTER_ADMINISTRATUM.json",
+      "size_bytes": 33058,
+      "sha256": "a43522f724f32f15936242f29cf4d630c5baf913096d3a8f0f0251885f5b01a2"
+    },
+    {
+      "relative_path": "07_DOCTRINARIUM_VALIDATION/ALL_ORGANS_GAP_REPORT_AFTER_ADMINISTRATUM.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\07_DOCTRINARIUM_VALIDATION\\ALL_ORGANS_GAP_REPORT_AFTER_ADMINISTRATUM.md",
+      "size_bytes": 3120,
+      "sha256": "dde52790cabf9c893d95f7ee0325748831d9fa3d1e0eee766955adc022cbca88"
+    },
+    {
+      "relative_path": "07_DOCTRINARIUM_VALIDATION/DOCTRINARIUM_STATUS_AFTER_ADMINISTRATUM.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\07_DOCTRINARIUM_VALIDATION\\DOCTRINARIUM_STATUS_AFTER_ADMINISTRATUM.json",
+      "size_bytes": 3601,
+      "sha256": "d80acce26f836db1e4168ddf10a15d4ae7babba9605f6d032e94eec50f478232"
+    },
+    {
+      "relative_path": "07_DOCTRINARIUM_VALIDATION/DOCTRINARIUM_STATUS_AFTER_ADMINISTRATUM.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\07_DOCTRINARIUM_VALIDATION\\DOCTRINARIUM_STATUS_AFTER_ADMINISTRATUM.md",
+      "size_bytes": 594,
+      "sha256": "b34714814d7798904bb9c28c100d6af236b982434612799cd3d3259652b4f7d2"
+    },
+    {
+      "relative_path": "07_DOCTRINARIUM_VALIDATION/ORGAN_UTILITY_GAP_REPORT_AFTER_ADMINISTRATUM.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\07_DOCTRINARIUM_VALIDATION\\ORGAN_UTILITY_GAP_REPORT_AFTER_ADMINISTRATUM.json",
+      "size_bytes": 9087,
+      "sha256": "fca4f9b1990efe041e0c9b15cf1e46d48fa40d576535b3eabe80c38a2789a971"
+    },
+    {
+      "relative_path": "07_DOCTRINARIUM_VALIDATION/ORGAN_UTILITY_GAP_REPORT_AFTER_ADMINISTRATUM.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\07_DOCTRINARIUM_VALIDATION\\ORGAN_UTILITY_GAP_REPORT_AFTER_ADMINISTRATUM.md",
+      "size_bytes": 1670,
+      "sha256": "392b2e06415af33e0e2a5d36562495cd4941834b61160b5c5b49f0a4d199f4cb"
+    },
+    {
+      "relative_path": "08_CONTINUITY_COMPARISON/CONTINUITY_PACK_TEST_REPORT.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\08_CONTINUITY_COMPARISON\\CONTINUITY_PACK_TEST_REPORT.json",
+      "size_bytes": 1510,
+      "sha256": "c3619c65e0e5bba47062542de642a139c90c50131b036bf00d5c0ec09ba236c9"
+    },
+    {
+      "relative_path": "08_CONTINUITY_COMPARISON/CONTINUITY_PACK_TEST_REPORT.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\08_CONTINUITY_COMPARISON\\CONTINUITY_PACK_TEST_REPORT.md",
+      "size_bytes": 916,
+      "sha256": "57a0d208254e3c9b0f3ab52bdc6bb1db6b8611a8a66ddfd32c7c7e0dbb101738"
+    },
+    {
+      "relative_path": "09_RECEIPTS/00_input_freeze_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\00_input_freeze_receipt.json",
+      "size_bytes": 1721,
+      "sha256": "94cf8c4622b475964163b522b70ae8200f696ebf225d379e08685aba1a62eb29"
+    },
+    {
+      "relative_path": "09_RECEIPTS/01_doctrinarium_dashboard_study_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\01_doctrinarium_dashboard_study_receipt.json",
+      "size_bytes": 1712,
+      "sha256": "c3043cb74c644bdf66a1d1f926e6f96ccefb38c8baf06f1f0fe7c5ca523fc7cd"
+    },
+    {
+      "relative_path": "09_RECEIPTS/02_administratum_organ_formalization_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\02_administratum_organ_formalization_receipt.json",
+      "size_bytes": 2334,
+      "sha256": "5fafa73bcced3d11594818e77061368c6ceb3d8f38e3156ba2b857a6ab87ff65"
+    },
+    {
+      "relative_path": "09_RECEIPTS/03_continuity_engine_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\03_continuity_engine_receipt.json",
+      "size_bytes": 2230,
+      "sha256": "7b2239ff9c2790b7a874a6d7e8d144ef8fa4d7c64dd22f275406bcaacfb1f089"
+    },
+    {
+      "relative_path": "09_RECEIPTS/04_language_base_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\04_language_base_receipt.json",
+      "size_bytes": 1574,
+      "sha256": "ed9b2cd6801720730a861af9f0bc652cf696e84796da120807a24576ba59829c"
+    },
+    {
+      "relative_path": "09_RECEIPTS/05_dashboard_build_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\05_dashboard_build_receipt.json",
+      "size_bytes": 2878,
+      "sha256": "19a8af3df563b5fa6f1f13361ef06e40c598766e4e1cba71ad4c0d789bc88379"
+    },
+    {
+      "relative_path": "09_RECEIPTS/06_button_test_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\06_button_test_receipt.json",
+      "size_bytes": 2649,
+      "sha256": "4230a0545002cde41f19409768f2c1ed3262fcaba1dd0ba21497c960fdcb5851"
+    },
+    {
+      "relative_path": "09_RECEIPTS/07_doctrinarium_validation_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\07_doctrinarium_validation_receipt.json",
+      "size_bytes": 3989,
+      "sha256": "a335380eb014456fa7a0510766cbb242bcbf23700d23eb93defa2cc2e7c7a8f8"
+    },
+    {
+      "relative_path": "09_RECEIPTS/08_continuity_comparison_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\08_continuity_comparison_receipt.json",
+      "size_bytes": 2024,
+      "sha256": "be10f5909c7b1cb7868e431d9078b4c694c0072985159f047babafa90473e005"
+    },
+    {
+      "relative_path": "09_RECEIPTS/09_final_task_summary_receipt.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\09_RECEIPTS\\09_final_task_summary_receipt.json",
+      "size_bytes": 4367,
+      "sha256": "50cf7d77270182ba2e4f66fd4aab3bdf7efd49771007fe65ea8313383fa9ab4d"
+    },
+    {
+      "relative_path": "11_HASHES/SHA256SUMS.txt",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\11_HASHES\\SHA256SUMS.txt",
+      "size_bytes": 4832,
+      "sha256": "36bd3af5055debf595b6eb80804ab736dfd02324a437dca2dbf44565304ef99f"
+    },
+    {
+      "relative_path": "12_OWNER_SUMMARY/OWNER_SUMMARY.md",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\12_OWNER_SUMMARY\\OWNER_SUMMARY.md",
+      "size_bytes": 3962,
+      "sha256": "f1f0ba6cfcfb2cc8009c7207580c2fb5fa08ac3a6aaea2baba85f8aac7795671"
+    },
+    {
+      "relative_path": "13_PACKAGE/FINALIZATION_RECEIPT_EXTERNAL.json",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json",
+      "size_bytes": 1444,
+      "sha256": "e5b8021f227bd194414ab8dd47482ab180332b5f814a6a0411c6d78633328ae1"
+    },
+    {
+      "relative_path": "RUN_ID.txt",
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\RUN_ID.txt",
+      "size_bytes": 30,
+      "sha256": "1bd86fa919db42cf85f5e7854e79102ad3cc24ec30b9287f45a1a7f241e54708"
+    }
+  ]
+}

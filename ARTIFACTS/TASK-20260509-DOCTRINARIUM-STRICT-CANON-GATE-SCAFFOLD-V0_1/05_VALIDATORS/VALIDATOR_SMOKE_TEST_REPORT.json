@@ -1,0 +1,49 @@
+{
+  "schema_version": "VALIDATOR_SMOKE_TEST_REPORT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "verdict": "PASS",
+  "cases": [
+    {
+      "case_id": "CASE_01_MISSING_PASSPORT",
+      "expected": "missing Passport blocks",
+      "return_code": 2,
+      "verdict": "REPAIR_REQUIRED",
+      "pass_expected": true,
+      "report_json": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_01_MISSING_PASSPORT\\report.json"
+    },
+    {
+      "case_id": "CASE_02_MISSING_CODEX",
+      "expected": "missing Codex blocks",
+      "return_code": 2,
+      "verdict": "REPAIR_REQUIRED",
+      "pass_expected": true,
+      "report_json": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_02_MISSING_CODEX\\report.json"
+    },
+    {
+      "case_id": "CASE_03_FAKE_CANON_CLAIM",
+      "expected": "CANON_V0_1 claim without evidence blocks",
+      "return_code": 2,
+      "verdict": "BLOCKED",
+      "pass_expected": true,
+      "report_json": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_03_FAKE_CANON_CLAIM\\report.json"
+    },
+    {
+      "case_id": "CASE_04_FOLDER_ONLY_ORGAN",
+      "expected": "folder-only organ fails standard",
+      "return_code": 2,
+      "classification": "FOLDER_ONLY",
+      "pass_expected": true,
+      "report_json": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_04_FOLDER_ONLY_ORGAN\\report.json"
+    },
+    {
+      "case_id": "CASE_05_LAW_MISSING_ENFORCEMENT",
+      "expected": "missing enforcement status reported",
+      "return_code": 2,
+      "verdict": "REPAIR_REQUIRED",
+      "pass_expected": true,
+      "report_json": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_05_LAW_MISSING_ENFORCEMENT\\report.json"
+    }
+  ],
+  "created_at": "2026-05-09T16:58:31.530546+00:00"
+}

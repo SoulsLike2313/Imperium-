@@ -1,0 +1,33 @@
+{
+  "schema_version": "TASK_RECIPE_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+  "task_name": "Study real IMPERIUM, compare latest continuity pack against reality, install continuity ports, harden generator, build new pack, compare old vs new vs real state",
+  "run_id": "RUN-20260510-083108",
+  "root_path": "E:\\IMPERIUM",
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+    "E:\\IMPERIUM\\ORGANS\\<ORGAN>\\PORTS"
+  ],
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "old_pack_search_target": "CONTINUITY_PACK_20260510_082210",
+  "old_pack_candidates": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210.zip"
+  ],
+  "selected_old_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "selected_old_pack_type": "FOLDER",
+  "policies": {
+    "no_archive_recursive_scan": true,
+    "no_sanctum_changes": true,
+    "no_vm2": true,
+    "no_throne": true,
+    "no_delete": true
+  },
+  "expected_final_verdict": "PASS_CONTINUITY_PACK_QA_PORTS_AND_REBUILD_V0_1_WITH_LIMITATIONS",
+  "created_at": "2026-05-10T05:31:08.954084+00:00"
+}

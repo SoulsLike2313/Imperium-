@@ -1,0 +1,113 @@
+{
+  "schema_version": "DOCTRINE_VALIDATION_REPORT_V0_1",
+  "verdict": "PASS_DOCTRINE_TRIAD_PRESENT_CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Owner approval is still required before canon-ready real-task execution."
+  ],
+  "doctrine_paths": {
+    "passport": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md",
+    "constitution": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CONSTITUTION_OF_IMPERIUM.md",
+    "codex": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+    "doctrine_index": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json"
+  },
+  "checks": [
+    {
+      "check": "Passport exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Constitution exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Codex exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrine index exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrine index lists all triad documents",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Required read order matches expected triad order",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "PASSPORT_OF_EMPEROR hash matches DOCTRINE_INDEX",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "CONSTITUTION_OF_IMPERIUM hash matches DOCTRINE_INDEX",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "CODEX_IMPERIUM hash matches DOCTRINE_INDEX",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrine index status is canon-candidate owner-review-required",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "owner_approved false unless explicit owner artifact exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "canon_for_real_task_execution is false",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Passport has no placeholder marker",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Passport does not claim CANON_V0_1",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Constitution has no placeholder marker",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Constitution does not claim CANON_V0_1",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Codex has no placeholder marker",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Codex does not claim CANON_V0_1",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Real task execution remains blocked before owner approval",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "created_at": "2026-05-09T16:54:57.087758+00:00"
+}

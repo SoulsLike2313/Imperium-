@@ -1,0 +1,27 @@
+{
+  "schema": "CURRENT_STATE_CANDIDATE_V0",
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "status": "ACTIVE_NOT_COMPLETE",
+  "current_version": "sanctum_v0_27.py",
+  "owner_acceptance_state": "NOT_ACCEPTED_BASELINE",
+  "blocker": "flickering_or_blank_unified_map",
+  "next_action": "FIX_VISUAL_STABILITY_ONLY",
+  "do_not_do": [
+    "No final artifact claim",
+    "No baseline claim",
+    "No VM2/THRONE/E2E/watchers",
+    "No functional stage buttons before visual baseline"
+  ],
+  "source_of_truth": "TO_BE_DECIDED_BY_SPECULUM",
+  "latest_receipts": [
+    "INTERIM_CONTINUITY_RECEIPT.json"
+  ],
+  "latest_artifacts": [
+    "interim continuity zip + sidecar"
+  ],
+  "open_questions": [
+    "Where to store canonical current-state for all tasks?",
+    "How to encode ACTIVE/INTERIM/FINAL uniformly?"
+  ],
+  "note": "Proposal only; not applied to live system."
+}

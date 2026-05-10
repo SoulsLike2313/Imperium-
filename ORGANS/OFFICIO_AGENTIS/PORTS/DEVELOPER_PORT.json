@@ -1,0 +1,49 @@
+{
+  "schema_version": "DEVELOPER_PORT_V0_2",
+  "organ_id": "OFFICIO_AGENTIS",
+  "developer_summary": "Role/agent boundary organ (bootstrap). Intended to hold Logos-Prime / Logos-Speculum / Servitor contracts.",
+  "primary_code_paths": [
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\SCRIPTS"
+  ],
+  "primary_scripts": [
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\SCRIPTS\\officio_agentis_scope.py"
+  ],
+  "primary_dashboards": [],
+  "launch_commands": [
+    "python 'E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\SCRIPTS\\officio_agentis_scope.py'"
+  ],
+  "test_commands": [
+    "python -m py_compile <script.py>",
+    "Invoke-WebRequest http://127.0.0.1:<port>/api/data"
+  ],
+  "safe_edit_roots": [
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS"
+  ],
+  "forbidden_edit_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "current_dev_target": "Needs formalization of behavior contracts and validation surfaces.",
+  "known_failures": [],
+  "next_patch_recommendation": "Create ORGAN_CONTRACT and role contract schemas with receipts/tests.",
+  "evidence_paths": [
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\CONTINUITY_PORT.json",
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\LATEST_REPORTS_INDEX.json",
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\LATEST_RECEIPTS_INDEX.json"
+  ],
+  "stale_if_older_than_hours": 24,
+  "last_verified_at": "2026-05-10T06:14:42.626405+00:00",
+  "limitations": [
+    "Bootstrap/developer handoff scope only.",
+    "No canon or continuity green claim."
+  ],
+  "do_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "action": "CONTINUE_MANUAL_SANCTUM_ITERATION",
+  "current_mode": "OWNER_LOGOS_MANUAL_BUILD",
+  "allowed_next": [
+    "improve_sanctum_ui_manually",
+    "run_smoke_screenshot_check",
+    "record_manual_notes",
+    "collect_artifacts",
+    "ask_speculum_for_review_after_owner_candidate"
+  ],
+  "not_allowed": [
+    "VM2_ACTIVATION",
+    "THRONE_CONTACT",
+    "E2E_RUN",
+    "WATCHERS",
+    "BACKGROUND_AUTOMATION",
+    "DELETE_MOVE",
+    "LIVE_ORGAN_CLAIM",
+    "CONTINUITY_GREEN_CLAIM"
+  ]
+}

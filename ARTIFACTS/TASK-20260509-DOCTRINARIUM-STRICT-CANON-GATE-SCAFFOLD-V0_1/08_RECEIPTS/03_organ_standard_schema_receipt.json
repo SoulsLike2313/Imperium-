@@ -1,0 +1,38 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_03_ORGAN_STANDARD",
+  "script_id": "DOCTRINARIUM_VALIDATE_ORGAN_STANDARD",
+  "script_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_standard.py",
+  "script_sha256": "23a882b66e907bd2b26c51b496884160fcd972f54a5b76c555f0f5856a975b34",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STANDARDS\\ORGAN_CANONIZATION_STANDARD.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STANDARDS\\ORGAN_CONTRACT_SCHEMA.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STANDARDS\\ORGAN_STATUS_SCHEMA.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STANDARDS\\ORGAN_SELF_REPORT_SCHEMA.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STANDARDS\\DOCTRINARIUM_VERDICT_ENUM.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\03_ORGAN_STANDARD\\ORGAN_STANDARD_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\03_ORGAN_STANDARD\\ORGAN_STANDARD_REPORT.md"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\03_ORGAN_STANDARD\\ORGAN_STANDARD_REPORT.json": "40c9b19894a4a98e3927a76b310470b6481a1de36a385f58a848b17c0204dcb3",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\03_ORGAN_STANDARD\\ORGAN_STANDARD_REPORT.md": "8050dd2778307fe77ae02614afa6168b402343df76623a5abfbc7489e82233c5"
+  },
+  "verdict": "PASS_ORGAN_STANDARD_SCAFFOLD_CREATED",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [],
+  "next_action": "Register Doctrinarium organ status/contract",
+  "created_at": "2026-05-09T16:58:31.614511+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

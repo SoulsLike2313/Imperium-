@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-05-10T05:52:45.779458+00:00",
+  "old_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "new_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200",
+  "real_state_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\01_REAL_IMPERIUM_SCAN\\REAL_IMPERIUM_STATE.json",
+  "ports_registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json",
+  "old_pack_verdict": "NEW_PACK_INSUFFICIENT_FOR_RELIABLE_HANDOFF",
+  "new_pack_verdict": "NEW_PACK_SUFFICIENT_FOR_BOOTSTRAP_NEW_CHAT_HANDOFF_WITH_LIMITATIONS",
+  "ports_vs_real_verdict": "PASS_WITH_LIMITATIONS",
+  "verdict": "NEW_PACK_SUFFICIENT_FOR_BOOTSTRAP_NEW_CHAT_HANDOFF_WITH_LIMITATIONS",
+  "checks": [
+    {
+      "check": "old_pack_evaluated",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210"
+    },
+    {
+      "check": "new_pack_evaluated",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200"
+    },
+    {
+      "check": "real_state_loaded",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\01_REAL_IMPERIUM_SCAN\\REAL_IMPERIUM_STATE.json"
+    },
+    {
+      "check": "ports_registry_loaded",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json"
+    }
+  ],
+  "issues": [
+    "mentions_doctrinarium_v0_8_playwright_pass: None",
+    "entrypoint_role_neutral: ",
+    "ports_cover_real_organs: ['ADMINISTRATUM', 'ASTRONOMICON', 'DOCTRINARIUM', 'INQUISITION', 'MECHANICUS', 'OFFICIO_AGENTIS']",
+    "references_selected_old_pack: expected=E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210 actual=None",
+    "required_new_pack_files_present: ['IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md', 'HANDOFF_SUFFICIENCY_REPORT.json', 'PORTS_SNAPSHOT.json']"
+  ],
+  "limitations": [
+    "Comparison proves bootstrap handoff quality only.",
+    "No canon or full readiness claim is implied."
+  ]
+}

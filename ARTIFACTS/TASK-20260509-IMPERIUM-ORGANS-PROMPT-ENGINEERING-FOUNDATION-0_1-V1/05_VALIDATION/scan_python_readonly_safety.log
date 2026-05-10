@@ -1,0 +1,22 @@
+{
+  "source": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v1_0a.py",
+  "files_scanned": 1,
+  "forbidden_patterns_checked": [
+    "write_text",
+    "open_write_mode",
+    "unlink",
+    "remove",
+    "rmdir",
+    "shutil_move",
+    "requests",
+    "urllib",
+    "socket",
+    "paramiko",
+    "watchdog",
+    "threading",
+    "multiprocessing"
+  ],
+  "findings": [],
+  "verdict": "PASS_READONLY_SAFETY_SCAN"
+}
+SCAN_PY_READONLY_EXIT_CODE=0

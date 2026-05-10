@@ -1,0 +1,292 @@
+{
+  "map_id": "VM2_WORKER_FOLDER_SEMANTIC_MAP_V1",
+  "task_id": "TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP",
+  "contour_id": "VM2",
+  "worker_root": "~/IMPERIUM_WORKER_ROOM",
+  "status": "draft_baseline",
+  "canon_status": "not_canon",
+  "folder_records": [
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM",
+      "name": "IMPERIUM_WORKER_ROOM",
+      "role": "worker root",
+      "allowed_writes": [
+        "worker-local outputs"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "task packages"
+      ],
+      "outputs": [
+        "stage outputs and evidence"
+      ],
+      "agent_instruction": "Operate only inside worker root.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/01_INBOX",
+      "name": "01_INBOX",
+      "role": "received task packages",
+      "allowed_writes": [
+        "inbound package files"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "PC dispatch"
+      ],
+      "outputs": [
+        "task package folders"
+      ],
+      "agent_instruction": "Store inbound task package files only.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/01_INBOX/tasks",
+      "name": "01_INBOX/tasks",
+      "role": "task folders by TASK_ID",
+      "allowed_writes": [
+        "TASK_ID folders"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "task payloads"
+      ],
+      "outputs": [
+        "structured task folders"
+      ],
+      "agent_instruction": "Keep per-task isolation by TASK_ID.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/02_ACTIVE",
+      "name": "02_ACTIVE",
+      "role": "current assigned stage workspace",
+      "allowed_writes": [
+        "stage workspace files"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "assigned stage files"
+      ],
+      "outputs": [
+        "intermediate stage data"
+      ],
+      "agent_instruction": "Execute assigned stage only.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/03_OUTBOX",
+      "name": "03_OUTBOX",
+      "role": "completed outputs waiting for PC fetch",
+      "allowed_writes": [
+        "completed outputs"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "completed stage results"
+      ],
+      "outputs": [
+        "fetch-ready outputs"
+      ],
+      "agent_instruction": "Prepare outputs for explicit fetch routes only.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/03_OUTBOX/stage_bundles",
+      "name": "03_OUTBOX/stage_bundles",
+      "role": "stage bundles by explicit IDs",
+      "allowed_writes": [
+        "named stage bundles"
+      ],
+      "forbidden_writes": [
+        "latest-bundle logic",
+        "write to THRONE",
+        "delete"
+      ],
+      "inputs": [
+        "stage outputs and manifests"
+      ],
+      "outputs": [
+        "stage bundle zips"
+      ],
+      "agent_instruction": "Use TASK_ID/STAGE_ID/CONTOUR_ID/RUN_ID naming only.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/04_RECEIPTS",
+      "name": "04_RECEIPTS",
+      "role": "proof receipts",
+      "allowed_writes": [
+        "stage receipts"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "action traces"
+      ],
+      "outputs": [
+        "receipts"
+      ],
+      "agent_instruction": "Emit receipts for each stage action.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/05_MANIFESTS",
+      "name": "05_MANIFESTS",
+      "role": "file and bundle manifests",
+      "allowed_writes": [
+        "manifest files"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "output file lists"
+      ],
+      "outputs": [
+        "manifests"
+      ],
+      "agent_instruction": "Produce deterministic manifests for verification.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/06_HASHES",
+      "name": "06_HASHES",
+      "role": "sha256 integrity files",
+      "allowed_writes": [
+        "hash files"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "output paths"
+      ],
+      "outputs": [
+        "sha256 sums"
+      ],
+      "agent_instruction": "Record hashes for all stage outputs and bundles.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/07_LOCAL_TOOLS",
+      "name": "07_LOCAL_TOOLS",
+      "role": "safe worker helper scripts",
+      "allowed_writes": [
+        "helper scripts"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "task execution requirements"
+      ],
+      "outputs": [
+        "local helper tools"
+      ],
+      "agent_instruction": "Keep helpers minimal and stage-scoped.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/08_CONFIG_TEMPLATES",
+      "name": "08_CONFIG_TEMPLATES",
+      "role": "templates only without raw secrets",
+      "allowed_writes": [
+        "redacted templates"
+      ],
+      "forbidden_writes": [
+        "raw secrets",
+        "private keys",
+        "tokens",
+        "write to THRONE",
+        "delete"
+      ],
+      "inputs": [
+        "template requirements"
+      ],
+      "outputs": [
+        "template files"
+      ],
+      "agent_instruction": "Never store raw credentials here.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/09_LOCAL_STATE",
+      "name": "09_LOCAL_STATE",
+      "role": "temporary local state",
+      "allowed_writes": [
+        "temporary state files"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "runtime state"
+      ],
+      "outputs": [
+        "ephemeral local state"
+      ],
+      "agent_instruction": "Treat as non-canon, non-portable state.",
+      "status": "active"
+    },
+    {
+      "path": "~/IMPERIUM_WORKER_ROOM/99_WORKER_STATUS",
+      "name": "99_WORKER_STATUS",
+      "role": "worker health and readiness status",
+      "allowed_writes": [
+        "status json files"
+      ],
+      "forbidden_writes": [
+        "write to THRONE",
+        "autosync",
+        "delete"
+      ],
+      "inputs": [
+        "worker health signals"
+      ],
+      "outputs": [
+        "status files"
+      ],
+      "agent_instruction": "Keep status explicit and current.",
+      "status": "active"
+    }
+  ],
+  "rules": [
+    "VM2 executes assigned stages only.",
+    "VM2 writes outputs only under worker root.",
+    "VM2 does not write to THRONE.",
+    "VM2 does not auto-sync.",
+    "VM2 emits receipts, manifests, hashes, and stage bundles."
+  ]
+}

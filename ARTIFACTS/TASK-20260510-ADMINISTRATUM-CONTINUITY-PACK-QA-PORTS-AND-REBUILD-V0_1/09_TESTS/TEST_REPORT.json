@@ -1,0 +1,70 @@
+{
+  "schema_version": "TEST_REPORT_V0_1",
+  "generated_at": "2026-05-10T05:54:51Z",
+  "tests": {
+    "compile_scan_real": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_old_pack_qa": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_build_pack": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_compare_pack": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_dashboard_server": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "node_check_app_js": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "new_pack_required_files": {
+      "ok": true,
+      "missing": [],
+      "new_pack": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200"
+    },
+    "forbidden_claim_tokens_absent": {
+      "ok": true,
+      "found": []
+    },
+    "dashboard_api": {
+      "ok": true,
+      "get_ok": true,
+      "get_status": 200,
+      "post_ok": true,
+      "post_status": 200,
+      "post_build_ok": true,
+      "post_compare_ok": true,
+      "post_build_exit_code": 0,
+      "errors": [],
+      "post_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452"
+    },
+    "comparison_outputs_present": {
+      "ok": true,
+      "missing": []
+    }
+  },
+  "warnings": [],
+  "errors": [],
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

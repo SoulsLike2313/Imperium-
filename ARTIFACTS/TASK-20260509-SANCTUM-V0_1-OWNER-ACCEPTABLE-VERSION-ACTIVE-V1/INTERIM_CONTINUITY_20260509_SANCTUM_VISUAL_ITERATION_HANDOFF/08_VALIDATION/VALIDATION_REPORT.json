@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "checked_at_local": "2026-05-09T16:40:29",
+  "checks": {
+    "output_root_exists": true,
+    "active_astra_task_copied": true,
+    "active_astra_task_indexed": true,
+    "sanctum_source_versions_copied": true,
+    "sanctum_source_versions_indexed": true,
+    "v0_27_source_exists": true,
+    "known_blocker_recorded": true,
+    "handoff_files_created": true,
+    "no_pycache_pyc_pyo_in_payload": true,
+    "no_final_bundle_self_reference": true,
+    "no_delete_move_migration_performed": true,
+    "no_vm2_throne_e2e_watchers_used": true
+  },
+  "details": {
+    "pycache_dirs": [],
+    "pyc_files": [],
+    "pyo_files": [],
+    "manifest_files_count": 39,
+    "bundle_exists": true,
+    "bundle_sha_sidecar_exists": true
+  },
+  "verdict": "PASS_VALIDATION_INTERIM_CONTINUITY"
+}

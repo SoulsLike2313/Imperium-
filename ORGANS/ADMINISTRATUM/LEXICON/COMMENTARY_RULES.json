@@ -1,0 +1,16 @@
+{
+  "schema_version": "ADMINISTRATUM_COMMENTARY_RULES_V0_1",
+  "rules": [
+    "No uncontrolled text generation.",
+    "No claim without evidence path.",
+    "No fake green phrasing.",
+    "No canon approval phrasing by agent.",
+    "Prefer concise status + evidence + next action.",
+    "Mark uncertainty explicitly with certainty label."
+  ],
+  "forbidden_phrases": [
+    "continuity is fully green",
+    "canon is approved",
+    "all organs are ready"
+  ]
+}

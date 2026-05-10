@@ -1,0 +1,30 @@
+{
+  "schema_version": "RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "run_id": "RUN-20260509-181517-66c4fe13",
+  "stage_id": null,
+  "actor": "PC_SERVITOR",
+  "organ": "ADMINISTRATUM",
+  "input_paths": [],
+  "output_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\CHRONICLE\\system_events.jsonl",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\CHRONICLE\\task_events.jsonl",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\TASKS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\TASK_TIMELINE.jsonl",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\TASKS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\TASK_MEMORY_INDEX.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\02_administratum_context_receipt.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\CHRONICLE\\system_events.jsonl": "b97ed633ce83c50d2c693b24574918f2ef3056ab61bcaf5ba486384df399b588",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\CHRONICLE\\task_events.jsonl": "b97ed633ce83c50d2c693b24574918f2ef3056ab61bcaf5ba486384df399b588",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\TASKS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\TASK_TIMELINE.jsonl": "b97ed633ce83c50d2c693b24574918f2ef3056ab61bcaf5ba486384df399b588",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY\\TASKS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\TASK_MEMORY_INDEX.json": "da38a9d178ce23be64c150b94c01cdcdf645af3c54d8cd3cb27570dabd5dae68"
+  },
+  "verdict": "PASS_CONTEXT_RECORDED",
+  "blockers": [],
+  "next_action": "Proceed to Astronomicon route load.",
+  "created_at": "2026-05-09T15:15:18.641757+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Событие контекста добавлено в append-only память и таймлайн задачи."
+}

@@ -1,0 +1,59 @@
+{
+  "task_id": "TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR",
+  "stage_id": "PC-STAGE-001",
+  "run_id": "RUN-20260509-0001",
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "read_first_refs": [
+    "E:/IMPERIUM/EXPLORER/README.md",
+    "E:/IMPERIUM/EXPLORER/CHANGELOG.md",
+    "E:/IMPERIUM/EXPLORER/imperium_explorer_v1_0a.py",
+    "E:/IMPERIUM/EXPLORER/POLICIES/EXPLORER_BASELINE_POLICY.json",
+    "E:/IMPERIUM/EXPLORER/POLICIES/EXPLORER_ARCHIVE_POLICY.json"
+  ],
+  "policy_refs": [
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/LANGUAGE_POLICY.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/STAGE_ID_POLICY.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/CLAIMS_ALLOWED_DENIED_MATRIX.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/NO_LATEST_POLICY.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/NO_THRONE_POLICY.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/NO_WATCHERS_POLICY.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/NO_DELETE_POLICY.json"
+  ],
+  "canonical_answer_refs": [
+    "E:/IMPERIUM/EXPLORER/POLICIES/EXPLORER_ARCHIVE_POLICY.json",
+    "E:/IMPERIUM/ORGANS/ADMINISTRATUM/POLICIES/STAGE_ID_POLICY.json"
+  ],
+  "allowed_tool_refs": [
+    "TOOL-EXPLORER-RUN-STATIC-READONLY-SCAN",
+    "TOOL-EXPLORER-RUN-TRUTH-AUDIT",
+    "TOOL-EXPLORER-RUN-AUTOSCREENSHOT-CHECK",
+    "TOOL-ADMIN-VALIDATE-TASK-LAUNCH-CARD"
+  ],
+  "expected_outputs": [
+    {
+      "name": "EXPLORER_V1_0A_STATIC_READ_ONLY_SCAN_REPORT.json",
+      "output_path": "E:/IMPERIUM/EXPLORER/VERIFY/EXPLORER_V1_0A_STATIC_READ_ONLY_SCAN_REPORT.json"
+    },
+    {
+      "name": "EXPLORER_TRUTH_AUDIT_REPORT.json",
+      "output_path": "E:/IMPERIUM/EXPLORER/VERIFY"
+    },
+    {
+      "name": "AUTO_SCREENSHOT_TRUTH_CHECK_REPORT.json",
+      "output_path": "E:/IMPERIUM/EXPLORER/SCREENSHOTS"
+    }
+  ],
+  "pass_criteria": [
+    "archive policy lines visible in ARCHIVE_COLD_STORAGE details",
+    "static scan PASS",
+    "truth audit PASS or PASS_WITH_WARNINGS",
+    "autoscreenshot archive checks PASS"
+  ],
+  "partial_fail_behavior": {
+    "status": "PARTIAL",
+    "required_action": "record failed checks and open focused repair branch"
+  },
+  "next_allowed_action_ref": "E:/IMPERIUM/ORGANS/ASTRONOMICON/NEXT_ALLOWED_ACTION.json",
+  "created_at_local": "2026-05-09T12:05:40",
+  "execution_mode": "NOT_IMPLEMENTED"
+}

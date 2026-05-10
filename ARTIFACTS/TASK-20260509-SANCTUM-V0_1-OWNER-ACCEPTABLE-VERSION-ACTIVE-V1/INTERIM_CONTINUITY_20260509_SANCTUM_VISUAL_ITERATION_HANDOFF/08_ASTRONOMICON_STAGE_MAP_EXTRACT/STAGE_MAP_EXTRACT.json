@@ -1,0 +1,38 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "stages": [
+    {
+      "n": 1,
+      "stage_id": "ASTRA-STAGE-001",
+      "status": "registered, PASS"
+    },
+    {
+      "n": 2,
+      "stage_id": "ADMINISTRATUM-STAGE-001",
+      "status": "planned address map"
+    },
+    {
+      "n": 3,
+      "stage_id": "MECHANICUS-STAGE-001",
+      "status": "planned script/validator map"
+    },
+    {
+      "n": 4,
+      "stage_id": "INQUISITION-STAGE-001",
+      "status": "planned anti-fake-green check"
+    },
+    {
+      "n": 5,
+      "stage_id": "PC-STAGE-001",
+      "status": "active manual Sanctum visual iteration"
+    },
+    {
+      "n": 6,
+      "stage_id": "SPECULUM-STAGE-001",
+      "status": "planned later, not started"
+    }
+  ],
+  "current_active_stage": "PC-STAGE-001",
+  "current_next_action": "fix visual stability and continue visual baseline"
+}

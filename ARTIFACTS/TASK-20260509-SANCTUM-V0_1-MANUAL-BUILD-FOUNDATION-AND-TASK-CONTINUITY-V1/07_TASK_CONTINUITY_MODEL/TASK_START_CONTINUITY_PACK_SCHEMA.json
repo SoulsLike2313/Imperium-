@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TASK_START_CONTINUITY_PACK",
+  "type": "object",
+  "required": [
+    "task_id",
+    "snapshot_time",
+    "route_refs",
+    "known_blockers",
+    "non_claims"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "snapshot_time": {
+      "type": "string"
+    },
+    "route_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

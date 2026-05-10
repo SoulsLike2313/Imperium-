@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-EXAMPLE-12-STAGE-PARALLEL",
+  "dependencies": [
+    {
+      "stage_id": "PC-STAGE-007",
+      "depends_on": [
+        "VM2-STAGE-004",
+        "VM2-STAGE-006"
+      ],
+      "mode": "ALL"
+    },
+    {
+      "stage_id": "PC-STAGE-008",
+      "depends_on": [
+        "VM2-STAGE-004",
+        "VM2-STAGE-006"
+      ],
+      "mode": "ALL"
+    },
+    {
+      "stage_id": "VM2-STAGE-009",
+      "depends_on": [
+        "PC-STAGE-007",
+        "PC-STAGE-008"
+      ],
+      "mode": "ANY"
+    }
+  ],
+  "notes": "Demonstrates ALL dependency gate and optional parallel branches."
+}

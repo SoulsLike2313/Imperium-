@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR",
+  "chain": [
+    {
+      "version": "0.1",
+      "status": "READ_ROUTE_SCAFFOLD_0_1",
+      "note": "example only"
+    }
+  ]
+}

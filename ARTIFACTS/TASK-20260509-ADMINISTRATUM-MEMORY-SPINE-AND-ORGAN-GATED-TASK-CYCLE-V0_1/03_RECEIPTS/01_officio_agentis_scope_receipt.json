@@ -1,0 +1,29 @@
+{
+  "schema_version": "RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "run_id": "RUN-20260509-181517-66c4fe13",
+  "stage_id": null,
+  "actor": "PC_SERVITOR",
+  "organ": "OFFICIO_AGENTIS",
+  "input_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\00_INPUTS\\TASK_RECIPE.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\00_doctrinarium_preflight_receipt.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\SCOPES\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\AGENT_SCOPE.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\01_officio_agentis_scope_receipt.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\00_INPUTS\\TASK_RECIPE.json": "7229b1e1d2e3d30057a01211097b48b491fe8105da46ab420d9795f89e3997fb",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\00_doctrinarium_preflight_receipt.json": "7da16cdc82a7ec921ad277cf7e92cb80c37d4473e35e1a40e20a442eeffaed87",
+    "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\SCOPES\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\AGENT_SCOPE.json": "c6ae1e7174d5d5ed92f1ca7948a5ce51094196533e3404309403d88a279680db"
+  },
+  "verdict": "PASS_SCOPE_READY",
+  "blockers": [],
+  "next_action": "Proceed to Administratum context event.",
+  "created_at": "2026-05-09T15:15:18.434179+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Скоуп агента сформирован с явными запретами и режимом evidence-first."
+}

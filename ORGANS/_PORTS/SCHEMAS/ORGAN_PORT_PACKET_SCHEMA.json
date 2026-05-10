@@ -1,0 +1,13 @@
+{
+  "schema_id": "ORGAN_PORT_PACKET_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "source_organ",
+    "target_organ",
+    "task_id",
+    "run_id",
+    "artifacts",
+    "validation_summary"
+  ],
+  "notes": "Packet metadata for handoff between scaffold organs."
+}

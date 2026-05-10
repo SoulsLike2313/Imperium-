@@ -1,0 +1,67 @@
+{
+  "tools_root": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+  "active_tools_count": 15,
+  "class_count": 8,
+  "legacy_or_blocked_count": 6,
+  "last_verified_utc_max": "2026-05-08T19:18:14Z",
+  "class_counts": {
+    "CORE_LIB": 8,
+    "PC_VM2_PIPELINE": 6,
+    "CONTINUITY": 4,
+    "BUNDLE_VALIDATION": 4,
+    "OWNER_MANUAL": 3,
+    "READONLY_EXPLORER": 1,
+    "SANCTUM_PREP": 3,
+    "LEGACY_QUARANTINE": 6
+  },
+  "status_counts": {
+    "ACTIVE": 8,
+    "ACTIVE_NEEDS_SPECULUM": 7,
+    "PLACEHOLDER_CONTRACT": 14,
+    "LEGACY_CANDIDATE": 6
+  },
+  "registry_integrity_receipt_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\REGISTRY_INTEGRITY_RECEIPT.json",
+  "registry_integrity_status": "PASS",
+  "registry_integrity_warnings": [],
+  "registry_integrity_receipt": {
+    "task_id": "TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+    "producer_type": "PC_SERVITOR",
+    "producer_id": "PC-SERVITOR-0014C2",
+    "tools_root": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+    "registry_path": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\\00_REGISTRY\\TOOLS_MASTER_INDEX.json",
+    "total_tools_count": 35,
+    "active_tools_count": 15,
+    "active_needs_speculum_count": 7,
+    "placeholder_count": 14,
+    "legacy_count": 6,
+    "blocked_count": 0,
+    "hash_checked_count": 15,
+    "hash_match_count": 15,
+    "hash_mismatch_count": 0,
+    "missing_file_count": 0,
+    "invalid_status_count": 0,
+    "unknown_active_tools_count": 0,
+    "verdict": "PASS",
+    "checked_at_utc": "2026-05-08T19:18:14Z",
+    "no_vm2": true,
+    "no_e2e": true,
+    "no_throne": true,
+    "no_watchers": true,
+    "no_latest": true
+  }
+}
+ШАГ:
+READONLY_EXPLORER/summary
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Выполнен read-only обзор реестра инструментов без изменений файлов системы.
+Показаны адреса, статусы и карта потока для Owner/PC/VM2 сценария с индикатором целостности реестра.
+Сетевые действия, VM2/THRONE доступ и автоматизация не выполнялись.
+Следующий шаг: использовать tool_id из реестра после Speculum go/no-go и registry integrity PASS.
+

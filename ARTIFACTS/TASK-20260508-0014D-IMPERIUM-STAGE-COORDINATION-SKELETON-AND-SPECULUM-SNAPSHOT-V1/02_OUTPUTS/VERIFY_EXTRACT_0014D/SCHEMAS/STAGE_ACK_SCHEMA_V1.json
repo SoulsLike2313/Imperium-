@@ -1,0 +1,17 @@
+{
+  "schema_id": "STAGE_ACK_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "sender_contour_id",
+    "receiver_contour_id",
+    "ack_for_signal_id",
+    "timestamp_utc"
+  ],
+  "validation": [
+    "signal_must_exist",
+    "identity_must_match",
+    "receiver_must_match"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "policy_version": "1.0",
+  "canonical_stage_id_format": "<CONTOUR>-STAGE-<THREE_DIGIT_NUMBER>",
+  "canonical_regex": "^(PC|VM2)-STAGE-[0-9]{3}$",
+  "allowed_contours": [
+    "PC",
+    "VM2"
+  ],
+  "allowed_examples": [
+    "PC-STAGE-001",
+    "PC-STAGE-002",
+    "VM2-STAGE-001",
+    "VM2-STAGE-002",
+    "PC-STAGE-998",
+    "PC-STAGE-999"
+  ],
+  "rejected_legacy_examples": [
+    "STAGE-PC-001",
+    "STAGE-VM2-001"
+  ],
+  "rejected_noncanonical_examples": [
+    "PC_STAGE_001",
+    "PC-STAGE-1",
+    "",
+    "DOG-STAGE-001"
+  ],
+  "legacy_read_from_historical_artifacts": true,
+  "legacy_write_to_new_artifacts": false,
+  "migration_behavior": {
+    "rewrite_historical_artifacts": false,
+    "compatibility_label_for_legacy_values": "LEGACY_STAGE_ID_FORMAT",
+    "new_artifacts_must_be_canonical": true
+  },
+  "validation_behavior": {
+    "mode": "fail_closed",
+    "reject_unknown_contours": true,
+    "require_three_digit_stage_number": true,
+    "reject_legacy_write_format": true
+  },
+  "error_message_behavior": {
+    "include_invalid_value": true,
+    "include_legacy_detection_hint": true,
+    "include_canonical_example": "PC-STAGE-001"
+  },
+  "identity_relation": {
+    "required_tuple": [
+      "task_id",
+      "stage_id",
+      "run_id"
+    ],
+    "strict_cross_artifact_consistency_required": true
+  },
+  "artifact_relation": {
+    "applies_to": [
+      "bundle_names",
+      "receipts",
+      "manifests",
+      "ledgers",
+      "provenance_records",
+      "barrier_events"
+    ],
+    "schema_mismatch_blocks_progression": true
+  },
+  "legacy_stage_id_format": "STAGE-<CONTOUR>-<THREE_DIGIT_NUMBER>",
+  "status": "ACTIVE"
+}

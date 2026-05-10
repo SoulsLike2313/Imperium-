@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-10T05:52:45.776530+00:00",
+  "old_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "new_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085200",
+  "changed_fields": [
+    {
+      "field": "schema_version",
+      "old": "ADMINISTRATUM_CONTINUITY_PACK_V0_1",
+      "new": "ADMINISTRATUM_CONTINUITY_PACK_PORTS_V0_1"
+    },
+    {
+      "field": "current_completed_point",
+      "old": "Administratum organ formalization and dashboard continuity button implementation in progress",
+      "new": "Ports-first continuity collection integrated and new continuity pack generated."
+    },
+    {
+      "field": "ports_registry_path",
+      "old": null,
+      "new": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json"
+    },
+    {
+      "field": "old_pack_qa_verdict",
+      "old": null,
+      "new": "OLD_PACK_CONTRADICTS_REALITY"
+    }
+  ],
+  "old_file_count": 25,
+  "new_file_count": 34,
+  "new_files_added": [
+    "HANDOFF_SUFFICIENCY_REPORT.json",
+    "HANDOFF_SUFFICIENCY_REPORT.md",
+    "IMPERIUM_ENTRYPOINT_FOR_NEW_CHAT.md",
+    "PORTS_SNAPSHOT.json",
+    "PORTS_SNAPSHOT.md",
+    "PORT_MISSING_REPORT.json",
+    "PORT_MISSING_REPORT.md",
+    "PORT_STALENESS_REPORT.json",
+    "PORT_STALENESS_REPORT.md"
+  ],
+  "files_removed": [],
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

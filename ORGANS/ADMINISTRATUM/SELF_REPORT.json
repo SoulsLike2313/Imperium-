@@ -1,0 +1,35 @@
+{
+  "schema_version": "ADMINISTRATUM_SELF_REPORT_V0_1",
+  "organ_id": "ADMINISTRATUM",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "can_do_now": [
+    "Build continuity pack from current evidence surfaces",
+    "Compare latest continuity pack with previous and Doctrinarium references",
+    "Expose local dashboard API and one active build action",
+    "Report blockers/limitations explicitly"
+  ],
+  "cannot_do_now": [
+    "Approve canon",
+    "Declare continuity green",
+    "Repair all organs automatically",
+    "Act as Sanctum orchestrator"
+  ],
+  "owned_files_roots": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\MEMORY",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CURRENT_STATE",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CHRONOLOGY",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY"
+  ],
+  "latest_continuity_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452",
+  "latest_comparison_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS\\CONTINUITY_COMPARISON_20260510_085452.json",
+  "dashboard_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1",
+  "current_blockers": [
+    "Cross-organ gaps still present (see Doctrinarium all-organs report)",
+    "No canon authorization for real-task continuity claims"
+  ],
+  "created_at": "2026-05-09T19:38:26.093495+00:00",
+  "last_updated_at": "2026-05-10T05:54:52.556293+00:00",
+  "latest_build_receipt_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452\\BUILD_RECEIPT.json"
+}

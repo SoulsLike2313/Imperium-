@@ -1,0 +1,22 @@
+{
+  "schema_id": "STAGE_WAIT_HEARTBEAT_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "contour_id",
+    "waiting_for_stage_id",
+    "attempt",
+    "timestamp_utc",
+    "status"
+  ],
+  "status_allowed": [
+    "WAITING",
+    "WAITING_FOR_SIGNAL",
+    "WAITING_FOR_ACK",
+    "WAITING_FOR_RECEIPT",
+    "TIMEOUT",
+    "CONFLICT",
+    "FAIL"
+  ]
+}

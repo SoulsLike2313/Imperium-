@@ -1,0 +1,9 @@
+{
+  "schema_id": "SCHEMA-TASK-STAGE-MAP-0_1",
+  "status": "PROMPT_ENGINEERING_FILE_BASE_0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stages"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "SANCTUM_ACTIVE_TASK_PASS_CRITERIA_V1",
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "pass_criteria": [
+    "Sanctum opens successfully.",
+    "Sanctum opens Astra Utility.",
+    "Sanctum opens Explorer.",
+    "Sanctum lists Astronomicon tasks.",
+    "Sanctum shows selected task stage map and next allowed action.",
+    "Manual notes are saved.",
+    "Smoke screenshot check passes.",
+    "No VM2 / THRONE / E2E / watchers / delete / move.",
+    "Every major manual step has receipt or note.",
+    "Final artifact has clean CONTENT_MANIFEST, SHA256SUMS and FINALIZATION_RECEIPT.",
+    "Owner explicitly decides when version becomes accepted candidate."
+  ],
+  "mega_pass_requires": [
+    "Owner acceptance",
+    "clean artifact",
+    "Speculum review if Owner requests baseline/candidate",
+    "continuity pack for next task/chat"
+  ]
+}

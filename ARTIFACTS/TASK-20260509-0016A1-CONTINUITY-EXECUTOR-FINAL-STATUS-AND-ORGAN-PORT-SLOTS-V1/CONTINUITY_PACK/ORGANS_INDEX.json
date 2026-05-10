@@ -1,0 +1,88 @@
+{
+  "generated_at_utc": "2026-05-09T00:27:42Z",
+  "organs": [
+    {
+      "organ_id": "Administratum",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "administratum_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Mechanicus",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "mechanicus_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Inquisition",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "inquisition_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Astronomicon",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "astronomicon_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Custodes",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "custodes_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Strategium",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "strategium_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Officio Agentis",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "officio_agentis_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Schola Imperialis",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "schola_imperialis_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Doctrinarium",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "doctrinarium_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    },
+    {
+      "organ_id": "Throne",
+      "status": "NOT_YET_IMPLEMENTED",
+      "self_report_port_status": "NOT_YET_AVAILABLE",
+      "expected_future_report_script": "throne_continuity_self_report.py",
+      "current_data_available": false,
+      "notes": "Slot reserved for future organ self-report integration."
+    }
+  ],
+  "organ_slots_count": 10,
+  "implemented_organ_ports_count": 0,
+  "verdict": "NOT_YET_AVAILABLE"
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": "ASTRA_TASK_RECORD_V0_4",
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "RUN_ID": "RUN-20260509-DRYRUN-0001",
+  "TASK_ROUTE_VERSION": "0.1",
+  "ASTRA_ROUTE_STATUS": "DRAFT",
+  "created_at_local": "2026-05-09T13:48:18",
+  "owner_task_text": "Local dry-run route foundation. No VM2. No THRONE. No E2E. No delete/move.",
+  "policy_refs": [
+    {
+      "policy_id": "POLICY-STAGE-ID-CANON-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\STAGE_ID_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-NO-THRONE-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_THRONE_POLICY.json"
+    }
+  ],
+  "policy_hashes": [
+    {
+      "policy_id": "POLICY-STAGE-ID-CANON-0_1",
+      "sha256": "POLICY_HASH_PENDING",
+      "status": "POLICY_HASH_PENDING"
+    },
+    {
+      "policy_id": "POLICY-NO-THRONE-0_1",
+      "sha256": "POLICY_HASH_PENDING",
+      "status": "POLICY_HASH_PENDING"
+    }
+  ],
+  "stages": [
+    {
+      "stage_number": 1,
+      "stage_id": "ASTRA-STAGE-001",
+      "organ": "ASTRONOMICON",
+      "status": "PLANNED",
+      "stage_metrics_template": {
+        "started_at": "",
+        "ended_at": "",
+        "duration_sec": 0,
+        "files_read": 0,
+        "files_written": 0,
+        "scripts_run": 0,
+        "validation_result": "NOT_RUN",
+        "repair_attempts": 0,
+        "max_repair_attempts": 2,
+        "risk_score": 0,
+        "confidence_score": 0,
+        "usability_score": 0,
+        "evidence_completeness_score": 0,
+        "drift_count": 0,
+        "duplicate_count": 0,
+        "forbidden_ref_count": 0,
+        "owner_approval_required": false,
+        "owner_approval_reason": "",
+        "next_allowed_action": ""
+      }
+    },
+    {
+      "stage_number": 2,
+      "stage_id": "ADMINISTRATUM-STAGE-001",
+      "organ": "ADMINISTRATUM",
+      "status": "PLANNED",
+      "stage_metrics_template": {
+        "started_at": "",
+        "ended_at": "",
+        "duration_sec": 0,
+        "files_read": 0,
+        "files_written": 0,
+        "scripts_run": 0,
+        "validation_result": "NOT_RUN",
+        "repair_attempts": 0,
+        "max_repair_attempts": 2,
+        "risk_score": 0,
+        "confidence_score": 0,
+        "usability_score": 0,
+        "evidence_completeness_score": 0,
+        "drift_count": 0,
+        "duplicate_count": 0,
+        "forbidden_ref_count": 0,
+        "owner_approval_required": false,
+        "owner_approval_reason": "",
+        "next_allowed_action": ""
+      }
+    },
+    {
+      "stage_number": 3,
+      "stage_id": "MECHANICUS-STAGE-001",
+      "organ": "MECHANICUS",
+      "status": "PLANNED",
+      "stage_metrics_template": {
+        "started_at": "",
+        "ended_at": "",
+        "duration_sec": 0,
+        "files_read": 0,
+        "files_written": 0,
+        "scripts_run": 0,
+        "validation_result": "NOT_RUN",
+        "repair_attempts": 0,
+        "max_repair_attempts": 2,
+        "risk_score": 0,
+        "confidence_score": 0,
+        "usability_score": 0,
+        "evidence_completeness_score": 0,
+        "drift_count": 0,
+        "duplicate_count": 0,
+        "forbidden_ref_count": 0,
+        "owner_approval_required": false,
+        "owner_approval_reason": "",
+        "next_allowed_action": ""
+      }
+    },
+    {
+      "stage_number": 4,
+      "stage_id": "INQUISITION-STAGE-001",
+      "organ": "INQUISITION",
+      "status": "PLANNED",
+      "stage_metrics_template": {
+        "started_at": "",
+        "ended_at": "",
+        "duration_sec": 0,
+        "files_read": 0,
+        "files_written": 0,
+        "scripts_run": 0,
+        "validation_result": "NOT_RUN",
+        "repair_attempts": 0,
+        "max_repair_attempts": 2,
+        "risk_score": 0,
+        "confidence_score": 0,
+        "usability_score": 0,
+        "evidence_completeness_score": 0,
+        "drift_count": 0,
+        "duplicate_count": 0,
+        "forbidden_ref_count": 0,
+        "owner_approval_required": false,
+        "owner_approval_reason": "",
+        "next_allowed_action": ""
+      }
+    },
+    {
+      "stage_number": 5,
+      "stage_id": "PC-STAGE-001",
+      "organ": "PC_SERVITOR",
+      "status": "PLANNED",
+      "stage_metrics_template": {
+        "started_at": "",
+        "ended_at": "",
+        "duration_sec": 0,
+        "files_read": 0,
+        "files_written": 0,
+        "scripts_run": 0,
+        "validation_result": "NOT_RUN",
+        "repair_attempts": 0,
+        "max_repair_attempts": 2,
+        "risk_score": 0,
+        "confidence_score": 0,
+        "usability_score": 0,
+        "evidence_completeness_score": 0,
+        "drift_count": 0,
+        "duplicate_count": 0,
+        "forbidden_ref_count": 0,
+        "owner_approval_required": false,
+        "owner_approval_reason": "",
+        "next_allowed_action": ""
+      }
+    },
+    {
+      "stage_number": 6,
+      "stage_id": "SPECULUM-STAGE-001",
+      "organ": "SPECULUM_REVIEW_PLANNED",
+      "status": "PLANNED",
+      "stage_metrics_template": {
+        "started_at": "",
+        "ended_at": "",
+        "duration_sec": 0,
+        "files_read": 0,
+        "files_written": 0,
+        "scripts_run": 0,
+        "validation_result": "NOT_RUN",
+        "repair_attempts": 0,
+        "max_repair_attempts": 2,
+        "risk_score": 0,
+        "confidence_score": 0,
+        "usability_score": 0,
+        "evidence_completeness_score": 0,
+        "drift_count": 0,
+        "duplicate_count": 0,
+        "forbidden_ref_count": 0,
+        "owner_approval_required": false,
+        "owner_approval_reason": "",
+        "next_allowed_action": ""
+      }
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+Playwright smoke was not executed in this run. API smoke coverage was executed via dashboard_server GET /api/data and POST /api/build-continuity-pack to validate the single active action button backend path.

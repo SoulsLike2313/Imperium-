@@ -1,0 +1,119 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "sanctum_task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+  "script_map_version": "0.1",
+  "categories": {
+    "python_compile_check": {
+      "recommended": "python in-memory compile (no pycache write)",
+      "scripts": [
+        "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+        "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py"
+      ],
+      "script_exists": [
+        true,
+        true
+      ]
+    },
+    "json_parse_check": {
+      "recommended": "python json.loads()",
+      "scripts": [],
+      "script_exists": []
+    },
+    "manifest_build": {
+      "scripts": [
+        "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_manifest.py"
+      ],
+      "script_exists": [
+        true
+      ]
+    },
+    "sha256_build": {
+      "scripts": [
+        "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_sha256sums.py"
+      ],
+      "script_exists": [
+        true
+      ]
+    },
+    "finalization_receipt_build": {
+      "scripts": [],
+      "status": "MISSING_SCRIPT_CANDIDATE",
+      "script_exists": []
+    },
+    "bundle_build": {
+      "scripts": [],
+      "status": "MISSING_SCRIPT_CANDIDATE",
+      "script_exists": []
+    },
+    "screenshot_manual_proof_collection": {
+      "scripts": [
+        "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v1_0a.py",
+        "E:\\IMPERIUM\\EXPLORER\\VERIFY\\make_explorer_screenshots_v0_1.ps1"
+      ],
+      "script_exists": [
+        true,
+        true
+      ]
+    },
+    "explorer_visibility_check": {
+      "scripts": [
+        "E:\\IMPERIUM\\EXPLORER\\VERIFY\\explorer_truth_audit_v1_0a.py",
+        "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v1_0a.py"
+      ],
+      "script_exists": [
+        true,
+        true
+      ]
+    },
+    "no_pycache_check": {
+      "scripts": [],
+      "recommended": "local file scan",
+      "script_exists": []
+    },
+    "no_forbidden_refs_check": {
+      "scripts": [
+        "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+        "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py"
+      ],
+      "script_exists": [
+        true,
+        true
+      ]
+    }
+  },
+  "available_scripts_index": [
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\create_astra_task_record.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\export_astra_route.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\validate_astra_route.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_read_first_route.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_task_launch_card_from_astra.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_repair_branch.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_task_launch_card.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_policy_refs.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_read_first_receipt.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_manifest.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_sha256sums.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\build_validator_selection.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\scan_python_readonly_safety.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\select_scripts_for_route.py",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\validate_script_registry.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_duplicate_stage_ids.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\detect_forbidden_refs.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\generate_deletion_proposal.py",
+    "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\run_inquisition_preflight.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v0_1.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v0_2.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v0_3.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v1_0.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\auto_explorer_screenshot_truth_check_v1_0a.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\build_foundation_0_1a_content_package.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\explorer_truth_audit_v0_2.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\explorer_truth_audit_v1_0.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\explorer_truth_audit_v1_0a.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\patch_explorer_v0_6_archive_truth.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\static_readonly_source_scan_v1_0.py",
+    "E:\\IMPERIUM\\EXPLORER\\VERIFY\\static_readonly_source_scan_v1_0a.py"
+  ]
+}

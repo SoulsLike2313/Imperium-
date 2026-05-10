@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\SANCTUM",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\SANCTUM\\VERIFY",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\SANCTUM\\NOTES",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION",
+      "status": "FOUND"
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\_PORTS",
+      "status": "FOUND"
+    }
+  ]
+}

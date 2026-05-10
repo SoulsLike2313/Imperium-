@@ -1,0 +1,281 @@
+{
+  "schema_version": "ASTRA_TASK_RECORD_V0_2",
+  "task_id": "TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+  "created_at_local": "2026-05-09T13:15:58",
+  "owner_task_text": "Нужно подготовить базовые скрипты Астрономикона v0.1 для локальной работы IMPERIUM.\n\nЦель:\nСоздать минимальный набор скриптов, которые помогают Owner/Logos формировать task route внутри Astronomicon.\n\nНужно получить:\n1. Скрипт создания ASTRA_TASK_RECORD из текстовой задачи Owner.\n2. Скрипт создания STAGE_MAP.\n3. Скрипт проверки STAGE_MAP.\n4. Скрипт экспорта pipeline draft в md/json.\n5. Скрипт проверки, что task route не заявляет fake green, organs implemented, THRONE, E2E, VM2 или watchers без явного разрешения.\n\nГраницы scope:\n- не реализовывать живой орган;\n- не запускать E2E;\n- не трогать VM2;\n- не трогать THRONE;\n- не создавать watchers;\n- не создавать background automation;\n- не переносить файлы;\n- не удалять файлы;\n- не объявлять Astronomicon implemented;\n- не объявлять CONTINUITY_GREEN.\n\nОжидаемый результат:\n- новые скрипты лежат в E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS;\n- каждый скрипт поддерживает --help;\n- есть README по использованию;\n- есть validation report;\n- есть receipt;\n- есть artifact bundle;\n- Explorer должен видеть новые файлы.\n\nДополнительное требование:\nЗадача должна идти stage-by-stage:\n1. Astra формирует смысловую карту задачи.\n2. Administratum задает адреса чтения/записи и policy refs.\n3. Mechanicus задает список скриптов и проверок.\n4. Inquisition проверяет дрифт, fake green, forbidden refs и опасные действия.\n5. PC Servitor выполняет локальное создание скриптов.\n6. Speculum потом проверяет bundle.",
+  "pipeline_profile": {
+    "key": "PC_LOCAL_ROUTE",
+    "label": "PC Local Route",
+    "description": "PC Servitor performs local-only task. No VM2, no THRONE.",
+    "vm2_allowed": false,
+    "manual_heavy": false
+  },
+  "route_status": "ASTRA_ROUTE_DRAFT",
+  "scope_analysis": {
+    "word_count": 191,
+    "scope_width": "MEDIUM",
+    "detected_risk_terms": [
+      "vm2",
+      "throne",
+      "e2e",
+      "delete",
+      "watchers",
+      "inquisition",
+      "mechanicus",
+      "administratum",
+      "astronomicon"
+    ],
+    "profile_key": "PC_LOCAL_ROUTE",
+    "profile_label": "PC Local Route",
+    "scope_blockers": [
+      "VM2 mentioned but selected pipeline does not allow VM2.",
+      "THRONE mentioned; THRONE remains blocked.",
+      "Deletion language detected; Inquisition deletion proposal + Owner approval required.",
+      "Watcher/autosync language detected; background automation forbidden."
+    ],
+    "scope_tightening_suggestions": [
+      "Scope можно использовать для первичного route draft."
+    ]
+  },
+  "forbidden_activations": [
+    "NO_THRONE_CONTACT",
+    "NO_E2E_RUN_UNLESS_EXPLICIT_STAGE",
+    "NO_WATCHERS",
+    "NO_BACKGROUND_AUTOMATION",
+    "NO_DELETE_WITHOUT_OWNER_APPROVAL",
+    "NO_ORGAN_IMPLEMENTED_CLAIM",
+    "NO_CONTINUITY_GREEN_CLAIM",
+    "NO_LATEST_BUNDLE_LOGIC"
+  ],
+  "policy_extension_required": [
+    "STAGE_ID_POLICY should include INQUISITION-STAGE-### before strict validator enforcement."
+  ],
+  "stages": [
+    {
+      "stage_number": 1,
+      "stage_id": "ASTRA-STAGE-001",
+      "organ": "ASTRONOMICON",
+      "title": "Смысловая карта задачи",
+      "purpose": "Зафиксировать цель, scope, stage map, pass criteria и blockers.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Owner goal сохранён без расширения scope.",
+        "Stage map создан.",
+        "Pass criteria заданы.",
+        "Next allowed action задан.",
+        "Blockers перечислены.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_001_RECEIPT.json",
+        "STAGE_001_VALIDATION_REPORT.json"
+      ]
+    },
+    {
+      "stage_number": 2,
+      "stage_id": "ADMINISTRATUM-STAGE-001",
+      "organ": "ADMINISTRATUM",
+      "title": "Read-first и адреса",
+      "purpose": "Определить что читать, куда писать, какие policies и receipts нужны.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Read-first route создан.",
+        "Policy refs перечислены.",
+        "Output root задан.",
+        "Receipt requirements заданы.",
+        "No latest-bundle logic.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_002_RECEIPT.json",
+        "STAGE_002_VALIDATION_REPORT.json"
+      ]
+    },
+    {
+      "stage_number": 3,
+      "stage_id": "MECHANICUS-STAGE-001",
+      "organ": "MECHANICUS",
+      "title": "Tool/script route",
+      "purpose": "Выдать список локальных скриптов, validators и test commands.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Allowed scripts/tools перечислены.",
+        "Validator commands перечислены.",
+        "Tool risk classification указана.",
+        "No unsafe script execution.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_003_RECEIPT.json",
+        "STAGE_003_VALIDATION_REPORT.json"
+      ]
+    },
+    {
+      "stage_number": 4,
+      "stage_id": "INQUISITION-STAGE-001",
+      "organ": "INQUISITION",
+      "title": "Preflight heresy check",
+      "purpose": "Проверить route на дрифт, дубли, fake green, latest/throne/watchers/delete.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Drift/duplicate/fake-green checks выполнены.",
+        "Legacy stage IDs проверены.",
+        "Placeholder hashes проверены.",
+        "Deletion only as proposal.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_004_RECEIPT.json",
+        "STAGE_004_VALIDATION_REPORT.json"
+      ]
+    },
+    {
+      "stage_number": 5,
+      "stage_id": "PC-STAGE-001",
+      "organ": "PC_SERVITOR",
+      "title": "Локальное выполнение",
+      "purpose": "Выполнить задачу локально по route, без VM2/THRONE/E2E.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Stage выполнен по утверждённому route.",
+        "Validation PASS before next stage.",
+        "Safe repair attempted only if bounded.",
+        "BLOCKED_RECEIPT created if semantic conflict.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_005_RECEIPT.json",
+        "STAGE_005_VALIDATION_REPORT.json"
+      ]
+    },
+    {
+      "stage_number": 6,
+      "stage_id": "PC-STAGE-002",
+      "organ": "PC_SERVITOR",
+      "title": "Packaging and proof",
+      "purpose": "Собрать reports, receipts, manifest, hashes, final bundle.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Stage выполнен по утверждённому route.",
+        "Validation PASS before next stage.",
+        "Safe repair attempted only if bounded.",
+        "BLOCKED_RECEIPT created if semantic conflict.",
+        "Stage receipt создан.",
+        "Stage validation report создан.",
+        "No fake green claims.",
+        "No THRONE contact.",
+        "No watcher/background automation."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_006_RECEIPT.json",
+        "STAGE_006_VALIDATION_REPORT.json"
+      ]
+    },
+    {
+      "stage_number": 7,
+      "stage_id": "SPECULUM-STAGE-001",
+      "organ": "LOGOS_SPECULUM",
+      "title": "Hard review",
+      "purpose": "Speculum проверяет evidence bundle.",
+      "status": "PLANNED",
+      "pass_criteria": [
+        "Bundle + sidecar provided.",
+        "Evidence reviewed.",
+        "Verdict issued.",
+        "Next action or blockers listed."
+      ],
+      "stage_loop": {
+        "do_stage": true,
+        "run_validation": true,
+        "if_pass": "write_STAGE_PASS_RECEIPT_and_continue",
+        "if_fail_safe_repair": "repair_report_or_local_artifact_then_rerun_validation",
+        "if_fail_semantic_or_destructive": "write_BLOCKED_RECEIPT_and_stop_for_Owner",
+        "max_safe_repair_attempts": 2
+      },
+      "expected_outputs": [
+        "STAGE_007_RECEIPT.json",
+        "STAGE_007_VALIDATION_REPORT.json"
+      ]
+    }
+  ],
+  "next_allowed_action": {
+    "action": "OWNER_REVIEW_ASTRA_ROUTE",
+    "then": "ADMINISTRATUM_READ_ROUTE_BUILD",
+    "not_allowed_yet": [
+      "THRONE_CONTACT",
+      "E2E_RUN_UNLESS_EXPLICITLY_STAGED",
+      "SANCTUM_BUTTONS",
+      "AQUARIUM",
+      "LIVE_ORGAN_CLAIM",
+      "CONTINUITY_GREEN_CLAIM"
+    ]
+  }
+}

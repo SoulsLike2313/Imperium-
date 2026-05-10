@@ -1,0 +1,208 @@
+{
+  "schema_version": "LAW_ENFORCEMENT_MAP_V0_1",
+  "law_enforcement_map": {
+    "LAW-001": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py",
+        "inquisition_post_stage_audit.py"
+      ],
+      "violation_verdict": "BLOCKED_FAKE_GREEN_RISK",
+      "blocks_real_task_execution": true
+    },
+    "LAW-002": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_OWNER_APPROVAL_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-003": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_MISSING_TASK_INPUTS",
+      "blocks_real_task_execution": true
+    },
+    "LAW-004": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_generate_status_report.py"
+      ],
+      "violation_verdict": "BLOCKED_AMBIGUOUS_CURRENT_STATE",
+      "blocks_real_task_execution": false
+    },
+    "LAW-005": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "violation_verdict": "BLOCKED_DELETE_NOT_APPROVED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-006": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_all_organs.py"
+      ],
+      "violation_verdict": "BLOCKED_ARCHIVE_SCAN_NOT_APPROVED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-007": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "violation_verdict": "BLOCKED_THRONE_CONTACT_NOT_APPROVED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-008": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "violation_verdict": "BLOCKED_VM2_SCOPE_OR_APPROVAL_MISSING",
+      "blocks_real_task_execution": true
+    },
+    "LAW-009": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_SANCTUM_BASELINE_NOT_ACCEPTED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-010": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "inquisition_post_stage_audit.py"
+      ],
+      "violation_verdict": "BLOCKED_FINAL_WITHOUT_FINALIZATION_RECEIPT",
+      "blocks_real_task_execution": true
+    },
+    "LAW-011": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "blocks_real_task_execution": true
+    },
+    "LAW-012": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_organ_standard.py",
+        "doctrinarium_validate_all_organs.py"
+      ],
+      "violation_verdict": "BLOCKED_ORGAN_STANDARD_FAILED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-013": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_organ_standard.py"
+      ],
+      "violation_verdict": "BLOCKED_ORGAN_STANDARD_FAILED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-014": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "mechanicus_resolve_scripts.py"
+      ],
+      "violation_verdict": "BLOCKED_UNREGISTERED_SCRIPT",
+      "blocks_real_task_execution": true
+    },
+    "LAW-015": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_LATEST_BUNDLE_GUESSING",
+      "blocks_real_task_execution": true
+    },
+    "LAW-016": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "violation_verdict": "BLOCKED_BACKGROUND_WATCHER_NOT_APPROVED",
+      "blocks_real_task_execution": true
+    },
+    "LAW-017": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_PROMPT_AS_CANON",
+      "blocks_real_task_execution": true
+    },
+    "LAW-018": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "inquisition_post_stage_audit.py"
+      ],
+      "violation_verdict": "REPAIR_REQUIRED",
+      "blocks_real_task_execution": false
+    },
+    "LAW-019": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "inquisition_post_stage_audit.py"
+      ],
+      "violation_verdict": "BLOCKED_MANIFEST_SELF_REFERENCE",
+      "blocks_real_task_execution": true
+    },
+    "LAW-020": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_generate_status_report.py"
+      ],
+      "violation_verdict": "BLOCKED_FAKE_GREEN_RISK",
+      "blocks_real_task_execution": false
+    },
+    "LAW-021": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "administratum_build_current_state.py"
+      ],
+      "violation_verdict": "BLOCKED_AMBIGUOUS_CONTINUITY",
+      "blocks_real_task_execution": true
+    },
+    "LAW-022": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_SEMANTIC_CONFLICT",
+      "blocks_real_task_execution": true
+    },
+    "LAW-023": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_MISSING_DOCTRINE",
+      "blocks_real_task_execution": true
+    },
+    "LAW-024": {
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "violation_verdict": "BLOCKED_FAKE_GREEN_RISK",
+      "blocks_real_task_execution": true
+    },
+    "LAW-025": {
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_generate_status_report.py"
+      ],
+      "violation_verdict": "REPAIR_REQUIRED",
+      "blocks_real_task_execution": false
+    }
+  },
+  "created_at": "2026-05-09T16:51:44.168321+00:00"
+}

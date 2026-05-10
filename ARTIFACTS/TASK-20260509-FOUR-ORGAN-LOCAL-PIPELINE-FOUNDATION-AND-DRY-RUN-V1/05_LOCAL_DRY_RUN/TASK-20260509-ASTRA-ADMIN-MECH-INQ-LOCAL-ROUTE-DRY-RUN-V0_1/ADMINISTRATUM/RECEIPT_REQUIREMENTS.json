@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "run_id": "RUN-20260509-DRYRUN-0001",
+  "required_per_stage": [
+    "STAGE_PASS_RECEIPT",
+    "STAGE_VALIDATION_REPORT"
+  ],
+  "blocked_receipt_required_on_semantic_or_destructive_conflict": true
+}

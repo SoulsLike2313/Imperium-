@@ -1,0 +1,86 @@
+{
+  "generated_at_utc": "2026-05-09T00:13:47Z",
+  "imperium_root": "E:\\IMPERIUM",
+  "manual_proofs_root": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+  "roots": [
+    {
+      "root_id": "IMPERIUM_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM",
+      "path_type": "root",
+      "allowed_use": "Primary local workspace root.",
+      "blocked_use": "No THRONE transfer and no unknown path redirection.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "ARTIFACTS_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS",
+      "path_type": "artifact_root",
+      "allowed_use": "Task artifacts and continuity packs.",
+      "blocked_use": "Do not mix manual proofs into normal artifact layer.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "MANUAL_PROOFS_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+      "path_type": "manual_proof_root",
+      "allowed_use": "OWNER_MANUAL proof layer.",
+      "blocked_use": "Do not treat as normal generated artifacts.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "SSH_COMMAND_LIBRARY_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY",
+      "path_type": "command_library",
+      "allowed_use": "SSH routing context and tools registry layers.",
+      "blocked_use": "No raw secrets in generated continuity pack.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "TOOLS_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS",
+      "path_type": "tools_root",
+      "allowed_use": "Cemented tool root.",
+      "blocked_use": "Active tools outside this root are hygiene warnings.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "CONTINUITY_TOOLS_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\20_CONTINUITY",
+      "path_type": "continuity_tools",
+      "allowed_use": "Continuity subsystem scripts.",
+      "blocked_use": "No watcher/daemon behavior.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "PC_VM2_PIPELINE_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\10_PC_VM2_PIPELINE",
+      "path_type": "pipeline_tools",
+      "allowed_use": "PC-VM2 pipeline scripts registry.",
+      "blocked_use": "No live VM2 actions in this task.",
+      "status": "PASS"
+    },
+    {
+      "root_id": "REGISTRY_ROOT",
+      "exists": true,
+      "absolute_path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\00_REGISTRY",
+      "path_type": "registry_root",
+      "allowed_use": "Tool index and layout contracts.",
+      "blocked_use": "Do not mark unknown tools as active.",
+      "status": "PASS"
+    }
+  ],
+  "findings": [],
+  "verdict": "PASS",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true
+}

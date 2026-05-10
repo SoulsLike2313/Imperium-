@@ -1,0 +1,52 @@
+{
+  "schema_version": "TEST_REPORT_V0_2",
+  "generated_at": "2026-05-10T06:21:13.427382+00:00",
+  "pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\DEVELOPER_GRADE_CONTINUITY_PACK_20260510_091854",
+  "qa_verdict": "DEVELOPER_HANDOFF_SUFFICIENT_FOR_BOOTSTRAP_DEVELOPMENT_WITH_LIMITATIONS",
+  "tests": {
+    "compile_build_dev_grade": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_qa_dev_handoff": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_build_continuity": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "compile_compare_continuity": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "",
+      "stderr_tail": ""
+    },
+    "qa_developer_handoff": {
+      "ok": true,
+      "exit_code": 0,
+      "stdout_tail": "{\"ok\": true, \"verdict\": \"DEVELOPER_HANDOFF_SUFFICIENT_FOR_BOOTSTRAP_DEVELOPMENT_WITH_LIMITATIONS\", \"pack_path\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\PACKS\\\\DEVELOPER_GRADE_CONTINUITY_PACK_20260510_091854\"}\n",
+      "stderr_tail": ""
+    },
+    "developer_pack_structure": {
+      "ok": true,
+      "missing": []
+    },
+    "manifest_hash_present": {
+      "ok": true,
+      "manifest": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\DEVELOPER_GRADE_CONTINUITY_PACK_20260510_091854\\MANIFEST.json",
+      "sha256sums": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\DEVELOPER_GRADE_CONTINUITY_PACK_20260510_091854\\SHA256SUMS.txt"
+    }
+  },
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "Test scope is local compile/structure/QA validation only.",
+    "No canon/green readiness implications."
+  ]
+}

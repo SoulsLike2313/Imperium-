@@ -1,0 +1,112 @@
+{
+  "schema_version": "ORGAN_CANONIZATION_STANDARD_V0_1",
+  "allowed_statuses": [
+    "NOT_FOUND",
+    "FOLDER_ONLY",
+    "PLACEHOLDER",
+    "SCAFFOLD",
+    "BOOTSTRAP",
+    "CANON_CANDIDATE",
+    "CANON_V0_1",
+    "DEGRADED",
+    "BLOCKED",
+    "DEPRECATED",
+    "UNKNOWN"
+  ],
+  "minimum_requirements": [
+    "README.md",
+    "ORGAN_STATUS.json",
+    "ORGAN_CONTRACT.json",
+    "SCRIPTS directory or explicit non-script role",
+    "RECEIPTS directory",
+    "allowed_write_roots",
+    "forbidden_roots",
+    "entrypoints",
+    "required_receipts",
+    "responsibilities",
+    "explicitly_not_responsible_for",
+    "self_report or equivalent",
+    "health_check or equivalent validation report",
+    "known_limitations",
+    "current_blockers",
+    "last_verified_at",
+    "owner_approval_state"
+  ],
+  "created_at": "2026-05-09T19:51:44.168321+03:00",
+  "manual_owner_amendments": [
+    {
+      "amendment_id": "OWNER_AMENDMENT_ORGAN_UTILITY_REQUIRED_20260509_202816",
+      "created_at": "2026-05-09T17:28:17.1072459Z",
+      "author": "Owner via Logos-Prime manual PowerShell patch",
+      "summary": "Adds rule that a complete organ requires a dedicated utility, and any utility must be backed by real scripts/reports/receipts/status.",
+      "affected_rules": [
+        "ORGAN_REQUIRES_DEDICATED_UTILITY",
+        "ORGAN_UTILITY_REQUIRES_SCRIPTS"
+      ],
+      "backup_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STANDARDS\\ORGAN_CANONIZATION_STANDARD.json.bak_20260509_202816"
+    }
+  ],
+  "organ_utility_rules": [
+    {
+      "rule_id": "ORGAN_REQUIRES_DEDICATED_UTILITY",
+      "title": "No complete organ without dedicated utility",
+      "meaning": "An organ cannot be considered complete, canon-candidate, or canon-ready unless it has a dedicated Owner-facing utility or workbench surface that exposes its scripts, reports, receipts, status, blockers, and allowed actions.",
+      "required_for_status": {
+        "SCAFFOLD": false,
+        "BOOTSTRAP": false,
+        "CANON_CANDIDATE": true,
+        "CANON_V0_1": true
+      },
+      "required_evidence": [
+        "utility_requirements_document",
+        "utility_entrypoint_or_launcher",
+        "script_backing_map",
+        "latest_utility_status_report",
+        "receipt_showing_utility_check"
+      ],
+      "blocking_if_missing_for": [
+        "CANON_CANDIDATE",
+        "CANON_V0_1"
+      ],
+      "allowed_intermediate_status": [
+        "SCAFFOLD",
+        "BOOTSTRAP"
+      ],
+      "violation_verdict": "BLOCKED_ORGAN_UTILITY_MISSING",
+      "owner_note_ru": "Без личной утилиты орган не считается полноценным органом. На SCAFFOLD/BOOTSTRAP допускается отсутствие утилиты, но для CANON_CANDIDATE и CANON_V0_1 утилита обязательна."
+    },
+    {
+      "rule_id": "ORGAN_UTILITY_REQUIRES_SCRIPTS",
+      "title": "No decorative utility without scripts",
+      "meaning": "An organ utility must not be decorative. It must be backed by real organ scripts, reports, receipts, machine-readable status files, and evidence paths.",
+      "required_evidence": [
+        "registered_scripts",
+        "script_hashes",
+        "script_outputs",
+        "reports",
+        "receipts",
+        "status_json",
+        "blocker_visibility"
+      ],
+      "blocking_if_missing_for": [
+        "CANON_CANDIDATE",
+        "CANON_V0_1"
+      ],
+      "violation_verdict": "BLOCKED_DECORATIVE_UTILITY",
+      "owner_note_ru": "Утилита не может строиться без скриптов органа. Сначала scripts/reports/receipts/status, потом utility, потом Sanctum-panel."
+    }
+  ],
+  "utility_requirements_by_status": {
+    "NOT_FOUND": "not_applicable",
+    "FOLDER_ONLY": "not_applicable",
+    "PLACEHOLDER": "not_required",
+    "SCAFFOLD": "utility_design_optional",
+    "BOOTSTRAP": "scripts_reports_receipts_required; utility_optional",
+    "CANON_CANDIDATE": "dedicated_utility_required",
+    "CANON_V0_1": "working_dedicated_utility_required",
+    "DEGRADED": "utility_status_must_show_degradation",
+    "BLOCKED": "utility_status_must_show_blocker_if_utility_exists",
+    "DEPRECATED": "not_required",
+    "UNKNOWN": "not_trusted"
+  }
+}

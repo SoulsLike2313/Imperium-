@@ -1,0 +1,37 @@
+{
+  "task_id": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+  "source_task_id": "TASK-20260508-0014E-STAGE-COORDINATION-RUNTIME-MINIMAL-IMPLEMENTATION-V1",
+  "final_zip_name": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1_FINAL_STEP_BUNDLE.zip",
+  "final_zip_sha256": "679d20e86f5e34b5efbb4188f9490e90bd92031ec353d02570e683202ef960ea",
+  "sidecar_sha256_file": "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1_FINAL_STEP_BUNDLE.zip.sha256",
+  "sidecar_matches_zip": true,
+  "manifest_file_count": 91,
+  "actual_zip_member_count": 91,
+  "sha256s_verified_count": 90,
+  "sha256s_missing_count": 0,
+  "sha256s_mismatch_count": 0,
+  "zip_path_hygiene": {
+    "backslash_count": 0,
+    "absolute_path_count": 0,
+    "traversal_count": 0
+  },
+  "generated_cache_files": {
+    "pycache_count": 0,
+    "pyc_count": 0,
+    "pyo_count": 0
+  },
+  "json_parse_status": "PASS",
+  "python_compile_status": "PASS",
+  "json_parse_errors": [],
+  "python_compile_errors": [],
+  "positive_test_summary": "10/10 positive checks passed (reported)",
+  "negative_test_summary": "12/12 negative-path checks matched expected outcomes (reported)",
+  "inquisition_negative_fixture_interpretation": "REPAIR_REQUIRED came from intentionally injected negative fixtures and is expected detection behavior.",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "generated_at_utc": "2026-05-08T20:54:33Z",
+  "verdict": "PASS_AS_LOCAL_RUNTIME_PRIMITIVES"
+}

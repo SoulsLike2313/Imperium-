@@ -1,0 +1,65 @@
+{
+  "schema_version": "INPUT_FREEZE_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "source_root": "E:\\IMPERIUM",
+  "reviewed_task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "reviewed_task_artifact_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "discovered_organ_scripts": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_preflight.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\SCRIPTS\\officio_agentis_scope.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_record_event.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_current_state.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_view_task_timeline.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_candidate.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\imperium_task_start.ps1",
+      "exists": false
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\SCRIPTS\\astronomicon_load_route.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\mechanicus_resolve_scripts.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\mechanicus_dummy_stage.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\SCRIPTS\\inquisition_post_stage_audit.py",
+      "exists": true
+    },
+    {
+      "path": "E:\\IMPERIUM\\PC_ENGINEERING_ROOM\\SCRIPTS\\imperium_task_start.ps1",
+      "exists": true
+    }
+  ],
+  "discovered_entrypoint_path": null,
+  "sanctum_excluded": true,
+  "archive_recursive_scan_skipped": true,
+  "vm2_excluded": true,
+  "throne_excluded": true,
+  "gui_excluded": true,
+  "created_at": "2026-05-09T15:06:15.4958894Z"
+}

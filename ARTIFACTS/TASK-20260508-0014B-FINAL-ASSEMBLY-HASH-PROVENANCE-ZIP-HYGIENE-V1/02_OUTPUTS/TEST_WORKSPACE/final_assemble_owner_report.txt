@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-1410-FINAL-ASSEMBLY-TEST/final_bundle_assemble.py
+
+БАНДЛ:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\02_OUTPUTS\TEST_WORKSPACE\final_output\TASK-20260508-1410-FINAL-ASSEMBLY-TEST_FINAL_TASK_BUNDLE.zip
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Final assembly строго разрешён только после BARRIER_PASS и иначе выдаёт BLOCKED/FAIL receipt.
+На неуспехе формируется FINAL_ASSEMBLY_RECEIPT и пишется STAGE_FAILED событие в ledger.
+Внутренний SHA256SUMS пишет archive-relative POSIX пути, внешний .sha256 остаётся filename-only.
+E2E в этой задаче не выполнялся, THRONE и watchers остаются заблокированы.

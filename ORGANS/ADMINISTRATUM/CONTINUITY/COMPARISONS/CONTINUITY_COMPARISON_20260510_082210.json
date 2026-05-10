@@ -1,0 +1,98 @@
+{
+  "schema_version": "ADMINISTRATUM_CONTINUITY_COMPARISON_V0_1",
+  "generated_at": "2026-05-10T05:22:10.595298+00:00",
+  "latest_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "previous_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158",
+  "doctrinarium_reference_paths": {
+    "handoff_finalization_receipt": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json",
+    "playwright_report": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+    "all_organs_gap_report": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+    "doctrinarium_status": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\DOCTRINARIUM_STATUS.json"
+  },
+  "checks": [
+    {
+      "check": "mentions_doctrinarium_dashboard_v0_8",
+      "ok": true,
+      "detail": "{'doctrinarium_dashboard_id': 'DOCTRINARIUM_WEB_DASHBOARD_V0_8', 'doctrinarium_dashboard_url': 'http://127.0.0.1:8791', 'playwright_verdict': 'PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT'}"
+    },
+    {
+      "check": "mentions_playwright_pass",
+      "ok": true,
+      "detail": "PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT"
+    },
+    {
+      "check": "mentions_current_7_organs_62_blockers",
+      "ok": true,
+      "detail": "reference_metrics={'organs_checked': 7, 'total_blockers': 62, 'laws_total': 25, 'laws_not_enforced': 25}, expected_orgs=7, expected_blockers=62"
+    },
+    {
+      "check": "mentions_25_laws_25_not_enforced",
+      "ok": true,
+      "detail": "pack={'total_laws': 25, 'not_fully_enforced_count': 25, 'hard_not_fully_enforced_count': 21}, expected={'total_laws': 25, 'not_fully_enforced_count': 25, 'hard_not_fully_enforced_count': 21}"
+    },
+    {
+      "check": "mentions_administratum_dashboard_task",
+      "ok": true,
+      "detail": "ADMINISTRATUM token search"
+    },
+    {
+      "check": "includes_next_action",
+      "ok": true,
+      "detail": "['build Administratum dashboard', 'run continuity pack', 'compare continuity pack', 'build next organ or visual hardening']"
+    },
+    {
+      "check": "includes_do_not_do",
+      "ok": true,
+      "detail": "['no fake green', 'no canon claim', 'no Archive scan', 'no Sanctum claim', 'no VM2 activation', 'no THRONE', 'no delete', 'no latest guessing']"
+    },
+    {
+      "check": "includes_evidence_paths",
+      "ok": true,
+      "detail": "['doctrinarium_handoff_finalization', 'doctrinarium_handoff_zip', 'doctrinarium_playwright_report', 'doctrinarium_status', 'doctrinarium_gap_report', 'administratum_status', 'administratum_contract', 'administratum_self_report']"
+    },
+    {
+      "check": "includes_limitations",
+      "ok": true,
+      "detail": "['Continuity pack is evidence-based but not canon authority.', 'No continuity green claim is allowed.', 'Owner role selection is provided separately from this pack.']"
+    },
+    {
+      "check": "avoids_fake_green_canon_claims",
+      "ok": true,
+      "detail": "found=[]"
+    },
+    {
+      "check": "contains_doctrinarium_v0_8_handoff_reference",
+      "ok": true,
+      "detail": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF.zip"
+    },
+    {
+      "check": "required_pack_files_exist",
+      "ok": true,
+      "detail": "[]"
+    },
+    {
+      "check": "role_neutral_entrypoint",
+      "ok": true,
+      "detail": "ENTRYPOINT_FOR_NEW_CHAT role neutrality check"
+    }
+  ],
+  "diff_summary": {
+    "schema_version": "CONTINUITY_DIFF_V0_1",
+    "status": "DIFF_READY",
+    "previous_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225158",
+    "changes": [],
+    "created_at": "2026-05-10T05:22:10.362930+00:00"
+  },
+  "usable_for_new_chat_entry": true,
+  "role_neutral": true,
+  "expected_playwright_verdict": "PASS_PLAYWRIGHT_V0_8_VISUAL_FUNCTIONAL_AUDIT",
+  "verdict": "PASS_CONTINUITY_PACK_BUILT_AND_COMPARED_WITH_LIMITATIONS",
+  "blockers": [],
+  "warnings": [
+    "Pack remains bootstrap/limitations mode and cannot claim canon or green status."
+  ],
+  "limitations": [
+    "Comparison does not imply canon/green readiness.",
+    "Owner role instruction is external to this continuity state."
+  ]
+}

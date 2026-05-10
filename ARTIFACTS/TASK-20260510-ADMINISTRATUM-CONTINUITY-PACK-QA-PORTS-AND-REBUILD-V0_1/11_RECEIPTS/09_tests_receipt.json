@@ -1,0 +1,28 @@
+{
+  "schema_version": "TASK_PHASE_RECEIPT_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+  "run_id": "RUN-20260510-083108",
+  "phase": "PHASE_9_TESTS",
+  "script_path": null,
+  "script_hash": null,
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_scan_real_imperium_state.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_qa_continuity_pack_against_reality.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\09_TESTS\\TEST_REPORT.json"
+  ],
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [],
+  "next_action": "Proceed to next planned phase.",
+  "created_at": "2026-05-10T05:56:56.969814+00:00",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

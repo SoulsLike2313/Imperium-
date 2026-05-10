@@ -1,0 +1,24 @@
+{
+  "policy_id": "TASK_CHAT_LIFECYCLE_POLICY_0_1",
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "rules": {
+    "one_major_task_one_logos_chat": true,
+    "one_major_task_one_servitor_chat": true,
+    "full_mega_pass_required_before_closure": true,
+    "after_mega_pass_open_new_logos_chat_for_next_task": true,
+    "after_mega_pass_open_new_servitor_chat_for_next_task": true,
+    "no_architecture_drift_after_task_closure": true
+  },
+  "continuity_pack_required_fields": [
+    "global_imperium_snapshot",
+    "current_task_id",
+    "stage_map",
+    "stage_ledger",
+    "next_allowed_action",
+    "artifact_pointers",
+    "known_blockers",
+    "non_claims",
+    "owner_decisions_needed",
+    "speculum_verdicts_if_any"
+  ]
+}

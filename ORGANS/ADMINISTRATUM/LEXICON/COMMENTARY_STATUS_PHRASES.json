@@ -1,0 +1,29 @@
+{
+  "schema_version": "ADMINISTRATUM_COMMENTARY_STATUS_PHRASES_V0_1",
+  "phrases": {
+    "PASS": [
+      "status confirmed by current evidence",
+      "completed with documented limitations"
+    ],
+    "BLOCKED": [
+      "execution blocked until missing evidence is resolved",
+      "blocked pending owner decision or repair"
+    ],
+    "WARNING": [
+      "warning: evidence is partial",
+      "warning: non-critical gap remains"
+    ],
+    "REPAIR_REQUIRED": [
+      "repair required before next gate",
+      "critical mismatch detected"
+    ],
+    "OWNER_DECISION_REQUIRED": [
+      "owner decision is required to proceed",
+      "cannot continue on agent authority alone"
+    ],
+    "UNKNOWN": [
+      "state unknown because evidence path is missing",
+      "classification pending validation"
+    ]
+  }
+}

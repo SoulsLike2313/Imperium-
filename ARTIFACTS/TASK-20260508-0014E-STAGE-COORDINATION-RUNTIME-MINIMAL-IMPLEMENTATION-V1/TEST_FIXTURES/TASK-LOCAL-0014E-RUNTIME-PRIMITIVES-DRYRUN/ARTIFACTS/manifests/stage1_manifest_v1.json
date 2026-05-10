@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "ARTIFACT_MANIFEST_WRITE",
+  "timestamp_utc": "2026-05-08T20:37:22Z",
+  "producer_type": "PC_SERVITOR",
+  "artifact_root": "ARTIFACTS/stage1_output",
+  "artifact_count": 1,
+  "artifacts": [
+    {
+      "relative_path": "result.txt",
+      "sha256": "10d9baef4ece88963c75ffed8c4575ab23ddba1ae1a2929d3ee8e4693f9eae5d",
+      "size_bytes": 17,
+      "producer_actor": "ACTOR-PC-SERVITOR"
+    }
+  ]
+}

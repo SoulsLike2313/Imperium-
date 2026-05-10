@@ -1,0 +1,18 @@
+{
+  "schema_id": "SCHEMA-TASK-LAUNCH-CARD-0_1",
+  "status": "PROMPT_ENGINEERING_FILE_BASE_0_1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "read_first_refs",
+    "policy_refs",
+    "canonical_answer_refs",
+    "allowed_tool_refs",
+    "expected_outputs",
+    "pass_criteria",
+    "partial_fail_behavior",
+    "next_allowed_action_ref"
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_id": "CONTINUITY_QUERY_SCHEMA_V1",
+  "type": "object",
+  "required": [
+    "query_id",
+    "requester",
+    "query_scope",
+    "expected_sections",
+    "generated_at_utc"
+  ],
+  "properties": {
+    "query_id": {
+      "type": "string"
+    },
+    "requester": {
+      "type": "string"
+    },
+    "query_scope": {
+      "type": "string"
+    },
+    "expected_sections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "strict_mode": {
+      "type": "boolean"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ": "FAKE_ORGAN",
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES\\CASE_03_FAKE_CANON_CLAIM"
+  ],
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE"
+  ],
+  "entrypoints": [
+    "fake.py"
+  ],
+  "required_receipts": [],
+  "responsibilities": [
+    "test"
+  ],
+  "explicitly_not_responsible_for": [
+    "owner approval"
+  ],
+  "owner_approval_evidence_path": null,
+  "current_blockers": []
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "HARDENING_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_1_OUTPUT_REVIEW",
+  "input_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\01_REVIEW\\V0_1_OUTPUT_REVIEW.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\01_REVIEW\\V0_1_OUTPUT_REVIEW.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1": "DIR_PRESENT_NO_FILE_HASH",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\01_REVIEW\\V0_1_OUTPUT_REVIEW.md": "87374928a4d75c3f8af4f11045204556b8775881cd9624b178b1166529add2d9",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\01_REVIEW\\V0_1_OUTPUT_REVIEW.json": "8a440d48cb11d7e3c71b2b0f6fa83791273b300a9cf3b1e063210f5d3c49cdeb"
+  },
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [
+    "Reviewed task SHA256SUMS.txt no longer matches after replay/hardening updates (expected drift)."
+  ],
+  "next_action": "Proceed to script audit and patch hardening evidence.",
+  "created_at": "2026-05-09T15:20:56.6712755Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Выполнен обзор артефактов v0_1 и цепочки receipt 00-08."
+}

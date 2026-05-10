@@ -1,0 +1,1 @@
+Continuity port standard and registry were created under Administratum and snapshotted here for evidence.\n\n- Standard JSON: E:\IMPERIUM\ORGANS\ADMINISTRATUM\STANDARDS\CONTINUITY_PORT_STANDARD.json\n- Standard MD: E:\IMPERIUM\ORGANS\ADMINISTRATUM\STANDARDS\CONTINUITY_PORT_STANDARD.md\n- Registry: E:\IMPERIUM\ORGANS\ADMINISTRATUM\ADDRESS_REGISTRY\CONTINUITY_PORTS.json\n

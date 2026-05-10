@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1
+
+БАНДЛ:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1\FINAL_STEP_BUNDLE\TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1_FINAL_STEP_BUNDLE.zip
+
+ВЕРДИКТ:
+PASS_FOR_PROTOCOL_BASE
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Реализован ремонт PC-side pipeline scripts с enforce правил TASK/STAGE/RUN, provenance, origin index, ledger и barrier.
+Добавлены единый стандарт Owner-ответа, usage examples и acceptance tests для следующего этапа.
+E2E не запускался, THRONE transfer и watchers не использовались и остаются заблокированы.
+Следующий шаг: Speculum review и затем TASK-0015 tiny E2E execution.

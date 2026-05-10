@@ -1,0 +1,10 @@
+{
+  "ssh_host": "127.0.0.1",
+  "ssh_port": "2223",
+  "ssh_user": "vboxuser2",
+  "ssh_key": "C:\\Users\\PC\\.ssh\\imperium_pc_to_vm2_ed25519_20260418",
+  "remote_root": "/home/vboxuser2/IMPERIUM_WORKER_ROOM",
+  "connect_ok": true,
+  "worker_room_ok": true,
+  "errors": []
+}

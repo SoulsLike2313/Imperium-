@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-EXAMPLE-EXPLORER-V1_0A-REPAIR",
+  "stages": [
+    {
+      "stage_id": "PC-STAGE-001",
+      "name": "READ_FIRST_AND_POLICY_ALIGNMENT",
+      "contour": "PC"
+    },
+    {
+      "stage_id": "SPECULUM-STAGE-001",
+      "name": "SPECULUM_REVIEW_GATE",
+      "contour": "SPECULUM"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260508-1411-FINAL-ASSEMBLY-LATEST",
+  "status": "FAIL",
+  "failure_reason": "output-dir contains forbidden latest-pattern: e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_output_latest",
+  "timestamp_utc": "2026-05-08T18:05:56Z",
+  "barrier_report": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\barrier_pass.json",
+  "verdict": "FAIL",
+  "deleted_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false
+}

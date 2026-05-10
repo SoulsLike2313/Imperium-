@@ -1,0 +1,10 @@
+{
+  "schema_version": "PASS_CRITERIA_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "criteria": [
+    "route_valid",
+    "script_resolved",
+    "dummy_output_written",
+    "inquisition_pass_audit"
+  ]
+}

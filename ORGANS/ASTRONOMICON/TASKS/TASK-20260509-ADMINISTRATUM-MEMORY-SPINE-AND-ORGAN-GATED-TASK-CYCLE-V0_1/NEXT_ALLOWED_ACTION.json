@@ -1,0 +1,5 @@
+{
+  "schema_version": "NEXT_ALLOWED_ACTION_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "next_allowed_action": "RUN_STAGE_001"
+}

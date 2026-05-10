@@ -1,0 +1,35 @@
+{
+  "schema_version": "DOCTRINARIUM_RECEIPT_V0_1",
+  "receipt_id": "DASHBOARD_V0_8_TECHNICAL_REGISTRATION",
+  "task_context": "MANUAL_DOCTRINARIUM_DASHBOARD_HARDENING",
+  "organ_id": "DOCTRINARIUM",
+  "phase": "dashboard_technical_registration",
+  "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+  "created_at": "2026-05-09T18:51:48.8888947Z",
+  "inputs": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1"
+  ],
+  "outputs": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_MANIFEST_V0_8.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_SHA256SUMS_V0_8.txt",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_8_TECHNICAL.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\DASHBOARD_REGISTRY.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\ORGAN_UTILITY.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WORKBENCH_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\SCRIPT_BACKING_MAP.json"
+  ],
+  "hashes": {
+    "manifest_sha256": "4e5985993ea8c24118a8c3b5d0c2ddef70c74f0e5b474260ea3fe4d9ac1d6e26",
+    "sha256sums_sha256": "e3d2ffd8ce6f78ea231a06647f6aafe82fca4b7725f17b3a3d131ae08b9ed2e5"
+  },
+  "verdict": "PASS_DASHBOARD_V0_8_TECHNICALLY_REGISTERED",
+  "limitations": [
+    "Playwright audit not yet rerun for v0.8 after Laws page repair",
+    "visual hardening pending",
+    "not Sanctum",
+    "not canon v1"
+  ],
+  "forbidden_claims_observed": true,
+  "notes_ru": "Dashboard v0.8 зарегистрирован как текущая локальная script-backed web utility surface Doctrinarium. Это не Sanctum и не v1."
+}

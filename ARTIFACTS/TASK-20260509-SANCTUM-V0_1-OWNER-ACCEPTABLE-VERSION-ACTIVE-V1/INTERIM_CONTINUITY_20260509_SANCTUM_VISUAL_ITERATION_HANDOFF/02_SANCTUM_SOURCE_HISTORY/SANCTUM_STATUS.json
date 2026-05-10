@@ -1,0 +1,14 @@
+{
+  "sanctum_version": "0.27",
+  "status": "STABLE_PLANET_MAP_EXPERIMENT",
+  "updated_at_local": "2026-05-09T16:33:33",
+  "ui_mode": [
+    "single_unified_map",
+    "stable_render_no_full_canvas_animation",
+    "large_planet_core",
+    "orbit_stage_nodes",
+    "hover_metallic_tooltip",
+    "left_task_panel_only"
+  ],
+  "truth_statement": "Sanctum is not source of truth. Truth remains in files, receipts, manifests, hashes, audits and reviews."
+}

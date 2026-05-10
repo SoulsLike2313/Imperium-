@@ -1,0 +1,63 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ_id": "DOCTRINARIUM",
+  "status": "STRICT_BOOTSTRAP_GATE",
+  "owner_approval_state": "OWNER_REVIEW_REQUIRED",
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM"
+  ],
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "entrypoints": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_doctrine.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_laws.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_standard.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_all_organs.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_generate_status_report.py"
+  ],
+  "required_receipts": [
+    "00_input_freeze_receipt.json",
+    "01_doctrine_validation_receipt.json",
+    "02_law_registry_receipt.json",
+    "03_organ_standard_schema_receipt.json",
+    "04_doctrinarium_organ_registration_receipt.json",
+    "05_all_organs_gap_report_receipt.json",
+    "06_status_report_receipt.json"
+  ],
+  "responsibilities": [
+    "validate doctrine documents",
+    "validate law registry",
+    "validate organ standards",
+    "validate all organs",
+    "perform task preflight later",
+    "detect fake green",
+    "produce blocker reports",
+    "answer callers later"
+  ],
+  "explicitly_not_responsible_for": [
+    "executing task stages",
+    "repairing other organs directly",
+    "replacing Owner",
+    "accepting baseline",
+    "accepting final artifacts",
+    "approving canon by itself",
+    "writing THRONE",
+    "touching Sanctum",
+    "scanning Archive without approval"
+  ],
+  "self_report_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STATUS\\ORGAN_STATUS_REPORT.md",
+  "health_check_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\DOCTRINARIUM_STATUS_REPORT.json",
+  "known_limitations": [
+    "law enforcement coverage is partial at v0_1 scaffold",
+    "real task execution remains blocked pending owner approval and enforcement maturity"
+  ],
+  "current_blockers": [
+    "NO_REAL_TASK_WITH_BOOTSTRAP_DOCTRINE",
+    "owner approval artifact for canon doctrine is missing"
+  ],
+  "last_verified_at": "2026-05-09T16:51:44.171250+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-NEG-AUDIT",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "INQUISITION_TRACE_AUDIT",
+  "timestamp_utc": "2026-05-08T20:37:26Z",
+  "action": "INQUISITION_TRACE_AUDIT",
+  "status": "REPAIR_REQUIRED",
+  "failure_reason": "missing_provenance_for_accepted_artifact:SIG-04ef582c-60d9-48f1-99b8-5f01c3096a2b;invalid_signal:stage1_signal_verify.json:signal_hash_missing;stage_started_without_gate_ready:('TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN', 'STAGE-NEG-GATE', 'RUN-0001', 'LOCAL_TEST')",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "audit_ref": "INQUISITION/inquisition_audit_report.json",
+  "issues_count": 3
+}

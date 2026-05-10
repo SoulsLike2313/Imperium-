@@ -1,0 +1,678 @@
+{
+  "schema_version": "MANDATORY_LAWS_V0_1",
+  "lawbook_id": "CODEX_IMPERIUM_MANDATORY_LAWS",
+  "task_context": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "laws": [
+    {
+      "law_id": "LAW-001",
+      "title": "NO_FAKE_GREEN",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "INQUISITION"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_FAKE_GREEN_RISK",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py",
+        "inquisition_post_stage_audit.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-002",
+      "title": "NO_OWNER_APPROVAL_BY_AGENT",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "OFFICIO_AGENTIS"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_OWNER_APPROVAL_REQUIRED",
+      "owner_override_allowed": false,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-003",
+      "title": "NO_TASK_WITHOUT_INPUTS",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "ADMINISTRATUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_MISSING_TASK_INPUTS",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-004",
+      "title": "NO_CHAT_MEMORY_AS_SOURCE_OF_TRUTH",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "OWNER_DECISION_REQUIRED",
+      "applies_to": [
+        "ADMINISTRATUM",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_AMBIGUOUS_CURRENT_STATE",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_generate_status_report.py"
+      ],
+      "blocks_real_task_execution": false,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-005",
+      "title": "NO_DELETE_WITHOUT_OWNER_APPROVAL",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "OFFICIO_AGENTIS",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_DELETE_NOT_APPROVED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-006",
+      "title": "NO_ARCHIVE_SCAN_WITHOUT_OWNER_APPROVAL",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "INQUISITION"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_ARCHIVE_SCAN_NOT_APPROVED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_all_organs.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-007",
+      "title": "NO_THRONE_CONTACT_WITHOUT_OWNER_APPROVAL",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "OFFICIO_AGENTIS"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_THRONE_CONTACT_NOT_APPROVED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-008",
+      "title": "NO_VM2_EXECUTION_WITHOUT_SCOPE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "OFFICIO_AGENTIS"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_VM2_SCOPE_OR_APPROVAL_MISSING",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-009",
+      "title": "NO_SANCTUM_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_SANCTUM_BASELINE_NOT_ACCEPTED",
+      "owner_override_allowed": false,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-010",
+      "title": "NO_FINAL_WITHOUT_FINALIZATION_RECEIPT",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "INQUISITION",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_FINAL_WITHOUT_FINALIZATION_RECEIPT",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "inquisition_post_stage_audit.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-011",
+      "title": "NO_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "ADMINISTRATUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "owner_override_allowed": false,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-012",
+      "title": "NO_ORGAN_BY_FOLDER_NAME",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_ORGAN_STANDARD_FAILED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_organ_standard.py",
+        "doctrinarium_validate_all_organs.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-013",
+      "title": "NO_ORGAN_SELF_REPORT_AS_PROOF_ALONE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_ORGAN_STANDARD_FAILED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_organ_standard.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-014",
+      "title": "NO_UNREGISTERED_SCRIPT_EXECUTION",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "MECHANICUS",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_UNREGISTERED_SCRIPT",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "mechanicus_resolve_scripts.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-015",
+      "title": "NO_LATEST_BUNDLE_GUESSING",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "ADMINISTRATUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_LATEST_BUNDLE_GUESSING",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-016",
+      "title": "NO_BACKGROUND_WATCHERS_WITHOUT_OWNER_APPROVAL",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "OFFICIO_AGENTIS",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_BACKGROUND_WATCHER_NOT_APPROVED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "officio_agentis_scope.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-017",
+      "title": "NO_PROMPT_AS_CANON",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_PROMPT_AS_CANON",
+      "owner_override_allowed": false,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-018",
+      "title": "NO_RECEIPT_WITHOUT_HASH_CONTEXT",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "REPAIR_REQUIRED",
+      "applies_to": [
+        "INQUISITION",
+        "ADMINISTRATUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "REPAIR_REQUIRED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "inquisition_post_stage_audit.py"
+      ],
+      "blocks_real_task_execution": false,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-019",
+      "title": "NO_SELF_REFERENTIAL_MANIFEST",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "INQUISITION",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_MANIFEST_SELF_REFERENCE",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "inquisition_post_stage_audit.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-020",
+      "title": "NO_UI_GREEN_WITHOUT_EVIDENCE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "WARNING",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_FAKE_GREEN_RISK",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_generate_status_report.py"
+      ],
+      "blocks_real_task_execution": false,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-021",
+      "title": "NO_CONTINUITY_GREEN_WITHOUT_CURRENT_STATE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "ADMINISTRATUM",
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_AMBIGUOUS_CONTINUITY",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "administratum_build_current_state.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-022",
+      "title": "NO_SEMANTIC_CONFLICT_CONTINUATION",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "INQUISITION"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_SEMANTIC_CONFLICT",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-023",
+      "title": "NO_REAL_TASK_WITH_BOOTSTRAP_DOCTRINE",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_MISSING_DOCTRINE",
+      "owner_override_allowed": false,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-024",
+      "title": "NO_CANON_WITHOUT_REGISTRATION",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "HARD_BLOCK",
+      "applies_to": [
+        "DOCTRINARIUM"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "BLOCKED_FAKE_GREEN_RISK",
+      "owner_override_allowed": false,
+      "enforcement_status": "LAW_PARTIALLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_validate_doctrine.py"
+      ],
+      "blocks_real_task_execution": true,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    },
+    {
+      "law_id": "LAW-025",
+      "title": "NO_LOCAL_CONFIG_IN_CANON_OR_HANDOFF",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "owner_approved": false,
+      "source_document": "CODEX_IMPERIUM",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "severity": "REPAIR_REQUIRED",
+      "applies_to": [
+        "DOCTRINARIUM",
+        "INQUISITION"
+      ],
+      "required_evidence": [
+        "receipt",
+        "hash",
+        "report_context"
+      ],
+      "violation_verdict": "REPAIR_REQUIRED",
+      "owner_override_allowed": true,
+      "enforcement_status": "LAW_NOT_FULLY_ENFORCED",
+      "enforcement_points": [
+        "doctrinarium_generate_status_report.py"
+      ],
+      "blocks_real_task_execution": false,
+      "last_verified_at": "2026-05-09T16:51:44.165391+00:00"
+    }
+  ],
+  "created_at": "2026-05-09T16:51:44.165391+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "HARDENING_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+  "run_id": "RUN-20260509-180551-5d24a064",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_0_INPUT_FREEZE",
+  "input_paths": [],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\00_INPUTS\\INPUT_FREEZE.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\00_INPUTS\\INPUT_FREEZE.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\00_INPUTS\\INPUT_FREEZE.md": "7b74c8f43674fae55966eedd45cd74151bf316de2381ce8beb59a4b6a04776b4",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING\\00_INPUTS\\INPUT_FREEZE.json": "58cdceda4af752f3c4adeecade9baf38d9cfb181f49bad74ccd59f03e37148ac"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "next_action": "Proceed to output review.",
+  "created_at": "2026-05-09T15:20:56.6313587Z",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Входные условия и ограничения зафиксированы."
+}

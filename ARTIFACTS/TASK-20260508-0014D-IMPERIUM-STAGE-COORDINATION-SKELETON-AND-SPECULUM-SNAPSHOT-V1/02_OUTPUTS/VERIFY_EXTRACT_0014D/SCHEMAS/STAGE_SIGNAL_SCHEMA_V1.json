@@ -1,0 +1,25 @@
+{
+  "schema_id": "STAGE_SIGNAL_SCHEMA_V1",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "contour_id",
+    "signal_type",
+    "producer_type",
+    "producer_id",
+    "timestamp_utc"
+  ],
+  "signal_type_allowed": [
+    "STAGE_READY",
+    "STAGE_STARTED",
+    "STAGE_PROGRESS",
+    "STAGE_COMPLETED",
+    "STAGE_FAILED",
+    "STAGE_BLOCKED",
+    "READY_FOR_NEXT",
+    "REPAIR_REQUIRED",
+    "REPAIR_VERIFIED",
+    "OWNER_DECISION_REQUIRED"
+  ]
+}

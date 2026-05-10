@@ -1,0 +1,226 @@
+{
+  "audit_name": "IMPERIUM_EXPLORER_AUTO_SCREENSHOT_TRUTH_CHECK_V0_1",
+  "run_id": "AUTO-RUN-20260509-111755",
+  "created_at_local": "2026-05-09T11:18:04",
+  "explorer_script": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_4.py",
+  "truth_audit_report": "E:\\IMPERIUM\\EXPLORER\\VERIFY\\RUN-20260509-111424\\EXPLORER_TRUTH_AUDIT_REPORT.json",
+  "output_folder": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755",
+  "targets_total": 8,
+  "screenshots_created": 8,
+  "checks_total": 26,
+  "checks_passed": 25,
+  "checks_failed": 1,
+  "targets": [
+    {
+      "path": "E:\\IMPERIUM",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "IMPERIUM_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\01_IMPERIUM.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "IMPERIUM_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 6
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 0
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "ARTIFACTS_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\02_ARTIFACTS.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "ARTIFACTS_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 27
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 5
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "MANUAL_PROOFS_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\03__MANUAL_PROOFS.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "MANUAL_PROOFS_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 5
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 4
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "EXPLORER_ROOT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\04_EXPLORER.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "EXPLORER_ROOT"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 2
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 6
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\README.md",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "MARKDOWN_FILE",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\05_README_md.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\README.md"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "MARKDOWN_FILE"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_3.py",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "PYTHON_SCRIPT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\06_imperium_explorer_v0_3_py.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_3.py"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "PYTHON_SCRIPT"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_4.py",
+      "source": "truth_audit.critical_paths",
+      "expected_type": "PYTHON_SCRIPT",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\07_imperium_explorer_v0_4_py.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_4.py"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": true,
+          "expected": "PYTHON_SCRIPT"
+        }
+      ]
+    },
+    {
+      "path": "E:\\IMPERIUM\\ARCHIVE",
+      "source": "truth_audit.archive_top_index",
+      "expected_type": "ARCHIVE_COLD_STORAGE",
+      "select_status": "SELECTED",
+      "screenshot": "E:\\IMPERIUM\\EXPLORER\\SCREENSHOTS\\AUTO-RUN-20260509-111755\\08_ARCHIVE.png",
+      "checks": [
+        {
+          "check": "visible_path_matches_target",
+          "passed": true,
+          "expected": "E:\\IMPERIUM\\ARCHIVE"
+        },
+        {
+          "check": "visible_type_matches_truth_audit",
+          "passed": false,
+          "expected": "ARCHIVE_COLD_STORAGE"
+        },
+        {
+          "check": "visible_direct_folders_matches_truth_audit",
+          "passed": true,
+          "expected": 2
+        },
+        {
+          "check": "visible_direct_files_matches_truth_audit",
+          "passed": true,
+          "expected": 0
+        }
+      ]
+    }
+  ],
+  "verdict": "PARTIAL_SCREENSHOTS_CREATED_WITH_TRUTH_MISMATCHES",
+  "read_only_statement": [
+    "This script controls the Explorer GUI programmatically.",
+    "It writes only screenshots and verification reports.",
+    "It does not modify IMPERIUM data.",
+    "It does not contact VM2.",
+    "It does not touch THRONE.",
+    "It does not run E2E."
+  ]
+}

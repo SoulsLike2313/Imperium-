@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+  "stage": "STAGE_001_SCAN_AND_INDEX",
+  "created_at_local": "2026-05-09T12:58:52",
+  "outputs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\01_OBSERVED_SCAN\\RAW_SCAN_INDEX.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\01_OBSERVED_SCAN\\RAW_SCAN_SUMMARY.md"
+  ],
+  "validation": {
+    "checks": [
+      "RAW_SCAN_INDEX.json exists and parses",
+      "RAW_SCAN_SUMMARY.md exists",
+      "ARCHIVE recursive scan not performed"
+    ],
+    "errors": [],
+    "verdict": "PASS"
+  },
+  "archive_recursive_scan_performed": false,
+  "destructive_actions_performed": false
+}

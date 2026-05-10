@@ -1,0 +1,46 @@
+{
+  "schema_version": "DOCTRINARIUM_ORGAN_REGISTRATION_REPORT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "verdict": "PASS_DOCTRINARIUM_REGISTERED_AS_STRICT_BOOTSTRAP_CANON_CANDIDATE",
+  "status": "STRICT_BOOTSTRAP_GATE",
+  "checks": [
+    {
+      "check": "README exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "ORGAN_STATUS exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "ORGAN_CONTRACT exists",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Doctrinarium status is allowed after scaffold",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "No CANON_V0_1 claim",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Responsibilities declared",
+      "ok": true,
+      "detail": "ok"
+    },
+    {
+      "check": "Excluded responsibilities declared",
+      "ok": true,
+      "detail": "ok"
+    }
+  ],
+  "blockers": [],
+  "created_at": "2026-05-09T16:58:30.923098+00:00"
+}

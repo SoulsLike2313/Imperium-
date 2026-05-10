@@ -1,0 +1,17 @@
+{
+  "launch_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_7.ps1",
+  "url": "http://127.0.0.1:8790",
+  "created_at": "2026-05-09T18:45:42.0422648Z",
+  "organ_id": "DOCTRINARIUM",
+  "schema_version": "DOCTRINARIUM_WEB_DASHBOARD_STATUS_V0_7",
+  "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_7",
+  "added": [
+    "organ detail drawer",
+    "clickable organ cards",
+    "clickable dashboard organ rows",
+    "open organ folder endpoint",
+    "copy organ path action",
+    "priority actions per selected organ"
+  ],
+  "status": "CREATED_AND_PY_COMPILE_PASSED"
+}

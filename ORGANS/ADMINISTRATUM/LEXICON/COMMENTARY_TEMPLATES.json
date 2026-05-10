@@ -1,0 +1,11 @@
+{
+  "schema_version": "ADMINISTRATUM_COMMENTARY_TEMPLATES_V0_1",
+  "templates": {
+    "blocker_comment": "Administratum reports that <subject> is blocked because <cause>. Evidence: <evidence_path>.",
+    "next_action_comment": "Next action: <action>. Reason: <reason>.",
+    "continuity_summary_comment": "Continuity summary: <status>. Current point: <current_point>. Blockers: <blocker_count>.",
+    "diff_comment": "Since previous pack, changed: <changed_fields>.",
+    "organ_status_comment": "<organ> status is <status>. Missing: <missing_items>.",
+    "law_status_comment": "Law status: <not_enforced_count> not fully enforced. Hard blockers: <hard_block_count>."
+  }
+}

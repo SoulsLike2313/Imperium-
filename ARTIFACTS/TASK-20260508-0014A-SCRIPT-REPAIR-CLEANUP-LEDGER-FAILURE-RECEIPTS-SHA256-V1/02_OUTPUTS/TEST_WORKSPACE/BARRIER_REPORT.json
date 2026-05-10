@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "barrier_result": "BARRIER_FAIL",
+  "verdict": "FAIL",
+  "reasons_fail": [
+    "missing manifest",
+    "missing sha256s",
+    "missing receipt",
+    "missing provenance",
+    "receipt without parseable provenance"
+  ],
+  "reasons_waiting": [
+    "no task events in ledger",
+    "stage evidence missing: STAGE-005-BARRIER",
+    "no origin index items for task"
+  ],
+  "reasons_conflict": [],
+  "expected_stages": [
+    "STAGE-005-BARRIER"
+  ],
+  "bundle_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\barrier_test_bundle.zip",
+  "ledger_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\barrier_test_ledger.jsonl",
+  "origin_index_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\barrier_test_origin.json"
+}

@@ -1,0 +1,129 @@
+{
+  "task_id": "TASK-EXAMPLE-10-STAGE-LINEAR",
+  "dependencies": [
+    {
+      "stage_id": "STAGE-001",
+      "depends_on": [],
+      "mode": "LINEAR",
+      "requires_signal": [],
+      "requires_ack": []
+    },
+    {
+      "stage_id": "STAGE-002",
+      "depends_on": [
+        "STAGE-001"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-003",
+      "depends_on": [
+        "STAGE-002"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-004",
+      "depends_on": [
+        "STAGE-003"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-005",
+      "depends_on": [
+        "STAGE-004"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-006",
+      "depends_on": [
+        "STAGE-005"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-007",
+      "depends_on": [
+        "STAGE-006"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-008",
+      "depends_on": [
+        "STAGE-007"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-009",
+      "depends_on": [
+        "STAGE-008"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    },
+    {
+      "stage_id": "STAGE-010",
+      "depends_on": [
+        "STAGE-009"
+      ],
+      "mode": "LINEAR",
+      "requires_signal": [
+        "READY_FOR_NEXT"
+      ],
+      "requires_ack": [
+        "ACK_READY_FOR_NEXT"
+      ]
+    }
+  ]
+}

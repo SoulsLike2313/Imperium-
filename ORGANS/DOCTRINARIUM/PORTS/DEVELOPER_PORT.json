@@ -1,0 +1,60 @@
+{
+  "schema_version": "DEVELOPER_PORT_V0_2",
+  "organ_id": "DOCTRINARIUM",
+  "developer_summary": "Law/gate/dashboard validation organ with v0.8 dashboard and known Playwright pass.",
+  "primary_code_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS"
+  ],
+  "primary_scripts": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_generate_status_report.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_preflight.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_all_organs.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_doctrine.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_laws.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_standard.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_utilities.py"
+  ],
+  "primary_dashboards": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8"
+  ],
+  "launch_commands": [
+    "python 'E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_generate_status_report.py'"
+  ],
+  "test_commands": [
+    "python -m py_compile <script.py>",
+    "Invoke-WebRequest http://127.0.0.1:<port>/api/data"
+  ],
+  "safe_edit_roots": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS"
+  ],
+  "forbidden_edit_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "current_dev_target": "Preserve strict validation evidence and reduce hard-law enforcement gaps.",
+  "known_failures": [],
+  "next_patch_recommendation": "Improve law enforcement coverage and close organ utility/contract gaps.",
+  "evidence_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_CONTRACT.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\CONTINUITY_PORT.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\LATEST_REPORTS_INDEX.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\LATEST_RECEIPTS_INDEX.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+  ],
+  "stale_if_older_than_hours": 24,
+  "last_verified_at": "2026-05-10T06:14:42.626405+00:00",
+  "limitations": [
+    "Bootstrap/developer handoff scope only.",
+    "No canon or continuity green claim."
+  ],
+  "do_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY"
+  ]
+}

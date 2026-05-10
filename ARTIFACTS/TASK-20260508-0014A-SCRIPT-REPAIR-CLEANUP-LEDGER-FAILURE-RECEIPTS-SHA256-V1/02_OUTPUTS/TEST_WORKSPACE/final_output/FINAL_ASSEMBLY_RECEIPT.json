@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "status": "BLOCKED",
+  "failure_reason": "barrier report requires BARRIER_PASS, got: BARRIER_WAITING",
+  "timestamp_utc": "2026-05-08T17:48:35Z",
+  "barrier_report": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_blocked_barrier.json",
+  "verdict": "BLOCKED",
+  "deleted_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false
+}

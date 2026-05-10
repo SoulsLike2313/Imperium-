@@ -1,0 +1,100 @@
+
+### e:\IMPERIUM\ORGANS\ADMINISTRATUM\SCRIPTS\create_task_launch_card.py --help
+usage: create_task_launch_card.py [-h] --input-json INPUT_JSON
+                                  [--task-id TASK_ID]
+                                  [--tasks-root TASKS_ROOT]
+                                  [--output-task-folder OUTPUT_TASK_FOLDER]
+
+Create TASK_LAUNCH_CARD.json in Administratum TASKS root.
+
+options:
+  -h, --help            show this help message and exit
+  --input-json INPUT_JSON
+                        Path to simple JSON source for launch card.
+  --task-id TASK_ID     Override task_id from input JSON.
+  --tasks-root TASKS_ROOT
+  --output-task-folder OUTPUT_TASK_FOLDER
+                        Optional explicit task folder name.
+
+### e:\IMPERIUM\ORGANS\ADMINISTRATUM\SCRIPTS\create_repair_branch.py --help
+usage: create_repair_branch.py [-h] --parent-task-id PARENT_TASK_ID
+                               --new-task-id NEW_TASK_ID [--blocker BLOCKER]
+                               [--tasks-root TASKS_ROOT]
+
+Create repair branch task stub only (no execution).
+
+options:
+  -h, --help            show this help message and exit
+  --parent-task-id PARENT_TASK_ID
+  --new-task-id NEW_TASK_ID
+  --blocker BLOCKER     Blocker line (repeatable).
+  --tasks-root TASKS_ROOT
+
+### e:\IMPERIUM\ORGANS\ADMINISTRATUM\SCRIPTS\validate_task_launch_card.py --help
+usage: validate_task_launch_card.py [-h] --launch-card LAUNCH_CARD
+                                    [--stage-policy STAGE_POLICY]
+                                    [--report-out REPORT_OUT]
+
+Validate TASK_LAUNCH_CARD required fields and refs.
+
+options:
+  -h, --help            show this help message and exit
+  --launch-card LAUNCH_CARD
+  --stage-policy STAGE_POLICY
+  --report-out REPORT_OUT
+
+### e:\IMPERIUM\ORGANS\ADMINISTRATUM\SCRIPTS\validate_read_first_receipt.py --help
+usage: validate_read_first_receipt.py [-h] --receipt RECEIPT
+                                      [--stage-policy STAGE_POLICY]
+
+Validate read-first receipt required fields.
+
+options:
+  -h, --help            show this help message and exit
+  --receipt RECEIPT
+  --stage-policy STAGE_POLICY
+
+### e:\IMPERIUM\ORGANS\ADMINISTRATUM\SCRIPTS\validate_policy_refs.py --help
+usage: validate_policy_refs.py [-h] --launch-card LAUNCH_CARD
+
+Validate policy_refs existence in launch card.
+
+options:
+  -h, --help            show this help message and exit
+  --launch-card LAUNCH_CARD
+
+### e:\IMPERIUM\ORGANS\MECHANICUS\SCRIPTS\scan_python_readonly_safety.py --help
+usage: scan_python_readonly_safety.py [-h] --source SOURCE --output-json
+                                      OUTPUT_JSON
+
+Scan python files for forbidden read/write/network/daemon patterns.
+
+options:
+  -h, --help            show this help message and exit
+  --source SOURCE       Python file or directory to scan.
+  --output-json OUTPUT_JSON
+                        Output report JSON path.
+
+### e:\IMPERIUM\ORGANS\MECHANICUS\SCRIPTS\build_sha256sums.py --help
+usage: build_sha256sums.py [-h] --target-dir TARGET_DIR
+                           [--output-file OUTPUT_FILE]
+
+Build SHA256SUMS.txt for target folder.
+
+options:
+  -h, --help            show this help message and exit
+  --target-dir TARGET_DIR
+  --output-file OUTPUT_FILE
+
+### e:\IMPERIUM\ORGANS\MECHANICUS\SCRIPTS\build_manifest.py --help
+usage: build_manifest.py [-h] --target-dir TARGET_DIR
+                         [--output-file OUTPUT_FILE]
+
+Build MANIFEST.json for target folder.
+
+options:
+  -h, --help            show this help message and exit
+  --target-dir TARGET_DIR
+  --output-file OUTPUT_FILE
+
+HELP_FAILED_COUNT=0

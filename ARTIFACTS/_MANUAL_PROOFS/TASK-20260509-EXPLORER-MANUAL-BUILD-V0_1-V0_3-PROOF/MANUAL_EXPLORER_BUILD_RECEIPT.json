@@ -1,0 +1,49 @@
+{
+  "task_id": "TASK-20260509-EXPLORER-MANUAL-BUILD-V0_1-V0_3-PROOF",
+  "proof_type": "OWNER_MANUAL_PROOF",
+  "status": "PASS_AS_MANUAL_WORKFLOW_EXAMPLE",
+  "created_at_local": "2026-05-09T11:05:16",
+  "purpose": "Record the successful manual Explorer V0.1-V0.3 build workflow as a model for future Servitor UI iterations.",
+  "liked_baseline": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_3.py",
+  "next_expected": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_4.py",
+  "workflow_lessons": [
+    "Use narrow steps",
+    "Preserve working baseline",
+    "Create new version for experiments",
+    "Run immediately",
+    "Inspect visually",
+    "Keep Explorer read-only",
+    "Avoid huge prompt-only work"
+  ],
+  "forbidden_actions": [
+    "delete",
+    "vm2_contact",
+    "throne_contact",
+    "e2e_run",
+    "watchers",
+    "background_automation",
+    "recursive_scan_on_every_click"
+  ],
+  "files": [
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_1.py",
+      "exists": true,
+      "sha256": "c8908f41842aeb77f5b62ae02a904908dd049f8889d9ed05b3c660f1fb1066cf"
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_2.py",
+      "exists": true,
+      "sha256": "546844ae3fa60d7e8b82f527b9fff17f79f610c9090ff4d718fd9f920876d79f"
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\imperium_explorer_v0_3.py",
+      "exists": true,
+      "sha256": "60797515b2a6f4b1c6a04fe60ee4d28d7cd6d64edd5512a733da5d76908083da"
+    },
+    {
+      "path": "E:\\IMPERIUM\\EXPLORER\\README.md",
+      "exists": true,
+      "sha256": "999c60beef67e05d9597a588148eff463d0a47238733e060f4d8b542a9a099ec"
+    }
+  ]
+}

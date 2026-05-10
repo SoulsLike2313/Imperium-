@@ -1,0 +1,19 @@
+{
+  "schema_id": "OWNER_DECISION_POINT_SCHEMA_V1",
+  "required": [
+    "decision_id",
+    "task_id",
+    "stage_id",
+    "run_id",
+    "question",
+    "options",
+    "default_action",
+    "deadline_utc",
+    "created_by"
+  ],
+  "result_fields": [
+    "owner_choice",
+    "owner_comment",
+    "resolved_at_utc"
+  ]
+}

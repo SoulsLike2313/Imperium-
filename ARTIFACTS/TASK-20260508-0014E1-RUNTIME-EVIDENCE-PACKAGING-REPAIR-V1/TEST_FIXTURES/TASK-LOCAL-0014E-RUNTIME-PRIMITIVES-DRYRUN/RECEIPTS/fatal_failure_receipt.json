@@ -1,0 +1,7 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-NEG-REPAIR",
+  "run_id": "RUN-0001",
+  "failure_reason": "TASK_ID mismatch detected during audit",
+  "status": "FAIL"
+}

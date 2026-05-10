@@ -1,0 +1,37 @@
+{
+  "schema_version": "ADMINISTRATUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+  "run_id": "RUN-20260509-223321-06ec59ea",
+  "phase": "PHASE_10_CONTINUITY_COMPARISON",
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS",
+    "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\08_CONTINUITY_COMPARISON\\CONTINUITY_PACK_TEST_REPORT.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\08_CONTINUITY_COMPARISON\\CONTINUITY_PACK_TEST_REPORT.json"
+  ],
+  "script_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py"
+  ],
+  "script_hashes": {
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py": "940f1e2aeb52eab3d6711f9044b72b7b6fe1e5041d5840ca539632eccba5961f"
+  },
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\08_CONTINUITY_COMPARISON\\CONTINUITY_PACK_TEST_REPORT.md": "57a0d208254e3c9b0f3ab52bdc6bb1db6b8611a8a66ddfd32c7c7e0dbb101738",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\08_CONTINUITY_COMPARISON\\CONTINUITY_PACK_TEST_REPORT.json": "c3619c65e0e5bba47062542de642a139c90c50131b036bf00d5c0ec09ba236c9"
+  },
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Comparison confirms usability with limitations and no green/canon claim."
+  ],
+  "next_action": "Build manifest/hashes/package and final summary",
+  "created_at": "2026-05-09T19:57:55.207263+00:00",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

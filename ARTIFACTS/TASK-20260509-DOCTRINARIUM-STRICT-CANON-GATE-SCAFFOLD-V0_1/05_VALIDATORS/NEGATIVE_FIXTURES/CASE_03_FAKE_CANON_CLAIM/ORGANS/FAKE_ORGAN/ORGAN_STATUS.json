@@ -1,0 +1,6 @@
+{
+  "schema_version": "ORGAN_STATUS_V0_1",
+  "organ": "FAKE_ORGAN",
+  "status": "CANON_V0_1",
+  "current_blockers": []
+}

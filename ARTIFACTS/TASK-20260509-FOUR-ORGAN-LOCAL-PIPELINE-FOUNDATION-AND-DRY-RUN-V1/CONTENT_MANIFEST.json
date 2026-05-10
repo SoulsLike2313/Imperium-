@@ -1,0 +1,596 @@
+{
+  "schema_version": "CONTENT_MANIFEST_V1",
+  "task_id": "TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+  "created_at_local": "2026-05-09T14:01:32",
+  "excluded": [
+    "CONTENT_MANIFEST.json",
+    "SHA256SUMS.txt",
+    "09_BUNDLE/**",
+    "__pycache__/**",
+    "*.pyc",
+    "*.pyo"
+  ],
+  "file_count": 116,
+  "files": [
+    {
+      "path": "00_INPUT_SCOPE/INPUT_SCOPE.md",
+      "size_bytes": 806,
+      "sha256": "10672065d2c2f4259e037dd55a70a45e320062728267da5d3e9cbbcd9898d63d"
+    },
+    {
+      "path": "00_INPUT_SCOPE/READ_FIRST_INDEX.json",
+      "size_bytes": 1953,
+      "sha256": "abd2c3ec6c711aba8805f235b5048424a4dffd77244c3589814d6768df948429"
+    },
+    {
+      "path": "01_ASTRA_V0_4_REPAIR/ASTRA_V0_4_FILE_CHECK.json",
+      "size_bytes": 919,
+      "sha256": "ca392b6ca7c8d0a7a42b1c9f75a81ffda857b14e68343529d284055288ac6aea"
+    },
+    {
+      "path": "02_FOUR_ORGAN_PORTS/PORT_CONTRACT_INDEX.json",
+      "size_bytes": 639,
+      "sha256": "64194371c03fe69f5ad303dc94c9ec78ff63b66cd085a240452bbd94e2627503"
+    },
+    {
+      "path": "03_STAGE_LOOP_AND_METRICS/STAGE_ID_POLICY_BEFORE.json",
+      "size_bytes": 458,
+      "sha256": "f2c9a694a3eecfafb85dc96b5755a3740ec9bc9f1f46b3b594728058790ea8d5"
+    },
+    {
+      "path": "03_STAGE_LOOP_AND_METRICS/STAGE_ID_POLICY_UPDATE_RECEIPT.json",
+      "size_bytes": 900,
+      "sha256": "8c8dca3c0fe5291f7591897fd458920bf1784c3e21aa33c985f69422ebc8e537"
+    },
+    {
+      "path": "03_STAGE_LOOP_AND_METRICS/STAGE_LOOP_SCHEMA_INDEX.json",
+      "size_bytes": 621,
+      "sha256": "3a0aed46e569272a1e734a72b99e2d6c625cec02eca53ed9529dbb94478f6812"
+    },
+    {
+      "path": "04_ORGAN_SCRIPTS/SCRIPT_INDEX.json",
+      "size_bytes": 1774,
+      "sha256": "358629937bbe73883e3300409c652e176bcd919b5450c4bcb1af3c618e861d72"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/ADDRESS_REFS.json",
+      "size_bytes": 1006,
+      "sha256": "69f760403d07554c8af7e8a02af1ce9f7d1316bb894c7ef294b4780c13606496"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/POLICY_REFS.json",
+      "size_bytes": 442,
+      "sha256": "6d85046c2d642934097ee16f424e3cf47ef958391e1eb1d044f94a2cff3b3121"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/RECEIPT_REQUIREMENTS.json",
+      "size_bytes": 287,
+      "sha256": "32d102680ce764664c8565078fb6c2155ad41cdecf152fad3e72465e42423944"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/TASK_LAUNCH_CARD.json",
+      "size_bytes": 3708,
+      "sha256": "72c5e8c73ae6544b10dd6662d807f4f24c053f918e008243da4beb4e546e289a"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/TASK_OUTPUT_MAP.json",
+      "size_bytes": 2057,
+      "sha256": "8173c26d39d584f17dca4872c955d829aadb449a2720ac92d85e6fadbb7bf35e"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/TASK_READ_FIRST.md",
+      "size_bytes": 302,
+      "sha256": "1ed92c860b7199967399161016d908d73cd6751f68d1929b70e82409d5bbbcf2"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ADMINISTRATUM/TASK_VERSION_CHAIN.json",
+      "size_bytes": 247,
+      "sha256": "1e344c22dd0b70efacbc3e66a95f470a36a8428e8ebbe44017050f4f85637257"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/ASTRA_PIPELINE_DRAFT.md",
+      "size_bytes": 182,
+      "sha256": "55aa2828c378a5ff7514cf5bcec2fdac54b70d5e806ed773738f6ea1f6e1b70b"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/ASTRA_TASK_RECORD.json",
+      "size_bytes": 5814,
+      "sha256": "41baa5d89b08c764e19137a60c8787b1aecaec2985d7cdc47c123d11324cb6d5"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/NEXT_ALLOWED_ACTION.json",
+      "size_bytes": 268,
+      "sha256": "51afb8038c8d504c806fc3f4446be827a5c20ec6d023198e8602caf75edc92da"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/OWNER_TASK_BRIEF.md",
+      "size_bytes": 273,
+      "sha256": "d7870faa1399f88f7cc26bfcc02fdb41ac434dcb6c0f574f53f9416cca270bb8"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/PASS_CRITERIA.json",
+      "size_bytes": 335,
+      "sha256": "93bc44784ae9d4c8d2da78a730b41025304982617dfccf9c2b5dc268d9d87f05"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/PIPELINE_PROFILE.json",
+      "size_bytes": 214,
+      "sha256": "bf2928e3156de9f197d8e42e0c29028a23f58853aab53f5fcd1d8a495fd9c493"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/ROUTE_STATUS.json",
+      "size_bytes": 403,
+      "sha256": "56cdc71f15958ca22952066f1ea7118ee0b27ac01012111d01016512b8e33fe9"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ASTRA/STAGE_MAP.json",
+      "size_bytes": 5005,
+      "sha256": "d00e6fa83d0b9d322df7a14c85278338c998ad8f1cf70fa92822149ae5e37f78"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/BUNDLE/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1.zip",
+      "size_bytes": 34373,
+      "sha256": "ac9fb22e0b5e90c9509413a2ec244aab678a667185d31d1f0b830f4b4968582b"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/BUNDLE/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1.zip.sha256",
+      "size_bytes": 131,
+      "sha256": "d6c16acc80177eae4f0398e14edf918409141779f1879d8dbefe67859c6957c0"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/CONTENT_MANIFEST.json",
+      "size_bytes": 11985,
+      "sha256": "203e8e42944601c5cc4821d680c8f7a7cb79e04fe5c25a67a1c5aa3f1721a4ce"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/FINALIZATION_RECEIPT.json",
+      "size_bytes": 1124,
+      "sha256": "064ff9a6cb6d5d326d0ed1a1d86d62760b25cf2620946941ea081217f9474b80"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/INQUISITION/DELETION_PROPOSALS.md",
+      "size_bytes": 74,
+      "sha256": "f1643212dd8388a64e74c79aedf998fad90b1a85c205adbdba06ab71fe891d32"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/INQUISITION/DRIFT_DUPLICATE_REPORT.json",
+      "size_bytes": 256,
+      "sha256": "5b74b95eee035182c8a3f5cc054750ca48002904c0010888a5bf482041e0a0c4"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/INQUISITION/FAKE_GREEN_REPORT.json",
+      "size_bytes": 185,
+      "sha256": "c196033d1a442908c868554a29807a6177d74d56255af657ba6a29ff767a58da"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/INQUISITION/FORBIDDEN_REFS_REPORT.json",
+      "size_bytes": 350,
+      "sha256": "5e47fb20f9ee3714e2cb8a5612e77e05162326f8a51cd4ed3cfab94cf11d208b"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/INQUISITION/INQUISITION_PREFLIGHT_REPORT.json",
+      "size_bytes": 510,
+      "sha256": "53b389f93f0d74f742df545675bb543af04f7d442e06a42370e09c24c128fba7"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/INQUISITION/INQUISITION_STOP_OR_PASS_RECEIPT.json",
+      "size_bytes": 255,
+      "sha256": "4a197dfdabce53939e102b093b9b5451f565f703187855e3275ff402804870c1"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/MECHANICUS/RISK_CLASSIFICATION.json",
+      "size_bytes": 166,
+      "sha256": "2e8f3fbe17722d08e8aa71bae578da48f268259425245f9cae7f1cbe65b7621f"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/MECHANICUS/SCRIPT_SELECTION.json",
+      "size_bytes": 648,
+      "sha256": "65ca991eb2f89b73ff3c13bab622b012f44074ce248030f11e033dd4c01da171"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/MECHANICUS/TECHNICAL_PREFLIGHT_REPORT.json",
+      "size_bytes": 235,
+      "sha256": "3c9453f332ac9733a10eefe17d51f58a981ab8f2b8722286872abdcb4eeb6025"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/MECHANICUS/TEST_COMMANDS.json",
+      "size_bytes": 167,
+      "sha256": "17a04575036b4720cc705550a05038cd35f0a953b975f4837f151c22e6a75d02"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/MECHANICUS/TOOL_CONTRACTS.json",
+      "size_bytes": 259,
+      "sha256": "bfa003d41519b11f0415fdc98a576517445b74af0414af4f7bbf402e1bb23799"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/MECHANICUS/VALIDATOR_SELECTION.json",
+      "size_bytes": 353,
+      "sha256": "fc78b0cba3371395bb7ab4045726e5380d78590f0ece866ac2677201dd2668f9"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/DRY_RUN_RECEIPT.json",
+      "size_bytes": 757,
+      "sha256": "5d75e6194a0914b395684288be10e0b45a25fffe4e45c2fbc502f030fbbd655c"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/MANUAL_EXECUTION_PLAN.md",
+      "size_bytes": 554,
+      "sha256": "0751e5d9660a78977666d07d1a009c76001b3fc3c823b110c8eb2dd80ac70c5c"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/STAGE_RECEIPTS/ADMINISTRATUM_STAGE_001_RECEIPT.json",
+      "size_bytes": 972,
+      "sha256": "5a98cf2fddb2c599743e3dd687e24d5458e3d7a8144e5a25fecfccd26d5827c9"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/STAGE_RECEIPTS/ASTRA_STAGE_001_RECEIPT.json",
+      "size_bytes": 961,
+      "sha256": "ca5997c2be54c9b3a450e8f206c4451c4e2547814bfa7ef0722780222e5075ab"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/STAGE_RECEIPTS/INQUISITION_STAGE_001_RECEIPT.json",
+      "size_bytes": 972,
+      "sha256": "f0c641e7d378bade8b9db6bf57e46625f34c54746a9fb9fbba549ba4bbf666ba"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/STAGE_RECEIPTS/MECHANICUS_STAGE_001_RECEIPT.json",
+      "size_bytes": 964,
+      "sha256": "98766f90da7ab5ee12eee191f86cf95939e09b89f279265b610bcf9685f98d4a"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/STAGE_RECEIPTS/PC_STAGE_001_RECEIPT.json",
+      "size_bytes": 965,
+      "sha256": "0795566aaa790e0d45d3e6aa24e5bd5c89864196e56caf47f5348f1a29bb8e80"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/STAGE_RECEIPTS/SPECULUM_STAGE_001_RECEIPT.json",
+      "size_bytes": 970,
+      "sha256": "1892d68c9f6c5c3917203ab36ad6abdc5be5b684eed11f3a2614caefd42d1a78"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/ADMIN_VALIDATE_LAUNCH_CARD.json",
+      "size_bytes": 394,
+      "sha256": "1acd544060774925bd5e4fbe9d9007fab98edb6e0d8ce9f8fb5da47702f46eab"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/ADMINISTRATUM_STAGE_001_VALIDATION_REPORT.json",
+      "size_bytes": 303,
+      "sha256": "7b878126451473e9f6736ac22928e7dc3148f269d52e3662bfaf3c114d809cb9"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/ASTRA_STAGE_001_VALIDATION_REPORT.json",
+      "size_bytes": 295,
+      "sha256": "7a65dac0511e0d9d4bf0143423949a7fa872f66477abe663cac2a3e98a59f8b2"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/ASTRA_VALIDATE.json",
+      "size_bytes": 261,
+      "sha256": "0c7b12a423726d59e4a8608de2d20353b0c2a53e0bbd586cd11c7503d6fd1481"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/INQ_DUP_STAGE_SCAN.json",
+      "size_bytes": 1015,
+      "sha256": "75d86cf6b4f3eaf96a0d20b67d29419e331b7652031208141fdaed5ce6d9a813"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/INQ_FORBIDDEN_SCAN.json",
+      "size_bytes": 453,
+      "sha256": "31ee33b322ae487ce52d6dd0d2f908f3397f2d73c4594d0ff3c65363793d5a4e"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/INQUISITION_STAGE_001_VALIDATION_REPORT.json",
+      "size_bytes": 301,
+      "sha256": "803224b3185ee08d20dbddb00e1853d70a9dcce2034d0428270396c56262e46d"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/MECHANICUS_STAGE_001_VALIDATION_REPORT.json",
+      "size_bytes": 300,
+      "sha256": "5d98437d0f568fe0159ae42eadc5ead20ade320cd3c44f9a236228e23311da5b"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/PC_STAGE_001_VALIDATION_REPORT.json",
+      "size_bytes": 292,
+      "sha256": "cfd12bd673f8ae8cbd740a2657012c5f2cb5b186a20c58847e8607dda420d109"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/OWNER_PC/VALIDATION_REPORTS/SPECULUM_STAGE_001_VALIDATION_REPORT.json",
+      "size_bytes": 298,
+      "sha256": "545fd87450f16aea93491421beb3389f54f3765a0970a759612104cd285cf350"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/owner_task.txt",
+      "size_bytes": 76,
+      "sha256": "d048f5693c3907581bbb22d19b4a6e4cfb8c0c5d98443e8358131e2c14c526dc"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/ADDRESS_REFS.json",
+      "size_bytes": 1006,
+      "sha256": "69f760403d07554c8af7e8a02af1ce9f7d1316bb894c7ef294b4780c13606496"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/ASTRA_TASK_RECORD.json",
+      "size_bytes": 5814,
+      "sha256": "41baa5d89b08c764e19137a60c8787b1aecaec2985d7cdc47c123d11324cb6d5"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/POLICY_REFS.json",
+      "size_bytes": 442,
+      "sha256": "6d85046c2d642934097ee16f424e3cf47ef958391e1eb1d044f94a2cff3b3121"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/RECEIPT_REQUIREMENTS.json",
+      "size_bytes": 287,
+      "sha256": "32d102680ce764664c8565078fb6c2155ad41cdecf152fad3e72465e42423944"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/RISK_CLASSIFICATION.json",
+      "size_bytes": 166,
+      "sha256": "2e8f3fbe17722d08e8aa71bae578da48f268259425245f9cae7f1cbe65b7621f"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/ROUTE_STATUS.json",
+      "size_bytes": 403,
+      "sha256": "56cdc71f15958ca22952066f1ea7118ee0b27ac01012111d01016512b8e33fe9"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/SCRIPT_SELECTION.json",
+      "size_bytes": 648,
+      "sha256": "65ca991eb2f89b73ff3c13bab622b012f44074ce248030f11e033dd4c01da171"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/STAGE_MAP.json",
+      "size_bytes": 5005,
+      "sha256": "d00e6fa83d0b9d322df7a14c85278338c998ad8f1cf70fa92822149ae5e37f78"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TASK_LAUNCH_CARD.json",
+      "size_bytes": 3708,
+      "sha256": "72c5e8c73ae6544b10dd6662d807f4f24c053f918e008243da4beb4e546e289a"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TASK_OUTPUT_MAP.json",
+      "size_bytes": 2057,
+      "sha256": "8173c26d39d584f17dca4872c955d829aadb449a2720ac92d85e6fadbb7bf35e"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TASK_READ_FIRST.md",
+      "size_bytes": 302,
+      "sha256": "1ed92c860b7199967399161016d908d73cd6751f68d1929b70e82409d5bbbcf2"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TASK_VERSION_CHAIN.json",
+      "size_bytes": 247,
+      "sha256": "1e344c22dd0b70efacbc3e66a95f470a36a8428e8ebbe44017050f4f85637257"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TECHNICAL_PREFLIGHT_REPORT.json",
+      "size_bytes": 235,
+      "sha256": "3c9453f332ac9733a10eefe17d51f58a981ab8f2b8722286872abdcb4eeb6025"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TEST_COMMANDS.json",
+      "size_bytes": 167,
+      "sha256": "17a04575036b4720cc705550a05038cd35f0a953b975f4837f151c22e6a75d02"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/TOOL_CONTRACTS.json",
+      "size_bytes": 259,
+      "sha256": "bfa003d41519b11f0415fdc98a576517445b74af0414af4f7bbf402e1bb23799"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/ROUTE_PACKET_FOR_INQUISITION/VALIDATOR_SELECTION.json",
+      "size_bytes": 353,
+      "sha256": "fc78b0cba3371395bb7ab4045726e5380d78590f0ece866ac2677201dd2668f9"
+    },
+    {
+      "path": "05_LOCAL_DRY_RUN/TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1/SHA256SUMS.txt",
+      "size_bytes": 7014,
+      "sha256": "1c7ff2a6a986e23a0ccc086e497c44ee60446b758377f6bb6b6974ac479c8591"
+    },
+    {
+      "path": "06_VALIDATION/FORBIDDEN_REF_TEST_INPUT/delete.txt",
+      "size_bytes": 21,
+      "sha256": "2f3f62f7afd01f2d3c03a8cd5f1bd60ebd92e4b65719f2d69e1daee74e33d600"
+    },
+    {
+      "path": "06_VALIDATION/FORBIDDEN_REF_TEST_INPUT/latest.txt",
+      "size_bytes": 27,
+      "sha256": "69e58c8d63cf121399afbee262d824227e65be76d737655005423db1bdeff90e"
+    },
+    {
+      "path": "06_VALIDATION/FORBIDDEN_REF_TEST_INPUT/throne.txt",
+      "size_bytes": 28,
+      "sha256": "20f2acd85827e50de16537d06090cff04af959bcbb4140b9c2104ff61cfa7ddc"
+    },
+    {
+      "path": "06_VALIDATION/FORBIDDEN_REF_TEST_INPUT/watcher.txt",
+      "size_bytes": 35,
+      "sha256": "92565c89130df602077186ca2ed2f274f70f1976b17cc93b3b9db3118e85b8a0"
+    },
+    {
+      "path": "06_VALIDATION/FORBIDDEN_REFS_NEGATIVE_REPORT.json",
+      "size_bytes": 751,
+      "sha256": "b7422d3024f8c56f3c7792b3861db047d815bcae40677e295533f8744bf83a2e"
+    },
+    {
+      "path": "06_VALIDATION/HELP_CHECK_REPORT.json",
+      "size_bytes": 1843,
+      "sha256": "f6c9be40a6097e11cbd32e581d720146d78847f9a7a1fa13eb9faaf34e65283d"
+    },
+    {
+      "path": "06_VALIDATION/JSON_PARSE_REPORT.json",
+      "size_bytes": 123,
+      "sha256": "fa2c21f09a2906472d1bfa602a0951637e4a4be91815bde30592fc999d9834e9"
+    },
+    {
+      "path": "06_VALIDATION/PACKAGING_HYGIENE_REPORT.json",
+      "size_bytes": 218,
+      "sha256": "d6fe3d4f48893367001807a9c9b0c94e154c249e8135d3e3dd618265f04f4459"
+    },
+    {
+      "path": "06_VALIDATION/POLICY_HASH_PLACEHOLDER_TEST_REPORT.json",
+      "size_bytes": 201,
+      "sha256": "a10a6c0ea82298c0ff62b3d7b0e385a405e0f539ff38647cff0667bfdd37eff8"
+    },
+    {
+      "path": "06_VALIDATION/PYTHON_COMPILE_REPORT.json",
+      "size_bytes": 2280,
+      "sha256": "9dd01719a25dff5a51acc1936c2d39084d91d528f933dc8b47da9a22523d1e0e"
+    },
+    {
+      "path": "06_VALIDATION/STAGE_ID_POLICY_TEST_REPORT.json",
+      "size_bytes": 1075,
+      "sha256": "a9578de7c1e8b1a07a49c8bd26efb8c11e5a9736b5e63a6d5adbe94ccd7bb22b"
+    },
+    {
+      "path": "06_VALIDATION/VALIDATION_MASTER_PRE_PACKAGING.json",
+      "size_bytes": 635,
+      "sha256": "648bafe9edab9dc8b4a5cbfe11296bf81b0eaf4aa919f16b2bafea3282e4d739"
+    },
+    {
+      "path": "06_VALIDATION/VALIDATION_REPORT.json",
+      "size_bytes": 1127,
+      "sha256": "13dc5436ba8f75f813a4990c9758ea8a438f519cace45b59a27890098799cb88"
+    },
+    {
+      "path": "06_VALIDATION/VALIDATION_REPORT.md",
+      "size_bytes": 889,
+      "sha256": "79a4c7fbdd8adb0d29adb1581f4e7a3f3bd00ec7d3ff4c4ee23ba2775041648f"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_001_RECEIPT.json",
+      "size_bytes": 429,
+      "sha256": "04c82a8712f135050d1eaf5b157b2d8914eb583a5b5ee45c95f41b2cac4e70ed"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_002_RECEIPT.json",
+      "size_bytes": 442,
+      "sha256": "d0494530b2bc06320f5102ba59243571d519cfea45f98a938aed7ccce3a7e7c9"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_003_RECEIPT.json",
+      "size_bytes": 435,
+      "sha256": "dfbfdcf72a0b67ee306014ae635769cad510478c727c6b672d68885e73343a2f"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_004_RECEIPT.json",
+      "size_bytes": 407,
+      "sha256": "66f238378a0e5c32062ce8a5ba92ce765e1126f4c786cb28bef70b6a7b35884d"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_005_RECEIPT.json",
+      "size_bytes": 411,
+      "sha256": "b10c9d0237c1090e04500470655b1995c6a8eec7ab8bf0c77ee455ea7afcc715"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_006_RECEIPT.json",
+      "size_bytes": 394,
+      "sha256": "70a7858ba133f2e2f8381607c504bc45885381948a1c250789d2fa1a493ed563"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_007_RECEIPT.json",
+      "size_bytes": 409,
+      "sha256": "6e04d9c842daa4cfeb41f695aa52032f5d69ac4f2781688087db76361c8589fa"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_008_RECEIPT.json",
+      "size_bytes": 426,
+      "sha256": "7615d1b5ad54f0a78da9d511257e293dd69cfff94c96363c4f0ffe4a2e8db788"
+    },
+    {
+      "path": "07_STAGE_RECEIPTS/STAGE_009_RECEIPT.json",
+      "size_bytes": 511,
+      "sha256": "7cd834a48ab6cf29125f46de3daba8445d9e66226fdc109ead77e847e17aa19b"
+    },
+    {
+      "path": "08_REPORTS/ASTRA_V0_4_REPAIR_REPORT.md",
+      "size_bytes": 864,
+      "sha256": "f3bc233cd6be82dd3cdec8d1c11af73333ab10e4290bc2f58c226c17f0f4670f"
+    },
+    {
+      "path": "08_REPORTS/FOUR_ORGAN_PIPELINE_FOUNDATION_REPORT.md",
+      "size_bytes": 448,
+      "sha256": "9b48fd300f1a6a33cb34617bb941bbc9dbefb91d1609f38a8a7ff783cc86ebea"
+    },
+    {
+      "path": "08_REPORTS/LOCAL_DRY_RUN_REPORT.md",
+      "size_bytes": 999,
+      "sha256": "2ce95efe9e4cb399526349a11280bd39fb10e1b0d039ed9afa392cd75adea0ec"
+    },
+    {
+      "path": "08_REPORTS/ORGAN_PORTS_REPORT.md",
+      "size_bytes": 600,
+      "sha256": "df94a8c7577fa2b5ff8d342d833bad77564969e485ae7f46973d2e1697a75bce"
+    },
+    {
+      "path": "08_REPORTS/ORGAN_SCRIPT_REPORT.md",
+      "size_bytes": 1078,
+      "sha256": "569905f0b639ef7a62583470e5d596a628dc1850589dba268749fe96250a5757"
+    },
+    {
+      "path": "08_REPORTS/OWNER_SUMMARY_DRAFT.md",
+      "size_bytes": 577,
+      "sha256": "9bc0cfbbf8896bc330297ece6e316f456fa2e8f7de33babd580e25a45098ac44"
+    },
+    {
+      "path": "08_REPORTS/OWNER_SUMMARY_FINAL.md",
+      "size_bytes": 3834,
+      "sha256": "467ec1b505e3dc4a4a567793e40c694ad1362b76339eaf1bd3b8c7daad446d31"
+    },
+    {
+      "path": "08_REPORTS/STAGE_LOOP_AND_METRICS_REPORT.md",
+      "size_bytes": 595,
+      "sha256": "a6125b0dd073dbd0c8037857642de0f63e7b81bc20042c61d49444cb852832ba"
+    },
+    {
+      "path": "08_REPORTS/VALIDATION_REPORT.md",
+      "size_bytes": 889,
+      "sha256": "79a4c7fbdd8adb0d29adb1581f4e7a3f3bd00ec7d3ff4c4ee23ba2775041648f"
+    },
+    {
+      "path": "ASTRA_V0_4_REPAIR_REPORT.md",
+      "size_bytes": 864,
+      "sha256": "f3bc233cd6be82dd3cdec8d1c11af73333ab10e4290bc2f58c226c17f0f4670f"
+    },
+    {
+      "path": "FOUNDATION_DRY_RUN_RECEIPT.json",
+      "size_bytes": 1687,
+      "sha256": "9667ef76667066c6f9aef8d09b5b472696cc8df1d1bb4226293125fc850b0e16"
+    },
+    {
+      "path": "FOUR_ORGAN_PIPELINE_FOUNDATION_REPORT.md",
+      "size_bytes": 448,
+      "sha256": "9b48fd300f1a6a33cb34617bb941bbc9dbefb91d1609f38a8a7ff783cc86ebea"
+    },
+    {
+      "path": "LOCAL_DRY_RUN_REPORT.md",
+      "size_bytes": 999,
+      "sha256": "2ce95efe9e4cb399526349a11280bd39fb10e1b0d039ed9afa392cd75adea0ec"
+    },
+    {
+      "path": "ORGAN_PORTS_REPORT.md",
+      "size_bytes": 600,
+      "sha256": "df94a8c7577fa2b5ff8d342d833bad77564969e485ae7f46973d2e1697a75bce"
+    },
+    {
+      "path": "ORGAN_SCRIPT_REPORT.md",
+      "size_bytes": 1078,
+      "sha256": "569905f0b639ef7a62583470e5d596a628dc1850589dba268749fe96250a5757"
+    },
+    {
+      "path": "OWNER_SUMMARY.md",
+      "size_bytes": 3834,
+      "sha256": "467ec1b505e3dc4a4a567793e40c694ad1362b76339eaf1bd3b8c7daad446d31"
+    },
+    {
+      "path": "STAGE_LOOP_AND_METRICS_REPORT.md",
+      "size_bytes": 595,
+      "sha256": "a6125b0dd073dbd0c8037857642de0f63e7b81bc20042c61d49444cb852832ba"
+    },
+    {
+      "path": "VALIDATION_REPORT.md",
+      "size_bytes": 889,
+      "sha256": "79a4c7fbdd8adb0d29adb1581f4e7a3f3bd00ec7d3ff4c4ee23ba2775041648f"
+    }
+  ]
+}

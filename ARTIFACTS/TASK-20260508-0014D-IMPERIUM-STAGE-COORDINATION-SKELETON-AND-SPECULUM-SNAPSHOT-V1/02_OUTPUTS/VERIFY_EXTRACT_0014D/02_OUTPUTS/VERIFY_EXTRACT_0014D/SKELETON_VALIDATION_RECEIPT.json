@@ -1,0 +1,19 @@
+{
+  "task_id": "TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "PC-SERVITOR-0014D",
+  "checked_at_utc": "2026-05-08T19:52:06Z",
+  "checks": {
+    "json_parse": true,
+    "python_compile": true,
+    "required_files_present": false,
+    "skeleton_markers_present": true,
+    "no_false_active_in_stage_coordination": true,
+    "no_vm2_contact": true,
+    "no_real_e2e": true,
+    "no_throne": true,
+    "no_watchers": true,
+    "no_latest_logic": true
+  },
+  "verdict": "PARTIAL"
+}

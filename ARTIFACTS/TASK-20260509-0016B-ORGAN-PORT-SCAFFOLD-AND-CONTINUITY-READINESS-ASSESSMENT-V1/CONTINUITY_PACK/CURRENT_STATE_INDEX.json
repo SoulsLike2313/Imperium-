@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-05-09T06:14:18Z",
+  "continuity_verdict": "CONTINUITY_YELLOW",
+  "active_tools_count": 15,
+  "known_blockers_count": 10,
+  "manual_proof_folders_count": 4,
+  "organ_ports_declared_count": 10,
+  "organ_ports_implemented_count": 0,
+  "new_chat_handoff_readiness": "READY_WITH_WARNINGS",
+  "speculum_review_readiness": "READY_FOR_REVIEW_WITH_WARNINGS",
+  "next_recommended_task_id": "TASK-20260509-0016B-SPECULUM-REVIEW-AND-0014F-REPAIR-DECISION",
+  "status": "CURRENT_STATE_CAPTURED"
+}

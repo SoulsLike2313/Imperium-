@@ -1,0 +1,37 @@
+{
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "overall_status": "RUNNING",
+  "event_count": 1,
+  "stages_found": [
+    "STAGE-006-STATUS-SMOKE"
+  ],
+  "latest_event_per_stage": {
+    "STAGE-006-STATUS-SMOKE": {
+      "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+      "stage_id": "STAGE-006-STATUS-SMOKE",
+      "run_id": "RUN-20260508-0001",
+      "contour_id": "PC",
+      "producer_type": "PC_SERVITOR",
+      "producer_id": "pc_servitor_test",
+      "event_type": "STAGE_DECLARED",
+      "status": "RUNNING",
+      "artifact_ref": "",
+      "artifact_sha256": "",
+      "previous_event_ref": "NONE",
+      "timestamp_utc": "2026-05-08T17:48:57Z",
+      "receipt_ref": "",
+      "notes": "",
+      "provenance_ref": "",
+      "origin_key": "",
+      "event_id": "EVT-049cca86-9ad9-4960-81b8-2c750f143bbd"
+    }
+  },
+  "active_runs": [
+    "RUN-20260508-0001"
+  ],
+  "failed_runs": [],
+  "conflicts": [],
+  "barrier_events": [],
+  "final_bundle_created": false,
+  "high_level_status": "RUNNING"
+}

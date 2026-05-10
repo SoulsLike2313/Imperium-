@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK-20260508-1410-FINAL-ASSEMBLY-TEST",
+  "stage_id": "STAGE-FINAL-ASSEMBLY",
+  "run_id": "RUN-00000000-0000",
+  "contour_id": "PC",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "PC-SERVITOR-TEST",
+  "executor_role": "final_assembler",
+  "creation_mode": "SCRIPTED",
+  "created_at_utc": "2026-05-08T18:05:17Z",
+  "produced_on_host_class": "PC",
+  "source_bundle_name": "TASK-20260508-1410-FINAL-ASSEMBLY-TEST_FINAL_TASK_BUNDLE.zip",
+  "source_bundle_sha256": null,
+  "parent_bundle_refs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014B-FINAL-ASSEMBLY-HASH-PROVENANCE-ZIP-HYGIENE-V1\\02_OUTPUTS\\TEST_WORKSPACE\\final_input"
+  ],
+  "transfer_method": "LOCAL_CREATE",
+  "transfer_actor": "PC-SERVITOR-TEST",
+  "manual_touchpoints": [],
+  "authority_level": "FINAL_TASK_BUNDLE",
+  "acceptance_scope": "task_closeout",
+  "verification_status": "BARRIER_PASSED",
+  "source_bundle_sha256_status": "EXTERNAL_HASH_RECORDED_IN_SIDECAR"
+}

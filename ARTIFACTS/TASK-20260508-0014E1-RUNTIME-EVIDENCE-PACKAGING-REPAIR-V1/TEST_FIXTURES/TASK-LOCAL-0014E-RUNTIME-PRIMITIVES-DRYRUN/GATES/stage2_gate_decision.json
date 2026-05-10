@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-002",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "STAGE_GATE_DECIDE",
+  "timestamp_utc": "2026-05-08T20:37:23Z",
+  "decision": "GATE_READY",
+  "reasons": [
+    "invalid_signal:stage1_signal_verify.json:signal_hash_missing"
+  ]
+}

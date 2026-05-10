@@ -1,0 +1,28 @@
+{
+  "bundle_id": "VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155",
+  "created_at": "2026-05-07T11:55:08Z",
+  "mode": "evidence_first_read_only_export",
+  "source_contour": "VM3",
+  "canonical_authority": "THRONE",
+  "pc_role": "owner_manual_test_bench_only",
+  "source_triage_bundle": "/home/vboxuser3/Desktop/IMPERIUM_STAGING/bridge_exchange/current_task_outputs/VM3_DELTA_TRIAGE_DECISION_MANIFEST_20260507_1147",
+  "mutation_status": "none",
+  "admission_status": "no_admission_performed",
+  "included": {
+    "modified_tracked_files": 5,
+    "non_artifacts_untracked_paths": 23,
+    "total_files": 28
+  },
+  "excluded_scope": [
+    "ARTIFACTS/reviews/*",
+    "expected cleanup deletions (1253 tracked deletions from cleanup scope)",
+    "raw bundle zips",
+    "SPECULUM files",
+    "moved archive content under IMPERIUM_STAGING/worker_reentry_archive/*",
+    ".git",
+    "secrets/keys/tokens/cookies/credentials"
+  ],
+  "secrets_included": false,
+  "secret_scan_hit_count": 0,
+  "verdict": "PASS_LIMITED"
+}

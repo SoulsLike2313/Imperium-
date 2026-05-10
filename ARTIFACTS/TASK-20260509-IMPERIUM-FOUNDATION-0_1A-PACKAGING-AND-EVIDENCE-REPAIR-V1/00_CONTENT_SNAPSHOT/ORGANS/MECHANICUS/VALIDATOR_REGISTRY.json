@@ -1,0 +1,21 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "validators": [
+    {
+      "validator_id": "VALIDATOR-TASK-LAUNCH-CARD-0_1",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "validator_id": "VALIDATOR-READ-FIRST-RECEIPT-0_1",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "validator_id": "VALIDATOR-POLICY-REFS-0_1",
+      "status": "CONTRACT_ONLY"
+    },
+    {
+      "validator_id": "VALIDATOR-PY-READONLY-SAFETY-0_1",
+      "status": "CONTRACT_ONLY"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "BLOCKERS_PORT_V0_2",
+  "organ_id": "OFFICIO_AGENTIS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "No canon/green claim from continuity port alone."
+  ],
+  "owner_decisions_needed": [
+    "Owner approval required for canon/final readiness claims."
+  ],
+  "next_action": "Create ORGAN_CONTRACT and role contract schemas with receipts/tests."
+}

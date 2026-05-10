@@ -1,0 +1,10 @@
+{
+  "contour_id": "PC",
+  "barrier_result": "BARRIER_PASS",
+  "task_id": "TASK-20260508-1410-FINAL-ASSEMBLY-TEST",
+  "stage_id": "STAGE-TEST",
+  "run_id": "RUN-20260508-1410",
+  "notes": [
+    "local test"
+  ]
+}

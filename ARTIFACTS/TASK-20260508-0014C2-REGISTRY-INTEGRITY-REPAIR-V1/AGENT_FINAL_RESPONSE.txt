@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1
+
+БАНДЛ:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1\FINAL_STEP_BUNDLE\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1_FINAL_STEP_BUNDLE.zip
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Исправлен registry integrity blocker: sha256 для READONLY_EXPLORER и остальных ACTIVE инструментов синхронизированы с фактическими файлами.
+Реестр теперь проходит строгую проверку: mismatch=0, missing active files=0, unknown active=0.
+Read-only explorer показывает статус целостности реестра и поддерживает --verify-registry-hashes.
+VM2/E2E/THRONE/watchers не использовались; пакет готов к Speculum hard-review перед 0014D.

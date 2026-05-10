@@ -1,0 +1,20 @@
+{
+  "schema_version": "TASK_RECIPE_V0_2",
+  "task_id": "TASK-20260510-ADMINISTRATUM-DEVELOPER-GRADE-CONTINUITY-HANDOFF-V0_2",
+  "task_name": "Upgrade Administratum continuity system from semantic bootstrap handoff to developer-grade handoff pack v0.2",
+  "mode": "DEVELOPER_GRADE_HANDOFF_UPGRADE",
+  "run_id": "RUN-20260510-091122",
+  "root": "E:\\IMPERIUM",
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-DEVELOPER-GRADE-CONTINUITY-HANDOFF-V0_2",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+    "E:\\IMPERIUM\\ORGANS\\<ORGAN>\\PORTS"
+  ],
+  "forbidden_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "expected_final_verdict": "PASS_DEVELOPER_GRADE_CONTINUITY_HANDOFF_V0_2_WITH_LIMITATIONS",
+  "created_at": "2026-05-10T06:14:42.626405+00:00"
+}

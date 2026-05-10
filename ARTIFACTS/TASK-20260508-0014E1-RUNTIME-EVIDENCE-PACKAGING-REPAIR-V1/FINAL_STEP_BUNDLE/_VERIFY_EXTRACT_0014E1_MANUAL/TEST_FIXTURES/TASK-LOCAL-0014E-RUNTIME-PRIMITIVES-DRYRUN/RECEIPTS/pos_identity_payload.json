@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-002",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "IDENTITY_VALIDATE",
+  "timestamp_utc": "2026-05-08T20:37:22Z",
+  "validation_result": "PASS"
+}

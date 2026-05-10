@@ -1,0 +1,13 @@
+{
+  "generated_at_utc": "2026-05-09T00:27:42Z",
+  "status": "NOT_YET_AVAILABLE",
+  "current_data_available": false,
+  "future_role": [
+    "task_maps",
+    "stage_maps",
+    "sync_points",
+    "pass_criteria",
+    "contour_views"
+  ],
+  "notes": "Astronomicon planning boundary is documented; full implementation is deferred."
+}

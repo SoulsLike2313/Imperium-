@@ -1,0 +1,37 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_04_DOCTRINARIUM_ORGAN_REGISTRATION",
+  "script_id": null,
+  "script_path": null,
+  "script_sha256": null,
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\README.md",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\ORGAN_CONTRACT.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\04_DOCTRINARIUM_ORGAN_CONTRACT\\DOCTRINARIUM_ORGAN_REGISTRATION_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\04_DOCTRINARIUM_ORGAN_CONTRACT\\DOCTRINARIUM_ORGAN_REGISTRATION_REPORT.md"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\04_DOCTRINARIUM_ORGAN_CONTRACT\\DOCTRINARIUM_ORGAN_REGISTRATION_REPORT.json": "4496c2dcb873bca57d3afdb66470fc8b01aae3ce8b892872ad94622e2d5365c8",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\04_DOCTRINARIUM_ORGAN_CONTRACT\\DOCTRINARIUM_ORGAN_REGISTRATION_REPORT.md": "fcafd10cd0ec62a5d60dcafc41ad658eca5dabf8dc012611dbe50c3261aab3ed"
+  },
+  "verdict": "PASS_DOCTRINARIUM_REGISTERED_AS_STRICT_BOOTSTRAP_CANON_CANDIDATE",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Doctrinarium remains strict bootstrap/canon-candidate gate, not CANON_V0_1"
+  ],
+  "next_action": "Run all-organs gap report",
+  "created_at": "2026-05-09T16:58:31.622321+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

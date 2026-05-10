@@ -1,0 +1,28 @@
+servitor_profile_id: SERVITOR_VM2_PROFILE_V1
+role: code_worker_executor
+contour: VM2
+authority: assigned_stage_only
+reads:
+  - assigned_task_package
+  - assigned_stage_card
+  - local_worker_maps
+writes:
+  - stage_outputs
+  - receipts
+  - manifests
+  - hashes
+  - stage_bundles
+forbidden:
+  - throne_write
+  - pc_write_without_route
+  - vm3_write
+  - secret_export
+  - broad_scan
+  - delete
+expected_response:
+  - stage_receipt
+  - output_manifest
+  - sha256
+  - stage_bundle
+notes:
+  - Servitor is a replaceable executor, not an authority.

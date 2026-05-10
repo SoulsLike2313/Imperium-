@@ -1,0 +1,6 @@
+{
+  "remote_worker_root": "/tmp/imperium_worker_room",
+  "user_host": "dummy@dummy",
+  "port": 22,
+  "key_path": "/tmp/nonexistent.key"
+}

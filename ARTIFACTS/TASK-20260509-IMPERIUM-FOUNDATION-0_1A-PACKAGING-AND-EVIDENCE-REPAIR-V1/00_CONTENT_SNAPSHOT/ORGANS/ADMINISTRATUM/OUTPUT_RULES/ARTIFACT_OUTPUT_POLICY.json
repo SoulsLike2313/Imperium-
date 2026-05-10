@@ -1,0 +1,5 @@
+{
+  "policy_id": "POLICY-ARTIFACT-OUTPUT-0_1",
+  "status": "PROMPT_ENGINEERING_FILE_BASE_0_1",
+  "rule": "Task artifacts must be written under E:/IMPERIUM/ARTIFACTS/<TASK_ID>."
+}

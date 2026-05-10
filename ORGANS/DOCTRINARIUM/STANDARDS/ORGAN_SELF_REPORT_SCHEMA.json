@@ -1,0 +1,12 @@
+{
+  "schema_version": "ORGAN_SELF_REPORT_SCHEMA_V0_1",
+  "required_fields": [
+    "organ_id",
+    "summary",
+    "known_limitations",
+    "current_blockers",
+    "last_verified_at",
+    "evidence_refs"
+  ],
+  "created_at": "2026-05-09T16:51:44.170273+00:00"
+}

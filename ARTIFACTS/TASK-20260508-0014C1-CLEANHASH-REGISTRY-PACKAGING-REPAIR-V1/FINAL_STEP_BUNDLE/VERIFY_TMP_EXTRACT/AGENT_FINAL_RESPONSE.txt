@@ -1,0 +1,14 @@
+ШАГ:
+TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1
+
+БАНДЛ:
+E:\IMPERIUM\ARTIFACTS\TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1\FINAL_STEP_BUNDLE\TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1_FINAL_STEP_BUNDLE.zip
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Исправлен cleanhash/packaging дефект 0014C: top-level SHA256SUMS и MANIFEST теперь согласованы.
+Проверка извлеченного bundle по SHA256SUMS проходит, включая MANIFEST.json.
+Read-only explorer UX обновлен до флага --readonly-assert и задокументирован в README/examples.
+VM2/E2E/THRONE/watchers не использовались; пакет готов к Speculum hard-review.

@@ -1,0 +1,101 @@
+{
+  "schema_version": "CONTENT_MANIFEST_V1",
+  "task_id": "TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+  "created_at_local": "2026-05-09T13:20:38",
+  "file_count": 17,
+  "excluded": [
+    "CONTENT_MANIFEST.json",
+    "SHA256SUMS.txt",
+    "07_BUNDLE/**",
+    "__pycache__/**",
+    "*.pyc",
+    "*.pyo"
+  ],
+  "files": [
+    {
+      "path": "00_SOURCE/astra_pipeline_utility_v0_1.py",
+      "size_bytes": 18442,
+      "sha256": "610d63670ea63705df2fd2cc2d3f5abe1ba25b63a1fc0b4da23fdb5ab5b435d0"
+    },
+    {
+      "path": "00_SOURCE/astra_pipeline_utility_v0_2.py",
+      "size_bytes": 26139,
+      "sha256": "3a73edaa9be5939c3be83dae4e70f253e08e5da98bdf30407dc98f7a4d624331"
+    },
+    {
+      "path": "00_SOURCE/astra_pipeline_utility_v0_3.py",
+      "size_bytes": 27525,
+      "sha256": "9f53e4454a073ed7768b48972f9e9a94ecc6423a20c2d03263f800b943637814"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/ASTRA_PIPELINE_DRAFT.md",
+      "size_bytes": 9314,
+      "sha256": "e99b4321daf6628929011d84b0e993a89e136c0cad1f7075f92928873434886b"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/ASTRA_TASK_RECORD.json",
+      "size_bytes": 12622,
+      "sha256": "bea7f949ec61c56226911e947f4b45c37f25a6c0bdf5824298f9b02a9028be2f"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/NEXT_ALLOWED_ACTION.json",
+      "size_bytes": 279,
+      "sha256": "54d06919417ec935e702657ff05cc5dc08a5a410bb2d81762790b419f93ad7e1"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/OWNER_TASK_BRIEF.md",
+      "size_bytes": 2309,
+      "sha256": "123160f73a551537d96cc2637657e2ee0691e085e0dce78617927af7d649fd42"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/PASS_CRITERIA.json",
+      "size_bytes": 3667,
+      "sha256": "d69765b7b81a1a541b17b14b3708b45b8c7ad1f26800bd415a3d25d064cb7215"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/PIPELINE_PROFILE.json",
+      "size_bytes": 190,
+      "sha256": "ace3d610d954d410431ee98f7c906ae1c79bf75e1dd6d0de2b3f359603850157"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/STAGE_MAP.json",
+      "size_bytes": 8709,
+      "sha256": "ce506cc34188acd1344444b05386f1008da6a7ddf73ccefe1d47d670bf2c98eb"
+    },
+    {
+      "path": "02_MANUAL_PROOF/ASTRA_PIPELINE_UTILITY_MANUAL_PROOF.md",
+      "size_bytes": 1529,
+      "sha256": "d831323bafb13af5d594262a07ac1ff00a3f2bc428201fb6bbb7db22a24dc9ae"
+    },
+    {
+      "path": "03_VALIDATION/JSON_PARSE_REPORT.json",
+      "size_bytes": 863,
+      "sha256": "dab53fa54308b12e6485330e05ddd02231ebd14bf006b390df17dae6097226b0"
+    },
+    {
+      "path": "03_VALIDATION/PYTHON_COMPILE_REPORT.json",
+      "size_bytes": 406,
+      "sha256": "58943d8daa8dc09a171385ad416f512eafe93943071e6b620ac174279c8822ce"
+    },
+    {
+      "path": "03_VALIDATION/REQUIRED_TASK_FILES_REPORT.json",
+      "size_bytes": 1631,
+      "sha256": "3b787b32060c9c09978fe993285dabc4c6ae93cea63953d1189d054888ac1ae6"
+    },
+    {
+      "path": "04_SPECULUM_REQUEST/SPECULUM_REQUEST_ASTRA_PORTS_AND_METRICS.md",
+      "size_bytes": 959,
+      "sha256": "75be509144fc78d1fe7a1b7f118a0f346584c051a52218622bfeb5303fad85d9"
+    },
+    {
+      "path": "05_RECEIPTS/ASTRA_PIPELINE_UTILITY_MANUAL_PROOF_RECEIPT.json",
+      "size_bytes": 1375,
+      "sha256": "fc871a248638fec233bc4266a2b55a618c1f155559132cc042c64bcdb7d5fb4a"
+    },
+    {
+      "path": "OWNER_SUMMARY.md",
+      "size_bytes": 1438,
+      "sha256": "2ba5866178962e6469d5b12e5351e8d6e5a3a4303ede22674adbda8dd89301cd"
+    }
+  ]
+}

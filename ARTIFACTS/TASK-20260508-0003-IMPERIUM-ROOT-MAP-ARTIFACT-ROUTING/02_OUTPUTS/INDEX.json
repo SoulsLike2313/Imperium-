@@ -1,0 +1,16 @@
+{
+  "index_id": "ARTIFACTS_INDEX_BASELINE_V1",
+  "root": "E:\\\\IMPERIUM\\\\ARTIFACTS",
+  "status": "draft_empty_or_baseline",
+  "task_artifacts": [
+    {
+      "task_id": "TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING",
+      "status": "created_in_this_step",
+      "path": "E:\\\\IMPERIUM\\\\ARTIFACTS\\\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING"
+    }
+  ],
+  "notes": [
+    "Artifacts should be registered by TASK_ID.",
+    "This index will be updated by future task routing steps."
+  ]
+}

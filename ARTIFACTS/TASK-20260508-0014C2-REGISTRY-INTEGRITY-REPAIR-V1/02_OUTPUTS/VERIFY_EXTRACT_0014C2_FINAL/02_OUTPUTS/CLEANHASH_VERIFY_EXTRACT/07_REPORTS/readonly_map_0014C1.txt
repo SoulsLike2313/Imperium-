@@ -1,0 +1,27 @@
+OWNER
+  -> PC_VM2_SEND_PROMPT
+      -> VM2_WORKER_STAGE
+          -> PC_VM2_FETCH_STAGE_BUNDLE
+              -> PC_BARRIER_VERIFY
+                  -> PC_FINAL_BUNDLE_ASSEMBLE
+
+OWNER
+  -> CONTINUITY_PACK_BUILD
+      -> CONTINUITY_PACK_VERIFY
+          -> CONTINUITY_PACK_REDACT
+
+ШАГ:
+READONLY_EXPLORER/map
+
+БАНДЛ:
+N/A
+
+ВЕРДИКТ:
+PASS
+
+КОММЕНТАРИЙ ДЛЯ OWNER:
+Выполнен read-only обзор реестра инструментов без изменений файлов системы.
+Показаны адреса, статусы и карта потока для Owner/PC/VM2 сценария.
+Сетевые действия, VM2/THRONE доступ и автоматизация не выполнялись.
+Следующий шаг: использовать tool_id из реестра в TASK-0015 после Speculum go/no-go.
+

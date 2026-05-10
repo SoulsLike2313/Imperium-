@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "stage_id": "STAGE-003-LATEST-REJECT",
+  "run_id": "RUN-20260508-0001",
+  "contour_id": "VM2",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "pc_servitor_test",
+  "status": "FAIL",
+  "failure_reason": "prompt-file contains forbidden latest-pattern: E:\\IMPERIUM\\latest\\PROMPT.md",
+  "timestamp_utc": "2026-05-08T17:47:48Z",
+  "provenance_ref": "",
+  "deleted_anything": false,
+  "moved_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false,
+  "verdict": "FAIL"
+}

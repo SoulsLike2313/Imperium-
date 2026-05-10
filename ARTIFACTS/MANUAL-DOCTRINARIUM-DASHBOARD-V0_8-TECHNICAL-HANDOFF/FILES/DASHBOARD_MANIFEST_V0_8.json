@@ -1,0 +1,68 @@
+{
+  "schema_version": "DOCTRINARIUM_DASHBOARD_MANIFEST_V0_8",
+  "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+  "organ_id": "DOCTRINARIUM",
+  "dashboard_root": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8",
+  "launcher_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\launch_doctrinarium_dashboard_v0_8.ps1",
+  "url": "http://127.0.0.1:8791",
+  "created_at": "2026-05-09T18:51:48.8888947Z",
+  "file_count": 8,
+  "files": [
+    {
+      "relative_path": "app.js",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\app.js",
+      "size_bytes": 30412,
+      "sha256": "95d0a1fc49f3db1f6957cdfb51d2fbe0d121dc5ec4b5a2c7cfe8ef5e31f34d8a"
+    },
+    {
+      "relative_path": "dashboard_server.py",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\dashboard_server.py",
+      "size_bytes": 11207,
+      "sha256": "bb1459c5daf16a5ab25122bb588f9159230f1106295edce9d0f63a4d084c6ffe"
+    },
+    {
+      "relative_path": "DASHBOARD_STATUS_V0_6_FIXED.json",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_6_FIXED.json",
+      "size_bytes": 406,
+      "sha256": "5bc63c75bb9c14bd83d24303728476de0fc03c3c41191590c92b17e040128f2b"
+    },
+    {
+      "relative_path": "DASHBOARD_STATUS_V0_7.json",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_7.json",
+      "size_bytes": 614,
+      "sha256": "c9ea3658af6907f5f8a2592c028dafc0436cf419e23068b18f0e27010fb998d4"
+    },
+    {
+      "relative_path": "DASHBOARD_STATUS_V0_8.json",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS_V0_8.json",
+      "size_bytes": 674,
+      "sha256": "3dacd96a5c45d89d8b019d56b8cefb0a7c4557182638e90b36539337b78c60cf"
+    },
+    {
+      "relative_path": "DASHBOARD_STATUS.json",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\DASHBOARD_STATUS.json",
+      "size_bytes": 1208,
+      "sha256": "81e4143a746c2a70df4f863e34184df87a31c9a23d6b6f470754612e4e1886c1"
+    },
+    {
+      "relative_path": "index.html",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\index.html",
+      "size_bytes": 12413,
+      "sha256": "e47369d88367b2f9ecc497b6a7b5dcb4d56235936b898e74d5de8e3d899e8d84"
+    },
+    {
+      "relative_path": "style.css",
+      "full_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_8\\style.css",
+      "size_bytes": 17416,
+      "sha256": "f017d860ba500f4456a3272cd1e84ad003b96dee9d4e23be65608e1a91589647"
+    }
+  ],
+  "limitations": [
+    "local dashboard only",
+    "not Sanctum",
+    "not v1",
+    "not canon approval",
+    "depends on Doctrinarium reports and JSON status files",
+    "Run Refresh calls existing manual launcher"
+  ]
+}

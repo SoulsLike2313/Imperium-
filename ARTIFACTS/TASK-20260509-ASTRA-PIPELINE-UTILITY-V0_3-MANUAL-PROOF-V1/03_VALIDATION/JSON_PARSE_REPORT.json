@@ -1,0 +1,27 @@
+{
+  "json_files_checked": 5,
+  "json_parse_errors": 0,
+  "rows": [
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/ASTRA_TASK_RECORD.json",
+      "status": "PASS"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/NEXT_ALLOWED_ACTION.json",
+      "status": "PASS"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/PASS_CRITERIA.json",
+      "status": "PASS"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/PIPELINE_PROFILE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "01_GENERATED_ASTRA_TASK/TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1/STAGE_MAP.json",
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS_JSON_PARSE"
+}

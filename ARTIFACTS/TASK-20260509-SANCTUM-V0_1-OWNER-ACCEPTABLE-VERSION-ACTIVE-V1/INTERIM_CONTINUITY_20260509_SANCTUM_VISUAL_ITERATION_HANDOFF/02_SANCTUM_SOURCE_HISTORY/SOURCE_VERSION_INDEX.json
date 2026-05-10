@@ -1,0 +1,106 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "files": [
+    {
+      "file": "sanctum_v0_1.py",
+      "exists": true,
+      "size_bytes": 12745,
+      "sha256": "9cf3ba4e09360c83f0ed2b0221d835dd98ebaebdd0a50a4f966ffefaf9e78049",
+      "purpose": "Basic shell. Astra + Explorer + task list + route text + notes.",
+      "known_result": "Worked.",
+      "owner_liked_direction": "neutral"
+    },
+    {
+      "file": "sanctum_v0_2.py",
+      "exists": true,
+      "size_bytes": 24289,
+      "sha256": "5cebeaa85a7d028f13d0447fa84fc201c81106c6749b7615f22b9980251f499b",
+      "purpose": "Dark visual route shell. Active task pinned/highlighted.",
+      "known_result": "Visual route shell stabilized for iteration.",
+      "owner_liked_direction": "neutral_positive"
+    },
+    {
+      "file": "sanctum_v0_21.py",
+      "exists": true,
+      "size_bytes": 26802,
+      "sha256": "ab6488d41698d93e96b9c5f801ba39dcd320ae6acc904c40f857303b73c06533",
+      "purpose": "Better scrolling route/stage board.",
+      "known_result": "Readability improved.",
+      "owner_liked_direction": "neutral_positive"
+    },
+    {
+      "file": "sanctum_v0_22.py",
+      "exists": true,
+      "size_bytes": 27876,
+      "sha256": "06b0b35033bc2af3214c698dfb7f6c1a2a7a4c6e290f110f940f1642937623f8",
+      "purpose": "Orbital route shell with animated core visual.",
+      "known_result": "Orbital style introduced.",
+      "owner_liked_direction": "neutral_positive"
+    },
+    {
+      "file": "sanctum_v0_23.py",
+      "exists": true,
+      "size_bytes": 30684,
+      "sha256": "3d7be350972d208aeb284ab69d251d5a35c95aac721195a9703a6e0dab9ba6c6",
+      "purpose": "Premium HUD metrics panel improvement.",
+      "known_result": "HUD metrics improved.",
+      "owner_liked_direction": "positive"
+    },
+    {
+      "file": "sanctum_v0_24.py",
+      "exists": true,
+      "size_bytes": 33305,
+      "sha256": "21352224b46455318f5728783c72ba094a87557e7e61dcf1586604cb15c7e302",
+      "purpose": "Mission Control HUD with READINESS/RISK/NEXT.",
+      "known_result": "Mission-control clarity improved.",
+      "owner_liked_direction": "positive"
+    },
+    {
+      "file": "sanctum_v0_25.py",
+      "exists": true,
+      "size_bytes": 30797,
+      "sha256": "4d9f2456b76a26178913c1eb3c21d384d3c7408e1bcbd2cdc2efe97ca635b256",
+      "purpose": "Orbital Mission Board; better planet/core and orbit nodes.",
+      "known_result": "Owner liked direction more.",
+      "owner_liked_direction": "liked"
+    },
+    {
+      "file": "sanctum_v0_26.py",
+      "exists": true,
+      "size_bytes": 28419,
+      "sha256": "230ec7016854472f6163c20da69c26fc1711c731a9ec81e6bce38d9a3a53fd8b",
+      "purpose": "Unified Planet Map + metallic hover tooltip.",
+      "known_result": "Most promising unified map direction.",
+      "owner_liked_direction": "liked_most_promising"
+    },
+    {
+      "file": "sanctum_v0_27.py",
+      "exists": true,
+      "size_bytes": 29343,
+      "sha256": "564d55d82a80c578325798e437e9d495e91a38e2c00c3a9be2f9346fe37f9af6",
+      "purpose": "Attempted stable render fix.",
+      "known_result": "Flickering / occasional blank map still remains.",
+      "owner_liked_direction": "attempted_fix_not_accepted"
+    },
+    {
+      "file": "README.md",
+      "exists": true,
+      "size_bytes": 444,
+      "sha256": "8be6ff3bb4c9d76a658c50e8e42a22b54bee3beebb78f2d83cca377fc16a1f07",
+      "purpose": "Sanctum readme snapshot.",
+      "known_result": "Present.",
+      "owner_liked_direction": "n_a"
+    },
+    {
+      "file": "SANCTUM_STATUS.json",
+      "exists": true,
+      "size_bytes": 461,
+      "sha256": "f7f63e51dcfa0d09afa83c98785e58f95b7e16f06cc82f9aefe541af694d15ce",
+      "purpose": "Sanctum status snapshot.",
+      "known_result": "Present.",
+      "owner_liked_direction": "n_a"
+    }
+  ],
+  "missing_files": []
+}

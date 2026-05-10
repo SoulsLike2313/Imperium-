@@ -1,0 +1,18 @@
+{
+  "schema_version": "FINALIZATION_RECEIPT_V1",
+  "task_id": "TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+  "created_at_local": "2026-05-09T14:01:32",
+  "zip_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1\\09_BUNDLE\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1.zip",
+  "zip_sha256": "07f273f31ef4b80953d66dc2b0a4842f66afafe96f0054412bc0e6201d72f649",
+  "zip_sidecar_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1\\09_BUNDLE\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1.zip.sha256",
+  "zip_sidecar_sha256": "735ec00d888d503642b7d6f5ed5dbca1575ce91e49a1e2ecedd9432390ea1881",
+  "content_manifest_sha256": "9f48b3cd61e6724a0d97a90233804effe1eaefb252f3090efea2f1bd2f39ac6a",
+  "sha256sums_sha256": "12ad3128c7678bcc5e07f9116f86d81f8032fb49513a70c3e75de28b5fe5a76c",
+  "content_manifest_inside_zip": true,
+  "sha256sums_inside_zip": true,
+  "finalization_receipt_inside_zip": false,
+  "finalization_receipt_location": "09_BUNDLE external to zipped payload",
+  "self_reference_policy": "PASS_NO_FINAL_ZIP_OR_SIDECAR_IN_INTERNAL_MANIFEST",
+  "pycache_policy": "PASS_NO_PYCACHE_PYC_PYO_IN_PAYLOAD",
+  "verdict": "PASS_FINALIZATION_RECEIPT"
+}

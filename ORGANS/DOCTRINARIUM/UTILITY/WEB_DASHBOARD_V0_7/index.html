@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Doctrinarium Dashboard v0.7</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <canvas id="bgCanvas"></canvas>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sigil">
+        <div class="sigil-ring"></div>
+        <div class="sigil-core">D</div>
+      </div>
+
+      <div class="side-title">
+        <div class="side-name">DOCTRINARIUM</div>
+        <div class="side-sub">Organ dashboard v0.7</div>
+      </div>
+
+      <nav class="nav">
+        <button class="nav-item active" data-view="dashboard">Dashboard</button>
+        <button class="nav-item" data-view="organs">Organ Health</button>
+        <button class="nav-item" data-view="gaps">Major Gaps</button>
+        <button class="nav-item" data-view="laws">Laws & Codex</button>
+        <button class="nav-item" data-view="utility">Utility Matrix</button>
+        <button class="nav-item" data-view="priority">Priority Fixes</button>
+        <button class="nav-item" data-view="risk">Risk Matrix</button>
+        <button class="nav-item" data-view="paths">Paths</button>
+      </nav>
+
+      <div class="side-status">
+        <div class="mini-label">SYSTEM STATUS</div>
+        <div class="orb">
+          <div id="orbText">...</div>
+          <span></span><span></span><span></span>
+        </div>
+        <div class="side-bars">
+          <div class="bar-row"><span>Doctrine</span><div><i id="barDoctrine"></i></div><b id="pctDoctrine">--</b></div>
+          <div class="bar-row"><span>Laws</span><div><i id="barLaws"></i></div><b id="pctLaws">--</b></div>
+          <div class="bar-row"><span>Organs</span><div><i id="barOrgans"></i></div><b id="pctOrgans">--</b></div>
+          <div class="bar-row"><span>Utility</span><div><i id="barUtility"></i></div><b id="pctUtility">--</b></div>
+        </div>
+      </div>
+
+      <div class="sanctum-link">
+        <span>Sanctum link</span>
+        <b>future</b>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Doctrinarium Control Panel</h1>
+          <p>Doctrine, Codex, laws, organ gaps and utility compliance</p>
+        </div>
+
+        <div class="pulse-line">
+          <canvas id="sparkCanvas"></canvas>
+        </div>
+
+        <div class="top-actions">
+          <div class="live-pill"><span></span> LOCAL</div>
+          <div class="fps-pill"><span id="fpsValue">60</span> FPS</div>
+          <button id="btnRefresh" class="action primary">Run Refresh</button>
+          <button id="btnReload" class="action">Reload Data</button>
+        </div>
+      </header>
+
+      <section class="metrics">
+        <div class="metric danger">
+          <label>Real task execution</label>
+          <strong id="mRealTask">...</strong>
+          <small id="mRealReason">Canon gate</small>
+        </div>
+        <div class="metric good">
+          <label>Bootstrap / review</label>
+          <strong id="mBootstrap">...</strong>
+          <small>Limited mode</small>
+        </div>
+        <div class="metric warn">
+          <label>Doctrine status</label>
+          <strong id="mDoctrine">...</strong>
+          <small>Owner approval</small>
+        </div>
+        <div class="metric orange">
+          <label>Laws not enforced</label>
+          <strong id="mLaws">...</strong>
+          <small>Codex coverage</small>
+        </div>
+        <div class="metric blue">
+          <label>Organs checked</label>
+          <strong id="mOrgans">...</strong>
+          <small>Organ registry</small>
+        </div>
+        <div class="metric danger">
+          <label>Organ blockers</label>
+          <strong id="mBlockers">...</strong>
+          <small>Detected gaps</small>
+        </div>
+        <div class="metric blue">
+          <label>Script-backed utilities</label>
+          <strong id="mUtilities">...</strong>
+          <small>Dashboard law</small>
+        </div>
+      </section>
+
+      <section id="view-dashboard" class="view active">
+        <div class="grid dashboard-grid">
+          <article class="panel health-panel">
+            <div class="panel-head">
+              <h2>Organ Health Overview</h2>
+              <span id="healthVerdict">loading</span>
+            </div>
+            <div class="health-wrap">
+              <div class="ring">
+                <svg viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="48"></circle>
+                  <circle id="healthRing" class="ring-main" cx="60" cy="60" r="48"></circle>
+                </svg>
+                <div class="ring-text">
+                  <strong id="healthPct">--%</strong>
+                  <span>health</span>
+                </div>
+              </div>
+              <div class="health-lines">
+                <div><span class="dot good"></span> Scaffold/OK <b id="healthGood">0</b><i><em id="lineGood"></em></i></div>
+                <div><span class="dot warn"></span> At risk <b id="healthRisk">0</b><i><em id="lineRisk"></em></i></div>
+                <div><span class="dot danger"></span> Critical <b id="healthCritical">0</b><i><em id="lineCritical"></em></i></div>
+                <div class="tiny-chart"><canvas id="trendCanvas"></canvas></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><h2>Organs by Status</h2><span id="statusTotal">0 total</span></div>
+            <div class="donut-row">
+              <canvas id="statusDonut"></canvas>
+              <div id="statusLegend" class="legend"></div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><h2>Gap Classification</h2><span>live JSON</span></div>
+            <canvas id="radarCanvas" class="radar"></canvas>
+          </article>
+
+          <article class="panel table-panel wide">
+            <div class="panel-head">
+              <h2>Top Organ Gaps</h2>
+              <button class="mini" data-view-jump="organs">View all</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Organ</th>
+                  <th>Status</th>
+                  <th>Blockers</th>
+                  <th>Contract</th>
+                  <th>Self report</th>
+                  <th>Receipts</th>
+                  <th>Top gap</th>
+                </tr>
+              </thead>
+              <tbody id="topOrganRows"></tbody>
+            </table>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><h2>Utility Coverage</h2><span id="utilityVerdict">...</span></div>
+            <div class="small-ring-wrap">
+              <div class="small-ring">
+                <svg viewBox="0 0 120 120">
+                  <circle class="ring-bg" cx="60" cy="60" r="48"></circle>
+                  <circle id="utilityRing" class="ring-main violet" cx="60" cy="60" r="48"></circle>
+                </svg>
+                <div class="ring-text">
+                  <strong id="utilityPct">--%</strong>
+                  <span>backed</span>
+                </div>
+              </div>
+              <div class="kv">
+                <div><span>Declared</span><b id="uDeclared">0</b></div>
+                <div><span>Script-backed</span><b id="uBacked">0</b></div>
+                <div><span>Warnings</span><b id="uWarnings">0</b></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head"><h2>Law Enforcement</h2><button class="mini" data-view-jump="laws">Open laws</button></div>
+            <div class="law-meter">
+              <div class="law-zero" id="lawZero">0%</div>
+              <div>
+                <div><span>Total laws</span><b id="lTotal">0</b></div>
+                <div><span>Not enforced</span><b id="lOpen">0</b></div>
+                <div><span>Hard block</span><b id="lHard">0</b></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="view-organs" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Organ Health Table</h2><span id="organTableHint">classification / blockers / missing evidence</span></div>
+          <div id="organCards" class="cards-grid"></div>
+        </div>
+      </section>
+
+      <section id="view-gaps" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Major Gaps</h2><span id="gapCountLabel">0 gaps</span></div>
+          <div id="gapList" class="gap-list"></div>
+        </div>
+      </section>
+
+      <section id="view-laws" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Laws & Codex</h2><span id="lawCountLabel">0 laws</span></div>
+          <div id="lawList" class="law-list"></div>
+        </div>
+      </section>
+
+      <section id="view-utility" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Utility Matrix</h2><span>No organ is complete without utility</span></div>
+          <div id="utilityCards" class="cards-grid"></div>
+        </div>
+      </section>
+
+            <section id="view-priority" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Priority Fix Queue</h2><span>what to fix first</span></div>
+          <div id="priorityList" class="gap-list"></div>
+        </div>
+      </section>
+
+      <section id="view-risk" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Organ Risk Matrix</h2><span>risk score / missing evidence</span></div>
+          <div id="riskMatrix" class="cards-grid"></div>
+        </div>
+      </section>
+      <section id="view-paths" class="view">
+        <div class="panel full">
+          <div class="panel-head"><h2>Paths & System</h2><span>canonical local addresses</span></div>
+          <div class="path-grid">
+            <button data-open="reports">Open Reports</button>
+            <button data-open="doctrine">Open Doctrine</button>
+            <button data-open="laws">Open Laws</button>
+            <button data-open="standards">Open Standards</button>
+            <button data-open="utility">Open Utility</button>
+            <button data-open="status">Open Status</button>
+          </div>
+          <pre id="pathsText"></pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+
+  <aside id="organDrawer" class="drawer hidden">
+    <div class="drawer-head">
+      <div>
+        <div class="drawer-kicker">ORGAN DETAIL</div>
+        <h2 id="drawerOrganName">ORGAN</h2>
+      </div>
+      <button id="drawerClose" class="drawer-close">×</button>
+    </div>
+
+    <div class="drawer-risk">
+      <div class="risk-orb">
+        <strong id="drawerRiskScore">--</strong>
+        <span>risk</span>
+      </div>
+      <div class="risk-meta">
+        <div><span>Classification</span><b id="drawerClass">--</b></div>
+        <div><span>Priority</span><b id="drawerPriority">--</b></div>
+        <div><span>Blockers</span><b id="drawerBlockers">--</b></div>
+      </div>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Evidence</h3>
+      <div class="evidence-grid">
+        <div><span>Contract</span><b id="drawerContract">--</b></div>
+        <div><span>Self-report</span><b id="drawerSelfReport">--</b></div>
+        <div><span>Receipts</span><b id="drawerReceipts">--</b></div>
+        <div><span>Utility declared</span><b id="drawerUtilityDeclared">--</b></div>
+        <div><span>Utility backed</span><b id="drawerUtilityBacked">--</b></div>
+      </div>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Priority Actions</h3>
+      <div id="drawerActions" class="drawer-list"></div>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Blockers</h3>
+      <div id="drawerBlockerList" class="drawer-list"></div>
+    </div>
+
+    <div class="drawer-section">
+      <h3>Why Not Canon</h3>
+      <div id="drawerWhyNotCanon" class="drawer-list"></div>
+    </div>
+
+    <div class="drawer-actions">
+      <button id="drawerOpenFolder" class="action primary">Open Organ Folder</button>
+      <button id="drawerCopyPath" class="action">Copy Path</button>
+    </div>
+
+    <pre id="drawerPath"></pre>
+  </aside>
+  <div id="toast" class="toast hidden">Ready</div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,37 @@
+{
+  "schema_id": "STAGE_DEPENDENCY_MAP_SCHEMA_V1",
+  "task_id": "string",
+  "run_id": "string",
+  "stages": [
+    {
+      "stage_id": "string",
+      "depends_on": [
+        "stage_id"
+      ],
+      "mode": "ALL|ANY|LINEAR",
+      "group": "optional string",
+      "parallel_branch": "optional string",
+      "sync_point": "optional string",
+      "requires_signal": [
+        "signal_id"
+      ],
+      "requires_ack": [
+        "ack_id"
+      ],
+      "requires_receipt": [
+        "receipt_ref"
+      ],
+      "requires_artifact_sha256": [
+        "sha256"
+      ],
+      "requires_barrier": "optional barrier result",
+      "timeout_sec": 0,
+      "allowed_retry_count": 0,
+      "repair_branch": "optional stage_id",
+      "owner_decision_point": "optional decision_id",
+      "stop_conditions": [
+        "string"
+      ]
+    }
+  ]
+}

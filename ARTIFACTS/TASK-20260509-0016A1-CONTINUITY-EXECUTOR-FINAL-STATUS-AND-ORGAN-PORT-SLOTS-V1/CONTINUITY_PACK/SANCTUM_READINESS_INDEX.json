@@ -1,0 +1,25 @@
+{
+  "generated_at_utc": "2026-05-09T00:27:42Z",
+  "buttons": [
+    {
+      "button_id": "SEND_TASK_TO_VM2",
+      "expected_tool_id": "PC_VM2_SEND_PROMPT",
+      "status": "BLOCKED",
+      "current_backend_readiness": "PARTIAL"
+    },
+    {
+      "button_id": "FETCH_VM2_BUNDLE",
+      "expected_tool_id": "PC_VM2_FETCH_STAGE_BUNDLE",
+      "status": "BLOCKED",
+      "current_backend_readiness": "PARTIAL"
+    },
+    {
+      "button_id": "BUILD_CONTINUITY_PACK",
+      "expected_tool_id": "CONTINUITY_EXECUTOR_RUNNER",
+      "status": "READY_AS_MANUAL_BACKEND",
+      "current_backend_readiness": "PASS_AS_CONTINUITY_EXECUTOR_BASE"
+    }
+  ],
+  "known_blockers_count": 6,
+  "status": "PARTIAL"
+}

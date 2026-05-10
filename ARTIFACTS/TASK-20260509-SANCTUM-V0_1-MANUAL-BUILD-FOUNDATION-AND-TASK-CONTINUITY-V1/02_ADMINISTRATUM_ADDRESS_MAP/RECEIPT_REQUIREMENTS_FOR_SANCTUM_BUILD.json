@@ -1,0 +1,29 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "required_receipts": [
+    "ASTRA_STAGE_RECEIPT",
+    "ADMINISTRATUM_STAGE_RECEIPT",
+    "MECHANICUS_STAGE_RECEIPT",
+    "INQUISITION_STAGE_RECEIPT",
+    "PC_STAGE_RECEIPT",
+    "SPECULUM_STAGE_PLANNED_RECEIPT",
+    "FOUNDATION_RECEIPT",
+    "FINALIZATION_RECEIPT"
+  ],
+  "mandatory_fields": [
+    "task_id",
+    "run_id",
+    "stage_id",
+    "status",
+    "started_at",
+    "ended_at",
+    "validation_result",
+    "next_allowed_action"
+  ],
+  "forbidden_receipt_claims": [
+    "CONTINUITY_GREEN",
+    "LIVE_ORGAN",
+    "SANCTUM_READY",
+    "E2E_READY"
+  ]
+}

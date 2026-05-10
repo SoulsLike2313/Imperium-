@@ -1,0 +1,76 @@
+{
+  "tests_total": 12,
+  "tests_passed": 12,
+  "tests_failed": 0,
+  "rows": [
+    {
+      "test": "canonical_stage_id_accept",
+      "value": "ADMINISTRATUM-STAGE-001",
+      "passed": true
+    },
+    {
+      "test": "canonical_stage_id_accept",
+      "value": "ASTRA-STAGE-001",
+      "passed": true
+    },
+    {
+      "test": "canonical_stage_id_accept",
+      "value": "MECHANICUS-STAGE-001",
+      "passed": true
+    },
+    {
+      "test": "canonical_stage_id_accept",
+      "value": "PC-STAGE-001",
+      "passed": true
+    },
+    {
+      "test": "canonical_stage_id_accept",
+      "value": "SPECULUM-STAGE-001",
+      "passed": true
+    },
+    {
+      "test": "canonical_stage_id_accept",
+      "value": "VM2-STAGE-001",
+      "passed": true
+    },
+    {
+      "test": "legacy_or_invalid_stage_id_reject",
+      "value": "",
+      "passed": true
+    },
+    {
+      "test": "legacy_or_invalid_stage_id_reject",
+      "value": "PC-STAGE-1",
+      "passed": true
+    },
+    {
+      "test": "legacy_or_invalid_stage_id_reject",
+      "value": "PC_STAGE_001",
+      "passed": true
+    },
+    {
+      "test": "legacy_or_invalid_stage_id_reject",
+      "value": "STAGE-PC-001",
+      "passed": true
+    },
+    {
+      "test": "legacy_or_invalid_stage_id_reject",
+      "value": "STAGE-VM2-001",
+      "passed": true
+    },
+    {
+      "test": "placeholder_policy_hash_reject",
+      "value": "placeholder",
+      "passed": true
+    }
+  ],
+  "forbidden_ref_examples": [
+    "latest bundle",
+    "latest-bundle",
+    "write_to_throne",
+    "throne_write",
+    "create_watcher",
+    "autosync"
+  ],
+  "verdict": "PASS_NEGATIVE_TESTS"
+}

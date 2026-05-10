@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TASK_ACTIVE_SNAPSHOT",
+  "type": "object",
+  "required": [
+    "task_id",
+    "run_id",
+    "active_stage_id",
+    "next_allowed_action",
+    "artifact_pointers"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "active_stage_id": {
+      "type": "string"
+    },
+    "next_allowed_action": {
+      "type": "string"
+    },
+    "artifact_pointers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_decisions_needed": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "generated_at_utc": "2026-05-09T00:27:39Z",
+  "tools_root": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS",
+  "classes": [
+    {
+      "tool_class": "00_REGISTRY",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\00_REGISTRY",
+      "exists": true,
+      "script_count": 0
+    },
+    {
+      "tool_class": "01_CORE_LIB",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\01_CORE_LIB",
+      "exists": true,
+      "script_count": 8
+    },
+    {
+      "tool_class": "10_PC_VM2_PIPELINE",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\10_PC_VM2_PIPELINE",
+      "exists": true,
+      "script_count": 6
+    },
+    {
+      "tool_class": "15_STAGE_COORDINATION",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\15_STAGE_COORDINATION",
+      "exists": true,
+      "script_count": 18
+    },
+    {
+      "tool_class": "20_CONTINUITY",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\20_CONTINUITY",
+      "exists": true,
+      "script_count": 13
+    },
+    {
+      "tool_class": "30_BUNDLE_VALIDATION",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\30_BUNDLE_VALIDATION",
+      "exists": true,
+      "script_count": 0
+    },
+    {
+      "tool_class": "40_OWNER_MANUAL",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\40_OWNER_MANUAL",
+      "exists": true,
+      "script_count": 0
+    },
+    {
+      "tool_class": "50_READONLY_EXPLORER",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\50_READONLY_EXPLORER",
+      "exists": true,
+      "script_count": 1
+    },
+    {
+      "tool_class": "60_SANCTUM_PREP",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\60_SANCTUM_PREP",
+      "exists": true,
+      "script_count": 0
+    },
+    {
+      "tool_class": "90_LEGACY_QUARANTINE",
+      "path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\90_LEGACY_QUARANTINE",
+      "exists": true,
+      "script_count": 0
+    }
+  ],
+  "python_compile": {
+    "checked_files": 46,
+    "compiled_ok": 46,
+    "compile_error_count": 0,
+    "compile_errors": []
+  },
+  "registry_status": {
+    "registry_path": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\00_REGISTRY\\TOOLS_MASTER_INDEX.json",
+    "exists": true,
+    "parse_error": null,
+    "total_tools": 35,
+    "active_tools": 15,
+    "placeholder_tools": 20,
+    "hash_checked_count": 15,
+    "hash_mismatch_count": 0,
+    "missing_active_files": 0
+  },
+  "registry_mismatches": [],
+  "verdict": "PASS"
+}

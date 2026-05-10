@@ -1,0 +1,73 @@
+{
+  "schema_version": "DEVELOPER_PORT_V0_2",
+  "organ_id": "ADMINISTRATUM",
+  "developer_summary": "Memory/state/continuity organ with dashboard v0.1, continuity build/compare, and developer-grade handoff target.",
+  "primary_code_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS"
+  ],
+  "primary_scripts": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_candidate.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_current_state.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_qa_continuity_pack_against_reality.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_record_event.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_scan_real_imperium_state.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_view_task_timeline.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_read_first_route.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\build_task_launch_card_from_astra.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_repair_branch.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\create_task_launch_card.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\imperium_task_start.ps1",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_policy_refs.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_read_first_receipt.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card.py",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\validate_task_launch_card_v0_2.py"
+  ],
+  "primary_dashboards": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1"
+  ],
+  "launch_commands": [
+    "python 'E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_candidate.py'"
+  ],
+  "test_commands": [
+    "python -m py_compile <script.py>",
+    "Invoke-WebRequest http://127.0.0.1:<port>/api/data"
+  ],
+  "safe_edit_roots": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-DEVELOPER-GRADE-CONTINUITY-HANDOFF-V0_2"
+  ],
+  "forbidden_edit_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "current_dev_target": "Developer-grade continuity handoff v0.2",
+  "known_failures": [],
+  "next_patch_recommendation": "Harden developer pack QA and extend builder-diff/test/code index depth.",
+  "evidence_paths": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_STATUS.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ORGAN_CONTRACT.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\CONTINUITY_PORT.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\LATEST_REPORTS_INDEX.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\LATEST_RECEIPTS_INDEX.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json",
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\15_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+  ],
+  "stale_if_older_than_hours": 24,
+  "last_verified_at": "2026-05-10T06:14:42.626405+00:00",
+  "limitations": [
+    "Bootstrap/developer handoff scope only.",
+    "No canon or continuity green claim."
+  ],
+  "do_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY"
+  ]
+}

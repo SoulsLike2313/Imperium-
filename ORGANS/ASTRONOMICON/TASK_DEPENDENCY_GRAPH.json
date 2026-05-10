@@ -1,0 +1,20 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "nodes": [
+    {
+      "task_id": "TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1",
+      "state": "IN_PROGRESS"
+    },
+    {
+      "task_id": "SPECULUM-FOUNDATION-REVIEW",
+      "state": "PENDING"
+    }
+  ],
+  "edges": [
+    {
+      "from": "TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1",
+      "to": "SPECULUM-FOUNDATION-REVIEW",
+      "type": "BLOCKS"
+    }
+  ]
+}

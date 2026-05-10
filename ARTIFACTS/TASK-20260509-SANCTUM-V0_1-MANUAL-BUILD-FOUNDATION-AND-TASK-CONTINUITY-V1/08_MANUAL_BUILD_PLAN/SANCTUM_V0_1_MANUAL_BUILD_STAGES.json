@@ -1,0 +1,84 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+  "run_id": "RUN-20260509-SANCTUM-MANUAL-BUILD-0001",
+  "stages": [
+    {
+      "order": 1,
+      "title": "create SANCTUM folder",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 2,
+      "title": "create sanctum_v0_1.py minimal window",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 3,
+      "title": "add Open Astra Utility",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 4,
+      "title": "add Open Explorer",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 5,
+      "title": "add task list from Astronomicon",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 6,
+      "title": "add selected task viewer",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 7,
+      "title": "add stage map viewer",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 8,
+      "title": "add next allowed action viewer",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 9,
+      "title": "add manual notes panel",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 10,
+      "title": "validate compile/run",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 11,
+      "title": "collect screenshots/manual observations",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 12,
+      "title": "package artifact",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    },
+    {
+      "order": 13,
+      "title": "Speculum review",
+      "status": "PLANNED",
+      "owner_approval_required": false
+    }
+  ]
+}

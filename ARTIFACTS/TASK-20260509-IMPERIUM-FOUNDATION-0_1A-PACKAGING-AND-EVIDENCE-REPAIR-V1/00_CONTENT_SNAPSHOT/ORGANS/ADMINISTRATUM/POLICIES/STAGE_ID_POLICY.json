@@ -1,0 +1,17 @@
+{
+  "policy_id": "POLICY-STAGE-ID-CANON-0_1",
+  "status": "PROMPT_ENGINEERING_FILE_BASE_0_1",
+  "canonical_examples": [
+    "PC-STAGE-001",
+    "VM2-STAGE-001",
+    "SPECULUM-STAGE-001",
+    "ADMINISTRATUM-STAGE-001",
+    "MECHANICUS-STAGE-001",
+    "ASTRA-STAGE-001"
+  ],
+  "canonical_regex": "^(PC|VM2|SPECULUM|ADMINISTRATUM|MECHANICUS|ASTRA)-STAGE-[0-9]{3}$",
+  "rejected_legacy_examples": [
+    "STAGE-PC-001",
+    "STAGE-VM2-001"
+  ]
+}

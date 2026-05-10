@@ -1,0 +1,27 @@
+{
+  "schema_version": "ADMINISTRATUM_CONTINUITY_BUILD_RECEIPT_V0_1",
+  "pack_id": "CONTINUITY_PACK_20260510_085140",
+  "generated_at": "2026-05-10T05:51:40.701406+00:00",
+  "run_id": "RUN-20260510-083108-PH7R",
+  "trigger": "task_phase7_retry",
+  "script_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+  "script_sha256": "a9dff29fc2c10c81789d75b85b32a0481c32869c14818254b7f23f178098068b",
+  "ports_registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\ADDRESS_REGISTRY\\CONTINUITY_PORTS.json",
+  "old_pack_reference_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "previous_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085045",
+  "verdict": "REPAIR_REQUIRED_CONTINUITY_MISSING_CRITICAL_STATE",
+  "blockers": [
+    "required_files_written"
+  ],
+  "warnings": [],
+  "limitations": [
+    "Bootstrap continuity context only.",
+    "No canon or real-task readiness claim is permitted."
+  ],
+  "next_action": "Review new continuity comparison and close top missing or stale port items.",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

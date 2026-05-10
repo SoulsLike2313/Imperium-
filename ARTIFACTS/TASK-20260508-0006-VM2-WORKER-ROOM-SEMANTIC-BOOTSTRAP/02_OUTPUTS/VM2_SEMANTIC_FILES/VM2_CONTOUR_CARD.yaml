@@ -1,0 +1,34 @@
+contour_id: VM2
+contour_type: disposable_worker
+canon_authority: false
+admission_authority: false
+owner_authority: false
+primary_role: assigned_stage_execution
+worker_root: ~/IMPERIUM_WORKER_ROOM
+inbox: ~/IMPERIUM_WORKER_ROOM/01_INBOX/tasks
+active: ~/IMPERIUM_WORKER_ROOM/02_ACTIVE
+outbox: ~/IMPERIUM_WORKER_ROOM/03_OUTBOX/stage_bundles
+receipts: ~/IMPERIUM_WORKER_ROOM/04_RECEIPTS
+manifests: ~/IMPERIUM_WORKER_ROOM/05_MANIFESTS
+hashes: ~/IMPERIUM_WORKER_ROOM/06_HASHES
+local_tools: ~/IMPERIUM_WORKER_ROOM/07_LOCAL_TOOLS
+config_templates: ~/IMPERIUM_WORKER_ROOM/08_CONFIG_TEMPLATES
+local_state: ~/IMPERIUM_WORKER_ROOM/09_LOCAL_STATE
+status_path: ~/IMPERIUM_WORKER_ROOM/99_WORKER_STATUS
+allowed_actions:
+  - receive_task_package
+  - execute_assigned_stage
+  - create_stage_output
+  - create_receipt
+  - create_manifest
+  - create_sha256
+  - create_stage_bundle
+forbidden_actions:
+  - write_to_throne
+  - delete_unrelated_files
+  - autosync
+  - run_broad_scan
+  - export_secrets
+  - claim_admission
+  - act_as_canon
+status: draft_worker_room_created

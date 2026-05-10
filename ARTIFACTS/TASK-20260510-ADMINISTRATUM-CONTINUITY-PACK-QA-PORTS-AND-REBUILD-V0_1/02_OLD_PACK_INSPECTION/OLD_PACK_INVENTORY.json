@@ -1,0 +1,311 @@
+{
+  "schema_version": "OLD_PACK_INVENTORY_V0_1",
+  "inspected_at": "2026-05-10T05:34:05.807267+00:00",
+  "old_pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210",
+  "old_pack_type": "FOLDER",
+  "required_files_presence": [
+    {
+      "file": "CONTINUITY_PACK.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_PACK.json"
+    },
+    {
+      "file": "CONTINUITY_PACK.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_PACK.md"
+    },
+    {
+      "file": "ENTRYPOINT_FOR_NEW_CHAT.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ENTRYPOINT_FOR_NEW_CHAT.md"
+    },
+    {
+      "file": "CURRENT_STATE_SUMMARY.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CURRENT_STATE_SUMMARY.md"
+    },
+    {
+      "file": "LOGOS_HANDOFF_CORE.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\LOGOS_HANDOFF_CORE.md"
+    },
+    {
+      "file": "SYSTEM_CHRONOLOGY.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\SYSTEM_CHRONOLOGY.md"
+    },
+    {
+      "file": "ACTIVE_TASKS.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ACTIVE_TASKS.json"
+    },
+    {
+      "file": "ACTIVE_TASKS.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ACTIVE_TASKS.md"
+    },
+    {
+      "file": "NEXT_ACTIONS.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\NEXT_ACTIONS.md"
+    },
+    {
+      "file": "DO_NOT_DO.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\DO_NOT_DO.md"
+    },
+    {
+      "file": "BLOCKERS.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\BLOCKERS.md"
+    },
+    {
+      "file": "ORGAN_SNAPSHOT.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ORGAN_SNAPSHOT.json"
+    },
+    {
+      "file": "ORGAN_SNAPSHOT.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ORGAN_SNAPSHOT.md"
+    },
+    {
+      "file": "DASHBOARD_SNAPSHOT.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\DASHBOARD_SNAPSHOT.json"
+    },
+    {
+      "file": "LAW_AND_DOCTRINE_SNAPSHOT.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\LAW_AND_DOCTRINE_SNAPSHOT.json"
+    },
+    {
+      "file": "ADDRESS_MAP.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ADDRESS_MAP.json"
+    },
+    {
+      "file": "ADDRESS_MAP.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ADDRESS_MAP.md"
+    },
+    {
+      "file": "ARTIFACT_INDEX.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ARTIFACT_INDEX.json"
+    },
+    {
+      "file": "RECENT_ARTIFACTS.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\RECENT_ARTIFACTS.md"
+    },
+    {
+      "file": "LATEST_RECEIPTS_INDEX.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\LATEST_RECEIPTS_INDEX.json"
+    },
+    {
+      "file": "CONTINUITY_DIFF_FROM_PREVIOUS.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_DIFF_FROM_PREVIOUS.json"
+    },
+    {
+      "file": "CONTINUITY_DIFF_FROM_PREVIOUS.md",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_DIFF_FROM_PREVIOUS.md"
+    },
+    {
+      "file": "MANIFEST.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\MANIFEST.json"
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\SHA256SUMS.txt"
+    },
+    {
+      "file": "BUILD_RECEIPT.json",
+      "exists": true,
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\BUILD_RECEIPT.json"
+    }
+  ],
+  "file_count": 25,
+  "files": [
+    {
+      "relative_path": "ACTIVE_TASKS.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ACTIVE_TASKS.json",
+      "size_bytes": 433,
+      "sha256": "f93fb9d43984b0753337007372154a8301bbd62d27befab3a0ceab833e6f6960",
+      "modified_at": "2026-05-10T05:22:10.366836+00:00"
+    },
+    {
+      "relative_path": "ACTIVE_TASKS.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ACTIVE_TASKS.md",
+      "size_bytes": 283,
+      "sha256": "219041a93513405dae8f6f0960320f245fc345d3eda7311381afa8ffa65c3428",
+      "modified_at": "2026-05-10T05:22:10.366836+00:00"
+    },
+    {
+      "relative_path": "ADDRESS_MAP.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ADDRESS_MAP.json",
+      "size_bytes": 586,
+      "sha256": "332564861659c3cad9843f1810dd7295331e78438554cf09697eca7a3d01bc61",
+      "modified_at": "2026-05-10T05:22:10.373670+00:00"
+    },
+    {
+      "relative_path": "ADDRESS_MAP.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ADDRESS_MAP.md",
+      "size_bytes": 400,
+      "sha256": "952a048b8106f101e5836c03eb6a84f3bf631618a244f8addcc327b4f67a7bb9",
+      "modified_at": "2026-05-10T05:22:10.373670+00:00"
+    },
+    {
+      "relative_path": "ARTIFACT_INDEX.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ARTIFACT_INDEX.json",
+      "size_bytes": 4914,
+      "sha256": "335033e861fdc47136c8ecf2bf937bf6251a9940489510282b0ebc7ed0408c0c",
+      "modified_at": "2026-05-10T05:22:10.374646+00:00"
+    },
+    {
+      "relative_path": "BLOCKERS.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\BLOCKERS.md",
+      "size_bytes": 71,
+      "sha256": "1fafdfe6335fb2c6570beb9f226d1b22459aa4ef30fbb4fcf166a6fb24cdb239",
+      "modified_at": "2026-05-10T05:22:10.367812+00:00"
+    },
+    {
+      "relative_path": "BUILD_RECEIPT.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\BUILD_RECEIPT.json",
+      "size_bytes": 1108,
+      "sha256": "baec971e3f7dbe867908c22e0beb4ffbd1d56423ea45a498954934e04a7e8b1a",
+      "modified_at": "2026-05-10T05:22:10.500595+00:00"
+    },
+    {
+      "relative_path": "CONTINUITY_DIFF_FROM_PREVIOUS.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_DIFF_FROM_PREVIOUS.json",
+      "size_bytes": 262,
+      "sha256": "e99325c606a01fec895e6ee097e5cf34b6d29b4eb42e30df4d2dd443adf199d0",
+      "modified_at": "2026-05-10T05:22:10.375622+00:00"
+    },
+    {
+      "relative_path": "CONTINUITY_DIFF_FROM_PREVIOUS.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_DIFF_FROM_PREVIOUS.md",
+      "size_bytes": 184,
+      "sha256": "aeafc3416a7b66acb71c92ad34ea5c523a761222575242b824ac1a8fe199b323",
+      "modified_at": "2026-05-10T05:22:10.376599+00:00"
+    },
+    {
+      "relative_path": "CONTINUITY_PACK.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_PACK.json",
+      "size_bytes": 4481,
+      "sha256": "17a0511fda061f9e54e58cada30dc751d03879cb828e1b921c00440f26664ccc",
+      "modified_at": "2026-05-10T05:22:10.363907+00:00"
+    },
+    {
+      "relative_path": "CONTINUITY_PACK.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CONTINUITY_PACK.md",
+      "size_bytes": 943,
+      "sha256": "7c59fc5863d9e1e8c16755698a5e08d60addc229599ff3be2a22d091d24e1183",
+      "modified_at": "2026-05-10T05:22:10.363907+00:00"
+    },
+    {
+      "relative_path": "CURRENT_STATE_SUMMARY.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\CURRENT_STATE_SUMMARY.md",
+      "size_bytes": 340,
+      "sha256": "211ee46487ef4edb764acfd6fbced08e64ddc5bca5e7c1042fec1cb4fde4c80c",
+      "modified_at": "2026-05-10T05:22:10.364883+00:00"
+    },
+    {
+      "relative_path": "DASHBOARD_SNAPSHOT.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\DASHBOARD_SNAPSHOT.json",
+      "size_bytes": 2218,
+      "sha256": "d256a86e86fc6f6e56be25f558a05052db6634e7031a5fbde85b6d2e22fc1c1c",
+      "modified_at": "2026-05-10T05:22:10.370741+00:00"
+    },
+    {
+      "relative_path": "DO_NOT_DO.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\DO_NOT_DO.md",
+      "size_bytes": 158,
+      "sha256": "c3c083b3db9d1d2037cd526ef984e5ca410b541ebb5d4e8fb87c9d1bae667e77",
+      "modified_at": "2026-05-10T05:22:10.367812+00:00"
+    },
+    {
+      "relative_path": "ENTRYPOINT_FOR_NEW_CHAT.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ENTRYPOINT_FOR_NEW_CHAT.md",
+      "size_bytes": 299,
+      "sha256": "ece2dc0567e24456c3fd15afe6ded420609bceb7f8035682aa7d4642c863121b",
+      "modified_at": "2026-05-10T05:22:10.364883+00:00"
+    },
+    {
+      "relative_path": "LATEST_RECEIPTS_INDEX.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\LATEST_RECEIPTS_INDEX.json",
+      "size_bytes": 767,
+      "sha256": "519136f911777c4ef45dcd29577d84e705e7645c56947fc3c1dc4f7c0a1c88e8",
+      "modified_at": "2026-05-10T05:22:10.375622+00:00"
+    },
+    {
+      "relative_path": "LAW_AND_DOCTRINE_SNAPSHOT.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\LAW_AND_DOCTRINE_SNAPSHOT.json",
+      "size_bytes": 35765,
+      "sha256": "d5a4f411953e16dce74875bc616343229163b93ae28ada4c3cbb391ff13b3bbd",
+      "modified_at": "2026-05-10T05:22:10.372693+00:00"
+    },
+    {
+      "relative_path": "LOGOS_HANDOFF_CORE.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\LOGOS_HANDOFF_CORE.md",
+      "size_bytes": 599,
+      "sha256": "86c27920e019586cf7b200a29f7a6ed3652f3f36beaff62cde5ad7dc4cc68615",
+      "modified_at": "2026-05-10T05:22:10.365859+00:00"
+    },
+    {
+      "relative_path": "MANIFEST.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\MANIFEST.json",
+      "size_bytes": 4002,
+      "sha256": "b06ace3b1e18275aba05ab63fb3ee2f48557eb8d3d975f3d3302bd165517a101",
+      "modified_at": "2026-05-10T05:22:10.483996+00:00"
+    },
+    {
+      "relative_path": "NEXT_ACTIONS.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\NEXT_ACTIONS.md",
+      "size_bytes": 141,
+      "sha256": "c3a2c5c93fdc2f1d7e457ea5715cc3146d5f2179238dfa887d51fb7f1195dc7c",
+      "modified_at": "2026-05-10T05:22:10.366836+00:00"
+    },
+    {
+      "relative_path": "ORGAN_SNAPSHOT.json",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ORGAN_SNAPSHOT.json",
+      "size_bytes": 3616,
+      "sha256": "fee83ef4d135fd2e1cc8f40e68095fe9153d1fda09a2582682533dce63a4e904",
+      "modified_at": "2026-05-10T05:22:10.368788+00:00"
+    },
+    {
+      "relative_path": "ORGAN_SNAPSHOT.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\ORGAN_SNAPSHOT.md",
+      "size_bytes": 1037,
+      "sha256": "7b3b74d632b00c87b90faddd1db3ba6791ef41ef1cddd20ec38c9a711e7abf16",
+      "modified_at": "2026-05-10T05:22:10.369765+00:00"
+    },
+    {
+      "relative_path": "RECENT_ARTIFACTS.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\RECENT_ARTIFACTS.md",
+      "size_bytes": 3747,
+      "sha256": "9de363c4a42ea230141233c575623ac3937773833a3720ab3e7e464f7e613e71",
+      "modified_at": "2026-05-10T05:22:10.374646+00:00"
+    },
+    {
+      "relative_path": "SHA256SUMS.txt",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\SHA256SUMS.txt",
+      "size_bytes": 2025,
+      "sha256": "7e47ea0fcc7d49e6c61a477c7332c9de5c3797d23b4c339ab9f436e11e5b4f08",
+      "modified_at": "2026-05-10T05:22:10.498642+00:00"
+    },
+    {
+      "relative_path": "SYSTEM_CHRONOLOGY.md",
+      "absolute_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_082210\\SYSTEM_CHRONOLOGY.md",
+      "size_bytes": 1810,
+      "sha256": "0d18aa7bd8488102189183821a4a247c72a0c0dc253643cfac0c9a924399e852",
+      "modified_at": "2026-05-10T05:22:10.365859+00:00"
+    }
+  ]
+}

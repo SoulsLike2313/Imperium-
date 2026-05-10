@@ -1,0 +1,277 @@
+[
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\AGENT_FINAL_RESPONSE.txt",
+    "size_bytes": 930,
+    "sha256": "439a5fd06e38232c5f63d85ceeca7b7a0c942b36bf7288f45c71fae24ba7b2b9"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\barrier_verify.py",
+    "size_bytes": 15110,
+    "sha256": "8361fbcd005e9cbbb604114c1dcf1c9234fa3827a69d6840b18719ee76914981"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\fetch_vm2_stage_bundle.py",
+    "size_bytes": 18665,
+    "sha256": "e0352bef327d7b168caff648c1bb3adf4180d15da7900666a8e928c7ab77915f"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\final_bundle_assemble.py",
+    "size_bytes": 13752,
+    "sha256": "2553d0507fdd3744c176afbf24dbeb928ff85887a251031185144aa93825b73e"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\id_validation.py",
+    "size_bytes": 3099,
+    "sha256": "e15e4a40770eb5b58bb98fedb642cda56d7d03ba083f0a3412108e695cc68613"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\ledger_utils.py",
+    "size_bytes": 5544,
+    "sha256": "5d653711a9e08133256a4b8725a6d9cd74a51d678e64ba73b866db5f4212e608"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\manifest_utils.py",
+    "size_bytes": 2504,
+    "sha256": "dd2d078ad1f70bde949fac1d6d2a3b28bc41e3105bd3ed117693e48b395ee248"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\owner_report.py",
+    "size_bytes": 1656,
+    "sha256": "89448ef76d853c9da6da5322dd79cd8537cb1f2411dbf36f200f299bc9197f04"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\path_safety.py",
+    "size_bytes": 1043,
+    "sha256": "37d6a4423eb7647d04ef6a77bd33b5294efc5e5b8d89b685ea7a089de33f4a78"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\provenance_utils.py",
+    "size_bytes": 6476,
+    "sha256": "5e9271c3a451b91412ba565cc1c03595a2ff99555a633740b5a6681f9e30b2c1"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\lib\\sha256_utils.py",
+    "size_bytes": 2250,
+    "sha256": "b06f7864d95cf90fa8dfda438b8a5f7eb821c4e28f15f963e25e2bcbd4a97357"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\MANIFEST.json",
+    "size_bytes": 4343,
+    "sha256": "7a886e6b81f3e48d408a28ed4f0feb0301990cadfab978a0e0c5f714f97cec30"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\OWNER_SUMMARY.md",
+    "size_bytes": 666,
+    "sha256": "3353c9354b4244751d4a8d9de04c0a531b55eebaa88877b20c4ca1d6705414b8"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\REPAIR_TEST_RESULTS.md",
+    "size_bytes": 2151,
+    "sha256": "f02d3f3307a4678a1b67f7cc21a3605ee8dbc3f0c85b6e58c2c8fe41e634e4d1"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\send_prompt_to_vm2.py",
+    "size_bytes": 12891,
+    "sha256": "58e73287fd8a86f7bef8dedc6c1b6df71b0820821b917ae591f9c083c2f7af22"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\SHA256SUMS.txt",
+    "size_bytes": 1867,
+    "sha256": "fa0ea49644dcb14086f1a7ac82e0aa591c934f3b25155eb2b0dd2eed4ca0c091"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\SPECULUM_REVIEW_REQUEST.md",
+    "size_bytes": 740,
+    "sha256": "697e8229cb0a489cbcf342ed0c71b84e65c5f263e5caa16bb7fb7fcbf6787e95"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\task_status_append.py",
+    "size_bytes": 4902,
+    "sha256": "2683e5ae9126de064b0559f425d9dd80b7a426a3752292a76e7ab7020fe5971c"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\task_status_view.py",
+    "size_bytes": 3466,
+    "sha256": "ecd06d55d8e9172c35b0eec5cab495f6cd5388f6bc2847fd2b64e553abf028ee"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\TOOL_LAYOUT_RECEIPT.json",
+    "size_bytes": 1087,
+    "sha256": "29e7672a5cc072382d5c56c1bd79379eac041281f74bd708bb6abb7568e16301"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\TOOLS_INDEX.md",
+    "size_bytes": 1952,
+    "sha256": "a6c8b6b483c6974b72bb027442d0588f2c576686874cb4a0b7dcd7ff9e24be7b"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\PATCH_SNAPSHOT\\imperium_pipeline_patch\\UPDATED_SCRIPT_ACCEPTANCE_TESTS.md",
+    "size_bytes": 1286,
+    "sha256": "1c8b5fdd494add01c74579ab4da33544303c2b731199ab1a37ef52bb134f4c5d"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\barrier_expected_stages.json",
+    "size_bytes": 36,
+    "sha256": "20076afa2c71f7421cf352f774bb9825f65ee0695c5abdf2526852eae1147ade"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\BARRIER_RECEIPT.json",
+    "size_bytes": 654,
+    "sha256": "8caed8d8def31254b9008f980fae8c6daac492fefa98e1978aceccebc4f612ed"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\BARRIER_REPORT.json",
+    "size_bytes": 1093,
+    "sha256": "6a9ca4b1bbbb377d1a1030fedb4600302a38b828d07f8cd4ae9e5bf2e7af1bf6"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\barrier_test_bundle.zip",
+    "size_bytes": 121,
+    "sha256": "f2bc18dcdfb69f151398772a3c49cc69241785aa0c2429bde8adc4277f9f6aca"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\barrier_test_ledger.jsonl",
+    "size_bytes": 810,
+    "sha256": "2d102d7bd157757847140f5ebfa6650201ed16957ad53d70ab1cf97577bab519"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\barrier_test_origin.json",
+    "size_bytes": 55,
+    "sha256": "ae675ec8f9b2ce5ab44a07a2cb8201594393d1ca8f8925bae0d9974200a57cc0"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\barrier_tmp\\dummy.txt",
+    "size_bytes": 3,
+    "sha256": "b35e09fa2ced9ebcad9d16336fb961146fe34bfbebc562679da85f8a314c9dca"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\fetch_fail_FETCH_RECEIPT.json",
+    "size_bytes": 750,
+    "sha256": "f565fc03e98ba845bbbb9ff8ddf8858df86c52ed39f5b50e2bebba5dbff60769"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\fetch_fail_ledger.jsonl",
+    "size_bytes": 875,
+    "sha256": "06b80824d8211995aea21faf2bebecd06eac0347beb8b994c19e887d176a3e51"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_blocked_barrier.json",
+    "size_bytes": 38,
+    "sha256": "74be90d373eadc778aa5a12fd45d7d9f4d23cc18602d674bea6bd46ecbced480"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_blocked_ledger.jsonl",
+    "size_bytes": 1828,
+    "sha256": "cfd14ae44e7ead484fa5f3f096ebcbc2f9c4d56e6a243baa609e5c1eefadb8f4"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_blocked_origin.json",
+    "size_bytes": 55,
+    "sha256": "ae675ec8f9b2ce5ab44a07a2cb8201594393d1ca8f8925bae0d9974200a57cc0"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_input\\dummy.txt",
+    "size_bytes": 3,
+    "sha256": "b35e09fa2ced9ebcad9d16336fb961146fe34bfbebc562679da85f8a314c9dca"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_output\\FINAL_ASSEMBLY_RECEIPT.json",
+    "size_bytes": 619,
+    "sha256": "af1a1e2df45221a20d787a973b048b2def3da73cec2219c5370537d08f027d48"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_owner_summary.md",
+    "size_bytes": 7,
+    "sha256": "d12419ecaa3e830eeefc9ed960fbfe74f163f47fae8989903d98845ee51cd73a"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\final_speculum.md",
+    "size_bytes": 6,
+    "sha256": "19c5eabd76824fbb738c0ba46861ad2715ef6cefb811f3386ac281a9223c56bf"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\latest_reject_DISPATCH_RECEIPT.json",
+    "size_bytes": 678,
+    "sha256": "9a6add92476c8ec359f4cdf7756eb2092ecbea6f2423ee49ea9ec972b735bebd"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\latest_reject_ledger.jsonl",
+    "size_bytes": 792,
+    "sha256": "1ad65d4c56ab70c30362422d5cad4e7ee467ff3ecb74681301cb3c46864cd523"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\portable_sha_test_bundle.zip",
+    "size_bytes": 5,
+    "sha256": "b5a2c96250612366ea272ffac6d9744aaf4b45aacd96aa7cfcb931ee3b558259"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\portable_sha_test_bundle.zip.sha256",
+    "size_bytes": 96,
+    "sha256": "46c310cd6bd0f9870033cd452976ee64c6fb6338219bebafa114291b2745d6d5"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\send_fail_DISPATCH_RECEIPT.json",
+    "size_bytes": 774,
+    "sha256": "c9578d9f7c4bc23a6f5e522c6e1b693de40d731fe20a92d3ea24a4c2e59d2810"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\send_fail_ledger.jsonl",
+    "size_bytes": 1000,
+    "sha256": "bc21502506fb11c293efb1d7c0494bd4c14f85487e89ca8958472bc6b0330e13"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\send_fail_owner_report.txt",
+    "size_bytes": 730,
+    "sha256": "4b97c28def4b2a451d8b160c1f38df1e027c9d5512759cb52a52e98dbf12376c"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\status_smoke_ledger.jsonl",
+    "size_bytes": 543,
+    "sha256": "19b57e218e63f4a2b0462af4271eac9d0ea2ccaab0caf9555e6ee8fb39b35bd1"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\status_smoke_summary.json",
+    "size_bytes": 1129,
+    "sha256": "a806d57d28c0dd2446a4a5e25b62cce22d59e33f4acb1a47b2f97cde3e4c3d23"
+  },
+  {
+    "relative_path": "02_OUTPUTS\\TEST_WORKSPACE\\timestamp_test_ledger.jsonl",
+    "size_bytes": 1632,
+    "sha256": "d6cf6a98aff52879f01faa75357429a17a65fbb1a43897fd80aadf98eaac34fc"
+  },
+  {
+    "relative_path": "03_RECEIPTS\\TASK_0014A_PATCH_RECEIPT.md",
+    "size_bytes": 815,
+    "sha256": "021235216c5b1820aac13c7ccbf45c7b05ee7f4a89cd985285fb919af10ea132"
+  },
+  {
+    "relative_path": "04_MANIFESTS\\TASK_0014A_PATCH_ARTIFACT_MANIFEST.json",
+    "size_bytes": 10966,
+    "sha256": "04acedc13d0988a26c5719e59d864e7a75265b060696348bfd74e69bb3e95384"
+  },
+  {
+    "relative_path": "05_HASHES\\TASK_0014A_PATCH_ARTIFACT_SHA256SUMS.txt",
+    "size_bytes": 6838,
+    "sha256": "5b197b2263957934e04461ac11eda12833cf89a6cd8ad5725a625beb22444615"
+  },
+  {
+    "relative_path": "08_OWNER_SUMMARY\\OWNER_SUMMARY.md",
+    "size_bytes": 385,
+    "sha256": "6e2f8c02c91478f708f16859a1f9bc91d0967918d595c7ef95a3776d5f5535b0"
+  },
+  {
+    "relative_path": "09_SOURCE_POINTERS\\SOURCE_POINTERS.md",
+    "size_bytes": 497,
+    "sha256": "76c5820d46b284ea37787a8a489bb3ec5b4e64de0df9ad62435a27987d4a090c"
+  },
+  {
+    "relative_path": "FINAL_STEP_BUNDLE\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1_PATCH_BUNDLE.zip",
+    "size_bytes": 36000,
+    "sha256": "9f390ddf3705ab1e75a29666b78c9ef9a60d75d986c090a013ec91cb63ec8112"
+  },
+  {
+    "relative_path": "FINAL_STEP_BUNDLE\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1_PATCH_BUNDLE.zip.sha256",
+    "size_bytes": 160,
+    "sha256": "23876654db56cd654224c617918728c89cb556304662ca4133966d053c65d729"
+  }
+]

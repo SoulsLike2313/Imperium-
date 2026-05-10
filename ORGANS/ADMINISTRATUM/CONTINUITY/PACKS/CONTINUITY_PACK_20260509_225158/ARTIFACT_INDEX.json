@@ -1,0 +1,106 @@
+{
+  "schema_version": "ADMINISTRATUM_ARTIFACT_INDEX_V0_1",
+  "generated_at": "2026-05-09T19:51:58.783731+00:00",
+  "items": [
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1",
+      "last_modified": "2026-05-09T19:33:21.497605+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF",
+      "last_modified": "2026-05-09T19:23:40.692478+00:00",
+      "finalization_receipt_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-WORKBENCH-REFRESH",
+      "last_modified": "2026-05-09T17:39:00.608916+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-RECHECK-UTILITY-RULE",
+      "last_modified": "2026-05-09T17:36:18.257692+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+      "last_modified": "2026-05-09T16:42:05.045704+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+      "last_modified": "2026-05-09T16:03:25.614567+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING",
+      "last_modified": "2026-05-09T15:05:51.825168+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+      "last_modified": "2026-05-09T15:01:08.876143+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1",
+      "last_modified": "2026-05-09T14:11:24.609190+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+      "last_modified": "2026-05-09T13:37:01.579564+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+      "last_modified": "2026-05-09T11:42:10.755437+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-FOUR-ORGAN-LOCAL-PIPELINE-FOUNDATION-AND-DRY-RUN-V1",
+      "last_modified": "2026-05-09T10:54:10.562640+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+      "last_modified": "2026-05-09T10:20:38.186936+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+      "last_modified": "2026-05-09T10:06:21.944233+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+      "last_modified": "2026-05-09T09:32:17.903081+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-IMPERIUM-ORGANS-PROMPT-ENGINEERING-FOUNDATION-0_1-V1",
+      "last_modified": "2026-05-09T09:11:52.181923+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1",
+      "last_modified": "2026-05-09T08:47:00.575759+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1",
+      "last_modified": "2026-05-09T08:32:29.907979+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+      "last_modified": "2026-05-09T08:05:15.740088+00:00",
+      "finalization_receipt_path": null
+    },
+    {
+      "artifact_dir": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1",
+      "last_modified": "2026-05-09T07:58:32.203064+00:00",
+      "finalization_receipt_path": null
+    }
+  ]
+}

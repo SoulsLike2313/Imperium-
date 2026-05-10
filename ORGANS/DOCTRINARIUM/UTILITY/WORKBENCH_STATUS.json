@@ -1,0 +1,20 @@
+{
+  "schema_version": "WORKBENCH_STATUS_V0_1",
+  "organ_id": "DOCTRINARIUM",
+  "utility_id": "DOCTRINARIUM_WORKBENCH_V0_1",
+  "status": "SCRIPT_BACKED_WEB_DASHBOARD_ACTIVE",
+  "script_backed": true,
+  "gui_available": false,
+  "owner_visible_reports": [
+    "REPORTS/DOCTRINARIUM_STATUS_REPORT.md",
+    "REPORTS/ALL_ORGANS_GAP_REPORT.md",
+    "REPORTS/ORGAN_UTILITY_GAP_REPORT.md"
+  ],
+  "blockers": [
+    "GUI not built yet",
+    "Caller API not built yet",
+    "Semantic consistency validator not built yet",
+    "Doctrine Owner approval missing"
+  ],
+  "created_at": "2026-05-09T17:37:17.3291254Z"
+}

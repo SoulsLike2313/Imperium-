@@ -1,0 +1,28 @@
+{
+  "schema_version": "TASK_PHASE_RECEIPT_V0_1",
+  "task_id": "TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1",
+  "run_id": "RUN-20260510-083108",
+  "phase": "PHASE_10_DOCTRINARIUM_RECHECK",
+  "script_path": null,
+  "script_hash": null,
+  "input_paths": [
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_all_organs.py",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_utilities.py"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\10_DOCTRINARIUM_RECHECK\\DOCTRINARIUM_STATUS_AFTER_PORTS.json"
+  ],
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "blockers": [],
+  "warnings": [
+    "doctrinarium_status_verdict=PASS_DOCTRINARIUM_STATUS_REPORT_CREATED_REAL_TASKS_BLOCKED"
+  ],
+  "limitations": [],
+  "next_action": "Proceed to next planned phase.",
+  "created_at": "2026-05-10T05:56:56.970790+00:00",
+  "no_archive_scan_observed": true,
+  "no_sanctum_claim_observed": true,
+  "no_vm2_observed": true,
+  "no_throne_observed": true,
+  "no_delete_policy_observed": true
+}

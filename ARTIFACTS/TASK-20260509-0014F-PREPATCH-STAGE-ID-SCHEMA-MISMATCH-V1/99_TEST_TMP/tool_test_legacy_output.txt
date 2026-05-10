@@ -1,0 +1,16 @@
+���:
+TASK-20260509-0014F-PREPATCH-STAGE-ID-SCHEMA-MISMATCH-V1/STAGE-VM2-001/send_prompt_to_vm2.py
+
+�����:
+N/A
+
+�������:
+FAIL
+
+����������� ��� OWNER:
+�������� dispatch wrapper � ������������� TASK/STAGE/RUN � provenance ����������.
+�� ������� ����������� FAIL receipt � ������� STAGE_FAILED ������� � append-only ledger.
+E2E �� ����������, THRONE transfer � watchers �� ��������������.
+��������� ���: ����� ���������� ������� ������ ��������� dispatch ��� �� ���������������� �������.
+
+ERROR: Legacy STAGE_ID format rejected for new artifacts: STAGE-VM2-001. Use <CONTOUR>-STAGE-<THREE_DIGITS>, for example PC-STAGE-001.

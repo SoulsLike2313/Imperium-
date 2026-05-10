@@ -1,0 +1,131 @@
+{
+  "schema_version": "LAW_ADDRESS_REGISTRY_V0_1",
+  "law_address_registry": {
+    "LAW-001": {
+      "address": "LAW-001::NO_FAKE_GREEN",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-002": {
+      "address": "LAW-002::NO_OWNER_APPROVAL_BY_AGENT",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-003": {
+      "address": "LAW-003::NO_TASK_WITHOUT_INPUTS",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-004": {
+      "address": "LAW-004::NO_CHAT_MEMORY_AS_SOURCE_OF_TRUTH",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-005": {
+      "address": "LAW-005::NO_DELETE_WITHOUT_OWNER_APPROVAL",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-006": {
+      "address": "LAW-006::NO_ARCHIVE_SCAN_WITHOUT_OWNER_APPROVAL",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-007": {
+      "address": "LAW-007::NO_THRONE_CONTACT_WITHOUT_OWNER_APPROVAL",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-008": {
+      "address": "LAW-008::NO_VM2_EXECUTION_WITHOUT_SCOPE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-009": {
+      "address": "LAW-009::NO_SANCTUM_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-010": {
+      "address": "LAW-010::NO_FINAL_WITHOUT_FINALIZATION_RECEIPT",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-011": {
+      "address": "LAW-011::NO_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-012": {
+      "address": "LAW-012::NO_ORGAN_BY_FOLDER_NAME",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-013": {
+      "address": "LAW-013::NO_ORGAN_SELF_REPORT_AS_PROOF_ALONE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-014": {
+      "address": "LAW-014::NO_UNREGISTERED_SCRIPT_EXECUTION",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-015": {
+      "address": "LAW-015::NO_LATEST_BUNDLE_GUESSING",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-016": {
+      "address": "LAW-016::NO_BACKGROUND_WATCHERS_WITHOUT_OWNER_APPROVAL",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-017": {
+      "address": "LAW-017::NO_PROMPT_AS_CANON",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-018": {
+      "address": "LAW-018::NO_RECEIPT_WITHOUT_HASH_CONTEXT",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-019": {
+      "address": "LAW-019::NO_SELF_REFERENTIAL_MANIFEST",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-020": {
+      "address": "LAW-020::NO_UI_GREEN_WITHOUT_EVIDENCE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-021": {
+      "address": "LAW-021::NO_CONTINUITY_GREEN_WITHOUT_CURRENT_STATE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-022": {
+      "address": "LAW-022::NO_SEMANTIC_CONFLICT_CONTINUATION",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-023": {
+      "address": "LAW-023::NO_REAL_TASK_WITH_BOOTSTRAP_DOCTRINE",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-024": {
+      "address": "LAW-024::NO_CANON_WITHOUT_REGISTRATION",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    },
+    "LAW-025": {
+      "address": "LAW-025::NO_LOCAL_CONFIG_IN_CANON_OR_HANDOFF",
+      "source_document_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "source_document_sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014"
+    }
+  },
+  "created_at": "2026-05-09T16:51:44.167344+00:00"
+}

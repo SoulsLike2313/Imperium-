@@ -1,0 +1,17 @@
+{
+  "schema_version": "FINALIZATION_RECEIPT_V1",
+  "task_id": "TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+  "created_at_local": "2026-05-09T13:20:38",
+  "zip_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1\\07_BUNDLE\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1.zip",
+  "zip_sha256": "fbaeeac0368f90e2781002c860606e6213150ee996e7def21fd20777da660dba",
+  "zip_sidecar_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1\\07_BUNDLE\\TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1.zip.sha256",
+  "zip_sidecar_sha256": "0dcf2eef1216bff49e1ab9e45cfe82d2c6f5853cc058c2857b75ce346078acf5",
+  "content_manifest_sha256": "f3559af2e9f835533f2d3815cd9d3c9e8578cd4cf10936d060cb1125e9048f0d",
+  "sha256sums_sha256": "9c38248e915fdc94f957637ef2cb54b87bd25f25f6dbe1a82c144db58d87342b",
+  "content_manifest_inside_zip": true,
+  "sha256sums_inside_zip": true,
+  "finalization_receipt_inside_zip": false,
+  "self_reference_policy": "PASS_NO_FINAL_ZIP_OR_SIDECAR_IN_INTERNAL_MANIFEST",
+  "pycache_policy": "PASS_NO_PYCACHE_PYC_PYO_IN_PAYLOAD",
+  "verdict": "PASS_FINALIZATION_RECEIPT"
+}

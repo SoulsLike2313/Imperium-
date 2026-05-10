@@ -1,0 +1,47 @@
+{
+  "task_id": "TASK-EXAMPLE-10-STAGE-LINEAR",
+  "run_id": "RUN-0001",
+  "stages": [
+    {
+      "stage_id": "STAGE-001",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "STAGE-002",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "STAGE-003",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "STAGE-004",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "STAGE-005",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "STAGE-006",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "STAGE-007",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "STAGE-008",
+      "contour_id": "VM2"
+    },
+    {
+      "stage_id": "STAGE-009",
+      "contour_id": "PC"
+    },
+    {
+      "stage_id": "STAGE-010",
+      "contour_id": "VM2"
+    }
+  ],
+  "notes": "Alternating PC and VM2 stages with strict signal/ACK/gate transitions."
+}

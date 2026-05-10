@@ -1,0 +1,30 @@
+{
+  "role": "Logos-Prime",
+  "task": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "current_status": {
+    "task": "Active",
+    "complete": false,
+    "visual_baseline_accepted": false,
+    "latest_attempted": "sanctum_v0_27.py",
+    "most_promising_direction": "sanctum_v0_26.py unified planet map",
+    "blocker": "flickering_or_blank_map"
+  },
+  "first_next_action": {
+    "action": "FIX_SANCTUM_VISUAL_STABILITY_AND_CONTINUE_VISUAL_BASELINE",
+    "focus": [
+      "no full redraw on hover",
+      "no continuous redraw",
+      "separate static map layer and tooltip layer",
+      "keep unified planet map visual",
+      "continue visual iteration only"
+    ]
+  },
+  "do_not": [
+    "add functional stage buttons yet",
+    "build final artifact",
+    "ask Speculum for final review",
+    "claim baseline",
+    "claim task complete"
+  ]
+}

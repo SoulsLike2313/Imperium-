@@ -1,0 +1,15 @@
+{
+  "schema_version": "DASHBOARD_PORT_V0_2",
+  "organ_id": "ADMINISTRATUM",
+  "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+  "version": "0.1",
+  "root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1",
+  "launcher": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_1.ps1",
+  "url": "http://127.0.0.1:8792",
+  "backend": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\dashboard_server.py",
+  "frontend": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\app.js",
+  "status": "ACTIVE_LOCAL_DASHBOARD_CANDIDATE",
+  "audit_status": "API_BUTTON_SMOKE_PASS_KNOWN",
+  "latest_audit_report": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\09_TESTS\\TEST_REPORT.json",
+  "known_ui_issues": []
+}

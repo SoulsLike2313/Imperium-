@@ -1,0 +1,23 @@
+{
+  "task_id": "TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+  "created_at_local": "2026-05-09T12:32:17",
+  "artifact_type": "FOUNDATION_0_1A_CONTENT_PACKAGE_REPAIR",
+  "status": "PASS_FOUNDATION_0_1A_CONTENT_PACKAGE_READY_FOR_SPECULUM_REVIEW",
+  "missing_inputs": [],
+  "json_parse_verdict": "PASS_JSON_PARSE",
+  "python_compile_verdict": "PASS_PYTHON_COMPILE",
+  "placeholder_hash_scan_verdict": "PASS_NO_PLACEHOLDER_HASHES",
+  "negative_tests_verdict": "PASS_NEGATIVE_TESTS",
+  "organs_snapshot_included": true,
+  "explorer_snapshot_included": true,
+  "forbidden_claims": [
+    "CONTINUITY_GREEN",
+    "ORGANS_IMPLEMENTED",
+    "SANCTUM_READY",
+    "AQUARIUM_READY",
+    "PC_VM2_E2E_READY",
+    "THRONE_CONNECTED",
+    "PRODUCTION_AUTOMATION_READY"
+  ],
+  "recommended_next": "SPECULUM_REVIEW_FOUNDATION_0_1A_CONTENT_PACKAGE"
+}

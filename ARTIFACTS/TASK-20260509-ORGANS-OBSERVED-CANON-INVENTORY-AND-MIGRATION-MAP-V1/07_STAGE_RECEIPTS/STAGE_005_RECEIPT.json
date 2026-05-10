@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1",
+  "stage": "STAGE_005_MIGRATION_CANDIDATE_MAP",
+  "created_at_local": "2026-05-09T13:03:59",
+  "outputs": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\05_MIGRATION_CANDIDATES\\ORGAN_MIGRATION_CANDIDATES.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\05_MIGRATION_CANDIDATES\\ORGAN_MIGRATION_CANDIDATES.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\05_MIGRATION_CANDIDATES\\DO_NOT_MOVE_YET.md",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1\\06_OWNER_DECISION_NEEDED\\OWNER_DECISION_NEEDED.md"
+  ],
+  "metrics": {
+    "total_migration_candidates": 339,
+    "requires_owner_approval_count": 339,
+    "requires_inquisition_review_count": 104
+  },
+  "validation": {
+    "checks": [
+      "all required stage 5 outputs exist",
+      "ORGAN_MIGRATION_CANDIDATES.json parses",
+      "owner decision file exists"
+    ],
+    "errors": [],
+    "verdict": "PASS"
+  },
+  "destructive_actions_performed": false,
+  "migrations_performed": false
+}

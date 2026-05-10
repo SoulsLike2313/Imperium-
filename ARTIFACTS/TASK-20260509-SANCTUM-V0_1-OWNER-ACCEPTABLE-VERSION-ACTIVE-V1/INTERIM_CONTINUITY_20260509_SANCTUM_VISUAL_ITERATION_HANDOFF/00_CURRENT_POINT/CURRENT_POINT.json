@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "task_status": "ACTIVE_NOT_COMPLETE",
+  "current_stage": "PC-STAGE-001",
+  "latest_attempted_version": "sanctum_v0_27.py",
+  "latest_useful_design_direction": "sanctum_v0_26.py unified planet map",
+  "current_blocker": "flickering_or_blank_map_remains",
+  "owner_decision": "stop_here_and_move_to_new_logos_prime_chat_with_clean_handoff",
+  "captured_at_local": "2026-05-09T16:51:45",
+  "captured_at_utc": "2026-05-09T13:51:45+00:00",
+  "strict_status": {
+    "task_complete": false,
+    "sanctum_accepted_baseline": false,
+    "sanctum_final": false,
+    "final_artifact": false,
+    "speculum_ready_final_bundle": false,
+    "continuity_green": false
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-CLIENT-SHELL-V1",
+  "RUN_ID": "RUN-20260509-SANCTUM-0001",
+  "next_action": "ADMINISTRATUM_BUILD_ROUTE",
+  "blocked_actions": [
+    "VM2_ACTIVATION",
+    "THRONE_CONTACT",
+    "E2E_ACTIVATION"
+  ]
+}

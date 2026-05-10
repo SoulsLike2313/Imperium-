@@ -1,0 +1,16 @@
+{
+  "schema_version": "POST_STAGE_AUDIT_RULES_V0_1",
+  "required_receipts": [
+    "00_doctrinarium_preflight_receipt.json",
+    "01_officio_agentis_scope_receipt.json",
+    "02_administratum_context_receipt.json",
+    "03_astronomicon_route_receipt.json",
+    "04_mechanicus_script_resolution_receipt.json",
+    "05_stage_001_receipt.json"
+  ],
+  "forbidden_output_roots": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ]
+}

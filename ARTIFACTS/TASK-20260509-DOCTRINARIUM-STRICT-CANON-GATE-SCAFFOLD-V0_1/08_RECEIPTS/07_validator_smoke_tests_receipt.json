@@ -1,0 +1,35 @@
+{
+  "schema_version": "DOCTRINARIUM_TASK_RECEIPT_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "actor": "PC_SERVITOR",
+  "organ_or_phase": "PHASE_07_VALIDATOR_SMOKE_TESTS",
+  "script_id": null,
+  "script_path": null,
+  "script_sha256": null,
+  "input_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\NEGATIVE_FIXTURES"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\VALIDATOR_SMOKE_TEST_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\VALIDATOR_SMOKE_TEST_REPORT.md"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\VALIDATOR_SMOKE_TEST_REPORT.json": "cb91580e43d9e5c0e14711008a02f8587b2820e11c2cba26891be53de174ca2c",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1\\05_VALIDATORS\\VALIDATOR_SMOKE_TEST_REPORT.md": "18bdc6bdc5aef5f506041113ca89069fdf723a666245aba20c6233085bfe636d"
+  },
+  "verdict": "PASS",
+  "blockers": [],
+  "warnings": [],
+  "limitations": [
+    "Fixtures are isolated and do not modify live doctrine files."
+  ],
+  "next_action": "Prepare final summary receipt",
+  "created_at": "2026-05-09T16:58:31.646730+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_sanctum_policy_observed": true,
+  "no_vm2_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Политики no-delete/no-archive-scan/no-sanctum/no-vm2/no-throne соблюдены в рамках задачи."
+}

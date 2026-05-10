@@ -1,0 +1,58 @@
+{
+  "schema_version": "DEVELOPER_HANDOFF_SPEC_V0_2",
+  "task_id": "TASK-20260510-ADMINISTRATUM-DEVELOPER-GRADE-CONTINUITY-HANDOFF-V0_2",
+  "layer": "DEVELOPER_HANDOFF",
+  "required_files": [
+    "DEVELOPER_HANDOFF.md",
+    "DEVELOPER_HANDOFF.json",
+    "ARCHITECTURE_MAP.md",
+    "ARCHITECTURE_MAP.json",
+    "CODE_INDEX.json",
+    "SCRIPT_ENTRYPOINTS.md",
+    "SCRIPT_ENTRYPOINTS.json",
+    "DASHBOARD_INDEX.md",
+    "DASHBOARD_INDEX.json",
+    "RUNBOOK.md",
+    "TEST_MATRIX.md",
+    "TEST_MATRIX.json",
+    "KNOWN_FAILURES.md",
+    "NEXT_DEVELOPMENT_QUEUE.md",
+    "ROLE_CONTEXT_INDEX.md",
+    "ROLE_CONTEXT_INDEX.json",
+    "BUILDER_DIFF_SUMMARY.md",
+    "BUILDER_DIFF_SUMMARY.json",
+    "SAFE_EDIT_POLICY.md",
+    "SAFE_EDIT_POLICY.json",
+    "DEVELOPER_ENTRYPOINT_FOR_NEW_CHAT.md"
+  ],
+  "purpose": "Developer-grade bootstrap continuity handoff for new chats/roles.",
+  "must_include": [
+    "code index",
+    "script entrypoints",
+    "dashboard index",
+    "runbook",
+    "test matrix",
+    "known failures",
+    "next development queue",
+    "role context index",
+    "builder diff summary",
+    "safe edit policy",
+    "developer entrypoint"
+  ],
+  "must_not_claim": [
+    "CONTINUITY_GREEN",
+    "CANON_V0_1",
+    "SANCTUM_READY",
+    "ALL_ORGANS_READY",
+    "REAL_TASK_EXECUTION_READY",
+    "ALL_MEMORY_COMPLETE"
+  ],
+  "required_evidence_sources": [
+    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260510_085452",
+    "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1\\13_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json",
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260510-ADMINISTRATUM-CONTINUITY-PACK-QA-PORTS-AND-REBUILD-V0_1\\15_PACKAGE\\FINALIZATION_RECEIPT_EXTERNAL.json"
+  ],
+  "created_at": "2026-05-10T06:14:42.626405+00:00"
+}

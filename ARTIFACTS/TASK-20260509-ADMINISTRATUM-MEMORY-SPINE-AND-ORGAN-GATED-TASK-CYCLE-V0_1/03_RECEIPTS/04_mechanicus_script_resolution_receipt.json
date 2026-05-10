@@ -1,0 +1,36 @@
+{
+  "schema_version": "RECEIPT_V0_1",
+  "task_id": "TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1",
+  "run_id": "RUN-20260509-181517-66c4fe13",
+  "stage_id": null,
+  "actor": "PC_SERVITOR",
+  "organ": "MECHANICUS",
+  "input_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\01_ROUTE\\STAGE_MAP.json",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REGISTRY\\SCRIPT_REGISTRY.json"
+  ],
+  "output_paths": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\03_RECEIPTS\\04_mechanicus_script_resolution_receipt.json"
+  ],
+  "hashes": {
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-AND-ORGAN-GATED-TASK-CYCLE-V0_1\\01_ROUTE\\STAGE_MAP.json": "091c88fbf444d4187d72be636fb0a6e70319fc448e5a4fadfd303c488479edf4",
+    "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REGISTRY\\SCRIPT_REGISTRY.json": "92a5da8b23b3d4ce5a3b85e5e28c935772f9bcd6638dfec22de2c30e44114b21"
+  },
+  "verdict": "PASS_SCRIPT_RESOLVED",
+  "blockers": [],
+  "next_action": "Proceed to stage execution.",
+  "created_at": "2026-05-09T15:15:19.019445+00:00",
+  "no_delete_policy_observed": true,
+  "no_archive_scan_policy_observed": true,
+  "no_throne_policy_observed": true,
+  "notes_ru": "Скрипт для этапа успешно разрешен по реестру.",
+  "resolved_scripts": [
+    {
+      "stage_id": "STAGE-001",
+      "stage_type": "DUMMY_SAFE_WRITE",
+      "script_id": "MECH_DUMMY_STAGE_V0_1",
+      "script_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\SCRIPTS\\mechanicus_dummy_stage.py",
+      "script_sha256": "5f97685593408117d304e94dd353d85184dc2e8514f4ed4ea4dd6178de8a59c4"
+    }
+  ]
+}

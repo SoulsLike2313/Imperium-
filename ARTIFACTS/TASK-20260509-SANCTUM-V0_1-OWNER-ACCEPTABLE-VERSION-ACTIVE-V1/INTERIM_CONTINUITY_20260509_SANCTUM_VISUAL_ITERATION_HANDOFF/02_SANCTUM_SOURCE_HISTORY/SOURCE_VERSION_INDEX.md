@@ -1,0 +1,13 @@
+# SOURCE VERSION INDEX
+
+- `sanctum_v0_1.py` | exists=True | size=12745 | sha256=9cf3ba4e09360c83f0ed2b0221d835dd98ebaebdd0a50a4f966ffefaf9e78049 | purpose=Basic shell. Astra + Explorer + task list + route text + notes. | result=Worked. | owner_liked=neutral
+- `sanctum_v0_2.py` | exists=True | size=24289 | sha256=5cebeaa85a7d028f13d0447fa84fc201c81106c6749b7615f22b9980251f499b | purpose=Dark visual route shell. Active task pinned/highlighted. | result=Visual route shell stabilized for iteration. | owner_liked=neutral_positive
+- `sanctum_v0_21.py` | exists=True | size=26802 | sha256=ab6488d41698d93e96b9c5f801ba39dcd320ae6acc904c40f857303b73c06533 | purpose=Better scrolling route/stage board. | result=Readability improved. | owner_liked=neutral_positive
+- `sanctum_v0_22.py` | exists=True | size=27876 | sha256=06b0b35033bc2af3214c698dfb7f6c1a2a7a4c6e290f110f940f1642937623f8 | purpose=Orbital route shell with animated core visual. | result=Orbital style introduced. | owner_liked=neutral_positive
+- `sanctum_v0_23.py` | exists=True | size=30684 | sha256=3d7be350972d208aeb284ab69d251d5a35c95aac721195a9703a6e0dab9ba6c6 | purpose=Premium HUD metrics panel improvement. | result=HUD metrics improved. | owner_liked=positive
+- `sanctum_v0_24.py` | exists=True | size=33305 | sha256=21352224b46455318f5728783c72ba094a87557e7e61dcf1586604cb15c7e302 | purpose=Mission Control HUD with READINESS/RISK/NEXT. | result=Mission-control clarity improved. | owner_liked=positive
+- `sanctum_v0_25.py` | exists=True | size=30797 | sha256=4d9f2456b76a26178913c1eb3c21d384d3c7408e1bcbd2cdc2efe97ca635b256 | purpose=Orbital Mission Board; better planet/core and orbit nodes. | result=Owner liked direction more. | owner_liked=liked
+- `sanctum_v0_26.py` | exists=True | size=28419 | sha256=230ec7016854472f6163c20da69c26fc1711c731a9ec81e6bce38d9a3a53fd8b | purpose=Unified Planet Map + metallic hover tooltip. | result=Most promising unified map direction. | owner_liked=liked_most_promising
+- `sanctum_v0_27.py` | exists=True | size=29343 | sha256=564d55d82a80c578325798e437e9d495e91a38e2c00c3a9be2f9346fe37f9af6 | purpose=Attempted stable render fix. | result=Flickering / occasional blank map still remains. | owner_liked=attempted_fix_not_accepted
+- `README.md` | exists=True | size=444 | sha256=8be6ff3bb4c9d76a658c50e8e42a22b54bee3beebb78f2d83cca377fc16a1f07 | purpose=Sanctum readme snapshot. | result=Present. | owner_liked=n_a
+- `SANCTUM_STATUS.json` | exists=True | size=461 | sha256=f7f63e51dcfa0d09afa83c98785e58f95b7e16f06cc82f9aefe541af694d15ce | purpose=Sanctum status snapshot. | result=Present. | owner_liked=n_a

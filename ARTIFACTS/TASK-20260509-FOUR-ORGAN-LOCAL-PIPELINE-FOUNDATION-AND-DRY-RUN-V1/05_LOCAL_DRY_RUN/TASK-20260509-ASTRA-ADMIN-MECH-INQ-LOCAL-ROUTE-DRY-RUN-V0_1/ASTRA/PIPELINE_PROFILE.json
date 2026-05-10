@@ -1,0 +1,7 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "RUN_ID": "RUN-20260509-DRYRUN-0001",
+  "TASK_ROUTE_VERSION": "0.1",
+  "profile": "MANUAL_OWNER_ROUTE",
+  "local_only": true
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "DOCTRINARIUM_VERDICT_ENUM_V0_1",
+  "allowed_verdicts": [
+    "PASS_DOCTRINE_TRIAD_PRESENT_CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+    "PASS_LAW_REGISTRY_CREATED_WITH_ENFORCEMENT_GAPS",
+    "PASS_ORGAN_STANDARD_SCAFFOLD_CREATED",
+    "PASS_DOCTRINARIUM_REGISTERED_AS_STRICT_BOOTSTRAP_CANON_CANDIDATE",
+    "PASS_ALL_ORGANS_GAP_REPORT_CREATED_WITH_EXPECTED_ERRORS",
+    "PASS_DOCTRINARIUM_STATUS_REPORT_CREATED_REAL_TASKS_BLOCKED",
+    "REPAIR_REQUIRED",
+    "BLOCKED",
+    "FAIL_PROTOCOL_VIOLATION"
+  ],
+  "created_at": "2026-05-09T19:51:44.170273+03:00",
+  "utility_verdicts": [
+    {
+      "verdict": "BLOCKED_ORGAN_UTILITY_MISSING",
+      "meaning": "Organ cannot be promoted to CANON_CANDIDATE or CANON_V0_1 because dedicated utility/workbench evidence is missing.",
+      "blocks_status": [
+        "CANON_CANDIDATE",
+        "CANON_V0_1"
+      ]
+    },
+    {
+      "verdict": "BLOCKED_DECORATIVE_UTILITY",
+      "meaning": "Organ utility exists or is claimed, but it is not backed by registered scripts, reports, receipts, machine-readable status, and evidence paths.",
+      "blocks_status": [
+        "CANON_CANDIDATE",
+        "CANON_V0_1"
+      ]
+    }
+  ]
+}

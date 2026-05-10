@@ -1,0 +1,181 @@
+{
+  "schema_version": "LAW_INDEX_V0_1",
+  "law_index": [
+    {
+      "law_id": "LAW-001",
+      "title": "NO_FAKE_GREEN",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-002",
+      "title": "NO_OWNER_APPROVAL_BY_AGENT",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-003",
+      "title": "NO_TASK_WITHOUT_INPUTS",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-004",
+      "title": "NO_CHAT_MEMORY_AS_SOURCE_OF_TRUTH",
+      "severity": "OWNER_DECISION_REQUIRED",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": false
+    },
+    {
+      "law_id": "LAW-005",
+      "title": "NO_DELETE_WITHOUT_OWNER_APPROVAL",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-006",
+      "title": "NO_ARCHIVE_SCAN_WITHOUT_OWNER_APPROVAL",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-007",
+      "title": "NO_THRONE_CONTACT_WITHOUT_OWNER_APPROVAL",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-008",
+      "title": "NO_VM2_EXECUTION_WITHOUT_SCOPE",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-009",
+      "title": "NO_SANCTUM_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-010",
+      "title": "NO_FINAL_WITHOUT_FINALIZATION_RECEIPT",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-011",
+      "title": "NO_BASELINE_WITHOUT_OWNER_ACCEPTANCE",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-012",
+      "title": "NO_ORGAN_BY_FOLDER_NAME",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-013",
+      "title": "NO_ORGAN_SELF_REPORT_AS_PROOF_ALONE",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-014",
+      "title": "NO_UNREGISTERED_SCRIPT_EXECUTION",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-015",
+      "title": "NO_LATEST_BUNDLE_GUESSING",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-016",
+      "title": "NO_BACKGROUND_WATCHERS_WITHOUT_OWNER_APPROVAL",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-017",
+      "title": "NO_PROMPT_AS_CANON",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-018",
+      "title": "NO_RECEIPT_WITHOUT_HASH_CONTEXT",
+      "severity": "REPAIR_REQUIRED",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": false
+    },
+    {
+      "law_id": "LAW-019",
+      "title": "NO_SELF_REFERENTIAL_MANIFEST",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-020",
+      "title": "NO_UI_GREEN_WITHOUT_EVIDENCE",
+      "severity": "WARNING",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": false
+    },
+    {
+      "law_id": "LAW-021",
+      "title": "NO_CONTINUITY_GREEN_WITHOUT_CURRENT_STATE",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-022",
+      "title": "NO_SEMANTIC_CONFLICT_CONTINUATION",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-023",
+      "title": "NO_REAL_TASK_WITH_BOOTSTRAP_DOCTRINE",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-024",
+      "title": "NO_CANON_WITHOUT_REGISTRATION",
+      "severity": "HARD_BLOCK",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": true
+    },
+    {
+      "law_id": "LAW-025",
+      "title": "NO_LOCAL_CONFIG_IN_CANON_OR_HANDOFF",
+      "severity": "REPAIR_REQUIRED",
+      "status": "CANON_CANDIDATE_OWNER_REVIEW_REQUIRED",
+      "blocks_real_task_execution": false
+    }
+  ],
+  "created_at": "2026-05-09T16:51:44.166368+00:00"
+}

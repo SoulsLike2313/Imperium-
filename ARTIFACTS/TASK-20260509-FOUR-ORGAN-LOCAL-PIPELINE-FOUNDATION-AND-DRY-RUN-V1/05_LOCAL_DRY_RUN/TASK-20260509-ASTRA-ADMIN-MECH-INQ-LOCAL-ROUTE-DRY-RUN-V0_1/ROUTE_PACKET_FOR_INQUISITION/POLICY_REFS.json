@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "run_id": "RUN-20260509-DRYRUN-0001",
+  "policy_refs": [
+    {
+      "policy_id": "POLICY-STAGE-ID-CANON-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\STAGE_ID_POLICY.json"
+    },
+    {
+      "policy_id": "POLICY-NO-THRONE-0_1",
+      "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\POLICIES\\NO_THRONE_POLICY.json"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "external_sha_match": true,
+  "internal_sha_all_match": true,
+  "manifest_hash_pass": true,
+  "sha_paths_safe": true,
+  "zip_paths_safe": true,
+  "pycache_entries_in_zip": 0,
+  "pyc_entries_in_zip": 0,
+  "status": "PASS"
+}

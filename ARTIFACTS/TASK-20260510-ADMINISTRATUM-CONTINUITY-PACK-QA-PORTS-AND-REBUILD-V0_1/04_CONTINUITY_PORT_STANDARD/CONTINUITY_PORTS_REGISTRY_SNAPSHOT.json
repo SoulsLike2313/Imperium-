@@ -1,0 +1,51 @@
+{
+  "schema_version": "CONTINUITY_PORTS_REGISTRY_V0_1",
+  "generated_at": "2026-05-10T05:36:32.008340+00:00",
+  "collector": "ADMINISTRATUM",
+  "ports_first_rule": "PORTS_FIRST_REQUIRED",
+  "fallback_rule": "PORT_MISSING_FALLBACK_USED",
+  "ports": [
+    {
+      "organ_id": "DOCTRINARIUM",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS",
+      "continuity_port_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\PORTS\\CONTINUITY_PORT.json",
+      "status": "STRICT_BOOTSTRAP_GATE",
+      "last_verified_at": "2026-05-10T05:36:31.985885+00:00"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS",
+      "continuity_port_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\PORTS\\CONTINUITY_PORT.json",
+      "status": "BOOTSTRAP",
+      "last_verified_at": "2026-05-10T05:36:31.991742+00:00"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS",
+      "continuity_port_path": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\PORTS\\CONTINUITY_PORT.json",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "last_verified_at": "2026-05-10T05:36:31.994671+00:00"
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS",
+      "continuity_port_path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\PORTS\\CONTINUITY_PORT.json",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "last_verified_at": "2026-05-10T05:36:31.998576+00:00"
+    },
+    {
+      "organ_id": "INQUISITION",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS",
+      "continuity_port_path": "E:\\IMPERIUM\\ORGANS\\INQUISITION\\PORTS\\CONTINUITY_PORT.json",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "last_verified_at": "2026-05-10T05:36:32.001506+00:00"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "ports_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS",
+      "continuity_port_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\PORTS\\CONTINUITY_PORT.json",
+      "status": "MINIMAL_SCOPE_ACTIVE",
+      "last_verified_at": "2026-05-10T05:36:32.005411+00:00"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "root": "E:\\\\IMPERIUM",
+  "allowed_root_folders": [
+    "ARCHIVE",
+    "ARTIFACTS",
+    "OBSERVED",
+    "SSH_COMMAND_LIBRARY",
+    "PC_ENGINEERING_ROOM"
+  ],
+  "root_policy": "folders_only_major_zones",
+  "artifacts_policy": "E:\\\\IMPERIUM\\\\ARTIFACTS\\\\<TASK_ID>\\\\",
+  "archive_policy": "old_or_legacy_or_not_active_work",
+  "observed_policy": "observed copies and historical contour snapshots",
+  "ssh_library_policy": "ssh routes, dispatch/fetch instructions, route proofs pointers",
+  "engineering_room_policy": "active engineering work, agents communication, task/stage/run mechanics",
+  "last_hygiene_task": "TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR",
+  "status": "draft_after_root_hygiene_repair"
+}

@@ -1,0 +1,12 @@
+{
+  "task_id": "TASK-20260509-ASTRA-ADMIN-MECH-INQ-LOCAL-ROUTE-DRY-RUN-V0_1",
+  "run_id": "RUN-20260509-DRYRUN-0001",
+  "local_only": true,
+  "forbidden": [
+    "VM2",
+    "THRONE",
+    "NETWORK",
+    "WATCHERS",
+    "BACKGROUND_AUTOMATION"
+  ]
+}

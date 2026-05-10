@@ -1,0 +1,16 @@
+{
+  "schema_version": "DOCTRINE_STATUS_V0_1",
+  "passport_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md",
+  "passport_status": "DRAFT_PLACEHOLDER_OWNER_REVIEW_REQUIRED",
+  "constitution_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CONSTITUTION_OF_IMPERIUM.md",
+  "constitution_status": "DRAFT_PLACEHOLDER_OWNER_REVIEW_REQUIRED",
+  "mandatory_laws_status": {
+    "mandatory_file_exists": true,
+    "all_required_present": true,
+    "missing_paths": []
+  },
+  "real_tasks_allowed": false,
+  "bootstrap_smoke_only_allowed": true,
+  "next_action": "Owner/Logos must provide canonical Passport and Constitution texts with explicit approval marker to lift doctrine limitation.",
+  "created_at": "2026-05-09T15:13:42.4870495Z"
+}

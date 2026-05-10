@@ -1,0 +1,33 @@
+{
+  "task_id": "TASK-20260509-ASTRA-PIPELINE-UTILITY-V0_3-MANUAL-PROOF-V1",
+  "created_at_local": "2026-05-09T13:20:38",
+  "artifact_type": "ASTRA_PIPELINE_UTILITY_MANUAL_PROOF",
+  "final_verdict": "PASS_ASTRA_PIPELINE_UTILITY_V0_3_MANUAL_PROOF_READY_FOR_SPECULUM",
+  "missing_inputs": [],
+  "utility_versions_included": [
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_1.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_2.py",
+    "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\UTILITIES\\astra_pipeline_utility_v0_3.py"
+  ],
+  "generated_task_route": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\TASKS\\TASK-20260509-ASTRA-UTILITY-BASE-SCRIPTS-V0_1-V1",
+  "json_parse_verdict": "PASS_JSON_PARSE",
+  "python_compile_verdict": "PASS_PYTHON_COMPILE",
+  "required_task_files_verdict": "PASS_REQUIRED_TASK_FILES_PRESENT",
+  "manual_observation": {
+    "gui_opened": true,
+    "right_click_paste_works": true,
+    "ctrl_v_unreliable": true,
+    "pipeline_generated": true,
+    "saved_to_astronomicon": true,
+    "visible_in_explorer": true
+  },
+  "forbidden_claims": [
+    "ASTRONOMICON_IMPLEMENTED",
+    "LIVE_ORGAN",
+    "E2E_READY",
+    "SANCTUM_READY",
+    "AQUARIUM_READY",
+    "CONTINUITY_GREEN"
+  ],
+  "recommended_next": "SPECULUM_REVIEW_ASTRA_PIPELINE_UTILITY_PORTS_METRICS_AND_STAGE_LOOP"
+}

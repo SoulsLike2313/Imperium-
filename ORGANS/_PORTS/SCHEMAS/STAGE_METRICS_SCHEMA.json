@@ -1,0 +1,26 @@
+{
+  "schema_id": "STAGE_METRICS_SCHEMA_V0_1",
+  "type": "object",
+  "required": [
+    "started_at",
+    "ended_at",
+    "duration_sec",
+    "files_read",
+    "files_written",
+    "scripts_run",
+    "validation_result",
+    "repair_attempts",
+    "max_repair_attempts",
+    "risk_score",
+    "confidence_score",
+    "usability_score",
+    "evidence_completeness_score",
+    "drift_count",
+    "duplicate_count",
+    "forbidden_ref_count",
+    "owner_approval_required",
+    "owner_approval_reason",
+    "next_allowed_action"
+  ],
+  "notes": "Metrics template applied to every generated stage record."
+}

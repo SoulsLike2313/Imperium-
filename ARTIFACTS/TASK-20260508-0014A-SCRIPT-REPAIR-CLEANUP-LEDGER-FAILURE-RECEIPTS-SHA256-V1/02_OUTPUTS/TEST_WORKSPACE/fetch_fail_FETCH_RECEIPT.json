@@ -1,0 +1,19 @@
+{
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "stage_id": "STAGE-004-FETCH-FAILURE",
+  "run_id": "RUN-20260508-0001",
+  "contour_id": "VM2",
+  "expected_producer_type": "VM2_WORKER",
+  "status": "FAIL",
+  "failure_reason": "Route config not found: E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1\\02_OUTPUTS\\TEST_WORKSPACE\\DUMMY_CONFIG_NOT_USED.json",
+  "timestamp_utc": "2026-05-08T17:48:02Z",
+  "provenance_ref": "",
+  "deleted_anything": false,
+  "moved_anything": false,
+  "touched_throne": false,
+  "touched_vm2": false,
+  "touched_vm3": false,
+  "autosync_used": false,
+  "latest_logic_used": false,
+  "verdict": "FAIL"
+}

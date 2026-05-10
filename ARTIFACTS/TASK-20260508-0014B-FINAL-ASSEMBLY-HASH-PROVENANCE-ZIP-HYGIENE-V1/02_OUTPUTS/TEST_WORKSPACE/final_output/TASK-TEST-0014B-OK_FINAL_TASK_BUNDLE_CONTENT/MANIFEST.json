@@ -1,0 +1,75 @@
+{
+  "manifest_version": "IMPERIUM_MANIFEST_V1",
+  "identity": {
+    "task_id": "TASK-TEST-0014B-OK",
+    "stage_id": "STAGE-FINAL-ASSEMBLY",
+    "run_id": "RUN-00000000-0000",
+    "contour_id": "PC",
+    "producer_type": "PC_SERVITOR",
+    "producer_id": "PC-SERVITOR-TEST"
+  },
+  "file_count": 11,
+  "files": [
+    {
+      "relative_path": "AGENT_FINAL_RESPONSE.txt",
+      "size_bytes": 551,
+      "sha256": "b8cd26d9f7c508faa699c02e81e72738e15b69775c8d375d87e5605643f277ab"
+    },
+    {
+      "relative_path": "BARRIER_REPORT.json",
+      "size_bytes": 197,
+      "sha256": "c3911f68d019bf03b6d70c24417039ad2eb62ba05a192ccfbbef6dc46ce896e9"
+    },
+    {
+      "relative_path": "FINAL_PROVENANCE.json",
+      "size_bytes": 939,
+      "sha256": "9f77f6a3571a8c1ca619c8c49b539ab3a4ad4e41ae348ac2f3f59c4439d2dcdd"
+    },
+    {
+      "relative_path": "ORIGIN_INDEX.json",
+      "size_bytes": 67,
+      "sha256": "eb27fe2776a28994935d5ebf05430768408b088cc69dac047e3f7f1ed4870a6d"
+    },
+    {
+      "relative_path": "OWNER_SUMMARY.md",
+      "size_bytes": 22,
+      "sha256": "ca0b486a76556600dda21bfa9d1e553a61d7fd043a59fe409b94345eaa979897"
+    },
+    {
+      "relative_path": "SPECULUM_REVIEW_REQUEST.md",
+      "size_bytes": 25,
+      "sha256": "0c6bb7f5a9b42571ac442a9f625ff95eb64660bc3775026201ab3d25d6a82529"
+    },
+    {
+      "relative_path": "TASK_STATUS_LEDGER.jsonl",
+      "size_bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "INPUT_ROOT/lib/test_nested.txt",
+      "size_bytes": 27,
+      "sha256": "9e4b748a03eac16c7d03afb77d2fbfeb53e70891379c48458541040f2dca3542"
+    },
+    {
+      "relative_path": "INPUT_ROOT/provenance/test_provenance.json",
+      "size_bytes": 30,
+      "sha256": "3b548dd5a0326b28947212cf15b9b434c74986bcd87c3fcd34e1757d19d54595"
+    },
+    {
+      "relative_path": "INPUT_ROOT/receipts/test_receipt.json",
+      "size_bytes": 34,
+      "sha256": "832c6b7e27e9ba0e699afc0628e0f5e78ad76a596b1076af269cecebd47cdb9f"
+    },
+    {
+      "relative_path": "INPUT_ROOT/nested/deep/file.txt",
+      "size_bytes": 9,
+      "sha256": "b6356511bb831e63f61b35997e56ea1fdfc087a20fb5b8281666fccdc5733613"
+    }
+  ],
+  "notes": [
+    "Final bundle assembly output"
+  ],
+  "bundle_sha256_location": "external_sidecar_sha256",
+  "bundle_self_hash_embedded": false,
+  "bundle_self_hash_sidecar_pattern": "<final_bundle>.zip.sha256"
+}

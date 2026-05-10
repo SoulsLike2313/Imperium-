@@ -1,0 +1,41 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "checks": {
+    "output_root_exists": true,
+    "active_astra_task_route_copied_or_missing_recorded": true,
+    "source_history_copied_and_indexed": true,
+    "v0_27_exists_or_missing_recorded": true,
+    "current_blocker_recorded": true,
+    "next_chat_handoff_exists": true,
+    "role_entry_cards_exist": true,
+    "stage_map_extract_exists": true,
+    "no_pycache_pyc_pyo_in_payload": true,
+    "no_final_zip_self_reference": true,
+    "no_delete_move_migration_performed": true,
+    "no_vm2_throne_e2e_watchers_used": true,
+    "no_final_or_baseline_claims": true
+  },
+  "claim_hits": [],
+  "clean_bundle_exists": true,
+  "verdict": "PASS_VALIDATION_INTERIM_CONTINUITY",
+  "checked_at_local": "2026-05-09T16:56:09",
+  "claim_scan_scope": [
+    "00_CURRENT_POINT/CURRENT_POINT.md",
+    "03_VISUAL_HISTORY_AND_OWNER_DIRECTION/VISUAL_EVOLUTION_SUMMARY.md",
+    "03_VISUAL_HISTORY_AND_OWNER_DIRECTION/WHAT_REMAINS_BAD.md",
+    "06_NEXT_CHAT_HANDOFF/LOGOS_PRIME_NEXT_CHAT_HANDOFF.md",
+    "06_NEXT_CHAT_HANDOFF/LOGOS_PRIME_NEXT_CHAT_HANDOFF.json",
+    "06_NEXT_CHAT_HANDOFF/NEXT_ALLOWED_ACTION.json",
+    "10_RECEIPTS/INTERIM_CONTINUITY_RECEIPT.md",
+    "OWNER_SUMMARY.md"
+  ],
+  "claim_hits_contextual_ignored": [
+    {
+      "type": "green_claim",
+      "path": "06_NEXT_CHAT_HANDOFF/NEXT_ALLOWED_ACTION.json",
+      "line": 15,
+      "line_text": "    \"CONTINUITY_GREEN\""
+    }
+  ]
+}

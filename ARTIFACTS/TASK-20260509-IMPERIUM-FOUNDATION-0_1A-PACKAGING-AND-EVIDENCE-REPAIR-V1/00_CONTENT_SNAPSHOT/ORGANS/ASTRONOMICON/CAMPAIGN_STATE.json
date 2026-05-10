@@ -1,0 +1,11 @@
+{
+  "status": "READ_ROUTE_SCAFFOLD_0_1",
+  "current_focus": "Explorer v1_0A repair is current",
+  "explorer_baseline_status": "Explorer 1.0 final baseline pending Speculum approval",
+  "organs_status": "ORGAN_SCAFFOLD_0_1",
+  "sanctum": "BLOCKED",
+  "aquarium": "BLOCKED",
+  "e2e": "BLOCKED",
+  "throne": "BLOCKED",
+  "next_allowed_action_after_this_task": "Speculum review of foundation bundle"
+}

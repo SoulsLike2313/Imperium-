@@ -1,0 +1,72 @@
+[
+  {
+    "task_or_folder": "_MANUAL_PROOFS",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\_MANUAL_PROOFS",
+    "executor_type": "MANUAL_OWNER",
+    "artifact_kind": "manual_proof",
+    "last_write_time": "2026-05-08T19:16:14.5123307+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING",
+    "executor_type": "PC_SERVITOR",
+    "artifact_kind": "task_artifact",
+    "last_write_time": "2026-05-08T17:18:18.4780345+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR",
+    "executor_type": "PC_SERVITOR",
+    "artifact_kind": "root_hygiene",
+    "last_write_time": "2026-05-08T17:31:48.4341835+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0005-FOLDER-SEMANTIC-MAP-V1",
+    "executor_type": "PC_SERVITOR",
+    "artifact_kind": "semantic_map",
+    "last_write_time": "2026-05-08T18:20:29.2790844+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP",
+    "executor_type": "VM2_SERVITOR_OR_VM2_STAGE",
+    "artifact_kind": "vm2_worker_room_bootstrap",
+    "last_write_time": "2026-05-08T18:30:21.3315255+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0008-VM2-LEGACY-INBOX-REPAIR",
+    "executor_type": "VM2_SERVITOR_OR_VM2_STAGE",
+    "artifact_kind": "vm2_stage_bundle_task",
+    "last_write_time": "2026-05-08T19:09:36.2340833+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION",
+    "executor_type": "VM2_SERVITOR_OR_VM2_STAGE",
+    "artifact_kind": "python_tool_registration",
+    "last_write_time": "2026-05-08T19:12:39.5519579+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST",
+    "executor_type": "VM2_SERVITOR_OR_VM2_STAGE",
+    "artifact_kind": "python_tool_smoke_test",
+    "last_write_time": "2026-05-08T19:14:45.2876775+03:00"
+  },
+  {
+    "task_or_folder": "TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1",
+    "executor_type": "UNKNOWN",
+    "artifact_kind": "task_artifact",
+    "last_write_time": "2026-05-08T19:31:00.6246665+03:00"
+  },
+  {
+    "task_or_folder": "TASK-TEST-VM2-PYTHON-SEND",
+    "path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-TEST-VM2-PYTHON-SEND",
+    "executor_type": "VM2_SERVITOR_OR_VM2_STAGE",
+    "artifact_kind": "task_artifact",
+    "last_write_time": "2026-05-08T19:13:04.3953983+03:00"
+  }
+]

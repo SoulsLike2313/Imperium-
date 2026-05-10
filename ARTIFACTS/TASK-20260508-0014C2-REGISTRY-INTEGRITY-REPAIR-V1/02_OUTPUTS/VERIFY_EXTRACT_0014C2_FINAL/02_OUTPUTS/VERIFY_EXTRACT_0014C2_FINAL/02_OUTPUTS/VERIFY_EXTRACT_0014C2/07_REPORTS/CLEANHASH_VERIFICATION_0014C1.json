@@ -1,0 +1,14 @@
+{
+  "external_sha_match": true,
+  "internal_sha_all_match": true,
+  "manifest_hash_entry_pass": true,
+  "sha_paths_safe": true,
+  "zip_paths_safe": true,
+  "explorer_summary_exit": 0,
+  "explorer_map_exit": 0,
+  "registry_parse_status": "PASS",
+  "python_compile_pass": true,
+  "sha256sum_cli_available": false,
+  "sha256sum_cli_check_executed": false,
+  "status": "PASS"
+}

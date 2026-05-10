@@ -1,0 +1,20 @@
+{
+  "root": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS",
+  "exists": true,
+  "folders": [
+    {
+      "folder": "SANCTUM-SMOKE-20260509-150325",
+      "path": "E:\\IMPERIUM\\SANCTUM\\SCREENSHOTS\\SANCTUM-SMOKE-20260509-150325",
+      "png_count": 5,
+      "report_json_files": [
+        "SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK_REPORT.json"
+      ],
+      "report_md_files": [
+        "SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK_REPORT.md"
+      ],
+      "latest_smoke_verdict": "PASS_SANCTUM_V0_1_SMOKE_SCREENSHOT_CHECK",
+      "file_count_total": 9
+    }
+  ],
+  "missing_marker": null
+}

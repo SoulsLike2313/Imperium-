@@ -1,0 +1,201 @@
+{
+  "schema_version": "DOCTRINARIUM_DASHBOARD_V0_8_HANDOFF_MANIFEST",
+  "task_id": "MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF",
+  "created_at": "2026-05-09T19:23:42.2937154Z",
+  "root": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF",
+  "file_count": 32,
+  "files": [
+    {
+      "relative_path": "FILES\\DASHBOARD_MANIFEST_V0_8.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\DASHBOARD_MANIFEST_V0_8.json",
+      "size_bytes": 2941,
+      "sha256": "4e5985993ea8c24118a8c3b5d0c2ddef70c74f0e5b474260ea3fe4d9ac1d6e26"
+    },
+    {
+      "relative_path": "FILES\\DASHBOARD_REGISTRY.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\DASHBOARD_REGISTRY.json",
+      "size_bytes": 1011,
+      "sha256": "4d990f858b964e8a0333efc45f7b88b4ec268c63d474cd8be006e39431c8f961"
+    },
+    {
+      "relative_path": "FILES\\DASHBOARD_SHA256SUMS_V0_8.txt",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\DASHBOARD_SHA256SUMS_V0_8.txt",
+      "size_bytes": 693,
+      "sha256": "e3d2ffd8ce6f78ea231a06647f6aafe82fca4b7725f17b3a3d131ae08b9ed2e5"
+    },
+    {
+      "relative_path": "FILES\\DASHBOARD_STATUS_V0_8_TECHNICAL.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\DASHBOARD_STATUS_V0_8_TECHNICAL.json",
+      "size_bytes": 1861,
+      "sha256": "fc1c7422420c44747086d6ba8a9a8f7c36817b0fc58d24ca2af866a994b88b32"
+    },
+    {
+      "relative_path": "FILES\\DASHBOARD_STATUS_V0_8.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\DASHBOARD_STATUS_V0_8.json",
+      "size_bytes": 674,
+      "sha256": "3dacd96a5c45d89d8b019d56b8cefb0a7c4557182638e90b36539337b78c60cf"
+    },
+    {
+      "relative_path": "FILES\\dashboard_v0_8_technical_registration_receipt.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\dashboard_v0_8_technical_registration_receipt.json",
+      "size_bytes": 1837,
+      "sha256": "590478bc2f85162a30229731157f1043401495ff9fa8289083b6822e27abda9a"
+    },
+    {
+      "relative_path": "FILES\\launch_doctrinarium_dashboard_v0_8.ps1",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\launch_doctrinarium_dashboard_v0_8.ps1",
+      "size_bytes": 449,
+      "sha256": "3305c3694888db3b130fb08a38e15555c1404dc26f4bec13d0846264ca1ee7b6"
+    },
+    {
+      "relative_path": "FILES\\ORGAN_UTILITY.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\ORGAN_UTILITY.json",
+      "size_bytes": 1791,
+      "sha256": "fd74760415731b47c2febb3e493f7ca9985039c2945a59bb5d14c3e6ef4e2cfe"
+    },
+    {
+      "relative_path": "FILES\\SCRIPT_BACKING_MAP.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\SCRIPT_BACKING_MAP.json",
+      "size_bytes": 2445,
+      "sha256": "7ab06c0d505f6e62ad48a9a1bb88558fced07b5060ae4e52e4dc5127723504ed"
+    },
+    {
+      "relative_path": "FILES\\WORKBENCH_STATUS.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\FILES\\WORKBENCH_STATUS.json",
+      "size_bytes": 623,
+      "sha256": "7659c44fe43490ec47290060ec30590caa8400196c1fcf8eb7ed802d19c92d2a"
+    },
+    {
+      "relative_path": "OWNER_SUMMARY\\OWNER_SUMMARY_DOCTRINARIUM_DASHBOARD_V0_8.md",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\OWNER_SUMMARY\\OWNER_SUMMARY_DOCTRINARIUM_DASHBOARD_V0_8.md",
+      "size_bytes": 1792,
+      "sha256": "0180943cd59124e3efe23ec6c1a09fd6dd86114e97f685834695047f12932dec"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.json",
+      "size_bytes": 5843,
+      "sha256": "649f6f58c9a86b53a6549b0558e2f7d644f190da9b1678b9c0d44271558f5c33"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.md",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\PLAYWRIGHT_AUDIT_V0_8_REPORT.md",
+      "size_bytes": 3433,
+      "sha256": "4b42bec5964b460c05deef171b396c041b63b46a9fbe1a46408ae68aff4abae9"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\01_dashboard_initial.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\01_dashboard_initial.png",
+      "size_bytes": 385586,
+      "sha256": "e4674dfe195c4fedb55aaeec49ad551981c270635f901049e5a2a96fad1ecb12"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\02_laws_codex.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\02_laws_codex.png",
+      "size_bytes": 363349,
+      "sha256": "f3ba603aaba03acf1e97e226dfe175b80ec69b638d4ad3b2095a5b3987898e49"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\03_organ_health.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\03_organ_health.png",
+      "size_bytes": 338351,
+      "sha256": "90969d01369151ccfad5af8f8af1c8eac216784350be9e0bb84a97659c008540"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\04_organ_detail_drawer.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\04_organ_detail_drawer.png",
+      "size_bytes": 445569,
+      "sha256": "6608c2f8b714538313265af7917f16afc228d710e8cdc3e45dc16c8b70008e13"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\05_major_gaps.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\05_major_gaps.png",
+      "size_bytes": 276783,
+      "sha256": "781cca500d40d5a9ddf471f8b27c7aa843992647d3c688a2c44a59f6eeb8692d"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\06_utility_matrix.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\06_utility_matrix.png",
+      "size_bytes": 306268,
+      "sha256": "f917215ed68cae739eaa04f8db1be377cffcdd8d4b293640fcaa9767139800de"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\07_priority_fixes.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\07_priority_fixes.png",
+      "size_bytes": 344495,
+      "sha256": "d5f569b8f0c39e23333e54865a68572ebf708ac40e2210c7a692d9496f4fce28"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\07_priority_fixes.zip",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\07_priority_fixes.zip",
+      "size_bytes": 3671339,
+      "sha256": "292b6da575430d59fcd327a7f3b7000b3de356e02f3c4adda53783c6203cd7ea"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\08_risk_matrix.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\08_risk_matrix.png",
+      "size_bytes": 313611,
+      "sha256": "0046496aed96da08bca6d05d6ef83af0f8ec5f560dc90a277784dfc72581dd01"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\09_paths.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\09_paths.png",
+      "size_bytes": 272402,
+      "sha256": "a1368d6813dcff8b513c019d318c1eaf5492d0216a22e297f7ab5bc5aefdc7a5"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\10_after_reload_data.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\10_after_reload_data.png",
+      "size_bytes": 274746,
+      "sha256": "34f2849cbde935561d060b811f17c513122beb890a91d35ac80f79b48ba2770b"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\11_dashboard_return.png",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\11_dashboard_return.png",
+      "size_bytes": 336197,
+      "sha256": "a43eb78a58af65a02064401b35d6200c7747bafa162aa231a3982a98a0ba9e79"
+    },
+    {
+      "relative_path": "PLAYWRIGHT_AUDIT\\screenshots\\11_dashboard_return.zip",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\PLAYWRIGHT_AUDIT\\screenshots\\11_dashboard_return.zip",
+      "size_bytes": 3623185,
+      "sha256": "123f20b7bfaa933e202c72e1ad0c68f35d7f93cbde699ad9b9c44fa950a4952b"
+    },
+    {
+      "relative_path": "REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\ALL_ORGANS_GAP_REPORT.json",
+      "size_bytes": 35438,
+      "sha256": "e9b6ddbf32b91cab258cc4bd1fb01d89531c15ed57147e46359c5c86b33bd5d7"
+    },
+    {
+      "relative_path": "REPORTS\\ALL_ORGANS_GAP_REPORT.md",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\ALL_ORGANS_GAP_REPORT.md",
+      "size_bytes": 3153,
+      "sha256": "67ce6abfbcf19eb61ce0934a95a05482b1df1555f28925c2c10ed925483b6c6b"
+    },
+    {
+      "relative_path": "REPORTS\\DOCTRINARIUM_STATUS_REPORT.md",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\DOCTRINARIUM_STATUS_REPORT.md",
+      "size_bytes": 830,
+      "sha256": "f885cfa2f6e5b821921f8538a3b33c678f408cf0a58d88a0bd488a50ef81a21c"
+    },
+    {
+      "relative_path": "REPORTS\\DOCTRINARIUM_STATUS.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\DOCTRINARIUM_STATUS.json",
+      "size_bytes": 2672,
+      "sha256": "7628276e45f092aa25e30126b48c1e768eaffaceae3e171da9b0f553efcb2452"
+    },
+    {
+      "relative_path": "REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.json",
+      "size_bytes": 9170,
+      "sha256": "9087612bbf156d133fb57eba36ed015e7ce80b3ab8ca10dcc06ab7c9541178a6"
+    },
+    {
+      "relative_path": "REPORTS\\ORGAN_UTILITY_GAP_REPORT.md",
+      "full_path": "E:\\IMPERIUM\\ARTIFACTS\\MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF\\REPORTS\\ORGAN_UTILITY_GAP_REPORT.md",
+      "size_bytes": 1740,
+      "sha256": "f786a34c0a8da461d8ed6c3e26cd3e543bd3e8e6e9cc05242225728684910420"
+    }
+  ]
+}

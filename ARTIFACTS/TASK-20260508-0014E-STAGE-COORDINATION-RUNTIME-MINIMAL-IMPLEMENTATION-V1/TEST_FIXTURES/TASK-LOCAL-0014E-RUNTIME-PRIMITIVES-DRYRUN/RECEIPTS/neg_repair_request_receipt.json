@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-NEG-REPAIR",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "STAGE_REPAIR_REQUEST",
+  "timestamp_utc": "2026-05-08T20:37:25Z",
+  "action": "STAGE_REPAIR_REQUEST",
+  "status": "OWNER_DECISION_REQUIRED",
+  "failure_reason": "fatal_error_cannot_auto_repair",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "repair_ref": "OWNER/neg_repair_request.json",
+  "recoverable": false,
+  "requires_owner": true
+}

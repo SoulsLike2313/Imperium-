@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "STAGE_LIFECYCLE",
+  "type": "object",
+  "required": [
+    "task_id",
+    "run_id",
+    "stages"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage_id",
+          "executor",
+          "validation_result",
+          "next_allowed_action"
+        ],
+        "properties": {
+          "stage_id": {
+            "type": "string"
+          },
+          "stage_title": {
+            "type": "string"
+          },
+          "executor": {
+            "type": "string"
+          },
+          "run_id": {
+            "type": "string"
+          },
+          "started_at": {
+            "type": "string"
+          },
+          "ended_at": {
+            "type": "string"
+          },
+          "duration_sec": {
+            "type": "number"
+          },
+          "files_read": {
+            "type": "integer"
+          },
+          "files_written": {
+            "type": "integer"
+          },
+          "scripts_run": {
+            "type": "integer"
+          },
+          "bugs_found": {
+            "type": "integer"
+          },
+          "fixes_made": {
+            "type": "integer"
+          },
+          "repair_attempts": {
+            "type": "integer"
+          },
+          "validation_result": {
+            "type": "string"
+          },
+          "risk_score": {
+            "type": "number"
+          },
+          "confidence_score": {
+            "type": "number"
+          },
+          "evidence_completeness_score": {
+            "type": "number"
+          },
+          "owner_approval_required": {
+            "type": "boolean"
+          },
+          "next_allowed_action": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

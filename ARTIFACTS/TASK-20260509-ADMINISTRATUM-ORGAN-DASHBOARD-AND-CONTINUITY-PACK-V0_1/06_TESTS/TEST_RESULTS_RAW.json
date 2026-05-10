@@ -1,0 +1,84 @@
+{
+  "compile": [
+    {
+      "file": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "file": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
+      "ok": true,
+      "exit_code": 0
+    },
+    {
+      "file": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\dashboard_server.py",
+      "ok": true,
+      "exit_code": 0
+    }
+  ],
+  "node_check": {
+    "exists": true,
+    "checked": true,
+    "ok": true,
+    "exit_code": 0,
+    "output": ""
+  },
+  "cli_build": {
+    "exit_code": 0,
+    "ok": true,
+    "output": "{\r\n  \"ok\": true,\r\n  \"pack_id\": \"CONTINUITY_PACK_20260509_225155\",\r\n  \"pack_path\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\PACKS\\\\CONTINUITY_PACK_20260509_225155\",\r\n  \"build_receipt\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\PACKS\\\\CONTINUITY_PACK_20260509_225155\\\\BUILD_RECEIPT.json\",\r\n  \"manifest_path\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\PACKS\\\\CONTINUITY_PACK_20260509_225155\\\\MANIFEST.json\",\r\n  \"sha256sums_path\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\PACKS\\\\CONTINUITY_PACK_20260509_225155\\\\SHA256SUMS.txt\",\r\n  \"verdict\": \"PASS_WITH_LIMITATIONS\"\r\n}\r\n",
+    "pack_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155",
+    "required_files": [
+      {
+        "file": "CONTINUITY_PACK.json",
+        "exists": true,
+        "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155\\CONTINUITY_PACK.json"
+      },
+      {
+        "file": "CONTINUITY_PACK.md",
+        "exists": true,
+        "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155\\CONTINUITY_PACK.md"
+      },
+      {
+        "file": "ENTRYPOINT_FOR_NEW_CHAT.md",
+        "exists": true,
+        "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155\\ENTRYPOINT_FOR_NEW_CHAT.md"
+      },
+      {
+        "file": "MANIFEST.json",
+        "exists": true,
+        "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155\\MANIFEST.json"
+      },
+      {
+        "file": "SHA256SUMS.txt",
+        "exists": true,
+        "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155\\SHA256SUMS.txt"
+      },
+      {
+        "file": "BUILD_RECEIPT.json",
+        "exists": true,
+        "path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS\\CONTINUITY_PACK_20260509_225155\\BUILD_RECEIPT.json"
+      }
+    ]
+  },
+  "cli_compare": {
+    "exit_code": 0,
+    "ok": true,
+    "output": "{\r\n  \"ok\": true,\r\n  \"comparison_json\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\COMPARISONS\\\\CONTINUITY_COMPARISON_20260509_225155.json\",\r\n  \"comparison_md\": \"E:\\\\IMPERIUM\\\\ORGANS\\\\ADMINISTRATUM\\\\CONTINUITY\\\\COMPARISONS\\\\CONTINUITY_COMPARISON_20260509_225155.md\",\r\n  \"verdict\": \"PASS_CONTINUITY_PACK_BUILT_AND_COMPARED_WITH_LIMITATIONS\"\r\n}\r\n",
+    "comparison_json": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS\\CONTINUITY_COMPARISON_20260509_225155.json",
+    "comparison_md": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS\\CONTINUITY_COMPARISON_20260509_225155.md",
+    "verdict": "PASS_CONTINUITY_PACK_BUILT_AND_COMPARED_WITH_LIMITATIONS"
+  },
+  "dashboard_api": {
+    "get_status": 200,
+    "get_ok": true,
+    "get_body_ok": true,
+    "post_status": 200,
+    "post_ok": true,
+    "post_body_snippet": "{\n  \"ok\": true,\n  \"build_exit_code\": 0,\n  \"build_stdout\": \"{\\n  \\\"ok\\\": true,\\n  \\\"pack_id\\\": \\\"CONTINUITY_PACK_20260509_225158\\\",\\n  \\\"pack_path\\\": \\\"E:\\\\\\\\IMPERIUM\\\\\\\\ORGANS\\\\\\\\ADMINISTRATUM\\\\\\\\CONTINUITY\\\\\\\\PACKS\\\\\\\\CONTINUITY_PACK_20260509_225158\\\",\\n  \\\"build_receipt\\\": \\\"E:\\\\\\\\IMPERIUM\\\\\\\\ORGANS\\\\\\\\ADMINISTRATUM\\\\\\\\CONTINUITY\\\\\\\\PACKS\\\\\\\\CONTINUITY_PACK_20260509_225158\\\\\\\\BUILD_RECEIPT.json\\\",\\n  \\\"manifest_path\\\": \\\"E:\\\\\\\\IMPERIUM\\\\\\\\ORGANS\\\\\\\\ADMINISTRATUM\\\\\\\\CONTINUITY\\\\\\\\PACKS\\\\\\\\CONTI"
+  },
+  "playwright": {
+    "available": true,
+    "check": "playwright command exists"
+  }
+}

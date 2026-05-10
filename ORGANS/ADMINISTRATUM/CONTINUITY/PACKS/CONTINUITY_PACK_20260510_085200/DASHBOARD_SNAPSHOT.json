@@ -1,0 +1,27 @@
+{
+  "schema_version": "ADMINISTRATUM_DASHBOARD_SNAPSHOT_V0_1",
+  "generated_at": "2026-05-10T05:52:00.926165+00:00",
+  "dashboards": [
+    {
+      "organ_id": "ADMINISTRATUM",
+      "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
+      "version": null,
+      "status": null,
+      "url": null,
+      "launcher_path": null,
+      "registry_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\DASHBOARD_REGISTRY.json"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "dashboard_id": "DOCTRINARIUM_WEB_DASHBOARD_V0_8",
+      "version": null,
+      "status": null,
+      "url": null,
+      "launcher_path": null,
+      "registry_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\DASHBOARD_REGISTRY.json"
+    }
+  ],
+  "summary": {
+    "total_dashboards": 2
+  }
+}

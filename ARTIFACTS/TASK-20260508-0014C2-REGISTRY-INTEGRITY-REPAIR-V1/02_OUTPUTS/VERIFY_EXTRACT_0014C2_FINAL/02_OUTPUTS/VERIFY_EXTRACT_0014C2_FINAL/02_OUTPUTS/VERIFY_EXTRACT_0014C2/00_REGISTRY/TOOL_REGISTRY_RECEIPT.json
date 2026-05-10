@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+  "producer_type": "PC_SERVITOR",
+  "producer_id": "PC-SERVITOR-0014C2",
+  "created_at_utc": "2026-05-08T19:18:14Z",
+  "tools_root": "e:\\IMPERIUM\\ARTIFACTS\\TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+  "files_scanned": 486,
+  "active_tools_count": 15,
+  "legacy_candidates_count": 6,
+  "registry_sha256": "75bb7fc02e42b82f088b92e71cc2c9141f24f51730646833fd71ce600be820b5",
+  "status": "PASS",
+  "warnings": []
+}

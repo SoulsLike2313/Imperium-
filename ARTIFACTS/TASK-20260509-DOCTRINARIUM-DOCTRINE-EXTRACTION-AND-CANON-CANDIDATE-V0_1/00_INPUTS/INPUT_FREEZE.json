@@ -1,0 +1,21 @@
+{
+  "schema_version": "INPUT_FREEZE_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1",
+  "run_id": "RUN-20260509-190325-8cc655e4",
+  "root_path": "E:\\IMPERIUM",
+  "allowed_search_areas": [
+    "E:\\IMPERIUM\\OBSERVED",
+    "E:\\IMPERIUM\\ORGANS",
+    "E:\\IMPERIUM\\ARTIFACTS"
+  ],
+  "forbidden_areas": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "target_doctrine_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE",
+  "mode": "DOCTRINE_EXTRACTION_CANON_CANDIDATE",
+  "no_fake_canon_rule": true,
+  "owner_review_required_rule": true,
+  "created_at": "2026-05-09T16:03:49.6308069Z"
+}

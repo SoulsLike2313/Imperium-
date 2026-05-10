@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK-LOCAL-0014E-RUNTIME-PRIMITIVES-DRYRUN",
+  "stage_id": "STAGE-001",
+  "run_id": "RUN-0001",
+  "contour_id": "LOCAL_TEST",
+  "actor_id": "ACTOR-PC-SERVITOR",
+  "tool_id": "LEDGER_REPLAY_VERIFY",
+  "timestamp_utc": "2026-05-08T20:37:24Z",
+  "action": "LEDGER_REPLAY_VERIFY",
+  "status": "FAIL",
+  "failure_reason": "event_hash_mismatch:EVT-2514f8e0-d811-42bd-a406-1725de823dba;previous_event_hash_mismatch:EVT-17a838a5-03fc-4003-afe9-0db69934158c",
+  "no_vm2_contact": true,
+  "no_real_e2e": true,
+  "no_throne": true,
+  "no_watchers": true,
+  "no_latest": true,
+  "events_count": 4,
+  "parse_errors": [],
+  "chain_errors": [
+    "event_hash_mismatch:EVT-2514f8e0-d811-42bd-a406-1725de823dba",
+    "previous_event_hash_mismatch:EVT-17a838a5-03fc-4003-afe9-0db69934158c"
+  ],
+  "conflicts": []
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-MANUAL-BUILD-FOUNDATION-AND-TASK-CONTINUITY-V1",
+  "run_id": "RUN-20260509-SANCTUM-FOUNDATION-0001",
+  "stage_number": 10,
+  "stage_id": "SPECULUM-STAGE-001",
+  "stage_title": "PLANNED_SPECULUM_REVIEW_STAGE",
+  "status": "PLANNED_ONLY_NOT_EXECUTED",
+  "created_at_local": "2026-05-09T14:37:43",
+  "validation_result": "NOT_RUN",
+  "repair_attempts": 0,
+  "max_repair_attempts": 2,
+  "next_allowed_action": "OWNER_DECISION_NEXT_TASK",
+  "owner_approval_required": true,
+  "owner_approval_reason": "Speculum review stage requires Owner scheduling."
+}

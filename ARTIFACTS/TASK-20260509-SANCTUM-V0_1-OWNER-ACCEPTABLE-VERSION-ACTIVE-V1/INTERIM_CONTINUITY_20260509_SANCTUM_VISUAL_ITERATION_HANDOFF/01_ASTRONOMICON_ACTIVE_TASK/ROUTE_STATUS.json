@@ -1,0 +1,8 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "route_status": "ACTIVE_OWNER_MANUAL_BUILD",
+  "current_stage": "PC-STAGE-001",
+  "next_allowed_action": "CONTINUE_MANUAL_SANCTUM_ITERATION",
+  "updated_at_local": "2026-05-09T15:08:39"
+}

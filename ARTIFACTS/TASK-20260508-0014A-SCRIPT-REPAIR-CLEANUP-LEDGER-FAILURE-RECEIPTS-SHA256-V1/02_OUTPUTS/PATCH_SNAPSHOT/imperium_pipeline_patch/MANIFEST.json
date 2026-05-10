@@ -1,0 +1,124 @@
+{
+  "manifest_id": "TASK-20260508-0014A-PATCH-MANIFEST-V1",
+  "task_id": "TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1",
+  "tool_root": "E:\\IMPERIUM\\SSH_COMMAND_LIBRARY\\06_TOOLS\\imperium_pipeline",
+  "generated_at_utc": "2026-05-08T17:52:08Z",
+  "file_count": 22,
+  "files": [
+    {
+      "relative_path": "send_prompt_to_vm2.py",
+      "size_bytes": 12891,
+      "sha256": "58e73287fd8a86f7bef8dedc6c1b6df71b0820821b917ae591f9c083c2f7af22"
+    },
+    {
+      "relative_path": "fetch_vm2_stage_bundle.py",
+      "size_bytes": 18665,
+      "sha256": "e0352bef327d7b168caff648c1bb3adf4180d15da7900666a8e928c7ab77915f"
+    },
+    {
+      "relative_path": "task_status_append.py",
+      "size_bytes": 4902,
+      "sha256": "2683e5ae9126de064b0559f425d9dd80b7a426a3752292a76e7ab7020fe5971c"
+    },
+    {
+      "relative_path": "task_status_view.py",
+      "size_bytes": 3466,
+      "sha256": "ecd06d55d8e9172c35b0eec5cab495f6cd5388f6bc2847fd2b64e553abf028ee"
+    },
+    {
+      "relative_path": "barrier_verify.py",
+      "size_bytes": 15110,
+      "sha256": "8361fbcd005e9cbbb604114c1dcf1c9234fa3827a69d6840b18719ee76914981"
+    },
+    {
+      "relative_path": "final_bundle_assemble.py",
+      "size_bytes": 13752,
+      "sha256": "2553d0507fdd3744c176afbf24dbeb928ff85887a251031185144aa93825b73e"
+    },
+    {
+      "relative_path": "lib/id_validation.py",
+      "size_bytes": 3099,
+      "sha256": "e15e4a40770eb5b58bb98fedb642cda56d7d03ba083f0a3412108e695cc68613"
+    },
+    {
+      "relative_path": "lib/sha256_utils.py",
+      "size_bytes": 2250,
+      "sha256": "b06f7864d95cf90fa8dfda438b8a5f7eb821c4e28f15f963e25e2bcbd4a97357"
+    },
+    {
+      "relative_path": "lib/manifest_utils.py",
+      "size_bytes": 2504,
+      "sha256": "dd2d078ad1f70bde949fac1d6d2a3b28bc41e3105bd3ed117693e48b395ee248"
+    },
+    {
+      "relative_path": "lib/provenance_utils.py",
+      "size_bytes": 6476,
+      "sha256": "5e9271c3a451b91412ba565cc1c03595a2ff99555a633740b5a6681f9e30b2c1"
+    },
+    {
+      "relative_path": "lib/ledger_utils.py",
+      "size_bytes": 5544,
+      "sha256": "5d653711a9e08133256a4b8725a6d9cd74a51d678e64ba73b866db5f4212e608"
+    },
+    {
+      "relative_path": "lib/owner_report.py",
+      "size_bytes": 1656,
+      "sha256": "89448ef76d853c9da6da5322dd79cd8537cb1f2411dbf36f200f299bc9197f04"
+    },
+    {
+      "relative_path": "lib/path_safety.py",
+      "size_bytes": 1043,
+      "sha256": "37d6a4423eb7647d04ef6a77bd33b5294efc5e5b8d89b685ea7a089de33f4a78"
+    },
+    {
+      "relative_path": "UPDATED_SCRIPT_ACCEPTANCE_TESTS.md",
+      "size_bytes": 1286,
+      "sha256": "1c8b5fdd494add01c74579ab4da33544303c2b731199ab1a37ef52bb134f4c5d"
+    },
+    {
+      "relative_path": "REPAIR_TEST_RESULTS.md",
+      "size_bytes": 2151,
+      "sha256": "f02d3f3307a4678a1b67f7cc21a3605ee8dbc3f0c85b6e58c2c8fe41e634e4d1"
+    },
+    {
+      "relative_path": "TOOL_LAYOUT_RECEIPT.json",
+      "size_bytes": 1087,
+      "sha256": "29e7672a5cc072382d5c56c1bd79379eac041281f74bd708bb6abb7568e16301"
+    },
+    {
+      "relative_path": "TOOLS_INDEX.md",
+      "size_bytes": 1952,
+      "sha256": "a6c8b6b483c6974b72bb027442d0588f2c576686874cb4a0b7dcd7ff9e24be7b"
+    },
+    {
+      "relative_path": "OWNER_SUMMARY.md",
+      "size_bytes": 666,
+      "sha256": "3353c9354b4244751d4a8d9de04c0a531b55eebaa88877b20c4ca1d6705414b8"
+    },
+    {
+      "relative_path": "SPECULUM_REVIEW_REQUEST.md",
+      "size_bytes": 740,
+      "sha256": "697e8229cb0a489cbcf342ed0c71b84e65c5f263e5caa16bb7fb7fcbf6787e95"
+    },
+    {
+      "relative_path": "AGENT_FINAL_RESPONSE.txt",
+      "size_bytes": 930,
+      "sha256": "439a5fd06e38232c5f63d85ceeca7b7a0c942b36bf7288f45c71fae24ba7b2b9"
+    },
+    {
+      "relative_path": "MANIFEST.json",
+      "size_bytes": 4008,
+      "sha256": "07333824773d5c56cd4c897adb0f350151369980df863a4e3ce5fb43b96e669c"
+    },
+    {
+      "relative_path": "SHA256SUMS.txt",
+      "size_bytes": 1867,
+      "sha256": "e0040ac36a17710d9e9d22d81eb9a4e45dbb13a00656e16b2642120ee4400ca6"
+    }
+  ],
+  "notes": [
+    "Focused repair patch bundle for TASK-0014A.",
+    "No E2E execution performed.",
+    "SHA256SUMS excludes self-hash for machine-check validation."
+  ]
+}

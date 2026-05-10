@@ -1,0 +1,52 @@
+{
+  "schema_version": "INPUT_FREEZE_V0_1",
+  "task_id": "TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+  "run_id": "RUN-20260509-194205-0bc839f4",
+  "root_path": "E:\\IMPERIUM",
+  "doctrine_files_found": [
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\PASSPORT_OF_EMPEROR.md",
+      "sha256": "e0cc26bbb428d7e8a26363688cd2b7ee2c6d51959cfdcdd016b3a7edfb90b9bf",
+      "size_bytes": 13197
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CONSTITUTION_OF_IMPERIUM.md",
+      "sha256": "84572f43f701236e8cf7010e70a622e6a1f6068e8a9b0510bb91ff9eb828da2c",
+      "size_bytes": 19342
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\CODEX_IMPERIUM.md",
+      "sha256": "93d846c358f7372e815aa4a250b07a9ae15055c6be3ccb725d6d0f5c18bd9014",
+      "size_bytes": 19353
+    },
+    {
+      "path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json",
+      "sha256": "75a46f3ec60d5ac0cf89a30715591891c3d17fc6a978ba7e221048d3f3970a73",
+      "size_bytes": 5990
+    }
+  ],
+  "doctrine_index_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\DOCTRINE\\DOCTRINE_INDEX.json",
+  "allowed_write_areas": [
+    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
+    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM"
+  ],
+  "forbidden_areas": [
+    "E:\\IMPERIUM\\ARCHIVE",
+    "E:\\IMPERIUM\\SANCTUM",
+    "E:\\IMPERIUM\\THRONE"
+  ],
+  "no_sanctum_policy": true,
+  "no_archive_scan_policy": true,
+  "no_vm2_policy": true,
+  "no_throne_policy": true,
+  "no_gui_policy": true,
+  "expected_final_verdicts": [
+    "PASS_DOCTRINARIUM_SCAFFOLD_V0_1_WITH_EXPECTED_ORGAN_ERRORS",
+    "PASS_BOOTSTRAP_ONLY",
+    "OWNER_DECISION_REQUIRED_FOR_CANON_DOCTRINE",
+    "REPAIR_REQUIRED",
+    "BLOCKED",
+    "FAIL_PROTOCOL_VIOLATION"
+  ],
+  "created_at": "2026-05-09T16:42:39.0577222Z"
+}

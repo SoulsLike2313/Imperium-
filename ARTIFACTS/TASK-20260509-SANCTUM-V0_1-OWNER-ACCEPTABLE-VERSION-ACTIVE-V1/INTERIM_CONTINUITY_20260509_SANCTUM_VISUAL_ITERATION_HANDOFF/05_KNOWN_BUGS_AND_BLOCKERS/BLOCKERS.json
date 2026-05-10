@@ -1,0 +1,11 @@
+{
+  "task_id": "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+  "run_id": "RUN-20260509-SANCTUM-OWNER-ACCEPTANCE-0001",
+  "primary_blocker": "SANCTUM_V0_27_FLICKER_AND_OCCASIONAL_BLANK_MAP",
+  "severity": "HIGH_FOR_VISUAL_BASELINE_ACCEPTANCE",
+  "status": "OPEN",
+  "notes": [
+    "visual stability not acceptable yet",
+    "do not proceed to functional stage-tracking buttons"
+  ]
+}
