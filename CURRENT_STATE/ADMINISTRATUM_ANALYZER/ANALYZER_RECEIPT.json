@@ -1,9 +1,9 @@
 ﻿{
     "schema_version":  "ADMINISTRATUM_ANALYZER_RECEIPT_V0_2",
-    "generated_at":  "2026-05-10T11:51:43.8696389+03:00",
+    "generated_at":  "2026-05-10T11:53:49.6191559+03:00",
     "root":  "E:\\IMPERIUM",
     "target":  "FULL_IMPERIUM_SUMMARY",
-    "analyzer_report_commit":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
+    "analyzer_report_commit":  "91495607fb99525de3d5351c18f68becc5d883e2",
     "git_reality_verdict":  "LOCAL_CHANGES_PRESENT",
     "public_memory_ready_for_chat":  true,
     "can_continue_from_git_only":  false,

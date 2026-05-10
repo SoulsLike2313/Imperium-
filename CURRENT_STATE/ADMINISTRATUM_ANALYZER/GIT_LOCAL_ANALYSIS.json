@@ -1,23 +1,23 @@
 ﻿{
     "schema_version":  "IMPERIUM_ADMINISTRATUM_GIT_LOCAL_ANALYSIS_V0_2",
     "task_id":  "TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1",
-    "generated_at":  "2026-05-10T11:51:43.8696389+03:00",
+    "generated_at":  "2026-05-10T11:53:49.6191559+03:00",
     "target":  "FULL_IMPERIUM_SUMMARY",
     "git_reality":  {
                         "root":  "E:\\IMPERIUM",
                         "remote":  "https://github.com/SoulsLike2313/Imperium-.git",
                         "branch":  "master",
-                        "local_head":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
-                        "origin_master_head":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
-                        "upstream_head":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
-                        "ls_remote_master_head":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
+                        "local_head":  "91495607fb99525de3d5351c18f68becc5d883e2",
+                        "origin_master_head":  "91495607fb99525de3d5351c18f68becc5d883e2",
+                        "upstream_head":  "91495607fb99525de3d5351c18f68becc5d883e2",
+                        "ls_remote_master_head":  "91495607fb99525de3d5351c18f68becc5d883e2",
                         "working_tree_clean":  false,
-                        "status_short_count":  39,
+                        "status_short_count":  18,
                         "head_matches_origin_master":  true,
                         "head_matches_ls_remote":  true,
                         "origin_matches_ls_remote":  true,
                         "post_push_reality_check_passed":  true,
-                        "analyzer_report_commit":  "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
+                        "analyzer_report_commit":  "91495607fb99525de3d5351c18f68becc5d883e2",
                         "git_reality_verdict":  "LOCAL_CHANGES_PRESENT",
                         "warnings":  [
 
@@ -93,8 +93,8 @@
                                                    },
                                  "CHAT_COMPILATIONS_LOCAL":  {
                                                                  "exists":  true,
-                                                                 "file_count":  310,
-                                                                 "total_mb":  1.813,
+                                                                 "file_count":  360,
+                                                                 "total_mb":  1.958,
                                                                  "in_git_tracking":  false,
                                                                  "ignored_by_git":  true,
                                                                  "include_policy":  "LOCAL_BUNDLE_OUTPUT",
@@ -145,7 +145,7 @@
                                     "boundary_verdict":  "NEEDS_IGNORE_REPAIR"
                                 },
     "untracked_state":  {
-                            "untracked_count":  39,
+                            "untracked_count":  18,
                             "untracked_paths_summary_file":  "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER\\UNTRACKED_PATHS_SUMMARY_V0_2.txt",
                             "untracked_suspicious_count":  0,
                             "untracked_heavy_count":  4,
