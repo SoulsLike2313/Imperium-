@@ -1,20 +1,24 @@
 # BUNDLE_SYSTEM
 
 ## Model
-- Git = public engineering memory and safe source.
+- Git = public engineering memory.
 - Local PC = private operational memory.
 - Bundle = frozen context/evidence capsule.
 
-## Bundle Types
-- `ARTIFACTS/*`: engineering evidence artifacts.
-- `CHAT_COMPILATIONS_LOCAL/*`: local chat/task context bundles for Owner upload.
+## Analyzer-Driven Policy
+Do not guess bundle content manually.
+- Run analyzer v0.2.
+- Use `recommended_compilation` + `owner_action` + worktree classifier.
+- Include analyzer reports inside bundle.
 
-## Analyzer-Driven Rule
-- Bundle content should be generated from analyzer output.
-- Do not manually guess bundle contents.
-- Analyzer reports must be included in the bundle.
+## Decision Split
+- Git-only when analyzer says `READ_GIT_ONLY`.
+- Build safe bundle when analyzer says `RUN_CHAT_COMPILATION_SAFE`.
+- Require explicit human review when analyzer says `MANUAL_REVIEW_REQUIRED`.
 
-## Safety
-- `CHAT_COMPILATIONS_LOCAL` is local-only and ignored by Git.
-- Default bundle excludes raw secret-bearing data.
-- Private raw context requires explicit Owner approval and allowlist handling.
+## Local-Only Rule
+`CHAT_COMPILATIONS_LOCAL` bundles remain local and are ignored by Git.
+
+## Secret Safety
+Default builder mode excludes raw secret-bearing content.
+Private raw context requires explicit Owner approval and allowlist handling.

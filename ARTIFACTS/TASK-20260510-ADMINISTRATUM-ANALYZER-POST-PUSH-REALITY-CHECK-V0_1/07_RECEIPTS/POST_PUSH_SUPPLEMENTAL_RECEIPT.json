@@ -1,0 +1,13 @@
+{
+  "schema_version": "IMPERIUM_POST_PUSH_SUPPLEMENTAL_RECEIPT_V0_1",
+  "source_task_id": "TASK-20260510-ADMINISTRATUM-ANALYZER-POST-PUSH-REALITY-CHECK-V0_1",
+  "supplemental_task_id": "TASK-20260510-ADMINISTRATUM-ANALYZER-WORKTREE-CLASSIFIER-AND-FINAL-RECEIPT-SYNC-V0_1",
+  "generated_at": "2026-05-10T12:15:38.6145942+03:00",
+  "local_head": "debff5f05787492d19e54f717722c6bc5ca48202",
+  "origin_master_head": "debff5f05787492d19e54f717722c6bc5ca48202",
+  "ls_remote_master_head": "debff5f05787492d19e54f717722c6bc5ca48202",
+  "heads_all_match": true,
+  "previous_final_receipt_head": "79f785a45789a1c6f0dd91a9cc58d403f26692d6",
+  "reason_for_supplement": "Previous final receipt captured pre-final verification heads; supplemental receipt records final verified public head state.",
+  "status": "PASS_WITH_LIMITATIONS"
+}

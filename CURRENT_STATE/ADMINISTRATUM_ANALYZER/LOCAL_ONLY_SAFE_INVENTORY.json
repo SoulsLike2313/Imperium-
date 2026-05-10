@@ -1,6 +1,6 @@
 ﻿{
     "schema_version":  "LOCAL_ONLY_SAFE_INVENTORY_V0_2",
-    "generated_at":  "2026-05-10T11:53:49.6191559+03:00",
+    "generated_at":  "2026-05-10T12:20:21.7163348+03:00",
     "local_private_memory":  {
                                  "SSH_COMMAND_LIBRARY":  {
                                                              "exists":  true,
@@ -10,8 +10,7 @@
                                                              "ignored_by_git":  true,
                                                              "include_policy":  "SAFE_INDEX_ONLY",
                                                              "needed_for_full_summary":  true,
-                                                             "needed_for_vm2":  true,
-                                                             "note":  "RECURSIVE_FILE_COUNT"
+                                                             "needed_for_vm2":  true
                                                          },
                                  "ARCHIVE":  {
                                                  "exists":  true,
@@ -21,8 +20,7 @@
                                                  "ignored_by_git":  true,
                                                  "include_policy":  "TOP_LEVEL_INVENTORY_ONLY",
                                                  "needed_for_full_summary":  false,
-                                                 "needed_for_vm2":  false,
-                                                 "note":  "TOP_LEVEL_ONLY"
+                                                 "needed_for_vm2":  false
                                              },
                                  "BUNDLES_LOCAL":  {
                                                        "exists":  true,
@@ -32,8 +30,7 @@
                                                        "ignored_by_git":  true,
                                                        "include_policy":  "SAFE_INDEX_ONLY",
                                                        "needed_for_full_summary":  true,
-                                                       "needed_for_vm2":  true,
-                                                       "note":  "RECURSIVE_FILE_COUNT"
+                                                       "needed_for_vm2":  true
                                                    },
                                  "PRIVATE_CONTEXT_LOCAL":  {
                                                                "exists":  true,
@@ -43,8 +40,7 @@
                                                                "ignored_by_git":  true,
                                                                "include_policy":  "OWNER_APPROVAL_REQUIRED",
                                                                "needed_for_full_summary":  true,
-                                                               "needed_for_vm2":  true,
-                                                               "note":  "RECURSIVE_FILE_COUNT"
+                                                               "needed_for_vm2":  true
                                                            },
                                  "RUNTIME_LOCAL":  {
                                                        "exists":  true,
@@ -54,8 +50,7 @@
                                                        "ignored_by_git":  true,
                                                        "include_policy":  "EXCLUDE_BY_DEFAULT",
                                                        "needed_for_full_summary":  false,
-                                                       "needed_for_vm2":  false,
-                                                       "note":  "RECURSIVE_FILE_COUNT"
+                                                       "needed_for_vm2":  false
                                                    },
                                  "CHAT_COMPILATIONS_LOCAL":  {
                                                                  "exists":  true,
@@ -65,8 +60,7 @@
                                                                  "ignored_by_git":  true,
                                                                  "include_policy":  "LOCAL_BUNDLE_OUTPUT",
                                                                  "needed_for_full_summary":  true,
-                                                                 "needed_for_vm2":  true,
-                                                                 "note":  "RECURSIVE_FILE_COUNT"
+                                                                 "needed_for_vm2":  true
                                                              },
                                  "OBSERVED/THRONE_REPO_COPY":  {
                                                                    "exists":  true,
@@ -76,8 +70,7 @@
                                                                    "ignored_by_git":  false,
                                                                    "include_policy":  "INDEX_ONLY_NEVER_SYNC",
                                                                    "needed_for_full_summary":  false,
-                                                                   "needed_for_vm2":  false,
-                                                                   "note":  "TOP_LEVEL_ONLY"
+                                                                   "needed_for_vm2":  false
                                                                },
                                  "OBSERVED/VM3_REPO_COPY":  {
                                                                 "exists":  true,
@@ -87,8 +80,7 @@
                                                                 "ignored_by_git":  false,
                                                                 "include_policy":  "INDEX_ONLY",
                                                                 "needed_for_full_summary":  false,
-                                                                "needed_for_vm2":  true,
-                                                                "note":  "TOP_LEVEL_ONLY"
+                                                                "needed_for_vm2":  true
                                                             }
                              },
     "ignored_private_roots":  [

@@ -97,6 +97,8 @@ $analyzerFiles = @(
     "GIT_PUBLIC_MEMORY_SUMMARY.md",
     "GIT_REALITY_REPORT.md",
     "PUBLIC_PRIVATE_BOUNDARY_REPORT.md",
+    "WORKTREE_CLASSIFICATION_REPORT.md",
+    "WORKTREE_CLASSIFICATION.json",
     "OWNER_NEXT_ACTION.md",
     "LAST_VERIFIED_PUBLIC_HEAD.json",
     "ANALYZER_RECEIPT.json"
@@ -279,8 +281,14 @@ if ($analysis -and $analysis.recommended_compilation -and ($analysis.recommended
 if ($analysis -and $analysis.git_reality -and $analysis.git_reality.git_reality_verdict -ne "CLEAN_SYNCED") {
     $warnings.Add("Git reality verdict is '$($analysis.git_reality.git_reality_verdict)'; review sync state before trusting output.")
 }
+if ($analysis -and $analysis.git_reality -and $analysis.git_reality.working_tree_clean -eq $false) {
+    $warnings.Add("Working tree is dirty at analysis time; verify change classification before using bundle as final source.")
+}
 if ($analysis -and $analysis.public_private_boundary -and $analysis.public_private_boundary.boundary_verdict -ne "CLEAN") {
     $warnings.Add("Boundary verdict is '$($analysis.public_private_boundary.boundary_verdict)'; review boundary warnings.")
+}
+if ($analysis -and $analysis.owner_action -and $analysis.owner_action.recommended_owner_action -eq "MANUAL_REVIEW_REQUIRED") {
+    $warnings.Add("Analyzer owner action is MANUAL_REVIEW_REQUIRED; bundle built only as technical output and requires explicit human review.")
 }
 
 # Manifest + hashes

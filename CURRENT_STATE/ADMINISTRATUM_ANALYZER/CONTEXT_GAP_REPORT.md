@@ -13,7 +13,7 @@
 - none
 
 ## Missing Private Owner-Approved Context
-- Owner decision on PRIVATE_CONTEXT_LOCAL allowlist
+- Owner-approved PRIVATE_CONTEXT_LOCAL allowlist decision
 
 ## Recommendation
-- FIX_GIT_SYNC_FIRST
+- recommended_owner_action: MANUAL_REVIEW_REQUIRED

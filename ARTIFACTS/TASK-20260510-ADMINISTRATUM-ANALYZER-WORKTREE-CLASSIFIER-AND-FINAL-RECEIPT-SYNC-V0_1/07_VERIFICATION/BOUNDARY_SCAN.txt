@@ -1,0 +1,4 @@
+suspicious_tracked_paths_count: 0
+suspicious_history_paths_count: 0
+source_tracked_paths_file: CURRENT_STATE/ADMINISTRATUM_ANALYZER/SUSPICIOUS_TRACKED_PATHS_V0_2.txt
+source_history_paths_file: CURRENT_STATE/ADMINISTRATUM_ANALYZER/SUSPICIOUS_HISTORY_PATHS_V0_2.txt

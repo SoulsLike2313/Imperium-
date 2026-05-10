@@ -1,17 +1,12 @@
 ﻿# PUBLIC PRIVATE BOUNDARY REPORT
 
 ## Public in Git
-- Source, docs, receipts, safe indexes, analyzer outputs.
+- Source, docs, status, tools, public artifacts, analyzer outputs.
 
-## Local-only roots
-- SSH_COMMAND_LIBRARY
-- ARCHIVE
-- BUNDLES_LOCAL
-- PRIVATE_CONTEXT_LOCAL
-- RUNTIME_LOCAL
-- CHAT_COMPILATIONS_LOCAL
+## Local-only
+- SSH_COMMAND_LIBRARY, ARCHIVE, BUNDLES_LOCAL, PRIVATE_CONTEXT_LOCAL, RUNTIME_LOCAL, CHAT_COMPILATIONS_LOCAL
 
-## Ignore state
+## Ignore summary
 - ignored_private_roots: SSH_COMMAND_LIBRARY, ARCHIVE, BUNDLES_LOCAL, PRIVATE_CONTEXT_LOCAL, RUNTIME_LOCAL, CHAT_COMPILATIONS_LOCAL
 - not_ignored_private_roots: OBSERVED/THRONE_REPO_COPY, OBSERVED/VM3_REPO_COPY
 
@@ -20,6 +15,6 @@
 - suspicious_history_paths_count: 0
 - boundary_verdict: NEEDS_IGNORE_REPAIR
 
-## Never commit
-- raw keys/tokens/passwords/.env values/private command bodies
+## Must never commit
+- raw keys/tokens/passwords/.env/private command bodies
 - full ARCHIVE and full SSH_COMMAND_LIBRARY content

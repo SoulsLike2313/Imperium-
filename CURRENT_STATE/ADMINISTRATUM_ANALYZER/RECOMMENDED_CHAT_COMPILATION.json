@@ -6,14 +6,14 @@
                                  "README.md",
                                  "START_HERE.md",
                                  "CURRENT_STATE/LAST_POINT_STATE.json",
+                                 "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+                                 "CURRENT_STATE/DO_NOT_DO.md",
                                  "DOCS/REPO_MAP.md",
                                  "DOCS/COMMANDS.md",
                                  "DOCS/BUNDLE_SYSTEM.md",
                                  "DOCS/CHAT_ENTRY_PROTOCOL.md",
                                  "DOCS/PUBLIC_PRIVATE_BOUNDARY.md",
                                  "DOCS/ADMINISTRATUM_OPERATIONAL_AUTHORITY.md",
-                                 "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
-                                 "CURRENT_STATE/DO_NOT_DO.md",
                                  "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json"
                              ],
     "include_artifact_paths":  [
@@ -27,9 +27,7 @@
                                        "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.json",
                                        "CURRENT_STATE/EXCLUDED_LOCAL_SOURCES.md",
                                        "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
-                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_REALITY_REPORT.md",
-                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/CONTEXT_GAP_REPORT.md",
-                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/PUBLIC_PRIVATE_BOUNDARY_REPORT.md",
+                                       "CURRENT_STATE/ADMINISTRATUM_ANALYZER/WORKTREE_CLASSIFICATION_REPORT.md",
                                        "CURRENT_STATE/ADMINISTRATUM_ANALYZER/OWNER_NEXT_ACTION.md"
                                    ],
     "include_private_candidates":  [
@@ -40,8 +38,8 @@
                                    ],
     "owner_approval_required_for":  [
                                         "Any raw private file content",
-                                        "Any VM2 connection/address details",
-                                        "Any file class potentially containing secrets"
+                                        "VM2 connection/address details",
+                                        "Any potential secret-bearing file classes"
                                     ],
     "exclude_always":  [
                            "raw private keys",
@@ -55,8 +53,8 @@
                            "THRONE sync material"
                        ],
     "reasons":  [
-                    "Use analyzer-driven selection instead of manual guessing.",
-                    "Keep default output safe and secret-free.",
-                    "Support Owner-uploaded chat context workflow."
+                    "Analyzer-driven bundle selection",
+                    "Safe default excludes raw secrets",
+                    "Supports Owner-uploaded chat continuity"
                 ]
 }

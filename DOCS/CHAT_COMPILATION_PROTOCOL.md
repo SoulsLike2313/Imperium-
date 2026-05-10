@@ -1,24 +1,28 @@
 # CHAT_COMPILATION_PROTOCOL
 
-## Core Principle
+## Flow
 1. Read Git public memory first.
-2. Run Administratum Analyzer v0.2 with post-push reality check.
-3. Trust analyzer decision on whether Git-only continuation is enough.
-4. If needed, build chat compilation bundle from analyzer recommendation.
-5. Owner uploads zip to chat manually.
+2. Run Administratum Analyzer v0.2 with post-push reality checks.
+3. Inspect:
+   - `GIT_REALITY_REPORT.md`
+   - `WORKTREE_CLASSIFICATION_REPORT.md`
+   - `OWNER_NEXT_ACTION.md`
+4. Only then decide Git-only continuation or bundle build.
 
-## Decision Model
-- Analyzer v0.2 evaluates:
-  - local HEAD vs origin/master vs ls-remote master
-  - public memory completeness
-  - boundary hygiene
-  - context gaps for target (`FULL_IMPERIUM_SUMMARY` or `VM2_WORK`)
-- Bundle builder follows analyzer output instead of manual guessing.
+## Key Rule
+Dirty working tree is not automatically a Git sync failure.
+- If heads mismatch: FIX_GIT_SYNC_FIRST.
+- If heads match but worktree dirty: classify changes and choose commit/ignore/manual review.
+
+## Category Meaning (Worktree)
+- `PUBLIC_COMMIT_CANDIDATE`: safe public changes to commit.
+- `GENERATED_ARTIFACT_CANDIDATE`: analyzer/evidence outputs, commit or ignore by policy.
+- `LOCAL_ONLY_IGNORE_CANDIDATE`: keep local-only, do not commit.
+- `SAFE_UNTRACKED_CANDIDATE`: safe untracked public docs/indexes.
+- `SUSPICIOUS_MANUAL_REVIEW`: manual review required.
+- `PRIVATE_RISK_CANDIDATE`: manual review required; likely private-risk.
 
 ## Safety Defaults
-- Default bundle is safe mode.
-- No raw private keys, tokens, passwords, `.env` values, cookies/sessions, or private command bodies.
+- Bundle builder follows analyzer recommendation.
+- Default bundle never copies raw keys/tokens/passwords/.env/private command bodies.
 - Full `ARCHIVE` and full `SSH_COMMAND_LIBRARY` content are excluded by default.
-
-## Post-Push Trust Rule
-Post-push reality check must pass before treating Git as current trusted public memory.
