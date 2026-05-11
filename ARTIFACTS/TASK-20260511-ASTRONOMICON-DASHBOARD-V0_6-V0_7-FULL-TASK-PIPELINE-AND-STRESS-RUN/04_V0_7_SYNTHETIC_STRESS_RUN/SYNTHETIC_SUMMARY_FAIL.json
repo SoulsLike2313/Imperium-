@@ -1,0 +1,15 @@
+﻿{
+  "schema_version": "ASTRONOMICON_SYNTHETIC_FULL_RUN_SUMMARY_V0_1",
+  "run_mode": "v0_7_stress",
+  "total_synthetic_general_tasks": 0,
+  "total_local_tasks": 0,
+  "total_stage_maps": 0,
+  "total_stages": 0,
+  "imports_passed": 0,
+  "orphans": 0,
+  "blocked_states": 1,
+  "errors": 1,
+  "status": "FAIL_AT_STARTUP",
+  "error": "Write-Utf8Bom empty Content binding failure in synthetic runner startup.",
+  "generated_at": "2026-05-11T12:22:19.1495702+03:00"
+}

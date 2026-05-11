@@ -1,0 +1,6 @@
+﻿[2026-05-11 12:15:07] Input form created: E:\IMPERIUM\ASTRONOMICON\GENERAL_TASKS\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\INPUT\GENERAL_TASK_INPUT.txt
+E:\IMPERIUM\TOOLS\astronomicon_verify_task_id_sync_v0_1.ps1 : Cannot process command because of one or more missing man
+datory parameters: InputPath TaskRoot DashboardTaskId ReceiptPath.
+    + CategoryInfo          : InvalidArgument: (:) [astronomicon_ve...d_sync_v0_1.ps1], ParentContainsErrorRecordExcep 
+   tion
+    + FullyQualifiedErrorId : MissingMandatoryParameter,astronomicon_verify_task_id_sync_v0_1.ps1

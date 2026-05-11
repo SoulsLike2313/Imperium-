@@ -1,0 +1,43 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_ORPHAN_LOCAL_TASK_REFINEMENTS_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "orphans":  [
+                    {
+                        "reason":  "UNKNOWN_local_task_id",
+                        "refinement":  {
+                                           "local_task_id":  "LTASK-999",
+                                           "scope_narrowing":  [
+                                                                   "orphan test"
+                                                               ],
+                                           "technical_execution_risks":  [
+                                                                             "orphan test"
+                                                                         ],
+                                           "missing_inputs":  [
+                                                                  "orphan test"
+                                                              ],
+                                           "required_tools_or_scripts":  [
+                                                                             "orphan test"
+                                                                         ],
+                                           "readiness_questions":  [
+                                                                       "orphan test"
+                                                                   ],
+                                           "pass_criteria":  [
+                                                                 "orphan test"
+                                                             ],
+                                           "fail_conditions":  [
+                                                                   "orphan test"
+                                                               ],
+                                           "do_not_do":  [
+                                                             "orphan test"
+                                                         ],
+                                           "decomposition_hints":  [
+                                                                       "orphan test"
+                                                                   ],
+                                           "should_split":  false,
+                                           "recommended_status":  "BLOCKED"
+                                       }
+                    }
+                ],
+    "orphan_count":  1,
+    "generated_at":  "2026-05-11T12:20:17.3644544+03:00"
+}

@@ -1,0 +1,7 @@
+Write-Utf8Bom : Cannot bind argument to parameter 'Content' because it is an empty string.
+At E:\IMPERIUM\TOOLS\astronomicon_synthetic_full_run_v0_1.ps1:20 char:39
++ Write-Utf8Bom -Path $logPath -Content ""
++                                       ~~
+    + CategoryInfo          : InvalidData: (:) [Write-Utf8Bom], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Write-Utf8Bom
+ 

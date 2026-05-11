@@ -1,0 +1,14 @@
+﻿E:\IMPERIUM\ORGANS\ASTRONOMICON\UTILITY\astronomicon_dashboard_v0_6.ps1 | 45852 bytes | 2026-05-11T12:18:50.1776425+03:00
+E:\IMPERIUM\ORGANS\ASTRONOMICON\UTILITY\run_astronomicon_dashboard_v0_6.ps1 | 287 bytes | 2026-05-11T12:06:58.7020718+03:00
+E:\IMPERIUM\ORGANS\ASTRONOMICON\UTILITY\astronomicon_dashboard_v0_7.ps1 | 53729 bytes | 2026-05-11T12:18:50.2030271+03:00
+E:\IMPERIUM\ORGANS\ASTRONOMICON\UTILITY\run_astronomicon_dashboard_v0_7.ps1 | 287 bytes | 2026-05-11T12:11:52.7903282+03:00
+E:\IMPERIUM\TOOLS\astronomicon_pipeline_common_v0_2.ps1 | 4876 bytes | 2026-05-11T11:55:54.6926715+03:00
+E:\IMPERIUM\TOOLS\astronomicon_parse_general_task_v0_2.ps1 | 11284 bytes | 2026-05-11T11:57:04.8940728+03:00
+E:\IMPERIUM\TOOLS\astronomicon_export_local_tasks_for_speculum_v0_2.ps1 | 3465 bytes | 2026-05-11T11:57:27.5415566+03:00
+E:\IMPERIUM\TOOLS\astronomicon_import_local_task_refinements_v0_2.ps1 | 5923 bytes | 2026-05-11T11:58:04.6920763+03:00
+E:\IMPERIUM\TOOLS\astronomicon_decompose_local_task_to_stages_v0_2.ps1 | 6396 bytes | 2026-05-11T12:20:04.2362218+03:00
+E:\IMPERIUM\TOOLS\astronomicon_export_stage_map_for_speculum_v0_1.ps1 | 3300 bytes | 2026-05-11T11:59:05.9302639+03:00
+E:\IMPERIUM\TOOLS\astronomicon_import_stage_refinements_v0_1.ps1 | 5938 bytes | 2026-05-11T11:59:44.5362896+03:00
+E:\IMPERIUM\TOOLS\astronomicon_verify_task_id_sync_v0_1.ps1 | 3250 bytes | 2026-05-11T12:19:25.0392486+03:00
+E:\IMPERIUM\TOOLS\astronomicon_commit_push_task_plan_v0_1.ps1 | 7070 bytes | 2026-05-11T12:00:40.5826938+03:00
+E:\IMPERIUM\TOOLS\astronomicon_synthetic_full_run_v0_1.ps1 | 16516 bytes | 2026-05-11T12:02:18.8317705+03:00

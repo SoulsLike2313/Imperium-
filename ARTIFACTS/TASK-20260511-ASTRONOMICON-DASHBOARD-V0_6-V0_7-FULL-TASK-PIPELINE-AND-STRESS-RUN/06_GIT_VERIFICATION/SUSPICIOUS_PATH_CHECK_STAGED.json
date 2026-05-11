@@ -1,0 +1,9 @@
+﻿{
+  "schema_version": "ASTRONOMICON_SUSPICIOUS_PATH_CHECK_V0_1",
+  "phase": "POST_STAGE_PRE_COMMIT",
+  "generated_at": "2026-05-11T12:24:25.3399178+03:00",
+  "regex": "SSH_COMMAND_LIBRARY|id_rsa|id_ed25519|\\.pem$|\\.ppk$|\\.key$|\\.env$|token|secret|password|credential|cookie|session|known_hosts|authorized_keys",
+  "staged_path_count": 57,
+  "staged_hits": [],
+  "status": "PASS"
+}

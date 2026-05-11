@@ -1,0 +1,18 @@
+﻿
+Name                                Length LastWriteTime
+----                                ------ -------------
+astronomicon_dashboard_v0_1.ps1      25690 11.05.2026 10:58:15
+astronomicon_dashboard_v0_2.ps1      21542 11.05.2026 11:02:24
+astronomicon_dashboard_v0_3.ps1      26396 11.05.2026 11:14:57
+astronomicon_dashboard_v0_4.ps1      32153 11.05.2026 11:31:19
+astronomicon_dashboard_v0_5.ps1      36983 11.05.2026 11:43:06
+astronomicon_dashboard_v0_6.ps1      45832 11.05.2026 12:06:54
+astronomicon_dashboard_v0_7.ps1      53709 11.05.2026 12:11:45
+run_astronomicon_dashboard_v0_2.ps1    281 11.05.2026 11:02:12
+run_astronomicon_dashboard_v0_3.ps1    281 11.05.2026 11:14:49
+run_astronomicon_dashboard_v0_4.ps1    281 11.05.2026 11:32:45
+run_astronomicon_dashboard_v0_5.ps1    281 11.05.2026 11:39:20
+run_astronomicon_dashboard_v0_6.ps1    287 11.05.2026 12:06:58
+run_astronomicon_dashboard_v0_7.ps1    287 11.05.2026 12:11:52
+run_astronomicon_dashboard.ps1         281 11.05.2026 10:58:02
+

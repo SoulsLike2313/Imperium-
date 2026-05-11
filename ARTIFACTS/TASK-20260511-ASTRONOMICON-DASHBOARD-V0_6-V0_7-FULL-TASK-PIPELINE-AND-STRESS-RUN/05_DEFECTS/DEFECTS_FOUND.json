@@ -1,0 +1,20 @@
+﻿{
+  "schema_version": "ASTRONOMICON_DEFECT_REPORT_V0_1",
+  "task_id": "TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN",
+  "discovered_at": "2026-05-11T12:21:11.2571953+03:00",
+  "defects": [
+    {
+      "defect_id": "DEF-001",
+      "severity": "high",
+      "component": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "trigger": "Run synthetic full-run with TaskCount=3",
+      "observed_result": "Fails immediately because Write-Utf8Bom receives empty-string Content.",
+      "expected_result": "Completes three synthetic task pipelines and emits SYNTHETIC_SUMMARY.",
+      "error": "Write-Utf8Bom : Cannot bind argument to parameter Content because it is an empty string.",
+      "evidence_paths": [
+        "04_V0_7_SYNTHETIC_STRESS_RUN/SYNTHETIC_RUN_FAILURE_LOG.txt"
+      ],
+      "status_after_discovery": "NOT_FIXED"
+    }
+  ]
+}

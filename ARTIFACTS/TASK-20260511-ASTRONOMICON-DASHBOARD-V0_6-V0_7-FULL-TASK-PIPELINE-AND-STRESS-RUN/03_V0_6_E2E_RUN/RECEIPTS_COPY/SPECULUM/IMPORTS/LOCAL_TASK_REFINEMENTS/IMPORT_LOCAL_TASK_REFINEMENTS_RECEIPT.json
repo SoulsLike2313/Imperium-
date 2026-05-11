@@ -1,0 +1,33 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_IMPORT_LOCAL_TASK_REFINEMENTS_RECEIPT_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "refinements_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\SPECULUM\\SPECULUM_LOCAL_TASK_REFINEMENTS.json",
+    "imported_count":  3,
+    "orphan_count":  1,
+    "imported":  [
+                     {
+                         "local_task_id":  "LTASK-001",
+                         "refinement_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-001\\SPECULUM_REFINEMENTS.json",
+                         "refinement_md_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-001\\SPECULUM_REFINEMENTS.md",
+                         "status_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-001\\STATUS.json",
+                         "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                     },
+                     {
+                         "local_task_id":  "LTASK-002",
+                         "refinement_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-002\\SPECULUM_REFINEMENTS.json",
+                         "refinement_md_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-002\\SPECULUM_REFINEMENTS.md",
+                         "status_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-002\\STATUS.json",
+                         "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                     },
+                     {
+                         "local_task_id":  "LTASK-003",
+                         "refinement_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-003\\SPECULUM_REFINEMENTS.json",
+                         "refinement_md_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-003\\SPECULUM_REFINEMENTS.md",
+                         "status_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASKS\\LTASK-003\\STATUS.json",
+                         "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                     }
+                 ],
+    "orphan_refinements_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\SPECULUM\\IMPORTS\\LOCAL_TASK_REFINEMENTS\\ORPHAN_REFINEMENTS.json",
+    "status":  "IMPORTED_WITH_ORPHANS",
+    "generated_at":  "2026-05-11T12:20:17.3696241+03:00"
+}
