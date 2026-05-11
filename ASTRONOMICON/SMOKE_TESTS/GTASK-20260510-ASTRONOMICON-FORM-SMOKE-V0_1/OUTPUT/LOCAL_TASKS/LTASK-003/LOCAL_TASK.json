@@ -1,0 +1,22 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_RECORD_V0_1",
+    "local_task_id":  "LTASK-003",
+    "source_plan_item_id":  "PI-003",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+    "title":  "Verify Servitor routing by Local Task ID",
+    "scope_text":  "Проверить, что по LTASK-ID можно понять parent General Task, scope, expected output and execution mode.",
+    "expected_output":  "SERVITOR_ROUTE_TEST.md showing how to send Servitor to LTASK-001.",
+    "required_organs":  [
+                            "Astronomicon",
+                            "Administratum",
+                            "Officio Agentis"
+                        ],
+    "execution_mode":  "manual",
+    "depends_on_plan_items":  [
+                                  "PI-002"
+                              ],
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "created_at":  "2026-05-11T10:37:58.5702049+03:00"
+}

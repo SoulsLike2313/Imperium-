@@ -1,0 +1,6 @@
+﻿{
+    "local_task_id":  "LTASK-002",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+    "record_sha256":  "25fe16032e3e288fbd1e34b95f007f2997af948687bb38979ff80e74ae052e76",
+    "hash_policy":  "sha256 over UTF-8 JSON record"
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": "ASTRONOMICON_GENERAL_TO_LOCAL_SMOKE_VERIFICATION_V0_1",
+  "task_id": "TASK-20260511-ASTRONOMICON-GENERAL-TO-LOCAL-SMOKE-V0_1",
+  "general_task_id": "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+  "local_task_count": 3,
+  "expected_local_task_count": 3,
+  "local_tasks_created": true,
+  "servitor_dispatch_created": true,
+  "parser_exists": true,
+  "source_form_exists": true,
+  "status": "PASS_WITH_LIMITATIONS",
+  "generated_at": "2026-05-11T10:41:59.1532325+03:00"
+}

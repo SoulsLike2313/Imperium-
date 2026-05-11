@@ -1,0 +1,26 @@
+﻿# Local Task
+
+LOCAL_TASK_ID: LTASK-002
+PARENT_GENERAL_TASK_ID: GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1
+SOURCE_PLAN_ITEM_ID: PI-002
+
+TITLE:
+Parse Plan Items into Local Tasks
+
+SCOPE:
+Прочитать секцию PLAN ITEMS и создать Local Task для каждого ITEM.
+
+EXPECTED_OUTPUT:
+LTASK-001, LTASK-002, LTASK-003 folders with JSON and markdown records.
+
+REQUIRED_ORGANS:
+Astronomicon, Mechanicus
+
+EXECUTION_MODE:
+scripted
+
+STATUS:
+CREATED_FROM_GENERAL_TASK
+
+HASH:
+25fe16032e3e288fbd1e34b95f007f2997af948687bb38979ff80e74ae052e76

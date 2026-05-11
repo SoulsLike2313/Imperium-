@@ -1,0 +1,49 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_REGISTRY_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+    "source_sha256":  "1cae3f5d4da064ede588d5ce3f3f94c9303c12e95a36053982d22dc055976513",
+    "local_task_count":  3,
+    "local_tasks":  [
+                        {
+                            "local_task_id":  "LTASK-001",
+                            "source_plan_item_id":  "PI-001",
+                            "title":  "Define General Task form contract",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum"
+                                                ],
+                            "expected_output":  "SOURCE_TEXT.md and parsed GENERAL_TASK.json.",
+                            "hash":  "a66fb851290e44c18a462dc3c00427d0ad79e12249a6c219faca5871db563034",
+                            "path":  "LOCAL_TASKS/LTASK-001"
+                        },
+                        {
+                            "local_task_id":  "LTASK-002",
+                            "source_plan_item_id":  "PI-002",
+                            "title":  "Parse Plan Items into Local Tasks",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Mechanicus"
+                                                ],
+                            "expected_output":  "LTASK-001, LTASK-002, LTASK-003 folders with JSON and markdown records.",
+                            "hash":  "25fe16032e3e288fbd1e34b95f007f2997af948687bb38979ff80e74ae052e76",
+                            "path":  "LOCAL_TASKS/LTASK-002"
+                        },
+                        {
+                            "local_task_id":  "LTASK-003",
+                            "source_plan_item_id":  "PI-003",
+                            "title":  "Verify Servitor routing by Local Task ID",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum",
+                                                    "Officio Agentis"
+                                                ],
+                            "expected_output":  "SERVITOR_ROUTE_TEST.md showing how to send Servitor to LTASK-001.",
+                            "hash":  "747c665c37af1190d2068f0416ae1fde1ec9416d2aee29e57d0764c12a267741",
+                            "path":  "LOCAL_TASKS/LTASK-003"
+                        }
+                    ],
+    "generated_at":  "2026-05-11T10:37:58.5752018+03:00"
+}

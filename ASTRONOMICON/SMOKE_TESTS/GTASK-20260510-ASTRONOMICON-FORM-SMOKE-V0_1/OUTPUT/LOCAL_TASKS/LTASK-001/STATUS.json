@@ -1,0 +1,7 @@
+﻿{
+    "local_task_id":  "LTASK-001",
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "ready_for_servitor_routing":  true
+}

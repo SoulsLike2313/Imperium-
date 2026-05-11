@@ -1,0 +1,22 @@
+{
+  "schema_version": "ASTRONOMICON_GENERAL_TO_LOCAL_SMOKE_ARTIFACT_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-ASTRONOMICON-GENERAL-TO-LOCAL-SMOKE-V0_1",
+  "general_task_id": "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+  "local_task_count": 3,
+  "local_tasks_created": true,
+  "servitor_dispatch_created": true,
+  "source_form_copied": true,
+  "parser_copied": true,
+  "smoke_output_copied": true,
+  "raw_secrets_copied": false,
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "Smoke test only.",
+    "No Speculum refinement import yet.",
+    "No stage decomposition yet.",
+    "No Administratum readiness execution yet.",
+    "No Sanctum dashboard integration yet."
+  ],
+  "next_recommended_step": "Commit and push this smoke artifact, then design Speculum refinement exchange or Stage decomposition.",
+  "generated_at": "2026-05-11T10:41:59.2368473+03:00"
+}

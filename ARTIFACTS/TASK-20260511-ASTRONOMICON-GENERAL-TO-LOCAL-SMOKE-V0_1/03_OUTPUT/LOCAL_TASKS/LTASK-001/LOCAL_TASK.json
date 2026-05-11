@@ -1,0 +1,21 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_RECORD_V0_1",
+    "local_task_id":  "LTASK-001",
+    "source_plan_item_id":  "PI-001",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+    "title":  "Define General Task form contract",
+    "scope_text":  "Зафиксировать минимальную форму General Task, которую Owner может заполнить руками.",
+    "expected_output":  "SOURCE_TEXT.md and parsed GENERAL_TASK.json.",
+    "required_organs":  [
+                            "Astronomicon",
+                            "Administratum"
+                        ],
+    "execution_mode":  "manual",
+    "depends_on_plan_items":  [
+
+                              ],
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "created_at":  "2026-05-11T10:37:58.5562128+03:00"
+}

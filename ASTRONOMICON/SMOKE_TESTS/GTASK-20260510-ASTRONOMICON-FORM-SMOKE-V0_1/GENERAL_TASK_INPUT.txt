@@ -1,0 +1,139 @@
+﻿ASTRONOMICON_GENERAL_TASK_V0_1
+
+GENERAL_TASK_ID:
+GTASK-20260510-ASTRONOMICON-FORM-SMOKE-V0_1
+ENCODING: UTF-8-BOM
+LINE_ENDINGS: CRLF
+
+GENERAL_TASK_TITLE:
+Astronomicon General Task Form Smoke Test
+
+GENERAL_TASK_CODE:
+ASTRONOMICON_FORM_SMOKE
+
+AUTHOR:
+Owner
+
+EXECUTION_INTENT:
+manual
+
+PRIORITY:
+high
+
+BEGIN_GOAL
+Проверить, что Астрономикон может принять железную General Task форму
+и разложить её на Local Tasks.
+END_GOAL
+
+BEGIN_CONTEXT
+IMPERIUM переходит от ручных разрозненных действий к task pipeline:
+General Task -> Local Tasks -> Stages -> Readiness -> Manual Workflow -> Artifact -> Commit/Push.
+END_CONTEXT
+
+BEGIN_CURRENT_PROBLEM
+Пока нет проверенной формы, которую Owner может заполнить руками,
+а скрипт может разобрать без догадок.
+END_CURRENT_PROBLEM
+
+BEGIN_EXPECTED_FINAL_STATE
+- General Task сохранён как исходный текст.
+- Скрипт выделяет PLAN ITEMS.
+- По каждому PLAN ITEM создаётся Local Task.
+- Каждый Local Task имеет ID, hash, parent_id и статус.
+- Owner может взять LTASK-ID и отправить Servitor в работу.
+END_EXPECTED_FINAL_STATE
+
+BEGIN_HARD_CONSTRAINTS
+- Не трогать THRONE.
+- Не публиковать секреты.
+- Не использовать SSH_COMMAND_LIBRARY.
+- Не делать fake green.
+- Не строить dashboard на этом шаге.
+END_HARD_CONSTRAINTS
+
+BEGIN_DO_NOT_DO
+- Не делать полноценный Astronomicon UI.
+- Не делать stage decomposition.
+- Не делать Speculum import.
+- Не делать автоматическое исполнение.
+- Не делать git add . вслепую.
+END_DO_NOT_DO
+
+BEGIN_PLAN_ITEMS
+
+ITEM_ID: PI-001
+TITLE: Define General Task form contract
+TEXT:
+Зафиксировать минимальную форму General Task, которую Owner может заполнить руками.
+EXPECTED_OUTPUT:
+SOURCE_TEXT.md and parsed GENERAL_TASK.json.
+REQUIRED_ORGANS:
+Astronomicon, Administratum
+EXECUTION_MODE:
+manual
+DEPENDS_ON:
+none
+END_ITEM
+
+ITEM_ID: PI-002
+TITLE: Parse Plan Items into Local Tasks
+TEXT:
+Прочитать секцию PLAN ITEMS и создать Local Task для каждого ITEM.
+EXPECTED_OUTPUT:
+LTASK-001, LTASK-002, LTASK-003 folders with JSON and markdown records.
+REQUIRED_ORGANS:
+Astronomicon, Mechanicus
+EXECUTION_MODE:
+scripted
+DEPENDS_ON:
+PI-001
+END_ITEM
+
+ITEM_ID: PI-003
+TITLE: Verify Servitor routing by Local Task ID
+TEXT:
+Проверить, что по LTASK-ID можно понять parent General Task, scope, expected output and execution mode.
+EXPECTED_OUTPUT:
+SERVITOR_ROUTE_TEST.md showing how to send Servitor to LTASK-001.
+REQUIRED_ORGANS:
+Astronomicon, Administratum, Officio Agentis
+EXECUTION_MODE:
+manual
+DEPENDS_ON:
+PI-002
+END_ITEM
+
+END_PLAN_ITEMS
+
+BEGIN_KNOWN_RISKS
+- Parser может неверно разрезать пункты.
+- В форме может не хватать обязательных полей.
+- Local Task может получить слишком широкий scope.
+- ID и hash могут быть нестабильными.
+END_KNOWN_RISKS
+
+BEGIN_REQUIRED_ORGANS
+- Astronomicon
+- Administratum
+- Mechanicus
+- Officio Agentis
+END_REQUIRED_ORGANS
+
+BEGIN_REQUIRED_INPUTS
+- This General Task form.
+- Current Git repository.
+- No private bundle required for this smoke test.
+END_REQUIRED_INPUTS
+
+BEGIN_EXPECTED_ARTIFACTS
+- ASTRONOMICON smoke test folder.
+- Local Task registry.
+- Local Task files.
+- Smoke test receipt.
+- Servitor route test file.
+END_EXPECTED_ARTIFACTS
+
+BEGIN_OWNER_NOTES
+Это тестовая форма. Цель — проверить не красоту, а то,
+что скриптовый pipeline может родить первые адресуемые Local Tasks.
+END_OWNER_NOTES

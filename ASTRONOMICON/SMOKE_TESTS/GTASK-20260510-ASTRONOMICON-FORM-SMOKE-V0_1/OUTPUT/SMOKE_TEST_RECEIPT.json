@@ -1,0 +1,21 @@
+{
+  "schema_version": "ASTRONOMICON_GENERAL_TO_LOCAL_SMOKE_TEST_RECEIPT_V0_1",
+  "test_name": "General Task form to Local Tasks smoke test",
+  "output_root": "E:\\IMPERIUM\\ASTRONOMICON\\SMOKE_TESTS\\GTASK-20260510-ASTRONOMICON-FORM-SMOKE-V0_1\\OUTPUT",
+  "general_task_id": "GTASK-20260511-ASTRONOMICON-FORM-SMOKE-V0_1",
+  "local_task_count": 3,
+  "expected_local_task_count": 3,
+  "local_tasks_created": true,
+  "servitor_dispatch_created": true,
+  "tested_dispatch_local_task_id": "LTASK-001",
+  "status": "PASS_WITH_LIMITATIONS",
+  "limitations": [
+    "Smoke test only.",
+    "No Speculum refinement import yet.",
+    "No stage decomposition yet.",
+    "No Administratum readiness execution yet.",
+    "No Sanctum dashboard integration yet."
+  ],
+  "next_step": "Package smoke test into ARTIFACTS and commit/push.",
+  "generated_at": "2026-05-11T10:41:00.9889796+03:00"
+}

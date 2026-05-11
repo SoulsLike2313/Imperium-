@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_GENERAL_TASK_VALIDATION_V0_1",
+    "input_path":  "E:\\IMPERIUM\\ASTRONOMICON\\SMOKE_TESTS\\GTASK-20260510-ASTRONOMICON-FORM-SMOKE-V0_1\\GENERAL_TASK_INPUT.txt",
+    "output_root":  "E:\\IMPERIUM\\ASTRONOMICON\\SMOKE_TESTS\\GTASK-20260510-ASTRONOMICON-FORM-SMOKE-V0_1\\OUTPUT",
+    "source_sha256":  "1cae3f5d4da064ede588d5ce3f3f94c9303c12e95a36053982d22dc055976513",
+    "valid":  true,
+    "missing_fields":  [
+
+                       ],
+    "plan_items_detected":  3,
+    "generated_at":  "2026-05-11T10:37:58.4772568+03:00"
+}
