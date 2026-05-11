@@ -1,0 +1,32 @@
+{
+  "schema_version": "IMPERIUM_KNOWN_DEFECTS_V0_1",
+  "updated_at": "2026-05-11T15:47:17.0377256+03:00",
+  "defects": [
+    {
+      "defect_id": "DEFECT-20260511-ADMINISTRATUM-ANALYZER-TRACKED-RUNTIME-WRITES",
+      "status": "FIXED",
+      "description": "Administratum analyzer and bundle workflows wrote runtime outputs into tracked CURRENT_STATE analyzer files, dirtying worktree on ordinary runs.",
+      "impact": "Clean handoff impossible after routine analyzer checks.",
+      "affected_files": [
+        "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/GIT_LOCAL_ANALYSIS.json",
+        "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+        "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/VERDICT.md",
+        "CURRENT_STATE/ADMINISTRATUM_ANALYZER/* (legacy writer targets)"
+      ],
+      "repair_summary": [
+        "Redirected analyzer outputs to .imperium_runtime/administratum_analyzer/latest",
+        "Redirected bundle outputs to .imperium_runtime/bundles",
+        "Added runtime receipts with post-build hash/size/filename/source metadata",
+        "Added explicit checkpoint command for intentional commit-ready snapshots"
+      ],
+      "validation_receipt_path": "ARTIFACTS/TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1/RECEIPTS/06_analyzer_purity_validation_receipt.json",
+      "remaining_risks": [
+        "Legacy scripts outside patched set might still reference CURRENT_STATE analyzer paths and should be audited in larger structure task.",
+        "Legacy tracked analyzer files remain as historical snapshots and can still be edited manually if operator bypasses policy."
+      ]
+    }
+  ],
+  "notes": [
+    "Focused repair registry. Broader registry spine intentionally deferred to the larger structure task."
+  ]
+}

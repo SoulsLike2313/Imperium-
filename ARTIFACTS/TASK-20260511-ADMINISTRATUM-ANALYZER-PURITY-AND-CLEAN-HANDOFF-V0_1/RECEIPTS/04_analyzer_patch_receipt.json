@@ -1,0 +1,16 @@
+{
+  "schema_version": "ADMINISTRATUM_ANALYZER_PATCH_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1",
+  "patched_files": [
+    ".gitignore",
+    "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1",
+    "TOOLS/administratum_analyze_git_local_context.ps1",
+    "TOOLS/build_chat_compilation_from_analysis.ps1",
+    "ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1",
+    "TOOLS/administratum_record_analyzer_checkpoint.ps1",
+    "DOCS/ANALYZER_RUNTIME_POLICY.md"
+  ],
+  "parser_validation": "PASS",
+  "report_path": "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1\\REPORTS\\analyzer_patch_report.md",
+  "timestamp": "2026-05-11T15:45:26.9555569+03:00"
+}

@@ -1,0 +1,12 @@
+{
+  "schema_version": "ADMINISTRATUM_ANALYZER_RUNTIME_POLICY_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1",
+  "policy_doc_path": "E:\\IMPERIUM\\DOCS\\ANALYZER_RUNTIME_POLICY.md",
+  "gitignore_rule_added": "/.imperium_runtime/",
+  "runtime_paths": [
+    ".imperium_runtime/administratum_analyzer/latest/",
+    ".imperium_runtime/bundles/"
+  ],
+  "explicit_checkpoint_command": "powershell -ExecutionPolicy Bypass -File E:\\IMPERIUM\\TOOLS\\administratum_record_analyzer_checkpoint.ps1 -TaskId TASK-...",
+  "timestamp": "2026-05-11T15:44:56.0285662+03:00"
+}

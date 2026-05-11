@@ -4,13 +4,19 @@ param(
     [string]$Target = "FULL_IMPERIUM_SUMMARY",
     [switch]$ForVM2,
     [switch]$JsonOnly,
-    [switch]$PostPushRealityCheck
+    [switch]$PostPushRealityCheck,
+    [string]$RuntimeOutputDir = ""
 )
 
 $ErrorActionPreference = "Stop"
 Set-Location -LiteralPath $Root
 
-$outputDir = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER"
+$outputDir = if ([string]::IsNullOrWhiteSpace($RuntimeOutputDir)) {
+    Join-Path $Root ".imperium_runtime\administratum_analyzer\latest"
+} else {
+    $RuntimeOutputDir
+}
+$legacyOutputDir = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER"
 New-Item -ItemType Directory -Force -Path $outputDir | Out-Null
 
 function Write-JsonFile {
@@ -439,12 +445,12 @@ switch ($recommendedOwnerAction) {
     "FIX_GIT_SYNC_FIRST" { $ownerCommand = "git fetch origin ; git rev-parse HEAD ; git rev-parse origin/master ; git ls-remote origin refs/heads/master" }
 }
 
-$expectedZipLocation = if ($targetMode -eq "VM2_WORK") { "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\VM2_CONTEXT_<timestamp>.zip" } else { "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_<timestamp>.zip" }
+$expectedZipLocation = if ($targetMode -eq "VM2_WORK") { "E:\\IMPERIUM\\.imperium_runtime\\bundles\\VM2_CONTEXT_<timestamp>.zip" } else { "E:\\IMPERIUM\\.imperium_runtime\\bundles\\FULL_IMPERIUM_CONTEXT_<timestamp>.zip" }
 
 $recommendedCompilation = [ordered]@{
     needed = $needsBundle
     bundle_type = if ($targetMode -eq "VM2_WORK") { "CHAT_COMPILATION_VM2_SAFE_V0_2" } else { "CHAT_COMPILATION_SAFE_V0_2" }
-    output_root = "CHAT_COMPILATIONS_LOCAL"
+    output_root = ".imperium_runtime/bundles"
     include_public_paths = @($requiredPublicPaths | Where-Object { Test-ExistsRel -RelPath $_ })
     include_artifact_paths = @(
         "ARTIFACTS/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/04_RECEIPTS/FINAL_RECEIPT.json",
@@ -456,9 +462,9 @@ $recommendedCompilation = [ordered]@{
         "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.md",
         "CURRENT_STATE/LOCAL_ONLY_SOURCES_INDEX.json",
         "CURRENT_STATE/EXCLUDED_LOCAL_SOURCES.md",
-        "CURRENT_STATE/ADMINISTRATUM_ANALYZER/GIT_LOCAL_ANALYSIS.json",
-        "CURRENT_STATE/ADMINISTRATUM_ANALYZER/WORKTREE_CLASSIFICATION_REPORT.md",
-        "CURRENT_STATE/ADMINISTRATUM_ANALYZER/OWNER_NEXT_ACTION.md"
+        ".imperium_runtime/administratum_analyzer/latest/GIT_LOCAL_ANALYSIS.json",
+        ".imperium_runtime/administratum_analyzer/latest/WORKTREE_CLASSIFICATION_REPORT.md",
+        ".imperium_runtime/administratum_analyzer/latest/OWNER_NEXT_ACTION.md"
     )
     include_private_candidates = @(
         "SSH_COMMAND_LIBRARY inventory (filenames/sizes only)",
@@ -494,6 +500,8 @@ $analysis = [ordered]@{
     task_id = "TASK-20260510-ADMINISTRATUM-ANALYZER-WORKTREE-CLASSIFIER-AND-FINAL-RECEIPT-SYNC-V0_1"
     generated_at = $analysisTime
     target = $targetMode
+    runtime_output_dir = $outputDir
+    legacy_tracked_output_dir = $legacyOutputDir
     git_reality = [ordered]@{
         root = $Root
         remote = $Remote
@@ -564,6 +572,7 @@ $analysis = [ordered]@{
         "Analyzer is metadata/path based and does not inspect secret file contents.",
         "Raw private data is excluded from default bundle behavior.",
         "VM2 workflow is advisory only and not executed in this task.",
+        "Analyzer writes runtime outputs to .imperium_runtime and does not overwrite tracked CURRENT_STATE files.",
         "Analyzer remains PASS_WITH_LIMITATIONS."
     )
 }

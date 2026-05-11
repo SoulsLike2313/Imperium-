@@ -1,0 +1,13 @@
+{
+  "schema_version": "ADMINISTRATUM_TRACKED_RUNTIME_RESTORE_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1",
+  "restored_files": [
+    "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/GIT_LOCAL_ANALYSIS.json",
+    "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+    "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/VERDICT.md"
+  ],
+  "git_status_after_restore": " M .gitignore\r\n M ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1\r\n M ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1\r\n M TOOLS/administratum_analyze_git_local_context.ps1\r\n M TOOLS/build_chat_compilation_from_analysis.ps1\r\n?? ARTIFACTS/TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1/\r\n?? ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/\r\n?? DOCS/ANALYZER_RUNTIME_POLICY.md\r\n?? TOOLS/administratum_record_analyzer_checkpoint.ps1",
+  "current_state_runtime_files_still_dirty": false,
+  "confirmation": "CURRENT_STATE analyzer runtime files are no longer dirty",
+  "timestamp": "2026-05-11T15:46:02.4190800+03:00"
+}

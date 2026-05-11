@@ -12,15 +12,34 @@ $ErrorActionPreference = "Stop"
 
 $analyzer = Join-Path $Root "TOOLS\administratum_analyze_git_local_context.ps1"
 $builder = Join-Path $Root "TOOLS\build_chat_compilation_from_analysis.ps1"
-$recommendedPath = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\RECOMMENDED_CHAT_COMPILATION.json"
-$analysisJsonPath = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\GIT_LOCAL_ANALYSIS.json"
-$ownerNextActionPath = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\OWNER_NEXT_ACTION.md"
-$worktreeReportPath = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\WORKTREE_CLASSIFICATION_REPORT.md"
+$runtimeAnalyzerDir = Join-Path $Root ".imperium_runtime\administratum_analyzer\latest"
+$legacyAnalyzerDir = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER"
+$recommendedPath = Join-Path $runtimeAnalyzerDir "RECOMMENDED_CHAT_COMPILATION.json"
+$analysisJsonPath = Join-Path $runtimeAnalyzerDir "GIT_LOCAL_ANALYSIS.json"
+$ownerNextActionPath = Join-Path $runtimeAnalyzerDir "OWNER_NEXT_ACTION.md"
+$worktreeReportPath = Join-Path $runtimeAnalyzerDir "WORKTREE_CLASSIFICATION_REPORT.md"
+$legacyRecommendedPath = Join-Path $legacyAnalyzerDir "RECOMMENDED_CHAT_COMPILATION.json"
+$legacyAnalysisJsonPath = Join-Path $legacyAnalyzerDir "GIT_LOCAL_ANALYSIS.json"
+$legacyOwnerNextActionPath = Join-Path $legacyAnalyzerDir "OWNER_NEXT_ACTION.md"
+$legacyWorktreeReportPath = Join-Path $legacyAnalyzerDir "WORKTREE_CLASSIFICATION_REPORT.md"
 
 $analyzerArgs = @("-Root", $Root, "-Target", $Target, "-PostPushRealityCheck")
 if ($ForVM2) { $analyzerArgs += "-ForVM2" }
 
 & powershell -ExecutionPolicy Bypass -File $analyzer @analyzerArgs | Out-Null
+
+if (-not (Test-Path -LiteralPath $recommendedPath) -and (Test-Path -LiteralPath $legacyRecommendedPath)) {
+    $recommendedPath = $legacyRecommendedPath
+}
+if (-not (Test-Path -LiteralPath $analysisJsonPath) -and (Test-Path -LiteralPath $legacyAnalysisJsonPath)) {
+    $analysisJsonPath = $legacyAnalysisJsonPath
+}
+if (-not (Test-Path -LiteralPath $ownerNextActionPath) -and (Test-Path -LiteralPath $legacyOwnerNextActionPath)) {
+    $ownerNextActionPath = $legacyOwnerNextActionPath
+}
+if (-not (Test-Path -LiteralPath $worktreeReportPath) -and (Test-Path -LiteralPath $legacyWorktreeReportPath)) {
+    $worktreeReportPath = $legacyWorktreeReportPath
+}
 
 if (Test-Path -LiteralPath $ownerNextActionPath) {
     Write-Output "OWNER_NEXT_ACTION:"

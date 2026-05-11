@@ -1,0 +1,32 @@
+{
+  "schema_version": "ADMINISTRATUM_ANALYZER_PURITY_FINAL_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1",
+  "created_at": "2026-05-11T15:49:58.0055522+03:00",
+  "base_head": "acd0cdfe874acbf17a8fbe5a5c23c12624c9b39d",
+  "base_short_head": "acd0cdf",
+  "phase_receipts": [
+    "RECEIPTS/00_reality_checkpoint_receipt.json",
+    "RECEIPTS/01_dirty_diff_capture_receipt.json",
+    "RECEIPTS/02_analyzer_writer_inventory_receipt.json",
+    "RECEIPTS/03_runtime_policy_receipt.json",
+    "RECEIPTS/04_analyzer_patch_receipt.json",
+    "RECEIPTS/05_tracked_runtime_restore_receipt.json",
+    "RECEIPTS/06_analyzer_purity_validation_receipt.json",
+    "RECEIPTS/07_registry_defect_update_receipt.json",
+    "RECEIPTS/08_final_validation_receipt.json"
+  ],
+  "key_outputs": [
+    "DOCS/ANALYZER_RUNTIME_POLICY.md",
+    "TOOLS/administratum_record_analyzer_checkpoint.ps1",
+    "REGISTRY/KNOWN_DEFECTS.json"
+  ],
+  "purity_validation_receipt": "RECEIPTS/06_analyzer_purity_validation_receipt.json",
+  "known_defect_id": "DEFECT-20260511-ADMINISTRATUM-ANALYZER-TRACKED-RUNTIME-WRITES",
+  "known_defect_status": "FIXED",
+  "pre_commit_verdict": "PASS",
+  "post_commit_push_verification": "PENDING_RUNTIME_VERIFICATION",
+  "notes": [
+    "Post-push HEAD equality verification is executed after commit and reported in terminal plus owner summary.",
+    "No runtime .imperium_runtime outputs are included in Git commit scope."
+  ]
+}

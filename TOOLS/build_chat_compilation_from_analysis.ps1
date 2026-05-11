@@ -1,13 +1,38 @@
 param(
     [string]$Root = "E:\IMPERIUM",
-    [string]$AnalysisPath = "E:\IMPERIUM\CURRENT_STATE\ADMINISTRATUM_ANALYZER\RECOMMENDED_CHAT_COMPILATION.json",
+    [string]$AnalysisPath = "",
     [string]$TaskId = "FULL_IMPERIUM_CONTEXT",
     [switch]$IncludePrivateApproved,
-    [switch]$ForVM2
+    [switch]$ForVM2,
+    [string]$RuntimeAnalyzerDir = "",
+    [string]$BundleOutputRoot = ""
 )
 
 $ErrorActionPreference = "Stop"
 Set-Location -LiteralPath $Root
+
+$runtimeAnalyzerDirResolved = if ([string]::IsNullOrWhiteSpace($RuntimeAnalyzerDir)) {
+    Join-Path $Root ".imperium_runtime\administratum_analyzer\latest"
+} else {
+    $RuntimeAnalyzerDir
+}
+$legacyAnalyzerDir = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER"
+$bundleRootResolved = if ([string]::IsNullOrWhiteSpace($BundleOutputRoot)) {
+    Join-Path $Root ".imperium_runtime\bundles"
+} else {
+    $BundleOutputRoot
+}
+New-Item -ItemType Directory -Force -Path $runtimeAnalyzerDirResolved, $bundleRootResolved | Out-Null
+
+if ([string]::IsNullOrWhiteSpace($AnalysisPath)) {
+    $AnalysisPath = Join-Path $runtimeAnalyzerDirResolved "RECOMMENDED_CHAT_COMPILATION.json"
+    if (-not (Test-Path -LiteralPath $AnalysisPath)) {
+        $fallbackAnalysisPath = Join-Path $legacyAnalyzerDir "RECOMMENDED_CHAT_COMPILATION.json"
+        if (Test-Path -LiteralPath $fallbackAnalysisPath) {
+            $AnalysisPath = $fallbackAnalysisPath
+        }
+    }
+}
 
 function Write-JsonFile {
     param([string]$Path, $Data)
@@ -55,15 +80,24 @@ if (-not (Test-Path -LiteralPath $AnalysisPath)) {
 }
 
 $recommended = Get-Content -LiteralPath $AnalysisPath -Raw | ConvertFrom-Json
-$analysisJsonPath = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\GIT_LOCAL_ANALYSIS.json"
+$analysisJsonPath = Join-Path $runtimeAnalyzerDirResolved "GIT_LOCAL_ANALYSIS.json"
+if (-not (Test-Path -LiteralPath $analysisJsonPath)) {
+    $legacyAnalysisJsonPath = Join-Path $legacyAnalyzerDir "GIT_LOCAL_ANALYSIS.json"
+    if (Test-Path -LiteralPath $legacyAnalysisJsonPath) {
+        $analysisJsonPath = $legacyAnalysisJsonPath
+    }
+}
 $analysis = $null
 if (Test-Path -LiteralPath $analysisJsonPath) {
     $analysis = Get-Content -LiteralPath $analysisJsonPath -Raw | ConvertFrom-Json
 }
+$gitStatusBefore = (git status --short | Out-String).Trim()
+$sourceHead = (git rev-parse HEAD 2>$null).Trim()
+$sourceCommitCount = (git rev-list --count HEAD 2>$null).Trim()
 
 $timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
 $packName = "${TaskId}_${timestamp}"
-$chatRoot = Join-Path $Root "CHAT_COMPILATIONS_LOCAL"
+$chatRoot = $bundleRootResolved
 New-Item -ItemType Directory -Force -Path $chatRoot | Out-Null
 
 $packDir = Join-Path $chatRoot $packName
@@ -104,7 +138,10 @@ $analyzerFiles = @(
     "ANALYZER_RECEIPT.json"
 )
 foreach ($f in $analyzerFiles) {
-    $src = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\$f"
+    $src = Join-Path $runtimeAnalyzerDirResolved $f
+    if (-not (Test-Path -LiteralPath $src)) {
+        $src = Join-Path $legacyAnalyzerDir $f
+    }
     $dst = Join-Path $packDir "00_ANALYZER_REPORT\$f"
     if (Copy-IfExists -Source $src -Destination $dst) { $copied.Add("00_ANALYZER_REPORT/$f") }
 }
@@ -118,7 +155,10 @@ $gitStateFiles = @(
     "BASELINE_GIT_BRANCH.txt"
 )
 foreach ($f in $gitStateFiles) {
-    $src = Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\$f"
+    $src = Join-Path $runtimeAnalyzerDirResolved $f
+    if (-not (Test-Path -LiteralPath $src)) {
+        $src = Join-Path $legacyAnalyzerDir $f
+    }
     $dst = Join-Path $packDir "01_GIT_STATE\$f"
     if (Copy-IfExists -Source $src -Destination $dst) { $copied.Add("01_GIT_STATE/$f") }
 }
@@ -308,14 +348,18 @@ $fileRows | Export-Csv -LiteralPath $manifestCsvPath -NoTypeInformation -Encodin
 
 # Receipt
 $receiptPath = Join-Path $packDir "09_RECEIPTS\CHAT_COMPILATION_RECEIPT.json"
+$createdAt = (Get-Date).ToString("o")
 $receipt = [ordered]@{
-    schema_version = "CHAT_COMPILATION_RECEIPT_V0_2"
+    schema_version = "CHAT_COMPILATION_RECEIPT_V0_3"
     task_id = $TaskId
-    generated_at = (Get-Date).ToString("o")
+    generated_at = $createdAt
     root = $Root
     analysis_path = $AnalysisPath
     analysis_json_path = if ($analysis) { $analysisJsonPath } else { $null }
+    runtime_analyzer_dir = $runtimeAnalyzerDirResolved
+    legacy_analyzer_dir = $legacyAnalyzerDir
     output_dir = $packDir
+    bundle_output_root = $chatRoot
     include_private_approved = [bool]$IncludePrivateApproved
     for_vm2 = [bool]$ForVM2
     bundle_optional = $bundleOptional
@@ -344,6 +388,32 @@ if (Test-Path -LiteralPath $zipPath) {
 }
 Compress-Archive -Path (Join-Path $packDir "*") -DestinationPath $zipPath -Force
 
-$zipPath | Set-Content -LiteralPath (Join-Path $Root "CURRENT_STATE\ADMINISTRATUM_ANALYZER\LAST_CHAT_COMPILATION_PATH.txt") -Encoding UTF8
+$zipHash = (Get-FileHash -LiteralPath $zipPath -Algorithm SHA256).Hash.ToLower()
+$zipSize = (Get-Item -LiteralPath $zipPath).Length
+$gitStatusAfter = (git status --short | Out-String).Trim()
+$runtimeBundleReceiptPath = Join-Path $runtimeAnalyzerDirResolved "LATEST_CONTEXT_BUNDLE_RECEIPT.json"
+$runtimeReceiptPath = Join-Path $runtimeAnalyzerDirResolved "runtime_receipt.json"
+$lastBundlePathFile = Join-Path $runtimeAnalyzerDirResolved "LAST_CHAT_COMPILATION_PATH.txt"
+$zipFileName = [System.IO.Path]::GetFileName($zipPath)
+
+$runtimeReceipt = [ordered]@{
+    schema_version = "ADMINISTRATUM_RUNTIME_BUNDLE_RECEIPT_V0_1"
+    task_id = $TaskId
+    actual_bundle_filename = $zipFileName
+    actual_bundle_sha256 = $zipHash
+    actual_bundle_size = $zipSize
+    created_at = (Get-Date).ToString("o")
+    builder_script_version = "build_chat_compilation_from_analysis.ps1#runtime_purity_v0_1"
+    source_head = $sourceHead
+    source_commit_count = $sourceCommitCount
+    runtime_output_dir = $runtimeAnalyzerDirResolved
+    bundle_output_root = $chatRoot
+    git_status_before = $gitStatusBefore
+    git_status_after = $gitStatusAfter
+    bundle_path = $zipPath
+}
+Write-JsonFile -Path $runtimeBundleReceiptPath -Data $runtimeReceipt
+Write-JsonFile -Path $runtimeReceiptPath -Data $runtimeReceipt
+$zipPath | Set-Content -LiteralPath $lastBundlePathFile -Encoding UTF8
 
 Write-Output $zipPath

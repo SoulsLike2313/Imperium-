@@ -1,0 +1,74 @@
+{
+  "schema_version": "ADMINISTRATUM_ANALYZER_WRITER_INVENTORY_V0_1",
+  "task_id": "TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1",
+  "generated_at": "2026-05-11T15:44:09.5477398+03:00",
+  "entries": [
+    {
+      "script_path": "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1",
+      "section": "Run-AdministratumAnalysis",
+      "current_write_path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/GIT_LOCAL_ANALYSIS.json and CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/VERDICT.md",
+      "proposed_new_write_path": ".imperium_runtime/administratum_analyzer/latest/GIT_LOCAL_ANALYSIS.json and .imperium_runtime/administratum_analyzer/latest/VERDICT.md",
+      "mode": "normal_analyze_mode",
+      "risk_level": "HIGH",
+      "evidence_lines": [
+        158,
+        203
+      ]
+    },
+    {
+      "script_path": "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1",
+      "section": "Build-MissingLocalBundle",
+      "current_write_path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+      "proposed_new_write_path": ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json and .imperium_runtime/administratum_analyzer/latest/runtime_receipt.json",
+      "mode": "bundle_mode",
+      "risk_level": "HIGH",
+      "evidence_lines": [
+        209,
+        308,
+        309
+      ]
+    },
+    {
+      "script_path": "TOOLS/administratum_analyze_git_local_context.ps1",
+      "section": "global outputDir + write outputs",
+      "current_write_path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER/*",
+      "proposed_new_write_path": ".imperium_runtime/administratum_analyzer/latest/*",
+      "mode": "normal_analyze_mode",
+      "risk_level": "HIGH",
+      "evidence_lines": [
+        13,
+        581,
+        583
+      ]
+    },
+    {
+      "script_path": "TOOLS/build_chat_compilation_from_analysis.ps1",
+      "section": "runtime receipt + last bundle marker",
+      "current_write_path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER/LAST_CHAT_COMPILATION_PATH.txt and tracked receipt targets",
+      "proposed_new_write_path": ".imperium_runtime/administratum_analyzer/latest/LAST_CHAT_COMPILATION_PATH.txt and runtime receipts",
+      "mode": "bundle_mode",
+      "risk_level": "MEDIUM",
+      "evidence_lines": [
+        394,
+        396,
+        397,
+        418
+      ]
+    },
+    {
+      "script_path": "ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1",
+      "section": "path wiring and orchestration",
+      "current_write_path": "Consumed CURRENT_STATE/ADMINISTRATUM_ANALYZER/* as live outputs",
+      "proposed_new_write_path": "Consume .imperium_runtime/administratum_analyzer/latest/* with legacy read fallback",
+      "mode": "orchestration_mode",
+      "risk_level": "MEDIUM",
+      "evidence_lines": [
+        15,
+        17,
+        18,
+        21,
+        22
+      ]
+    }
+  ]
+}

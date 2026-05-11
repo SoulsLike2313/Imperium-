@@ -1,12 +1,13 @@
 ﻿$ErrorActionPreference = "Stop"
 
-$RepoRoot = "E:\IMPERIUM"
-$Port = 8793
-$StateRoot = "E:\IMPERIUM\CURRENT_STATE\ADMINISTRATUM_ANALYZER_V0_3"
-$BundleRoot = "E:\IMPERIUM\CHAT_COMPILATIONS_LOCAL"
-$GitHubUrl = "https://github.com/SoulsLike2313/Imperium-"
-
-New-Item -ItemType Directory -Force $StateRoot, $BundleRoot | Out-Null
+$RepoRoot = "E:\IMPERIUM"
+$Port = 8793
+$RuntimeRoot = Join-Path $RepoRoot ".imperium_runtime\administratum_analyzer\latest"
+$BundleRoot = Join-Path $RepoRoot ".imperium_runtime\bundles"
+$LegacyTrackedStateRoot = Join-Path $RepoRoot "CURRENT_STATE\ADMINISTRATUM_ANALYZER_V0_3"
+$GitHubUrl = "https://github.com/SoulsLike2313/Imperium-"
+
+New-Item -ItemType Directory -Force $RuntimeRoot, $BundleRoot | Out-Null
 
 function Write-Utf8Bom {
     param([string]$Path, [string]$Content)
@@ -154,8 +155,8 @@ function Run-AdministratumAnalysis {
         next_action = "BUILD_MISSING_LOCAL_CONTEXT_BUNDLE"
     }
 
-    $AnalysisPath = Join-Path $StateRoot "GIT_LOCAL_ANALYSIS.json"
-    Write-Utf8Bom $AnalysisPath ($Analysis | ConvertTo-Json -Depth 20)
+    $AnalysisPath = Join-Path $RuntimeRoot "GIT_LOCAL_ANALYSIS.json"
+    Write-Utf8Bom $AnalysisPath ($Analysis | ConvertTo-Json -Depth 20)
 
     $VerdictMd = @"
 # Administratum Verdict v0.3
@@ -199,22 +200,25 @@ Next action:
 $($Analysis.next_action)
 "@
 
-    Write-Utf8Bom (Join-Path $StateRoot "VERDICT.md") $VerdictMd
+    Write-Utf8Bom (Join-Path $RuntimeRoot "VERDICT.md") $VerdictMd
 
     return $Analysis
 }
 
 function Build-MissingLocalBundle {
-    $AnalysisPath = Join-Path $StateRoot "GIT_LOCAL_ANALYSIS.json"
-    if (!(Test-Path $AnalysisPath)) {
-        $null = Run-AdministratumAnalysis
-    }
-
-    $Analysis = Get-Content -Encoding UTF8 $AnalysisPath -Raw | ConvertFrom-Json
-
-    $Ts = Get-Date -Format "yyyyMMdd_HHmmss"
-    $BuildRoot = Join-Path $BundleRoot "_BUILD\FULL_IMPERIUM_CONTEXT_$Ts"
-    $ZipPath = Join-Path $BundleRoot "FULL_IMPERIUM_CONTEXT_$Ts.zip"
+    $AnalysisPath = Join-Path $RuntimeRoot "GIT_LOCAL_ANALYSIS.json"
+    if (!(Test-Path $AnalysisPath)) {
+        $null = Run-AdministratumAnalysis
+    }
+
+    $Analysis = Get-Content -Encoding UTF8 $AnalysisPath -Raw | ConvertFrom-Json
+    $GitStatusBefore = Invoke-Git -GitArgs @("status","--short")
+    $SourceHead = Invoke-Git -GitArgs @("rev-parse","HEAD")
+    $SourceCommitCount = Invoke-Git -GitArgs @("rev-list","--count","HEAD")
+
+    $Ts = Get-Date -Format "yyyyMMdd_HHmmss"
+    $BuildRoot = Join-Path $BundleRoot "_BUILD\FULL_IMPERIUM_CONTEXT_$Ts"
+    $ZipPath = Join-Path $BundleRoot "FULL_IMPERIUM_CONTEXT_$Ts.zip"
 
     if (Test-Path $BuildRoot) {
         Remove-Item $BuildRoot -Recurse -Force
@@ -222,7 +226,7 @@ function Build-MissingLocalBundle {
 
     New-Item -ItemType Directory -Force $BuildRoot | Out-Null
 
-    Copy-Item $StateRoot (Join-Path $BuildRoot "ADMINISTRATUM_ANALYZER_V0_3") -Recurse -Force
+    Copy-Item $RuntimeRoot (Join-Path $BuildRoot "ADMINISTRATUM_ANALYZER_V0_3_RUNTIME") -Recurse -Force
 
     Write-Utf8Bom (Join-Path $BuildRoot "GITHUB_REPOSITORY_LINK.txt") $GitHubUrl
 
@@ -266,31 +270,46 @@ Recommended use in new chat:
         Remove-Item $ZipPath -Force
     }
 
-    Compress-Archive -Path (Join-Path $BuildRoot "*") -DestinationPath $ZipPath -Force
-
-    $Hash = (Get-FileHash -Algorithm SHA256 $ZipPath).Hash.ToLower()
-    $Size = (Get-Item $ZipPath).Length
-
-    $Receipt = [ordered]@{
-        schema_version = "ADMINISTRATUM_CONTEXT_BUNDLE_RECEIPT_V0_3"
-        zip_path = $ZipPath
-        sha256 = $Hash
-        size_bytes = $Size
-        github_url = $GitHubUrl
-        committed_to_git = $false
-        status = "PASS_WITH_LIMITATIONS"
-        limitations = @(
-            "Local-only context bundle.",
-            "Does not include raw secrets by default.",
-            "Use with GitHub repository link for full context."
-        )
-        generated_at = (Get-Date).ToString("o")
-    }
-
-    Write-Utf8Bom (Join-Path $StateRoot "LATEST_CONTEXT_BUNDLE_RECEIPT.json") ($Receipt | ConvertTo-Json -Depth 20)
-
-    return $Receipt
-}
+    Compress-Archive -Path (Join-Path $BuildRoot "*") -DestinationPath $ZipPath -Force
+
+    $Hash = (Get-FileHash -Algorithm SHA256 $ZipPath).Hash.ToLower()
+    $Size = (Get-Item $ZipPath).Length
+    $GitStatusAfter = Invoke-Git -GitArgs @("status","--short")
+    $ActualBundleFilename = [System.IO.Path]::GetFileName($ZipPath)
+    $CreatedAt = (Get-Date).ToString("o")
+
+    $Receipt = [ordered]@{
+        schema_version = "ADMINISTRATUM_CONTEXT_BUNDLE_RECEIPT_V0_4"
+        zip_path = $ZipPath
+        sha256 = $Hash
+        size_bytes = $Size
+        actual_bundle_filename = $ActualBundleFilename
+        actual_bundle_sha256 = $Hash
+        actual_bundle_size = $Size
+        created_at = $CreatedAt
+        builder_script_version = "launch_administratum_dashboard_v0_3.ps1#runtime_purity_v0_1"
+        source_head = $SourceHead
+        source_commit_count = $SourceCommitCount
+        runtime_output_dir = $RuntimeRoot
+        git_status_before = $GitStatusBefore
+        git_status_after = $GitStatusAfter
+        legacy_tracked_state_reference = $LegacyTrackedStateRoot
+        github_url = $GitHubUrl
+        committed_to_git = $false
+        status = "PASS_WITH_LIMITATIONS"
+        limitations = @(
+            "Local-only context bundle.",
+            "Does not include raw secrets by default.",
+            "Use with GitHub repository link for full context."
+        )
+        generated_at = $CreatedAt
+    }
+
+    Write-Utf8Bom (Join-Path $RuntimeRoot "LATEST_CONTEXT_BUNDLE_RECEIPT.json") ($Receipt | ConvertTo-Json -Depth 20)
+    Write-Utf8Bom (Join-Path $RuntimeRoot "runtime_receipt.json") ($Receipt | ConvertTo-Json -Depth 20)
+
+    return $Receipt
+}
 
 $Html = @"
 <!doctype html>

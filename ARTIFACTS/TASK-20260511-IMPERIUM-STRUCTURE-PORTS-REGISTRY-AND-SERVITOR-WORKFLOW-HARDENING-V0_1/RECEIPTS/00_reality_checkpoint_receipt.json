@@ -1,0 +1,65 @@
+﻿{
+  "schema_version": "IMPERIUM_REALITY_CHECKPOINT_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
+  "expected_commit_count_from_owner_screenshot": 22,
+  "expected_short_head_from_owner_screenshot": "acd0cdf",
+  "actual_commit_count": 22,
+  "actual_short_head": "acd0cdf",
+  "actual_full_head": "acd0cdfe874acbf17a8fbe5a5c23c12624c9b39d",
+  "actual_origin_master": "acd0cdfe874acbf17a8fbe5a5c23c12624c9b39d",
+  "actual_remote_master": "acd0cdfe874acbf17a8fbe5a5c23c12624c9b39d",
+  "branch": "master",
+  "worktree_clean": false,
+  "bundle_metadata": {
+    "bundle_expected_path": "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260511_125125.zip",
+    "bundle_found": true,
+    "bundle_actual": {
+      "path": "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260511_125125.zip",
+      "size_bytes": 4510,
+      "last_write_time": "2026-05-11T12:51:25.2041673+03:00"
+    },
+    "bundle_actual_sha256": "24b719fbfdce29f72d18fc2761cf55aae021f41200d2280fbd8dcb261ec34779",
+    "bundle_receipt_path": "E:\\IMPERIUM\\CURRENT_STATE\\ADMINISTRATUM_ANALYZER_V0_3\\LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+    "bundle_receipt_found": true,
+    "bundle_receipt": {
+      "schema_version": "ADMINISTRATUM_CONTEXT_BUNDLE_RECEIPT_V0_3",
+      "zip_path": "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260511_125125.zip",
+      "sha256": "24b719fbfdce29f72d18fc2761cf55aae021f41200d2280fbd8dcb261ec34779",
+      "size_bytes": 4510,
+      "github_url": "https://github.com/SoulsLike2313/Imperium-",
+      "committed_to_git": false,
+      "status": "PASS_WITH_LIMITATIONS",
+      "limitations": [
+        "Local-only context bundle.",
+        "Does not include raw secrets by default.",
+        "Use with GitHub repository link for full context."
+      ],
+      "generated_at": "2026-05-11T12:51:25.2139313+03:00"
+    }
+  },
+  "verdict": "BLOCKED_MISMATCH",
+  "mismatch_list": [
+    "owner handoff claimed worktree clean, actual worktree has modifications"
+  ],
+  "timestamp": "2026-05-11T13:53:26.4886888+03:00",
+  "commands_executed": [
+    "git status --short",
+    "git branch --show-current",
+    "git rev-list --count HEAD",
+    "git rev-parse --short HEAD",
+    "git rev-parse HEAD",
+    "git rev-parse origin/master",
+    "git ls-remote origin refs/heads/master",
+    "git remote -v",
+    "git log --oneline --decorate -10",
+    "Get-ChildItem -Recurse FULL_IMPERIUM_CONTEXT_20260511_125125.zip",
+    "Get-Content CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+    "git diff CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/*"
+  ],
+  "command_outputs": {
+    "git_status_short": " M CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/GIT_LOCAL_ANALYSIS.json\r\n M CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/LATEST_CONTEXT_BUNDLE_RECEIPT.json\r\n M CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/VERDICT.md",
+    "git_remote_v": "origin\thttps://github.com/SoulsLike2313/Imperium-.git (fetch)\r\norigin\thttps://github.com/SoulsLike2313/Imperium-.git (push)",
+    "git_log_oneline_10": "acd0cdf (HEAD -> master, origin/master, origin/HEAD) refresh final Administratum analyzer verdict\r\ne31a7aa refresh Administratum analyzer state after cleanup\r\n4658a26 record manual Astronomicon prototypes and cleanup worktree\r\n3d8a488 fix Administratum v0.3 git local boundary bundle dashboard\r\n2659aaf add Astronomicon dashboard v0.6 v0.7 full planning pipeline\r\nc13c501 add Astronomicon general task to local task smoke test\r\n46ef402 record manual cleanup finalization and latest context bundle record\r\n46d7eee record clean Administratum analyzer verification\r\nd175713 finalize manual worktree cleanup for analyzer reports\r\nc7dc53f record post-push worktree classifier verification",
+    "git_ls_remote_line": "acd0cdfe874acbf17a8fbe5a5c23c12624c9b39d\trefs/heads/master"
+  }
+}
