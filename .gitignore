@@ -70,3 +70,6 @@ EXPLORER/SCREENSHOTS/**/*SSH_COMMAND_LIBRARY*.zip
 
 # Manual cleanup working logs.
 /CURRENT_STATE/MANUAL_WORKTREE_CLEANUP_*/
+# IMPERIUM local transfer inbox/outbox
+/INBOX/
+/OUTBOX/

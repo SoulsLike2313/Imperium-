@@ -1,0 +1,21 @@
+{
+  "schema": "IMPERIUM_IMPLEMENTATION_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1",
+  "created_at": "2026-05-11T19:45:27+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "action": "create_sanctum_qt_v0_29_shell",
+  "files_created": [
+    "SANCTUM/sanctum_v0_29_qt.py",
+    "SANCTUM/RUN_SANCTUM_V0_29_QT.ps1",
+    "ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/REPORTS/implementation_report.md",
+    "ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/RECEIPTS/01_qt_shell_implementation_receipt.json"
+  ],
+  "validation": {
+    "pyside6_import": "PASS",
+    "py_compile": "PASS",
+    "sanctum_qt_sha256": "659FCD7DB5EDBBF029DF5F8B94B762B7F1D7EC5EF876F069D936CEDEC0689729",
+    "launcher_sha256": "BE76DDE09B7D2F3852EE380015A3606817765C61E3D303AF3F98098B097C057F"
+  },
+  "verdict": "QT_SHELL_CREATED"
+}

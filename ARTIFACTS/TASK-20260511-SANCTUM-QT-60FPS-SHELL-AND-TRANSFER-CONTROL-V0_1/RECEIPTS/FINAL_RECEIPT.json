@@ -1,0 +1,41 @@
+{
+  "schema": "IMPERIUM_FINAL_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1",
+  "created_at": "2026-05-11T20:07:58+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "verdict": "PASS_WITH_LIMITATIONS",
+  "git_before_commit": {
+    "branch": "master",
+    "commit_count": 25,
+    "short_head": "d12c6ed",
+    "full_head": "d12c6ed3c71151350dc26786b7db75a0d3bf47c3",
+    "status_short": [
+      " M .gitignore",
+      "?? ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/",
+      "?? ARTIFACTS/TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1/",
+      "?? SANCTUM/RUN_SANCTUM_V0_28.ps1",
+      "?? SANCTUM/RUN_SANCTUM_V0_29_QT.ps1",
+      "?? SANCTUM/sanctum_v0_28.py",
+      "?? SANCTUM/sanctum_v0_29_qt.py"
+    ]
+  },
+  "files": {
+    "active_sanctum": "SANCTUM/sanctum_v0_29_qt.py",
+    "launcher": "SANCTUM/RUN_SANCTUM_V0_29_QT.ps1",
+    "sanctum_qt_sha256": "23342F9BE9C07BF620DF38C517C22B1731564B23D6A4C1FCF87C18BA94DC3097",
+    "launcher_sha256": "BE76DDE09B7D2F3852EE380015A3606817765C61E3D303AF3F98098B097C057F"
+  },
+  "validated": {
+    "py_compile_qt": "PASS",
+    "py_compile_v28": "PASS",
+    "manual_launch_confirmed": true,
+    "transfer_panel_confirmed": true
+  },
+  "limitations": [
+    "Visual polish is prototype-level, not final AAA.",
+    "Top command buttons open folders pragmatically.",
+    "Route registry integration is not complete.",
+    "Transfer receipts remain runtime-local."
+  ]
+}

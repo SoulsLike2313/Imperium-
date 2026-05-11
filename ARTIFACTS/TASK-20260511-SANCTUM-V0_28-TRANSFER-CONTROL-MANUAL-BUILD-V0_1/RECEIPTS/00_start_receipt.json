@@ -1,0 +1,37 @@
+{
+  "schema": "IMPERIUM_TASK_START_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1",
+  "created_at": "2026-05-11T19:34:43+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "purpose": "Start manual Sanctum v0.28 Transfer Control implementation",
+  "git": {
+    "branch": "master",
+    "commit_count": 25,
+    "short_head": "d12c6ed",
+    "full_head": "d12c6ed3c71151350dc26786b7db75a0d3bf47c3",
+    "status_short": [
+      " M SANCTUM/README.md",
+      " M SANCTUM/SANCTUM_STATUS.json",
+      "?? INBOX/",
+      "?? OUTBOX/",
+      "?? SANCTUM/RUN_SANCTUM_V0_28.ps1",
+      "?? SANCTUM/sanctum_v0_28.py"
+    ]
+  },
+  "sanctum": {
+    "source_base": "SANCTUM/sanctum_v0_26.py",
+    "working_file": "SANCTUM/sanctum_v0_28.py",
+    "launcher": "SANCTUM/RUN_SANCTUM_V0_28.ps1",
+    "sanctum_v0_28_sha256": "917A367FE7413D1F36EDA4C226F3E1AE28511AEC3DAFCA4F2CB298BA02EC0084",
+    "launcher_sha256": "8C79E9C5505308C8C8AA5989FC25D17B10450C1B6A3D984F309D62EB1EDC8D08"
+  },
+  "planned_outputs": [
+    "SANCTUM/sanctum_v0_28.py",
+    "SANCTUM/RUN_SANCTUM_V0_28.ps1",
+    "ARTIFACTS/TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1/REPORTS/implementation_report.md",
+    "ARTIFACTS/TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1/REPORTS/validation_report.md",
+    "ARTIFACTS/TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1/RECEIPTS/FINAL_RECEIPT.json"
+  ],
+  "verdict": "START_RECORDED"
+}

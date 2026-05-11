@@ -1,0 +1,15 @@
+{
+  "schema": "IMPERIUM_FINAL_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1",
+  "created_at": "2026-05-11T20:07:58+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "verdict": "SUPERSEDED_BY_SANCTUM_QT_V0_29",
+  "files": {
+    "sanctum_v0_28": "SANCTUM/sanctum_v0_28.py",
+    "launcher": "SANCTUM/RUN_SANCTUM_V0_28.ps1",
+    "sanctum_v0_28_sha256": "55A5BFE702BE23F6FE8BA949FC1695386758821B572FC774DC53FDF93D97A2BB",
+    "launcher_sha256": "8C79E9C5505308C8C8AA5989FC25D17B10450C1B6A3D984F309D62EB1EDC8D08"
+  },
+  "reason": "Tkinter transfer-control experiment worked, but Qt is required for the desired 60 FPS dashboard path."
+}

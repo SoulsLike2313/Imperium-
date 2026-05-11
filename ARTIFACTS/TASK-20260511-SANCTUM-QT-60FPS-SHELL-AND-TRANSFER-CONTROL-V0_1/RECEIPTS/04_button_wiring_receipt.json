@@ -1,0 +1,18 @@
+{
+  "schema": "IMPERIUM_IMPLEMENTATION_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1",
+  "created_at": "2026-05-11T20:05:36+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "action": "wire_sanctum_qt_top_buttons",
+  "files_changed": [
+    "SANCTUM/sanctum_v0_29_qt.py",
+    "ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/REPORTS/button_wiring_report.md",
+    "ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/RECEIPTS/04_button_wiring_receipt.json"
+  ],
+  "validation": {
+    "py_compile": "PASS",
+    "sanctum_qt_sha256": "23342F9BE9C07BF620DF38C517C22B1731564B23D6A4C1FCF87C18BA94DC3097"
+  },
+  "verdict": "BUTTONS_WIRED"
+}

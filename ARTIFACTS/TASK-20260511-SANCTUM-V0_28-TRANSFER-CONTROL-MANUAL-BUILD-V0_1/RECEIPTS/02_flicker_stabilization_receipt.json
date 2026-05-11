@@ -1,0 +1,17 @@
+{
+  "schema": "IMPERIUM_MANUAL_PATCH_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1",
+  "created_at": "2026-05-11T19:40:07+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "action": "stabilize_sanctum_v0_28_canvas_flicker",
+  "files_changed": [
+    "SANCTUM/sanctum_v0_28.py",
+    "ARTIFACTS/TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1/REPORTS/flicker_stabilization_report.md",
+    "ARTIFACTS/TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL-MANUAL-BUILD-V0_1/RECEIPTS/02_flicker_stabilization_receipt.json"
+  ],
+  "validation": {
+    "py_compile": "PASS"
+  },
+  "verdict": "PATCH_APPLIED"
+}

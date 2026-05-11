@@ -1,0 +1,18 @@
+{
+  "schema": "IMPERIUM_IMPLEMENTATION_RECEIPT_V1",
+  "task_id": "TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1",
+  "created_at": "2026-05-11T19:57:46+03:00",
+  "actor": "Owner_Logos_Prime_manual",
+  "contour_id": "PC_WINDOWS",
+  "action": "upgrade_sanctum_qt_visual_language",
+  "files_changed": [
+    "SANCTUM/sanctum_v0_29_qt.py",
+    "ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/REPORTS/visual_upgrade_report.md",
+    "ARTIFACTS/TASK-20260511-SANCTUM-QT-60FPS-SHELL-AND-TRANSFER-CONTROL-V0_1/RECEIPTS/02_visual_upgrade_receipt.json"
+  ],
+  "validation": {
+    "py_compile": "PASS",
+    "sanctum_qt_sha256": "9B15E1CD2D423AE96B0F1B6D54D0CA9882E7295D6BA1E6EA0D08007F8FDA4C9E"
+  },
+  "verdict": "VISUAL_UPGRADE_APPLIED"
+}
