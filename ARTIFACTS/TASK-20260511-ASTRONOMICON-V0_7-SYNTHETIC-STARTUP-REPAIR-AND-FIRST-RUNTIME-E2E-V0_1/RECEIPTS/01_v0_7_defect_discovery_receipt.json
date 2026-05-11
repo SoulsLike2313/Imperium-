@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "01_v0_7_defect_discovery",
+  "created_at": "2026-05-11T17:15:58.1987315+03:00",
+  "index_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/OUTPUTS/v0_7_defect_source_index.json",
+  "report_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/REPORTS/v0_7_defect_source_index_report.md",
+  "defect_id": "DEFECT-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-FAIL",
+  "blocking_runtime_e2e": true,
+  "reproducible_on_current_head": "PENDING_PHASE_2_REPRODUCTION",
+  "verdict": "PASS",
+  "commands_executed": [
+    "rg searches across REGISTRY/ARTIFACTS/ORGANS/DOCS/CURRENT_STATE/TOOLS",
+    "Get-Content on historical failure evidence and current scripts"
+  ]
+}

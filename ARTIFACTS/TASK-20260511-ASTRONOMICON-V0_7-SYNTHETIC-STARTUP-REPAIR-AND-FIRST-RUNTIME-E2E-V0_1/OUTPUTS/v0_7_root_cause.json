@@ -1,0 +1,23 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "defect_id": "DEFECT-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-FAIL",
+  "analyzed_at": "2026-05-11T17:20:40.4058670+03:00",
+  "category": "BAD_PARAMETER_CONTRACT",
+  "root_cause": "Shared helper Write-Utf8Bom rejects empty string Content while synthetic runner intentionally initializes new log files with empty string content.",
+  "failure_path": {
+    "script": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+    "failing_call_1": "Write-Utf8Bom -Path $logPath -Content \"\" (startup)",
+    "failing_call_2": "Write-Utf8Bom -Path $taskLogPath -Content \"\" (per-task log init)",
+    "helper": "TOOLS/astronomicon_pipeline_common_v0_2.ps1",
+    "helper_contract": "[Parameter(Mandatory=$true)][string]$Content without AllowEmptyString causes ParameterArgumentValidationErrorEmptyStringNotAllowed",
+    "observed_error": "ParameterArgumentValidationErrorEmptyStringNotAllowed,Write-Utf8Bom"
+  },
+  "affected_files": [
+    "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+    "TOOLS/astronomicon_pipeline_common_v0_2.ps1"
+  ],
+  "minimal_fix": "Update Write-Utf8Bom to accept AllowEmptyString and treat null as empty before normalization.",
+  "risk": "LOW: localized helper contract widening; existing non-empty writes unchanged.",
+  "localized_fix": true,
+  "owner_approval_required": false
+}

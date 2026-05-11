@@ -3,7 +3,7 @@ Set-StrictMode -Version Latest
 function Write-Utf8Bom {
     param(
         [Parameter(Mandatory = $true)][string]$Path,
-        [Parameter(Mandatory = $true)][string]$Content
+        [Parameter(Mandatory = $true)][AllowEmptyString()][string]$Content
     )
 
     $directory = Split-Path -Parent $Path
@@ -12,7 +12,8 @@ function Write-Utf8Bom {
     }
 
     $utf8Bom = New-Object System.Text.UTF8Encoding($true)
-    [System.IO.File]::WriteAllText($Path, ($Content -replace "`r`n", "`n" -replace "`r", "`n").Replace("`n", "`r`n"), $utf8Bom)
+    $normalizedContent = if ($null -eq $Content) { "" } else { $Content }
+    [System.IO.File]::WriteAllText($Path, ($normalizedContent -replace "`r`n", "`n" -replace "`r", "`n").Replace("`n", "`r`n"), $utf8Bom)
 }
 
 function Read-JsonFile {

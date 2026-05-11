@@ -1,0 +1,17 @@
+﻿{
+    "schema":  "IMPERIUM_PORT_RECEIPT_V1",
+    "receipt_id":  "PORT-RECEIPT-71bbcaad-a819-49f8-8455-c5d9df1520e5",
+    "message_id":  "MSG-69e0ed73-440c-4f79-8dba-4e00f2e4a659",
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "local_task_id":  "LTASK-001",
+    "stage_id":  "STAGE-001-SMOKE-VALIDATE-AND-WRITE",
+    "run_id":  null,
+    "operation":  "get_task_map|get_stage_map",
+    "status":  "OK",
+    "payload_path":  "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/OUTPUTS/e2e_astronomicon_task_map.json",
+    "notes":  [
+                  "Smoke task and stage maps generated.",
+                  "Maps are scaffold runtime proof, not full production planning."
+              ],
+    "created_at":  "2026-05-11T17:28:42.7932793+03:00"
+}

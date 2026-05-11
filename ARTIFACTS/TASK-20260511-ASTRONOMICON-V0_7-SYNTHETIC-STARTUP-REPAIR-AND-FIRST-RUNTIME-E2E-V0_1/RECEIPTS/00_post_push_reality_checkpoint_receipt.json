@@ -1,0 +1,38 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "created_at": "2026-05-11T17:12:52.479824+03:00",
+  "branch": "master",
+  "commit_count": "24",
+  "short_head": "9161d4f",
+  "full_head": "9161d4f45842080a2de29c17fdf79cc93efff4e9",
+  "origin_master": "9161d4f45842080a2de29c17fdf79cc93efff4e9",
+  "remote_master": "9161d4f45842080a2de29c17fdf79cc93efff4e9",
+  "worktree_clean": true,
+  "git_status_short": "",
+  "latest_10_commits": [
+    "9161d4f (HEAD -> master, origin/master, origin/HEAD) TASK-20260511: add structure registries ports and servitor workflow spine",
+    "bdb42aa TASK-20260511: fix Administratum analyzer runtime purity",
+    "acd0cdf refresh final Administratum analyzer verdict",
+    "e31a7aa refresh Administratum analyzer state after cleanup",
+    "4658a26 record manual Astronomicon prototypes and cleanup worktree",
+    "3d8a488 fix Administratum v0.3 git local boundary bundle dashboard",
+    "2659aaf add Astronomicon dashboard v0.6 v0.7 full planning pipeline",
+    "c13c501 add Astronomicon general task to local task smoke test",
+    "46ef402 record manual cleanup finalization and latest context bundle record",
+    "46d7eee record clean Administratum analyzer verification"
+  ],
+  "previous_structure_ports_registry_commit_present": true,
+  "previous_analyzer_purity_commit_present": true,
+  "commands_executed": [
+    "git status --short",
+    "git branch --show-current",
+    "git rev-list --count HEAD",
+    "git rev-parse --short HEAD",
+    "git rev-parse HEAD",
+    "git rev-parse origin/master",
+    "git ls-remote origin refs/heads/master",
+    "git remote -v",
+    "git log --oneline --decorate -10"
+  ],
+  "verdict": "PASS"
+}

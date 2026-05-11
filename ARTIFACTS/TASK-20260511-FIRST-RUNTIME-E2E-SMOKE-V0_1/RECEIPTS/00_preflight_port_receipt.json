@@ -1,0 +1,17 @@
+﻿{
+    "schema":  "IMPERIUM_PORT_RECEIPT_V1",
+    "receipt_id":  "PORT-RECEIPT-f0bec497-bc59-4772-823b-8e99755b59d4",
+    "message_id":  "MSG-5cdd5269-dde2-4da0-aa38-1063395f9daa",
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "local_task_id":  null,
+    "stage_id":  null,
+    "run_id":  "RUN-20260511-172842",
+    "operation":  "preflight_task_execution",
+    "status":  "ALLOW_WITH_LIMITATIONS",
+    "payload_path":  "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/OUTPUTS/e2e_doctrinarium_preflight_response.payload.json",
+    "notes":  [
+                  "Smoke preflight runner executed.",
+                  "Result is safe-gated for minimal runtime E2E only."
+              ],
+    "created_at":  "2026-05-11T17:28:42.4369956+03:00"
+}

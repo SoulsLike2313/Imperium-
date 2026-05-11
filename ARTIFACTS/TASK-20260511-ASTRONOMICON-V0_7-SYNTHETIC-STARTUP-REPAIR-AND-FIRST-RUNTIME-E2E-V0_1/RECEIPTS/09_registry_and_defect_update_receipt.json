@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "09_registry_and_defect_update",
+  "created_at": "2026-05-11T17:34:01.7400636+03:00",
+  "updated_files": [
+    "REGISTRY/KNOWN_DEFECTS.json",
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/PORT_REGISTRY.json",
+    "REGISTRY/ARTIFACT_REGISTRY.json",
+    "REGISTRY/DYNAMIC_STATE_REGISTRY.json"
+  ],
+  "v0_7_defect_status": "FIXED_WITH_LIMITATIONS",
+  "analyzer_defect_status": "FIXED",
+  "bundle_receipt_lag_status": "FIXED",
+  "crlf_noise_status": "OPEN",
+  "verdict": "PASS"
+}

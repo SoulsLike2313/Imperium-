@@ -1,6 +1,6 @@
 {
   "schema_version": "IMPERIUM_KNOWN_DEFECTS_V0_2",
-  "updated_at": "2026-05-11T16:43:44.248260+03:00",
+  "updated_at": "2026-05-11T17:33:00.9081346+03:00",
   "defects": [
     {
       "defect_id": "DEFECT-20260511-ADMINISTRATUM-ANALYZER-TRACKED-RUNTIME-WRITES",
@@ -24,28 +24,37 @@
         "Legacy scripts outside patched set might still reference CURRENT_STATE analyzer paths and should be audited in larger structure task.",
         "Legacy tracked analyzer files remain as historical snapshots and can still be edited manually if operator bypasses policy."
       ],
-      "regression_check_in_task": "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/RECEIPTS/13_validation_receipt.json"
+      "regression_check_in_task": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RECEIPTS/10_validation_receipt.json"
     },
     {
       "defect_id": "DEFECT-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-FAIL",
-      "status": "OPEN",
-      "description": "Astronomicon v0.7 synthetic stress run failed at startup in prior task artifact.",
+      "status": "FIXED_WITH_LIMITATIONS",
+      "description": "Astronomicon v0.7 synthetic startup failure was reproduced and repaired with localized Write-Utf8Bom contract fix; rerun passed and first runtime smoke E2E passed with limitations.",
       "impact": "Automated synthetic confidence run remains unreliable.",
       "affected_files": [
         "ORGANS/ASTRONOMICON/UTILITY/astronomicon_dashboard_v0_7.ps1",
         "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1"
       ],
       "expected": "Synthetic full-run should complete 3 generated General Tasks through import/decompose/review receipt cycle.",
-      "actual": "Prior artifact reports startup failure (DEF-001) in v0.7 synthetic run.",
+      "actual": "Startup failed on empty string Content passed to Write-Utf8Bom; post-fix synthetic run completed with errors=0.",
       "minimal_reproduction": [
         "powershell -ExecutionPolicy Bypass -File ORGANS/ASTRONOMICON/UTILITY/run_astronomicon_dashboard_v0_7.ps1",
         "trigger synthetic full run path in v0.7 dashboard"
       ],
       "proposed_repair_path": "Isolate startup exception in v0.7 init path, rerun 3-task synthetic suite, update receipts.",
-      "validation_receipt_path": "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/RECEIPTS/12_known_defects_receipt.json",
+      "validation_receipt_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RECEIPTS/05_v0_7_rerun_receipt.json",
       "remaining_risks": [
-        "Synthetic regressions remain until dedicated repair task is executed."
-      ]
+        "Runtime proof is smoke-level; full production orchestration remains scaffold.",
+        "Synthetic fixtures intentionally include orphan refinement cases."
+      ],
+      "repair_summary": [
+        "Reproduced failure signature ParameterArgumentValidationErrorEmptyStringNotAllowed,Write-Utf8Bom.",
+        "Patched TOOLS/astronomicon_pipeline_common_v0_2.ps1 with [AllowEmptyString()] and null normalization.",
+        "Rerun completed 3 synthetic tasks successfully with exit_code=0.",
+        "Executed first runtime smoke E2E with PASS_WITH_LIMITATIONS verdict."
+      ],
+      "reproduction_receipt_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RECEIPTS/02_v0_7_reproduction_receipt.json",
+      "runtime_e2e_receipt_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RECEIPTS/08_first_runtime_e2e_receipt.json"
     },
     {
       "defect_id": "DEFECT-20260511-ANALYZER-CRLF-FORMATTING-NOISE",
@@ -56,7 +65,9 @@
       "affected_files": [
         "ARTIFACTS/TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1/RECEIPTS/08_final_validation_receipt.json"
       ],
-      "proposed_repair_path": "Normalize human-readable report rendering; avoid embedding escaped multiline status blocks when possible."
+      "proposed_repair_path": "Normalize human-readable report rendering; avoid embedding escaped multiline status blocks when possible.",
+      "current_assessment": "Not observed as analyzer runtime corruption in this task; readability noise can still appear in manually assembled reports.",
+      "validation_note": "Current task normalized its own reports; older artifacts were not rewritten."
     },
     {
       "defect_id": "DEFECT-20260511-BUNDLE-RECEIPT-LAG",
@@ -72,6 +83,10 @@
       "validation_receipt_path": "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/RECEIPTS/12_known_defects_receipt.json",
       "remaining_risks": [
         "Legacy builders may still use older receipt pattern."
+      ],
+      "revalidation_evidence": [
+        "TOOLS/build_chat_compilation_from_analysis.ps1 contains actual_bundle_filename/sha256/size and source metadata fields.",
+        "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1 writes matching runtime receipt fields."
       ]
     }
   ],

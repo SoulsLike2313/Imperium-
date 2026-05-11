@@ -1,6 +1,6 @@
 {
   "schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
-  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "generated_at": "2026-05-11T17:33:00.9467018+03:00",
   "coverage": "scaffold_partial",
   "scripts": [
     {
@@ -109,6 +109,131 @@
       "dependencies": [
         "UNKNOWN"
       ]
+    },
+    {
+      "dependencies": [
+        "git",
+        "PowerShell"
+      ],
+      "script_id": "SCRIPT-DOCTRINARIUM-PREFLIGHT-SMOKE-V0_1",
+      "inputs": [
+        "task_id",
+        "stage_range",
+        "output paths"
+      ],
+      "destructive": false,
+      "outputs": [
+        "artifact preflight request/response/receipt json"
+      ],
+      "reads_from": [
+        "REGISTRY/*",
+        "ORGANS/* schema presence",
+        "git state"
+      ],
+      "owner": "DOCTRINARIUM",
+      "purpose": "minimal preflight smoke responder for first runtime E2E",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_doctrinarium_preflight_smoke.ps1 ...",
+      "writes_to": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "safe_to_run": true,
+      "path": "TOOLS/imperium_doctrinarium_preflight_smoke.ps1",
+      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
+    },
+    {
+      "dependencies": [
+        "PowerShell"
+      ],
+      "script_id": "SCRIPT-ASTRONOMICON-GET-TASK-MAP-SMOKE-V0_1",
+      "inputs": [
+        "task_id",
+        "local_task_id",
+        "stage_id",
+        "artifact root"
+      ],
+      "destructive": false,
+      "outputs": [
+        "e2e_astronomicon_task_map.json",
+        "e2e_astronomicon_stage_map.json",
+        "receipt"
+      ],
+      "reads_from": [
+        "arguments only"
+      ],
+      "owner": "ASTRONOMICON",
+      "purpose": "emit minimal task map and stage map payloads for smoke E2E",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_astronomicon_get_task_map_smoke.ps1 ...",
+      "writes_to": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "safe_to_run": true,
+      "path": "TOOLS/imperium_astronomicon_get_task_map_smoke.ps1",
+      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
+    },
+    {
+      "dependencies": [
+        "git",
+        "PowerShell"
+      ],
+      "script_id": "SCRIPT-ADMINISTRATUM-ISSUE-WORK-PACKET-SMOKE-V0_1",
+      "inputs": [
+        "task_id",
+        "run_id",
+        "stage_id",
+        "artifact root"
+      ],
+      "destructive": false,
+      "outputs": [
+        "e2e_administratum_work_packet.json",
+        "receipt"
+      ],
+      "reads_from": [
+        "REGISTRY/KNOWN_DEFECTS.json",
+        "git state"
+      ],
+      "owner": "ADMINISTRATUM",
+      "purpose": "emit minimal administratum_work_packet_v1 payload for smoke E2E",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_administratum_issue_work_packet_smoke.ps1 ...",
+      "writes_to": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "safe_to_run": true,
+      "path": "TOOLS/imperium_administratum_issue_work_packet_smoke.ps1",
+      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
+    },
+    {
+      "dependencies": [
+        "PowerShell"
+      ],
+      "script_id": "SCRIPT-REGISTER-STAGE-RESULT-SMOKE-V0_1",
+      "inputs": [
+        "task_id",
+        "run_id",
+        "work_session_id",
+        "stage_id",
+        "stage output path"
+      ],
+      "destructive": false,
+      "outputs": [
+        "e2e_stage_result.json",
+        "receipt"
+      ],
+      "reads_from": [
+        "stage output file path"
+      ],
+      "owner": "ADMINISTRATUM",
+      "purpose": "register a single stage result for smoke E2E",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
+      "writes_to": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "safe_to_run": true,
+      "path": "TOOLS/imperium_register_stage_result_smoke.ps1",
+      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
     }
   ]
 }

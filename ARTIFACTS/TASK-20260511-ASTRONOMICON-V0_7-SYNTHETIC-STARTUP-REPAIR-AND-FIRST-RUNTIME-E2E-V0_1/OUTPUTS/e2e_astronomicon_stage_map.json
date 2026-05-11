@@ -1,0 +1,24 @@
+﻿{
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "local_task_id":  "LTASK-001",
+    "stages":  [
+                   {
+                       "stage_id":  "STAGE-001-SMOKE-VALIDATE-AND-WRITE",
+                       "depends_on":  [
+
+                                      ],
+                       "outputs":  [
+                                       "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/REPORTS/stage_smoke_output.md",
+                                       "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/OUTPUTS/e2e_stage_result.json"
+                                   ],
+                       "validation":  [
+                                          "Output file exists.",
+                                          "Known registry JSON files parse."
+                                      ],
+                       "stop_rules":  [
+                                          "Fail stage if JSON parse fails.",
+                                          "Fail stage if output file cannot be written."
+                                      ]
+                   }
+               ]
+}

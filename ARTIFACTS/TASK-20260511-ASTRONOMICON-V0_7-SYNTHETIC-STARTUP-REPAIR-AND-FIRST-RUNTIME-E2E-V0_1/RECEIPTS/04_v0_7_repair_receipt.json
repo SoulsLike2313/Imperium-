@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "04_v0_7_repair",
+  "created_at": "2026-05-11T17:21:18.3053593+03:00",
+  "changed_files": [
+    "TOOLS/astronomicon_pipeline_common_v0_2.ps1"
+  ],
+  "repair_type": "localized_helper_contract_fix",
+  "before_failure": "Write-Utf8Bom rejects empty Content argument",
+  "after_expected": "Write-Utf8Bom accepts empty string and normalizes null to empty string",
+  "risk": "LOW",
+  "broad_refactor": false,
+  "verdict": "PATCH_APPLIED"
+}

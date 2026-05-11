@@ -1,0 +1,10 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "03_v0_7_root_cause",
+  "created_at": "2026-05-11T17:20:40.4421648+03:00",
+  "root_cause_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/OUTPUTS/v0_7_root_cause.json",
+  "report_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/REPORTS/v0_7_root_cause_report.md",
+  "localized_fix": true,
+  "owner_approval_required": false,
+  "verdict": "PASS"
+}

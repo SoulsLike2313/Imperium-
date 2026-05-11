@@ -1,6 +1,6 @@
 {
   "schema_version": "IMPERIUM_PORT_REGISTRY_V0_1",
-  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "generated_at": "2026-05-11T17:33:00.9552582+03:00",
   "ports": [
     {
       "port_id": "PORT-PROTOCOL-MESSAGE-V1",
@@ -37,6 +37,30 @@
       "path": "ORGANS/ADMINISTRATUM/PORTS/issue_work_packet.schema.json",
       "owner": "ADMINISTRATUM",
       "status": "SCAFFOLD"
+    },
+    {
+      "path": "TOOLS/imperium_doctrinarium_preflight_smoke.ps1",
+      "status": "SMOKE_RUNNER_IMPLEMENTED",
+      "owner": "DOCTRINARIUM",
+      "port_id": "PORT-RUNNER-DOCTRINARIUM-PREFLIGHT-SMOKE"
+    },
+    {
+      "path": "TOOLS/imperium_astronomicon_get_task_map_smoke.ps1",
+      "status": "SMOKE_RUNNER_IMPLEMENTED",
+      "owner": "ASTRONOMICON",
+      "port_id": "PORT-RUNNER-ASTRONOMICON-TASK-STAGE-MAP-SMOKE"
+    },
+    {
+      "path": "TOOLS/imperium_administratum_issue_work_packet_smoke.ps1",
+      "status": "SMOKE_RUNNER_IMPLEMENTED",
+      "owner": "ADMINISTRATUM",
+      "port_id": "PORT-RUNNER-ADMINISTRATUM-ISSUE-WORK-PACKET-SMOKE"
+    },
+    {
+      "path": "TOOLS/imperium_register_stage_result_smoke.ps1",
+      "status": "SMOKE_RUNNER_IMPLEMENTED",
+      "owner": "ADMINISTRATUM",
+      "port_id": "PORT-RUNNER-ADMINISTRATUM-REGISTER-STAGE-RESULT-SMOKE"
     }
   ]
 }

@@ -1,0 +1,40 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "created_at": "2026-05-11T17:15:58.1603186+03:00",
+  "defect_id": "DEFECT-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-FAIL",
+  "sources": [
+    {
+      "source_type": "registry",
+      "path": "REGISTRY/KNOWN_DEFECTS.json",
+      "evidence": "Defect ID exists with status OPEN and references synthetic startup failure."
+    },
+    {
+      "source_type": "artifact_defect_record",
+      "path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN/05_DEFECTS/DEFECTS_FOUND.json",
+      "evidence": "High severity DEF-001 references Write-Utf8Bom empty string startup failure."
+    },
+    {
+      "source_type": "artifact_failure_log",
+      "path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN/04_V0_7_SYNTHETIC_STRESS_RUN/SYNTHETIC_RUN_FAILURE_LOG.txt",
+      "evidence": "Stack trace points to TOOLS/astronomicon_synthetic_full_run_v0_1.ps1 line 20."
+    },
+    {
+      "source_type": "artifact_summary",
+      "path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN/04_V0_7_SYNTHETIC_STRESS_RUN/SYNTHETIC_SUMMARY_FAIL.json",
+      "evidence": "Run status FAIL_AT_STARTUP with zero tasks processed."
+    },
+    {
+      "source_type": "runtime_script",
+      "path": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "evidence": "Current HEAD still contains Write-Utf8Bom -Content \"\" startup calls."
+    },
+    {
+      "source_type": "common_helper",
+      "path": "TOOLS/astronomicon_pipeline_common_v0_2.ps1",
+      "evidence": "Write-Utf8Bom Content parameter currently rejects empty strings."
+    }
+  ],
+  "expected_command": "powershell.exe -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1 -GeneralTasksRoot <sandbox> -OutputRoot <sandbox> -TaskCount 3",
+  "blocking_runtime_e2e": true,
+  "reproducible_on_current_head": "PENDING_PHASE_2_REPRODUCTION"
+}

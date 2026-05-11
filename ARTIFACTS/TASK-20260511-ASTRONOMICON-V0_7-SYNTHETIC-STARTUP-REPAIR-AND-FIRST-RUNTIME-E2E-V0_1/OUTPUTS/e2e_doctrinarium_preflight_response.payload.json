@@ -1,0 +1,37 @@
+﻿{
+    "operation":  "preflight_task_execution",
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "stage_range":  [
+                        "STAGE-001-SMOKE-VALIDATE-AND-WRITE"
+                    ],
+    "actor":  "PC_SERVITOR",
+    "repo_head":  "9161d4f45842080a2de29c17fdf79cc93efff4e9",
+    "required_organs":  [
+                            "DOCTRINARIUM",
+                            "ASTRONOMICON",
+                            "ADMINISTRATUM"
+                        ],
+    "organ_health":  {
+                         "doctrinarium":  "SCHEMA_PRESENT",
+                         "astronomicon":  "SCHEMA_PRESENT",
+                         "administratum":  "SCHEMA_PRESENT"
+                     },
+    "blocked":  false,
+    "limitations":  [
+                        "Smoke runner path only; production organ dispatch is not fully automated.",
+                        "Worktree not clean; stage run should be controlled and evidence-only."
+                    ],
+    "forbidden_actions":  [
+                              "No deletes",
+                              "No broad migration",
+                              "No THRONE writes",
+                              "No runtime output to tracked CURRENT_STATE"
+                          ],
+    "required_receipts":  [
+                              "08_first_runtime_e2e_receipt.json",
+                              "10_validation_receipt.json"
+                          ],
+    "blockers":  [
+
+                 ]
+}

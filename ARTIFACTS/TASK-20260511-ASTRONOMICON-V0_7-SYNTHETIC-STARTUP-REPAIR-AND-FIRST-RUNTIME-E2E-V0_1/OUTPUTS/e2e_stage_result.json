@@ -1,0 +1,16 @@
+﻿{
+    "schema":  "IMPERIUM_STAGE_RESULT_V1",
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "local_task_id":  "LTASK-001",
+    "stage_id":  "STAGE-001-SMOKE-VALIDATE-AND-WRITE",
+    "run_id":  "RUN-20260511-172841-SMOKE",
+    "work_session_id":  "WORKSESSION-c54192af-ed97-4f0b-8f28-c5dac6a9527c",
+    "actor":  "PC_SERVITOR",
+    "status":  "PASS_WITH_LIMITATIONS",
+    "stage_output_path":  "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/REPORTS/stage_smoke_output.md",
+    "stage_output_exists":  true,
+    "warnings":  [
+
+                 ],
+    "created_at":  "2026-05-11T17:28:43.7587618+03:00"
+}

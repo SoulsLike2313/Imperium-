@@ -1,0 +1,15 @@
+﻿{
+    "schema":  "IMPERIUM_PORT_RESPONSE_V1",
+    "message_id":  "MSG-5cdd5269-dde2-4da0-aa38-1063395f9daa",
+    "response_id":  "RESP-11672a9b-f536-408d-96f0-c2c7bc698d63",
+    "status":  "ALLOW_WITH_LIMITATIONS",
+    "payload_path":  "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/OUTPUTS/e2e_doctrinarium_preflight_response.payload.json",
+    "receipt_path":  "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/RECEIPTS/00_preflight_port_receipt.json",
+    "warnings":  [
+                     "Smoke runner path only; production organ dispatch is not fully automated.",
+                     "Worktree not clean; stage run should be controlled and evidence-only."
+                 ],
+    "blockers":  [
+
+                 ]
+}

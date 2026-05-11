@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "10_validation",
+  "created_at": "2026-05-11T17:36:03.3460351+03:00",
+  "git_status_short": " M REGISTRY/ARTIFACT_REGISTRY.json\r\n M REGISTRY/DYNAMIC_STATE_REGISTRY.json\r\n M REGISTRY/KNOWN_DEFECTS.json\r\n M REGISTRY/PORT_REGISTRY.json\r\n M REGISTRY/SCRIPT_REGISTRY.json\r\n M TOOLS/astronomicon_pipeline_common_v0_2.ps1\r\n?? ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/\r\n?? ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/\r\n?? TOOLS/imperium_administratum_issue_work_packet_smoke.ps1\r\n?? TOOLS/imperium_astronomicon_get_task_map_smoke.ps1\r\n?? TOOLS/imperium_doctrinarium_preflight_smoke.ps1\r\n?? TOOLS/imperium_register_stage_result_smoke.ps1",
+  "git_diff_stat": " REGISTRY/ARTIFACT_REGISTRY.json             |  20 ++++-\r\n REGISTRY/DYNAMIC_STATE_REGISTRY.json        |  24 +++++-\r\n REGISTRY/KNOWN_DEFECTS.json                 |  33 ++++++--\r\n REGISTRY/PORT_REGISTRY.json                 |  26 +++++-\r\n REGISTRY/SCRIPT_REGISTRY.json               | 127 +++++++++++++++++++++++++++-\r\n TOOLS/astronomicon_pipeline_common_v0_2.ps1 |   5 +-\r\n 6 files changed, 217 insertions(+), 18 deletions(-)\r\n",
+  "git_diff_name_status": "M\tREGISTRY/ARTIFACT_REGISTRY.json\r\nM\tREGISTRY/DYNAMIC_STATE_REGISTRY.json\r\nM\tREGISTRY/KNOWN_DEFECTS.json\r\nM\tREGISTRY/PORT_REGISTRY.json\r\nM\tREGISTRY/SCRIPT_REGISTRY.json\r\nM\tTOOLS/astronomicon_pipeline_common_v0_2.ps1\r\n",
+  "json_parse_failures": [],
+  "schema_parse_failures": [],
+  "registry_path_checks": [
+    "SCRIPT-DOCTRINARIUM-PREFLIGHT-SMOKE-V0_1::TOOLS/imperium_doctrinarium_preflight_smoke.ps1::True",
+    "SCRIPT-ASTRONOMICON-GET-TASK-MAP-SMOKE-V0_1::TOOLS/imperium_astronomicon_get_task_map_smoke.ps1::True",
+    "SCRIPT-ADMINISTRATUM-ISSUE-WORK-PACKET-SMOKE-V0_1::TOOLS/imperium_administratum_issue_work_packet_smoke.ps1::True",
+    "SCRIPT-REGISTER-STAGE-RESULT-SMOKE-V0_1::TOOLS/imperium_register_stage_result_smoke.ps1::True",
+    "PORT-RUNNER-DOCTRINARIUM-PREFLIGHT-SMOKE::TOOLS/imperium_doctrinarium_preflight_smoke.ps1::True",
+    "PORT-RUNNER-ASTRONOMICON-TASK-STAGE-MAP-SMOKE::TOOLS/imperium_astronomicon_get_task_map_smoke.ps1::True",
+    "PORT-RUNNER-ADMINISTRATUM-ISSUE-WORK-PACKET-SMOKE::TOOLS/imperium_administratum_issue_work_packet_smoke.ps1::True",
+    "PORT-RUNNER-ADMINISTRATUM-REGISTER-STAGE-RESULT-SMOKE::TOOLS/imperium_register_stage_result_smoke.ps1::True",
+    "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1::ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1::True",
+    "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1::ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1::True"
+  ],
+  "registry_path_check_failures": null,
+  "forbidden_staged_hits": [],
+  "analyzer_regression_exit_code": 0,
+  "analyzer_tracked_dirty_regression": false,
+  "v0_7_rerun_receipt_exists": true,
+  "e2e_receipt_exists": true,
+  "known_defects_registry_exists": true,
+  "verdict": "PASS"
+}

@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "05_v0_7_rerun",
+  "created_at": "2026-05-11T17:22:26.6523081+03:00",
+  "command": "powershell.exe -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1 -GeneralTasksRoot \"ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/rerun_after_fix/GENERAL_TASKS\" -OutputRoot \"ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/rerun_after_fix/SYNTH_OUTPUT\" -TaskCount 3",
+  "exit_code": 0,
+  "summary_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/rerun_after_fix/SYNTH_OUTPUT/SYNTHETIC_SUMMARY.json",
+  "summary_exists": true,
+  "total_synthetic_general_tasks": 3,
+  "total_local_tasks": 9,
+  "total_stage_maps": 3,
+  "total_stages": 9,
+  "imports_passed": 6,
+  "orphans": 2,
+  "blocked_states": 2,
+  "errors": 0,
+  "git_status_before": " M TOOLS/astronomicon_pipeline_common_v0_2.ps1\r\n?? ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/\r\n",
+  "git_status_after": " M TOOLS/astronomicon_pipeline_common_v0_2.ps1\r\n?? ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/\r\n",
+  "tracked_runtime_dirtied": false,
+  "generated_artifact_count": 177,
+  "verdict": "PASS"
+}

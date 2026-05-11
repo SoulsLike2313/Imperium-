@@ -1,6 +1,6 @@
 {
   "schema_version": "IMPERIUM_ARTIFACT_REGISTRY_V0_1",
-  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "generated_at": "2026-05-11T17:33:00.9652979+03:00",
   "artifacts": [
     {
       "task_id": "TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1",
@@ -9,10 +9,22 @@
       "status": "COMMITTED"
     },
     {
-      "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
       "path": "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
-      "type": "structure_hardening",
-      "status": "IN_PROGRESS"
+      "status": "COMMITTED",
+      "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
+      "type": "structure_hardening"
+    },
+    {
+      "path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+      "status": "IN_PROGRESS",
+      "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+      "type": "repair_runtime_e2e"
+    },
+    {
+      "path": "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+      "status": "GENERATED",
+      "task_id": "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+      "type": "runtime_smoke_evidence"
     }
   ]
 }

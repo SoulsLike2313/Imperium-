@@ -1,0 +1,21 @@
+﻿{
+    "schema":  "IMPERIUM_PORT_MESSAGE_V1",
+    "message_id":  "MSG-5cdd5269-dde2-4da0-aa38-1063395f9daa",
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "local_task_id":  null,
+    "stage_id":  null,
+    "run_id":  "RUN-20260511-172842",
+    "from":  "PC_SERVITOR",
+    "to":  "DOCTRINARIUM",
+    "operation":  "preflight_task_execution",
+    "payload":  {
+                    "stage_range":  [
+                                        "STAGE-001-SMOKE-VALIDATE-AND-WRITE"
+                                    ],
+                    "actor":  "PC_SERVITOR",
+                    "repo_head":  "9161d4f45842080a2de29c17fdf79cc93efff4e9",
+                    "requested_mode":  "execute_without_stop_unless_blocked"
+                },
+    "expected_response":  "ALLOW|ALLOW_WITH_LIMITATIONS|BLOCK|ERROR",
+    "created_at":  "2026-05-11T17:28:42.4301613+03:00"
+}

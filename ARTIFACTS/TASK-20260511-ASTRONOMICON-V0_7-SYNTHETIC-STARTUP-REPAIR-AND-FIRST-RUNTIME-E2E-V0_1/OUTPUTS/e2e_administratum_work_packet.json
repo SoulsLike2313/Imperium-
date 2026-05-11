@@ -1,0 +1,73 @@
+﻿{
+    "work_session_id":  "WORKSESSION-c54192af-ed97-4f0b-8f28-c5dac6a9527c",
+    "run_id":  "RUN-20260511-172841-SMOKE",
+    "task_id":  "TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1",
+    "local_task_ids":  [
+                           "LTASK-001"
+                       ],
+    "allowed_stage_ids":  [
+                              "STAGE-001-SMOKE-VALIDATE-AND-WRITE"
+                          ],
+    "actor":  "PC_SERVITOR",
+    "repo_reality":  {
+                         "head":  "9161d4f45842080a2de29c17fdf79cc93efff4e9",
+                         "branch":  "master",
+                         "git_status_short":  "M TOOLS/astronomicon_pipeline_common_v0_2.ps1\r\n?? ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/\r\n?? ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/\r\n?? TOOLS/imperium_administratum_issue_work_packet_smoke.ps1\r\n?? TOOLS/imperium_astronomicon_get_task_map_smoke.ps1\r\n?? TOOLS/imperium_doctrinarium_preflight_smoke.ps1\r\n?? TOOLS/imperium_register_stage_result_smoke.ps1"
+                     },
+    "current_known_defects":  [
+                                  "DEFECT-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-FAIL",
+                                  "DEFECT-20260511-ANALYZER-CRLF-FORMATTING-NOISE"
+                              ],
+    "read_zones":  [
+                       "REGISTRY/",
+                       "ORGANS/PORT_PROTOCOL/",
+                       "ORGANS/ASTRONOMICON/SCHEMAS/",
+                       "ORGANS/ADMINISTRATUM/SCHEMAS/",
+                       "ORGANS/DOCTRINARIUM/SCHEMAS/"
+                   ],
+    "write_zones":  [
+                        "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/OUTPUTS/",
+                        "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/REPORTS/",
+                        "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/RECEIPTS/"
+                    ],
+    "forbidden_zones":  [
+                            "THRONE/",
+                            "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/",
+                            ".imperium_runtime/"
+                        ],
+    "required_scripts":  [
+                             "TOOLS/imperium_doctrinarium_preflight_smoke.ps1",
+                             "TOOLS/imperium_astronomicon_get_task_map_smoke.ps1",
+                             "TOOLS/imperium_administratum_issue_work_packet_smoke.ps1",
+                             "TOOLS/imperium_register_stage_result_smoke.ps1"
+                         ],
+    "stage_commands":  [
+                           "Validate REGISTRY JSON parse and write stage smoke report to ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/REPORTS/stage_smoke_output.md"
+                       ],
+    "validation_commands":  [
+                                "PowerShell ConvertFrom-Json parse for registry files",
+                                "Test-Path on stage output and stage result"
+                            ],
+    "required_outputs":  [
+                             "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/REPORTS/stage_smoke_output.md",
+                             "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/OUTPUTS/e2e_stage_result.json"
+                         ],
+    "required_receipts":  [
+                              "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/RECEIPTS/08_first_runtime_e2e_receipt.json"
+                          ],
+    "artifact_paths":  [
+                           "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/OUTPUTS",
+                           "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/REPORTS",
+                           "ARTIFACTS/TASK-20260511-FIRST-RUNTIME-E2E-SMOKE-V0_1/RECEIPTS"
+                       ],
+    "current_state_update_policy":  "No CURRENT_STATE writes in smoke run.",
+    "recoverable_error_policy":  "Record recoverable error in stage result and mark FAIL.",
+    "nonrecoverable_blockers":  [
+                                    "Preflight BLOCK status",
+                                    "Cannot parse registry JSON",
+                                    "Cannot write stage output"
+                                ],
+    "commit_policy":  "Commit only intentional task artifact and script updates after validation.",
+    "push_policy":  "Push only after final receipt and clean review of staged paths.",
+    "return_protocol":  "Return with first_runtime_e2e_report and 08_first_runtime_e2e_receipt.json"
+}

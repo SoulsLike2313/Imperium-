@@ -1,6 +1,6 @@
 {
   "schema_version": "IMPERIUM_DYNAMIC_STATE_REGISTRY_V0_1",
-  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "generated_at": "2026-05-11T17:33:00.9724842+03:00",
   "items": [
     {
       "path": ".imperium_runtime/administratum_analyzer/latest/GIT_LOCAL_ANALYSIS.json",
@@ -34,6 +34,28 @@
       "local_private": false,
       "runtime_or_checkpoint": "checkpoint",
       "last_verified_receipt": "UNKNOWN"
+    },
+    {
+      "path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/repro_before_fix/*",
+      "local_private": false,
+      "runtime_or_checkpoint": "task_artifact_runtime",
+      "source_of_truth": false,
+      "owner": "ASTRONOMICON",
+      "source_script": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "committable": true,
+      "last_verified_receipt": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RECEIPTS/02_v0_7_reproduction_receipt.json",
+      "safe_to_regenerate": true
+    },
+    {
+      "path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/rerun_after_fix/*",
+      "local_private": false,
+      "runtime_or_checkpoint": "task_artifact_runtime",
+      "source_of_truth": false,
+      "owner": "ASTRONOMICON",
+      "source_script": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "committable": true,
+      "last_verified_receipt": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RECEIPTS/05_v0_7_rerun_receipt.json",
+      "safe_to_regenerate": true
     }
   ]
 }

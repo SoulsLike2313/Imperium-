@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "02_v0_7_reproduction",
+  "created_at": "2026-05-11T17:19:39.0114887+03:00",
+  "command": "powershell.exe -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1 -GeneralTasksRoot \"ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/repro_before_fix/GENERAL_TASKS\" -OutputRoot \"ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/RUNTIME/repro_before_fix/SYNTH_OUTPUT\" -TaskCount 3",
+  "cwd": "E:\\IMPERIUM",
+  "exit_code": 1,
+  "git_status_before": "?? ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/\r\n",
+  "git_status_after": "?? ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/\r\n",
+  "reproduced": true,
+  "failure_signature": "ParameterArgumentValidationErrorEmptyStringNotAllowed,Write-Utf8Bom",
+  "generated_output_paths": [],
+  "verdict": "PASS_REPRODUCED"
+}

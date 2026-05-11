@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1",
+  "phase": "06_first_runtime_e2e_design",
+  "created_at": "2026-05-11T17:23:33.1727920+03:00",
+  "plan_path": "ARTIFACTS/TASK-20260511-ASTRONOMICON-V0_7-SYNTHETIC-STARTUP-REPAIR-AND-FIRST-RUNTIME-E2E-V0_1/OUTPUTS/first_runtime_e2e_plan.md",
+  "tiny_scope": true,
+  "destructive_actions": false,
+  "verdict": "PASS"
+}
