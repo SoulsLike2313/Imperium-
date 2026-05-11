@@ -1,0 +1,39 @@
+{
+  "schema_version": "IMPERIUM_DYNAMIC_STATE_REGISTRY_V0_1",
+  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "items": [
+    {
+      "path": ".imperium_runtime/administratum_analyzer/latest/GIT_LOCAL_ANALYSIS.json",
+      "owner": "ADMINISTRATUM",
+      "source_script": "TOOLS/administratum_analyze_git_local_context.ps1",
+      "safe_to_regenerate": true,
+      "source_of_truth": false,
+      "committable": false,
+      "local_private": true,
+      "runtime_or_checkpoint": "runtime",
+      "last_verified_receipt": "ARTIFACTS/TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1/RECEIPTS/06_analyzer_purity_validation_receipt.json"
+    },
+    {
+      "path": ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+      "owner": "ADMINISTRATUM",
+      "source_script": "TOOLS/build_chat_compilation_from_analysis.ps1",
+      "safe_to_regenerate": true,
+      "source_of_truth": false,
+      "committable": false,
+      "local_private": true,
+      "runtime_or_checkpoint": "runtime",
+      "last_verified_receipt": "ARTIFACTS/TASK-20260511-ADMINISTRATUM-ANALYZER-PURITY-AND-CLEAN-HANDOFF-V0_1/RECEIPTS/06_analyzer_purity_validation_receipt.json"
+    },
+    {
+      "path": "CURRENT_STATE/LAST_POINT_STATE.json",
+      "owner": "ADMINISTRATUM",
+      "source_script": "UNKNOWN",
+      "safe_to_regenerate": "UNKNOWN",
+      "source_of_truth": true,
+      "committable": true,
+      "local_private": false,
+      "runtime_or_checkpoint": "checkpoint",
+      "last_verified_receipt": "UNKNOWN"
+    }
+  ]
+}

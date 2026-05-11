@@ -1,0 +1,57 @@
+{
+  "schema_version": "IMPERIUM_MIGRATION_PLAN_V0_1",
+  "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
+  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "entries": [
+    {
+      "CURRENT_PATH": "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/*",
+      "PROPOSED_PATH": "CURRENT_STATE/ADMINISTRATUM_ANALYZER_V0_3/* (checkpoint-only) + .imperium_runtime/administratum_analyzer/latest/*",
+      "CLASSIFICATION": "CURRENT_STATE + RUN_TEMP",
+      "REASON": "preserve historical snapshots and prevent runtime dirties",
+      "RISK": "LOW",
+      "ACTION_TYPE": "register",
+      "SAFE_TO_DO_NOW": true,
+      "OWNER_APPROVAL_REQUIRED": false
+    },
+    {
+      "CURRENT_PATH": "ORGANS/_PORTS/*",
+      "PROPOSED_PATH": "ORGANS/PORT_PROTOCOL/ + ORGANS/<ORGAN>/PORTS/",
+      "CLASSIFICATION": "ORGAN_PORT",
+      "REASON": "explicit ownership and boundaries",
+      "RISK": "MEDIUM",
+      "ACTION_TYPE": "leave_legacy",
+      "SAFE_TO_DO_NOW": true,
+      "OWNER_APPROVAL_REQUIRED": true
+    },
+    {
+      "CURRENT_PATH": "ARTIFACTS/**/extract/**",
+      "PROPOSED_PATH": ".imperium_runtime/extract_temp/** for future mutable extracts",
+      "CLASSIFICATION": "RUN_TEMP",
+      "REASON": "separate immutable evidence from temp extraction",
+      "RISK": "MEDIUM",
+      "ACTION_TYPE": "quarantine",
+      "SAFE_TO_DO_NOW": false,
+      "OWNER_APPROVAL_REQUIRED": true
+    },
+    {
+      "CURRENT_PATH": "tracked __pycache__/node_modules residues",
+      "PROPOSED_PATH": "legacy retained pending cleanup task",
+      "CLASSIFICATION": "LEGACY",
+      "REASON": "deletions disallowed in this task",
+      "RISK": "LOW",
+      "ACTION_TYPE": "leave_legacy",
+      "SAFE_TO_DO_NOW": false,
+      "OWNER_APPROVAL_REQUIRED": true
+    },
+    {
+      "CURRENT_PATH": "REGISTRY/KNOWN_DEFECTS.json only",
+      "PROPOSED_PATH": "full registry spine in REGISTRY/",
+      "CLASSIFICATION": "REGISTRY",
+      "REASON": "machine-readable execution memory",
+      "RISK": "LOW",
+      "ACTION_TYPE": "register",
+      "SAFE_TO_DO_NOW": true,
+      "OWNER_APPROVAL_REQUIRED": false
+    }
+  ]
+}

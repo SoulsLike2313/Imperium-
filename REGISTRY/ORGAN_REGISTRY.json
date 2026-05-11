@@ -1,0 +1,97 @@
+{
+  "schema_version": "IMPERIUM_ORGAN_REGISTRY_V0_1",
+  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "coverage": "scaffold_partial",
+  "organs": [
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM",
+      "responsibility": "dispatch, registry updates, artifact assembly",
+      "forbidden_responsibilities": [
+        "rewrite doctrinal law",
+        "unreviewed destructive deletes"
+      ],
+      "ports": [
+        "ORGANS/ADMINISTRATUM/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "TOOLS/administratum_analyze_git_local_context.ps1",
+        "TOOLS/build_chat_compilation_from_analysis.ps1"
+      ],
+      "schemas": [
+        "ORGANS/ADMINISTRATUM/SCHEMAS/administratum_work_packet_v1.schema.json"
+      ],
+      "state_files": [
+        "CURRENT_STATE/*",
+        "REGISTRY/*"
+      ],
+      "upstream callers": [
+        "PC_SERVITOR",
+        "DOCTRINARIUM"
+      ],
+      "downstream dependencies": [
+        "ASTRONOMICON",
+        "MECHANICUS",
+        "INQUISITION"
+      ]
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON",
+      "responsibility": "plan TASK_ID->LOCAL_TASK_ID->STAGE_ID mapping",
+      "forbidden_responsibilities": [
+        "direct execution",
+        "direct git push"
+      ],
+      "ports": [
+        "ORGANS/ASTRONOMICON/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "TOOLS/astronomicon_parse_general_task_v0_2.ps1",
+        "TOOLS/astronomicon_decompose_local_task_to_stages_v0_2.ps1"
+      ],
+      "schemas": [
+        "ORGANS/ASTRONOMICON/SCHEMAS/task_map_v1.schema.json",
+        "ORGANS/ASTRONOMICON/SCHEMAS/stage_map_v1.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/ASTRONOMICON/TASKS/*"
+      ],
+      "upstream callers": [
+        "PC_SERVITOR",
+        "DOCTRINARIUM",
+        "ADMINISTRATUM"
+      ],
+      "downstream dependencies": [
+        "SPECULUM review flow"
+      ]
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM",
+      "responsibility": "preflight law/health gate",
+      "forbidden_responsibilities": [
+        "skip law checks"
+      ],
+      "ports": [
+        "ORGANS/DOCTRINARIUM/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_preflight.py"
+      ],
+      "schemas": [
+        "ORGANS/DOCTRINARIUM/SCHEMAS/preflight_task_execution_v1.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/DOCTRINARIUM/STATUS/*"
+      ],
+      "upstream callers": [
+        "PC_SERVITOR",
+        "ADMINISTRATUM"
+      ],
+      "downstream dependencies": [
+        "ORGANS/DOCTRINARIUM/LAWS"
+      ]
+    }
+  ]
+}

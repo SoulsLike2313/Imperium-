@@ -1,0 +1,114 @@
+{
+  "schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
+  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "coverage": "scaffold_partial",
+  "scripts": [
+    {
+      "script_id": "SCRIPT-ADMINISTRATUM-ANALYZE-GIT-LOCAL-CONTEXT-V0_1",
+      "path": "TOOLS/administratum_analyze_git_local_context.ps1",
+      "owner": "ADMINISTRATUM",
+      "purpose": "analyze git/local context and emit runtime reports",
+      "inputs": [
+        "repo state",
+        "target mode"
+      ],
+      "outputs": [
+        ".imperium_runtime/administratum_analyzer/latest/*"
+      ],
+      "reads_from": [
+        "git",
+        "DOCS",
+        "CURRENT_STATE"
+      ],
+      "writes_to": [
+        ".imperium_runtime/administratum_analyzer/latest"
+      ],
+      "destructive": false,
+      "safe_to_run": true,
+      "receipt_behavior": "runtime analyzer receipts",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/administratum_analyze_git_local_context.ps1",
+      "dependencies": [
+        "git"
+      ]
+    },
+    {
+      "script_id": "SCRIPT-ADMINISTRATUM-BUILD-CHAT-COMPILATION-V0_1",
+      "path": "TOOLS/build_chat_compilation_from_analysis.ps1",
+      "owner": "ADMINISTRATUM",
+      "purpose": "build local context bundle from analyzer output",
+      "inputs": [
+        "runtime analyzer outputs"
+      ],
+      "outputs": [
+        ".imperium_runtime/bundles/*.zip",
+        ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json"
+      ],
+      "reads_from": [
+        ".imperium_runtime/administratum_analyzer/latest",
+        "repo root"
+      ],
+      "writes_to": [
+        ".imperium_runtime/bundles",
+        ".imperium_runtime/administratum_analyzer/latest"
+      ],
+      "destructive": false,
+      "safe_to_run": true,
+      "receipt_behavior": "post-build runtime receipt with final hash/size",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/build_chat_compilation_from_analysis.ps1",
+      "dependencies": [
+        "git",
+        "Compress-Archive"
+      ]
+    },
+    {
+      "script_id": "SCRIPT-ASTRONOMICON-SYNTHETIC-FULL-RUN-V0_1",
+      "path": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "owner": "ASTRONOMICON",
+      "purpose": "synthetic planning pipeline run",
+      "inputs": [
+        "task templates"
+      ],
+      "outputs": [
+        "ARTIFACTS/TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN/*"
+      ],
+      "reads_from": [
+        "TOOLS/astronomicon_*"
+      ],
+      "writes_to": [
+        "ARTIFACTS/*"
+      ],
+      "destructive": false,
+      "safe_to_run": true,
+      "receipt_behavior": "task artifact receipts",
+      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "dependencies": [
+        "PowerShell"
+      ]
+    },
+    {
+      "script_id": "SCRIPT-REGISTRY-COVERAGE-GAP",
+      "path": "UNKNOWN",
+      "owner": "UNKNOWN",
+      "purpose": "not yet indexed scripts placeholder",
+      "inputs": [
+        "UNKNOWN"
+      ],
+      "outputs": [
+        "UNKNOWN"
+      ],
+      "reads_from": [
+        "UNKNOWN"
+      ],
+      "writes_to": [
+        "UNKNOWN"
+      ],
+      "destructive": "UNKNOWN",
+      "safe_to_run": "UNKNOWN",
+      "receipt_behavior": "UNKNOWN",
+      "invocation command": "UNKNOWN",
+      "dependencies": [
+        "UNKNOWN"
+      ]
+    }
+  ]
+}

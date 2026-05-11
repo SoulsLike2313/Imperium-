@@ -1,0 +1,36 @@
+{
+  "schema_version": "IMPERIUM_STRUCTURE_RESTART_REALITY_CHECKPOINT_RECEIPT_V0_1",
+  "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
+  "expected_commit_count": 23,
+  "expected_short_head": "bdb42aa",
+  "expected_full_head": "bdb42aacdc408c6df3b0047bd1c476410b82d9d8",
+  "actual_commit_count": 23,
+  "actual_short_head": "bdb42aa",
+  "actual_full_head": "bdb42aacdc408c6df3b0047bd1c476410b82d9d8",
+  "actual_origin_master": "bdb42aacdc408c6df3b0047bd1c476410b82d9d8",
+  "actual_remote_master": "bdb42aacdc408c6df3b0047bd1c476410b82d9d8",
+  "branch": "master",
+  "git_status_short": "",
+  "worktree_clean": true,
+  "previous_blocker_evidence": [
+    "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/BLOCKER_REPORT.md",
+    "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/RECEIPTS/00_reality_checkpoint_receipt.json",
+    "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/REPORTS/BLOCKER_REPORT.md"
+  ],
+  "analyzer_purity_repair_base_commit": "bdb42aacdc408c6df3b0047bd1c476410b82d9d8",
+  "analyzer_purity_repair_base_present": true,
+  "mismatch_list": [],
+  "verdict": "PASS_RESTART_FROM_CLEAN_BASE",
+  "timestamp": "2026-05-11T16:14:58.4091401+03:00",
+  "commands_executed": [
+    "git status --short",
+    "git branch --show-current",
+    "git rev-list --count HEAD",
+    "git rev-parse --short HEAD",
+    "git rev-parse HEAD",
+    "git rev-parse origin/master",
+    "git ls-remote origin refs/heads/master",
+    "git remote -v",
+    "git log --oneline --decorate -10"
+  ]
+}

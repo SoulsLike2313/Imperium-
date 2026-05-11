@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_ISSUE_WORK_PACKET_PORT_SCHEMA_V1",
+  "title": "issue_work_packet port schema v1",
+  "type": "object",
+  "required": [
+    "request",
+    "response"
+  ],
+  "properties": {
+    "request": {
+      "$ref": "../../PORT_PROTOCOL/port_message_v1.schema.json"
+    },
+    "response": {
+      "$ref": "../../PORT_PROTOCOL/port_response_v1.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

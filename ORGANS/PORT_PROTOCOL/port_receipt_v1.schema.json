@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_PORT_RECEIPT_V1",
+  "title": "IMPERIUM Port Receipt V1",
+  "type": "object",
+  "required": [
+    "schema",
+    "receipt_id",
+    "message_id",
+    "task_id",
+    "operation",
+    "status",
+    "created_at"
+  ],
+  "properties": {
+    "schema": {
+      "const": "IMPERIUM_PORT_RECEIPT_V1"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "message_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "local_task_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stage_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "operation": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "OK",
+        "ALLOW",
+        "ALLOW_WITH_LIMITATIONS",
+        "BLOCK",
+        "ERROR"
+      ]
+    },
+    "payload_path": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}

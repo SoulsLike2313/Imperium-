@@ -1,0 +1,93 @@
+{
+  "schema_version": "IMPERIUM_ZONE_REGISTRY_V0_1",
+  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "coverage": "scaffold_partial",
+  "zones": [
+    {
+      "zone_id": "FOUNDATIONAL",
+      "path": "DOCS/",
+      "purpose": "long-lived contracts",
+      "owner": "OWNER + ORGANS",
+      "allowed_file_types": [
+        ".md",
+        ".json"
+      ],
+      "write_policy": "reviewed updates",
+      "source_of_truth_policy": "true",
+      "generated_policy": "no_runtime_generated",
+      "git_policy": "committable",
+      "examples": [
+        "DOCS/REPO_MAP.md"
+      ]
+    },
+    {
+      "zone_id": "REGISTRY",
+      "path": "REGISTRY/",
+      "purpose": "machine-readable control memory",
+      "owner": "ADMINISTRATUM",
+      "allowed_file_types": [
+        ".json"
+      ],
+      "write_policy": "task-scoped updates",
+      "source_of_truth_policy": "true",
+      "generated_policy": "schema-validated",
+      "git_policy": "committable",
+      "examples": [
+        "REGISTRY/KNOWN_DEFECTS.json"
+      ]
+    },
+    {
+      "zone_id": "CURRENT_STATE",
+      "path": "CURRENT_STATE/",
+      "purpose": "checkpoint snapshots only",
+      "owner": "ADMINISTRATUM",
+      "allowed_file_types": [
+        ".json",
+        ".md"
+      ],
+      "write_policy": "checkpoint/record tasks only",
+      "source_of_truth_policy": "conditional",
+      "generated_policy": "normal runtime writes forbidden",
+      "git_policy": "committable_by_intent",
+      "examples": [
+        "CURRENT_STATE/LAST_POINT_STATE.json"
+      ]
+    },
+    {
+      "zone_id": "ARTIFACT",
+      "path": "ARTIFACTS/",
+      "purpose": "immutable task evidence",
+      "owner": "TASK_EXECUTOR",
+      "allowed_file_types": [
+        ".md",
+        ".json",
+        ".txt",
+        ".log",
+        ".csv"
+      ],
+      "write_policy": "append task folders",
+      "source_of_truth_policy": "task evidence",
+      "generated_policy": "allowed in OUTPUTS with receipts",
+      "git_policy": "committable",
+      "examples": [
+        "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/RECEIPTS/00_reality_checkpoint_receipt_after_analyzer_repair.json"
+      ]
+    },
+    {
+      "zone_id": "RUN_TEMP",
+      "path": ".imperium_runtime/",
+      "purpose": "runtime local outputs",
+      "owner": "LOCAL_OPERATOR",
+      "allowed_file_types": [
+        "any"
+      ],
+      "write_policy": "runtime only",
+      "source_of_truth_policy": "false",
+      "generated_policy": "regenerable",
+      "git_policy": "ignored",
+      "examples": [
+        ".imperium_runtime/administratum_analyzer/latest/GIT_LOCAL_ANALYSIS.json"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "schema_version": "IMPERIUM_ZONE_CLASSIFICATION_V0_1",
+  "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
+  "generated_at": "2026-05-11T16:30:48.3714089+03:00",
+  "classifications": [
+    {
+      "path": "README.md",
+      "type": "FOUNDATIONAL",
+      "rationale": "Primary public entrypoint",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "START_HERE.md",
+      "type": "FOUNDATIONAL",
+      "rationale": "Operational startup entrypoint",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "DOCS/",
+      "type": "FOUNDATIONAL",
+      "rationale": "Long-lived engineering contracts and policies",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "REGISTRY/",
+      "type": "REGISTRY",
+      "rationale": "Machine-readable control memory",
+      "risk": "LOW",
+      "proposed_action": "register"
+    },
+    {
+      "path": "CURRENT_STATE/",
+      "type": "CURRENT_STATE",
+      "rationale": "Committed state snapshots/checkpoints",
+      "risk": "MEDIUM",
+      "proposed_action": "register"
+    },
+    {
+      "path": "ARTIFACTS/",
+      "type": "ARTIFACT",
+      "rationale": "Task evidence root",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": ".imperium_runtime/",
+      "type": "RUN_TEMP",
+      "rationale": "Ignored runtime outputs (analyzer/bundle)",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "TOOLS/",
+      "type": "TOOL_SCRIPT",
+      "rationale": "Shared automation scripts",
+      "risk": "MEDIUM",
+      "proposed_action": "register"
+    },
+    {
+      "path": "ORGANS/",
+      "type": "ORGAN_CONTRACT",
+      "rationale": "Organ boundary contracts, scripts, schemas and ports",
+      "risk": "MEDIUM",
+      "proposed_action": "register"
+    },
+    {
+      "path": "ORGANS/*/PORTS/",
+      "type": "ORGAN_PORT",
+      "rationale": "Organ communication contracts",
+      "risk": "LOW",
+      "proposed_action": "register"
+    },
+    {
+      "path": "ORGANS/*/SCHEMAS/",
+      "type": "ORGAN_SCHEMA",
+      "rationale": "Organ data schemas",
+      "risk": "LOW",
+      "proposed_action": "register"
+    },
+    {
+      "path": "ORGANS/**/*.{ps1,py,sh,bat,cmd}",
+      "type": "ORGAN_SCRIPT",
+      "rationale": "Organ-owned executable scripts",
+      "risk": "MEDIUM",
+      "proposed_action": "register"
+    },
+    {
+      "path": "SANCTUM/",
+      "type": "SANCTUM_UI",
+      "rationale": "Sanctum UI layer and status",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "EXPLORER/",
+      "type": "EXPLORER_UI",
+      "rationale": "Explorer UI and verification layer",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "ARCHIVE/",
+      "type": "LOCAL_PRIVATE_REFERENCE",
+      "rationale": "Local-only archive",
+      "risk": "HIGH",
+      "proposed_action": "quarantine"
+    },
+    {
+      "path": "SSH_COMMAND_LIBRARY/",
+      "type": "LOCAL_PRIVATE_REFERENCE",
+      "rationale": "Local private operational references",
+      "risk": "CRITICAL",
+      "proposed_action": "quarantine"
+    },
+    {
+      "path": "PRIVATE_CONTEXT_LOCAL/",
+      "type": "LOCAL_PRIVATE_REFERENCE",
+      "rationale": "Local private context",
+      "risk": "HIGH",
+      "proposed_action": "quarantine"
+    },
+    {
+      "path": "BUNDLES_LOCAL/",
+      "type": "LOCAL_PRIVATE_REFERENCE",
+      "rationale": "Local transfer bundle storage",
+      "risk": "HIGH",
+      "proposed_action": "quarantine"
+    },
+    {
+      "path": "CHAT_COMPILATIONS_LOCAL/",
+      "type": "LOCAL_PRIVATE_REFERENCE",
+      "rationale": "Local chat bundle output",
+      "risk": "HIGH",
+      "proposed_action": "quarantine"
+    },
+    {
+      "path": "RUNTIME_LOCAL/",
+      "type": "LOCAL_PRIVATE_REFERENCE",
+      "rationale": "Legacy local runtime scratch",
+      "risk": "MEDIUM",
+      "proposed_action": "quarantine"
+    },
+    {
+      "path": "OBSERVED/",
+      "type": "LEGACY",
+      "rationale": "Observed repository copies and imported historical material",
+      "risk": "MEDIUM",
+      "proposed_action": "leave_legacy"
+    },
+    {
+      "path": "PC_ENGINEERING_ROOM/",
+      "type": "LEGACY",
+      "rationale": "Historical planning and map workspace",
+      "risk": "MEDIUM",
+      "proposed_action": "leave_legacy"
+    },
+    {
+      "path": "ASTRONOMICON/",
+      "type": "LEGACY",
+      "rationale": "Top-level domain folder predating strict ORGANS layout",
+      "risk": "MEDIUM",
+      "proposed_action": "leave_legacy"
+    },
+    {
+      "path": "ORGANS/_PORTS/",
+      "type": "LEGACY",
+      "rationale": "Pre-v1 shared port contracts not split by organ",
+      "risk": "MEDIUM",
+      "proposed_action": "leave_legacy"
+    },
+    {
+      "path": "ARTIFACTS/_MANUAL_PROOFS/",
+      "type": "LEGACY",
+      "rationale": "Manual proof artifacts outside TASK-ID format",
+      "risk": "MEDIUM",
+      "proposed_action": "leave_legacy"
+    },
+    {
+      "path": "ARTIFACTS/**/RECEIPTS/",
+      "type": "RECEIPT",
+      "rationale": "Receipt evidence within task artifacts",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "ARTIFACTS/**/OUTPUTS/",
+      "type": "GENERATED",
+      "rationale": "Task-generated outputs",
+      "risk": "LOW",
+      "proposed_action": "no_action"
+    },
+    {
+      "path": "ARTIFACTS/**/_BUILD*/",
+      "type": "RUN_TEMP",
+      "rationale": "Temporary build trees inside artifacts",
+      "risk": "MEDIUM",
+      "proposed_action": "register"
+    }
+  ],
+  "summary": {
+    "type": "",
+    "count": 28
+  },
+  "unknown_paths": [
+    {
+      "path": "ASTRONOMICON/GENERAL_TASKS/",
+      "why_unknown": "Domain data + generated outputs mixed with contracts",
+      "risk": "MEDIUM",
+      "proposed_classification": "ORGAN_CONTRACT + GENERATED split",
+      "owner_approval_required": true
+    },
+    {
+      "path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER/",
+      "why_unknown": "Legacy tracked analyzer runtime-like outputs still committed",
+      "risk": "HIGH",
+      "proposed_classification": "CURRENT_STATE checkpoint snapshots only",
+      "owner_approval_required": true
+    },
+    {
+      "path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER_POST_PUSH/",
+      "why_unknown": "Manual verification captures mixed with operational state",
+      "risk": "MEDIUM",
+      "proposed_classification": "ARTIFACT or CURRENT_STATE checkpoint",
+      "owner_approval_required": true
+    },
+    {
+      "path": "ORGANS/_PORTS/SCHEMAS/",
+      "why_unknown": "Shared contracts bypass organ ownership boundaries",
+      "risk": "MEDIUM",
+      "proposed_classification": "ORGAN_PORT/ORGAN_SCHEMA under each organ or protocol root",
+      "owner_approval_required": true
+    },
+    {
+      "path": "ARTIFACTS/**/extract/**",
+      "why_unknown": "Some extraction trees appear to be mutable intermediates",
+      "risk": "MEDIUM",
+      "proposed_classification": "RUN_TEMP in ignored runtime or clearly tagged artifact temp",
+      "owner_approval_required": true
+    }
+  ]
+}

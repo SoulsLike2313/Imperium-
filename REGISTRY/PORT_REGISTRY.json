@@ -1,0 +1,42 @@
+{
+  "schema_version": "IMPERIUM_PORT_REGISTRY_V0_1",
+  "generated_at": "2026-05-11T16:41:31.654778+03:00",
+  "ports": [
+    {
+      "port_id": "PORT-PROTOCOL-MESSAGE-V1",
+      "path": "ORGANS/PORT_PROTOCOL/port_message_v1.schema.json",
+      "owner": "ADMINISTRATUM",
+      "status": "SCAFFOLD"
+    },
+    {
+      "port_id": "PORT-PROTOCOL-RESPONSE-V1",
+      "path": "ORGANS/PORT_PROTOCOL/port_response_v1.schema.json",
+      "owner": "ADMINISTRATUM",
+      "status": "SCAFFOLD"
+    },
+    {
+      "port_id": "PORT-PROTOCOL-RECEIPT-V1",
+      "path": "ORGANS/PORT_PROTOCOL/port_receipt_v1.schema.json",
+      "owner": "ADMINISTRATUM",
+      "status": "SCAFFOLD"
+    },
+    {
+      "port_id": "PORT-DOCTRINARIUM-PREFLIGHT",
+      "path": "ORGANS/DOCTRINARIUM/PORTS/preflight_task_execution.schema.json",
+      "owner": "DOCTRINARIUM",
+      "status": "SCAFFOLD"
+    },
+    {
+      "port_id": "PORT-ASTRONOMICON-GET-TASK-MAP",
+      "path": "ORGANS/ASTRONOMICON/PORTS/get_task_map.schema.json",
+      "owner": "ASTRONOMICON",
+      "status": "SCAFFOLD"
+    },
+    {
+      "port_id": "PORT-ADMINISTRATUM-ISSUE-WORK-PACKET",
+      "path": "ORGANS/ADMINISTRATUM/PORTS/issue_work_packet.schema.json",
+      "owner": "ADMINISTRATUM",
+      "status": "SCAFFOLD"
+    }
+  ]
+}

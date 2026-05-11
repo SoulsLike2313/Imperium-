@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_ASTRONOMICON_TASK_MAP_V1",
+  "title": "Astronomicon Task Map V1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "local_tasks",
+    "allowed_stage_range",
+    "expected_outputs",
+    "validation_rules",
+    "stop_conditions",
+    "required_organs",
+    "required_scripts"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "local_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "allowed_stage_range": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recoverable_error_policy": {
+      "type": "string"
+    },
+    "nonrecoverable_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_organs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

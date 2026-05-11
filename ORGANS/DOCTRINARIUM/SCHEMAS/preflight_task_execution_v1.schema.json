@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_DOCTRINARIUM_PREFLIGHT_TASK_EXECUTION_V1",
+  "title": "Doctrinarium Preflight Task Execution V1",
+  "type": "object",
+  "required": [
+    "operation",
+    "task_id",
+    "stage_range",
+    "actor",
+    "repo_head",
+    "requested_mode"
+  ],
+  "properties": {
+    "operation": {
+      "const": "preflight_task_execution"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "stage_range": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actor": {
+      "type": "string"
+    },
+    "repo_head": {
+      "type": "string"
+    },
+    "requested_mode": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,245 @@
+{
+  "schema_version": "IMPERIUM_STRUCTURE_DEFECTS_V0_1",
+  "task_id": "TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1",
+  "generated_at": "2026-05-11T16:40:02.035609+03:00",
+  "defects": [
+    {
+      "defect_id": "STRUCT-001",
+      "severity": "HIGH",
+      "title": "Committed generated/runtime-like content lacks central registry control",
+      "impact": "Source-of-truth and generated boundaries are not uniformly machine-enforced.",
+      "evidence": {
+        "generated_like_count": 245693,
+        "examples": [
+          ".git/index",
+          ".imperium_runtime/administratum_analyzer/latest/ANALYZER_RECEIPT.json",
+          ".imperium_runtime/administratum_analyzer/latest/CONTEXT_GAP_REPORT.md",
+          ".imperium_runtime/administratum_analyzer/latest/GIT_LOCAL_ANALYSIS.json",
+          ".imperium_runtime/administratum_analyzer/latest/GIT_PUBLIC_MEMORY_SUMMARY.md",
+          ".imperium_runtime/administratum_analyzer/latest/GIT_REALITY_REPORT.md",
+          ".imperium_runtime/administratum_analyzer/latest/HISTORY_SUSPICIOUS_PATHS_V0_2.txt",
+          ".imperium_runtime/administratum_analyzer/latest/LAST_CHAT_COMPILATION_PATH.txt",
+          ".imperium_runtime/administratum_analyzer/latest/LAST_VERIFIED_PUBLIC_HEAD.json",
+          ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json"
+        ]
+      },
+      "proposed_fix": "Create registry spine and dynamic-state registry with source-script metadata."
+    },
+    {
+      "defect_id": "STRUCT-002",
+      "severity": "MEDIUM",
+      "title": "Receipt files exist outside strict TASK artifact receipt layout",
+      "impact": "Traceability requires special-cases and weakens deterministic receipt discovery.",
+      "evidence": {
+        "receipt_total": 2202,
+        "outside_task_receipt_count": 2121,
+        "examples": [
+          ".imperium_runtime/administratum_analyzer/latest/ANALYZER_RECEIPT.json",
+          ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+          ".imperium_runtime/administratum_analyzer/latest/runtime_receipt.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/00_ANALYZER_REPORT/ANALYZER_RECEIPT.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/06_ARTIFACTS_SELECTED/TASK-20260510-ADMINISTRATUM-GIT-LOCAL-ANALYZER-AND-CONTEXT-BUNDLE-BUTTON-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/06_ARTIFACTS_SELECTED/TASK-20260510-ADMINISTRATUM-REPO-LOCAL-ENGINEERING-CLEAN-POINT-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/06_ARTIFACTS_SELECTED/TASK-20260510-GIT-SANITIZE-PRIVATE-SOURCES-AND-CLEAN-HISTORY-V0_1/04_RECEIPTS/FINAL_RECEIPT.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/06_ARTIFACTS_SELECTED/TASK-20260510-REPO-FORMATTING-AND-IGNORE-RULES-REPAIR-V0_1/06_RECEIPTS/FINAL_RECEIPT.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/09_RECEIPTS/CHAT_COMPILATION_RECEIPT.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_THRONE_CLEANLINESS_AND_RECEIPTS_CLOSURE_V1_20260419T200038Z_BUNDLE.zip",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM2_THRONE_MAGISTRATUM_100Q_CONTINUITY_AND_LOGOS_TO_LOGOS_V0_20260501T114441Z/receipts/fetch_vm2_throne_magistratum_100q_continuity_receipt.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM2_THRONE_MAGISTRATUM_100Q_CONTINUITY_AND_LOGOS_TO_LOGOS_V0_20260501T114441Z/receipts/fetch_vm2_throne_magistratum_100q_continuity_summary_RU.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_SANCTUM_0_10_0_CONTROL_BOARD_ACTION_KERNEL_AND_DEVBOX_DELIVERY_V0_20260501T080111Z/receipts/fetch_vm3_sanctum_0_10_0_control_board_receipt.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_SANCTUM_0_10_0_CONTROL_BOARD_ACTION_KERNEL_AND_DEVBOX_DELIVERY_V0_20260501T080111Z/receipts/fetch_vm3_sanctum_0_10_0_control_board_summary_RU.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_SANCTUM_0_11_0_SELF_INSPECT_VERSION_APPLY_VISUAL_QA_AND_COMMAND_BOARD_REBASE_V0_20260501T094243Z/receipts/fetch_vm3_sanctum_0_11_0_self_inspect_visual_qa_receipt.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_SANCTUM_0_11_0_SELF_INSPECT_VERSION_APPLY_VISUAL_QA_AND_COMMAND_BOARD_REBASE_V0_20260501T094243Z/receipts/fetch_vm3_sanctum_0_11_0_self_inspect_visual_qa_summary_RU.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_SUPPLEMENTAL_INGEST_LOGOS_HISTORY_ASSET_CANON_AND_PRE_ADMISSION_COLLECTION_V0_20260501T063531Z/receipts/fetch_vm3_pre_admission_collection_receipt.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_SUPPLEMENTAL_INGEST_LOGOS_HISTORY_ASSET_CANON_AND_PRE_ADMISSION_COLLECTION_V0_20260501T063531Z/receipts/fetch_vm3_pre_admission_collection_summary_RU.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_THRONE_ADMISSION_EXECUTION_PLUS_WORKER_COPY_CLEAR_SYNC_AND_ROUTE_CANON_V0_20260501T073114Z/receipts/fetch_vm3_throne_admission_worker_copy_clear_sync_receipt.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM3_THRONE_ADMISSION_EXECUTION_PLUS_WORKER_COPY_CLEAR_SYNC_AND_ROUTE_CANON_V0_20260501T073114Z/receipts/fetch_vm3_throne_admission_worker_copy_clear_sync_summary_RU.txt"
+        ]
+      },
+      "proposed_fix": "Use strict TASK_ID/RECEIPTS layout for new work and preserve legacy as legacy."
+    },
+    {
+      "defect_id": "STRUCT-003",
+      "severity": "MEDIUM",
+      "title": "Legacy extract trees under artifacts blur immutable evidence vs temp data",
+      "impact": "Mutable intermediate trees can be mistaken for canonical artifact payload.",
+      "evidence": {
+        "extract_like_count": 5213,
+        "examples": [
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/STEP_VM3_OWNER_PASSPORT_CONSTITUTION_SOURCE_EXTRACTION_V1_20260424T011128Z_BUNDLE.zip",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_PC_TOTAL_THRONE_READONLY_IMPERIUM_AUDIT_AND_STRATEGIUM_RESEARCH_SEED_V1_20260426T205150Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_PROOF_REFERENCE_CLOSURE_AND_DOCTRINARIUM_SURFACE_REPAIR_V1_20260426T233432Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_RESUME_PROMT2_AFTER_PC_BROKER_INPUT_DELIVERY_V1_20260426T231145Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_SANCTUM_AQUARIUM_TRUTH_BOUNDARY_TASK_ID_SAFE_DISPATCH_AND_REGISTRY_RESIDUE_CLOSURE_V1_20260427T010019Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM3_CONTOUR_WORKER_HEARTBEAT_AND_HANDOFF_FOUNDATION_V1_20260426T212732Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM3_SELF_SERVICE_INPUT_ACQUISITION_COPY_NORMALIZATION_AND_PROMT1_COMPLETION_V3_20260426T222731Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/bundles/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/06_logs_and_manifests/machine_summary_extraction_log.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/promt7_bundle/ARTIFACTS/reviews/STEP_VM1_PROMT7_WORKER_COPY_CLOSURE_AND_PC_CONTROL_AUDIT_INPUT_PACKAGE_V1_20260427T174745Z/01_pc_total_audit_re_read/PC_TOTAL_AUDIT_ADDITIONAL_EXTRACTION_INDEX.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/OWNER_CONSTITUTION_SOURCE_EXTRACTION_V1.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/OWNER_CONSTITUTION_SOURCE_EXTRACTION_V1.md",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_PC_TOTAL_THRONE_READONLY_IMPERIUM_AUDIT_AND_STRATEGIUM_RESEARCH_SEED_V1_20260426T205150Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_PROOF_REFERENCE_CLOSURE_AND_DOCTRINARIUM_SURFACE_REPAIR_V1_20260426T233432Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_RESUME_PROMT2_AFTER_PC_BROKER_INPUT_DELIVERY_V1_20260426T231145Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM1_SANCTUM_AQUARIUM_TRUTH_BOUNDARY_TASK_ID_SAFE_DISPATCH_AND_REGISTRY_RESIDUE_CLOSURE_V1_20260427T010019Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM3_CONTOUR_WORKER_HEARTBEAT_AND_HANDOFF_FOUNDATION_V1_20260426T212732Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/02_machine_summaries/STEP_VM3_SELF_SERVICE_INPUT_ACQUISITION_COPY_NORMALIZATION_AND_PROMT1_COMPLETION_V3_20260426T222731Z_BUNDLE/_extraction_report.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_FULL_CONTINUITY_PACK_AFTER_PROMT5_BEFORE_PROMT6_V1_20260427T161215Z/06_logs_and_manifests/machine_summary_extraction_log.json"
+        ]
+      },
+      "proposed_fix": "Tag as RUN_TEMP/LEGACY and route future temp extraction to ignored runtime paths."
+    },
+    {
+      "defect_id": "STRUCT-004",
+      "severity": "HIGH",
+      "title": "Analyzer purity regression risk from legacy CURRENT_STATE references",
+      "impact": "Future edits may reintroduce tracked runtime writes.",
+      "evidence": {
+        "legacy_reference_count": 4,
+        "examples": [
+          "TOOLS/administratum_analyze_git_local_context.ps1",
+          "TOOLS/build_chat_compilation_from_analysis.ps1",
+          "ORGANS/ADMINISTRATUM/UTILITY/launch_administratum_dashboard_v0_3.ps1",
+          "ORGANS/ADMINISTRATUM/UTILITY/run_administratum_context_bundle_workflow.ps1"
+        ]
+      },
+      "proposed_fix": "Keep runtime-only writes in .imperium_runtime and treat CURRENT_STATE analyzer files as checkpoint snapshots."
+    },
+    {
+      "defect_id": "STRUCT-005",
+      "severity": "MEDIUM",
+      "title": "latest_* ambiguity remains widespread",
+      "impact": "latest pointers can hide version lineage and reproducibility.",
+      "evidence": {
+        "latest_only_count": 351,
+        "examples": [
+          ".imperium_runtime/administratum_analyzer/latest/LAST_CHAT_COMPILATION_PATH.txt",
+          ".imperium_runtime/administratum_analyzer/latest/LAST_VERIFIED_PUBLIC_HEAD.json",
+          ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/00_ANALYZER_REPORT/LAST_VERIFIED_PUBLIC_HEAD.json",
+          ".imperium_runtime/bundles/FULL_IMPERIUM_CONTEXT_20260511_155125/03_CURRENT_STATE/LAST_POINT_STATE.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_PASSPORT_CONSTITUTION_SOURCE_HARDENING_BUNDLE_DIR.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_PASSPORT_CONSTITUTION_SOURCE_HARDENING_BUNDLE_ID.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_PASSPORT_CONSTITUTION_SOURCE_HARDENING_BUNDLE_ZIP.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_PASSPORT_CONSTITUTION_SOURCE_HARDENING_STEP_DIR.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_PASSPORT_CONSTITUTION_SOURCE_HARDENING_STEP_ID.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_SOURCE_HARDENING_ADMISSION_STEP_DIR.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/LAST_VM3_POST_SYNC_SOURCE_HARDENING_ADMISSION_STEP_ID.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_PC_CONTOUR_MATRIX_AND_MICROAPP_REALIGN_20260418T145621Z/latest_bundle_pull_proof.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_PC_CONTOUR_MATRIX_AND_MICROAPP_REALIGN_20260418T145621Z/latest_bundle_pull_receipt_from_pc.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_PC_CONTOUR_MATRIX_AND_MICROAPP_REALIGN_20260418T145621Z/latest_bundle_pull_stdout_from_pc.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_PC_CONTOUR_MATRIX_AND_MICROAPP_REALIGN_20260418T145621Z/latest_bundle_pull_target_file_from_pc.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_RESUME_PROMT2_AFTER_PC_BROKER_INPUT_DELIVERY_V1_20260426T231145Z/00_inputs/extracted_vm3_prev/STEP_VM3_CONTOUR_WORKER_HEARTBEAT_AND_HANDOFF_FOUNDATION_V1_20260426T212732Z/surfaces_snapshot/runtime/contours/signals/vm3/LATEST_SIGNAL.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM3_LINUX_OBSERVATORY_RELAY_MVP_TO_PC_SUPPORT_ROOT_V1_20260418T194436Z/publication_logs/latest_receipt_path.txt",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM3_LINUX_OBSERVATORY_RELAY_MVP_TO_PC_SUPPORT_ROOT_V1_20260418T194436Z/publication_logs/latest_receipt.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM3_SUPPORT_CLUSTER_OBSERVATORY_CLOSURE_FRESHNESS_PROOF_AND_ADMISSION_V1_20260418T201119Z/publication/latest_publish_receipt_path.txt"
+        ]
+      },
+      "proposed_fix": "Adopt TASK/STAGE/RUN/RECEIPT addressing as canonical and keep latest pointers convenience-only."
+    },
+    {
+      "defect_id": "STRUCT-006",
+      "severity": "LOW",
+      "title": "Tracked cache/vendor residues present",
+      "impact": "Noise and repository bloat hamper review and scanning.",
+      "evidence": {
+        "pycache_count": 2821,
+        "node_modules_count": 185554,
+        "pycache_examples": [
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_pc_total/__pycache__/phase12_16_generate.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_pc_total/__pycache__/phase23_generate.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_pc_total/__pycache__/phase4_generate.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_pc_total/__pycache__/phase56_generate.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_pc_total/__pycache__/phase7_11_generate.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_promt2/scripts/validation/__pycache__/check_admission_state_machine_v2.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_promt3/scripts/validation/__pycache__/check_admission_state_machine_v2.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_promt3/scripts/validation/__pycache__/check_proof_reference_closure.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_vm3/STEP_VM3_SELF_SERVICE_INPUT_ACQUISITION_COPY_NORMALIZATION_AND_PROMT1_COMPLETION_V3_20260426T222731Z/00_inputs/pc_total_audit_bundle/__pycache__/phase12_16_generate.cpython-312.pyc",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_ALL_REVIEW/control_audit_inputs/PC_FULL_SYSTEM_CONTROL_AUDIT_BEFORE_SANCTUM_AQUARIUM_PROMT7_20260427T174745Z/01_unpack/worker_copy_snapshot/ARTIFACTS/reviews/STEP_VM1_HIERARCHICAL_ENTITY_REGISTRY_CRITICAL_SURFACE_ENROLLMENT_AND_DOCTRINARIUM_OWNER_APPROVAL_CLOSURE_V1_20260426T235402Z/00_inputs/extracted_vm3/STEP_VM3_SELF_SERVICE_INPUT_ACQUISITION_COPY_NORMALIZATION_AND_PROMT1_COMPLETION_V3_20260426T222731Z/00_inputs/pc_total_audit_bundle/__pycache__/phase23_generate.cpython-312.pyc"
+        ],
+        "node_modules_examples": [
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.package-lock.json",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/ajv",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/ajv.cmd",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/ajv.ps1",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/esparse",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/esparse.cmd",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/esparse.ps1",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/esvalidate",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/esvalidate.cmd",
+          "ARCHIVE/2026_04_DELETE_LATER/IMPERIUM_SUPPORT_CLUSTER/30_ARSENAL/tools/pc/node_toolchain/node_modules/.bin/esvalidate.ps1"
+        ]
+      },
+      "proposed_fix": "Plan dedicated cleanup task; no deletions in current task."
+    },
+    {
+      "defect_id": "STRUCT-007",
+      "severity": "INFORMATIONAL",
+      "title": "UNKNOWN path classifications need owner decisions",
+      "impact": "Cannot safely migrate ambiguous zones without approval.",
+      "evidence": {
+        "unknown_count": 5,
+        "unknown": [
+          {
+            "path": "ASTRONOMICON/GENERAL_TASKS/",
+            "why_unknown": "Domain data + generated outputs mixed with contracts",
+            "risk": "MEDIUM",
+            "proposed_classification": "ORGAN_CONTRACT + GENERATED split",
+            "owner_approval_required": true
+          },
+          {
+            "path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER/",
+            "why_unknown": "Legacy tracked analyzer runtime-like outputs still committed",
+            "risk": "HIGH",
+            "proposed_classification": "CURRENT_STATE checkpoint snapshots only",
+            "owner_approval_required": true
+          },
+          {
+            "path": "CURRENT_STATE/ADMINISTRATUM_ANALYZER_POST_PUSH/",
+            "why_unknown": "Manual verification captures mixed with operational state",
+            "risk": "MEDIUM",
+            "proposed_classification": "ARTIFACT or CURRENT_STATE checkpoint",
+            "owner_approval_required": true
+          },
+          {
+            "path": "ORGANS/_PORTS/SCHEMAS/",
+            "why_unknown": "Shared contracts bypass organ ownership boundaries",
+            "risk": "MEDIUM",
+            "proposed_classification": "ORGAN_PORT/ORGAN_SCHEMA under each organ or protocol root",
+            "owner_approval_required": true
+          },
+          {
+            "path": "ARTIFACTS/**/extract/**",
+            "why_unknown": "Some extraction trees appear to be mutable intermediates",
+            "risk": "MEDIUM",
+            "proposed_classification": "RUN_TEMP in ignored runtime or clearly tagged artifact temp",
+            "owner_approval_required": true
+          }
+        ]
+      },
+      "proposed_fix": "Carry UNKNOWN entries with explicit risk and approval requirements."
+    },
+    {
+      "defect_id": "STRUCT-008",
+      "severity": "HIGH",
+      "title": "Bundle/provenance duplication across legacy trees is high",
+      "impact": "Canonical provenance lineage is hard to follow and audit.",
+      "evidence": {
+        "bundle_reference_count": 16856,
+        "artifact_file_count": 7260
+      },
+      "proposed_fix": "Register active artifacts centrally; keep legacy immutable but clearly classified."
+    }
+  ],
+  "summary": {
+    "total": 8,
+    "by_severity": {
+      "BLOCKING": 0,
+      "HIGH": 3,
+      "MEDIUM": 3,
+      "LOW": 1,
+      "INFORMATIONAL": 1
+    }
+  }
+}

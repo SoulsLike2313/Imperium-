@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_ADMINISTRATUM_WORK_PACKET_V1",
+  "title": "Administratum Work Packet V1",
+  "type": "object",
+  "required": [
+    "work_session_id",
+    "run_id",
+    "task_id",
+    "local_task_ids",
+    "allowed_stage_ids",
+    "actor",
+    "repo_reality",
+    "current_known_defects",
+    "read_zones",
+    "write_zones",
+    "forbidden_zones",
+    "required_scripts",
+    "stage_commands",
+    "validation_commands",
+    "required_outputs",
+    "required_receipts",
+    "artifact_paths",
+    "current_state_update_policy",
+    "recoverable_error_policy",
+    "nonrecoverable_blockers",
+    "commit_policy",
+    "push_policy",
+    "return_protocol"
+  ],
+  "properties": {
+    "work_session_id": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "local_task_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_stage_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actor": {
+      "type": "string"
+    },
+    "repo_reality": {
+      "type": "object"
+    },
+    "current_known_defects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "read_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "write_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stage_commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "validation_commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "artifact_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "current_state_update_policy": {
+      "type": "string"
+    },
+    "recoverable_error_policy": {
+      "type": "string"
+    },
+    "nonrecoverable_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commit_policy": {
+      "type": "string"
+    },
+    "push_policy": {
+      "type": "string"
+    },
+    "return_protocol": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

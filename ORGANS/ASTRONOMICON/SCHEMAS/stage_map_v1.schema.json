@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_ASTRONOMICON_STAGE_MAP_V1",
+  "title": "Astronomicon Stage Map V1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "local_task_id",
+    "stages"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "local_task_id": {
+      "type": "string"
+    },
+    "stages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "stage_id",
+          "depends_on",
+          "outputs",
+          "validation"
+        ],
+        "properties": {
+          "stage_id": {
+            "type": "string"
+          },
+          "depends_on": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "validation": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "stop_rules": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

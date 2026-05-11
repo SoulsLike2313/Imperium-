@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "IMPERIUM_PREFLIGHT_TASK_EXECUTION_PORT_SCHEMA_V1",
+  "title": "preflight_task_execution port schema v1",
+  "type": "object",
+  "required": [
+    "request",
+    "response"
+  ],
+  "properties": {
+    "request": {
+      "$ref": "../../PORT_PROTOCOL/port_message_v1.schema.json"
+    },
+    "response": {
+      "$ref": "../../PORT_PROTOCOL/port_response_v1.schema.json"
+    }
+  },
+  "additionalProperties": false
+}

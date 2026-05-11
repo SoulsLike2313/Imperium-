@@ -1,0 +1,32 @@
+IMPERIUM/
+  README.md
+  START_HERE.md
+  DOCS/
+  REGISTRY/
+    ZONE_REGISTRY.json
+    SCRIPT_REGISTRY.json
+    ORGAN_REGISTRY.json
+    PORT_REGISTRY.json
+    ARTIFACT_REGISTRY.json
+    DYNAMIC_STATE_REGISTRY.json
+    KNOWN_DEFECTS.json
+  CURRENT_STATE/
+  ARTIFACTS/
+    TASK-<TASK_ID>/
+      INPUTS/
+      OUTPUTS/
+      REPORTS/
+      RECEIPTS/
+  ORGANS/
+    PORT_PROTOCOL/
+    ADMINISTRATUM/
+    ASTRONOMICON/
+    DOCTRINARIUM/
+    INQUISITION/
+    MECHANICUS/
+  TOOLS/
+  SANCTUM/
+  EXPLORER/
+  .imperium_runtime/  (ignored)
+  ARCHIVE/            (local/private)
+  SSH_COMMAND_LIBRARY/ (local/private)
