@@ -1,8 +1,8 @@
 ﻿{
     "schema_version":  "ADMINISTRATUM_CONTEXT_BUNDLE_RECEIPT_V0_3",
-    "zip_path":  "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260511_123024.zip",
-    "sha256":  "295516f4a8bbb26b4d5b602e064f0fa34e970aa50eddf453146376bde338b812",
-    "size_bytes":  5024,
+    "zip_path":  "E:\\IMPERIUM\\CHAT_COMPILATIONS_LOCAL\\FULL_IMPERIUM_CONTEXT_20260511_123624.zip",
+    "sha256":  "b9221546a27c47d5b637fd7bad430ec45d50e1d5194e1ad1b216754505834d51",
+    "size_bytes":  4975,
     "github_url":  "https://github.com/SoulsLike2313/Imperium-",
     "committed_to_git":  false,
     "status":  "PASS_WITH_LIMITATIONS",
@@ -11,5 +11,5 @@
                         "Does not include raw secrets by default.",
                         "Use with GitHub repository link for full context."
                     ],
-    "generated_at":  "2026-05-11T12:30:24.5575972+03:00"
+    "generated_at":  "2026-05-11T12:36:24.5622801+03:00"
 }
