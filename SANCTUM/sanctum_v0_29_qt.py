@@ -24,6 +24,7 @@ from PySide6.QtWidgets import (
     QLabel,
     QListWidget,
     QMainWindow,
+    QDialog,
     QMessageBox,
     QPushButton,
     QSplitter,
@@ -34,6 +35,8 @@ from PySide6.QtWidgets import (
     QFrame,
     QListWidgetItem,
 )
+
+from sanctum_git_cli_check_service_v0_1 import GitCliCheckService, GitCliCheckServiceError
 
 
 APP_NAME = "IMPERIUM Sanctum v0.29 Qt — 60 FPS Command Dashboard"
@@ -839,6 +842,7 @@ class SanctumMainWindow(QMainWindow):
         self.btn_task_folder = QPushButton("Open Task Folder")
         self.btn_notes = QPushButton("Open Notes")
         self.btn_refresh_tasks = QPushButton("Refresh Tasks")
+        self.btn_git_cli_check = QPushButton("Check Git CLI")
 
         for btn in [
             self.btn_astra,
@@ -846,6 +850,7 @@ class SanctumMainWindow(QMainWindow):
             self.btn_task_folder,
             self.btn_notes,
             self.btn_refresh_tasks,
+            self.btn_git_cli_check,
         ]:
             top_layout.addWidget(btn)
 
@@ -854,11 +859,17 @@ class SanctumMainWindow(QMainWindow):
         self.btn_task_folder.clicked.connect(self.open_selected_task_folder)
         self.btn_notes.clicked.connect(self.open_notes_area)
         self.btn_refresh_tasks.clicked.connect(self.refresh_tasks)
+        self.btn_git_cli_check.clicked.connect(self.check_git_cli)
 
         self.transfer_button = QPushButton("Transfer Control")
         top_layout.addWidget(self.transfer_button)
 
         top_layout.addSpacing(14)
+        self.git_cli_status = QLabel("Git CLI: not checked")
+        self.git_cli_status.setFont(QFont("Consolas", 9))
+        top_layout.addWidget(self.git_cli_status)
+
+        top_layout.addSpacing(8)
         selected = QLabel("Selected task: TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1")
         selected.setFont(QFont("Consolas", 10, QFont.Bold))
         top_layout.addWidget(selected, 1)
@@ -905,6 +916,7 @@ class SanctumMainWindow(QMainWindow):
         self.map_widget = PlanetMapWidget()
         self.transfer_panel = TransferPanel()
         self.transfer_panel.setVisible(True)
+        self.git_cli_service = GitCliCheckService(IMPERIUM_ROOT)
 
         splitter.addWidget(left)
         splitter.addWidget(self.map_widget)
@@ -991,6 +1003,108 @@ class SanctumMainWindow(QMainWindow):
                 self.task_list.setCurrentRow(0)
         except Exception as exc:
             QMessageBox.warning(self, "Refresh Tasks", f"Failed to refresh tasks:\n{exc}")
+
+    def check_git_cli(self):
+        try:
+            process_result = self.git_cli_service.run_wrapper()
+        except FileNotFoundError as exc:
+            self.git_cli_status.setText("Git CLI: wrapper missing")
+            QMessageBox.warning(self, "Check Git CLI", str(exc))
+            return
+        except GitCliCheckServiceError as exc:
+            self.git_cli_status.setText("Git CLI: PowerShell/runtime error")
+            QMessageBox.warning(self, "Check Git CLI", str(exc))
+            return
+        except Exception as exc:
+            self.git_cli_status.setText("Git CLI: unexpected error")
+            QMessageBox.warning(self, "Check Git CLI", f"Unexpected error while running checker:\n{exc}")
+            return
+
+        if process_result.returncode != 0:
+            self.git_cli_status.setText("Git CLI: checker returned nonzero")
+            details = (
+                "Checker returned nonzero exit code.\n\n"
+                f"returncode: {process_result.returncode}\n\n"
+                f"stdout:\n{process_result.stdout[-3000:]}\n\n"
+                f"stderr:\n{process_result.stderr[-3000:]}"
+            )
+            QMessageBox.warning(self, "Check Git CLI", details)
+            return
+
+        try:
+            result_payload = self.git_cli_service.load_result_json()
+        except FileNotFoundError as exc:
+            self.git_cli_status.setText("Git CLI: result JSON missing")
+            QMessageBox.warning(self, "Check Git CLI", str(exc))
+            return
+        except ValueError as exc:
+            self.git_cli_status.setText("Git CLI: JSON parse failed")
+            QMessageBox.warning(self, "Check Git CLI", str(exc))
+            return
+
+        try:
+            self.git_cli_service.load_verdict_md()
+        except FileNotFoundError as exc:
+            self.git_cli_status.setText("Git CLI: verdict file missing")
+            QMessageBox.warning(self, "Check Git CLI", str(exc))
+            return
+
+        summary = self.git_cli_service.summarize(result_payload)
+        verdict = summary.get("verdict", "UNKNOWN")
+        head_short = str(summary.get("local_head", ""))[:7]
+        self.git_cli_status.setText(f"Git CLI: {verdict} ({head_short})")
+
+        details = self.git_cli_service.format_summary_text(summary)
+        self.show_git_cli_result_dialog(details)
+
+    def show_git_cli_result_dialog(self, details: str):
+        dialog = QDialog(self)
+        dialog.setWindowTitle("Check Git CLI")
+        dialog.resize(820, 560)
+        dialog.setStyleSheet("""
+            QDialog {
+                background-color: #06111D;
+                color: #E8FCFF;
+            }
+            QTextEdit {
+                background-color: #020812;
+                color: #E8FCFF;
+                border: 1px solid #28D7FF;
+                border-radius: 8px;
+                padding: 10px;
+                selection-background-color: #0B5C86;
+                selection-color: #FFFFFF;
+            }
+            QPushButton {
+                color: #E8FCFF;
+                background-color: #0B5C86;
+                border: 1px solid #4DDFFF;
+                border-radius: 8px;
+                padding: 7px 18px;
+                font-weight: 600;
+            }
+            QPushButton:hover {
+                background-color: #1178A8;
+            }
+        """)
+
+        layout = QVBoxLayout(dialog)
+
+        text = QTextEdit(dialog)
+        text.setReadOnly(True)
+        text.setPlainText(details)
+        text.setFont(QFont("Consolas", 10))
+        layout.addWidget(text)
+
+        row = QHBoxLayout()
+        row.addStretch(1)
+
+        ok = QPushButton("OK", dialog)
+        ok.clicked.connect(dialog.accept)
+        row.addWidget(ok)
+
+        layout.addLayout(row)
+        dialog.exec()
 
     def toggle_transfer(self):
         visible = not self.transfer_panel.isVisible()
