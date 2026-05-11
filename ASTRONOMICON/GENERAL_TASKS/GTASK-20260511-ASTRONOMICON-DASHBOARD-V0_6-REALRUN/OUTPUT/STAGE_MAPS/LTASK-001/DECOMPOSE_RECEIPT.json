@@ -1,0 +1,11 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_DECOMPOSE_LOCAL_TASK_TO_STAGES_RECEIPT_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "output_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT",
+    "stage_map_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\STAGE_MAPS\\LTASK-001",
+    "stage_count":  3,
+    "speculum_local_refinement_used":  true,
+    "status":  "DECOMPOSED",
+    "generated_at":  "2026-05-11T12:20:18.2845406+03:00"
+}

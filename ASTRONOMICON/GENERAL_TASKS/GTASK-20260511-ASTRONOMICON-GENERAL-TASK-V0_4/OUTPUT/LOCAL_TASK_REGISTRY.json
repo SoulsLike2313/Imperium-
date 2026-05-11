@@ -1,0 +1,35 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_REGISTRY_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "source_sha256":  "2d988ebccf1b802b4f3b181dbaf0c623f8d415ec6e2198b4413dcbaba9d87e67",
+    "local_task_count":  2,
+    "local_tasks":  [
+                        {
+                            "local_task_id":  "LTASK-001",
+                            "source_plan_item_id":  "PI-001",
+                            "title":  "First local task title",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum"
+                                                ],
+                            "expected_output":  "Describe the expected output of the first Local Task.",
+                            "hash":  "e4ab47fa9cdccb95167efda273b6d930310192f3aff8b0312fccf4c0fd30c529",
+                            "path":  "LOCAL_TASKS/LTASK-001"
+                        },
+                        {
+                            "local_task_id":  "LTASK-002",
+                            "source_plan_item_id":  "PI-002",
+                            "title":  "Second local task title",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Mechanicus"
+                                                ],
+                            "expected_output":  "Describe the expected output of the second Local Task.",
+                            "hash":  "ef4ed0c0615af86325e54c59b7490d9ccedd4501edb204cc24be66bf5f5d7782",
+                            "path":  "LOCAL_TASKS/LTASK-002"
+                        }
+                    ],
+    "generated_at":  "2026-05-11T11:33:03.1697677+03:00"
+}

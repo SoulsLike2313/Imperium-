@@ -1,0 +1,9 @@
+﻿{
+    "local_task_id":  "LTASK-001",
+    "status":  "STAGE_DECOMPOSED",
+    "speculum_review_status":  "IMPORTED",
+    "stage_decomposition_status":  "DONE",
+    "stage_map_path":  "STAGE_MAPS/LTASK-001/STAGE_MAP.json",
+    "stage_count":  5,
+    "updated_at":  "2026-05-11T11:38:20.1407006+03:00"
+}

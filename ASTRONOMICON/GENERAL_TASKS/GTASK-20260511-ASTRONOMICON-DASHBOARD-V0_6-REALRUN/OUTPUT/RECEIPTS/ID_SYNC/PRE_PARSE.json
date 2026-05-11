@@ -1,0 +1,19 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_TASK_ID_SYNC_RECEIPT_V0_1",
+    "status":  "PASS",
+    "dashboard_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "form_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "task_folder_name":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "registry_task_id":  "",
+    "input_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\INPUT\\GENERAL_TASK_INPUT.txt",
+    "task_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "output_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT",
+    "registry_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\LOCAL_TASK_REGISTRY.json",
+    "errors":  [
+
+               ],
+    "warnings":  [
+                     "Registry not found yet (pre-parse or first-pass state)."
+                 ],
+    "generated_at":  "2026-05-11T12:20:14.9970213+03:00"
+}

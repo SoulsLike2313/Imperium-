@@ -1,0 +1,121 @@
+﻿ASTRONOMICON_GENERAL_TASK_V0_1
+ENCODING: UTF-8-BOM
+LINE_ENDINGS: CRLF
+
+GENERAL_TASK_ID:
+GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN
+
+GENERAL_TASK_TITLE:
+Astronomicon Dashboard v0.6 Real Pipeline Run
+
+GENERAL_TASK_CODE:
+ASTRONOMICON-DASHBOARD-V0_6-REALRUN
+
+AUTHOR:
+Owner
+
+EXECUTION_INTENT:
+manual
+
+PRIORITY:
+high
+
+BEGIN_GOAL
+Execute one full planning path through local and stage refinement loops.
+END_GOAL
+
+BEGIN_CONTEXT
+Dashboard v0.6 hardening needs a single complete task path backed by receipts.
+END_CONTEXT
+
+BEGIN_CURRENT_PROBLEM
+Need end-to-end proof that fragile v0.5 behavior is replaced by reliable pipeline calls.
+END_CURRENT_PROBLEM
+
+BEGIN_EXPECTED_FINAL_STATE
+- Local Tasks parsed and exported for Speculum.
+- Local refinements imported by ID.
+- Selected Local Task decomposed to stages.
+- Stage review exported and imported by stage_id.
+END_EXPECTED_FINAL_STATE
+
+BEGIN_HARD_CONSTRAINTS
+- No secret leakage.
+- No fake green.
+- Receipts required.
+END_HARD_CONSTRAINTS
+
+BEGIN_DO_NOT_DO
+- Do not overwrite core records from Speculum payloads.
+- Do not silently drop unknown IDs.
+END_DO_NOT_DO
+
+BEGIN_PLAN_ITEMS
+
+ITEM_ID: PI-001
+TITLE: Create robust parser pipeline evidence
+TEXT:
+Generate parse and Local Task outputs with deterministic IDs.
+EXPECTED_OUTPUT:
+Registry and Local Task records.
+REQUIRED_ORGANS:
+Astronomicon, Administratum
+EXECUTION_MODE:
+manual
+DEPENDS_ON:
+none
+END_ITEM
+
+ITEM_ID: PI-002
+TITLE: Run Local Task Speculum exchange
+TEXT:
+Export and import Local Task refinements with orphan capture.
+EXPECTED_OUTPUT:
+Local refinement receipts and attachments.
+REQUIRED_ORGANS:
+Astronomicon, Speculum
+EXECUTION_MODE:
+scripted
+DEPENDS_ON:
+PI-001
+END_ITEM
+
+ITEM_ID: PI-003
+TITLE: Run Stage Speculum exchange
+TEXT:
+Decompose one Local Task, export stage review, import stage refinements.
+EXPECTED_OUTPUT:
+Stage map and stage refinement receipts.
+REQUIRED_ORGANS:
+Astronomicon, Speculum
+EXECUTION_MODE:
+scripted
+DEPENDS_ON:
+PI-002
+END_ITEM
+
+END_PLAN_ITEMS
+
+BEGIN_KNOWN_RISKS
+- Payload schema mismatch.
+- Unknown refinement IDs.
+END_KNOWN_RISKS
+
+BEGIN_REQUIRED_ORGANS
+- Astronomicon
+- Speculum
+END_REQUIRED_ORGANS
+
+BEGIN_REQUIRED_INPUTS
+- Strict General Task form.
+END_REQUIRED_INPUTS
+
+BEGIN_EXPECTED_ARTIFACTS
+- Parse receipt.
+- Local import receipt.
+- Stage import receipt.
+END_EXPECTED_ARTIFACTS
+
+BEGIN_OWNER_NOTES
+Real one-task pipeline run for v0.6 validation.
+END_OWNER_NOTES

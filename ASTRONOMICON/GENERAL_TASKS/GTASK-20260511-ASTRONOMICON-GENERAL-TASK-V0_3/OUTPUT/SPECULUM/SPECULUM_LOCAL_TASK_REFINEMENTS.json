@@ -1,0 +1,91 @@
+﻿{
+  "schema_version": "ASTRONOMICON_SPECULUM_LOCAL_TASK_REFINEMENTS_V0_1",
+  "general_task_id": "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+  "review_mode": "hard_red_team_scope_narrowing",
+  "allocation_rule": "Distribute review effort evenly across all local tasks.",
+  "items": [
+    {
+      "local_task_id": "LTASK-001",
+      "scope_narrowing": [
+        "Define only the minimum strict General Task form contract required for parser input.",
+        "Do not design the full Astronomicon dashboard in this task."
+      ],
+      "technical_execution_risks": [
+        "Form fields may be too flexible for deterministic parsing.",
+        "Encoding mismatch may corrupt Russian text if UTF-8-BOM is not enforced."
+      ],
+      "missing_inputs": [
+        "Canonical required field list.",
+        "Validation failure behavior."
+      ],
+      "required_tools_or_scripts": [
+        "General Task form validator.",
+        "UTF-8-BOM writer helper."
+      ],
+      "readiness_questions": [
+        "Does the form contain all required blocks?",
+        "Can the parser reject malformed PLAN_ITEMS without guessing?"
+      ],
+      "pass_criteria": [
+        "A valid form produces GENERAL_TASK.json.",
+        "A malformed form produces VALIDATION_REPORT.json and stops."
+      ],
+      "fail_conditions": [
+        "Parser silently accepts missing PLAN_ITEMS.",
+        "Parser creates Local Tasks with empty required fields."
+      ],
+      "do_not_do": [
+        "Do not infer missing tasks from free text.",
+        "Do not proceed when required fields are absent."
+      ],
+      "decomposition_hints": [
+        "Stage 1: define required fields.",
+        "Stage 2: define validation rules.",
+        "Stage 3: test malformed input."
+      ],
+      "should_split": false,
+      "recommended_status": "READY_FOR_STAGE_DECOMPOSITION"
+    },
+    {
+      "local_task_id": "LTASK-002",
+      "scope_narrowing": [
+        "Only parse PLAN_ITEMS into Local Task records.",
+        "Do not implement Speculum import or stage decomposition here."
+      ],
+      "technical_execution_risks": [
+        "Regex parser may break if ITEM blocks are malformed.",
+        "Generated Local Task IDs may become unstable if order changes."
+      ],
+      "missing_inputs": [
+        "Stable ID policy.",
+        "Hash policy for Local Task records."
+      ],
+      "required_tools_or_scripts": [
+        "astronomicon_parse_general_task_v0_1.ps1"
+      ],
+      "readiness_questions": [
+        "Are LTASK IDs deterministic?",
+        "Does each Local Task have parent_general_task_id and hash?"
+      ],
+      "pass_criteria": [
+        "Each PLAN ITEM creates exactly one LTASK folder.",
+        "LOCAL_TASK_REGISTRY.json contains all created tasks."
+      ],
+      "fail_conditions": [
+        "Task count mismatch.",
+        "Missing LOCAL_TASK.json or HASH.json."
+      ],
+      "do_not_do": [
+        "Do not overwrite source General Task text.",
+        "Do not create tasks without source_plan_item_id."
+      ],
+      "decomposition_hints": [
+        "Stage 1: parse registry.",
+        "Stage 2: create Local Task folder.",
+        "Stage 3: create hash/status records."
+      ],
+      "should_split": false,
+      "recommended_status": "READY_FOR_STAGE_DECOMPOSITION"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_IMPORT_LOCAL_TASK_REFINEMENTS_RECEIPT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "refinements_path":  "C:\\Users\\PC\\Downloads\\SPECULUM_LOCAL_TASK_REFINEMENTS.json",
+    "imported_count":  2,
+    "orphan_count":  0,
+    "imported":  [
+                     {
+                         "local_task_id":  "LTASK-001",
+                         "refinement_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\LOCAL_TASKS\\LTASK-001\\SPECULUM_REFINEMENTS.json",
+                         "refinement_md_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\LOCAL_TASKS\\LTASK-001\\SPECULUM_REFINEMENTS.md",
+                         "status_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\LOCAL_TASKS\\LTASK-001\\STATUS.json",
+                         "recommended_status":  "BLOCKED_NEEDS_OWNER_SCOPE"
+                     },
+                     {
+                         "local_task_id":  "LTASK-002",
+                         "refinement_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\LOCAL_TASKS\\LTASK-002\\SPECULUM_REFINEMENTS.json",
+                         "refinement_md_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\LOCAL_TASKS\\LTASK-002\\SPECULUM_REFINEMENTS.md",
+                         "status_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\LOCAL_TASKS\\LTASK-002\\STATUS.json",
+                         "recommended_status":  "BLOCKED_NEEDS_OWNER_SCOPE"
+                     }
+                 ],
+    "orphans":  [
+
+                ],
+    "status":  "PASS_WITH_LIMITATIONS",
+    "limitations":  [
+                        "Import only.",
+                        "Existing Local Task core records are not overwritten.",
+                        "Stage decomposition is separate.",
+                        "Dashboard integration is separate."
+                    ],
+    "generated_at":  "2026-05-11T11:36:21.6420657+03:00"
+}

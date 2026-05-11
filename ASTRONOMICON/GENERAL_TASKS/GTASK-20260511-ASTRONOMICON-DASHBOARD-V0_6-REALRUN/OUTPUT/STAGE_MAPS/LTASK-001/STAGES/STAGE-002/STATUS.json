@@ -1,0 +1,9 @@
+﻿{
+    "recommended_status":  "READY_FOR_EXECUTION",
+    "ready_for_execution":  true,
+    "updated_at":  "2026-05-11T12:20:20.0908952+03:00",
+    "parent_local_task_id":  "LTASK-001",
+    "status":  "SPECULUM_STAGE_REFINED",
+    "speculum_stage_review_status":  "IMPORTED",
+    "stage_id":  "STAGE-002"
+}

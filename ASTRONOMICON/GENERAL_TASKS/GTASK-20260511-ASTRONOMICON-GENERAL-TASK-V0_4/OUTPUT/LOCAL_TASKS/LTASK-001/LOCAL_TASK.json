@@ -1,0 +1,21 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_RECORD_V0_1",
+    "local_task_id":  "LTASK-001",
+    "source_plan_item_id":  "PI-001",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "title":  "First local task title",
+    "scope_text":  "Describe the first Local Task.",
+    "expected_output":  "Describe the expected output of the first Local Task.",
+    "required_organs":  [
+                            "Astronomicon",
+                            "Administratum"
+                        ],
+    "execution_mode":  "manual",
+    "depends_on_plan_items":  [
+
+                              ],
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "created_at":  "2026-05-11T11:33:03.1560992+03:00"
+}

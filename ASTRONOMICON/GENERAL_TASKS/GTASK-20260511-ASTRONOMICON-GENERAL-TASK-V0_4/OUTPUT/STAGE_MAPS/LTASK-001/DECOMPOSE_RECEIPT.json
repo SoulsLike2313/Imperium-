@@ -1,0 +1,17 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_DECOMPOSE_LOCAL_TASK_TO_STAGES_RECEIPT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "local_task_id":  "LTASK-001",
+    "output_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT",
+    "stage_map_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\STAGE_MAPS\\LTASK-001",
+    "stage_count":  5,
+    "speculum_local_refinement_used":  true,
+    "status":  "PASS_WITH_LIMITATIONS",
+    "limitations":  [
+                        "Simple decomposition script.",
+                        "Stage review by Speculum is not imported yet.",
+                        "Administratum readiness is not executed yet.",
+                        "Stages are planned, not executed."
+                    ],
+    "generated_at":  "2026-05-11T11:38:20.1397247+03:00"
+}

@@ -1,0 +1,6 @@
+﻿{
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "source_sha256":  "2896a66be2269b004feff8026f451130c5767bcad970b81f03b503c35762b25f",
+    "record_sha256":  "10787ec6422fab074fdfdde7346cc9e91c2af855b8b4019accd657333ca85db9",
+    "hash_policy":  "sha256 over UTF-8 JSON record"
+}

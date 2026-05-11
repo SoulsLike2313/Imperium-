@@ -1,0 +1,102 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_SPECULUM_LOCAL_TASK_REVIEW_REQUEST_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "instruction":  "Review every Local Task evenly. Return JSON only, matching ASTRONOMICON_SPECULUM_LOCAL_TASK_REFINEMENTS_V0_1.",
+    "allocation_rule":  "Distribute review effort evenly across all local tasks. Do not focus only on the first task.",
+    "do_not_do":  [
+                      "Do not rewrite the task map.",
+                      "Do not return prose outside JSON.",
+                      "Do not invent missing task IDs.",
+                      "Do not declare green/canon/ready without pass criteria.",
+                      "Do not include raw secrets."
+                  ],
+    "expected_response_schema":  {
+                                     "schema_version":  "ASTRONOMICON_SPECULUM_LOCAL_TASK_REFINEMENTS_V0_1",
+                                     "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+                                     "review_mode":  "hard_red_team_scope_narrowing",
+                                     "allocation_rule":  "Distribute review effort evenly across all local tasks.",
+                                     "items":  [
+                                                   {
+                                                       "local_task_id":  "LTASK-001",
+                                                       "scope_narrowing":  [
+
+                                                                           ],
+                                                       "technical_execution_risks":  [
+
+                                                                                     ],
+                                                       "missing_inputs":  [
+
+                                                                          ],
+                                                       "required_tools_or_scripts":  [
+
+                                                                                     ],
+                                                       "readiness_questions":  [
+
+                                                                               ],
+                                                       "pass_criteria":  [
+
+                                                                         ],
+                                                       "fail_conditions":  [
+
+                                                                           ],
+                                                       "do_not_do":  [
+
+                                                                     ],
+                                                       "decomposition_hints":  [
+
+                                                                               ],
+                                                       "should_split":  false,
+                                                       "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                                                   }
+                                               ]
+                                 },
+    "local_tasks":  [
+                        {
+                            "local_task_id":  "LTASK-001",
+                            "source_plan_item_id":  "PI-001",
+                            "title":  "First local task title",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum"
+                                                ],
+                            "expected_output":  "Describe the expected output of the first Local Task.",
+                            "hash":  "e4ab47fa9cdccb95167efda273b6d930310192f3aff8b0312fccf4c0fd30c529",
+                            "review_questions":  [
+                                                     "Is this Local Task technically executable?",
+                                                     "What scope must be narrowed?",
+                                                     "What inputs are missing?",
+                                                     "What tools or scripts are required?",
+                                                     "What readiness questions must be answered before execution?",
+                                                     "What pass criteria are required?",
+                                                     "What fail conditions must stop execution?",
+                                                     "What must not be done?",
+                                                     "How should this Local Task be decomposed into stages?"
+                                                 ]
+                        },
+                        {
+                            "local_task_id":  "LTASK-002",
+                            "source_plan_item_id":  "PI-002",
+                            "title":  "Second local task title",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Mechanicus"
+                                                ],
+                            "expected_output":  "Describe the expected output of the second Local Task.",
+                            "hash":  "ef4ed0c0615af86325e54c59b7490d9ccedd4501edb204cc24be66bf5f5d7782",
+                            "review_questions":  [
+                                                     "Is this Local Task technically executable?",
+                                                     "What scope must be narrowed?",
+                                                     "What inputs are missing?",
+                                                     "What tools or scripts are required?",
+                                                     "What readiness questions must be answered before execution?",
+                                                     "What pass criteria are required?",
+                                                     "What fail conditions must stop execution?",
+                                                     "What must not be done?",
+                                                     "How should this Local Task be decomposed into stages?"
+                                                 ]
+                        }
+                    ],
+    "generated_at":  "2026-05-11T11:33:07.6153857+03:00"
+}

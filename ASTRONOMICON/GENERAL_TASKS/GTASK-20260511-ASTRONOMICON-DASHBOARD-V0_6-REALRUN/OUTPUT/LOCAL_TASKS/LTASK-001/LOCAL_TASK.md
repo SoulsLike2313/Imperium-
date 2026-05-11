@@ -1,0 +1,26 @@
+﻿# Local Task
+
+LOCAL_TASK_ID: LTASK-001
+PARENT_GENERAL_TASK_ID: GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN
+SOURCE_PLAN_ITEM_ID: PI-001
+
+TITLE:
+Create robust parser pipeline evidence
+
+SCOPE:
+Generate parse and Local Task outputs with deterministic IDs.
+
+EXPECTED_OUTPUT:
+Registry and Local Task records.
+
+REQUIRED_ORGANS:
+Astronomicon, Administratum
+
+EXECUTION_MODE:
+manual
+
+STATUS:
+CREATED_FROM_GENERAL_TASK
+
+HASH:
+42caa0ae5f19ec05610bf238d7398289a75286d759a60163ea22664f2b76787d

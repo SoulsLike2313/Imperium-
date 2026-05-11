@@ -1,0 +1,44 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_ATTACHED_SPECULUM_REFINEMENT_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "imported_from":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\SPECULUM\\SPECULUM_LOCAL_TASK_REFINEMENTS.json",
+    "review_mode":  "hard_red_team_scope_narrowing",
+    "allocation_rule":  "Distribute review effort evenly across all local tasks.",
+    "refinement":  {
+                       "local_task_id":  "LTASK-001",
+                       "scope_narrowing":  [
+                                               "Keep execution scope aligned with LTASK-001."
+                                           ],
+                       "technical_execution_risks":  [
+                                                         "Parser schema drift can break consistency."
+                                                     ],
+                       "missing_inputs":  [
+                                              "Confirm destination files before execution."
+                                          ],
+                       "required_tools_or_scripts":  [
+                                                         "PowerShell 5+",
+                                                         "astronomicon_decompose_local_task_to_stages_v0_2.ps1"
+                                                     ],
+                       "readiness_questions":  [
+                                                   "Are pass criteria and fail conditions explicit?"
+                                               ],
+                       "pass_criteria":  [
+                                             "All expected outputs exist and are inspectable."
+                                         ],
+                       "fail_conditions":  [
+                                               "Any required artifact is missing."
+                                           ],
+                       "do_not_do":  [
+                                         "Do not modify unrelated task records."
+                                     ],
+                       "decomposition_hints":  [
+                                                   "Prepare inputs and constraints.",
+                                                   "Apply change and produce evidence.",
+                                                   "Verify outputs and finalize."
+                                               ],
+                       "should_split":  false,
+                       "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                   },
+    "imported_at":  "2026-05-11T12:20:17.2689462+03:00"
+}

@@ -1,0 +1,6 @@
+﻿{
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "source_sha256":  "915557a641691f671bb46c7f569e00f5d47758d7d7991d95e6005b2a5f46d9b0",
+    "record_sha256":  "3eebe065360d7de0de38441e737b2a528dd1782b4dfac660f6f5da77f434cdf1",
+    "hash_policy":  "sha256 over UTF-8 normalized source and JSON record"
+}

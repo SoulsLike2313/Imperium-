@@ -1,0 +1,41 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_ORPHAN_STAGE_REFINEMENTS_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "orphan_count":  1,
+    "orphans":  [
+                    {
+                        "reason":  "UNKNOWN_stage_id",
+                        "refinement":  {
+                                           "stage_id":  "STAGE-999",
+                                           "execution_risks":  [
+                                                                   "orphan stage test"
+                                                               ],
+                                           "missing_inputs":  [
+                                                                  "orphan stage test"
+                                                              ],
+                                           "missing_tools_or_scripts":  [
+                                                                            "orphan stage test"
+                                                                        ],
+                                           "required_evidence":  [
+                                                                     "orphan stage test"
+                                                                 ],
+                                           "pass_criteria":  [
+                                                                 "orphan stage test"
+                                                             ],
+                                           "fail_conditions":  [
+                                                                   "orphan stage test"
+                                                               ],
+                                           "do_not_do":  [
+                                                             "orphan stage test"
+                                                         ],
+                                           "manual_safety_notes":  [
+                                                                       "orphan stage test"
+                                                                   ],
+                                           "should_split":  false,
+                                           "recommended_status":  "BLOCKED"
+                                       }
+                    }
+                ],
+    "generated_at":  "2026-05-11T12:20:20.1065170+03:00"
+}

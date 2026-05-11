@@ -1,0 +1,91 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_SPECULUM_STAGE_REVIEW_REQUEST_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "instruction":  "Review every stage for technical execution risk and return JSON only.",
+    "expected_response_schema":  "ASTRONOMICON_SPECULUM_STAGE_REFINEMENTS_V0_1",
+    "items":  [
+                  {
+                      "stage_id":  "STAGE-001",
+                      "parent_local_task_id":  "LTASK-001",
+                      "title":  "Prepare inputs and constraints.",
+                      "purpose":  "Prepare inputs and constraints.",
+                      "execution_mode":  "manual",
+                      "assigned_organs":  [
+                                              "Astronomicon",
+                                              "Administratum"
+                                          ],
+                      "inputs":  [
+                                     "LOCAL_TASKS/LTASK-001/LOCAL_TASK.json",
+                                     "LOCAL_TASKS/LTASK-001/SPECULUM_REFINEMENTS.json if present"
+                                 ],
+                      "expected_outputs":  [
+                                               "Stage-specific evidence file.",
+                                               "Stage-specific receipt."
+                                           ],
+                      "pass_criteria":  [
+                                            "Output evidence exists.",
+                                            "Evidence can be verified by Owner."
+                                        ],
+                      "fail_conditions":  [
+                                              "Required input is missing.",
+                                              "Evidence is incomplete or unverifiable."
+                                          ]
+                  },
+                  {
+                      "stage_id":  "STAGE-002",
+                      "parent_local_task_id":  "LTASK-001",
+                      "title":  "Apply change and produce evidence.",
+                      "purpose":  "Apply change and produce evidence.",
+                      "execution_mode":  "manual",
+                      "assigned_organs":  [
+                                              "Astronomicon",
+                                              "Administratum"
+                                          ],
+                      "inputs":  [
+                                     "LOCAL_TASKS/LTASK-001/LOCAL_TASK.json",
+                                     "LOCAL_TASKS/LTASK-001/SPECULUM_REFINEMENTS.json if present"
+                                 ],
+                      "expected_outputs":  [
+                                               "Stage-specific evidence file.",
+                                               "Stage-specific receipt."
+                                           ],
+                      "pass_criteria":  [
+                                            "Output evidence exists.",
+                                            "Evidence can be verified by Owner."
+                                        ],
+                      "fail_conditions":  [
+                                              "Required input is missing.",
+                                              "Evidence is incomplete or unverifiable."
+                                          ]
+                  },
+                  {
+                      "stage_id":  "STAGE-003",
+                      "parent_local_task_id":  "LTASK-001",
+                      "title":  "Verify outputs and finalize.",
+                      "purpose":  "Verify outputs and finalize.",
+                      "execution_mode":  "manual",
+                      "assigned_organs":  [
+                                              "Astronomicon",
+                                              "Administratum"
+                                          ],
+                      "inputs":  [
+                                     "LOCAL_TASKS/LTASK-001/LOCAL_TASK.json",
+                                     "LOCAL_TASKS/LTASK-001/SPECULUM_REFINEMENTS.json if present"
+                                 ],
+                      "expected_outputs":  [
+                                               "Stage-specific evidence file.",
+                                               "Stage-specific receipt."
+                                           ],
+                      "pass_criteria":  [
+                                            "Output evidence exists.",
+                                            "Evidence can be verified by Owner."
+                                        ],
+                      "fail_conditions":  [
+                                              "Required input is missing.",
+                                              "Evidence is incomplete or unverifiable."
+                                          ]
+                  }
+              ],
+    "generated_at":  "2026-05-11T12:20:19.1414529+03:00"
+}

@@ -1,0 +1,8 @@
+﻿{
+    "local_task_id":  "LTASK-002",
+    "status":  "SPECULUM_REFINED",
+    "speculum_review_status":  "IMPORTED",
+    "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION",
+    "ready_for_stage_decomposition":  true,
+    "updated_at":  "2026-05-11T11:27:52.5838004+03:00"
+}

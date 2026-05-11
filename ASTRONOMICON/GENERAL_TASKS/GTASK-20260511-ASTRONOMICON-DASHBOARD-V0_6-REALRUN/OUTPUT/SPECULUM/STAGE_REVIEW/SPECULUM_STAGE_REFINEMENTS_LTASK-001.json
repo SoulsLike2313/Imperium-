@@ -1,0 +1,127 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_SPECULUM_STAGE_REFINEMENTS_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "review_mode":  "hard_red_team_stage_readiness",
+    "items":  [
+                  {
+                      "stage_id":  "STAGE-001",
+                      "execution_risks":  [
+                                              "Evidence can be incomplete without checklist."
+                                          ],
+                      "missing_inputs":  [
+                                             "Confirm stage input files exist."
+                                         ],
+                      "missing_tools_or_scripts":  [
+                                                       "No additional tools required for this run."
+                                                   ],
+                      "required_evidence":  [
+                                                "Stage output",
+                                                "Stage receipt"
+                                            ],
+                      "pass_criteria":  [
+                                            "Output and receipt are present."
+                                        ],
+                      "fail_conditions":  [
+                                              "Output missing or receipt missing."
+                                          ],
+                      "do_not_do":  [
+                                        "Do not mutate unrelated stage records."
+                                    ],
+                      "manual_safety_notes":  [
+                                                  "Validate before declaring ready."
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "READY_FOR_EXECUTION"
+                  },
+                  {
+                      "stage_id":  "STAGE-002",
+                      "execution_risks":  [
+                                              "Evidence can be incomplete without checklist."
+                                          ],
+                      "missing_inputs":  [
+                                             "Confirm stage input files exist."
+                                         ],
+                      "missing_tools_or_scripts":  [
+                                                       "No additional tools required for this run."
+                                                   ],
+                      "required_evidence":  [
+                                                "Stage output",
+                                                "Stage receipt"
+                                            ],
+                      "pass_criteria":  [
+                                            "Output and receipt are present."
+                                        ],
+                      "fail_conditions":  [
+                                              "Output missing or receipt missing."
+                                          ],
+                      "do_not_do":  [
+                                        "Do not mutate unrelated stage records."
+                                    ],
+                      "manual_safety_notes":  [
+                                                  "Validate before declaring ready."
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "READY_FOR_EXECUTION"
+                  },
+                  {
+                      "stage_id":  "STAGE-003",
+                      "execution_risks":  [
+                                              "Evidence can be incomplete without checklist."
+                                          ],
+                      "missing_inputs":  [
+                                             "Confirm stage input files exist."
+                                         ],
+                      "missing_tools_or_scripts":  [
+                                                       "No additional tools required for this run."
+                                                   ],
+                      "required_evidence":  [
+                                                "Stage output",
+                                                "Stage receipt"
+                                            ],
+                      "pass_criteria":  [
+                                            "Output and receipt are present."
+                                        ],
+                      "fail_conditions":  [
+                                              "Output missing or receipt missing."
+                                          ],
+                      "do_not_do":  [
+                                        "Do not mutate unrelated stage records."
+                                    ],
+                      "manual_safety_notes":  [
+                                                  "Validate before declaring ready."
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "READY_FOR_EXECUTION"
+                  },
+                  {
+                      "stage_id":  "STAGE-999",
+                      "execution_risks":  [
+                                              "orphan stage test"
+                                          ],
+                      "missing_inputs":  [
+                                             "orphan stage test"
+                                         ],
+                      "missing_tools_or_scripts":  [
+                                                       "orphan stage test"
+                                                   ],
+                      "required_evidence":  [
+                                                "orphan stage test"
+                                            ],
+                      "pass_criteria":  [
+                                            "orphan stage test"
+                                        ],
+                      "fail_conditions":  [
+                                              "orphan stage test"
+                                          ],
+                      "do_not_do":  [
+                                        "orphan stage test"
+                                    ],
+                      "manual_safety_notes":  [
+                                                  "orphan stage test"
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "BLOCKED"
+                  }
+              ]
+}

@@ -1,0 +1,48 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_REGISTRY_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "source_sha256":  "2896a66be2269b004feff8026f451130c5767bcad970b81f03b503c35762b25f",
+    "local_task_count":  3,
+    "local_tasks":  [
+                        {
+                            "local_task_id":  "LTASK-001",
+                            "source_plan_item_id":  "PI-001",
+                            "title":  "Create robust parser pipeline evidence",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum"
+                                                ],
+                            "expected_output":  "Registry and Local Task records.",
+                            "hash":  "42caa0ae5f19ec05610bf238d7398289a75286d759a60163ea22664f2b76787d",
+                            "path":  "LOCAL_TASKS/LTASK-001"
+                        },
+                        {
+                            "local_task_id":  "LTASK-002",
+                            "source_plan_item_id":  "PI-002",
+                            "title":  "Run Local Task Speculum exchange",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Speculum"
+                                                ],
+                            "expected_output":  "Local refinement receipts and attachments.",
+                            "hash":  "e60dfb20fc0c77f9b892e5972439cd3c2609144e40ef388a0e537712b20b968e",
+                            "path":  "LOCAL_TASKS/LTASK-002"
+                        },
+                        {
+                            "local_task_id":  "LTASK-003",
+                            "source_plan_item_id":  "PI-003",
+                            "title":  "Run Stage Speculum exchange",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Speculum"
+                                                ],
+                            "expected_output":  "Stage map and stage refinement receipts.",
+                            "hash":  "b81bef0c85a3b707b28f43800f16deb2461fd991f09c59f69671ef3ede9274f0",
+                            "path":  "LOCAL_TASKS/LTASK-003"
+                        }
+                    ],
+    "generated_at":  "2026-05-11T12:20:15.5425769+03:00"
+}

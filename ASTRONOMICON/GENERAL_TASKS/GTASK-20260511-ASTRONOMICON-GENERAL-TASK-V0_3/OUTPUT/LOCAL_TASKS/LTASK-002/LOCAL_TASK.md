@@ -1,0 +1,26 @@
+﻿# Local Task
+
+LOCAL_TASK_ID: LTASK-002
+PARENT_GENERAL_TASK_ID: GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1
+SOURCE_PLAN_ITEM_ID: PI-002
+
+TITLE:
+Second local task title
+
+SCOPE:
+Опиши второй локальный таск.
+
+EXPECTED_OUTPUT:
+Опиши ожидаемый результат второго локального таска.
+
+REQUIRED_ORGANS:
+Astronomicon, Mechanicus
+
+EXECUTION_MODE:
+scripted
+
+STATUS:
+CREATED_FROM_GENERAL_TASK
+
+HASH:
+244030c5de6d87854712ead162b801d066c8eb89c6c42255f559826f341de5ec

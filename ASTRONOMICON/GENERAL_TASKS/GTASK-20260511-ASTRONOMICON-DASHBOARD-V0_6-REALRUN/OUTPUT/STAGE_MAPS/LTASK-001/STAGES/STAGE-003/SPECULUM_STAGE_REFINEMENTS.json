@@ -1,0 +1,38 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_STAGE_ATTACHED_SPECULUM_REFINEMENT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "stage_id":  "STAGE-003",
+    "imported_from":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN\\OUTPUT\\SPECULUM\\STAGE_REVIEW\\SPECULUM_STAGE_REFINEMENTS_LTASK-001.json",
+    "refinement":  {
+                       "stage_id":  "STAGE-003",
+                       "execution_risks":  [
+                                               "Evidence can be incomplete without checklist."
+                                           ],
+                       "missing_inputs":  [
+                                              "Confirm stage input files exist."
+                                          ],
+                       "missing_tools_or_scripts":  [
+                                                        "No additional tools required for this run."
+                                                    ],
+                       "required_evidence":  [
+                                                 "Stage output",
+                                                 "Stage receipt"
+                                             ],
+                       "pass_criteria":  [
+                                             "Output and receipt are present."
+                                         ],
+                       "fail_conditions":  [
+                                               "Output missing or receipt missing."
+                                           ],
+                       "do_not_do":  [
+                                         "Do not mutate unrelated stage records."
+                                     ],
+                       "manual_safety_notes":  [
+                                                   "Validate before declaring ready."
+                                               ],
+                       "should_split":  false,
+                       "recommended_status":  "READY_FOR_EXECUTION"
+                   },
+    "imported_at":  "2026-05-11T12:20:20.0928483+03:00"
+}

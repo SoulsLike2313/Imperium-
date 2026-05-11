@@ -1,0 +1,145 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_SPECULUM_LOCAL_TASK_REFINEMENTS_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "review_mode":  "hard_red_team_scope_narrowing",
+    "allocation_rule":  "Distribute review effort evenly across all local tasks.",
+    "items":  [
+                  {
+                      "local_task_id":  "LTASK-001",
+                      "scope_narrowing":  [
+                                              "Keep execution scope aligned with LTASK-001."
+                                          ],
+                      "technical_execution_risks":  [
+                                                        "Parser schema drift can break consistency."
+                                                    ],
+                      "missing_inputs":  [
+                                             "Confirm destination files before execution."
+                                         ],
+                      "required_tools_or_scripts":  [
+                                                        "PowerShell 5+",
+                                                        "astronomicon_decompose_local_task_to_stages_v0_2.ps1"
+                                                    ],
+                      "readiness_questions":  [
+                                                  "Are pass criteria and fail conditions explicit?"
+                                              ],
+                      "pass_criteria":  [
+                                            "All expected outputs exist and are inspectable."
+                                        ],
+                      "fail_conditions":  [
+                                              "Any required artifact is missing."
+                                          ],
+                      "do_not_do":  [
+                                        "Do not modify unrelated task records."
+                                    ],
+                      "decomposition_hints":  [
+                                                  "Prepare inputs and constraints.",
+                                                  "Apply change and produce evidence.",
+                                                  "Verify outputs and finalize."
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                  },
+                  {
+                      "local_task_id":  "LTASK-002",
+                      "scope_narrowing":  [
+                                              "Keep execution scope aligned with LTASK-002."
+                                          ],
+                      "technical_execution_risks":  [
+                                                        "Parser schema drift can break consistency."
+                                                    ],
+                      "missing_inputs":  [
+                                             "Confirm destination files before execution."
+                                         ],
+                      "required_tools_or_scripts":  [
+                                                        "PowerShell 5+",
+                                                        "astronomicon_decompose_local_task_to_stages_v0_2.ps1"
+                                                    ],
+                      "readiness_questions":  [
+                                                  "Are pass criteria and fail conditions explicit?"
+                                              ],
+                      "pass_criteria":  [
+                                            "All expected outputs exist and are inspectable."
+                                        ],
+                      "fail_conditions":  [
+                                              "Any required artifact is missing."
+                                          ],
+                      "do_not_do":  [
+                                        "Do not modify unrelated task records."
+                                    ],
+                      "decomposition_hints":  [
+                                                  "Prepare inputs and constraints.",
+                                                  "Apply change and produce evidence.",
+                                                  "Verify outputs and finalize."
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                  },
+                  {
+                      "local_task_id":  "LTASK-003",
+                      "scope_narrowing":  [
+                                              "Keep execution scope aligned with LTASK-003."
+                                          ],
+                      "technical_execution_risks":  [
+                                                        "Parser schema drift can break consistency."
+                                                    ],
+                      "missing_inputs":  [
+                                             "Confirm destination files before execution."
+                                         ],
+                      "required_tools_or_scripts":  [
+                                                        "PowerShell 5+",
+                                                        "astronomicon_decompose_local_task_to_stages_v0_2.ps1"
+                                                    ],
+                      "readiness_questions":  [
+                                                  "Are pass criteria and fail conditions explicit?"
+                                              ],
+                      "pass_criteria":  [
+                                            "All expected outputs exist and are inspectable."
+                                        ],
+                      "fail_conditions":  [
+                                              "Any required artifact is missing."
+                                          ],
+                      "do_not_do":  [
+                                        "Do not modify unrelated task records."
+                                    ],
+                      "decomposition_hints":  [
+                                                  "Prepare inputs and constraints.",
+                                                  "Apply change and produce evidence.",
+                                                  "Verify outputs and finalize."
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                  },
+                  {
+                      "local_task_id":  "LTASK-999",
+                      "scope_narrowing":  [
+                                              "orphan test"
+                                          ],
+                      "technical_execution_risks":  [
+                                                        "orphan test"
+                                                    ],
+                      "missing_inputs":  [
+                                             "orphan test"
+                                         ],
+                      "required_tools_or_scripts":  [
+                                                        "orphan test"
+                                                    ],
+                      "readiness_questions":  [
+                                                  "orphan test"
+                                              ],
+                      "pass_criteria":  [
+                                            "orphan test"
+                                        ],
+                      "fail_conditions":  [
+                                              "orphan test"
+                                          ],
+                      "do_not_do":  [
+                                        "orphan test"
+                                    ],
+                      "decomposition_hints":  [
+                                                  "orphan test"
+                                              ],
+                      "should_split":  false,
+                      "recommended_status":  "BLOCKED"
+                  }
+              ]
+}

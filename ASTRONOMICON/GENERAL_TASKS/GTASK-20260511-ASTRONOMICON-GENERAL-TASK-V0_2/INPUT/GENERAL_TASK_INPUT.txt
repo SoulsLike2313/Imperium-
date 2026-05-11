@@ -1,0 +1,103 @@
+﻿ASTRONOMICON_GENERAL_TASK_V0_1
+ENCODING: UTF-8-BOM
+LINE_ENDINGS: CRLF
+
+GENERAL_TASK_ID:
+GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_2
+
+GENERAL_TASK_TITLE:
+Astronomicon New General Task
+
+GENERAL_TASK_CODE:
+ASTRONOMICON_GENERAL_TASK
+
+AUTHOR:
+Owner
+
+EXECUTION_INTENT:
+manual
+
+PRIORITY:
+high
+
+BEGIN_GOAL
+Опиши главную цель задачи.
+END_GOAL
+
+BEGIN_CONTEXT
+Опиши текущий контекст, что уже сделано, почему эта задача нужна, на что она опирается.
+END_CONTEXT
+
+BEGIN_CURRENT_PROBLEM
+Опиши, какая проблема сейчас мешает или что именно ещё не построено.
+END_CURRENT_PROBLEM
+
+BEGIN_EXPECTED_FINAL_STATE
+- Опиши конечное ожидаемое состояние.
+- Что должно существовать в системе после выполнения.
+- Что должно быть проверяемо.
+END_EXPECTED_FINAL_STATE
+
+BEGIN_HARD_CONSTRAINTS
+- Не публиковать секреты.
+- Не делать fake green.
+- Не пропускать обязательные проверки.
+END_HARD_CONSTRAINTS
+
+BEGIN_DO_NOT_DO
+- Не делать лишнюю магию без артефактов.
+- Не размывать scope задачи.
+END_DO_NOT_DO
+
+BEGIN_PLAN_ITEMS
+
+ITEM_ID: PI-001
+TITLE: First local task title
+TEXT:
+Опиши первый локальный таск.
+EXPECTED_OUTPUT:
+Опиши ожидаемый результат первого локального таска.
+REQUIRED_ORGANS:
+Astronomicon, Administratum
+EXECUTION_MODE:
+manual
+DEPENDS_ON:
+none
+END_ITEM
+
+ITEM_ID: PI-002
+TITLE: Second local task title
+TEXT:
+Опиши второй локальный таск.
+EXPECTED_OUTPUT:
+Опиши ожидаемый результат второго локального таска.
+REQUIRED_ORGANS:
+Astronomicon, Mechanicus
+EXECUTION_MODE:
+scripted
+DEPENDS_ON:
+PI-001
+END_ITEM
+
+END_PLAN_ITEMS
+
+BEGIN_KNOWN_RISKS
+- Укажи известные риски.
+END_KNOWN_RISKS
+
+BEGIN_REQUIRED_ORGANS
+- Astronomicon
+- Administratum
+END_REQUIRED_ORGANS
+
+BEGIN_REQUIRED_INPUTS
+- Укажи необходимые входы.
+END_REQUIRED_INPUTS
+
+BEGIN_EXPECTED_ARTIFACTS
+- Укажи ожидаемые артефакты.
+END_EXPECTED_ARTIFACTS
+
+BEGIN_OWNER_NOTES
+Свободные заметки Owner.
+END_OWNER_NOTES

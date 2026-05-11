@@ -1,0 +1,6 @@
+﻿{
+    "local_task_id":  "LTASK-001",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "record_sha256":  "42caa0ae5f19ec05610bf238d7398289a75286d759a60163ea22664f2b76787d",
+    "hash_policy":  "sha256 over UTF-8 JSON record"
+}

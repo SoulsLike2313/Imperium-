@@ -1,0 +1,22 @@
+﻿# Stage
+
+STAGE_ID:
+STAGE-002
+
+PARENT_LOCAL_TASK_ID:
+LTASK-001
+
+PARENT_GENERAL_TASK_ID:
+GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN
+
+TITLE:
+Apply change and produce evidence.
+
+PURPOSE:
+Apply change and produce evidence.
+
+STATUS:
+PLANNED
+
+HASH:
+2eb524a56aefef6171e3d09485ebe98a2cc1e00502a6d0c7c3f24cfdf4e8161a

@@ -1,0 +1,6 @@
+﻿{
+    "local_task_id":  "LTASK-001",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "record_sha256":  "e4ab47fa9cdccb95167efda273b6d930310192f3aff8b0312fccf4c0fd30c529",
+    "hash_policy":  "sha256 over UTF-8 JSON record"
+}

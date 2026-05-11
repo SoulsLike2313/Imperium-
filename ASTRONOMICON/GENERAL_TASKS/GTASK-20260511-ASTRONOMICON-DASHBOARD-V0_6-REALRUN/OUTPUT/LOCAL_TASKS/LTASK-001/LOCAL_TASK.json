@@ -1,0 +1,21 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_RECORD_V0_2",
+    "local_task_id":  "LTASK-001",
+    "source_plan_item_id":  "PI-001",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "title":  "Create robust parser pipeline evidence",
+    "scope_text":  "Generate parse and Local Task outputs with deterministic IDs.",
+    "expected_output":  "Registry and Local Task records.",
+    "required_organs":  [
+                            "Astronomicon",
+                            "Administratum"
+                        ],
+    "execution_mode":  "manual",
+    "depends_on_plan_items":  [
+
+                              ],
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "created_at":  "2026-05-11T12:20:15.5181675+03:00"
+}

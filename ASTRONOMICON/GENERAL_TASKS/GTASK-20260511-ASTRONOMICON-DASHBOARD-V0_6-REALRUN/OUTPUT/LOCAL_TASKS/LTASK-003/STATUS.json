@@ -1,0 +1,11 @@
+﻿{
+    "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION",
+    "speculum_local_refinement_status":  "IMPORTED",
+    "updated_at":  "2026-05-11T12:20:17.3564615+03:00",
+    "local_task_id":  "LTASK-003",
+    "ready_for_stage_decomposition":  true,
+    "stage_decomposition_status":  "NOT_STARTED",
+    "speculum_review_status":  "IMPORTED",
+    "status":  "SPECULUM_REFINED",
+    "ready_for_servitor_routing":  true
+}

@@ -1,0 +1,21 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_RECORD_V0_2",
+    "local_task_id":  "LTASK-002",
+    "source_plan_item_id":  "PI-002",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "title":  "Run Local Task Speculum exchange",
+    "scope_text":  "Export and import Local Task refinements with orphan capture.",
+    "expected_output":  "Local refinement receipts and attachments.",
+    "required_organs":  [
+                            "Astronomicon",
+                            "Speculum"
+                        ],
+    "execution_mode":  "scripted",
+    "depends_on_plan_items":  [
+                                  "PI-001"
+                              ],
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "created_at":  "2026-05-11T12:20:15.5289073+03:00"
+}

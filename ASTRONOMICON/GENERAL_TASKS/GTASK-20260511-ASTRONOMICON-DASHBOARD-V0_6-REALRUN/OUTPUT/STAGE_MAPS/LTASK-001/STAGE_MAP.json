@@ -1,0 +1,37 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_STAGE_MAP_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "local_task_id":  "LTASK-001",
+    "local_task_title":  "Create robust parser pipeline evidence",
+    "local_task_hash":  "42caa0ae5f19ec05610bf238d7398289a75286d759a60163ea22664f2b76787d",
+    "speculum_local_refinement_status":  "IMPORTED",
+    "stage_count":  3,
+    "stages":  [
+                   {
+                       "stage_id":  "STAGE-001",
+                       "title":  "Prepare inputs and constraints.",
+                       "purpose":  "Prepare inputs and constraints.",
+                       "status":  "PLANNED",
+                       "hash":  "61a2872d1aadd2154766a5b958a2e4fc338d3552b592dd4110ccd8d27c356a1a",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-001"
+                   },
+                   {
+                       "stage_id":  "STAGE-002",
+                       "title":  "Apply change and produce evidence.",
+                       "purpose":  "Apply change and produce evidence.",
+                       "status":  "PLANNED",
+                       "hash":  "2eb524a56aefef6171e3d09485ebe98a2cc1e00502a6d0c7c3f24cfdf4e8161a",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-002"
+                   },
+                   {
+                       "stage_id":  "STAGE-003",
+                       "title":  "Verify outputs and finalize.",
+                       "purpose":  "Verify outputs and finalize.",
+                       "status":  "PLANNED",
+                       "hash":  "383c4930584177ee11187997cd82aa36255e8b0ea4bc4f5c7d66eeecdcb8616b",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-003"
+                   }
+               ],
+    "status":  "STAGE_MAP_CREATED",
+    "generated_at":  "2026-05-11T12:20:18.2738021+03:00"
+}

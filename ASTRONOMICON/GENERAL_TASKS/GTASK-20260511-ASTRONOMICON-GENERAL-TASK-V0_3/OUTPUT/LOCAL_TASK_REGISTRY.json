@@ -1,0 +1,35 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_REGISTRY_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "source_sha256":  "3be442f619c07010f435d3d8938d5a98b8d5d06cf4d8226d28d33b91b0e2039a",
+    "local_task_count":  2,
+    "local_tasks":  [
+                        {
+                            "local_task_id":  "LTASK-001",
+                            "source_plan_item_id":  "PI-001",
+                            "title":  "First local task title",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum"
+                                                ],
+                            "expected_output":  "Опиши ожидаемый результат первого локального таска.",
+                            "hash":  "4617a2181c9fc56b3d19dcb2ec2461fbc9d673d979c7e02a5e73d162045ebf7e",
+                            "path":  "LOCAL_TASKS/LTASK-001"
+                        },
+                        {
+                            "local_task_id":  "LTASK-002",
+                            "source_plan_item_id":  "PI-002",
+                            "title":  "Second local task title",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Mechanicus"
+                                                ],
+                            "expected_output":  "Опиши ожидаемый результат второго локального таска.",
+                            "hash":  "244030c5de6d87854712ead162b801d066c8eb89c6c42255f559826f341de5ec",
+                            "path":  "LOCAL_TASKS/LTASK-002"
+                        }
+                    ],
+    "generated_at":  "2026-05-11T11:15:33.1155295+03:00"
+}

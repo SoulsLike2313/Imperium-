@@ -1,0 +1,17 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_GENERAL_TO_LOCAL_PARSE_RECEIPT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "input_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_2\\INPUT\\GENERAL_TASK_INPUT.txt",
+    "output_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_2\\OUTPUT",
+    "source_sha256":  "915557a641691f671bb46c7f569e00f5d47758d7d7991d95e6005b2a5f46d9b0",
+    "local_task_count":  2,
+    "validation_passed":  true,
+    "status":  "PASS_WITH_LIMITATIONS",
+    "limitations":  [
+                        "Smoke parser only.",
+                        "No Speculum refinement import yet.",
+                        "No stage decomposition yet.",
+                        "No dashboard integration yet."
+                    ],
+    "generated_at":  "2026-05-11T11:03:41.1808496+03:00"
+}

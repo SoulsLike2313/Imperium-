@@ -1,0 +1,53 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_STAGE_MAP_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "local_task_id":  "LTASK-001",
+    "local_task_title":  "First local task title",
+    "local_task_hash":  null,
+    "speculum_local_refinement_status":  "IMPORTED",
+    "stage_count":  5,
+    "stages":  [
+                   {
+                       "stage_id":  "STAGE-001",
+                       "title":  "Stage 1: Define the canonical required field list and allowed values.",
+                       "purpose":  "Stage 1: Define the canonical required field list and allowed values.",
+                       "status":  "PLANNED",
+                       "hash":  "993f374210cc36ff1c1e8fff7d677eeffe5683f235427e84c96a386c4ae45274",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-001"
+                   },
+                   {
+                       "stage_id":  "STAGE-002",
+                       "title":  "Stage 2: Define validation failure behavior and stop conditions.",
+                       "purpose":  "Stage 2: Define validation failure behavior and stop conditions.",
+                       "status":  "PLANNED",
+                       "hash":  "f6da436c58a16eef98114e78af09827118fcc1d5e9e089b33c4e26237f22d6e9",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-002"
+                   },
+                   {
+                       "stage_id":  "STAGE-003",
+                       "title":  "Stage 3: Add ID synchronization verification.",
+                       "purpose":  "Stage 3: Add ID synchronization verification.",
+                       "status":  "PLANNED",
+                       "hash":  "340d3e09c51a673be490f743ef63cad74c933c0771315cd747e6e85ee5f529ed",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-003"
+                   },
+                   {
+                       "stage_id":  "STAGE-004",
+                       "title":  "Stage 4: Add encoding and line-ending verification.",
+                       "purpose":  "Stage 4: Add encoding and line-ending verification.",
+                       "status":  "PLANNED",
+                       "hash":  "a9aa534fc546964b850e2454ae89a8b409f1ff33616fd22b4361865abb4b1049",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-004"
+                   },
+                   {
+                       "stage_id":  "STAGE-005",
+                       "title":  "Stage 5: Run one valid and one malformed form test.",
+                       "purpose":  "Stage 5: Run one valid and one malformed form test.",
+                       "status":  "PLANNED",
+                       "hash":  "94bb6782fa8d2aecf5b2207af3e6ebb7d5edc4e66f6e5c6971c81a893ac68937",
+                       "path":  "STAGE_MAPS/LTASK-001/STAGES/STAGE-005"
+                   }
+               ],
+    "status":  "STAGE_MAP_CREATED",
+    "generated_at":  "2026-05-11T11:38:20.1299607+03:00"
+}

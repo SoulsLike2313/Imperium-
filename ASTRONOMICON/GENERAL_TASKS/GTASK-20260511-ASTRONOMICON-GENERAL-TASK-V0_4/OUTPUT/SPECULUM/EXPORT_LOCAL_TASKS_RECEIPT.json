@@ -1,0 +1,14 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_EXPORT_LOCAL_TASKS_FOR_SPECULUM_RECEIPT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "local_task_count":  2,
+    "export_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\SPECULUM\\SPECULUM_LOCAL_TASK_REVIEW_REQUEST.json",
+    "instructions_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT\\SPECULUM\\SPECULUM_LOCAL_TASK_REVIEW_INSTRUCTIONS.md",
+    "status":  "PASS_WITH_LIMITATIONS",
+    "limitations":  [
+                        "Export only.",
+                        "Speculum response import is separate.",
+                        "No stage decomposition in this script."
+                    ],
+    "generated_at":  "2026-05-11T11:33:07.6808005+03:00"
+}

@@ -1,0 +1,86 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_SPECULUM_LOCAL_TASK_REVIEW_REQUEST_V0_2",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "instruction":  "Review every Local Task evenly and return JSON only.",
+    "expected_response_schema":  "ASTRONOMICON_SPECULUM_LOCAL_TASK_REFINEMENTS_V0_1",
+    "review_mode":  "hard_red_team_scope_narrowing",
+    "allocation_rule":  "Distribute review effort evenly across all local tasks.",
+    "do_not_do":  [
+                      "Do not rewrite local task core records.",
+                      "Do not return prose outside JSON.",
+                      "Do not invent missing task IDs.",
+                      "Do not include secrets."
+                  ],
+    "local_tasks":  [
+                        {
+                            "local_task_id":  "LTASK-001",
+                            "source_plan_item_id":  "PI-001",
+                            "title":  "Create robust parser pipeline evidence",
+                            "execution_mode":  "manual",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Administratum"
+                                                ],
+                            "expected_output":  "Registry and Local Task records.",
+                            "hash":  "42caa0ae5f19ec05610bf238d7398289a75286d759a60163ea22664f2b76787d",
+                            "review_questions":  [
+                                                     "Is this Local Task technically executable?",
+                                                     "What scope must be narrowed?",
+                                                     "What inputs are missing?",
+                                                     "What tools or scripts are required?",
+                                                     "What readiness questions must be answered before execution?",
+                                                     "What pass criteria are required?",
+                                                     "What fail conditions must stop execution?",
+                                                     "What must not be done?",
+                                                     "How should this Local Task be decomposed into stages?"
+                                                 ]
+                        },
+                        {
+                            "local_task_id":  "LTASK-002",
+                            "source_plan_item_id":  "PI-002",
+                            "title":  "Run Local Task Speculum exchange",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Speculum"
+                                                ],
+                            "expected_output":  "Local refinement receipts and attachments.",
+                            "hash":  "e60dfb20fc0c77f9b892e5972439cd3c2609144e40ef388a0e537712b20b968e",
+                            "review_questions":  [
+                                                     "Is this Local Task technically executable?",
+                                                     "What scope must be narrowed?",
+                                                     "What inputs are missing?",
+                                                     "What tools or scripts are required?",
+                                                     "What readiness questions must be answered before execution?",
+                                                     "What pass criteria are required?",
+                                                     "What fail conditions must stop execution?",
+                                                     "What must not be done?",
+                                                     "How should this Local Task be decomposed into stages?"
+                                                 ]
+                        },
+                        {
+                            "local_task_id":  "LTASK-003",
+                            "source_plan_item_id":  "PI-003",
+                            "title":  "Run Stage Speculum exchange",
+                            "execution_mode":  "scripted",
+                            "required_organs":  [
+                                                    "Astronomicon",
+                                                    "Speculum"
+                                                ],
+                            "expected_output":  "Stage map and stage refinement receipts.",
+                            "hash":  "b81bef0c85a3b707b28f43800f16deb2461fd991f09c59f69671ef3ede9274f0",
+                            "review_questions":  [
+                                                     "Is this Local Task technically executable?",
+                                                     "What scope must be narrowed?",
+                                                     "What inputs are missing?",
+                                                     "What tools or scripts are required?",
+                                                     "What readiness questions must be answered before execution?",
+                                                     "What pass criteria are required?",
+                                                     "What fail conditions must stop execution?",
+                                                     "What must not be done?",
+                                                     "How should this Local Task be decomposed into stages?"
+                                                 ]
+                        }
+                    ],
+    "generated_at":  "2026-05-11T12:20:16.3495930+03:00"
+}

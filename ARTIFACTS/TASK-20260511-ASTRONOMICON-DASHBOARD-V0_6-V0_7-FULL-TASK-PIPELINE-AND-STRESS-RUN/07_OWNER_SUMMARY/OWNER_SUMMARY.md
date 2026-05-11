@@ -24,7 +24,7 @@ artifact_root:
 E:\IMPERIUM\ARTIFACTS\TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN
 
 commit_hash:
-PENDING_COMMIT
+2659aaf2aa60b36d5e2c6ffcda590b2924822f3c
 
 next_recommended_action:
 - Fix DEF-001 in synthetic runner (Write-Utf8Bom empty-string binding), then rerun synthetic stress run.

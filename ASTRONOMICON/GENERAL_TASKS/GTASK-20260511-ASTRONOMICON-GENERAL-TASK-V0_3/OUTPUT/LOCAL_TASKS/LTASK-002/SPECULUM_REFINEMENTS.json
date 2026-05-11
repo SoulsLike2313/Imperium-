@@ -1,0 +1,50 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_ATTACHED_SPECULUM_REFINEMENT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "local_task_id":  "LTASK-002",
+    "imported_from":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_3\\OUTPUT\\SPECULUM\\SPECULUM_LOCAL_TASK_REFINEMENTS.json",
+    "review_mode":  "hard_red_team_scope_narrowing",
+    "allocation_rule":  "Distribute review effort evenly across all local tasks.",
+    "refinement":  {
+                       "local_task_id":  "LTASK-002",
+                       "scope_narrowing":  [
+                                               "Only parse PLAN_ITEMS into Local Task records.",
+                                               "Do not implement Speculum import or stage decomposition here."
+                                           ],
+                       "technical_execution_risks":  [
+                                                         "Regex parser may break if ITEM blocks are malformed.",
+                                                         "Generated Local Task IDs may become unstable if order changes."
+                                                     ],
+                       "missing_inputs":  [
+                                              "Stable ID policy.",
+                                              "Hash policy for Local Task records."
+                                          ],
+                       "required_tools_or_scripts":  [
+                                                         "astronomicon_parse_general_task_v0_1.ps1"
+                                                     ],
+                       "readiness_questions":  [
+                                                   "Are LTASK IDs deterministic?",
+                                                   "Does each Local Task have parent_general_task_id and hash?"
+                                               ],
+                       "pass_criteria":  [
+                                             "Each PLAN ITEM creates exactly one LTASK folder.",
+                                             "LOCAL_TASK_REGISTRY.json contains all created tasks."
+                                         ],
+                       "fail_conditions":  [
+                                               "Task count mismatch.",
+                                               "Missing LOCAL_TASK.json or HASH.json."
+                                           ],
+                       "do_not_do":  [
+                                         "Do not overwrite source General Task text.",
+                                         "Do not create tasks without source_plan_item_id."
+                                     ],
+                       "decomposition_hints":  [
+                                                   "Stage 1: parse registry.",
+                                                   "Stage 2: create Local Task folder.",
+                                                   "Stage 3: create hash/status records."
+                                               ],
+                       "should_split":  false,
+                       "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                   },
+    "imported_at":  "2026-05-11T11:27:52.5789183+03:00"
+}

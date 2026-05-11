@@ -1,0 +1,104 @@
+﻿
+ASTRONOMICON_GENERAL_TASK_V0_1
+ENCODING: UTF-8-BOM
+LINE_ENDINGS: CRLF
+
+GENERAL_TASK_ID:
+GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4
+
+GENERAL_TASK_TITLE:
+Astronomicon New General Task
+
+GENERAL_TASK_CODE:
+ASTRONOMICON_GENERAL_TASK
+
+AUTHOR:
+Owner
+
+EXECUTION_INTENT:
+manual
+
+PRIORITY:
+high
+
+BEGIN_GOAL
+Describe the main goal of this General Task.
+END_GOAL
+
+BEGIN_CONTEXT
+Describe current context, what already exists, why this task is needed, and what it depends on.
+END_CONTEXT
+
+BEGIN_CURRENT_PROBLEM
+Describe the current problem or missing system component.
+END_CURRENT_PROBLEM
+
+BEGIN_EXPECTED_FINAL_STATE
+- Describe the expected final state.
+- Describe what files, scripts, dashboards, or artifacts must exist.
+- Describe what must be verifiable.
+END_EXPECTED_FINAL_STATE
+
+BEGIN_HARD_CONSTRAINTS
+- Do not publish secrets.
+- Do not fake green/canon/ready status.
+- Do not skip receipts or verification.
+END_HARD_CONSTRAINTS
+
+BEGIN_DO_NOT_DO
+- Do not broaden scope without explicit Owner decision.
+- Do not silently infer missing required fields.
+END_DO_NOT_DO
+
+BEGIN_PLAN_ITEMS
+
+ITEM_ID: PI-001
+TITLE: First local task title
+TEXT:
+Describe the first Local Task.
+EXPECTED_OUTPUT:
+Describe the expected output of the first Local Task.
+REQUIRED_ORGANS:
+Astronomicon, Administratum
+EXECUTION_MODE:
+manual
+DEPENDS_ON:
+none
+END_ITEM
+
+ITEM_ID: PI-002
+TITLE: Second local task title
+TEXT:
+Describe the second Local Task.
+EXPECTED_OUTPUT:
+Describe the expected output of the second Local Task.
+REQUIRED_ORGANS:
+Astronomicon, Mechanicus
+EXECUTION_MODE:
+scripted
+DEPENDS_ON:
+PI-001
+END_ITEM
+
+END_PLAN_ITEMS
+
+BEGIN_KNOWN_RISKS
+- List known risks.
+END_KNOWN_RISKS
+
+BEGIN_REQUIRED_ORGANS
+- Astronomicon
+- Administratum
+END_REQUIRED_ORGANS
+
+BEGIN_REQUIRED_INPUTS
+- List required inputs.
+END_REQUIRED_INPUTS
+
+BEGIN_EXPECTED_ARTIFACTS
+- List expected artifacts.
+END_EXPECTED_ARTIFACTS
+
+BEGIN_OWNER_NOTES
+Free Owner notes.
+END_OWNER_NOTES

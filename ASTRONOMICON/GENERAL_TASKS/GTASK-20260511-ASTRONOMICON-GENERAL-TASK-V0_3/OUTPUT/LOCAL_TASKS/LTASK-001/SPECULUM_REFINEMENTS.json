@@ -1,0 +1,51 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_ATTACHED_SPECULUM_REFINEMENT_V0_1",
+    "general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "local_task_id":  "LTASK-001",
+    "imported_from":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_3\\OUTPUT\\SPECULUM\\SPECULUM_LOCAL_TASK_REFINEMENTS.json",
+    "review_mode":  "hard_red_team_scope_narrowing",
+    "allocation_rule":  "Distribute review effort evenly across all local tasks.",
+    "refinement":  {
+                       "local_task_id":  "LTASK-001",
+                       "scope_narrowing":  [
+                                               "Define only the minimum strict General Task form contract required for parser input.",
+                                               "Do not design the full Astronomicon dashboard in this task."
+                                           ],
+                       "technical_execution_risks":  [
+                                                         "Form fields may be too flexible for deterministic parsing.",
+                                                         "Encoding mismatch may corrupt Russian text if UTF-8-BOM is not enforced."
+                                                     ],
+                       "missing_inputs":  [
+                                              "Canonical required field list.",
+                                              "Validation failure behavior."
+                                          ],
+                       "required_tools_or_scripts":  [
+                                                         "General Task form validator.",
+                                                         "UTF-8-BOM writer helper."
+                                                     ],
+                       "readiness_questions":  [
+                                                   "Does the form contain all required blocks?",
+                                                   "Can the parser reject malformed PLAN_ITEMS without guessing?"
+                                               ],
+                       "pass_criteria":  [
+                                             "A valid form produces GENERAL_TASK.json.",
+                                             "A malformed form produces VALIDATION_REPORT.json and stops."
+                                         ],
+                       "fail_conditions":  [
+                                               "Parser silently accepts missing PLAN_ITEMS.",
+                                               "Parser creates Local Tasks with empty required fields."
+                                           ],
+                       "do_not_do":  [
+                                         "Do not infer missing tasks from free text.",
+                                         "Do not proceed when required fields are absent."
+                                     ],
+                       "decomposition_hints":  [
+                                                   "Stage 1: define required fields.",
+                                                   "Stage 2: define validation rules.",
+                                                   "Stage 3: test malformed input."
+                                               ],
+                       "should_split":  false,
+                       "recommended_status":  "READY_FOR_STAGE_DECOMPOSITION"
+                   },
+    "imported_at":  "2026-05-11T11:27:52.4949534+03:00"
+}

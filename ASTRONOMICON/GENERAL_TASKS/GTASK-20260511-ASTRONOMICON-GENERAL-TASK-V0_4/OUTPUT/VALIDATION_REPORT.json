@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_GENERAL_TASK_VALIDATION_V0_1",
+    "input_path":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\INPUT\\GENERAL_TASK_INPUT.txt",
+    "output_root":  "E:\\IMPERIUM\\ASTRONOMICON\\GENERAL_TASKS\\GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_4\\OUTPUT",
+    "source_sha256":  "2d988ebccf1b802b4f3b181dbaf0c623f8d415ec6e2198b4413dcbaba9d87e67",
+    "valid":  true,
+    "missing_fields":  [
+
+                       ],
+    "plan_items_detected":  2,
+    "generated_at":  "2026-05-11T11:33:03.0738329+03:00"
+}

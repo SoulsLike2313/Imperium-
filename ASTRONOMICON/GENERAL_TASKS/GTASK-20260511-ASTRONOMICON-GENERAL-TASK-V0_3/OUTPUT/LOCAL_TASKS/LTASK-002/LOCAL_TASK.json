@@ -1,0 +1,21 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_LOCAL_TASK_RECORD_V0_1",
+    "local_task_id":  "LTASK-002",
+    "source_plan_item_id":  "PI-002",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-GENERAL-TASK-V0_1",
+    "title":  "Second local task title",
+    "scope_text":  "Опиши второй локальный таск.",
+    "expected_output":  "Опиши ожидаемый результат второго локального таска.",
+    "required_organs":  [
+                            "Astronomicon",
+                            "Mechanicus"
+                        ],
+    "execution_mode":  "scripted",
+    "depends_on_plan_items":  [
+                                  "PI-001"
+                              ],
+    "status":  "CREATED_FROM_GENERAL_TASK",
+    "speculum_review_status":  "NOT_REQUESTED",
+    "stage_decomposition_status":  "NOT_STARTED",
+    "created_at":  "2026-05-11T11:15:33.1116241+03:00"
+}

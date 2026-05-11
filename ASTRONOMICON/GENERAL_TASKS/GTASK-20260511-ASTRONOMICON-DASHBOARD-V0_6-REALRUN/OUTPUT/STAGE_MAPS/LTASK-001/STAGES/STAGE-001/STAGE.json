@@ -1,0 +1,32 @@
+﻿{
+    "schema_version":  "ASTRONOMICON_STAGE_RECORD_V0_2",
+    "stage_id":  "STAGE-001",
+    "parent_local_task_id":  "LTASK-001",
+    "parent_general_task_id":  "GTASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-REALRUN",
+    "title":  "Prepare inputs and constraints.",
+    "purpose":  "Prepare inputs and constraints.",
+    "execution_mode":  "manual",
+    "assigned_organs":  [
+                            "Astronomicon",
+                            "Administratum"
+                        ],
+    "inputs":  [
+                   "LOCAL_TASKS/LTASK-001/LOCAL_TASK.json",
+                   "LOCAL_TASKS/LTASK-001/SPECULUM_REFINEMENTS.json if present"
+               ],
+    "expected_outputs":  [
+                             "Stage-specific evidence file.",
+                             "Stage-specific receipt."
+                         ],
+    "pass_criteria":  [
+                          "Output evidence exists.",
+                          "Evidence can be verified by Owner."
+                      ],
+    "fail_conditions":  [
+                            "Required input is missing.",
+                            "Evidence is incomplete or unverifiable."
+                        ],
+    "status":  "PLANNED",
+    "speculum_stage_review_status":  "NOT_REQUESTED",
+    "created_at":  "2026-05-11T12:20:18.2343326+03:00"
+}
