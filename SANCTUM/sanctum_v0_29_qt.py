@@ -78,7 +78,7 @@ class TransferRoute:
     pc_bundle_inbox: Path = IMPERIUM_ROOT / "INBOX" / "VM2_BUNDLES"
     runtime_receipts: Path = IMPERIUM_ROOT / ".imperium_runtime" / "transfer" / "receipts"
     vm2_workdrop: str = "/home/vboxuser2/IMPERIUM_PRIVATE/WORKDROP"
-    vm2_bundle_outbox: str = "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX_BUNDLES"
+    vm2_bundle_outbox: str = "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX"
 
 
 class ReceiptWriter:
@@ -227,7 +227,7 @@ class TransferService:
         return True, remote_file
 
     def list_bundles(self) -> list[str]:
-        cmd = self.ssh_base() + [f"ls -t {self.route.vm2_bundle_outbox}/*.zip 2>/dev/null | head -100"]
+        cmd = self.ssh_base() + [f"find {self.route.vm2_bundle_outbox} -type f -name '*.zip' -printf '%T@ %p\n' 2>/dev/null | sort -nr | head -100 | cut -d' ' -f2-"]
         ok, result = self.run(cmd, "list_remote_bundles")
         if not ok or result is None:
             return []
@@ -1125,3 +1125,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
