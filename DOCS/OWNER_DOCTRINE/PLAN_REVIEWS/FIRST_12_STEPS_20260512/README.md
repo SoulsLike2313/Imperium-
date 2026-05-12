@@ -1,15 +1,15 @@
 # FIRST 12 STEPS PLAN REVIEW
 
-Эта папка содержит уточнение ближайшего строительного плана IMPERIUM после регистрации Owner Organ Doctrine.
+Р­С‚Р° РїР°РїРєР° СЃРѕРґРµСЂР¶РёС‚ СѓС‚РѕС‡РЅРµРЅРёРµ Р±Р»РёР¶Р°Р№С€РµРіРѕ СЃС‚СЂРѕРёС‚РµР»СЊРЅРѕРіРѕ РїР»Р°РЅР° IMPERIUM РїРѕСЃР»Рµ СЂРµРіРёСЃС‚СЂР°С†РёРё Owner Organ Doctrine.
 
-## Файлы
+## Р¤Р°Р№Р»С‹
 
-- `KIRO_FIRST_12_STEPS_REVIEW_20260512.md` — полный review Kiro по 12-step plan.
-- `FIRST_12_STEPS_OWNER_DECISIONS_20260512.md` — решения Owner / Logos-Prime по вопросам и рекомендациям Kiro.
+- `KIRO_FIRST_12_STEPS_REVIEW_20260512.md` вЂ” РїРѕР»РЅС‹Р№ review Kiro РїРѕ 12-step plan.
+- `FIRST_12_STEPS_OWNER_DECISIONS_20260512.md` вЂ” СЂРµС€РµРЅРёСЏ Owner / Logos-Prime РїРѕ РІРѕРїСЂРѕСЃР°Рј Рё СЂРµРєРѕРјРµРЅРґР°С†РёСЏРј Kiro.
 
-## Статус
+## РЎС‚Р°С‚СѓСЃ
 
 - Kiro review = advisory input.
 - Owner decisions = accepted direction for next VM2 prompt.
-- Этот пакет не является кодом и не меняет runtime.
-- Следующий construction target: `TASK-20260512-ORGAN-STANDARD-AND-SCAFFOLDS-V0_1`.
+- Р­С‚РѕС‚ РїР°РєРµС‚ РЅРµ СЏРІР»СЏРµС‚СЃСЏ РєРѕРґРѕРј Рё РЅРµ РјРµРЅСЏРµС‚ runtime.
+- РЎР»РµРґСѓСЋС‰РёР№ construction target: `TASK-20260512-ORGAN-STANDARD-AND-SCAFFOLDS-V0_1`.
