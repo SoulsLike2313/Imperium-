@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Sanctum State v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at_utc",
+    "repo_root",
+    "git_truth",
+    "bundles",
+    "receipts",
+    "scriptorium",
+    "arsenal",
+    "act3_spine",
+    "warnings",
+    "operator_actions",
+    "verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.sanctum_state.v0_1"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "repo_root": {
+      "type": "string"
+    },
+    "git_truth": {
+      "type": "object",
+      "required": [
+        "local_head",
+        "origin_master_head",
+        "remote_master_head",
+        "commit_count",
+        "latest_commit_oneline",
+        "exact_tree_url",
+        "worktree_clean",
+        "verdict"
+      ]
+    },
+    "bundles": {
+      "type": "object",
+      "required": [
+        "inboxes",
+        "handoff_out",
+        "discovered_bundles",
+        "latest_bundle"
+      ]
+    },
+    "receipts": {
+      "type": "object",
+      "required": [
+        "latest_git_cli_check",
+        "latest_bundle_intake_review",
+        "latest_act3_check",
+        "latest_sanctum_state_receipt"
+      ]
+    },
+    "scriptorium": {
+      "type": "object",
+      "required": [
+        "registry_path",
+        "entry_count",
+        "safe_script_count",
+        "owner_gated_count",
+        "scripts_summary"
+      ]
+    },
+    "arsenal": {
+      "type": "object",
+      "required": [
+        "tool_index_path",
+        "install_status_path",
+        "known_tools_count",
+        "installed_count",
+        "unknown_count"
+      ]
+    },
+    "act3_spine": {
+      "type": "object",
+      "required": [
+        "zone_registry_status",
+        "truth_source_registry_status",
+        "capability_spine_status",
+        "warning_stale_baseline_status"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "operator_actions": {
+      "type": "object",
+      "required": [
+        "mode",
+        "safe_actions"
+      ]
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "BLOCKED"
+      ]
+    }
+  }
+}

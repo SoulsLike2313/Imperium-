@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import math
+import shutil
 import subprocess
 import sys
 from dataclasses import dataclass
@@ -29,6 +30,7 @@ from PySide6.QtWidgets import (
     QPushButton,
     QSplitter,
     QTextEdit,
+    QTabWidget,
     QLineEdit,
     QVBoxLayout,
     QWidget,
@@ -789,6 +791,450 @@ class TransferPanel(QFrame):
         self.fetch_selected()
 
 
+class AdaptiveOperatorPanel(QFrame):
+    def __init__(self, repo_root: Path):
+        super().__init__()
+        self.repo_root = Path(repo_root)
+        self.state_path = self.repo_root / ".imperium_runtime" / "sanctum" / "state" / "SANCTUM_STATE_V0_1.json"
+        self.latest_state: dict | None = None
+
+        self.setStyleSheet("""
+            QFrame {
+                background: #0a1f31;
+                border: 1px solid #1f6d95;
+                border-radius: 10px;
+            }
+            QLabel {
+                color: #dffcff;
+                font-family: Segoe UI;
+                border: none;
+            }
+            QTextEdit {
+                background: #0d2a40;
+                color: #defcff;
+                border: 1px solid #206f98;
+                border-radius: 8px;
+                padding: 6px;
+                font-family: Consolas;
+                selection-background-color: #25dfff;
+                selection-color: #07111d;
+            }
+            QPushButton {
+                background: #15405f;
+                color: #e7fdff;
+                border: 1px solid #2378a2;
+                border-radius: 8px;
+                padding: 8px;
+                font-family: Segoe UI Semibold;
+                font-size: 9pt;
+            }
+            QPushButton:hover {
+                background: #1a5377;
+            }
+            QTabWidget::pane {
+                border: 1px solid #206f98;
+                border-radius: 8px;
+                background: #0d2a40;
+            }
+            QTabBar::tab {
+                background: #12364f;
+                color: #cfeef6;
+                padding: 6px 10px;
+                margin-right: 2px;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+            }
+            QTabBar::tab:selected {
+                background: #1a4f70;
+                color: #e7fdff;
+            }
+        """)
+
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(12, 12, 12, 12)
+        layout.setSpacing(8)
+
+        title = QLabel("ADAPTIVE OPERATOR LAYER v0.1")
+        title.setFont(QFont("Segoe UI Semibold", 12))
+        layout.addWidget(title)
+
+        self.mode_label = QLabel("Mode: COMMAND_PREP_ONLY for owner-gated actions; SAFE_LOCAL for read-only checks")
+        self.mode_label.setFont(QFont("Consolas", 9))
+        layout.addWidget(self.mode_label)
+
+        row = QHBoxLayout()
+        self.btn_refresh_state = QPushButton("Refresh State")
+        self.btn_check_script = QPushButton("Run Script Registry Check")
+        self.btn_check_act3 = QPushButton("Run Act3 Spine Check")
+        self.btn_check_intake = QPushButton("Run Intake Regression Check")
+        self.btn_copy_pc_cmd = QPushButton("Copy PC Intake Cmd")
+        row.addWidget(self.btn_refresh_state)
+        row.addWidget(self.btn_check_script)
+        row.addWidget(self.btn_check_act3)
+        row.addWidget(self.btn_check_intake)
+        row.addWidget(self.btn_copy_pc_cmd)
+        layout.addLayout(row)
+
+        self.status = QLabel("Sanctum state not loaded yet.")
+        self.status.setFont(QFont("Consolas", 9))
+        layout.addWidget(self.status)
+
+        self.tabs = QTabWidget()
+        self.views: dict[str, QTextEdit] = {}
+        self._add_tab("git_truth", "Git Truth")
+        self._add_tab("bundle_index", "Bundle Index")
+        self._add_tab("receipts", "Latest Receipts")
+        self._add_tab("scriptorium", "SCRIPTORIUM")
+        self._add_tab("arsenal", "ARSENAL")
+        self._add_tab("act3", "Act3 Spine")
+        self._add_tab("warnings", "Warning / Stale")
+        self._add_tab("actions", "Operator Actions")
+        layout.addWidget(self.tabs, 1)
+
+        self.btn_refresh_state.clicked.connect(self.refresh_state)
+        self.btn_check_script.clicked.connect(self.run_script_registry_check)
+        self.btn_check_act3.clicked.connect(self.run_act3_check)
+        self.btn_check_intake.clicked.connect(self.run_intake_regression_check)
+        self.btn_copy_pc_cmd.clicked.connect(self.copy_pc_intake_command)
+
+        self.load_state_from_disk()
+
+    def _add_tab(self, key: str, title: str) -> None:
+        view = QTextEdit()
+        view.setReadOnly(True)
+        view.setLineWrapMode(QTextEdit.NoWrap)
+        self.views[key] = view
+        self.tabs.addTab(view, title)
+
+    def _set_status(self, text: str) -> None:
+        self.status.setText(text)
+
+    def _resolve_python_command(self) -> list[str] | None:
+        candidates = [["py", "-3"], ["python"], ["python3"], [sys.executable]]
+        seen: set[str] = set()
+        for candidate in candidates:
+            key = " ".join(candidate)
+            if key in seen:
+                continue
+            seen.add(key)
+            exe = candidate[0]
+            if shutil.which(exe) is None and exe != sys.executable:
+                continue
+            try:
+                result = subprocess.run(
+                    [*candidate, "-c", "print('ok')"],
+                    capture_output=True,
+                    text=True,
+                    timeout=12,
+                )
+                if result.returncode == 0:
+                    return candidate
+            except Exception:
+                continue
+        return None
+
+    def _run_command(self, command: list[str], timeout: int = 300) -> tuple[bool, str]:
+        try:
+            result = subprocess.run(
+                command,
+                cwd=str(self.repo_root),
+                capture_output=True,
+                text=True,
+                timeout=timeout,
+            )
+        except Exception as exc:
+            return False, f"Execution error: {exc}"
+        output = "\n".join(
+            [
+                f"command: {' '.join(command)}",
+                f"exit_code: {result.returncode}",
+                "",
+                "stdout:",
+                result.stdout[-5000:],
+                "",
+                "stderr:",
+                result.stderr[-5000:],
+            ]
+        )
+        return result.returncode == 0, output
+
+    def refresh_state(self):
+        python_cmd = self._resolve_python_command()
+        if python_cmd is None:
+            QMessageBox.warning(self, "Refresh State", "Python runtime not found (tried py -3 / python / python3).")
+            return
+
+        command = [
+            *python_cmd,
+            str(self.repo_root / "TOOLS" / "build_sanctum_state_v0_1.py"),
+            "--repo-root",
+            str(self.repo_root),
+            "--out",
+            str(self.state_path),
+            "--human",
+        ]
+        ok, output = self._run_command(command, timeout=420)
+        self._set_status("State refreshed." if ok else "State refresh returned nonzero.")
+        if not ok:
+            QMessageBox.warning(self, "Refresh State", output)
+        self.load_state_from_disk()
+
+    def run_script_registry_check(self):
+        python_cmd = self._resolve_python_command()
+        if python_cmd is None:
+            QMessageBox.warning(self, "SCRIPTORIUM Check", "Python runtime not found.")
+            return
+        command = [
+            *python_cmd,
+            str(self.repo_root / "TOOLS" / "check_script_registry_v0_1.py"),
+            "--repo-root",
+            str(self.repo_root),
+            "--human",
+        ]
+        ok, output = self._run_command(command, timeout=180)
+        self._set_status("SCRIPTORIUM check PASS." if ok else "SCRIPTORIUM check returned nonzero.")
+        if ok:
+            QMessageBox.information(self, "SCRIPTORIUM Check", output)
+        else:
+            QMessageBox.warning(self, "SCRIPTORIUM Check", output)
+        self.load_state_from_disk()
+
+    def run_act3_check(self):
+        python_cmd = self._resolve_python_command()
+        if python_cmd is None:
+            QMessageBox.warning(self, "Act3 Check", "Python runtime not found.")
+            return
+        command = [
+            *python_cmd,
+            str(self.repo_root / "TOOLS" / "check_act3_address_truth_capability_spine_v0_1.py"),
+            "--repo-root",
+            str(self.repo_root),
+            "--human",
+        ]
+        ok, output = self._run_command(command, timeout=240)
+        self._set_status("Act3 check PASS/PASS_WITH_WARNINGS." if ok else "Act3 check returned nonzero.")
+        if ok:
+            QMessageBox.information(self, "Act3 Check", output)
+        else:
+            QMessageBox.warning(self, "Act3 Check", output)
+        self.load_state_from_disk()
+
+    def run_intake_regression_check(self):
+        powershell = shutil.which("powershell")
+        script_path = self.repo_root / "TOOLS" / "test_bundle_intake_regression.ps1"
+        command_text = (
+            "powershell -ExecutionPolicy Bypass -NoProfile "
+            f"-File {script_path}"
+        )
+        if not powershell:
+            QMessageBox.information(
+                self,
+                "Intake Regression",
+                "COMMAND_PREP_ONLY mode:\n\n" + command_text,
+            )
+            self._set_status("Intake regression: command prepared only.")
+            return
+
+        command = [
+            powershell,
+            "-ExecutionPolicy",
+            "Bypass",
+            "-NoProfile",
+            "-File",
+            str(script_path),
+            "-RepoRoot",
+            str(self.repo_root),
+        ]
+        ok, output = self._run_command(command, timeout=300)
+        self._set_status("Intake regression check finished." if ok else "Intake regression returned nonzero.")
+        if ok:
+            QMessageBox.information(self, "Intake Regression", output)
+        else:
+            QMessageBox.warning(self, "Intake Regression", output)
+        self.load_state_from_disk()
+
+    def _pc_intake_preview_command(self) -> str:
+        bundle_name = "<BUNDLE>.zip"
+        if isinstance(self.latest_state, dict):
+            latest_bundle = self.latest_state.get("bundles", {}).get("latest_bundle")
+            if isinstance(latest_bundle, dict):
+                name = latest_bundle.get("name")
+                if isinstance(name, str) and name:
+                    bundle_name = name
+        return (
+            "powershell -ExecutionPolicy Bypass -NoProfile -File "
+            "E:\\IMPERIUM\\TOOLS\\review_worker_bundle_intake.ps1 "
+            f"-Bundle \"E:\\IMPERIUM\\INBOX\\VM2_BUNDLES\\{bundle_name}\" "
+            "-RepoRoot \"E:\\IMPERIUM\" "
+            "-IncomingRoot \"E:\\IMPERIUM_LOCAL_HANDOFF\\BUNDLE_INTAKE\" "
+            "-NoApply"
+        )
+
+    def copy_pc_intake_command(self):
+        command = self._pc_intake_preview_command()
+        QApplication.clipboard().setText(command)
+        self._set_status("PC intake preview command copied to clipboard.")
+        QMessageBox.information(self, "PC Intake Command", command)
+
+    def load_state_from_disk(self):
+        if not self.state_path.exists():
+            placeholder = (
+                "State file not found.\n\n"
+                "Run: python3 TOOLS/build_sanctum_state_v0_1.py "
+                "--repo-root . --out .imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json --human"
+            )
+            for key in self.views:
+                self.views[key].setPlainText(placeholder)
+            self._set_status("State file missing (UNKNOWN).")
+            self.latest_state = None
+            return
+
+        try:
+            payload = json.loads(self.state_path.read_text(encoding="utf-8"))
+        except Exception as exc:
+            msg = f"Failed to parse state JSON:\n{exc}"
+            for key in self.views:
+                self.views[key].setPlainText(msg)
+            self._set_status("State parse failed.")
+            self.latest_state = None
+            return
+
+        if not isinstance(payload, dict):
+            msg = "State JSON root is not an object."
+            for key in self.views:
+                self.views[key].setPlainText(msg)
+            self._set_status("State structure invalid.")
+            self.latest_state = None
+            return
+
+        self.latest_state = payload
+        self.render_state(payload)
+
+    def render_state(self, state: dict):
+        git_truth = state.get("git_truth", {})
+        bundles = state.get("bundles", {})
+        receipts = state.get("receipts", {})
+        scriptorium = state.get("scriptorium", {})
+        arsenal = state.get("arsenal", {})
+        act3 = state.get("act3_spine", {})
+        warnings = state.get("warnings", [])
+        actions = state.get("operator_actions", {})
+
+        self.views["git_truth"].setPlainText(
+            "\n".join(
+                [
+                    f"verdict: {git_truth.get('verdict')}",
+                    f"local_head: {git_truth.get('local_head')}",
+                    f"origin_master_head: {git_truth.get('origin_master_head')}",
+                    f"remote_master_head: {git_truth.get('remote_master_head')}",
+                    f"commit_count: {git_truth.get('commit_count')}",
+                    f"latest_commit_oneline: {git_truth.get('latest_commit_oneline')}",
+                    f"exact_tree_url: {git_truth.get('exact_tree_url')}",
+                    f"worktree_clean: {git_truth.get('worktree_clean')}",
+                ]
+            )
+        )
+
+        discovered = bundles.get("discovered_bundles", [])
+        bundle_lines = [
+            f"handoff_out: {bundles.get('handoff_out', {}).get('path')}",
+            f"handoff_out_exists: {bundles.get('handoff_out', {}).get('exists')}",
+            f"discovered_bundles_count: {len(discovered) if isinstance(discovered, list) else 0}",
+            "",
+            "latest_bundle:",
+            json.dumps(bundles.get("latest_bundle"), ensure_ascii=False, indent=2),
+            "",
+            "inboxes:",
+            json.dumps(bundles.get("inboxes"), ensure_ascii=False, indent=2),
+            "",
+            "recent_discovered:",
+        ]
+        if isinstance(discovered, list):
+            for item in discovered[:8]:
+                bundle_lines.append(json.dumps(item, ensure_ascii=False))
+        self.views["bundle_index"].setPlainText("\n".join(bundle_lines))
+
+        self.views["receipts"].setPlainText(
+            json.dumps(
+                {
+                    "latest_git_cli_check": receipts.get("latest_git_cli_check"),
+                    "latest_bundle_intake_review": receipts.get("latest_bundle_intake_review"),
+                    "latest_act3_check": receipts.get("latest_act3_check"),
+                    "latest_sanctum_state_receipt": receipts.get("latest_sanctum_state_receipt"),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+
+        self.views["scriptorium"].setPlainText(
+            json.dumps(
+                {
+                    "registry_path": scriptorium.get("registry_path"),
+                    "entry_count": scriptorium.get("entry_count"),
+                    "safe_script_count": scriptorium.get("safe_script_count"),
+                    "owner_gated_count": scriptorium.get("owner_gated_count"),
+                    "runtime_only_count": scriptorium.get("runtime_only_count"),
+                    "scripts_summary": scriptorium.get("scripts_summary"),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+
+        self.views["arsenal"].setPlainText(
+            json.dumps(
+                {
+                    "tool_index_path": arsenal.get("tool_index_path"),
+                    "install_status_path": arsenal.get("install_status_path"),
+                    "known_tools_count": arsenal.get("known_tools_count"),
+                    "installed_count": arsenal.get("installed_count"),
+                    "unknown_count": arsenal.get("unknown_count"),
+                    "not_installed_count": arsenal.get("not_installed_count"),
+                    "install_status_git_head": arsenal.get("install_status_git_head"),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+
+        self.views["act3"].setPlainText(
+            json.dumps(
+                {
+                    "zone_registry_status": act3.get("zone_registry_status"),
+                    "truth_source_registry_status": act3.get("truth_source_registry_status"),
+                    "capability_spine_status": act3.get("capability_spine_status"),
+                    "warning_stale_baseline_status": act3.get("warning_stale_baseline_status"),
+                    "truth_registry_baseline_head": act3.get("truth_registry_baseline_head"),
+                    "advisory_status": act3.get("advisory_status"),
+                    "advisory_is_raw_not_doctrine": act3.get("advisory_is_raw_not_doctrine"),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+
+        self.views["warnings"].setPlainText(json.dumps(warnings, ensure_ascii=False, indent=2))
+
+        self.views["actions"].setPlainText(
+            json.dumps(
+                {
+                    "mode": actions.get("mode"),
+                    "safe_actions": actions.get("safe_actions"),
+                    "dangerous_actions": actions.get("dangerous_actions"),
+                    "command_templates": actions.get("command_templates"),
+                    "pc_intake_preview": self._pc_intake_preview_command(),
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+
+        state_verdict = state.get("verdict", "UNKNOWN")
+        generated = state.get("generated_at_utc", "unknown time")
+        self._set_status(f"State: {state_verdict} | generated_at_utc: {generated}")
+
+
 class SanctumMainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -861,7 +1307,7 @@ class SanctumMainWindow(QMainWindow):
         self.btn_refresh_tasks.clicked.connect(self.refresh_tasks)
         self.btn_git_cli_check.clicked.connect(self.check_git_cli)
 
-        self.transfer_button = QPushButton("Transfer Control")
+        self.transfer_button = QPushButton("Operator / Transfer")
         top_layout.addWidget(self.transfer_button)
 
         top_layout.addSpacing(14)
@@ -915,12 +1361,29 @@ class SanctumMainWindow(QMainWindow):
 
         self.map_widget = PlanetMapWidget()
         self.transfer_panel = TransferPanel()
-        self.transfer_panel.setVisible(True)
+        self.operator_panel = AdaptiveOperatorPanel(IMPERIUM_ROOT)
+        self.side_tabs = QTabWidget()
+        self.side_tabs.setStyleSheet("""
+            QTabWidget::pane { border: 1px solid #206f98; border-radius: 8px; background: #0a1f31; }
+            QTabBar::tab {
+                background: #143b55;
+                color: #dff6ff;
+                border: 1px solid #2a7ea8;
+                border-bottom: none;
+                border-top-left-radius: 6px;
+                border-top-right-radius: 6px;
+                padding: 6px 10px;
+                margin-right: 2px;
+            }
+            QTabBar::tab:selected { background: #1f5475; color: #ffffff; }
+        """)
+        self.side_tabs.addTab(self.transfer_panel, "Transfer Control")
+        self.side_tabs.addTab(self.operator_panel, "Operator Layer")
         self.git_cli_service = GitCliCheckService(IMPERIUM_ROOT)
 
         splitter.addWidget(left)
         splitter.addWidget(self.map_widget)
-        splitter.addWidget(self.transfer_panel)
+        splitter.addWidget(self.side_tabs)
         splitter.setSizes([360, 1040, 420])
 
         self.splitter = splitter
@@ -1107,8 +1570,8 @@ class SanctumMainWindow(QMainWindow):
         dialog.exec()
 
     def toggle_transfer(self):
-        visible = not self.transfer_panel.isVisible()
-        self.transfer_panel.setVisible(visible)
+        visible = not self.side_tabs.isVisible()
+        self.side_tabs.setVisible(visible)
         if visible:
             self.splitter.setSizes([340, 980, 430])
         else:
@@ -1125,4 +1588,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

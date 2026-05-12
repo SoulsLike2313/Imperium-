@@ -80,6 +80,11 @@
       "schema_id": "imperium.organ_self_report.v0_1",
       "path": "schemas/organ_self_report.schema.json",
       "kind": "organ_report"
+    },
+    {
+      "schema_id": "imperium.sanctum_state.v0_1",
+      "path": "schemas/sanctum_state.schema.json",
+      "kind": "state"
     }
   ]
 }

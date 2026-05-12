@@ -1,12 +1,13 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-12T22:24:45.028070+00:00",
-  "generated_by": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+  "updated_at_utc": "2026-05-12T22:58:12.730282+00:00",
+  "generated_by": "TASK-20260513-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
     "Statuses are conservative; VERIFIED requires explicit recent evidence.",
-    "Act 3 seed checker registered for address/truth/capability spine."
+    "Act 3 seed checker registered for address/truth/capability spine.",
+    "Sanctum adaptive operator layer scripts registered (state build + checker)."
   ],
   "scripts": [
     {
@@ -817,6 +818,115 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_act3_address_truth_capability_spine_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_act3_address_truth_capability_spine_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-BUILD-SANCTUM-STATE-V0_1",
+      "path": "TOOLS/build_sanctum_state_v0_1.py",
+      "name": "build_sanctum_state_v0_1.py",
+      "owner_organ": "MECHANICUS",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Build Sanctum adaptive operator state from Git truth, registries, receipts and bundles.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/build_sanctum_state_v0_1.py --repo-root . --out .imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--out",
+        "--human"
+      ],
+      "reads": [
+        "REGISTRY/SCRIPT_REGISTRY.json",
+        "REGISTRY/ARSENAL_TOOL_INDEX.json",
+        "REGISTRY/ARSENAL_INSTALL_STATUS.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/TRUTH_SOURCE_REGISTRY_V0_1.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/CAPABILITY_SPINE_V0_1.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/WARNING_STALE_BASELINE_V0_1.json",
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RESULT.json",
+        "/home/vboxuser2/IMPERIUM_WORK/_handoff_out/"
+      ],
+      "writes": [
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json",
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_VERDICT.md",
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_RECEIPT.json"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/build_sanctum_state_v0_1.py --repo-root . --out .imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json --human",
+      "verification_command": "python3 TOOLS/build_sanctum_state_v0_1.py --repo-root . --out .imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1",
+      "path": "TOOLS/check_sanctum_adaptive_operator_layer_v0_1.py",
+      "name": "check_sanctum_adaptive_operator_layer_v0_1.py",
+      "owner_organ": "MECHANICUS",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Check Sanctum adaptive operator vertical slice backend/state/frontend linkage.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_sanctum_adaptive_operator_layer_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human"
+      ],
+      "reads": [
+        "TOOLS/build_sanctum_state_v0_1.py",
+        "SANCTUM/sanctum_v0_29_qt.py",
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json"
+      ],
+      "writes": [
+        ".imperium_runtime/sanctum/checks/SANCTUM_ADAPTIVE_OPERATOR_LAYER_CHECK.json",
+        ".imperium_runtime/sanctum/checks/SANCTUM_ADAPTIVE_OPERATOR_LAYER_VERDICT.md",
+        ".imperium_runtime/sanctum/checks/SANCTUM_ADAPTIVE_OPERATOR_LAYER_RECEIPT.json"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/sanctum/checks/SANCTUM_ADAPTIVE_OPERATOR_LAYER_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_sanctum_adaptive_operator_layer_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_sanctum_adaptive_operator_layer_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }
