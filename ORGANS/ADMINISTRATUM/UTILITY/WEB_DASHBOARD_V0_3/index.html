@@ -3,26 +3,26 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>РђРґРјРёРЅРёСЃС‚СЂР°С‚СѓРј v0.3 вЂ” Resume Continuity Pack</title>
+  <title>Администратум v0.3 - Resume Continuity Pack</title>
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <main class="shell">
     <section class="hero card">
-      <div class="kicker">IMPERIUM В· ADMINISTRATUM В· v0.3</div>
-      <h1>РЎР±РѕСЂРєР° С‚РѕС‡РєРё РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ</h1>
+      <div class="kicker">IMPERIUM · ADMINISTRATUM · v0.3</div>
+      <h1>Сборка точки продолжения</h1>
       <p class="lead">
-        Р­С‚Рѕ РЅРµ РѕР±С‰РёР№ РїРµСЂРµСЃРєР°Р· СЃРёСЃС‚РµРјС‹ Рё РЅРµ РґРµРєРѕСЂР°С‚РёРІРЅС‹Р№ РѕС‚С‡С‘С‚. Р­С‚Р° РєРЅРѕРїРєР° СЃРѕР±РёСЂР°РµС‚
-        <strong>Resume Continuity Pack</strong>: РїР°РєРµС‚, СЃ РєРѕС‚РѕСЂС‹Рј РЅРѕРІС‹Р№ С‡Р°С‚ РґРѕР»Р¶РµРЅ РІРѕР№С‚Рё
-        СЂРѕРІРЅРѕ РІ РїРѕСЃР»РµРґРЅСЋСЋ СЂР°Р±РѕС‡СѓСЋ С‚РѕС‡РєСѓ Р±РµР· РіР°РґР°РЅРёСЏ, Р±РµР· вЂњlatestвЂќ-РјР°РіРёРё Рё Р±РµР· С„Р°Р»СЊС€РёРІРѕРіРѕ Р·РµР»С‘РЅРѕРіРѕ СЃС‚Р°С‚СѓСЃР°.
+        Это не общий пересказ системы и не декоративный отчет. Эта кнопка собирает
+        <strong>Resume Continuity Pack</strong>: пакет, с которым новый чат должен войти
+        прямо в последнюю рабочую точку без гадания, без "latest"-магии и без фальшивого зеленого статуса.
       </p>
 
       <div class="action-row">
         <button id="buildBtn" type="button">
-          <span class="button-main">РЎРѕР±СЂР°С‚СЊ Continuity Pack</span>
-          <span class="button-sub">START_HERE В· LAST_POINT_STATE В· NEXT_ATOMIC_STEP</span>
+          <span class="button-main">Собрать Continuity Pack</span>
+          <span class="button-sub">START_HERE · LAST_POINT_STATE · NEXT_ATOMIC_STEP</span>
         </button>
-        <div id="buildState" class="build-state idle">Р“РѕС‚РѕРІ Рє СЂСѓС‡РЅРѕРјСѓ Р·Р°РїСѓСЃРєСѓ.</div>
+        <div id="buildState" class="build-state idle">Готов к ручному запуску.</div>
       </div>
 
       <div id="buildAnimation" class="build-animation idle" aria-hidden="true">
@@ -35,46 +35,46 @@
           <div class="node node-c"></div>
         </div>
         <div class="build-steps">
-          <div class="step" data-step="scan">РЎРєР°РЅРёСЂСѓСЋ С‚РµРєСѓС‰СѓСЋ С‚РѕС‡РєСѓ</div>
-          <div class="step" data-step="evidence">РЎРѕР±РёСЂР°СЋ evidence index</div>
-          <div class="step" data-step="owner">Р¤РёРєСЃРёСЂСѓСЋ СЂРµС€РµРЅРёСЏ Owner</div>
-          <div class="step" data-step="pack">РЈРїР°РєРѕРІС‹РІР°СЋ resume-РІС…РѕРґ</div>
+          <div class="step" data-step="scan">Сканирую текущую точку</div>
+          <div class="step" data-step="evidence">Собираю evidence index</div>
+          <div class="step" data-step="owner">Фиксирую решения Owner</div>
+          <div class="step" data-step="pack">Упаковываю resume-вход</div>
         </div>
       </div>
     </section>
 
     <section class="grid">
       <article class="card">
-        <h2>Р§С‚Рѕ РёСЃРїСЂР°РІР»СЏРµС‚ v0.3</h2>
+        <h2>Что исправляет v0.3</h2>
         <p>
-          РЎС‚Р°СЂС‹Р№ continuity Р±С‹Р» РїСЂРёР·РЅР°РЅ СЃР»Р°Р±С‹Рј Рё СЂР°Р·РґСЂР°Р¶Р°СЋС‰РёРј: РѕРЅ РѕРїРёСЃС‹РІР°Р» СЃРёСЃС‚РµРјСѓ, РЅРѕ РЅРµ РІСЃРµРіРґР°
-          РґР°РІР°Р» С‚РѕС‡РЅСѓСЋ РїРѕСЃР»РµРґРЅСЋСЋ СЂР°Р±РѕС‡СѓСЋ С‚РѕС‡РєСѓ. v0.3 РґРµР»Р°РµС‚ Р°РєС†РµРЅС‚ РЅР° РІС…РѕРґРµ вЂњРїСЂРѕРґРѕР»Р¶Р°Р№ РѕС‚СЃСЋРґР°вЂќ.
+          Старый continuity был признан слабым и раздражающим: он описывал систему, но не всегда
+          давал точную последнюю рабочую точку. v0.3 делает акцент на входе "продолжай отсюда".
         </p>
         <ul>
-          <li>С‡С‘С‚РєРёР№ СЂСѓСЃСЃРєРёР№ С‚РµРєСЃС‚ РІ UI;</li>
-          <li>РІРёРґРёРјС‹Р№ РїСЂРѕС†РµСЃСЃ СЃР±РѕСЂРєРё;</li>
-          <li>Р·Р°РїСЂРµС‚ РЅР° green/canon/real-task-ready Р±РµР· РґРѕРєР°Р·Р°С‚РµР»СЊСЃС‚РІ;</li>
-          <li>СЂРµР·СѓР»СЊС‚Р°С‚ СЃР±РѕСЂРєРё РїРѕРєР°Р·С‹РІР°РµС‚СЃСЏ РєР°Рє JSON, Р±РµР· СЃРєСЂС‹С‚РѕР№ РјР°РіРёРё.</li>
+          <li>читаемый UTF-8 текст в UI;</li>
+          <li>видимый процесс сборки;</li>
+          <li>запрет на green/canon/real-task-ready без доказательств;</li>
+          <li>результат сборки показывается как JSON, без скрытой магии.</li>
         </ul>
       </article>
 
       <article class="card warning">
-        <h2>Р—Р°РїСЂРµС‰РµРЅРѕ</h2>
+        <h2>Запрещено</h2>
         <p>
-          РђРґРјРёРЅРёСЃС‚СЂР°С‚СѓРј РЅРµ РѕР±СЉСЏРІР»СЏРµС‚ canon, РЅРµ Р·Р°РјРµРЅСЏРµС‚ Doctrinarium, РЅРµ РїРёС€РµС‚ РІ THRONE,
-          РЅРµ СѓРґР°Р»СЏРµС‚ СЃС‚Р°СЂС‹Рµ Р±Р°Р·С‹ Рё РЅРµ РїСЂРѕРґРѕР»Р¶Р°РµС‚ Р·Р°РґР°С‡Сѓ Р°РІС‚РѕРЅРѕРјРЅРѕ Р±РµР· Owner-СЂРµС€РµРЅРёСЏ.
+          Администратум не объявляет canon, не заменяет Doctrinarium, не пишет в THRONE,
+          не удаляет старую историю и не продолжает задачу автономно без решения Owner.
         </p>
       </article>
     </section>
 
     <section class="card">
-      <h2>РЎС‚Р°С‚СѓСЃ dashboard</h2>
-      <pre id="status">Р—Р°РіСЂСѓР·РєР° СЃС‚Р°С‚СѓСЃР°...</pre>
+      <h2>Статус dashboard</h2>
+      <pre id="status">Загрузка статуса...</pre>
     </section>
 
     <section class="card">
-      <h2>Р РµР·СѓР»СЊС‚Р°С‚ РїРѕСЃР»РµРґРЅРµР№ СЃР±РѕСЂРєРё</h2>
-      <pre id="result">РЎР±РѕСЂРєР° РµС‰С‘ РЅРµ Р·Р°РїСѓСЃРєР°Р»Р°СЃСЊ.</pre>
+      <h2>Результат последней сборки</h2>
+      <pre id="result">Сборка еще не запускалась.</pre>
     </section>
   </main>
 

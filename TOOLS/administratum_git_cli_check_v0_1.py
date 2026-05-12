@@ -140,6 +140,21 @@ def parse_origin_url(remote_v_output: str) -> str:
     return ""
 
 
+def normalize_remote_url(remote_url: str) -> str:
+    value = remote_url.strip()
+    if value.endswith(".git"):
+        value = value[:-4]
+    if value.startswith("git@github.com:"):
+        value = "https://github.com/" + value[len("git@github.com:") :]
+    return value
+
+
+def build_tree_url(remote_url: str, head_sha: str) -> str:
+    if not remote_url or not head_sha:
+        return ""
+    return f"{normalize_remote_url(remote_url)}/tree/{head_sha}"
+
+
 def first_line(text: str) -> str:
     lines = [x.strip() for x in text.splitlines() if x.strip()]
     return lines[0] if lines else ""
@@ -367,6 +382,8 @@ def main() -> int:
     command_stdout = {k: str(v.get("stdout", "")) for k, v in command_results.items()}
     command_stderr = {k: str(v.get("stderr", "")) for k, v in command_results.items()}
 
+    tree_url = build_tree_url(remote_url, local_head)
+
     result = {
         "task_id": args.task_id,
         "timestamp_utc": now_utc_iso(),
@@ -374,6 +391,7 @@ def main() -> int:
         "platform": platform.platform(),
         "python_version": sys.version,
         "remote_url": remote_url,
+        "tree_url": tree_url,
         "local_head": local_head,
         "origin_master_head": origin_master_head,
         "ls_remote_master_head": ls_remote_master_head,
@@ -405,6 +423,7 @@ def main() -> int:
         f"- repo_root: {repo_root}",
         f"- verdict: {result['verdict']}",
         f"- remote_url: {remote_url}",
+        f"- tree_url: {tree_url}",
         f"- local_head: {local_head}",
         f"- origin_master_head: {origin_master_head}",
         f"- ls_remote_master_head: {ls_remote_master_head}",
@@ -447,4 +466,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

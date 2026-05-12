@@ -19,7 +19,7 @@ function setAnimation(running) {
 
 function startSteps() {
   let index = 0;
-  steps.forEach(step => {
+  steps.forEach((step) => {
     step.classList.remove("active", "done");
   });
 
@@ -40,7 +40,7 @@ function stopSteps(done) {
     stepTimer = null;
   }
 
-  steps.forEach(step => {
+  steps.forEach((step) => {
     step.classList.remove("active");
     step.classList.toggle("done", Boolean(done));
   });
@@ -64,8 +64,8 @@ async function buildResumePack() {
   buildBtn.disabled = true;
   setAnimation(true);
   startSteps();
-  setState("running", "РЎР±РѕСЂРєР° РёРґС‘С‚: СЃРѕР±РёСЂР°СЋ С‚РѕС‡РєСѓ РїСЂРѕРґРѕР»Р¶РµРЅРёСЏ...");
-  resultBox.textContent = "Р—Р°РїСѓС‰РµРЅ builder. Р–РґСѓ РѕС‚РІРµС‚ РѕС‚ РђРґРјРёРЅРёСЃС‚СЂР°С‚СѓРјР°...";
+  setState("running", "Сборка идет: собираю точку продолжения...");
+  resultBox.textContent = "Запущен builder. Жду ответ от Администратума...";
 
   try {
     const response = await fetch("/api/build-resume-continuity-pack", { method: "POST" });
@@ -73,15 +73,15 @@ async function buildResumePack() {
     renderJson(resultBox, data);
 
     if (response.ok && data.ok) {
-      setState("done", "Р“РѕС‚РѕРІРѕ: resume continuity pack СЃРѕР±СЂР°РЅ.");
+      setState("done", "Готово: resume continuity pack собран.");
       stopSteps(true);
     } else {
-      setState("failed", "РЎР±РѕСЂРєР° Р·Р°РІРµСЂС€РёР»Р°СЃСЊ СЃ РѕС€РёР±РєРѕР№. РЎРјРѕС‚СЂРё JSON РЅРёР¶Рµ.");
+      setState("failed", "Сборка завершилась с ошибкой. Смотри JSON ниже.");
       stopSteps(false);
     }
   } catch (error) {
     resultBox.textContent = String(error);
-    setState("failed", "РћС€РёР±РєР° Р·Р°РїСЂРѕСЃР° Рє dashboard server.");
+    setState("failed", "Ошибка запроса к dashboard server.");
     stopSteps(false);
   } finally {
     setAnimation(false);

@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import shutil
+import subprocess
 import sys
 import traceback
 import zipfile
@@ -15,42 +16,80 @@ from typing import Any
 SCHEMA = "ADMINISTRATUM_RESUME_CONTINUITY_PACK_V0_2"
 PACK_PREFIX = "RESUME_CONTINUITY_PACK_"
 TASK_ID = "TASK-20260510-ADMINISTRATUM-RESUME-CONTINUITY-PACK-V0_2-MANUAL"
+ROUTE_TRUTH_RELATIVE = Path("ORGANS") / "ADMINISTRATUM" / "CONFIG" / "ADMINISTRATUM_ROUTE_TRUTH_V0_1.json"
+
+DEFAULT_ROUTE_TRUTH: dict[str, Any] = {
+    "schema_version": "ADMINISTRATUM_ROUTE_TRUTH_V0_1",
+    "repository": {
+        "owner": "SoulsLike2313",
+        "name": "Imperium-",
+        "remote_url": "https://github.com/SoulsLike2313/Imperium-",
+        "tree_url_template": "https://github.com/SoulsLike2313/Imperium-/tree/{head_sha}",
+    },
+    "paths": {
+        "pc_repo_root": "E:\\IMPERIUM",
+        "vm2_repo_root": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+    },
+    "vm2_ssh": {
+        "user_host": "vboxuser2@127.0.0.1",
+        "port": 2223,
+        "key_path_powershell": "$env:USERPROFILE\\.ssh\\imperium_pc_to_vm2_ed25519_20260418",
+        "ssh_command_powershell": "ssh -i $env:USERPROFILE\\.ssh\\imperium_pc_to_vm2_ed25519_20260418 -p 2223 vboxuser2@127.0.0.1",
+    },
+}
 
 OWNER_LATEST_DECISION = (
-    "Continuity pack РїСЂРёР·РЅР°РЅ СЃР»Р°Р±С‹Рј Рё Р±РµСЃСЏС‡РёРј: РµРіРѕ РЅРµ С…РІР°С‚Р°РµС‚, С‡С‚РѕР±С‹ РїСЂРѕСЃС‚Рѕ "
-    "РїСЂРѕРґРѕР»Р¶РёС‚СЊ СЂРѕРІРЅРѕ СЃ РїРѕСЃР»РµРґРЅРµР№ С‚РѕС‡РєРё. Administratum v0.2 РґРѕР»Р¶РµРЅ СЃС‚СЂРѕРёС‚СЊ "
-    "РЅРµ РєСЂР°СЃРёРІС‹Р№ РѕР±С‰РёР№ handoff, Р° С‚РѕС‡РЅС‹Р№ Resume Continuity Pack: START_HERE, "
-    "LAST_POINT_STATE, OWNER_DECISION_LOG, NEXT_ATOMIC_STEP, evidence ledger."
+    "The continuity pack was judged too weak for exact resume. "
+    "Administratum v0.2 must produce one resume-first pack that preserves the exact continuation point: "
+    "START_HERE, LAST_POINT_STATE, OWNER_DECISION_LOG, NEXT_ATOMIC_STEP, and evidence ledger."
 )
 
 DO_NOT_DO = [
-    "РЅРµ Р·Р°СЏРІР»СЏС‚СЊ green/canon/real-task-ready",
-    "РЅРµ РїРѕРґРјРµРЅСЏС‚СЊ РїРѕСЃР»РµРґРЅСЋСЋ С‚РѕС‡РєСѓ РѕР±С‰РёРј РїРµСЂРµСЃРєР°Р·РѕРј СЃРёСЃС‚РµРјС‹",
-    "РЅРµ РґРµР»Р°С‚СЊ РґРІР° СЂРµР¶РёРјР° СЃР»Р°Р±РѕРіРѕ pack РІРјРµСЃС‚Рѕ РѕРґРЅРѕРіРѕ С‚РѕС‡РЅРѕРіРѕ resume pack",
-    "РЅРµ С‚СЂРѕРіР°С‚СЊ THRONE",
-    "РЅРµ СЃРёРЅРєР°С‚СЊ РІ THRONE",
-    "РЅРµ СѓРґР°Р»СЏС‚СЊ СЃС‚Р°СЂС‹Рµ pack/artifacts",
-    "РЅРµ Р»РµР·С‚СЊ РІ SANCTUM РІ СЌС‚РѕРј РїР°С‚С‡Рµ",
-    "РЅРµ Р°РєС‚РёРІРёСЂРѕРІР°С‚СЊ VM2",
-    "РЅРµ РїСЂРѕРґРѕР»Р¶Р°С‚СЊ РїРѕ РїР°РјСЏС‚Рё Р±РµР· evidence path",
-    "РЅРµ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ latest guessing Р±РµР· СЏРІРЅРѕРіРѕ РїСѓС‚Рё/receipt/hash",
+    "do not claim green/canon/real-task-ready",
+    "do not replace the last verified point with a broad summary",
+    "do not split into weak modes instead of one strong resume pack",
+    "do not touch THRONE",
+    "do not sync into THRONE",
+    "do not delete old packs or artifacts",
+    "do not continue by memory without evidence paths",
+    "do not use latest guessing without explicit path/receipt/hash",
 ]
 
 CURRENT_OBJECTIVE = (
-    "РџРѕС‡РёРЅРёС‚СЊ Administratum Continuity Pack РґРѕ v0.2 С‚Р°Рє, С‡С‚РѕР±С‹ РЅРѕРІС‹Р№ С‡Р°С‚ РјРѕРі "
-    "СЂРѕРІРЅРѕ РІРѕСЃСЃС‚Р°РЅРѕРІРёС‚СЊ РїРѕСЃР»РµРґРЅСЋСЋ СЂР°Р±РѕС‡СѓСЋ С‚РѕС‡РєСѓ: С‡С‚Рѕ РёРјРµРЅРЅРѕ РґРµР»Р°Р»Рё, РіРґРµ РѕСЃС‚Р°РЅРѕРІРёР»РёСЃСЊ, "
-    "РєР°РєРѕРµ РїРѕСЃР»РµРґРЅРµРµ СЂРµС€РµРЅРёРµ Owner РёР·РјРµРЅРёР»Рѕ РєСѓСЂСЃ, РєР°РєРѕР№ СЃР»РµРґСѓСЋС‰РёР№ Р°С‚РѕРјР°СЂРЅС‹Р№ С€Р°Рі, "
-    "РєР°РєРёРµ С„Р°Р№Р»С‹ Рё receipts СЌС‚Рѕ РґРѕРєР°Р·С‹РІР°СЋС‚."
+    "Upgrade Administratum continuity to resume-first v0.2 so a new chat can continue from the exact last working point: "
+    "what was done, where execution stopped, which Owner decision changed course, which atomic step is next, "
+    "and which files/receipts prove it."
 )
 
 NEXT_ATOMIC_STEP = (
-    "РџРѕСЃР»Рµ Р·Р°РїСѓСЃРєР° СЌС‚РѕРіРѕ РїР°С‚С‡Р° РѕС‚РєСЂС‹С‚СЊ Administratum Dashboard v0.2 РёР»Рё РЅР°РїСЂСЏРјСѓСЋ "
-    "Р·Р°РїСѓСЃС‚РёС‚СЊ administratum_build_resume_continuity_pack_v0_2.py, РїСЂРѕРІРµСЂРёС‚СЊ START_HERE.md "
-    "РІ СЃРІРµР¶РµРј RESUME_CONTINUITY_PACK Рё С‚РѕР»СЊРєРѕ РїРѕС‚РѕРј РґРІРёРіР°С‚СЊСЃСЏ Рє СЃР»РµРґСѓСЋС‰РµРјСѓ РѕСЂРіР°РЅСѓ."
+    "Run the resume continuity pack builder, validate START_HERE.md in the fresh RESUME_CONTINUITY_PACK output, "
+    "then continue to the next organ only after resume evidence is sufficient."
 )
+
 
 def utc_now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def detect_repo_root() -> Path:
+    candidates: list[Path] = []
+
+    script_path = Path(__file__).resolve()
+    if len(script_path.parents) >= 4:
+        candidates.append(script_path.parents[3])
+
+    env_root = os.environ.get("IMPERIUM_ROOT")
+    if env_root:
+        candidates.append(Path(env_root).expanduser())
+
+    candidates.append(Path.cwd())
+
+    for candidate in candidates:
+        if (candidate / ".git").exists() or (candidate / "AGENTS.md").exists():
+            return candidate
+
+    return candidates[0]
+
 
 def read_text(path: Path, limit: int = 24000) -> str | None:
     try:
@@ -63,6 +102,7 @@ def read_text(path: Path, limit: int = 24000) -> str | None:
     except Exception:
         return None
 
+
 def read_json(path: Path) -> Any | None:
     txt = read_text(path, limit=2_000_000)
     if txt is None:
@@ -72,6 +112,7 @@ def read_json(path: Path) -> Any | None:
     except Exception:
         return None
 
+
 def sha256_file(path: Path) -> str:
     h = hashlib.sha256()
     with path.open("rb") as f:
@@ -79,11 +120,13 @@ def sha256_file(path: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
+
 def safe_rel(path: Path, root: Path) -> str:
     try:
         return str(path.relative_to(root))
     except Exception:
         return str(path)
+
 
 def mtime_iso(path: Path) -> str:
     try:
@@ -91,8 +134,10 @@ def mtime_iso(path: Path) -> str:
     except Exception:
         return "UNKNOWN"
 
+
 def sorted_by_mtime(paths: list[Path]) -> list[Path]:
     return sorted(paths, key=lambda p: p.stat().st_mtime if p.exists() else 0, reverse=True)
+
 
 def find_files(root: Path, pattern: str, max_items: int = 200) -> list[Path]:
     try:
@@ -100,11 +145,6 @@ def find_files(root: Path, pattern: str, max_items: int = 200) -> list[Path]:
     except Exception:
         return []
 
-def find_dirs(root: Path, pattern: str, max_items: int = 80) -> list[Path]:
-    try:
-        return sorted_by_mtime([p for p in root.rglob(pattern) if p.is_dir()])[:max_items]
-    except Exception:
-        return []
 
 def latest_dir(base: Path, prefix: str) -> Path | None:
     if not base.exists():
@@ -114,87 +154,190 @@ def latest_dir(base: Path, prefix: str) -> Path | None:
         return None
     return sorted_by_mtime(candidates)[0]
 
+
+def merge_dict(base: dict[str, Any], overlay: dict[str, Any]) -> dict[str, Any]:
+    merged = dict(base)
+    for key, value in overlay.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = merge_dict(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
+
+
+def load_route_truth(root: Path) -> dict[str, Any]:
+    source_path = root / ROUTE_TRUTH_RELATIVE
+    payload = read_json(source_path)
+
+    route_truth = dict(DEFAULT_ROUTE_TRUTH)
+    if isinstance(payload, dict):
+        route_truth = merge_dict(route_truth, payload)
+
+    route_truth["_source_path"] = str(source_path)
+    route_truth["_source_exists"] = source_path.exists()
+    return route_truth
+
+
+def run_git(root: Path, args: list[str]) -> tuple[bool, str]:
+    proc = subprocess.run(
+        ["git", *args],
+        cwd=str(root),
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+    )
+    output = (proc.stdout or proc.stderr or "").strip()
+    return proc.returncode == 0, output
+
+
+def first_line(text: str) -> str:
+    for line in text.splitlines():
+        value = line.strip()
+        if value:
+            return value
+    return ""
+
+
+def collect_git_truth(root: Path, route_truth: dict[str, Any]) -> dict[str, Any]:
+    ok_head, head_raw = run_git(root, ["rev-parse", "HEAD"])
+    ok_count, count_raw = run_git(root, ["rev-list", "--count", "HEAD"])
+    ok_latest, latest_raw = run_git(root, ["log", "-1", "--oneline"])
+
+    head_sha = first_line(head_raw) if ok_head else ""
+    count_str = first_line(count_raw) if ok_count else ""
+    latest_commit_oneline = first_line(latest_raw) if ok_latest else ""
+
+    commit_count: int | None = int(count_str) if count_str.isdigit() else None
+
+    repo_cfg = route_truth.get("repository") if isinstance(route_truth.get("repository"), dict) else {}
+    remote_url = str(repo_cfg.get("remote_url", DEFAULT_ROUTE_TRUTH["repository"]["remote_url"]))
+    tree_template = str(
+        repo_cfg.get("tree_url_template", DEFAULT_ROUTE_TRUTH["repository"]["tree_url_template"])
+    )
+    tree_url = tree_template.format(head_sha=head_sha) if head_sha else ""
+
+    return {
+        "head_sha": head_sha,
+        "commit_count": commit_count,
+        "latest_commit_oneline": latest_commit_oneline,
+        "tree_url": tree_url,
+        "remote_url": remote_url,
+        "collection": {
+            "head_ok": ok_head,
+            "count_ok": ok_count,
+            "latest_ok": ok_latest,
+        },
+    }
+
+
 def collect_finalization_receipts(root: Path) -> list[dict[str, Any]]:
-    receipts = []
+    receipts: list[dict[str, Any]] = []
     for p in find_files(root / "ARTIFACTS", "FINALIZATION_RECEIPT_EXTERNAL.json", 200):
         data = read_json(p) or {}
-        receipts.append({
-            "path": str(p),
-            "relative_path": safe_rel(p, root),
-            "mtime_utc": mtime_iso(p),
-            "task_id": data.get("task_id"),
-            "verdict": data.get("verdict"),
-            "finalization_time": data.get("finalization_time"),
-            "final_zip_path": data.get("final_zip_path"),
-            "final_zip_sha256": data.get("final_zip_sha256"),
-            "manifest_path": data.get("manifest_path"),
-            "manifest_sha256": data.get("manifest_sha256"),
-        })
-    # Also collect receipts that are named differently inside package dirs.
+        receipts.append(
+            {
+                "path": str(p),
+                "relative_path": safe_rel(p, root),
+                "mtime_utc": mtime_iso(p),
+                "task_id": data.get("task_id"),
+                "verdict": data.get("verdict"),
+                "finalization_time": data.get("finalization_time"),
+                "final_zip_path": data.get("final_zip_path"),
+                "final_zip_sha256": data.get("final_zip_sha256"),
+                "manifest_path": data.get("manifest_path"),
+                "manifest_sha256": data.get("manifest_sha256"),
+            }
+        )
+
     for p in find_files(root / "ARTIFACTS", "*FINAL*RECEIPT*.json", 200):
         if p.name == "FINALIZATION_RECEIPT_EXTERNAL.json":
             continue
         data = read_json(p) or {}
-        receipts.append({
-            "path": str(p),
-            "relative_path": safe_rel(p, root),
-            "mtime_utc": mtime_iso(p),
-            "task_id": data.get("task_id"),
-            "verdict": data.get("verdict") or data.get("status"),
-            "finalization_time": data.get("finalization_time") or data.get("timestamp") or data.get("created_at"),
-        })
+        receipts.append(
+            {
+                "path": str(p),
+                "relative_path": safe_rel(p, root),
+                "mtime_utc": mtime_iso(p),
+                "task_id": data.get("task_id"),
+                "verdict": data.get("verdict") or data.get("status"),
+                "finalization_time": data.get("finalization_time")
+                or data.get("timestamp")
+                or data.get("created_at"),
+            }
+        )
+
     return sorted(receipts, key=lambda x: x.get("finalization_time") or x.get("mtime_utc") or "", reverse=True)
+
 
 def collect_latest_packs(root: Path) -> dict[str, Any]:
     packs_root = root / "ORGANS" / "ADMINISTRATUM" / "CONTINUITY" / "PACKS"
     return {
         "packs_root": str(packs_root),
-        "latest_resume_pack_before_this_run": str(latest_dir(packs_root, "RESUME_CONTINUITY_PACK_")) if latest_dir(packs_root, "RESUME_CONTINUITY_PACK_") else None,
-        "latest_semantic_pack": str(latest_dir(packs_root, "CONTINUITY_PACK_")) if latest_dir(packs_root, "CONTINUITY_PACK_") else None,
-        "latest_developer_pack": str(latest_dir(packs_root, "DEVELOPER_GRADE_CONTINUITY_PACK_")) if latest_dir(packs_root, "DEVELOPER_GRADE_CONTINUITY_PACK_") else None,
+        "latest_resume_pack_before_this_run": str(latest_dir(packs_root, "RESUME_CONTINUITY_PACK_"))
+        if latest_dir(packs_root, "RESUME_CONTINUITY_PACK_")
+        else None,
+        "latest_semantic_pack": str(latest_dir(packs_root, "CONTINUITY_PACK_"))
+        if latest_dir(packs_root, "CONTINUITY_PACK_")
+        else None,
+        "latest_developer_pack": str(latest_dir(packs_root, "DEVELOPER_GRADE_CONTINUITY_PACK_"))
+        if latest_dir(packs_root, "DEVELOPER_GRADE_CONTINUITY_PACK_")
+        else None,
         "recent_pack_dirs": [
             {"path": str(p), "name": p.name, "mtime_utc": mtime_iso(p)}
             for p in sorted_by_mtime([d for d in packs_root.iterdir() if d.is_dir()])[:20]
-        ] if packs_root.exists() else [],
+        ]
+        if packs_root.exists()
+        else [],
     }
 
+
 def collect_dashboards(root: Path) -> list[dict[str, Any]]:
-    out = []
+    out: list[dict[str, Any]] = []
     for p in find_files(root / "ORGANS", "DASHBOARD_REGISTRY.json", 50):
         data = read_json(p)
-        out.append({
-            "registry_path": str(p),
-            "relative_path": safe_rel(p, root),
-            "mtime_utc": mtime_iso(p),
-            "data": data,
-        })
+        out.append(
+            {
+                "registry_path": str(p),
+                "relative_path": safe_rel(p, root),
+                "mtime_utc": mtime_iso(p),
+                "data": data,
+            }
+        )
     for p in find_files(root / "ORGANS", "DASHBOARD_STATUS*.json", 80):
         data = read_json(p)
-        out.append({
-            "status_path": str(p),
-            "relative_path": safe_rel(p, root),
-            "mtime_utc": mtime_iso(p),
-            "data": data,
-        })
+        out.append(
+            {
+                "status_path": str(p),
+                "relative_path": safe_rel(p, root),
+                "mtime_utc": mtime_iso(p),
+                "data": data,
+            }
+        )
     return out
 
+
 def collect_organ_status(root: Path) -> list[dict[str, Any]]:
-    out = []
+    out: list[dict[str, Any]] = []
     for p in find_files(root / "ORGANS", "ORGAN_STATUS.json", 80):
         data = read_json(p) or {}
-        organ_id = data.get("organ_id") or p.parts[-3] if len(p.parts) >= 3 else p.parent.name
-        out.append({
-            "organ_id": organ_id,
-            "path": str(p),
-            "relative_path": safe_rel(p, root),
-            "mtime_utc": mtime_iso(p),
-            "status": data.get("status"),
-            "classification_target": data.get("classification_target"),
-            "current_dashboard_id": data.get("current_dashboard_id"),
-            "blockers": data.get("blockers"),
-            "limitations": data.get("limitations"),
-        })
+        organ_id = data.get("organ_id") or (p.parts[-3] if len(p.parts) >= 3 else p.parent.name)
+        out.append(
+            {
+                "organ_id": organ_id,
+                "path": str(p),
+                "relative_path": safe_rel(p, root),
+                "mtime_utc": mtime_iso(p),
+                "status": data.get("status"),
+                "classification_target": data.get("classification_target"),
+                "current_dashboard_id": data.get("current_dashboard_id"),
+                "blockers": data.get("blockers"),
+                "limitations": data.get("limitations"),
+            }
+        )
     return out
+
 
 def collect_key_reports(root: Path) -> list[dict[str, Any]]:
     names = [
@@ -207,8 +350,8 @@ def collect_key_reports(root: Path) -> list[dict[str, Any]]:
         "HANDOFF_SUFFICIENCY_REPORT.json",
         "CONTINUITY_PACK_TEST_REPORT.json",
     ]
-    seen = set()
-    out = []
+    seen: set[str] = set()
+    out: list[dict[str, Any]] = []
     for pat in names:
         for p in find_files(root, pat, 100):
             key = str(p).lower()
@@ -216,30 +359,38 @@ def collect_key_reports(root: Path) -> list[dict[str, Any]]:
                 continue
             seen.add(key)
             data = read_json(p)
-            out.append({
-                "path": str(p),
-                "relative_path": safe_rel(p, root),
-                "mtime_utc": mtime_iso(p),
-                "sha256": sha256_file(p),
-                "summary_keys": list(data.keys())[:20] if isinstance(data, dict) else None,
-                "verdict": data.get("verdict") if isinstance(data, dict) else None,
-                "status": data.get("status") if isinstance(data, dict) else None,
-                "task_id": data.get("task_id") if isinstance(data, dict) else None,
-            })
+            out.append(
+                {
+                    "path": str(p),
+                    "relative_path": safe_rel(p, root),
+                    "mtime_utc": mtime_iso(p),
+                    "sha256": sha256_file(p),
+                    "summary_keys": list(data.keys())[:20] if isinstance(data, dict) else None,
+                    "verdict": data.get("verdict") if isinstance(data, dict) else None,
+                    "status": data.get("status") if isinstance(data, dict) else None,
+                    "task_id": data.get("task_id") if isinstance(data, dict) else None,
+                }
+            )
     return sorted(out, key=lambda x: x.get("mtime_utc") or "", reverse=True)[:120]
+
 
 def collect_active_tasks(root: Path) -> dict[str, Any]:
     candidates = []
     for p in find_files(root, "ACTIVE_TASKS.json", 30):
-        candidates.append({
-            "path": str(p),
-            "relative_path": safe_rel(p, root),
-            "mtime_utc": mtime_iso(p),
-            "data": read_json(p),
-        })
+        candidates.append(
+            {
+                "path": str(p),
+                "relative_path": safe_rel(p, root),
+                "mtime_utc": mtime_iso(p),
+                "data": read_json(p),
+            }
+        )
     return {"candidates": candidates[:10]}
 
-def infer_last_verified_point(receipts: list[dict[str, Any]], packs: dict[str, Any]) -> dict[str, Any]:
+
+def infer_last_verified_point(
+    receipts: list[dict[str, Any]], packs: dict[str, Any], git_truth: dict[str, Any]
+) -> dict[str, Any]:
     latest_receipt = receipts[0] if receipts else None
     return {
         "latest_finalized_artifact": latest_receipt,
@@ -249,16 +400,23 @@ def infer_last_verified_point(receipts: list[dict[str, Any]], packs: dict[str, A
         "owner_latest_decision": OWNER_LATEST_DECISION,
         "current_objective": CURRENT_OBJECTIVE,
         "next_atomic_step": NEXT_ATOMIC_STEP,
-        "resume_rule": "РќРѕРІС‹Р№ С‡Р°С‚ РґРѕР»Р¶РµРЅ РЅР°С‡РёРЅР°С‚СЊ СЃ START_HERE.md, Р·Р°С‚РµРј LAST_POINT_STATE.json, Р·Р°С‚РµРј NEXT_ATOMIC_STEP.md. Р•СЃР»Рё СЌС‚РѕРіРѕ РЅРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ вЂ” pack СЃС‡РёС‚Р°РµС‚СЃСЏ СЃР»Р°Р±С‹Рј.",
+        "resume_rule": (
+            "A new chat must read START_HERE.md, then LAST_POINT_STATE.json, then NEXT_ATOMIC_STEP.md. "
+            "If this is insufficient to continue exactly, the pack is weak."
+        ),
+        "git_truth": git_truth,
     }
+
 
 def write_json(path: Path, data: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
 
+
 def write_text(path: Path, text: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(text, encoding="utf-8")
+
 
 def md_path_list(items: list[dict[str, Any]], title: str, max_items: int = 20) -> str:
     lines = [f"# {title}", ""]
@@ -266,13 +424,31 @@ def md_path_list(items: list[dict[str, Any]], title: str, max_items: int = 20) -
         lines.append("- none found")
         return "\n".join(lines) + "\n"
     for i, item in enumerate(items[:max_items], 1):
-        label = item.get("task_id") or item.get("verdict") or item.get("status") or item.get("relative_path") or item.get("path")
+        label = (
+            item.get("task_id")
+            or item.get("verdict")
+            or item.get("status")
+            or item.get("relative_path")
+            or item.get("path")
+        )
         lines.append(f"{i}. `{label}`")
         for key in ["verdict", "status", "finalization_time", "mtime_utc", "relative_path", "path", "final_zip_sha256"]:
             val = item.get(key)
             if val:
                 lines.append(f"   - {key}: `{val}`")
     return "\n".join(lines) + "\n"
+
+
+def route_truth_view(route_truth: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "schema_version": route_truth.get("schema_version"),
+        "source_path": route_truth.get("_source_path"),
+        "source_exists": route_truth.get("_source_exists"),
+        "repository": route_truth.get("repository"),
+        "paths": route_truth.get("paths"),
+        "vm2_ssh": route_truth.get("vm2_ssh"),
+    }
+
 
 def build_pack(root: Path) -> dict[str, Any]:
     ts = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -285,13 +461,16 @@ def build_pack(root: Path) -> dict[str, Any]:
     artifact_root.mkdir(parents=True, exist_ok=True)
     package_dir.mkdir(parents=True, exist_ok=True)
 
+    route_truth = load_route_truth(root)
+    git_truth = collect_git_truth(root, route_truth)
+
     receipts = collect_finalization_receipts(root)
     packs = collect_latest_packs(root)
     dashboards = collect_dashboards(root)
     organ_status = collect_organ_status(root)
     reports = collect_key_reports(root)
     active_tasks = collect_active_tasks(root)
-    last_point = infer_last_verified_point(receipts, packs)
+    last_point = infer_last_verified_point(receipts, packs, git_truth)
 
     state = {
         "schema_version": SCHEMA,
@@ -302,6 +481,8 @@ def build_pack(root: Path) -> dict[str, Any]:
         "classification": "RESUME_CONTINUITY_NOT_GENERAL_SUMMARY",
         "owner_latest_decision": OWNER_LATEST_DECISION,
         "current_objective": CURRENT_OBJECTIVE,
+        "route_truth": route_truth_view(route_truth),
+        "git_truth": git_truth,
         "last_verified_point": last_point,
         "packs": packs,
         "latest_finalization_receipts": receipts[:40],
@@ -326,10 +507,24 @@ def build_pack(root: Path) -> dict[str, Any]:
     latest_label = latest.get("task_id") or latest.get("relative_path") or "UNKNOWN"
     latest_verdict = latest.get("verdict") or "UNKNOWN"
 
-    start_here = f"""# START HERE вЂ” Resume Continuity Pack v0.2
+    paths_info = route_truth.get("paths") if isinstance(route_truth.get("paths"), dict) else {}
+    ssh_info = route_truth.get("vm2_ssh") if isinstance(route_truth.get("vm2_ssh"), dict) else {}
 
-This pack is NOT a general story of the system.  
-It exists so a new chat can continue from the last working point without irritating re-discovery.
+    start_here = f"""# START HERE - Resume Continuity Pack v0.2
+
+This pack is not a general story of the system.
+It exists so a new chat can continue from the last working point without re-discovery.
+
+## Canonical Routes
+- PC repo root: `{paths_info.get('pc_repo_root', 'E:\\\\IMPERIUM')}`
+- VM2 repo root: `{paths_info.get('vm2_repo_root', '/home/vboxuser2/IMPERIUM_WORK/Imperium-')}`
+- VM2 SSH: `{ssh_info.get('user_host', 'vboxuser2@127.0.0.1')} -p {ssh_info.get('port', 2223)} -i {ssh_info.get('key_path_powershell', '$env:USERPROFILE\\\\.ssh\\\\imperium_pc_to_vm2_ed25519_20260418')}`
+
+## Git Truth
+- head_sha: `{git_truth.get('head_sha') or 'UNAVAILABLE'}`
+- commit_count: `{git_truth.get('commit_count') if git_truth.get('commit_count') is not None else 'UNAVAILABLE'}`
+- latest_commit_oneline: `{git_truth.get('latest_commit_oneline') or 'UNAVAILABLE'}`
+- tree_url: `{git_truth.get('tree_url') or 'UNAVAILABLE'}`
 
 ## Current Objective
 {CURRENT_OBJECTIVE}
@@ -345,7 +540,7 @@ It exists so a new chat can continue from the last working point without irritat
 - final_zip_sha256: `{latest.get('final_zip_sha256') or 'UNKNOWN'}`
 
 ## Current Development Point
-Administratum continuity is being upgraded from weak/bootstrap handoff to exact resume handoff.  
+Administratum continuity is being upgraded from weak/bootstrap handoff to exact resume handoff.
 The key requirement is: `START_HERE.md + LAST_POINT_STATE.json + NEXT_ATOMIC_STEP.md + evidence ledger` must be enough to resume.
 
 ## Next Atomic Step
@@ -371,17 +566,17 @@ The key requirement is: `START_HERE.md + LAST_POINT_STATE.json + NEXT_ATOMIC_STE
 {OWNER_LATEST_DECISION}
 
 ## Meaning
-The previous idea вЂ” two modes, light semantic and developer technical вЂ” is not enough.  
-The actual failure is that continuity does not preserve the exact last working point cleanly.
+The earlier idea of weak split modes is not enough.
+The real failure is continuity that cannot preserve the exact last working point cleanly.
 
 ## New Direction
-Administratum v0.2 must make one strong resume-first pack.  
+Administratum v0.2 must produce one strong resume-first pack.
 Mode separation can come later only after resume quality is fixed.
 
 ## Current Manual Patch
 - task_id: `{TASK_ID}`
-- created by: manual PowerShell patch
-- action: install `administratum_build_resume_continuity_pack_v0_2.py`, Dashboard v0.2 button, registry, receipt
+- action: install `administratum_build_resume_continuity_pack_v0_2.py`, dashboard button, registry, receipt
+- route truth source: `{route_truth.get('_source_path')}`
 """
 
     next_step_md = f"""# NEXT ATOMIC STEP
@@ -390,13 +585,13 @@ Mode separation can come later only after resume quality is fixed.
 
 ## Acceptance Check
 - Fresh `RESUME_CONTINUITY_PACK_*` exists.
-- `START_HERE.md` states the latest Owner correction.
-- `LAST_POINT_STATE.json` contains latest artifact receipts and exact current objective.
+- `START_HERE.md` contains canonical routes and exact git truth.
+- `LAST_POINT_STATE.json` includes `route_truth` and `git_truth`.
 - `EVIDENCE_INDEX.md` lists real paths, not vague references.
 - `DO_NOT_DO.md` blocks fake green/canon/latest guessing.
 
 ## After Passing
-Then continue to the next organ, preferably `Officio Agentis v0.1`, because role contracts are the next hard blocker.
+Continue to the next organ only after human review confirms the resume payload is sufficient.
 """
 
     open_blockers = """# OPEN BLOCKERS
@@ -410,7 +605,7 @@ Then continue to the next organ, preferably `Officio Agentis v0.1`, because role
 
     do_not_do_md = "# DO NOT DO\n\n" + "".join(f"- {x}\n" for x in DO_NOT_DO)
 
-    evidence_md = md_path_list(receipts[:30], "EVIDENCE INDEX вЂ” FINALIZATION RECEIPTS", 30)
+    evidence_md = md_path_list(receipts[:30], "EVIDENCE INDEX - FINALIZATION RECEIPTS", 30)
     reports_md = md_path_list(reports[:30], "KEY REPORTS", 30)
     artifacts_md = md_path_list(receipts[:40], "ARTIFACTS LEDGER", 40)
 
@@ -426,8 +621,8 @@ Then continue to the next organ, preferably `Officio Agentis v0.1`, because role
         blockers = item.get("blockers") or []
         if blockers:
             organ_md_lines.append("- blockers:")
-            for b in blockers:
-                organ_md_lines.append(f"  - {b}")
+            for blocker in blockers:
+                organ_md_lines.append(f"  - {blocker}")
         organ_md_lines.append("")
     organ_md = "\n".join(organ_md_lines) + "\n"
 
@@ -437,15 +632,16 @@ Then continue to the next organ, preferably `Officio Agentis v0.1`, because role
 Administratum is being upgraded to resume-first continuity v0.2.
 
 ## What Was Wrong
-The earlier pack could describe the system and developer surfaces, but did not reliably let the next chat continue exactly from the last point.
+The earlier pack described the system but did not reliably let the next chat continue from the exact last point.
 
 ## What This Patch Adds
+- Canonical route truth (PC root, VM2 root, SSH route).
+- Exact git truth (`head_sha`, `commit_count`, `latest_commit_oneline`, `tree_url`).
 - `START_HERE.md` as mandatory first file.
 - `LAST_POINT_STATE.json` as machine-readable truth snapshot.
 - `OWNER_DECISION_LOG.md` to preserve course corrections.
 - `NEXT_ATOMIC_STEP.md` to remove ambiguity.
 - Evidence and artifact ledgers.
-- Dashboard v0.2 button for Resume Continuity Pack.
 
 ## What Remains Next
 After this pack passes human review: formalize `Officio Agentis v0.1`.
@@ -461,6 +657,8 @@ After this pack passes human review: formalize `Officio Agentis v0.1`.
             "has_next_atomic_step": True,
             "has_evidence_ledger": len(receipts) > 0,
             "has_do_not_do": True,
+            "has_route_truth": True,
+            "has_git_truth_with_tree_url": bool(git_truth.get("tree_url")),
             "not_general_summary_only": True,
             "explicitly_blocks_fake_green": True,
         },
@@ -488,7 +686,14 @@ After this pack passes human review: formalize `Officio Agentis v0.1`.
     write_json(pack_dir / "DASHBOARDS.json", dashboards)
     write_text(pack_dir / "DASHBOARDS.md", md_path_list(dashboards, "DASHBOARDS", 40))
     write_json(pack_dir / "PACK_QUALITY_GATE.json", quality)
-    write_text(pack_dir / "PACK_QUALITY_GATE.md", f"# PACK QUALITY GATE\n\n- verdict: `{quality['verdict']}`\n- meaning: resume-first continuity built, but no canon/green claim.\n")
+    write_text(
+        pack_dir / "PACK_QUALITY_GATE.md",
+        (
+            "# PACK QUALITY GATE\n\n"
+            f"- verdict: `{quality['verdict']}`\n"
+            "- meaning: resume-first continuity built, but no canon/green claim.\n"
+        ),
+    )
 
     receipt = {
         "schema_version": "RESUME_CONTINUITY_BUILD_RECEIPT_V0_2",
@@ -500,20 +705,23 @@ After this pack passes human review: formalize `Officio Agentis v0.1`.
         "owner_latest_decision_captured": True,
         "start_here_path": str(pack_dir / "START_HERE.md"),
         "last_point_state_path": str(pack_dir / "LAST_POINT_STATE.json"),
+        "git_truth": git_truth,
         "limitations": quality["limitations"],
     }
     write_json(pack_dir / "BUILD_RECEIPT.json", receipt)
 
-    # Manifest and hashes.
     file_entries = []
     for p in sorted([x for x in pack_dir.rglob("*") if x.is_file()]):
         if p.name in {"MANIFEST.json", "SHA256SUMS.txt"}:
             continue
-        file_entries.append({
-            "relative_path": safe_rel(p, pack_dir),
-            "size_bytes": p.stat().st_size,
-            "sha256": sha256_file(p),
-        })
+        file_entries.append(
+            {
+                "relative_path": safe_rel(p, pack_dir),
+                "size_bytes": p.stat().st_size,
+                "sha256": sha256_file(p),
+            }
+        )
+
     manifest = {
         "schema_version": "RESUME_CONTINUITY_MANIFEST_V0_2",
         "task_id": TASK_ID,
@@ -525,7 +733,6 @@ After this pack passes human review: formalize `Officio Agentis v0.1`.
     sha_lines = [f"{e['sha256']}  {e['relative_path']}" for e in file_entries]
     write_text(pack_dir / "SHA256SUMS.txt", "\n".join(sha_lines) + "\n")
 
-    # Copy receipt to artifact area and create external finalization receipt + zip.
     write_json(artifact_root / "06_RESUME_PACK_REFERENCE.json", receipt)
     zip_path = package_dir / f"{TASK_ID}.zip"
     with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as z:
@@ -548,6 +755,7 @@ After this pack passes human review: formalize `Officio Agentis v0.1`.
         "pack_manifest_sha256": sha256_file(pack_dir / "MANIFEST.json"),
         "sha256sums_path": str(pack_dir / "SHA256SUMS.txt"),
         "sha256sums_sha256": sha256_file(pack_dir / "SHA256SUMS.txt"),
+        "git_truth": git_truth,
         "finalization_time": utc_now(),
         "verdict": quality["verdict"],
         "self_reference_policy": "zip and sidecar excluded from internal pack manifest/hash payload",
@@ -561,14 +769,17 @@ After this pack passes human review: formalize `Officio Agentis v0.1`.
         "start_here": str(pack_dir / "START_HERE.md"),
         "final_zip_path": str(zip_path),
         "final_zip_sha256": finalization["final_zip_sha256"],
+        "git_truth": git_truth,
         "verdict": quality["verdict"],
     }
 
+
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--root", default=os.environ.get("IMPERIUM_ROOT", r"E:\IMPERIUM"))
+    parser.add_argument("--root", default=os.environ.get("IMPERIUM_ROOT") or str(detect_repo_root()))
     parser.add_argument("--json", action="store_true")
     args = parser.parse_args()
+
     try:
         result = build_pack(Path(args.root))
         if args.json:
@@ -577,14 +788,15 @@ def main() -> int:
             print("RESUME CONTINUITY PACK BUILT")
             print(json.dumps(result, ensure_ascii=False, indent=2))
         return 0
-    except Exception as e:
+    except Exception as exc:
         payload = {
             "ok": False,
-            "error": str(e),
+            "error": str(exc),
             "traceback": traceback.format_exc(),
         }
         print(json.dumps(payload, ensure_ascii=False, indent=2), file=sys.stderr)
         return 1
+
 
 if __name__ == "__main__":
     raise SystemExit(main())

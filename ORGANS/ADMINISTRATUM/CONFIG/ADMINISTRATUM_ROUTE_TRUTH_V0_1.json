@@ -1,0 +1,25 @@
+{
+  "schema_version": "ADMINISTRATUM_ROUTE_TRUTH_V0_1",
+  "updated_at_utc": "2026-05-12T00:00:00Z",
+  "task_id": "TASK-20260512-ADMINISTRATUM-ROUTING-UTF8-GIT-TRUTH-FIX-V0_1",
+  "repository": {
+    "owner": "SoulsLike2313",
+    "name": "Imperium-",
+    "remote_url": "https://github.com/SoulsLike2313/Imperium-",
+    "tree_url_template": "https://github.com/SoulsLike2313/Imperium-/tree/{head_sha}"
+  },
+  "paths": {
+    "pc_repo_root": "E:\\IMPERIUM",
+    "vm2_repo_root": "/home/vboxuser2/IMPERIUM_WORK/Imperium-"
+  },
+  "vm2_ssh": {
+    "user_host": "vboxuser2@127.0.0.1",
+    "port": 2223,
+    "key_path_powershell": "$env:USERPROFILE\\.ssh\\imperium_pc_to_vm2_ed25519_20260418",
+    "ssh_command_powershell": "ssh -i $env:USERPROFILE\\.ssh\\imperium_pc_to_vm2_ed25519_20260418 -p 2223 vboxuser2@127.0.0.1"
+  },
+  "dashboard": {
+    "launcher": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_3.ps1",
+    "local_url": "http://127.0.0.1:8792"
+  }
+}
