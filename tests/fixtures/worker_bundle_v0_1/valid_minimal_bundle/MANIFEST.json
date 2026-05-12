@@ -1,0 +1,56 @@
+{
+  "schema_version": "imperium.bundle_manifest.v0_1",
+  "bundle_id": "BUNDLE-FIXTURE-VALID-V0_1",
+  "task_id": "TASK-FIXTURE-VALID",
+  "stage_id": null,
+  "run_id": null,
+  "builder": {
+    "contour": "VM2",
+    "agent_role": "SERVITOR"
+  },
+  "created_at_utc": "2026-05-12T00:00:00Z",
+  "source_git_truth": {
+    "head": "6be6d19d63a019acffc27db6047e5df4f3f13335",
+    "origin_master": "6be6d19d63a019acffc27db6047e5df4f3f13335",
+    "commit_count": 48,
+    "latest_commit_oneline": "TASK-20260512: add general task registration contracts",
+    "tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/6be6d19d63a019acffc27db6047e5df4f3f13335"
+  },
+  "target_git_truth": null,
+  "route_truth_ref": "ORGANS/ADMINISTRATUM/CONFIG/ADMINISTRATUM_ROUTE_TRUTH_V0_1.json",
+  "repo_files": [
+    {
+      "path": "repo/fixtures/HELLO.txt",
+      "sha256": "7f658951c3d10c7fe25fb0451d22dd392af6b12f447a1f3e349dabaeebe6326f"
+    }
+  ],
+  "evidence_files": [
+    {
+      "path": "evidence/NOTE.txt",
+      "sha256": "14596278f2349ee05a6201c61903a0db71a2e5c92dfe3469794e15b1e733f0fd"
+    }
+  ],
+  "receipt_files": [
+    {
+      "path": "RECEIPT.json",
+      "sha256": "69d975c83739235ef70dfc0e0b6fa2b3c62a0e7583bebed8761e9418c988f39d"
+    }
+  ],
+  "sha256": {
+    "repo/fixtures/HELLO.txt": "7f658951c3d10c7fe25fb0451d22dd392af6b12f447a1f3e349dabaeebe6326f",
+    "evidence/NOTE.txt": "14596278f2349ee05a6201c61903a0db71a2e5c92dfe3469794e15b1e733f0fd",
+    "RECEIPT.json": "69d975c83739235ef70dfc0e0b6fa2b3c62a0e7583bebed8761e9418c988f39d",
+    "VERDICT.md": "c26de83abdc9496cd1301470918ec39ecca1cf389ef0ae1c6504da1800d1c431"
+  },
+  "scope": {
+    "allowed_paths": [
+      "repo/fixtures/"
+    ],
+    "forbidden_paths_touched": []
+  },
+  "checks": [
+    "fixture_minimal_self_check"
+  ],
+  "declared_verdict": "PASS",
+  "no_fake_green_statement": "Fixture declares PASS only for local structural testing."
+}

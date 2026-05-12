@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.git_truth.v0_1",
+  "title": "IMPERIUM Git Truth v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "repo_root",
+    "remote_url",
+    "local_head",
+    "origin_master_head",
+    "ls_remote_master_head",
+    "commit_count",
+    "latest_commit_oneline",
+    "tree_url",
+    "worktree_clean",
+    "checked_at_utc",
+    "verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.git_truth.v0_1"
+    },
+    "repo_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "remote_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "local_head": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "origin_master_head": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "ls_remote_master_head": {
+      "type": ["string", "null"]
+    },
+    "commit_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "latest_commit_oneline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tree_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "worktree_clean": {
+      "type": "boolean"
+    },
+    "checked_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_WARNINGS", "BLOCKED", "FAIL"]
+    }
+  },
+  "additionalProperties": true
+}

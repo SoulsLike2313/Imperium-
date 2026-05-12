@@ -20,6 +20,26 @@
       "schema_id": "imperium.agent_entrypoint_registry.v0_1",
       "path": "schemas/agent_entrypoint_registry.schema.json",
       "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.bundle_manifest.v0_1",
+      "path": "schemas/bundle_manifest.schema.json",
+      "kind": "bundle_manifest"
+    },
+    {
+      "schema_id": "imperium.receipt.v0_1",
+      "path": "schemas/receipt.schema.json",
+      "kind": "receipt"
+    },
+    {
+      "schema_id": "imperium.git_truth.v0_1",
+      "path": "schemas/git_truth.schema.json",
+      "kind": "truth"
+    },
+    {
+      "schema_id": "imperium.route_truth.v0_1",
+      "path": "schemas/route_truth.schema.json",
+      "kind": "truth"
     }
   ]
 }

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.route_truth.v0_1",
+  "title": "IMPERIUM Route Truth v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "pc_repo_root",
+    "vm2_repo_root",
+    "vm2_ssh",
+    "sync_direction",
+    "commit_authority",
+    "push_authority",
+    "updated_at_utc",
+    "verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.route_truth.v0_1"
+    },
+    "pc_repo_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vm2_repo_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "vm2_ssh": {
+      "type": "object",
+      "required": ["user_host", "port", "key_ref"],
+      "properties": {
+        "user_host": {
+          "type": "string",
+          "minLength": 1
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "key_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": true
+    },
+    "sync_direction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "commit_authority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "push_authority": {
+      "type": "string",
+      "minLength": 1
+    },
+    "updated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_WARNINGS", "BLOCKED", "FAIL"]
+    }
+  },
+  "additionalProperties": true
+}

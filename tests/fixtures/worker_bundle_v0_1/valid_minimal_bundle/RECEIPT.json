@@ -1,0 +1,24 @@
+{
+  "schema_version": "imperium.receipt.v0_1",
+  "receipt_id": "RECEIPT-FIXTURE-VALID-001",
+  "receipt_type": "worker_bundle_fixture",
+  "task_id": "TASK-FIXTURE-VALID",
+  "stage_id": null,
+  "run_id": null,
+  "issuer": "fixture",
+  "created_at_utc": "2026-05-12T00:00:00Z",
+  "command": null,
+  "inputs": [
+    "repo/fixtures/HELLO.txt"
+  ],
+  "outputs": [
+    "evidence/NOTE.txt"
+  ],
+  "verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "evidence/NOTE.txt"
+  ],
+  "git_truth_ref": null
+}
