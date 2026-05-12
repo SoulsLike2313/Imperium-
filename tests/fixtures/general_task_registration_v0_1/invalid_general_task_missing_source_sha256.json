@@ -1,0 +1,19 @@
+{
+  "schema_version": "imperium.general_task.v0_1",
+  "general_task_id": "GENERAL-TASK-EXAMPLE-V0_1",
+  "title": "Invalid Example General Task",
+  "source_file": "DOCS/example.md",
+  "git_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "tree_url": "https://github.com/example/repo/tree/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "blob_url": "https://github.com/example/repo/blob/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/DOCS/example.md",
+  "owner_decision_status": "APPROVED_AS_DIRECTION",
+  "registration_status": "REGISTERED_NOT_DECOMPOSED",
+  "decomposition_status": "PENDING_TASK_CANDIDATES",
+  "technical_review_inputs": [],
+  "task_candidate_status": "NOT_CREATED",
+  "created_at_utc": "2026-05-12T00:00:00Z",
+  "created_by": "TEST_FIXTURE",
+  "notes": [
+    "invalid"
+  ]
+}

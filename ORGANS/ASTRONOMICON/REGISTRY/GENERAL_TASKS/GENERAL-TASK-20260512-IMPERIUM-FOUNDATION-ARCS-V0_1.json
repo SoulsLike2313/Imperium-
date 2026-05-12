@@ -1,0 +1,83 @@
+{
+  "schema_version": "imperium.general_task.v0_1",
+  "general_task_id": "GENERAL-TASK-20260512-IMPERIUM-FOUNDATION-ARCS-V0_1",
+  "title": "IMPERIUM Foundation Arcs Execution Plan",
+  "source_file": "DOCS/OWNER_DOCTRINE/PLAN_REVIEWS/FIRST_12_STEPS_20260512/FIRST_12_STEPS_REFRAMED_FOUNDATION_ARCS_20260512.md",
+  "source_sha256": "91c13976d919a37f00133c76921416900eb88f343fa25cb0a8d272b4a14f12bd",
+  "git_head": "1603d09b60e4b305e8a431df3b7dd5cc53d6e534",
+  "tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/1603d09b60e4b305e8a431df3b7dd5cc53d6e534",
+  "blob_url": "https://github.com/SoulsLike2313/Imperium-/blob/1603d09b60e4b305e8a431df3b7dd5cc53d6e534/DOCS/OWNER_DOCTRINE/PLAN_REVIEWS/FIRST_12_STEPS_20260512/FIRST_12_STEPS_REFRAMED_FOUNDATION_ARCS_20260512.md",
+  "owner_decision_status": "APPROVED_AS_DIRECTION",
+  "registration_status": "REGISTERED_NOT_DECOMPOSED",
+  "decomposition_status": "PENDING_TASK_CANDIDATES",
+  "technical_review_inputs": [
+    {
+      "input_id": "TRI-20260512-KIRO-EXTERNAL-RESEARCH",
+      "source_type": "external_research_advisory",
+      "source_path": "DOCS/AUDITS/KIRO_EXTERNAL_RESEARCH_20260512/",
+      "source_git_ref": "1603d09b60e4b305e8a431df3b7dd5cc53d6e534",
+      "canonicality": "NON_CANON_UNTIL_RECONCILED",
+      "purpose": "Advisory research signal for planning refinements and risk surfacing.",
+      "status": "COLLECTED_NOT_RECONCILED",
+      "reviewer_role": "external_advisory_reviewer",
+      "used_for": [
+        "GENERAL_TASK",
+        "TASK_CANDIDATES",
+        "STAGE_REVIEW"
+      ]
+    },
+    {
+      "input_id": "TRI-20260512-KIRO-REALITY-MAP",
+      "source_type": "engineering_audit",
+      "source_path": "DOCS/AUDITS/KIRO_IMPERIUM_REALITY_MAP_20260512/",
+      "source_git_ref": "1603d09b60e4b305e8a431df3b7dd5cc53d6e534",
+      "canonicality": "ADVISORY_ONLY",
+      "purpose": "Reality baseline and gap map before decomposition contracts.",
+      "status": "COLLECTED_NOT_RECONCILED",
+      "reviewer_role": "audit_reviewer",
+      "used_for": [
+        "GENERAL_TASK",
+        "TASK_CANDIDATES"
+      ]
+    },
+    {
+      "input_id": "TRI-20260512-WARNING-FLOOD-PLAN",
+      "source_type": "implementation_risk_review",
+      "source_path": "DOCS/PLANS/WARNING_FLOOD_FIX_PLAN_V0_1.md",
+      "source_git_ref": "1603d09b60e4b305e8a431df3b7dd5cc53d6e534",
+      "canonicality": "ADVISORY_ONLY",
+      "purpose": "Known warning-debt and cleanup phasing constraints for task scoping.",
+      "status": "COLLECTED_NOT_RECONCILED",
+      "reviewer_role": "implementation_risk_reviewer",
+      "used_for": [
+        "TASK_CANDIDATES",
+        "STAGE_DECOMPOSITION"
+      ]
+    },
+    {
+      "input_id": "TRI-20260512-FOUNDATION-ARCS-PLAN-REVIEW-PACK",
+      "source_type": "owner_uploaded_reference",
+      "source_path": "DOCS/OWNER_DOCTRINE/PLAN_REVIEWS/FIRST_12_STEPS_20260512/",
+      "source_git_ref": "1603d09b60e4b305e8a431df3b7dd5cc53d6e534",
+      "canonicality": "OWNER_APPROVED_REFERENCE",
+      "purpose": "Owner-approved direction and associated plan-review context.",
+      "status": "COLLECTED_REFERENCE",
+      "reviewer_role": "owner_doctrine_reference",
+      "used_for": [
+        "GENERAL_TASK",
+        "TASK_CANDIDATES",
+        "READY_FOR_AGENT_GATE"
+      ]
+    }
+  ],
+  "task_candidate_status": "NOT_CREATED",
+  "created_at_utc": "2026-05-12T19:45:25.236789+00:00",
+  "created_by": "VM2_SERVITOR",
+  "notes": [
+    "This is the first registered GENERAL_TASK.",
+    "It is not decomposed yet.",
+    "It is not executed yet.",
+    "Some related plan items are already done before this full registration cycle and must later be marked explicitly at TASK level."
+  ],
+  "hard_red_team_review_uploaded_to_chat_pending_repo_import": true
+}

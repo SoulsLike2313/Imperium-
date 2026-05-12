@@ -1,0 +1,32 @@
+{
+  "schema_version": "imperium.general_task.v0_1",
+  "general_task_id": "GENERAL-TASK-EXAMPLE-V0_1",
+  "title": "Example General Task",
+  "source_file": "DOCS/example.md",
+  "source_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "git_head": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "tree_url": "https://github.com/example/repo/tree/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "blob_url": "https://github.com/example/repo/blob/bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/DOCS/example.md",
+  "owner_decision_status": "APPROVED_AS_DIRECTION",
+  "registration_status": "REGISTERED_NOT_DECOMPOSED",
+  "decomposition_status": "PENDING_TASK_CANDIDATES",
+  "technical_review_inputs": [
+    {
+      "input_id": "TRI-EXAMPLE-001",
+      "source_type": "engineering_audit",
+      "source_path": "DOCS/AUDITS/example.md",
+      "canonicality": "ADVISORY_ONLY",
+      "purpose": "Example advisory input",
+      "status": "COLLECTED_NOT_RECONCILED",
+      "used_for": [
+        "GENERAL_TASK"
+      ]
+    }
+  ],
+  "task_candidate_status": "NOT_CREATED",
+  "created_at_utc": "2026-05-12T00:00:00Z",
+  "created_by": "TEST_FIXTURE",
+  "notes": [
+    "example"
+  ]
+}

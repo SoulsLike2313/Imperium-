@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.technical_review_response.v0_1",
+  "title": "IMPERIUM Technical Review Response v0.1",
+  "type": "object",
+  "required": [
+    "response_id",
+    "target_type",
+    "target_id",
+    "reviewer_type",
+    "verdict",
+    "required_answers",
+    "scope_risks",
+    "missing_artifacts",
+    "dependency_violations",
+    "suggested_tightening",
+    "suggested_acceptance_criteria",
+    "suggested_stage_split",
+    "blockers",
+    "limited_free_advisory",
+    "machine_readable_recommendations",
+    "status"
+  ],
+  "properties": {
+    "response_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_type": {
+      "type": "string",
+      "enum": ["GENERAL_TASK", "TASK", "STAGE_MAP"]
+    },
+    "target_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reviewer_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verdict": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required_answers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scope_risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "missing_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependency_violations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suggested_tightening": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suggested_acceptance_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "suggested_stage_split": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "limited_free_advisory": {
+      "type": "string"
+    },
+    "machine_readable_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true
+}

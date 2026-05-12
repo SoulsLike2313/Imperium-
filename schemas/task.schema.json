@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.task.v0_1",
+  "title": "IMPERIUM Task v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "parent_general_task_id",
+    "title",
+    "purpose",
+    "status",
+    "completed_before_full_cycle",
+    "source_refs",
+    "technical_review_status",
+    "stage_decomposition_status",
+    "acceptance_criteria",
+    "allowed_paths",
+    "forbidden_paths",
+    "owner_gate_required"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.task.v0_1"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_general_task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "TASK_CANDIDATE",
+        "TASK_REVIEW_EXPORTED",
+        "TASK_REVIEWED",
+        "TASK_REFINED",
+        "READY_FOR_STAGE_DECOMPOSITION",
+        "STAGE_MAP_CREATED",
+        "STAGE_REVIEW_EXPORTED",
+        "STAGES_REFINED",
+        "REGISTERED_READY_FOR_AGENT",
+        "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+        "DONE_BEFORE_FULL_RED_TEAM_CYCLE",
+        "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+        "BLOCKED"
+      ]
+    },
+    "completed_before_full_cycle": {
+      "type": "boolean"
+    },
+    "historical_completion_status": {
+      "type": "string"
+    },
+    "source_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "technical_review_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage_decomposition_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "acceptance_criteria": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_gate_required": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

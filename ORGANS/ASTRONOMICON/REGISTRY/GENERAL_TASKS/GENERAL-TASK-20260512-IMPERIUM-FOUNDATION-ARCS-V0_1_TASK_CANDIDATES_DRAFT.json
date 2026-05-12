@@ -1,0 +1,150 @@
+{
+  "schema_version": "imperium.task_candidates_draft.v0_1",
+  "general_task_id": "GENERAL-TASK-20260512-IMPERIUM-FOUNDATION-ARCS-V0_1",
+  "status": "DRAFT_TASK_CANDIDATES_NOT_OWNER_APPROVED",
+  "created_at_utc": "2026-05-12T19:45:25.237095+00:00",
+  "created_by": "VM2_SERVITOR",
+  "notes": [
+    "Manual decomposition draft from foundation arcs plan.",
+    "Not a smart auto-decomposer output.",
+    "Requires technical review and Owner approval before conversion to executable task registry entries."
+  ],
+  "task_candidates": [
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-01-CONTRACT-SPINE",
+      "title": "Contract Spine / GeneralTask-Task-Stage-Run contracts",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Create formal contract schemas and baseline validators for task-stage-run model."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-02-BUNDLE-RECEIPT-PROVENANCE",
+      "title": "Bundle / Receipt / Provenance Spine",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Formalize bundle manifest, receipt, provenance and verification hooks."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-03-GIT-ROUTE-TRUTH-VALIDATORS",
+      "title": "Git/Route truth schemas and validators",
+      "status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "summary": "Route truth and git truth fixes exist; contract-level schema/validator backfill still needed."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-04-WARNING-ENCODING-STALE-BASELINE",
+      "title": "Warning / Encoding / Stale Baseline",
+      "status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "summary": "UTF-8 normalization and planning done; full warning/stale baseline contracts still pending."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-05-ADMINISTRATUM-TASK-REGISTRATION",
+      "title": "Administratum task registration/address packet",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Formal Administratum registration packet and memory update contract."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-06-OFFICIO-CORRIDOR-PACKET",
+      "title": "Officio agent corridor packet",
+      "status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "summary": "Servitor response contract exists; task-scoped corridor packet formalization still pending."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-07-ASTRONOMICON-REGISTRATION-STAGE-DRAFT",
+      "title": "Astronomicon general task registration and stage map draft",
+      "status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "PARTIALLY_DONE_NEEDS_CONTRACT_BACKFILL",
+      "summary": "Legacy Astronomicon task/stage artifacts exist; new canonical registration contract needed."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-08-FIRST-FOUR-ORGANS-WORK-PACKET",
+      "title": "First-four-organs work packet generator",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Build packet generator for Doctrinarium-Administratum-Officio-Astronomicon chain."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-09-FIRST-CONTRACT-BACKED-DRY-RUN",
+      "title": "First contract-backed dry run",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Run first verified cycle with bundle verification and receipt continuity."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-10-SANCTUM-MINIMAL-REAL-RECEIPT-INTEGRATION",
+      "title": "Sanctum minimal integration over real receipts/state",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Integrate HUD only with verified contract-backed state and staleness metadata."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-FOUNDATION-ARC-11-SANCTUM-SAFE-BUTTONS-MANUAL-E2E",
+      "title": "Sanctum safe buttons after repeated manual E2E",
+      "status": "TASK_CANDIDATE",
+      "completed_before_full_cycle": false,
+      "historical_completion_status": null,
+      "summary": "Enable safe UI actions only after repeated manual evidence-backed cycles."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-HISTORICAL-DOCTRINARIUM-PREFLIGHT-V0_1",
+      "title": "Historical completed: Doctrinarium preflight v0.1",
+      "status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "summary": "Implemented before full general-task registration/red-team cycle."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-HISTORICAL-ADMINISTRATUM-ROUTE-UTF8-GIT-TRUTH",
+      "title": "Historical completed: Administratum route / UTF-8 / Git truth fix",
+      "status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "summary": "Implemented before full registration cycle; requires contract back-links."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-HISTORICAL-KIRO-EXTERNAL-RESEARCH-PRESERVE",
+      "title": "Historical completed: Kiro external research preservation",
+      "status": "DONE_BEFORE_FULL_RED_TEAM_CYCLE",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "DONE_BEFORE_FULL_RED_TEAM_CYCLE",
+      "summary": "Advisory preservation done before full red-team registration chain."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-HISTORICAL-OFFICIO-SERVITOR-RESPONSE-CONTRACT",
+      "title": "Historical completed: Officio Servitor response contract",
+      "status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "summary": "Response contract created before this formal general-task contract cycle."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-HISTORICAL-FIRST-12-STEPS-UTF8-NORMALIZATION",
+      "title": "Historical completed: FIRST_12_STEPS UTF-8 normalization",
+      "status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "summary": "Operational plan-review files normalized before full contract cycle."
+    },
+    {
+      "task_id": "TASK-CANDIDATE-HISTORICAL-FOUNDATION-ARCS-PLAN-COMMIT",
+      "title": "Historical completed: Foundation arcs plan commit",
+      "status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "completed_before_full_cycle": true,
+      "historical_completion_status": "DONE_BEFORE_FULL_REGISTRATION_CYCLE",
+      "summary": "Direction commit already merged and synced before general-task registration contract."
+    }
+  ]
+}

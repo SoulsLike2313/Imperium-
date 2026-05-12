@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.run.v0_1",
+  "title": "IMPERIUM Stage Run v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "run_id",
+    "parent_task_id",
+    "parent_stage_id",
+    "contour",
+    "executor_role",
+    "git_truth_before",
+    "commands",
+    "materials",
+    "products",
+    "receipts",
+    "warnings",
+    "blockers",
+    "verdict",
+    "evidence_paths"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.run.v0_1"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contour": {
+      "type": "string",
+      "minLength": 1
+    },
+    "executor_role": {
+      "type": "string",
+      "minLength": 1
+    },
+    "git_truth_before": {
+      "type": "object",
+      "required": ["head", "origin_master", "commit_count"],
+      "properties": {
+        "head": { "type": "string" },
+        "origin_master": { "type": "string" },
+        "commit_count": { "type": ["integer", "string"] }
+      },
+      "additionalProperties": true
+    },
+    "git_truth_after": {
+      "type": "object"
+    },
+    "commands": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "DEGRADED",
+        "BLOCKED",
+        "FAIL"
+      ]
+    },
+    "evidence_paths": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

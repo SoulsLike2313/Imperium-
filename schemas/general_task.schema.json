@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.general_task.v0_1",
+  "title": "IMPERIUM General Task v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "general_task_id",
+    "title",
+    "source_file",
+    "source_sha256",
+    "git_head",
+    "tree_url",
+    "blob_url",
+    "owner_decision_status",
+    "registration_status",
+    "decomposition_status",
+    "technical_review_inputs",
+    "task_candidate_status",
+    "created_at_utc",
+    "created_by",
+    "notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.general_task.v0_1"
+    },
+    "general_task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_file": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "git_head": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "tree_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "blob_url": {
+      "type": "string",
+      "minLength": 1
+    },
+    "owner_decision_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registration_status": {
+      "type": "string",
+      "enum": [
+        "REGISTERED_NOT_DECOMPOSED",
+        "DECOMPOSED_TO_TASK_CANDIDATES",
+        "UNDER_REVIEW",
+        "REFINED",
+        "BLOCKED",
+        "ARCHIVED"
+      ]
+    },
+    "decomposition_status": {
+      "type": "string",
+      "enum": [
+        "PENDING_TASK_CANDIDATES",
+        "TASK_CANDIDATES_CREATED",
+        "TASK_REVIEW_PACK_EXPORTED",
+        "TASKS_REFINED",
+        "STAGE_DECOMPOSITION_READY",
+        "BLOCKED"
+      ]
+    },
+    "technical_review_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "technical_review_input.schema.json"
+      }
+    },
+    "task_candidate_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "created_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "hard_red_team_review_uploaded_to_chat_pending_repo_import": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}
