@@ -1,0 +1,42 @@
+{
+  "schema_version": "imperium.script_registry.v0_1",
+  "updated_at_utc": "2026-05-12T20:57:45.297906+00:00",
+  "generated_by": "fixture",
+  "scripts": [
+    {
+      "script_id": "SCRIPT-FIXTURE-DANGEROUS",
+      "path": "AGENTS.md",
+      "name": "fixture_danger",
+      "owner_organ": "MECHANICUS",
+      "purpose": "Invalid dangerous fixture",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 dangerous.py",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [],
+      "writes": [
+        "REGISTRY/"
+      ],
+      "side_effects": [
+        "DESTRUCTIVE"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": true,
+      "known_dependencies": [],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "python3 dangerous.py",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "imperium.arsenal_tool_index.v0_1",
+  "updated_at_utc": "2026-05-12T20:57:45.297906+00:00",
+  "generated_by": "fixture",
+  "tools": [
+    {
+      "tool_id": "TOOL-FIXTURE",
+      "name": "fixture-tool",
+      "category": "CLI_SEARCH",
+      "platform": "CROSS_PLATFORM",
+      "tool_type": "cli",
+      "purpose_for_imperium": "Fixture purpose",
+      "owner_use_case": "Fixture owner use",
+      "servitor_use_case": "Fixture servitor use",
+      "installation_method": "manual",
+      "license_cost": "FREE_OPEN_SOURCE",
+      "offline_capability": "YES",
+      "privacy_risk": "LOW",
+      "security_risk": "LOW",
+      "resource_cost": "LOW",
+      "complexity": "LOW",
+      "maturity": "HIGH",
+      "dependency_weight": "LOW",
+      "recommended_phase": "P0_REGISTER_NOW",
+      "install_now": "no",
+      "why_now_or_later": "Fixture reason",
+      "alternatives": [],
+      "official_url": null,
+      "docs_url": null,
+      "notes": "fixture",
+      "status": "RECOMMENDED_NOT_APPROVED"
+    }
+  ]
+}

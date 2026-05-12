@@ -1,0 +1,45 @@
+{
+  "schema_version": "imperium.script_registry.v0_1",
+  "updated_at_utc": "2026-05-12T20:57:45.297906+00:00",
+  "generated_by": "fixture",
+  "scripts": [
+    {
+      "script_id": "SCRIPT-FIXTURE-READONLY",
+      "path": "AGENTS.md",
+      "name": "fixture_readonly",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Fixture readonly entry",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 -c \"print(1)\"",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "AGENTS.md"
+      ],
+      "writes": [],
+      "side_effects": [
+        "SAFE_READONLY"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "python3 -c \"print(1)\"",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    }
+  ]
+}

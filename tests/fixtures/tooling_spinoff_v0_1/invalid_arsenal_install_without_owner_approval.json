@@ -1,0 +1,16 @@
+{
+  "schema_version": "imperium.arsenal_install_status.v0_1",
+  "checked_at_utc": "2026-05-12T20:57:45.297906+00:00",
+  "checked_on_contour": "VM2",
+  "installations": [
+    {
+      "tool_id": "TOOL-FIXTURE",
+      "name": "fixture-tool",
+      "status": "OWNER_APPROVED",
+      "command_used": "fixture --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "invalid fixture for owner approval mismatch"
+    }
+  ]
+}

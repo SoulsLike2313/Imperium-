@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.arsenal_tool.v0_1",
+  "title": "IMPERIUM Arsenal Tool Registry v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "updated_at_utc",
+    "generated_by",
+    "tools"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.arsenal_tool_index.v0_1"
+    },
+    "updated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generated_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tools": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "tool_id",
+          "name",
+          "category",
+          "platform",
+          "tool_type",
+          "purpose_for_imperium",
+          "owner_use_case",
+          "servitor_use_case",
+          "installation_method",
+          "license_cost",
+          "offline_capability",
+          "privacy_risk",
+          "security_risk",
+          "resource_cost",
+          "complexity",
+          "maturity",
+          "dependency_weight",
+          "recommended_phase",
+          "install_now",
+          "why_now_or_later",
+          "alternatives",
+          "official_url",
+          "docs_url",
+          "notes",
+          "status"
+        ],
+        "properties": {
+          "tool_id": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "category": {"type": "string", "minLength": 1},
+          "platform": {
+            "type": "string",
+            "enum": ["CROSS_PLATFORM", "WINDOWS_ONLY", "UBUNTU_ONLY"]
+          },
+          "tool_type": {"type": "string", "minLength": 1},
+          "purpose_for_imperium": {"type": "string", "minLength": 1},
+          "owner_use_case": {"type": "string", "minLength": 1},
+          "servitor_use_case": {"type": "string", "minLength": 1},
+          "installation_method": {"type": "string", "minLength": 1},
+          "license_cost": {"type": "string", "minLength": 1},
+          "offline_capability": {"type": "string", "minLength": 1},
+          "privacy_risk": {"type": "string", "minLength": 1},
+          "security_risk": {"type": "string", "minLength": 1},
+          "resource_cost": {"type": "string", "minLength": 1},
+          "complexity": {"type": "string", "minLength": 1},
+          "maturity": {"type": "string", "minLength": 1},
+          "dependency_weight": {"type": "string", "minLength": 1},
+          "recommended_phase": {
+            "type": "string",
+            "enum": [
+              "P0_REGISTER_NOW",
+              "P0_CONSIDER_INSTALL_SOON",
+              "P1_AFTER_ARC_2_3",
+              "P2_FUTURE",
+              "P3_AVOID_FOR_NOW"
+            ]
+          },
+          "install_now": {
+            "type": "string",
+            "enum": ["yes", "no", "maybe"]
+          },
+          "why_now_or_later": {"type": "string", "minLength": 1},
+          "alternatives": {"type": "array", "items": {"type": "string"}},
+          "official_url": {"type": ["string", "null"]},
+          "docs_url": {"type": ["string", "null"]},
+          "notes": {"type": "string"},
+          "status": {
+            "type": "string",
+            "enum": [
+              "AVAILABLE_CONFIRMED",
+              "NOT_INSTALLED",
+              "UNKNOWN",
+              "RECOMMENDED_NOT_APPROVED",
+              "OWNER_APPROVED",
+              "BLOCKED",
+              "DEPRECATED",
+              "NEEDS_SOURCE_VERIFICATION"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

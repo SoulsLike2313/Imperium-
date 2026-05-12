@@ -1,0 +1,228 @@
+{
+  "schema_version": "imperium.arsenal_install_status.v0_1",
+  "checked_at_utc": "2026-05-12T20:57:45.297906+00:00",
+  "checked_on_contour": "VM2",
+  "git_head": "506209385a51e9ac89e32886fd62b6733b04256b",
+  "installations": [
+    {
+      "tool_id": "TOOL-PYTHON3",
+      "name": "python3",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "python3 --version",
+      "detected_path": "/usr/bin/python3",
+      "version_output": "Python 3.12.3",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-GIT",
+      "name": "git",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "git --version",
+      "detected_path": "/usr/bin/git",
+      "version_output": "git version 2.43.0",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-BASH",
+      "name": "bash",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "bash --version",
+      "detected_path": "/usr/bin/bash",
+      "version_output": "GNU bash, version 5.2.21(1)-release (x86_64-pc-linux-gnu)",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-OPENSSH",
+      "name": "ssh",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "ssh --version",
+      "detected_path": "/usr/bin/ssh",
+      "version_output": "unknown option -- -",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-ZIP",
+      "name": "zip",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "zip --version",
+      "detected_path": "/usr/bin/zip",
+      "version_output": "Copyright (c) 1990-2008 Info-ZIP - Type 'zip \"-L\"' for software license.",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-UNZIP",
+      "name": "unzip",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "unzip --version",
+      "detected_path": "/usr/bin/unzip",
+      "version_output": "caution:  both -n and -o specified; ignoring -o",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-SHA256SUM",
+      "name": "sha256sum",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "sha256sum --version",
+      "detected_path": "/usr/bin/sha256sum",
+      "version_output": "sha256sum (GNU coreutils) 9.4",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-JQ",
+      "name": "jq",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "jq --version",
+      "detected_path": "/usr/bin/jq",
+      "version_output": "jq-1.7",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-RIPGREP",
+      "name": "ripgrep",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "rg --version",
+      "detected_path": "/home/vboxuser2/.vscode/extensions/openai.chatgpt-26.506.31421-linux-x64/bin/linux-x86_64/rg",
+      "version_output": "ripgrep 15.1.0 (rev af60c2de9d)",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-FD",
+      "name": "fd",
+      "status": "NOT_INSTALLED",
+      "command_used": "fd --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-BAT",
+      "name": "bat",
+      "status": "NOT_INSTALLED",
+      "command_used": "bat --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-GITLEAKS",
+      "name": "gitleaks",
+      "status": "NOT_INSTALLED",
+      "command_used": "gitleaks --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-P7ZIP",
+      "name": "7z",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "7z --version",
+      "detected_path": "/usr/bin/7z",
+      "version_output": "Command Line Error:",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-JSONSCHEMA",
+      "name": "jsonschema",
+      "status": "AVAILABLE_CONFIRMED",
+      "command_used": "jsonschema --version",
+      "detected_path": "/usr/bin/jsonschema",
+      "version_output": "4.10.3",
+      "notes": "Detected in PATH on VM2."
+    },
+    {
+      "tool_id": "TOOL-CHECK-JSONSCHEMA",
+      "name": "check-jsonschema",
+      "status": "NOT_INSTALLED",
+      "command_used": "check-jsonschema --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-DIFFTASTIC",
+      "name": "difftastic",
+      "status": "NOT_INSTALLED",
+      "command_used": "difft --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-GITHUB-CLI",
+      "name": "GitHub CLI",
+      "status": "NOT_INSTALLED",
+      "command_used": "gh --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-SQLITE",
+      "name": "SQLite",
+      "status": "NOT_INSTALLED",
+      "command_used": "sqlite3 --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-POWERSHELL7",
+      "name": "PowerShell 7",
+      "status": "NOT_INSTALLED",
+      "command_used": "pwsh --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-GRAPHVIZ",
+      "name": "Graphviz",
+      "status": "NOT_INSTALLED",
+      "command_used": "dot --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-MERMAID",
+      "name": "Mermaid CLI",
+      "status": "NOT_INSTALLED",
+      "command_used": "mmdc --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-MARKDOWNLINT",
+      "name": "markdownlint",
+      "status": "NOT_INSTALLED",
+      "command_used": "markdownlint --version",
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Command not found in VM2 PATH."
+    },
+    {
+      "tool_id": "TOOL-7ZIP",
+      "name": "7-Zip",
+      "status": "UNKNOWN",
+      "command_used": null,
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Windows-only capability cannot be confirmed from VM2 contour."
+    },
+    {
+      "tool_id": "TOOL-GIT-BASH",
+      "name": "Git Bash",
+      "status": "UNKNOWN",
+      "command_used": null,
+      "detected_path": null,
+      "version_output": null,
+      "notes": "Windows-only capability cannot be confirmed from VM2 contour."
+    }
+  ],
+  "notes": [
+    "No tools were installed by this task.",
+    "Windows-only tool availability remains UNKNOWN from VM2 unless repo evidence states otherwise."
+  ]
+}

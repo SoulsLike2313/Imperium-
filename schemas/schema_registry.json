@@ -40,6 +40,16 @@
       "schema_id": "imperium.route_truth.v0_1",
       "path": "schemas/route_truth.schema.json",
       "kind": "truth"
+    },
+    {
+      "schema_id": "imperium.script_registry.v0_1",
+      "path": "schemas/script_registry.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.arsenal_tool_index.v0_1",
+      "path": "schemas/arsenal_tool.schema.json",
+      "kind": "registry"
     }
   ]
 }

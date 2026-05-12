@@ -1,239 +1,721 @@
 {
-  "schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
-  "generated_at": "2026-05-11T17:33:00.9467018+03:00",
-  "coverage": "scaffold_partial",
+  "schema_version": "imperium.script_registry.v0_1",
+  "updated_at_utc": "2026-05-12T20:57:45.297906+00:00",
+  "generated_by": "TASK-20260512-TOOLING-SPINOFF-SCRIPTORIUM-ARSENAL-REGISTRATION-V0_1",
+  "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
+  "notes": [
+    "SCRIPTORIUM is support layer and not a new canon organ by default.",
+    "Statuses are conservative; VERIFIED requires explicit recent evidence."
+  ],
   "scripts": [
     {
       "script_id": "SCRIPT-ADMINISTRATUM-ANALYZE-GIT-LOCAL-CONTEXT-V0_1",
       "path": "TOOLS/administratum_analyze_git_local_context.ps1",
-      "owner": "ADMINISTRATUM",
+      "name": "administratum_analyze_git_local_context.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
       "purpose": "analyze git/local context and emit runtime reports",
-      "inputs": [
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/administratum_analyze_git_local_context.ps1",
+      "required_args": [
         "repo state",
         "target mode"
       ],
-      "outputs": [
-        ".imperium_runtime/administratum_analyzer/latest/*"
-      ],
-      "reads_from": [
+      "optional_args": [],
+      "reads": [
         "git",
         "DOCS",
         "CURRENT_STATE"
       ],
-      "writes_to": [
+      "writes": [
         ".imperium_runtime/administratum_analyzer/latest"
       ],
-      "destructive": false,
-      "safe_to_run": true,
-      "receipt_behavior": "runtime analyzer receipts",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/administratum_analyze_git_local_context.ps1",
-      "dependencies": [
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
         "git"
-      ]
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/administratum_analyze_git_local_context.ps1",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
     },
     {
       "script_id": "SCRIPT-ADMINISTRATUM-BUILD-CHAT-COMPILATION-V0_1",
       "path": "TOOLS/build_chat_compilation_from_analysis.ps1",
-      "owner": "ADMINISTRATUM",
+      "name": "build_chat_compilation_from_analysis.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
       "purpose": "build local context bundle from analyzer output",
-      "inputs": [
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/build_chat_compilation_from_analysis.ps1",
+      "required_args": [
         "runtime analyzer outputs"
       ],
-      "outputs": [
-        ".imperium_runtime/bundles/*.zip",
-        ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json"
-      ],
-      "reads_from": [
+      "optional_args": [],
+      "reads": [
         ".imperium_runtime/administratum_analyzer/latest",
         "repo root"
       ],
-      "writes_to": [
+      "writes": [
         ".imperium_runtime/bundles",
         ".imperium_runtime/administratum_analyzer/latest"
       ],
-      "destructive": false,
-      "safe_to_run": true,
-      "receipt_behavior": "post-build runtime receipt with final hash/size",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/build_chat_compilation_from_analysis.ps1",
-      "dependencies": [
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/administratum_analyzer/latest/LATEST_CONTEXT_BUNDLE_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
         "git",
         "Compress-Archive"
-      ]
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/build_chat_compilation_from_analysis.ps1",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
     },
     {
-      "script_id": "SCRIPT-ASTRONOMICON-SYNTHETIC-FULL-RUN-V0_1",
-      "path": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
-      "owner": "ASTRONOMICON",
-      "purpose": "synthetic planning pipeline run",
-      "inputs": [
-        "task templates"
+      "script_id": "SCRIPT-ADMINISTRATUM-GIT-CLI-CHECK-PS1-V0_1",
+      "path": "TOOLS/RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1",
+      "name": "RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Run Administratum Git CLI truth check on PC/Windows.",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "git state",
+        "TOOLS/administratum_git_cli_check_v0_1.py"
       ],
-      "outputs": [
-        "ARTIFACTS/TASK-20260511-ASTRONOMICON-DASHBOARD-V0_6-V0_7-FULL-TASK-PIPELINE-AND-STRESS-RUN/*"
+      "writes": [
+        ".imperium_runtime/administratum/git_cli_check/*"
       ],
-      "reads_from": [
-        "TOOLS/astronomicon_*"
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
       ],
-      "writes_to": [
-        "ARTIFACTS/*"
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RECEIPT.json"
       ],
-      "destructive": false,
-      "safe_to_run": true,
-      "receipt_behavior": "task artifact receipts",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
-      "dependencies": [
-        "PowerShell"
-      ]
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "powershell",
+        "python",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1",
+      "verification_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1",
+      "last_verified_at": null,
+      "status": "REGISTERED"
     },
     {
-      "script_id": "SCRIPT-REGISTRY-COVERAGE-GAP",
-      "path": "UNKNOWN",
-      "owner": "UNKNOWN",
-      "purpose": "not yet indexed scripts placeholder",
-      "inputs": [
-        "UNKNOWN"
+      "script_id": "SCRIPT-ADMINISTRATUM-GIT-CLI-CHECK-SH-V0_1",
+      "path": "TOOLS/run_administratum_git_cli_check.sh",
+      "name": "run_administratum_git_cli_check.sh",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Run Administratum Git CLI truth check on Linux/VM2.",
+      "platform": "UBUNTU_ONLY",
+      "runtime": "BASH",
+      "entrypoint_command": "bash TOOLS/run_administratum_git_cli_check.sh",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "git state",
+        "TOOLS/administratum_git_cli_check_v0_1.py"
       ],
-      "outputs": [
-        "UNKNOWN"
+      "writes": [
+        ".imperium_runtime/administratum/git_cli_check/*"
       ],
-      "reads_from": [
-        "UNKNOWN"
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
       ],
-      "writes_to": [
-        "UNKNOWN"
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RECEIPT.json"
       ],
-      "destructive": "UNKNOWN",
-      "safe_to_run": "UNKNOWN",
-      "receipt_behavior": "UNKNOWN",
-      "invocation command": "UNKNOWN",
-      "dependencies": [
-        "UNKNOWN"
-      ]
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "bash",
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "bash TOOLS/run_administratum_git_cli_check.sh",
+      "verification_command": "bash TOOLS/run_administratum_git_cli_check.sh",
+      "last_verified_at": null,
+      "status": "REGISTERED"
     },
     {
-      "dependencies": [
-        "git",
-        "PowerShell"
-      ],
-      "script_id": "SCRIPT-DOCTRINARIUM-PREFLIGHT-SMOKE-V0_1",
-      "inputs": [
-        "task_id",
-        "stage_range",
-        "output paths"
-      ],
-      "destructive": false,
-      "outputs": [
-        "artifact preflight request/response/receipt json"
-      ],
-      "reads_from": [
-        "REGISTRY/*",
-        "ORGANS/* schema presence",
-        "git state"
-      ],
-      "owner": "DOCTRINARIUM",
-      "purpose": "minimal preflight smoke responder for first runtime E2E",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_doctrinarium_preflight_smoke.ps1 ...",
-      "writes_to": [
-        "ARTIFACTS/*/OUTPUTS",
-        "ARTIFACTS/*/RECEIPTS"
-      ],
-      "safe_to_run": true,
-      "path": "TOOLS/imperium_doctrinarium_preflight_smoke.ps1",
-      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
-    },
-    {
-      "dependencies": [
-        "PowerShell"
-      ],
-      "script_id": "SCRIPT-ASTRONOMICON-GET-TASK-MAP-SMOKE-V0_1",
-      "inputs": [
-        "task_id",
-        "local_task_id",
-        "stage_id",
-        "artifact root"
-      ],
-      "destructive": false,
-      "outputs": [
-        "e2e_astronomicon_task_map.json",
-        "e2e_astronomicon_stage_map.json",
-        "receipt"
-      ],
-      "reads_from": [
-        "arguments only"
-      ],
-      "owner": "ASTRONOMICON",
-      "purpose": "emit minimal task map and stage map payloads for smoke E2E",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_astronomicon_get_task_map_smoke.ps1 ...",
-      "writes_to": [
-        "ARTIFACTS/*/OUTPUTS",
-        "ARTIFACTS/*/RECEIPTS"
-      ],
-      "safe_to_run": true,
-      "path": "TOOLS/imperium_astronomicon_get_task_map_smoke.ps1",
-      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
-    },
-    {
-      "dependencies": [
-        "git",
-        "PowerShell"
-      ],
       "script_id": "SCRIPT-ADMINISTRATUM-ISSUE-WORK-PACKET-SMOKE-V0_1",
-      "inputs": [
+      "path": "TOOLS/imperium_administratum_issue_work_packet_smoke.ps1",
+      "name": "imperium_administratum_issue_work_packet_smoke.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "emit minimal administratum_work_packet_v1 payload for smoke E2E",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_administratum_issue_work_packet_smoke.ps1 ...",
+      "required_args": [
         "task_id",
         "run_id",
         "stage_id",
         "artifact root"
       ],
-      "destructive": false,
-      "outputs": [
-        "e2e_administratum_work_packet.json",
-        "receipt"
-      ],
-      "reads_from": [
+      "optional_args": [],
+      "reads": [
         "REGISTRY/KNOWN_DEFECTS.json",
         "git state"
       ],
-      "owner": "ADMINISTRATUM",
-      "purpose": "emit minimal administratum_work_packet_v1 payload for smoke E2E",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_administratum_issue_work_packet_smoke.ps1 ...",
-      "writes_to": [
+      "writes": [
         "ARTIFACTS/*/OUTPUTS",
         "ARTIFACTS/*/RECEIPTS"
       ],
-      "safe_to_run": true,
-      "path": "TOOLS/imperium_administratum_issue_work_packet_smoke.ps1",
-      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
-    },
-    {
-      "dependencies": [
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        "receipt"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "git",
         "PowerShell"
       ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_administratum_issue_work_packet_smoke.ps1 ...",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
       "script_id": "SCRIPT-REGISTER-STAGE-RESULT-SMOKE-V0_1",
-      "inputs": [
+      "path": "TOOLS/imperium_register_stage_result_smoke.ps1",
+      "name": "imperium_register_stage_result_smoke.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "register a single stage result for smoke E2E",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
+      "required_args": [
         "task_id",
         "run_id",
         "work_session_id",
         "stage_id",
         "stage output path"
       ],
-      "destructive": false,
-      "outputs": [
-        "e2e_stage_result.json",
-        "receipt"
-      ],
-      "reads_from": [
+      "optional_args": [],
+      "reads": [
         "stage output file path"
       ],
-      "owner": "ADMINISTRATUM",
-      "purpose": "register a single stage result for smoke E2E",
-      "invocation command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
-      "writes_to": [
+      "writes": [
         "ARTIFACTS/*/OUTPUTS",
         "ARTIFACTS/*/RECEIPTS"
       ],
-      "safe_to_run": true,
-      "path": "TOOLS/imperium_register_stage_result_smoke.ps1",
-      "receipt_behavior": "writes IMPERIUM_PORT_RECEIPT_V1"
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        "receipt"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "PowerShell"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-REVIEW-WORKER-BUNDLE-INTAKE-PS1-V0_1",
+      "path": "TOOLS/review_worker_bundle_intake.ps1",
+      "name": "review_worker_bundle_intake.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "PC-side controlled intake/review of worker bundles.",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/review_worker_bundle_intake.ps1 -Bundle <path> -RepoRoot E:\\IMPERIUM -NoApply",
+      "required_args": [
+        "-Bundle"
+      ],
+      "optional_args": [
+        "-RepoRoot",
+        "-IncomingRoot",
+        "-Apply",
+        "-NoApply"
+      ],
+      "reads": [
+        "bundle zip/dir",
+        "repo git state"
+      ],
+      "writes": [
+        ".imperium_runtime/bundle_intake_review/*",
+        "incoming/quarantine areas"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/bundle_intake_review/*"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "powershell",
+        "python",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/review_worker_bundle_intake.ps1 -Bundle <path> -RepoRoot E:\\IMPERIUM -NoApply",
+      "verification_command": "PC-only manual execution required",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-ASTRONOMICON-GET-TASK-MAP-SMOKE-V0_1",
+      "path": "TOOLS/imperium_astronomicon_get_task_map_smoke.ps1",
+      "name": "imperium_astronomicon_get_task_map_smoke.ps1",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "emit minimal task map and stage map payloads for smoke E2E",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_astronomicon_get_task_map_smoke.ps1 ...",
+      "required_args": [
+        "task_id",
+        "local_task_id",
+        "stage_id",
+        "artifact root"
+      ],
+      "optional_args": [],
+      "reads": [
+        "arguments only"
+      ],
+      "writes": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        "receipt"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "PowerShell"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_astronomicon_get_task_map_smoke.ps1 ...",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-ASTRONOMICON-SYNTHETIC-FULL-RUN-V0_1",
+      "path": "TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "name": "astronomicon_synthetic_full_run_v0_1.ps1",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "synthetic planning pipeline run",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "required_args": [
+        "task templates"
+      ],
+      "optional_args": [],
+      "reads": [
+        "TOOLS/astronomicon_*"
+      ],
+      "writes": [
+        "ARTIFACTS/*"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "PowerShell"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/astronomicon_synthetic_full_run_v0_1.ps1",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-GENERAL-TASK-REGISTRATION-V0_1",
+      "path": "scripts/check_general_task_registration_v0_1.py",
+      "name": "check_general_task_registration_v0_1.py",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate General Task registration object against expected structure/truth.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 scripts/check_general_task_registration_v0_1.py",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "ORGANS/ASTRONOMICON/REGISTRY/GENERAL_TASKS/*",
+        "schemas/*"
+      ],
+      "writes": [],
+      "side_effects": [
+        "SAFE_READONLY"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 scripts/check_general_task_registration_v0_1.py",
+      "verification_command": "python3 scripts/check_general_task_registration_v0_1.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-DOCTRINARIUM-PREFLIGHT-SMOKE-V0_1",
+      "path": "TOOLS/imperium_doctrinarium_preflight_smoke.ps1",
+      "name": "imperium_doctrinarium_preflight_smoke.ps1",
+      "owner_organ": "DOCTRINARIUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "minimal preflight smoke responder for first runtime E2E",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_doctrinarium_preflight_smoke.ps1 ...",
+      "required_args": [
+        "task_id",
+        "stage_range",
+        "output paths"
+      ],
+      "optional_args": [],
+      "reads": [
+        "REGISTRY/*",
+        "ORGANS/* schema presence",
+        "git state"
+      ],
+      "writes": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        "artifact preflight request/response/receipt json"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "git",
+        "PowerShell"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_doctrinarium_preflight_smoke.ps1 ...",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-VERIFY-REPO-V0_1",
+      "path": "scripts/verify_repo.py",
+      "name": "verify_repo.py",
+      "owner_organ": "MECHANICUS",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Run verification spine gates and emit repo verdict/report.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 scripts/verify_repo.py",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "src/imperium/*",
+        "scripts/*",
+        "git tracked files"
+      ],
+      "writes": [
+        ".imperium_runtime/verification_spine/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/verification_spine/VERIFY_REPO_REPORT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        1
+      ],
+      "example_safe_invocation": "python3 scripts/verify_repo.py",
+      "verification_command": "python3 scripts/verify_repo.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-VERIFY-WORKER-BUNDLE-V0_1",
+      "path": "TOOLS/verify_worker_bundle.py",
+      "name": "verify_worker_bundle.py",
+      "owner_organ": "MECHANICUS",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Verify worker bundle structure, sha256, scope and provenance.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 TOOLS/verify_worker_bundle.py --bundle <path> --repo-root . --human",
+      "required_args": [
+        "--bundle"
+      ],
+      "optional_args": [
+        "--repo-root",
+        "--json-out",
+        "--human"
+      ],
+      "reads": [
+        "bundle zip/dir",
+        "MANIFEST.json",
+        "RECEIPT.json",
+        "VERDICT.md"
+      ],
+      "writes": [
+        ".imperium_runtime/bundle_verification/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        "--json-out <path>"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "zipfile"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/verify_worker_bundle.py --bundle tests/fixtures/worker_bundle_v0_1/valid_minimal_bundle --repo-root . --human",
+      "verification_command": "python3 TOOLS/verify_worker_bundle.py --bundle tests/fixtures/worker_bundle_v0_1/valid_minimal_bundle --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-AGENT-ENTRYPOINT-V0_1",
+      "path": "scripts/check_agent_entrypoint.py",
+      "name": "check_agent_entrypoint.py",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Check AGENTS.md and entrypoint registry integrity.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 scripts/check_agent_entrypoint.py",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "AGENTS.md",
+        "REGISTRY/AGENT_ENTRYPOINT_REGISTRY.json",
+        "schemas/agent_entrypoint_registry.schema.json"
+      ],
+      "writes": [
+        ".imperium_runtime/agent_entrypoint_check/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/agent_entrypoint_check/AGENT_ENTRYPOINT_REPORT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        1
+      ],
+      "example_safe_invocation": "python3 scripts/check_agent_entrypoint.py",
+      "verification_command": "python3 scripts/check_agent_entrypoint.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-REGISTRY-COVERAGE-GAP",
+      "path": "UNKNOWN",
+      "name": "SCRIPT-REGISTRY-COVERAGE-GAP",
+      "owner_organ": "UNKNOWN",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "not yet indexed scripts placeholder",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "UNKNOWN",
+      "entrypoint_command": "UNKNOWN",
+      "required_args": [
+        "UNKNOWN"
+      ],
+      "optional_args": [],
+      "reads": [
+        "UNKNOWN"
+      ],
+      "writes": [
+        "UNKNOWN"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "UNKNOWN"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "UNKNOWN",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "BLOCKED"
     }
   ]
 }

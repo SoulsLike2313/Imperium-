@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.script_registry.v0_1",
+  "title": "IMPERIUM Script Registry v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "updated_at_utc",
+    "generated_by",
+    "scripts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.script_registry.v0_1"
+    },
+    "updated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generated_by": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scripts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "script_id",
+          "path",
+          "name",
+          "owner_organ",
+          "purpose",
+          "platform",
+          "runtime",
+          "entrypoint_command",
+          "required_args",
+          "optional_args",
+          "reads",
+          "writes",
+          "side_effects",
+          "produces_receipts",
+          "receipt_paths",
+          "modifies_repo",
+          "commit_push_capable",
+          "vm2_sync_capable",
+          "requires_owner_approval",
+          "safe_for_servitor",
+          "dangerous_if_misused",
+          "known_dependencies",
+          "expected_exit_codes",
+          "example_safe_invocation",
+          "verification_command",
+          "last_verified_at",
+          "status"
+        ],
+        "properties": {
+          "script_id": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "minLength": 1},
+          "name": {"type": "string", "minLength": 1},
+          "owner_organ": {"type": "string", "minLength": 1},
+          "support_layer": {"type": ["string", "null"]},
+          "purpose": {"type": "string", "minLength": 1},
+          "platform": {
+            "type": "string",
+            "enum": ["WINDOWS_ONLY", "UBUNTU_ONLY", "CROSS_PLATFORM", "PC_ONLY", "VM2_ONLY"]
+          },
+          "runtime": {
+            "type": "string",
+            "enum": ["POWERSHELL", "BASH", "PYTHON", "MIXED", "UNKNOWN"]
+          },
+          "entrypoint_command": {"type": "string", "minLength": 1},
+          "required_args": {"type": "array", "items": {"type": "string"}},
+          "optional_args": {"type": "array", "items": {"type": "string"}},
+          "reads": {"type": "array", "items": {"type": "string"}},
+          "writes": {"type": "array", "items": {"type": "string"}},
+          "side_effects": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "SAFE_READONLY",
+                "WRITES_RUNTIME_ONLY",
+                "MODIFIES_REPO",
+                "COMMITS",
+                "PUSHES",
+                "SYNCS_VM2",
+                "DESTRUCTIVE",
+                "OWNER_ONLY",
+                "BLOCKED"
+              ]
+            }
+          },
+          "produces_receipts": {"type": "boolean"},
+          "receipt_paths": {"type": "array", "items": {"type": "string"}},
+          "modifies_repo": {"type": "boolean"},
+          "commit_push_capable": {"type": "boolean"},
+          "vm2_sync_capable": {"type": "boolean"},
+          "requires_owner_approval": {"type": "boolean"},
+          "safe_for_servitor": {"type": "boolean"},
+          "dangerous_if_misused": {"type": "boolean"},
+          "known_dependencies": {"type": "array", "items": {"type": "string"}},
+          "expected_exit_codes": {
+            "type": "array",
+            "items": {
+              "type": ["integer", "string"]
+            }
+          },
+          "example_safe_invocation": {"type": "string", "minLength": 1},
+          "verification_command": {"type": "string", "minLength": 1},
+          "last_verified_at": {"type": ["string", "null"]},
+          "status": {
+            "type": "string",
+            "enum": [
+              "REGISTERED",
+              "VERIFIED",
+              "DEGRADED",
+              "BLOCKED",
+              "DEPRECATED",
+              "EXPERIMENTAL",
+              "OWNER_ONLY",
+              "PC_ONLY",
+              "VM2_ONLY"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}
