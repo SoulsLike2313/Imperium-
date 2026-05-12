@@ -1,7 +1,0 @@
-# CONTINUITY DIFF FROM PREVIOUS
-
-- Previous pack: E:\IMPERIUM\ORGANS\ADMINISTRATUM\CONTINUITY\PACKS\CONTINUITY_PACK_20260510_085200
-- Has changes: True
-
-## Changes
-- ports_missing_count: old=0 | new=0
