@@ -76,3 +76,6 @@ EXPLORER/SCREENSHOTS/**/*SSH_COMMAND_LIBRARY*.zip
 
 # Local external audit working output
 AUDIT_OUTPUT/
+
+# IMPERIUM generated continuity packs / local evidence
+ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/
