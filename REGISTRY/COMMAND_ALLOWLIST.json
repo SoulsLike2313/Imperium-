@@ -1,0 +1,68 @@
+{
+  "schema_version": "imperium.command_allowlist.v0_1",
+  "commands": [
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "git.status",
+      "description": "Read-only git status short output.",
+      "risk_level": "LOW",
+      "allowed_argv_template": ["git", "status", "--short"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    },
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "git.rev_parse_head",
+      "description": "Read-only git HEAD hash.",
+      "risk_level": "LOW",
+      "allowed_argv_template": ["git", "rev-parse", "HEAD"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    },
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "git.fetch_origin",
+      "description": "Fetch remote origin metadata.",
+      "risk_level": "MEDIUM",
+      "allowed_argv_template": ["git", "fetch", "origin"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    },
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "git.log_latest",
+      "description": "Read-only latest commit summary.",
+      "risk_level": "LOW",
+      "allowed_argv_template": ["git", "log", "-1", "--oneline"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    },
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "git.ls_files",
+      "description": "Read-only tracked file listing.",
+      "risk_level": "LOW",
+      "allowed_argv_template": ["git", "ls-files", "{args}"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    },
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "python.py_compile",
+      "description": "Compile Python files to verify syntax.",
+      "risk_level": "LOW",
+      "allowed_argv_template": ["python3", "-m", "py_compile", "{args}"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    },
+    {
+      "schema_version": "imperium.command_allow_entry.v0_1",
+      "command_id": "imperium.verify_repo",
+      "description": "Run verification spine repository gates.",
+      "risk_level": "LOW",
+      "allowed_argv_template": ["python3", "scripts/verify_repo.py"],
+      "allowed_modes": ["dev", "operator"],
+      "receipt_required": true
+    }
+  ]
+}

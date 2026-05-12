@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.warning_receipt.v0_1",
+  "title": "IMPERIUM Warning Receipt",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "timestamp_utc",
+    "source",
+    "warning_code",
+    "message",
+    "context",
+    "verdict"
+  ],
+  "properties": {
+    "schema_version": { "const": "imperium.warning_receipt.v0_1" },
+    "timestamp_utc": { "type": "string", "format": "date-time" },
+    "source": { "type": "string", "minLength": 1 },
+    "warning_code": { "type": "string", "minLength": 1 },
+    "message": { "type": "string", "minLength": 1 },
+    "context": { "type": "object" },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS_WITH_WARNINGS"]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,14 @@
+# IMPERIUM line endings policy
+* text=auto
+
+# Cross-platform source/config/docs should stay LF.
+*.py text eol=lf
+*.sh text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# PowerShell scripts may use Windows-native endings.
+*.ps1 text eol=crlf

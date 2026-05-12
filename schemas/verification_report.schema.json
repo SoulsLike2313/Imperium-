@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.verification_report.v0_1",
+  "title": "IMPERIUM Verification Report",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "timestamp_utc",
+    "repo_root",
+    "overall_verdict",
+    "gates",
+    "counts"
+  ],
+  "properties": {
+    "schema_version": { "const": "imperium.verification_report.v0_1" },
+    "timestamp_utc": { "type": "string", "format": "date-time" },
+    "repo_root": { "type": "string" },
+    "overall_verdict": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL", "BLOCKED"]
+    },
+    "gates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["gate_id", "verdict", "warnings", "errors"],
+        "properties": {
+          "gate_id": { "type": "string" },
+          "verdict": {
+            "type": "string",
+            "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL", "BLOCKED"]
+          },
+          "warnings": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "errors": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "counts": {
+      "type": "object",
+      "required": ["gates", "blockers", "warnings"],
+      "properties": {
+        "gates": { "type": "integer", "minimum": 0 },
+        "blockers": { "type": "integer", "minimum": 0 },
+        "warnings": { "type": "integer", "minimum": 0 }
+      }
+    }
+  },
+  "additionalProperties": true
+}

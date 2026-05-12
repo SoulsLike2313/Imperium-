@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.command_receipt.v0_1",
+  "title": "IMPERIUM Command Receipt",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "command_id",
+    "timestamp_utc",
+    "dry_run",
+    "cwd",
+    "argv",
+    "allowed",
+    "exit_code",
+    "stdout",
+    "stderr",
+    "verdict",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": { "const": "imperium.command_receipt.v0_1" },
+    "command_id": { "type": "string", "minLength": 1 },
+    "timestamp_utc": { "type": "string", "format": "date-time" },
+    "dry_run": { "type": "boolean" },
+    "cwd": { "type": "string", "minLength": 1 },
+    "argv": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "allowed": { "type": "boolean" },
+    "exit_code": {
+      "type": ["integer", "null"]
+    },
+    "stdout": { "type": "string" },
+    "stderr": { "type": "string" },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL", "BLOCKED"]
+    },
+    "warnings": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "errors": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

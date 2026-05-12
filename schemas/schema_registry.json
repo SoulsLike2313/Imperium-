@@ -1,0 +1,20 @@
+{
+  "schema_version": "imperium.schema_registry.v0_1",
+  "schemas": [
+    {
+      "schema_id": "imperium.command_receipt.v0_1",
+      "path": "schemas/command_receipt.schema.json",
+      "kind": "receipt"
+    },
+    {
+      "schema_id": "imperium.warning_receipt.v0_1",
+      "path": "schemas/warning_receipt.schema.json",
+      "kind": "receipt"
+    },
+    {
+      "schema_id": "imperium.verification_report.v0_1",
+      "path": "schemas/verification_report.schema.json",
+      "kind": "report"
+    }
+  ]
+}

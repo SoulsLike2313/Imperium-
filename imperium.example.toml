@@ -1,0 +1,10 @@
+# IMPERIUM runtime configuration example.
+# Copy to imperium.toml and adjust paths for your machine.
+
+root_path = "/path/to/Imperium-"
+runtime_path = "/path/to/Imperium-/.imperium_runtime"
+mode = "operator"
+
+# Security defaults for strict operation.
+allow_subprocess = false
+allow_write = false
