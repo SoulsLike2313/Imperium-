@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-12T20:57:45.297906+00:00",
-  "generated_by": "TASK-20260512-TOOLING-SPINOFF-SCRIPTORIUM-ARSENAL-REGISTRATION-V0_1",
+  "updated_at_utc": "2026-05-12T21:49:39.982771+00:00",
+  "generated_by": "TASK-20260513-BUNDLE-INTAKE-ROLLUP-HARDENING-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
@@ -242,113 +242,6 @@
       "status": "REGISTERED"
     },
     {
-      "script_id": "SCRIPT-REGISTER-STAGE-RESULT-SMOKE-V0_1",
-      "path": "TOOLS/imperium_register_stage_result_smoke.ps1",
-      "name": "imperium_register_stage_result_smoke.ps1",
-      "owner_organ": "ADMINISTRATUM",
-      "support_layer": "SCRIPTORIUM",
-      "purpose": "register a single stage result for smoke E2E",
-      "platform": "WINDOWS_ONLY",
-      "runtime": "POWERSHELL",
-      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
-      "required_args": [
-        "task_id",
-        "run_id",
-        "work_session_id",
-        "stage_id",
-        "stage output path"
-      ],
-      "optional_args": [],
-      "reads": [
-        "stage output file path"
-      ],
-      "writes": [
-        "ARTIFACTS/*/OUTPUTS",
-        "ARTIFACTS/*/RECEIPTS"
-      ],
-      "side_effects": [
-        "MODIFIES_REPO",
-        "OWNER_ONLY"
-      ],
-      "produces_receipts": true,
-      "receipt_paths": [
-        "receipt"
-      ],
-      "modifies_repo": true,
-      "commit_push_capable": false,
-      "vm2_sync_capable": false,
-      "requires_owner_approval": true,
-      "safe_for_servitor": false,
-      "dangerous_if_misused": true,
-      "known_dependencies": [
-        "PowerShell"
-      ],
-      "expected_exit_codes": [
-        0
-      ],
-      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
-      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
-      "last_verified_at": null,
-      "status": "REGISTERED"
-    },
-    {
-      "script_id": "SCRIPT-REVIEW-WORKER-BUNDLE-INTAKE-PS1-V0_1",
-      "path": "TOOLS/review_worker_bundle_intake.ps1",
-      "name": "review_worker_bundle_intake.ps1",
-      "owner_organ": "ADMINISTRATUM",
-      "support_layer": "SCRIPTORIUM",
-      "purpose": "PC-side controlled intake/review of worker bundles.",
-      "platform": "WINDOWS_ONLY",
-      "runtime": "POWERSHELL",
-      "entrypoint_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/review_worker_bundle_intake.ps1 -Bundle <path> -RepoRoot E:\\IMPERIUM -NoApply",
-      "required_args": [
-        "-Bundle"
-      ],
-      "optional_args": [
-        "-RepoRoot",
-        "-IncomingRoot",
-        "-Apply",
-        "-NoApply"
-      ],
-      "reads": [
-        "bundle zip/dir",
-        "repo git state"
-      ],
-      "writes": [
-        ".imperium_runtime/bundle_intake_review/*",
-        "incoming/quarantine areas"
-      ],
-      "side_effects": [
-        "MODIFIES_REPO",
-        "OWNER_ONLY"
-      ],
-      "produces_receipts": true,
-      "receipt_paths": [
-        ".imperium_runtime/bundle_intake_review/*"
-      ],
-      "modifies_repo": true,
-      "commit_push_capable": false,
-      "vm2_sync_capable": false,
-      "requires_owner_approval": true,
-      "safe_for_servitor": false,
-      "dangerous_if_misused": true,
-      "known_dependencies": [
-        "powershell",
-        "python",
-        "git"
-      ],
-      "expected_exit_codes": [
-        0,
-        2,
-        3,
-        4
-      ],
-      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/review_worker_bundle_intake.ps1 -Bundle <path> -RepoRoot E:\\IMPERIUM -NoApply",
-      "verification_command": "PC-only manual execution required",
-      "last_verified_at": null,
-      "status": "REGISTERED"
-    },
-    {
       "script_id": "SCRIPT-ASTRONOMICON-GET-TASK-MAP-SMOKE-V0_1",
       "path": "TOOLS/imperium_astronomicon_get_task_map_smoke.ps1",
       "name": "imperium_astronomicon_get_task_map_smoke.ps1",
@@ -441,6 +334,98 @@
       "status": "REGISTERED"
     },
     {
+      "script_id": "SCRIPT-BUNDLE-INTAKE-REGRESSION-CHECK-PS1-V0_1",
+      "path": "TOOLS/test_bundle_intake_regression.ps1",
+      "name": "test_bundle_intake_regression.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Regression check for PC-side worker bundle intake launcher repairs.",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/test_bundle_intake_regression.ps1 -RepoRoot E:\\IMPERIUM",
+      "required_args": [],
+      "optional_args": [
+        "-RepoRoot"
+      ],
+      "reads": [
+        "TOOLS/review_worker_bundle_intake.ps1",
+        "git state"
+      ],
+      "writes": [
+        ".imperium_runtime/bundle_intake_regression/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/bundle_intake_regression/BUNDLE_INTAKE_REGRESSION_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "powershell",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        10
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/test_bundle_intake_regression.ps1 -RepoRoot E:\\IMPERIUM",
+      "verification_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/test_bundle_intake_regression.ps1 -RepoRoot E:\\IMPERIUM",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-AGENT-ENTRYPOINT-V0_1",
+      "path": "scripts/check_agent_entrypoint.py",
+      "name": "check_agent_entrypoint.py",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Check AGENTS.md and entrypoint registry integrity.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON",
+      "entrypoint_command": "python3 scripts/check_agent_entrypoint.py",
+      "required_args": [],
+      "optional_args": [],
+      "reads": [
+        "AGENTS.md",
+        "REGISTRY/AGENT_ENTRYPOINT_REGISTRY.json",
+        "schemas/agent_entrypoint_registry.schema.json"
+      ],
+      "writes": [
+        ".imperium_runtime/agent_entrypoint_check/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/agent_entrypoint_check/AGENT_ENTRYPOINT_REPORT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        1
+      ],
+      "example_safe_invocation": "python3 scripts/check_agent_entrypoint.py",
+      "verification_command": "python3 scripts/check_agent_entrypoint.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
       "script_id": "SCRIPT-CHECK-GENERAL-TASK-REGISTRATION-V0_1",
       "path": "scripts/check_general_task_registration_v0_1.py",
       "name": "check_general_task_registration_v0_1.py",
@@ -528,6 +513,156 @@
       ],
       "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_doctrinarium_preflight_smoke.ps1 ...",
       "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-REGISTER-STAGE-RESULT-SMOKE-V0_1",
+      "path": "TOOLS/imperium_register_stage_result_smoke.ps1",
+      "name": "imperium_register_stage_result_smoke.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "register a single stage result for smoke E2E",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
+      "required_args": [
+        "task_id",
+        "run_id",
+        "work_session_id",
+        "stage_id",
+        "stage output path"
+      ],
+      "optional_args": [],
+      "reads": [
+        "stage output file path"
+      ],
+      "writes": [
+        "ARTIFACTS/*/OUTPUTS",
+        "ARTIFACTS/*/RECEIPTS"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        "receipt"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "PowerShell"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -File TOOLS/imperium_register_stage_result_smoke.ps1 ...",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-REGISTRY-COVERAGE-GAP",
+      "path": "UNKNOWN",
+      "name": "SCRIPT-REGISTRY-COVERAGE-GAP",
+      "owner_organ": "UNKNOWN",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "not yet indexed scripts placeholder",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "UNKNOWN",
+      "entrypoint_command": "UNKNOWN",
+      "required_args": [
+        "UNKNOWN"
+      ],
+      "optional_args": [],
+      "reads": [
+        "UNKNOWN"
+      ],
+      "writes": [
+        "UNKNOWN"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "UNKNOWN"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "UNKNOWN",
+      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
+      "last_verified_at": null,
+      "status": "BLOCKED"
+    },
+    {
+      "script_id": "SCRIPT-REVIEW-WORKER-BUNDLE-INTAKE-PS1-V0_1",
+      "path": "TOOLS/review_worker_bundle_intake.ps1",
+      "name": "review_worker_bundle_intake.ps1",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "PC-side controlled intake/review of worker bundles.",
+      "platform": "WINDOWS_ONLY",
+      "runtime": "POWERSHELL",
+      "entrypoint_command": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/review_worker_bundle_intake.ps1 -Bundle <path> -RepoRoot E:\\IMPERIUM -NoApply",
+      "required_args": [
+        "-Bundle"
+      ],
+      "optional_args": [
+        "-RepoRoot",
+        "-IncomingRoot",
+        "-Apply",
+        "-NoApply"
+      ],
+      "reads": [
+        "bundle zip/dir",
+        "repo git state"
+      ],
+      "writes": [
+        ".imperium_runtime/bundle_intake_review/*",
+        "incoming/quarantine areas"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO",
+        "OWNER_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/bundle_intake_review/*"
+      ],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": true,
+      "safe_for_servitor": false,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "powershell",
+        "python",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "example_safe_invocation": "powershell -ExecutionPolicy Bypass -NoProfile -File TOOLS/review_worker_bundle_intake.ps1 -Bundle <path> -RepoRoot E:\\IMPERIUM -NoApply",
+      "verification_command": "PC-only manual execution required",
       "last_verified_at": null,
       "status": "REGISTERED"
     },
@@ -628,94 +763,6 @@
       "verification_command": "python3 TOOLS/verify_worker_bundle.py --bundle tests/fixtures/worker_bundle_v0_1/valid_minimal_bundle --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
-    },
-    {
-      "script_id": "SCRIPT-CHECK-AGENT-ENTRYPOINT-V0_1",
-      "path": "scripts/check_agent_entrypoint.py",
-      "name": "check_agent_entrypoint.py",
-      "owner_organ": "OFFICIO_AGENTIS",
-      "support_layer": "SCRIPTORIUM",
-      "purpose": "Check AGENTS.md and entrypoint registry integrity.",
-      "platform": "CROSS_PLATFORM",
-      "runtime": "PYTHON",
-      "entrypoint_command": "python3 scripts/check_agent_entrypoint.py",
-      "required_args": [],
-      "optional_args": [],
-      "reads": [
-        "AGENTS.md",
-        "REGISTRY/AGENT_ENTRYPOINT_REGISTRY.json",
-        "schemas/agent_entrypoint_registry.schema.json"
-      ],
-      "writes": [
-        ".imperium_runtime/agent_entrypoint_check/*"
-      ],
-      "side_effects": [
-        "WRITES_RUNTIME_ONLY"
-      ],
-      "produces_receipts": true,
-      "receipt_paths": [
-        ".imperium_runtime/agent_entrypoint_check/AGENT_ENTRYPOINT_REPORT.json"
-      ],
-      "modifies_repo": false,
-      "commit_push_capable": false,
-      "vm2_sync_capable": false,
-      "requires_owner_approval": false,
-      "safe_for_servitor": true,
-      "dangerous_if_misused": false,
-      "known_dependencies": [
-        "python3"
-      ],
-      "expected_exit_codes": [
-        0,
-        1
-      ],
-      "example_safe_invocation": "python3 scripts/check_agent_entrypoint.py",
-      "verification_command": "python3 scripts/check_agent_entrypoint.py",
-      "last_verified_at": null,
-      "status": "REGISTERED"
-    },
-    {
-      "script_id": "SCRIPT-REGISTRY-COVERAGE-GAP",
-      "path": "UNKNOWN",
-      "name": "SCRIPT-REGISTRY-COVERAGE-GAP",
-      "owner_organ": "UNKNOWN",
-      "support_layer": "SCRIPTORIUM",
-      "purpose": "not yet indexed scripts placeholder",
-      "platform": "CROSS_PLATFORM",
-      "runtime": "UNKNOWN",
-      "entrypoint_command": "UNKNOWN",
-      "required_args": [
-        "UNKNOWN"
-      ],
-      "optional_args": [],
-      "reads": [
-        "UNKNOWN"
-      ],
-      "writes": [
-        "UNKNOWN"
-      ],
-      "side_effects": [
-        "MODIFIES_REPO",
-        "OWNER_ONLY"
-      ],
-      "produces_receipts": false,
-      "receipt_paths": [],
-      "modifies_repo": true,
-      "commit_push_capable": false,
-      "vm2_sync_capable": false,
-      "requires_owner_approval": true,
-      "safe_for_servitor": false,
-      "dangerous_if_misused": true,
-      "known_dependencies": [
-        "UNKNOWN"
-      ],
-      "expected_exit_codes": [
-        0
-      ],
-      "example_safe_invocation": "UNKNOWN",
-      "verification_command": "python3 TOOLS/check_script_registry_v0_1.py --human",
-      "last_verified_at": null,
-      "status": "BLOCKED"
     }
   ]
 }
