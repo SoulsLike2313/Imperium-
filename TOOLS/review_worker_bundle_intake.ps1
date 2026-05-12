@@ -55,15 +55,15 @@ function Find-Python {
 function Run-CommandCapture {
     param(
         [string]$Exe,
-        [string[]]$Args,
+        [string[]]$CommandArgs,
         [string]$Label
     )
-    $out = & $Exe @Args 2>&1
+    $out = & $Exe @CommandArgs 2>&1
     $code = $LASTEXITCODE
     [PSCustomObject]@{
         label = $Label
         exe = $Exe
-        args = $Args
+        args = $CommandArgs
         exit_code = $code
         output = ($out | Out-String)
     }
@@ -73,7 +73,7 @@ function Run-PythonFile {
     param(
         [hashtable]$Python,
         [string]$ScriptPath,
-        [string[]]$Args,
+        [string[]]$CommandArgs,
         [string]$Label
     )
     $exe = [string]$Python.Cmd
@@ -82,8 +82,8 @@ function Run-PythonFile {
         $cmdArgs += $Python.Args
     }
     $cmdArgs += $ScriptPath
-    $cmdArgs += $Args
-    return Run-CommandCapture -Exe $exe -Args $cmdArgs -Label $Label
+    $cmdArgs += $CommandArgs
+    return Run-CommandCapture -Exe $exe -CommandArgs $cmdArgs -Label $Label
 }
 
 function Ensure-Dir {
@@ -155,7 +155,7 @@ try {
 
     Push-Location $RepoRoot
 
-    $gitStatus = Run-CommandCapture -Exe "git" -Args @("status", "--short") -Label "git_status_before"
+    $gitStatus = Run-CommandCapture -Exe "git" -CommandArgs @("status", "--short") -Label "git_status_before"
     $summary.preflight.git_status_exit = $gitStatus.exit_code
     $summary.preflight.git_status_before = $gitStatus.output
     if ($gitStatus.exit_code -ne 0) {
@@ -179,7 +179,7 @@ try {
     }
 
     Write-Section "VERIFY BUNDLE"
-    $verifyResult = Run-PythonFile -Python $python -ScriptPath $verifyScript -Args @("--bundle", $Bundle, "--repo-root", $RepoRoot, "--json-out", $verifyJson, "--human") -Label "verify_worker_bundle"
+    $verifyResult = Run-PythonFile -Python $python -ScriptPath $verifyScript -CommandArgs @("--bundle", $Bundle, "--repo-root", $RepoRoot, "--json-out", $verifyJson, "--human") -Label "verify_worker_bundle"
     $summary.checks += $verifyResult
 
     if (-not (Test-Path -LiteralPath $verifyJson)) {
@@ -236,7 +236,7 @@ try {
 
                 Write-Section "PRE-COMMIT CHECKS"
 
-                $diffCheck = Run-CommandCapture -Exe "git" -Args @("diff", "--check") -Label "git_diff_check"
+                $diffCheck = Run-CommandCapture -Exe "git" -CommandArgs @("diff", "--check") -Label "git_diff_check"
                 $summary.checks += $diffCheck
                 if ($diffCheck.exit_code -ne 0) {
                     $summary.blockers += "git_diff_check_failed"
@@ -245,7 +245,7 @@ try {
                 $changedPy = & git diff --name-only -- "*.py"
                 if ($LASTEXITCODE -eq 0 -and $changedPy) {
                     foreach ($pyPath in $changedPy) {
-                        $compile = Run-PythonFile -Python $python -ScriptPath "-m" -Args @("py_compile", $pyPath) -Label "py_compile:$pyPath"
+                        $compile = Run-PythonFile -Python $python -ScriptPath "-m" -CommandArgs @("py_compile", $pyPath) -Label "py_compile:$pyPath"
                         $summary.checks += $compile
                         if ($compile.exit_code -ne 0) {
                             $summary.blockers += "py_compile_failed:$pyPath"
@@ -255,7 +255,7 @@ try {
 
                 $checkAgentPath = Join-Path $RepoRoot "scripts\check_agent_entrypoint.py"
                 if (Test-Path -LiteralPath $checkAgentPath) {
-                    $agentCheck = Run-PythonFile -Python $python -ScriptPath $checkAgentPath -Args @() -Label "check_agent_entrypoint"
+                    $agentCheck = Run-PythonFile -Python $python -ScriptPath $checkAgentPath -CommandArgs @() -Label "check_agent_entrypoint"
                     $summary.checks += $agentCheck
                     if ($agentCheck.exit_code -ne 0) {
                         $summary.blockers += "check_agent_entrypoint_failed"
@@ -264,7 +264,7 @@ try {
 
                 $verifyRepoPath = Join-Path $RepoRoot "scripts\verify_repo.py"
                 if (Test-Path -LiteralPath $verifyRepoPath) {
-                    $repoCheck = Run-PythonFile -Python $python -ScriptPath $verifyRepoPath -Args @() -Label "verify_repo"
+                    $repoCheck = Run-PythonFile -Python $python -ScriptPath $verifyRepoPath -CommandArgs @() -Label "verify_repo"
                     $summary.checks += $repoCheck
                     if ($repoCheck.exit_code -ne 0) {
                         $summary.blockers += "verify_repo_failed"
@@ -273,14 +273,14 @@ try {
 
                 $adminCheckPs1 = Join-Path $RepoRoot "TOOLS\RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1"
                 if (Test-Path -LiteralPath $adminCheckPs1) {
-                    $adminCheck = Run-CommandCapture -Exe "powershell" -Args @("-ExecutionPolicy", "Bypass", "-NoProfile", "-File", $adminCheckPs1) -Label "administratum_git_cli_check"
+                    $adminCheck = Run-CommandCapture -Exe "powershell" -CommandArgs @("-ExecutionPolicy", "Bypass", "-NoProfile", "-File", $adminCheckPs1) -Label "administratum_git_cli_check"
                     $summary.checks += $adminCheck
                     if ($adminCheck.exit_code -ne 0) {
                         $summary.blockers += "administratum_git_cli_check_failed"
                     }
                 }
 
-                $statusAfter = Run-CommandCapture -Exe "git" -Args @("status", "--short") -Label "git_status_after_apply"
+                $statusAfter = Run-CommandCapture -Exe "git" -CommandArgs @("status", "--short") -Label "git_status_after_apply"
                 $summary.checks += $statusAfter
                 if ($statusAfter.exit_code -ne 0) {
                     $summary.blockers += "git_status_after_apply_failed"
