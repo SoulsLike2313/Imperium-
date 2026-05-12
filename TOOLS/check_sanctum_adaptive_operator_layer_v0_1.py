@@ -10,13 +10,21 @@ from pathlib import Path
 from typing import Any
 
 
-TASK_ID = "TASK-20260513-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1"
-STAGE_ID = "STAGE-001-SANCTUM-STATE-SERVICE-BUNDLE-INDEX-AND-OPERATOR-UI-V0_1"
+TASK_ID = "TASK-20260513-SANCTUM-V0_30-TRUTH-DASHBOARD-LAYOUT-AND-BUNDLE-FETCH-FIX-V0_1"
+STAGE_ID = "STAGE-001-SANCTUM-V0_30-UI-TRUTH-BINDING-VISUAL-AND-FETCH-REPAIR-V0_1"
 STATE_REL = ".imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json"
 CHECK_DIR_REL = ".imperium_runtime/sanctum/checks"
 REPORT_NAME = "SANCTUM_ADAPTIVE_OPERATOR_LAYER_CHECK.json"
 VERDICT_NAME = "SANCTUM_ADAPTIVE_OPERATOR_LAYER_VERDICT.md"
 RECEIPT_NAME = "SANCTUM_ADAPTIVE_OPERATOR_LAYER_RECEIPT.json"
+EXPECTED_FRONTEND_MARKERS = [
+    "IMPERIUM Sanctum v0.30 Adaptive Operator Dashboard",
+    "Sanctum v0.30 UI shell + Adaptive Operator Layer v0.1",
+    "Refresh Bundles",
+    "Fetch Selected",
+    "Fetch Latest",
+    "ADAPTIVE OPERATOR CORE",
+]
 
 
 def utc_now_iso() -> str:
@@ -112,6 +120,48 @@ def build_report(repo_root: Path) -> dict[str, Any]:
             if key not in state_payload:
                 add_unique(blockers, f"state_missing_field:{key}")
 
+        bundles = state_payload.get("bundles")
+        if not isinstance(bundles, dict):
+            add_unique(blockers, "state_bundles_not_object")
+        else:
+            for key in ("inboxes", "handoff_out", "discovered_bundles", "latest_bundle", "status_enum"):
+                if key not in bundles:
+                    add_unique(blockers, f"state_bundles_missing:{key}")
+            status_enum = bundles.get("status_enum")
+            expected_statuses = {
+                "UNKNOWN",
+                "REMOTE_ONLY",
+                "FETCHED",
+                "SHA_MISSING",
+                "SHA_PASS",
+                "SHA_FAIL",
+                "REVIEWED",
+                "NEEDS_OWNER_DECISION",
+                "APPLIED",
+                "COMMITTED",
+                "STALE",
+                "BLOCKED",
+            }
+            if isinstance(status_enum, list):
+                missing = expected_statuses - {str(x) for x in status_enum}
+                for item in sorted(missing):
+                    add_unique(warnings, f"state_bundles_status_enum_missing:{item}")
+            else:
+                add_unique(blockers, "state_bundles_status_enum_not_list")
+
+            discovered = bundles.get("discovered_bundles")
+            if isinstance(discovered, list):
+                for idx, item in enumerate(discovered[:10]):
+                    if not isinstance(item, dict):
+                        add_unique(warnings, f"state_bundles_discovered_item_not_object:{idx}")
+                        continue
+                    if "bundle_status" not in item:
+                        add_unique(warnings, f"state_bundles_discovered_missing_bundle_status:{idx}")
+                    if "sha256_pair_status" not in item:
+                        add_unique(warnings, f"state_bundles_discovered_missing_sha_status:{idx}")
+            else:
+                add_unique(blockers, "state_bundles_discovered_not_list")
+
         truth = state_payload.get("git_truth")
         if not isinstance(truth, dict):
             add_unique(blockers, "state_git_truth_not_object")
@@ -163,11 +213,30 @@ def build_report(repo_root: Path) -> dict[str, Any]:
         else:
             add_unique(blockers, "state_act3_spine_not_object")
 
+        receipts = state_payload.get("receipts")
+        if isinstance(receipts, dict):
+            for key in (
+                "latest_git_cli_check",
+                "latest_bundle_intake_review",
+                "latest_act3_check",
+                "latest_sanctum_state_receipt",
+                "latest_sanctum_adaptive_check",
+            ):
+                if key not in receipts:
+                    add_unique(blockers, f"state_receipts_missing:{key}")
+        else:
+            add_unique(blockers, "state_receipts_not_object")
+
         frontend_text = frontend_path.read_text(encoding="utf-8")
         if "AdaptiveOperatorPanel" not in frontend_text:
             add_unique(warnings, "frontend_adaptive_operator_panel_not_detected")
         if "build_sanctum_state_v0_1.py" not in frontend_text:
             add_unique(warnings, "frontend_state_refresh_hook_not_detected")
+        if "TransferPanel" not in frontend_text:
+            add_unique(warnings, "frontend_transfer_panel_not_detected")
+        for marker in EXPECTED_FRONTEND_MARKERS:
+            if marker not in frontend_text:
+                add_unique(warnings, f"frontend_marker_missing:{marker}")
 
         state_verdict = str(state_payload.get("verdict", "UNKNOWN"))
         if state_verdict == "BLOCKED":

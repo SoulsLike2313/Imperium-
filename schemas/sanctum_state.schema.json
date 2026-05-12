@@ -46,7 +46,8 @@
         "inboxes",
         "handoff_out",
         "discovered_bundles",
-        "latest_bundle"
+        "latest_bundle",
+        "status_enum"
       ]
     },
     "receipts": {
@@ -55,7 +56,8 @@
         "latest_git_cli_check",
         "latest_bundle_intake_review",
         "latest_act3_check",
-        "latest_sanctum_state_receipt"
+        "latest_sanctum_state_receipt",
+        "latest_sanctum_adaptive_check"
       ]
     },
     "scriptorium": {

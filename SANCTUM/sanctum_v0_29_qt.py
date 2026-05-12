@@ -2,12 +2,16 @@ from __future__ import annotations
 
 import json
 import math
+import hashlib
+import shlex
 import shutil
 import subprocess
 import sys
+import zipfile
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
+from typing import Any, Callable
 
 from PySide6.QtCore import Qt, QTimer, QRectF, QPointF
 from PySide6.QtGui import (
@@ -41,7 +45,8 @@ from PySide6.QtWidgets import (
 from sanctum_git_cli_check_service_v0_1 import GitCliCheckService, GitCliCheckServiceError
 
 
-APP_NAME = "IMPERIUM Sanctum v0.29 Qt — 60 FPS Command Dashboard"
+APP_NAME = "IMPERIUM Sanctum v0.30 Adaptive Operator Dashboard"
+APP_LAYER_LABEL = "Sanctum v0.30 UI shell + Adaptive Operator Layer v0.1"
 IMPERIUM_ROOT = Path(r"E:\IMPERIUM")
 
 
@@ -80,7 +85,8 @@ class TransferRoute:
     pc_bundle_inbox: Path = IMPERIUM_ROOT / "INBOX" / "VM2_BUNDLES"
     runtime_receipts: Path = IMPERIUM_ROOT / ".imperium_runtime" / "transfer" / "receipts"
     vm2_workdrop: str = "/home/vboxuser2/IMPERIUM_PRIVATE/WORKDROP"
-    vm2_bundle_outbox: str = "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX"
+    vm2_bundle_outbox: str = "/home/vboxuser2/IMPERIUM_WORK/_handoff_out"
+    vm2_bundle_outbox_fallback: str = "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX"
 
 
 class ReceiptWriter:
@@ -99,6 +105,7 @@ class ReceiptWriter:
             "pc_bundle_inbox": str(self.route.pc_bundle_inbox),
             "vm2_workdrop": self.route.vm2_workdrop,
             "vm2_bundle_outbox": self.route.vm2_bundle_outbox,
+            "vm2_bundle_outbox_fallback": self.route.vm2_bundle_outbox_fallback,
             "details": details,
         }
         path = self.route.runtime_receipts / f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{action}.json"
@@ -110,6 +117,32 @@ class TransferService:
     def __init__(self, route: TransferRoute):
         self.route = route
         self.receipts = ReceiptWriter(route)
+        self.last_bundle_list_error = ""
+
+    def _host_is_windows(self) -> bool:
+        return sys.platform.startswith("win")
+
+    def _pc_inbox_scp_target(self) -> str:
+        return str(self.route.pc_bundle_inbox).replace("\\", "/")
+
+    def _bundle_dirs(self) -> list[str]:
+        dirs = [self.route.vm2_bundle_outbox, self.route.vm2_bundle_outbox_fallback]
+        out: list[str] = []
+        for item in dirs:
+            if item and item not in out:
+                out.append(item)
+        return out
+
+    def _sha256_path(self, file_path: Path) -> str:
+        digest = hashlib.sha256()
+        with file_path.open("rb") as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
+
+    def _parse_expected_sha(self, sha_path: Path) -> str:
+        raw = sha_path.read_text(encoding="utf-8", errors="replace").strip()
+        return raw.split()[0] if raw else ""
 
     def ssh_base(self) -> list[str]:
         return [
@@ -150,9 +183,8 @@ class TransferService:
             return False, None
 
     def test_route(self) -> tuple[bool, str]:
-        cmd = self.ssh_base() + [
-            f"mkdir -p {self.route.vm2_workdrop} {self.route.vm2_bundle_outbox} && echo VM2_ROUTE_OK"
-        ]
+        bundle_dirs = " ".join(shlex.quote(item) for item in self._bundle_dirs())
+        cmd = self.ssh_base() + ["bash", "-lc", f"mkdir -p {shlex.quote(self.route.vm2_workdrop)} {bundle_dirs} && echo VM2_ROUTE_OK"]
         ok, result = self.run(cmd, "test_route")
         if ok:
             return True, result.stdout.strip()
@@ -174,6 +206,8 @@ class TransferService:
             "pc_prompt_outbox": str(self.route.pc_prompt_outbox),
             "vm2_workdrop": self.route.vm2_workdrop,
             "vm2_bundle_outbox": self.route.vm2_bundle_outbox,
+            "vm2_bundle_outbox_fallback": self.route.vm2_bundle_outbox_fallback,
+            "vm2_bundle_outboxes": self._bundle_dirs(),
             "pc_bundle_inbox": str(self.route.pc_bundle_inbox),
             "secret_policy": "Path to private key only. Private key material is not stored in Git.",
         }
@@ -228,49 +262,148 @@ class TransferService:
         )
         return True, remote_file
 
-    def list_bundles(self) -> list[str]:
-        cmd = self.ssh_base() + [f"find {self.route.vm2_bundle_outbox} -type f -name '*.zip' -printf '%T@ %p\n' 2>/dev/null | sort -nr | head -100 | cut -d' ' -f2-"]
+    def list_bundles(self) -> list[dict[str, Any]]:
+        dirs = self._bundle_dirs()
+        quoted_dirs = " ".join(shlex.quote(item) for item in dirs)
+        remote_cmd = (
+            "set -euo pipefail; "
+            f"for d in {quoted_dirs}; do "
+            "[ -d \"$d\" ] || continue; "
+            "while IFS= read -r -d '' f; do "
+            "ts=$(stat -c %Y \"$f\" 2>/dev/null || echo 0); "
+            "sz=$(stat -c %s \"$f\" 2>/dev/null || echo 0); "
+            "if [ -f \"$f.sha256\" ]; then sha=1; else sha=0; fi; "
+            "printf \"%s|%s|%s|%s\\n\" \"$ts\" \"$sz\" \"$f\" \"$sha\"; "
+            "done < <(find \"$d\" -maxdepth 1 -type f -name '*.zip' -print0); "
+            "done | sort -t'|' -k1,1nr | head -100"
+        )
+        cmd = self.ssh_base() + ["bash", "-lc", remote_cmd]
         ok, result = self.run(cmd, "list_remote_bundles")
         if not ok or result is None:
+            self.last_bundle_list_error = (
+                result.stderr.strip() if result and result.stderr else "remote bundle list unavailable"
+            )
             return []
-        return [line.strip() for line in result.stdout.splitlines() if line.strip()]
+
+        self.last_bundle_list_error = ""
+        bundles: list[dict[str, Any]] = []
+        for line in result.stdout.splitlines():
+            parts = line.strip().split("|", 3)
+            if len(parts) != 4:
+                continue
+            ts_raw, size_raw, remote_path, sha_raw = parts
+            try:
+                ts = int(float(ts_raw))
+            except ValueError:
+                ts = 0
+            try:
+                size = int(size_raw)
+            except ValueError:
+                size = 0
+            modified = datetime.utcfromtimestamp(ts).isoformat() + "Z" if ts > 0 else "UNKNOWN"
+            bundles.append(
+                {
+                    "remote_path": remote_path,
+                    "name": Path(remote_path).name,
+                    "modified_epoch": ts,
+                    "modified_utc": modified,
+                    "size_bytes": size,
+                    "sha256_remote_present": sha_raw == "1",
+                }
+            )
+        return bundles
 
     def fetch_bundle(self, remote_bundle: str) -> tuple[bool, str]:
+        if not self._host_is_windows():
+            command_hint = (
+                "powershell -ExecutionPolicy Bypass -NoProfile -File "
+                "E:\\IMPERIUM\\TOOLS\\review_worker_bundle_intake.ps1 "
+                f"-Bundle \"E:\\IMPERIUM\\INBOX\\VM2_BUNDLES\\{Path(remote_bundle).name}\" "
+                "-RepoRoot \"E:\\IMPERIUM\" -IncomingRoot \"E:\\IMPERIUM_LOCAL_HANDOFF\\BUNDLE_INTAKE\" -NoApply"
+            )
+            self.receipts.write(
+                "fetch_bundle",
+                "COMMAND_PREP_ONLY",
+                {"remote_bundle": remote_bundle, "reason": "non_windows_contour", "command_hint": command_hint},
+            )
+            return False, (
+                "COMMAND_PREP_ONLY: PC fetch недоступен на non-Windows контуре.\n"
+                f"Use on PC:\n{command_hint}"
+            )
+
         self.route.pc_bundle_inbox.mkdir(parents=True, exist_ok=True)
+        inbox_target = self._pc_inbox_scp_target()
         ok, result = self.run(
-            self.scp_base() + [f"{self.route.ssh_user_host}:{remote_bundle}", str(self.route.pc_bundle_inbox) + "\\"],
+            self.scp_base() + [f"{self.route.ssh_user_host}:{remote_bundle}", inbox_target],
             "fetch_bundle_zip",
             timeout=180,
         )
         if not ok:
-            return False, result.stderr if result else "scp failed"
+            return False, (result.stderr.strip() if result and result.stderr else "scp zip fetch failed")
 
-        self.run(
-            self.scp_base() + [f"{self.route.ssh_user_host}:{remote_bundle}.sha256", str(self.route.pc_bundle_inbox) + "\\"],
+        ok_sha, _ = self.run(
+            self.scp_base() + [f"{self.route.ssh_user_host}:{remote_bundle}.sha256", inbox_target],
             "fetch_bundle_sha256_optional",
             timeout=60,
         )
 
+        local_zip = self.route.pc_bundle_inbox / Path(remote_bundle).name
+        local_sha = local_zip.with_suffix(local_zip.suffix + ".sha256")
+        sha_status = "SHA_MISSING"
+        sha_details: dict[str, Any] = {"sha_file_present": local_sha.exists(), "sha_copy_ok": ok_sha}
+        if local_sha.exists() and local_zip.exists():
+            expected = self._parse_expected_sha(local_sha)
+            actual = self._sha256_path(local_zip)
+            sha_details["expected_sha256"] = expected
+            sha_details["actual_sha256"] = actual
+            if expected and expected == actual:
+                sha_status = "SHA_PASS"
+            elif expected:
+                sha_status = "SHA_FAIL"
+            else:
+                sha_status = "UNKNOWN"
+
+        receipt_status = "PASS"
+        if sha_status == "SHA_FAIL":
+            receipt_status = "FAIL"
+        elif sha_status in {"SHA_MISSING", "UNKNOWN"}:
+            receipt_status = "PASS_WITH_WARNINGS"
         self.receipts.write(
             "fetch_bundle",
-            "PASS",
-            {"remote_bundle": remote_bundle, "pc_bundle_inbox": str(self.route.pc_bundle_inbox)},
+            receipt_status,
+            {
+                "remote_bundle": remote_bundle,
+                "pc_bundle_inbox": str(self.route.pc_bundle_inbox),
+                "sha_status": sha_status,
+                "sha_details": sha_details,
+            },
         )
-        return True, str(self.route.pc_bundle_inbox)
+        if sha_status == "SHA_FAIL":
+            return (
+                False,
+                "BLOCKED SHA_FAIL: fetched zip, but local sha256 verification failed.\n"
+                f"zip={local_zip}\nsha={local_sha}",
+            )
+        if sha_status == "SHA_PASS":
+            return True, f"FETCHED + SHA_PASS\nzip={local_zip}\nsha={local_sha}"
+        if sha_status == "SHA_MISSING":
+            return True, f"FETCHED + SHA_MISSING\nzip={local_zip}"
+        return True, f"FETCHED + UNKNOWN_SHA\nzip={local_zip}\nsha={local_sha}"
 
 
 
 class PlanetMapWidget(QWidget):
     def __init__(self):
         super().__init__()
-        self.setMinimumSize(980, 680)
+        self.setMinimumSize(760, 560)
         self.tick = 0.0
+        self.state_snapshot: dict[str, Any] | None = None
 
         # v0.29 visual/perf pass:
         # Do not let render complexity scale endlessly when the transfer panel is closed.
         # The scene is centered in a bounded command-map viewport.
-        self.max_scene_width = 1080
-        self.max_scene_height = 720
+        self.max_scene_width = 1180
+        self.max_scene_height = 760
 
         self.setAttribute(Qt.WA_OpaquePaintEvent, True)
         self.setAttribute(Qt.WA_NoSystemBackground, True)
@@ -286,6 +419,10 @@ class PlanetMapWidget(QWidget):
 
         self.frame_count = 0
         self.current_fps = 0
+
+    def set_runtime_state(self, state: dict[str, Any] | None) -> None:
+        self.state_snapshot = state if isinstance(state, dict) else None
+        self.update()
 
     def frame(self):
         self.tick += 1.0
@@ -364,16 +501,20 @@ class PlanetMapWidget(QWidget):
         title_rect = QRectF(inner.left() + 18, inner.top() + 14, 450, 38)
         painter.setPen(QPen(COLORS["accent2"], 1))
         painter.setFont(QFont("Segoe UI Semibold", 13))
-        painter.drawText(title_rect, Qt.AlignLeft | Qt.AlignVCenter, "MISSION CONTROL CORE")
+        painter.drawText(title_rect, Qt.AlignLeft | Qt.AlignVCenter, "ADAPTIVE OPERATOR CORE")
 
         sub_rect = QRectF(inner.left() + 18, inner.top() + 42, 600, 26)
         painter.setPen(QPen(COLORS["muted"], 1))
         painter.setFont(QFont("Segoe UI", 8))
-        painter.drawText(
-            sub_rect,
-            Qt.AlignLeft | Qt.AlignVCenter,
-            "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
-        )
+        if isinstance(self.state_snapshot, dict):
+            git_truth = self.state_snapshot.get("git_truth", {})
+            generated = str(self.state_snapshot.get("generated_at_utc", "unknown"))
+            head = str(git_truth.get("local_head", ""))[:7] or "UNKNOWN"
+            verdict = str(self.state_snapshot.get("verdict", "UNKNOWN"))
+            sub_text = f"STATE {verdict} | HEAD {head} | generated {generated}"
+        else:
+            sub_text = "STATE UNKNOWN | run Refresh State to bind live truth"
+        painter.drawText(sub_rect, Qt.AlignLeft | Qt.AlignVCenter, sub_text)
 
         chip_y = inner.top() + 64
         chip_w = 102
@@ -381,14 +522,43 @@ class PlanetMapWidget(QWidget):
         chip_gap = 9
         chip_x = inner.left() + 18
         chips = [
-            ("Stages", "6", COLORS["accent2"]),
-            ("Pass", "1", COLORS["good"]),
-            ("Active", "1", COLORS["accent"]),
-            ("Planned", "4", COLORS["warn"]),
-            ("Block", "0", COLORS["bad"]),
-            ("Readiness", "25%", COLORS["warn"]),
-            ("Risk", "0%", COLORS["accent"]),
+            ("State", "UNKNOWN", COLORS["warn"]),
+            ("Git", "UNKNOWN", COLORS["warn"]),
+            ("Warn", "0", COLORS["accent2"]),
+            ("Bundles", "0", COLORS["accent"]),
+            ("Scripts", "0", COLORS["accent2"]),
+            ("Tools", "0", COLORS["accent"]),
+            ("Act3", "UNKNOWN", COLORS["warn"]),
         ]
+        if isinstance(self.state_snapshot, dict):
+            git_truth = self.state_snapshot.get("git_truth", {})
+            bundles = self.state_snapshot.get("bundles", {})
+            scriptorium = self.state_snapshot.get("scriptorium", {})
+            arsenal = self.state_snapshot.get("arsenal", {})
+            act3 = self.state_snapshot.get("act3_spine", {})
+            warnings_list = self.state_snapshot.get("warnings", [])
+            state_verdict = str(self.state_snapshot.get("verdict", "UNKNOWN"))
+            git_verdict = str(git_truth.get("verdict", "UNKNOWN"))
+            warn_count = len(warnings_list) if isinstance(warnings_list, list) else 0
+            bundle_count = len(bundles.get("discovered_bundles", [])) if isinstance(bundles.get("discovered_bundles"), list) else 0
+            script_count = str(scriptorium.get("entry_count", "0"))
+            tool_count = str(arsenal.get("known_tools_count", "0"))
+            act3_status = str(act3.get("truth_source_registry_status", "UNKNOWN"))
+
+            state_color = COLORS["good"] if state_verdict == "PASS" else COLORS["warn"] if state_verdict == "PASS_WITH_WARNINGS" else COLORS["bad"]
+            git_color = COLORS["good"] if git_verdict == "PASS" else COLORS["bad"] if git_verdict == "BLOCKED" else COLORS["warn"]
+            warn_color = COLORS["good"] if warn_count == 0 else COLORS["warn"] if warn_count < 6 else COLORS["bad"]
+            act3_color = COLORS["good"] if act3_status == "PROVEN" else COLORS["warn"] if act3_status == "WARNING" else COLORS["bad"] if act3_status == "BLOCKED" else COLORS["accent2"]
+
+            chips = [
+                ("State", state_verdict, state_color),
+                ("Git", git_verdict, git_color),
+                ("Warn", str(warn_count), warn_color),
+                ("Bundles", str(bundle_count), COLORS["accent"]),
+                ("Scripts", script_count, COLORS["accent2"]),
+                ("Tools", tool_count, COLORS["accent"]),
+                ("Act3", act3_status, act3_color),
+            ]
         for label, value, accent in chips:
             self.draw_chip(painter, QRectF(chip_x, chip_y, chip_w, chip_h), label, value, accent)
             chip_x += chip_w + chip_gap
@@ -527,23 +697,67 @@ class PlanetMapWidget(QWidget):
         painter.setBrush(QBrush(highlight))
         painter.drawEllipse(QRectF(cx - 35, cy - 34, 38, 32))
 
-        # organs on clearly separated orbit lanes
+        # organs on clearly separated orbit lanes + status colors from runtime truth
+        def status_color(value: str) -> QColor:
+            if value in {"PASS", "PROVEN", "SHA_PASS"}:
+                return COLORS["good"]
+            if value in {"BLOCKED", "SHA_FAIL"}:
+                return COLORS["bad"]
+            if value in {"WARNING", "PASS_WITH_WARNINGS", "STALE", "UNKNOWN"}:
+                return COLORS["warn"]
+            return COLORS["accent2"]
+
+        org_status: dict[str, str] = {
+            "ASTRA": "UNKNOWN",
+            "ADMINISTRATUM": "UNKNOWN",
+            "MECHANICUS": "UNKNOWN",
+            "INQUISITION": "UNKNOWN",
+            "PC": "UNKNOWN",
+            "SPECULUM": "UNKNOWN",
+        }
+        if isinstance(self.state_snapshot, dict):
+            git_truth = self.state_snapshot.get("git_truth", {})
+            receipts = self.state_snapshot.get("receipts", {})
+            act3 = self.state_snapshot.get("act3_spine", {})
+            arsenal = self.state_snapshot.get("arsenal", {})
+            warnings = self.state_snapshot.get("warnings", [])
+            def pick_verdict(payload: Any) -> str:
+                if isinstance(payload, dict):
+                    return str(payload.get("verdict", "UNKNOWN"))
+                return "UNKNOWN"
+            org_status["ASTRA"] = str(git_truth.get("verdict", "UNKNOWN"))
+            org_status["ADMINISTRATUM"] = pick_verdict(receipts.get("latest_git_cli_check"))
+            org_status["MECHANICUS"] = "WARNING" if int(arsenal.get("unknown_count", 0) or 0) > 0 else "PASS"
+            org_status["INQUISITION"] = "UNKNOWN"
+            org_status["PC"] = pick_verdict(receipts.get("latest_bundle_intake_review"))
+            advisory_status = str(act3.get("advisory_status", "UNKNOWN"))
+            if advisory_status in {"RAW_ADVISORY_INPUT_NOT_YET_RECONCILED", "REGISTERED_RAW_ADVISORY_NOT_RECONCILED"}:
+                org_status["SPECULUM"] = "WARNING"
+            elif advisory_status:
+                org_status["SPECULUM"] = advisory_status
+            if isinstance(warnings, list) and len(warnings) > 8:
+                org_status["MECHANICUS"] = "WARNING"
+
         organs = [
-            ("ASTRA", -math.pi / 2, COLORS["good"], 1.52),
-            ("ADMINISTRATUM", 0.0, COLORS["gold"], 1.48),
-            ("MECHANICUS", math.pi * 0.30, COLORS["gold"], 1.42),
-            ("INQUISITION", math.pi / 2, COLORS["gold"], 1.30),
-            ("PC", math.pi * 0.86, COLORS["accent2"], 1.46),
-            ("SPECULUM", math.pi * 1.18, COLORS["gold"], 1.40),
+            ("ASTRA", -math.pi / 2, 1.52),
+            ("ADMINISTRATUM", 0.0, 1.48),
+            ("MECHANICUS", math.pi * 0.30, 1.42),
+            ("INQUISITION", math.pi / 2, 1.30),
+            ("PC", math.pi * 0.86, 1.46),
+            ("SPECULUM", math.pi * 1.18, 1.40),
         ]
 
+        node_points: list[tuple[str, QPointF, QColor]] = []
         painter.setFont(QFont("Segoe UI Semibold", 8))
-        for idx, (label, base_a, color, lane) in enumerate(organs):
+        for idx, (label, base_a, lane) in enumerate(organs):
             pulse = math.sin(self.tick * 0.035 + idx * 0.9)
             a = base_a + pulse * 0.035
             rr = radius * lane
             x = cx + math.cos(a) * rr
             y = cy + math.sin(a) * rr * 0.64
+            status_value = org_status.get(label, "UNKNOWN")
+            color = status_color(status_value)
+            node_points.append((label, QPointF(x, y), color))
 
             painter.setPen(QPen(QColor(23, 96, 132, 100), 1))
             painter.drawLine(int(cx), int(cy), int(x), int(y))
@@ -560,13 +774,23 @@ class PlanetMapWidget(QWidget):
             painter.setBrush(QBrush(color))
             painter.drawEllipse(QRectF(x - 7, y - 7, 14, 14))
 
-            label_w = max(78, len(label) * 7 + 18)
+            label_full = f"{label} {status_value}"
+            label_w = max(108, len(label_full) * 7 + 18)
             label_rect = QRectF(x - label_w / 2, y + 18, label_w, 19)
             painter.setPen(QPen(QColor(color.red(), color.green(), color.blue(), 120), 1))
             painter.setBrush(QBrush(QColor(5, 18, 28, 210)))
             painter.drawRoundedRect(label_rect, 6, 6)
             painter.setPen(QPen(color, 1))
-            painter.drawText(label_rect, Qt.AlignCenter, label)
+            painter.drawText(label_rect, Qt.AlignCenter, label_full)
+
+        # synapse-like inter-organ links
+        link_pairs = [(0, 1), (1, 2), (2, 4), (4, 5), (5, 0), (1, 3)]
+        for idx, (a_idx, b_idx) in enumerate(link_pairs):
+            _, p1, c1 = node_points[a_idx]
+            _, p2, _ = node_points[b_idx]
+            alpha = 58 + int((math.sin(self.tick * 0.06 + idx) + 1) * 42)
+            painter.setPen(QPen(QColor(c1.red(), c1.green(), c1.blue(), alpha), 1.5))
+            painter.drawLine(p1, p2)
 
         # footer cards
         law_card = QRectF(map_rect.left() + 20, map_rect.bottom() - 88, min(450, map_rect.width() * 0.45), 66)
@@ -598,8 +822,9 @@ class PlanetMapWidget(QWidget):
 
 
 class TransferPanel(QFrame):
-    def __init__(self):
+    def __init__(self, state_provider: Callable[[], dict[str, Any] | None] | None = None):
         super().__init__()
+        self.state_provider = state_provider
         self.route = TransferRoute()
         self.service = TransferService(self.route)
 
@@ -683,6 +908,13 @@ class TransferPanel(QFrame):
         self.bundle_list.setHorizontalScrollBarPolicy(Qt.ScrollBarAsNeeded)
         layout.addWidget(self.bundle_list, 1)
 
+        self.bundle_details = QTextEdit()
+        self.bundle_details.setReadOnly(True)
+        self.bundle_details.setLineWrapMode(QTextEdit.NoWrap)
+        self.bundle_details.setMaximumHeight(140)
+        self.bundle_details.setPlainText("Bundle details: select or refresh to inspect status.")
+        layout.addWidget(self.bundle_details)
+
         row2 = QHBoxLayout()
         self.btn_refresh = QPushButton("Refresh Bundles")
         self.btn_fetch = QPushButton("Fetch Selected")
@@ -702,6 +934,7 @@ class TransferPanel(QFrame):
         self.btn_refresh.clicked.connect(self.refresh_bundles)
         self.btn_fetch.clicked.connect(self.fetch_selected)
         self.btn_fetch_latest.clicked.connect(self.fetch_latest)
+        self.bundle_list.currentItemChanged.connect(self.on_bundle_selected)
 
     def info(self, title: str, text: str):
         QMessageBox.information(self, title, text)
@@ -739,48 +972,154 @@ class TransferPanel(QFrame):
         else:
             self.warn("Send prompt", msg)
 
+    def _current_state_head(self) -> str | None:
+        if self.state_provider is None:
+            return None
+        payload = self.state_provider()
+        if not isinstance(payload, dict):
+            return None
+        git_truth = payload.get("git_truth")
+        if not isinstance(git_truth, dict):
+            return None
+        head = git_truth.get("local_head")
+        if isinstance(head, str) and head:
+            return head
+        return None
+
+    def _status_color(self, status: str) -> tuple[QColor, QColor]:
+        if status in {"SHA_FAIL", "BLOCKED"}:
+            return QColor("#4b1624"), QColor("#ffd5df")
+        if status in {"SHA_PASS", "FETCHED", "REVIEWED", "COMMITTED"}:
+            return QColor("#0d3f32"), QColor("#d7ffed")
+        if status in {"SHA_MISSING", "STALE", "NEEDS_OWNER_DECISION", "APPLIED"}:
+            return QColor("#4d3a10"), QColor("#fff5c9")
+        if status == "REMOTE_ONLY":
+            return QColor("#14344b"), QColor("#c9f4ff")
+        return QColor("#1f2d3a"), QColor("#d7e9f7")
+
+    def _inspect_local_bundle_status(self, bundle: dict[str, Any]) -> tuple[str, str]:
+        local_zip = self.route.pc_bundle_inbox / str(bundle.get("name", ""))
+        remote_sha_present = bool(bundle.get("sha256_remote_present"))
+        if not local_zip.exists():
+            return ("SHA_MISSING", "Remote bundle has no .sha256 pair.") if not remote_sha_present else ("REMOTE_ONLY", "Bundle is available on VM2; not fetched to PC inbox.")
+
+        local_sha = local_zip.with_suffix(local_zip.suffix + ".sha256")
+        if local_sha.exists():
+            expected = self.service._parse_expected_sha(local_sha)
+            actual = self.service._sha256_path(local_zip)
+            if expected and expected != actual:
+                return "SHA_FAIL", f"Local SHA mismatch: expected {expected}, actual {actual}"
+            if expected and expected == actual:
+                status = "SHA_PASS"
+                detail = "Local SHA verification passed."
+            else:
+                status = "UNKNOWN"
+                detail = "SHA file exists but expected digest is empty."
+        else:
+            status = "SHA_MISSING"
+            detail = "Fetched zip exists but local .sha256 file is missing."
+
+        current_head = self._current_state_head()
+        source_head = None
+        try:
+            with zipfile.ZipFile(local_zip, "r") as zf:
+                candidates = [name for name in zf.namelist() if name.endswith("MANIFEST.json")]
+                if candidates:
+                    payload = json.loads(zf.read(sorted(candidates, key=len)[0]).decode("utf-8"))
+                    if isinstance(payload, dict):
+                        source_git = payload.get("source_git_truth")
+                        if isinstance(source_git, dict):
+                            source_head = source_git.get("head")
+        except Exception:
+            source_head = None
+
+        if isinstance(current_head, str) and isinstance(source_head, str) and source_head and source_head != current_head:
+            return "STALE", f"Bundle source head is stale: {source_head} (current {current_head})"
+
+        return status, detail
+
+    def on_bundle_selected(self, *_args):
+        item = self.bundle_list.currentItem()
+        if not item:
+            self.bundle_details.setPlainText("Bundle details: select or refresh to inspect status.")
+            return
+        payload = item.data(Qt.UserRole)
+        if not isinstance(payload, dict):
+            self.bundle_details.setPlainText("Selected entry payload is invalid.")
+            return
+        lines = [
+            f"name: {payload.get('name')}",
+            f"status: {payload.get('bundle_status')}",
+            f"modified_utc: {payload.get('modified_utc')}",
+            f"size_bytes: {payload.get('size_bytes')}",
+            f"remote_path: {payload.get('remote_path')}",
+            f"sha256_remote_present: {payload.get('sha256_remote_present')}",
+            f"detail: {payload.get('status_detail')}",
+        ]
+        self.bundle_details.setPlainText("\n".join(lines))
+
     def refresh_bundles(self):
         self.bundle_list.clear()
         bundles = self.service.list_bundles()
-        for idx, remote_path in enumerate(bundles):
-            name = Path(remote_path).name
-            if idx == 0:
-                label = f"[NEWEST] {name}"
-            elif idx < 3:
-                label = f"[RECENT] {name}"
-            else:
-                label = f"[OLDER]  {name}"
+        if not bundles and self.service.last_bundle_list_error:
+            self.status.setText("Bundles refresh failed.")
+            self.bundle_details.setPlainText(
+                "Bundle refresh error:\n"
+                f"{self.service.last_bundle_list_error}\n\n"
+                "Truth policy: UNKNOWN until remote list command succeeds."
+            )
+            return
+
+        for idx, bundle in enumerate(bundles):
+            if not isinstance(bundle, dict):
+                continue
+            status, detail = self._inspect_local_bundle_status(bundle)
+            bundle["bundle_status"] = status
+            bundle["status_detail"] = detail
+            name = str(bundle.get("name", "UNKNOWN.zip"))
+            modified = str(bundle.get("modified_utc", "UNKNOWN"))
+            age_tag = "[NEWEST]" if idx == 0 else "[RECENT]" if idx < 3 else "[OLDER]"
+            flavor = "[SANCTUM]" if "SANCTUM" in name.upper() else "[ACT3]" if "ACT3" in name.upper() else ""
+            label = f"{age_tag} [{status}] {flavor} {name} | {modified}"
 
             item = QListWidgetItem(label)
-            item.setData(Qt.UserRole, remote_path)
-            item.setToolTip(remote_path)
-
-            if idx == 0:
-                item.setBackground(QColor("#55ffd8"))
-                item.setForeground(QColor("#07111d"))
-            elif idx < 3:
-                item.setBackground(QColor("#11384f"))
-                item.setForeground(QColor("#9ef8ff"))
-            else:
-                item.setBackground(QColor("#0d2234"))
-                item.setForeground(QColor("#6fb4c7"))
-
+            item.setData(Qt.UserRole, bundle)
+            item.setToolTip(bundle.get("remote_path") or name)
+            bg, fg = self._status_color(status)
+            item.setBackground(bg)
+            item.setForeground(fg)
             self.bundle_list.addItem(item)
 
-        self.status.setText(f"Bundles: {len(bundles)}")
+        if self.bundle_list.count() > 0:
+            self.bundle_list.setCurrentRow(0)
+            self.on_bundle_selected()
+        self.status.setText(
+            f"Bundles: {len(bundles)} | source dirs: {', '.join(self.service._bundle_dirs())}"
+        )
 
     def fetch_selected(self):
         item = self.bundle_list.currentItem()
         if not item:
             self.warn("Fetch", "Select bundle first.")
             return
-        remote_bundle = item.data(Qt.UserRole) or item.text()
+        payload = item.data(Qt.UserRole)
+        if not isinstance(payload, dict):
+            self.warn("Fetch", "Selected bundle payload is invalid.")
+            return
+        remote_bundle = str(payload.get("remote_path") or "")
+        if not remote_bundle:
+            self.warn("Fetch", "Selected bundle has no remote path.")
+            return
         ok, msg = self.service.fetch_bundle(remote_bundle)
         self.status.setText(msg)
         if ok:
             self.info("Fetch", f"Fetched to:\n{msg}")
+            self.refresh_bundles()
         else:
-            self.warn("Fetch", msg)
+            if msg.startswith("COMMAND_PREP_ONLY"):
+                self.info("Fetch (command prep)", msg)
+            else:
+                self.warn("Fetch", msg)
 
     def fetch_latest(self):
         self.refresh_bundles()
@@ -792,9 +1131,10 @@ class TransferPanel(QFrame):
 
 
 class AdaptiveOperatorPanel(QFrame):
-    def __init__(self, repo_root: Path):
+    def __init__(self, repo_root: Path, on_state_updated: Callable[[dict[str, Any] | None], None] | None = None):
         super().__init__()
         self.repo_root = Path(repo_root)
+        self.on_state_updated = on_state_updated
         self.state_path = self.repo_root / ".imperium_runtime" / "sanctum" / "state" / "SANCTUM_STATE_V0_1.json"
         self.latest_state: dict | None = None
 
@@ -854,7 +1194,7 @@ class AdaptiveOperatorPanel(QFrame):
         layout.setContentsMargins(12, 12, 12, 12)
         layout.setSpacing(8)
 
-        title = QLabel("ADAPTIVE OPERATOR LAYER v0.1")
+        title = QLabel("ADAPTIVE OPERATOR LAYER v0.1  —  Sanctum v0.30")
         title.setFont(QFont("Segoe UI Semibold", 12))
         layout.addWidget(title)
 
@@ -866,18 +1206,25 @@ class AdaptiveOperatorPanel(QFrame):
         self.btn_refresh_state = QPushButton("Refresh State")
         self.btn_check_script = QPushButton("Run Script Registry Check")
         self.btn_check_act3 = QPushButton("Run Act3 Spine Check")
-        self.btn_check_intake = QPushButton("Run Intake Regression Check")
-        self.btn_copy_pc_cmd = QPushButton("Copy PC Intake Cmd")
         row.addWidget(self.btn_refresh_state)
         row.addWidget(self.btn_check_script)
         row.addWidget(self.btn_check_act3)
-        row.addWidget(self.btn_check_intake)
-        row.addWidget(self.btn_copy_pc_cmd)
         layout.addLayout(row)
+
+        row2 = QHBoxLayout()
+        self.btn_check_intake = QPushButton("Run Intake Regression Check")
+        self.btn_copy_pc_cmd = QPushButton("Copy PC Intake Cmd")
+        row2.addWidget(self.btn_check_intake)
+        row2.addWidget(self.btn_copy_pc_cmd)
+        layout.addLayout(row2)
 
         self.status = QLabel("Sanctum state not loaded yet.")
         self.status.setFont(QFont("Consolas", 9))
         layout.addWidget(self.status)
+
+        self.last_refresh_label = QLabel("UI state refresh: never")
+        self.last_refresh_label.setFont(QFont("Consolas", 9))
+        layout.addWidget(self.last_refresh_label)
 
         self.tabs = QTabWidget()
         self.views: dict[str, QTextEdit] = {}
@@ -908,6 +1255,15 @@ class AdaptiveOperatorPanel(QFrame):
 
     def _set_status(self, text: str) -> None:
         self.status.setText(text)
+
+    def _emit_state_update(self, state: dict[str, Any] | None) -> None:
+        if self.on_state_updated is None:
+            return
+        try:
+            self.on_state_updated(state)
+        except Exception:
+            # UI callback must never break operator panel flow.
+            pass
 
     def _resolve_python_command(self) -> list[str] | None:
         candidates = [["py", "-3"], ["python"], ["python3"], [sys.executable]]
@@ -1086,7 +1442,9 @@ class AdaptiveOperatorPanel(QFrame):
             for key in self.views:
                 self.views[key].setPlainText(placeholder)
             self._set_status("State file missing (UNKNOWN).")
+            self.last_refresh_label.setText(f"UI state refresh: {datetime.now().isoformat(timespec='seconds')} | source missing")
             self.latest_state = None
+            self._emit_state_update(None)
             return
 
         try:
@@ -1096,7 +1454,9 @@ class AdaptiveOperatorPanel(QFrame):
             for key in self.views:
                 self.views[key].setPlainText(msg)
             self._set_status("State parse failed.")
+            self.last_refresh_label.setText(f"UI state refresh: {datetime.now().isoformat(timespec='seconds')} | parse failed")
             self.latest_state = None
+            self._emit_state_update(None)
             return
 
         if not isinstance(payload, dict):
@@ -1104,11 +1464,17 @@ class AdaptiveOperatorPanel(QFrame):
             for key in self.views:
                 self.views[key].setPlainText(msg)
             self._set_status("State structure invalid.")
+            self.last_refresh_label.setText(f"UI state refresh: {datetime.now().isoformat(timespec='seconds')} | invalid structure")
             self.latest_state = None
+            self._emit_state_update(None)
             return
 
         self.latest_state = payload
         self.render_state(payload)
+        self.last_refresh_label.setText(
+            f"UI state refresh: {datetime.now().isoformat(timespec='seconds')} | source {self.state_path}"
+        )
+        self._emit_state_update(payload)
 
     def render_state(self, state: dict):
         git_truth = state.get("git_truth", {})
@@ -1119,14 +1485,27 @@ class AdaptiveOperatorPanel(QFrame):
         act3 = state.get("act3_spine", {})
         warnings = state.get("warnings", [])
         actions = state.get("operator_actions", {})
+        generated = state.get("generated_at_utc")
+
+        local_head = git_truth.get("local_head")
+        origin_head = git_truth.get("origin_master_head")
+        remote_head = git_truth.get("remote_master_head")
+        heads_match = (
+            isinstance(local_head, str)
+            and isinstance(origin_head, str)
+            and isinstance(remote_head, str)
+            and local_head == origin_head == remote_head
+        )
 
         self.views["git_truth"].setPlainText(
             "\n".join(
                 [
+                    f"generated_at_utc: {generated}",
                     f"verdict: {git_truth.get('verdict')}",
                     f"local_head: {git_truth.get('local_head')}",
                     f"origin_master_head: {git_truth.get('origin_master_head')}",
                     f"remote_master_head: {git_truth.get('remote_master_head')}",
+                    f"local_origin_remote_match: {heads_match}",
                     f"commit_count: {git_truth.get('commit_count')}",
                     f"latest_commit_oneline: {git_truth.get('latest_commit_oneline')}",
                     f"exact_tree_url: {git_truth.get('exact_tree_url')}",
@@ -1151,7 +1530,13 @@ class AdaptiveOperatorPanel(QFrame):
         ]
         if isinstance(discovered, list):
             for item in discovered[:8]:
-                bundle_lines.append(json.dumps(item, ensure_ascii=False))
+                if isinstance(item, dict):
+                    bundle_lines.append(
+                        f"{item.get('name')} | status={item.get('bundle_status')} "
+                        f"| sha={item.get('sha256_pair_status')} | modified={item.get('modified_at_utc')}"
+                    )
+                else:
+                    bundle_lines.append(json.dumps(item, ensure_ascii=False))
         self.views["bundle_index"].setPlainText("\n".join(bundle_lines))
 
         self.views["receipts"].setPlainText(
@@ -1161,6 +1546,7 @@ class AdaptiveOperatorPanel(QFrame):
                     "latest_bundle_intake_review": receipts.get("latest_bundle_intake_review"),
                     "latest_act3_check": receipts.get("latest_act3_check"),
                     "latest_sanctum_state_receipt": receipts.get("latest_sanctum_state_receipt"),
+                    "latest_sanctum_adaptive_check": receipts.get("latest_sanctum_adaptive_check"),
                 },
                 ensure_ascii=False,
                 indent=2,
@@ -1278,10 +1664,13 @@ class SanctumMainWindow(QMainWindow):
 
         top_wrap = QFrame()
         top_wrap.setStyleSheet("QFrame { background: #081a2a; border: 1px solid #1f6c94; border-radius: 10px; }")
-        top_layout = QHBoxLayout(top_wrap)
+        top_layout = QVBoxLayout(top_wrap)
         top_layout.setContentsMargins(10, 8, 10, 8)
-        top_layout.setSpacing(8)
+        top_layout.setSpacing(6)
         root.addWidget(top_wrap)
+
+        actions_row = QHBoxLayout()
+        actions_row.setSpacing(8)
 
         self.btn_astra = QPushButton("Open Astra Utility")
         self.btn_explorer = QPushButton("Open Explorer")
@@ -1298,7 +1687,7 @@ class SanctumMainWindow(QMainWindow):
             self.btn_refresh_tasks,
             self.btn_git_cli_check,
         ]:
-            top_layout.addWidget(btn)
+            actions_row.addWidget(btn)
 
         self.btn_astra.clicked.connect(self.open_astra_utility)
         self.btn_explorer.clicked.connect(self.open_explorer_area)
@@ -1308,17 +1697,31 @@ class SanctumMainWindow(QMainWindow):
         self.btn_git_cli_check.clicked.connect(self.check_git_cli)
 
         self.transfer_button = QPushButton("Operator / Transfer")
-        top_layout.addWidget(self.transfer_button)
+        actions_row.addWidget(self.transfer_button)
 
-        top_layout.addSpacing(14)
         self.git_cli_status = QLabel("Git CLI: not checked")
         self.git_cli_status.setFont(QFont("Consolas", 9))
-        top_layout.addWidget(self.git_cli_status)
+        actions_row.addWidget(self.git_cli_status)
+        actions_row.addStretch(1)
+        top_layout.addLayout(actions_row)
 
-        top_layout.addSpacing(8)
-        selected = QLabel("Selected task: TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1")
-        selected.setFont(QFont("Consolas", 10, QFont.Bold))
-        top_layout.addWidget(selected, 1)
+        truth_row = QHBoxLayout()
+        truth_row.setSpacing(8)
+        self.version_badge = QLabel(APP_LAYER_LABEL)
+        self.version_badge.setFont(QFont("Segoe UI Semibold", 9))
+        self.version_badge.setStyleSheet(
+            "background: #12324a; border: 1px solid #2678a0; border-radius: 8px; padding: 4px 8px;"
+        )
+        truth_row.addWidget(self.version_badge)
+
+        self.truth_status_label = QLabel("Truth: UNKNOWN (refresh state)")
+        self.truth_status_label.setFont(QFont("Consolas", 9))
+        truth_row.addWidget(self.truth_status_label, 1)
+
+        self.selected_task_label = QLabel("Selected artifact task: (none)")
+        self.selected_task_label.setFont(QFont("Consolas", 9, QFont.Bold))
+        truth_row.addWidget(self.selected_task_label)
+        top_layout.addLayout(truth_row)
 
         splitter = QSplitter(Qt.Horizontal)
         root.addWidget(splitter, 1)
@@ -1337,9 +1740,9 @@ class SanctumMainWindow(QMainWindow):
         left_layout.addWidget(left_title)
 
         active = QLabel(
-            "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1\n\n"
-            "route_status: ACTIVE_OWNER_MANUAL_BUILD\n"
-            "current_stage: PC-STAGE-001"
+            "Artifact selection panel.\n\n"
+            "Truth source is Git/receipt/state evidence,\n"
+            "not this static card."
         )
         active.setStyleSheet("""
             background: #14334b;
@@ -1358,10 +1761,11 @@ class SanctumMainWindow(QMainWindow):
         self.task_list = QListWidget()
         left_layout.addWidget(self.task_list, 1)
         self.refresh_tasks()
+        self.task_list.currentItemChanged.connect(self.update_selected_task_label)
 
         self.map_widget = PlanetMapWidget()
-        self.transfer_panel = TransferPanel()
-        self.operator_panel = AdaptiveOperatorPanel(IMPERIUM_ROOT)
+        self.operator_panel = AdaptiveOperatorPanel(IMPERIUM_ROOT, on_state_updated=self.on_operator_state_updated)
+        self.transfer_panel = TransferPanel(state_provider=lambda: self.operator_panel.latest_state)
         self.side_tabs = QTabWidget()
         self.side_tabs.setStyleSheet("""
             QTabWidget::pane { border: 1px solid #206f98; border-radius: 8px; background: #0a1f31; }
@@ -1384,10 +1788,16 @@ class SanctumMainWindow(QMainWindow):
         splitter.addWidget(left)
         splitter.addWidget(self.map_widget)
         splitter.addWidget(self.side_tabs)
-        splitter.setSizes([360, 1040, 420])
+        splitter.setChildrenCollapsible(False)
+        splitter.setHandleWidth(8)
+        splitter.setStretchFactor(0, 1)
+        splitter.setStretchFactor(1, 3)
+        splitter.setStretchFactor(2, 2)
+        splitter.setSizes([320, 980, 520])
 
         self.splitter = splitter
         self.transfer_button.clicked.connect(self.toggle_transfer)
+        self.update_selected_task_label()
 
     def open_path(self, target: Path, label: str = "path"):
         try:
@@ -1412,6 +1822,40 @@ class SanctumMainWindow(QMainWindow):
         if not notes.exists():
             notes = IMPERIUM_ROOT / "DOCS"
         self.open_path(notes, "Notes area")
+
+    def on_operator_state_updated(self, state: dict[str, Any] | None) -> None:
+        self.map_widget.set_runtime_state(state)
+        if not isinstance(state, dict):
+            self.truth_status_label.setText("Truth: UNKNOWN | state not loaded")
+            self.truth_status_label.setStyleSheet("color: #ffcf4a;")
+            return
+
+        git_truth = state.get("git_truth", {})
+        local_head = str(git_truth.get("local_head", "UNKNOWN"))
+        origin_head = str(git_truth.get("origin_master_head", "UNKNOWN"))
+        remote_head = str(git_truth.get("remote_master_head", "UNKNOWN"))
+        match = local_head == origin_head == remote_head and local_head != "UNKNOWN"
+        commit_count = git_truth.get("commit_count")
+        state_verdict = str(state.get("verdict", "UNKNOWN"))
+        generated = str(state.get("generated_at_utc", "unknown"))
+        tree_url = str(git_truth.get("exact_tree_url", "UNKNOWN"))
+        self.truth_status_label.setText(
+            f"Truth: {state_verdict} | HEAD {local_head[:7]} | count {commit_count} | "
+            f"match {match} | generated {generated} | tree {tree_url}"
+        )
+        if state_verdict == "PASS":
+            self.truth_status_label.setStyleSheet("color: #3dffbf;")
+        elif state_verdict == "PASS_WITH_WARNINGS":
+            self.truth_status_label.setStyleSheet("color: #ffcf4a;")
+        else:
+            self.truth_status_label.setStyleSheet("color: #ff5f86;")
+
+    def update_selected_task_label(self) -> None:
+        task_id = self.selected_task_id()
+        if task_id:
+            self.selected_task_label.setText(f"Selected artifact task: {task_id}")
+        else:
+            self.selected_task_label.setText("Selected artifact task: (none)")
 
     def selected_task_id(self) -> str | None:
         item = self.task_list.currentItem()
@@ -1453,10 +1897,10 @@ class SanctumMainWindow(QMainWindow):
                 task_dirs = []
 
             fallback = [
-                "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
-                "TASK-20260511-VM2-UBUNTU-CONTOUR-ONBOARDING",
-                "TASK-20260511-SANCTUM-QT-60FPS-SHELL",
-                "TASK-20260511-SANCTUM-V0_28-TRANSFER-CONTROL",
+                "TASK-20260513-SANCTUM-V0_30-TRUTH-DASHBOARD-LAYOUT-AND-BUNDLE-FETCH-FIX-V0_1",
+                "TASK-20260513-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1",
+                "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+                "TASK-20260512-BUNDLE-RECEIPT-PROVENANCE-SPINE-V0_1",
             ]
 
             for name in task_dirs or fallback:
@@ -1573,9 +2017,9 @@ class SanctumMainWindow(QMainWindow):
         visible = not self.side_tabs.isVisible()
         self.side_tabs.setVisible(visible)
         if visible:
-            self.splitter.setSizes([340, 980, 430])
+            self.splitter.setSizes([320, 980, 520])
         else:
-            self.splitter.setSizes([360, 1400, 0])
+            self.splitter.setSizes([320, 1500, 0])
 
 
 def main():

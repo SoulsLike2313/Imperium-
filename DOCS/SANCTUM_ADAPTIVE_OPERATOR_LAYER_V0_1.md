@@ -63,3 +63,22 @@ Task: `TASK-20260513-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1`
 - unsafe destructive actions;
 - Act 4 коридор;
 - построение Inquisition.
+
+## v0.30 Repair Slice (2026-05-13)
+
+Цель этого ремонта: сделать Sanctum практичным операторским кокпитом без fake green.
+
+Что исправлено:
+- UI identity обновлён до `IMPERIUM Sanctum v0.30 Adaptive Operator Dashboard`.
+- Добавлен явный слой-лейбл: `Sanctum v0.30 UI shell + Adaptive Operator Layer v0.1`.
+- Убрано hardcoded stale task truth из mission core; верхняя truth-полоса и карта теперь читают live state.
+- `Refresh State` вызывает реальный `TOOLS/build_sanctum_state_v0_1.py`, затем сразу перерисовывает панели.
+- Bundle list/fetch переведены на VM2 outbox ` /home/vboxuser2/IMPERIUM_WORK/_handoff_out ` (с fallback на legacy outbox).
+- Bundle rows показывают evidence-based статусы (`REMOTE_ONLY`, `SHA_MISSING`, `SHA_PASS`, `SHA_FAIL`, `STALE`, ...).
+- `Fetch Selected/Fetch Latest` копируют `.zip` и `.sha256` (если есть) и делают локальную SHA-проверку.
+- На non-Windows контуре fetch не притворяется рабочим: отображается `COMMAND_PREP_ONLY` с командой для PC.
+- Улучшены визуал и layout: более читаемый truth bar, расширенный operator tab, улучшенный planet/orbits/synapse рендер.
+
+Ограничения:
+- Визуальный QA (фактический look/feel в Windows Qt) требует ручной проверки на PC contour.
+- Sanctum не выполняет commit/push/sync и не объявляет PASS без file/receipt evidence.

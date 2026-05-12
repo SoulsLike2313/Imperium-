@@ -12,9 +12,9 @@ from typing import Any
 
 
 SCHEMA_VERSION = "imperium.sanctum_state.v0_1"
-TASK_ID = "TASK-20260513-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1"
-STAGE_ID = "STAGE-001-SANCTUM-STATE-SERVICE-BUNDLE-INDEX-AND-OPERATOR-UI-V0_1"
-EXPECTED_HEAD = "795ebddf8f5084395e0d73e3995125ab8fd66efe"
+TASK_ID = "TASK-20260513-SANCTUM-V0_30-TRUTH-DASHBOARD-LAYOUT-AND-BUNDLE-FETCH-FIX-V0_1"
+STAGE_ID = "STAGE-001-SANCTUM-V0_30-UI-TRUTH-BINDING-VISUAL-AND-FETCH-REPAIR-V0_1"
+EXPECTED_HEAD = "5d23736c8033096283c8fe64da7ec9ea67a1a901"
 STATE_REL = ".imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json"
 VERDICT_REL = ".imperium_runtime/sanctum/state/SANCTUM_STATE_VERDICT.md"
 RECEIPT_REL = ".imperium_runtime/sanctum/state/SANCTUM_STATE_RECEIPT.json"
@@ -198,7 +198,10 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
             manifest = open_manifest_from_zip(p)
             source_head = None
             source_tree = None
-            status = "UNKNOWN"
+            status = "REMOTE_ONLY"
+            sha_pair_status = "SHA_MISSING"
+            sha_expected = None
+            sha_actual = None
             if isinstance(manifest, dict):
                 sgt = manifest.get("source_git_truth")
                 if isinstance(sgt, dict):
@@ -207,10 +210,21 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
                     if isinstance(source_head, str):
                         if ok_head and source_head != local_head:
                             status = "STALE"
-                        else:
-                            status = "FETCHED"
-            if not sha_path.exists():
+            if sha_path.exists():
+                expected_raw = sha_path.read_text(encoding="utf-8", errors="replace").strip()
+                sha_expected = expected_raw.split()[0] if expected_raw else ""
+                sha_actual = safe_sha256(p)
+                if sha_expected and sha_expected == sha_actual:
+                    sha_pair_status = "SHA_PASS"
+                elif sha_expected:
+                    sha_pair_status = "SHA_FAIL"
+                    warnings.append(f"bundle_sha256_mismatch:{p.name}")
+                else:
+                    sha_pair_status = "UNKNOWN"
+                    warnings.append(f"bundle_sha256_empty:{p.name}")
+            else:
                 warnings.append(f"bundle_sha256_missing:{p.name}")
+
             discovered_bundles.append(
                 {
                     "name": p.name,
@@ -219,9 +233,14 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
                     "modified_at_utc": iso_mtime(p),
                     "age_seconds": round(path_age_seconds(p), 2),
                     "sha256_file_present": sha_path.exists(),
+                    "sha256_pair_status": sha_pair_status,
+                    "sha256_expected": sha_expected,
+                    "sha256_actual": sha_actual,
                     "source_head": source_head,
                     "source_tree_url": source_tree,
                     "bundle_status": status,
+                    "is_sanctum_bundle": "SANCTUM" in p.name.upper(),
+                    "is_act3_bundle": "ACT3" in p.name.upper(),
                 }
             )
 
@@ -265,6 +284,9 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
         "ACT3_ADDRESS_TRUTH_CAPABILITY_SPINE_CHECK_RESULT.json"
     )
     sanctum_receipt_path = out_path.parent / "SANCTUM_STATE_RECEIPT.json"
+    sanctum_adaptive_check_path = (
+        repo_root / ".imperium_runtime/sanctum/checks/SANCTUM_ADAPTIVE_OPERATOR_LAYER_CHECK.json"
+    )
     intake_candidates = list(
         (repo_root / ".imperium_runtime").glob("bundle_intake_review/**/INTAKE_REVIEW_REPORT.json")
     )
@@ -326,6 +348,26 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
                 "modified_at_utc": iso_mtime(sanctum_receipt_path),
                 "verdict": payload.get("verdict"),
             }
+
+    latest_sanctum_adaptive_check = None
+    if sanctum_adaptive_check_path.exists():
+        payload, err = read_json(sanctum_adaptive_check_path)
+        if err:
+            warnings.append(err)
+        else:
+            latest_sanctum_adaptive_check = {
+                "path": sanctum_adaptive_check_path.relative_to(repo_root).as_posix(),
+                "modified_at_utc": iso_mtime(sanctum_adaptive_check_path),
+                "verdict": payload.get("verdict"),
+                "warnings": len(payload.get("warnings", []))
+                if isinstance(payload.get("warnings"), list)
+                else None,
+                "blockers": len(payload.get("blockers", []))
+                if isinstance(payload.get("blockers"), list)
+                else None,
+            }
+    else:
+        warnings.append("sanctum_adaptive_check_report_not_found")
 
     # --- SCRIPTORIUM summary
     scripts = script_registry.get("scripts") if isinstance(script_registry, dict) else []
@@ -476,7 +518,11 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
             "latest_bundle": latest_bundle,
             "status_enum": [
                 "UNKNOWN",
+                "REMOTE_ONLY",
                 "FETCHED",
+                "SHA_MISSING",
+                "SHA_PASS",
+                "SHA_FAIL",
                 "REVIEWED",
                 "NEEDS_OWNER_DECISION",
                 "APPLIED",
@@ -490,6 +536,7 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
             "latest_bundle_intake_review": latest_intake_report,
             "latest_act3_check": latest_act3,
             "latest_sanctum_state_receipt": latest_sanctum_receipt,
+            "latest_sanctum_adaptive_check": latest_sanctum_adaptive_check,
         },
         "scriptorium": {
             "registry_path": script_registry_path.relative_to(repo_root).as_posix(),
