@@ -15,6 +15,11 @@
       "schema_id": "imperium.verification_report.v0_1",
       "path": "schemas/verification_report.schema.json",
       "kind": "report"
+    },
+    {
+      "schema_id": "imperium.agent_entrypoint_registry.v0_1",
+      "path": "schemas/agent_entrypoint_registry.schema.json",
+      "kind": "registry"
     }
   ]
 }

@@ -1,0 +1,101 @@
+{
+  "schema_version": "imperium.agent_entrypoint_registry.v0_1",
+  "registry_name": "AGENT_ENTRYPOINT_REGISTRY",
+  "status": "transitional",
+  "active_source_zones": [
+    "src/imperium/",
+    "scripts/",
+    "tests/",
+    "schemas/",
+    "REGISTRY/",
+    "TOOLS/",
+    "SANCTUM/sanctum_v0_29_qt.py",
+    "SANCTUM/sanctum_git_cli_check_service_v0_1.py",
+    "ORGANS/"
+  ],
+  "active_entrypoints": [
+    "SANCTUM/RUN_SANCTUM_V0_29_QT.ps1",
+    "SANCTUM/sanctum_v0_29_qt.py",
+    "TOOLS/RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1",
+    "TOOLS/run_administratum_git_cli_check.sh",
+    "scripts/verify_repo.py"
+  ],
+  "safe_readonly_commands": [
+    "git status --short",
+    "git log -1 --oneline",
+    "git ls-files",
+    "git grep <pattern>",
+    "rg <pattern>",
+    "fd <pattern>"
+  ],
+  "safe_validation_commands": [
+    "python3 scripts/verify_repo.py",
+    "./TOOLS/run_administratum_git_cli_check.sh",
+    "python3 scripts/check_agent_entrypoint.py",
+    "py -3 .\\scripts\\verify_repo.py",
+    "powershell -ExecutionPolicy Bypass -NoProfile -File .\\TOOLS\\RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1"
+  ],
+  "runtime_zones": [
+    ".imperium_runtime/",
+    "INBOX/",
+    "OUTBOX/",
+    "local bundle folders",
+    "VM2 private folders",
+    "runtime receipts"
+  ],
+  "legacy_caution_zones": [
+    "old SANCTUM versions before v0_29_qt",
+    "ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/",
+    "CURRENT_STATE/",
+    "ARTIFACTS/",
+    "older organ dashboard versions",
+    "PC_ENGINEERING_ROOM/"
+  ],
+  "do_not_touch_without_owner_approval": [
+    "mass deletion",
+    "moving legacy folders",
+    "rewriting Sanctum",
+    "changing public/private boundary",
+    "editing private/local paths",
+    "committing or pushing from VM2",
+    "adding runtime outputs into tracked source",
+    "declaring product-ready/green/stable"
+  ],
+  "known_current_debt": [
+    "warning flood from legacy and continuity packs",
+    "Sanctum raw subprocess still not migrated to command gateway",
+    "missing 4 organs: Custodes, Strategium, Schola Imperialis, Throne",
+    "registry drift from runtime reality",
+    "version sprawl"
+  ],
+  "patch_bundle_rules": [
+    "run preflight truth checks before editing",
+    "apply scoped task-only edits",
+    "run py_compile and relevant tests",
+    "run scripts/check_agent_entrypoint.py",
+    "run scripts/verify_repo.py",
+    "run administratum Git CLI checker",
+    "capture git status short and focused diffs",
+    "deliver artifact bundle for PC review and PC-only commit"
+  ],
+  "next_recommended_tasks": [
+    "TASK-20260512-WARNING-FLOOD-FIX",
+    "registry sync",
+    "Sanctum command gateway migration",
+    "missing organs scaffold",
+    "Sanctum legacy/archive cleanup",
+    "Arsenal/Scriptorium later"
+  ],
+  "responsible_organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ADMINISTRATUM",
+    "ASTRONOMICON",
+    "STRATEGIUM",
+    "MECHANICUS",
+    "SERVITOR",
+    "INQUISITION",
+    "SCHOLA_IMPERIALIS",
+    "THRONE"
+  ]
+}

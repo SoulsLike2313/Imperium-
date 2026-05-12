@@ -73,3 +73,6 @@ EXPLORER/SCREENSHOTS/**/*SSH_COMMAND_LIBRARY*.zip
 # IMPERIUM local transfer inbox/outbox
 /INBOX/
 /OUTBOX/
+
+# Local external audit working output
+AUDIT_OUTPUT/

@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.agent_entrypoint_registry.v0_1",
+  "title": "IMPERIUM Agent Entrypoint Registry",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_name",
+    "status",
+    "active_source_zones",
+    "active_entrypoints",
+    "safe_readonly_commands",
+    "safe_validation_commands",
+    "runtime_zones",
+    "legacy_caution_zones",
+    "do_not_touch_without_owner_approval",
+    "known_current_debt",
+    "patch_bundle_rules",
+    "next_recommended_tasks",
+    "responsible_organs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "imperium.agent_entrypoint_registry.v0_1"
+    },
+    "registry_name": {
+      "const": "AGENT_ENTRYPOINT_REGISTRY"
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "active_source_zones": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "active_entrypoints": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "safe_readonly_commands": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "safe_validation_commands": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "runtime_zones": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "legacy_caution_zones": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "do_not_touch_without_owner_approval": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "known_current_debt": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "patch_bundle_rules": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "next_recommended_tasks": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "responsible_organs": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": true
+}
