@@ -217,7 +217,7 @@ try {
             Write-ColorLine "Incoming repo files:" ([ConsoleColor]::Yellow)
             Get-ChildItem -LiteralPath $repoDir -Recurse -File |
                 ForEach-Object {
-                    $rp = $_.FullName.Substring($repoDir.Length).TrimStart('\\','/')
+                    $rp = $_.FullName.Substring($repoDir.Length).TrimStart([char[]]@('\','/'))
                     Write-ColorLine "  - $rp" ([ConsoleColor]::Cyan)
                 }
 
@@ -225,7 +225,7 @@ try {
                 Write-Section "APPLY TO WORKTREE"
 
                 Get-ChildItem -LiteralPath $repoDir -Recurse -File | ForEach-Object {
-                    $rel = $_.FullName.Substring($repoDir.Length).TrimStart('\\','/')
+                    $rel = $_.FullName.Substring($repoDir.Length).TrimStart([char[]]@('\','/'))
                     $dest = Join-Path $RepoRoot $rel
                     $destParent = Split-Path -Parent $dest
                     if (-not (Test-Path -LiteralPath $destParent)) {
