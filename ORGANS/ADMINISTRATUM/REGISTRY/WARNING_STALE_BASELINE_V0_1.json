@@ -1,0 +1,79 @@
+{
+  "schema_version": "imperium.warning_stale_baseline.v0_1",
+  "updated_at_utc": "2026-05-13T00:00:00Z",
+  "task_id": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+  "baseline_head": "36ffba1883d895d3f0a880de6b72cd5046be2c24",
+  "categories": [
+    {
+      "category_id": "WARN-ENCODING-MOJIBAKE",
+      "description": "UTF-8 handling drift can reintroduce mojibake in dashboard/handoff docs.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-STALE-FILE-RISK",
+      "description": "Operational docs can lag current baseline if not refreshed per task.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-FLOATING-MASTER-RISK",
+      "description": "Floating refs can drift away from exact SHA truth.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-MISSING-REGISTRY-REFERENCE",
+      "description": "Contracts may reference paths not registered or no longer existing.",
+      "status": "PROVEN"
+    },
+    {
+      "category_id": "WARN-PATH-MISMATCH-PC-VM2",
+      "description": "PC/VM2 path mismatch can break handoff and apply checks.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-LOCAL-ONLY-MISUSED-AS-GIT-TRUTH",
+      "description": "Local runtime files can be mistaken for canonical tracked truth.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-UNTRACKED-TOOL-RISK",
+      "description": "Using unregistered tools/scripts weakens proof strength.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-WARNING-FLOOD-RISK",
+      "description": "Legacy continuity areas can flood warnings and hide new regressions.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-UNKNOWN-INSTALL-STATUS",
+      "description": "Capabilities with UNKNOWN install status need explicit warning before execution.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-ORPHAN-SCRIPT-TOOL",
+      "description": "Registry entries may point to missing scripts/tools.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-FAKE-GREEN-RISK",
+      "description": "PASS claims without receipts/check evidence are invalid.",
+      "status": "PROVEN"
+    },
+    {
+      "category_id": "WARN-RAW-ADVISORY-AS-DOCTRINE",
+      "description": "Raw advisory must not be treated as accepted doctrine before reconciliation.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-STALE-BASELINE-HEAD",
+      "description": "Using old baseline head (090c75...) as current truth is stale-risk.",
+      "status": "WARNING"
+    },
+    {
+      "category_id": "WARN-DIRTY-VM2-WORKTREE",
+      "description": "Dirty VM2 worktree before intake can invalidate preflight truth.",
+      "status": "WARNING"
+    }
+  ],
+  "status": "PROVEN"
+}

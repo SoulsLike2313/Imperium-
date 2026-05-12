@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Zone Registry v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "updated_at_utc",
+    "task_id",
+    "zones"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.zone_registry.v0_1"
+    },
+    "updated_at_utc": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "zones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "zone_id",
+          "git_tracked_expected",
+          "local_only",
+          "purpose",
+          "allowed_writes",
+          "forbidden_writes",
+          "receipt_policy",
+          "stale_policy",
+          "status"
+        ],
+        "properties": {
+          "zone_id": {
+            "type": "string"
+          },
+          "path_pc": {
+            "type": ["string", "null"]
+          },
+          "path_vm2": {
+            "type": ["string", "null"]
+          },
+          "git_tracked_expected": {
+            "type": ["boolean", "string"],
+            "enum": [true, false, "unknown"]
+          },
+          "local_only": {
+            "type": "boolean"
+          },
+          "owner_organ": {
+            "type": "string"
+          },
+          "support_layer": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "allowed_writes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forbidden_writes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "receipt_policy": {
+            "type": "string"
+          },
+          "stale_policy": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["PROVEN", "WARNING", "UNKNOWN", "BLOCKED"]
+          }
+        }
+      }
+    }
+  }
+}

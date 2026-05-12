@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Organ Self Report v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "organ_id",
+    "generated_at_utc",
+    "responsibility",
+    "owned_paths",
+    "read_zones",
+    "write_zones",
+    "schemas",
+    "scripts",
+    "receipts",
+    "capabilities_required",
+    "status",
+    "warnings",
+    "blockers"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.organ_self_report.v0_1"
+    },
+    "organ_id": {
+      "type": "string"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "responsibility": {
+      "type": "string"
+    },
+    "owned_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "read_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "write_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schemas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "self_report_command": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PROVEN",
+        "WARNING",
+        "UNKNOWN",
+        "BLOCKED",
+        "DRAFT",
+        "ACTIVE",
+        "DEPRECATED"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

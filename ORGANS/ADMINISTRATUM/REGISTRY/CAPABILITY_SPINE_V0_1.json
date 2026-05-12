@@ -1,0 +1,79 @@
+{
+  "schema_version": "imperium.capability_spine.v0_1",
+  "updated_at_utc": "2026-05-13T00:00:00Z",
+  "task_id": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+  "support_layers": {
+    "script_registry_ref": "REGISTRY/SCRIPT_REGISTRY.json",
+    "arsenal_tool_index_ref": "REGISTRY/ARSENAL_TOOL_INDEX.json",
+    "arsenal_install_status_ref": "REGISTRY/ARSENAL_INSTALL_STATUS.json"
+  },
+  "allowed_scripts": [
+    "SCRIPT-ADMINISTRATUM-GIT-CLI-CHECK-SH-V0_1",
+    "SCRIPT-VERIFY-WORKER-BUNDLE-V0_1",
+    "SCRIPT-VERIFY-REPO-V0_1",
+    "SCRIPT-CHECK-AGENT-ENTRYPOINT-V0_1",
+    "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1"
+  ],
+  "owner_gated_tools": [
+    "TOOL-GITLEAKS",
+    "TOOL-CHECK-JSONSCHEMA",
+    "TOOL-GITHUB-CLI",
+    "TOOL-POWERSHELL7",
+    "TOOL-GRAPHVIZ"
+  ],
+  "contour_specific_tools": {
+    "VM2": [
+      "TOOL-PYTHON3",
+      "TOOL-GIT",
+      "TOOL-BASH",
+      "TOOL-OPENSSH",
+      "TOOL-ZIP",
+      "TOOL-UNZIP",
+      "TOOL-SHA256SUM"
+    ],
+    "PC": [
+      "TOOL-POWERSHELL7",
+      "TOOL-7ZIP",
+      "TOOL-GIT-BASH"
+    ]
+  },
+  "unknown_capabilities": [
+    "TOOL-GRAPHVIZ",
+    "TOOL-MARKDOWNLINT",
+    "TOOL-DIFFTASTIC",
+    "CAP-INQUISITION-AUDIT-PIPELINE",
+    "CAP-ORGAN-SELF-REPORT-AUTO-CHECK"
+  ],
+  "required_future_task_stage_run_fields": [
+    "required_capabilities",
+    "allowed_scripts",
+    "allowed_tools",
+    "forbidden_tools",
+    "tooling_refs",
+    "install_status_requirements"
+  ],
+  "install_status_requirements": {
+    "AVAILABLE_CONFIRMED": "capability is proven on active contour",
+    "UNKNOWN": "warn before execution and request owner decision when risky",
+    "NOT_INSTALLED": "not executable until install decision and evidence",
+    "RECOMMENDED_NOT_APPROVED": "advisory only, not auto-allowed"
+  },
+  "kiro_future_needs": [
+    {
+      "capability_id": "CAP-ORGAN-SELF-REPORT",
+      "description": "Future organ self-report packet/command for self-descriptive organ lifecycle.",
+      "status": "UNKNOWN"
+    },
+    {
+      "capability_id": "CAP-ORGAN-CONTRACT-VALIDATION",
+      "description": "Schema-backed organ contract validation before enabling organ corridors.",
+      "status": "WARNING"
+    },
+    {
+      "capability_id": "CAP-INQUISITION-AUDIT",
+      "description": "Future Inquisition audit capability for no-fake-green and policy checks.",
+      "status": "UNKNOWN"
+    }
+  ],
+  "status": "PROVEN"
+}

@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Capability Spine v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "updated_at_utc",
+    "task_id",
+    "support_layers",
+    "allowed_scripts",
+    "owner_gated_tools",
+    "contour_specific_tools",
+    "unknown_capabilities",
+    "required_future_task_stage_run_fields",
+    "install_status_requirements",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.capability_spine.v0_1"
+    },
+    "updated_at_utc": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "support_layers": {
+      "type": "object",
+      "required": [
+        "script_registry_ref",
+        "arsenal_tool_index_ref",
+        "arsenal_install_status_ref"
+      ],
+      "properties": {
+        "script_registry_ref": {
+          "type": "string"
+        },
+        "arsenal_tool_index_ref": {
+          "type": "string"
+        },
+        "arsenal_install_status_ref": {
+          "type": "string"
+        }
+      }
+    },
+    "allowed_scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_gated_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "contour_specific_tools": {
+      "type": "object"
+    },
+    "unknown_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_future_task_stage_run_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "install_status_requirements": {
+      "type": "object"
+    },
+    "kiro_future_needs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "capability_id",
+          "description",
+          "status"
+        ],
+        "properties": {
+          "capability_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["PROVEN", "WARNING", "UNKNOWN", "BLOCKED"]
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PROVEN", "WARNING", "UNKNOWN", "BLOCKED"]
+    }
+  }
+}

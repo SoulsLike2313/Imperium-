@@ -1,0 +1,95 @@
+{
+  "schema_version": "imperium.truth_source_registry.v0_1",
+  "updated_at_utc": "2026-05-13T00:00:00Z",
+  "task_id": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+  "current_baseline_head": "36ffba1883d895d3f0a880de6b72cd5046be2c24",
+  "stale_baseline_heads": [
+    "090c75bdc5f56c808b7dc528c2e7ae7819501388"
+  ],
+  "git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head_sha": "36ffba1883d895d3f0a880de6b72cd5046be2c24",
+    "commit_count": 56,
+    "latest_commit_oneline": "36ffba1 TASK-20260513: register Kiro Inquisition self-build advisory",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/36ffba1883d895d3f0a880de6b72cd5046be2c24"
+  },
+  "authority": {
+    "commit_authority": "PC_ONLY",
+    "push_authority": "PC_ONLY",
+    "vm2_commit_allowed": false,
+    "vm2_push_allowed": false,
+    "owner_override_boundaries": [
+      "Owner explicit decision can override normal flow.",
+      "Chat-only claim cannot override receipts and git truth.",
+      "Advisory input cannot become doctrine without reconciliation."
+    ]
+  },
+  "advisory_truth_policy": {
+    "advisory_registration_ref": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+    "required_raw_status": "RAW_ADVISORY_INPUT_NOT_YET_RECONCILED",
+    "accepted_alias_statuses": [
+      "REGISTERED_RAW_ADVISORY_NOT_RECONCILED"
+    ],
+    "advisory_is_doctrine": false,
+    "status": "PROVEN"
+  },
+  "truth_precedence": [
+    {
+      "rank": 1,
+      "source": "exact_git_sha_tree_url",
+      "rule": "Use exact /tree/<HEAD_SHA> for authoritative state reference.",
+      "evidence_ref": "https://github.com/SoulsLike2313/Imperium-/tree/36ffba1883d895d3f0a880de6b72cd5046be2c24",
+      "status": "PROVEN"
+    },
+    {
+      "rank": 2,
+      "source": "head_origin_remote_equality",
+      "rule": "HEAD, origin/master and remote master must match for synced baseline.",
+      "evidence_ref": ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RESULT.json",
+      "status": "PROVEN"
+    },
+    {
+      "rank": 3,
+      "source": "pc_commit_push_only",
+      "rule": "PC contour is commit/push authority; VM2 produces bundles only.",
+      "evidence_ref": "AGENTS.md",
+      "status": "PROVEN"
+    },
+    {
+      "rank": 4,
+      "source": "receipts_over_chat_claims",
+      "rule": "Operational claims require receipts/evidence references.",
+      "evidence_ref": "DOCS/BUNDLE_AND_RECEIPT_CONTRACT_V0_1.md",
+      "status": "PROVEN"
+    },
+    {
+      "rank": 5,
+      "source": "runtime_evidence_limitation",
+      "rule": "Runtime files are contour-local and time-bound, not standalone doctrine.",
+      "evidence_ref": "AGENTS.md",
+      "status": "WARNING"
+    },
+    {
+      "rank": 6,
+      "source": "floating_master_risk",
+      "rule": "Floating master references are stale-risk unless pinned to exact SHA.",
+      "evidence_ref": "ORGANS/DOCTRINARIUM/LAWS/LAW_ADDRESS_REGISTRY.json",
+      "status": "WARNING"
+    },
+    {
+      "rank": 7,
+      "source": "raw_advisory_not_doctrine",
+      "rule": "Kiro advisory remains raw input until formal reconciliation.",
+      "evidence_ref": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+      "status": "PROVEN"
+    },
+    {
+      "rank": 8,
+      "source": "stale_head_block",
+      "rule": "Old baseline head 090c75... is stale for this stage and must not be used as current truth.",
+      "evidence_ref": "TASK stale-baseline block record",
+      "status": "WARNING"
+    }
+  ],
+  "status": "PROVEN"
+}

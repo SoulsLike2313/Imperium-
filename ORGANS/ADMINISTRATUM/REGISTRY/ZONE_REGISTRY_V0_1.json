@@ -1,0 +1,299 @@
+{
+  "schema_version": "imperium.zone_registry.v0_1",
+  "updated_at_utc": "2026-05-13T00:00:00Z",
+  "task_id": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+  "zones": [
+    {
+      "zone_id": "ZONE-REPO-ROOT",
+      "path_pc": "E:\\IMPERIUM",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Canonical public repository root.",
+      "allowed_writes": [
+        "task-scoped tracked source edits"
+      ],
+      "forbidden_writes": [
+        "VM2 commit",
+        "VM2 push",
+        "out-of-scope rewrites"
+      ],
+      "receipt_policy": "Changes must be carried by verified bundle with manifest/receipts.",
+      "stale_policy": "Warn if declared baseline head differs from runtime git truth.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-ORGANS",
+      "path_pc": "E:\\IMPERIUM\\ORGANS",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/ORGANS",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Organ definitions, configs and registries.",
+      "allowed_writes": [
+        "task-scoped organ files"
+      ],
+      "forbidden_writes": [
+        "THRONE edits without owner approval"
+      ],
+      "receipt_policy": "Organ changes require explicit evidence and checker output.",
+      "stale_policy": "Warn on drift between contracts and filesystem.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-DOCS",
+      "path_pc": "E:\\IMPERIUM\\DOCS",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/DOCS",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Doctrine, contracts, retrospectives and guidance.",
+      "allowed_writes": [
+        "scoped contract docs"
+      ],
+      "forbidden_writes": [
+        "rewriting unrelated archives"
+      ],
+      "receipt_policy": "All changed docs listed in bundle repo_files.",
+      "stale_policy": "Warn when docs claim PASS without receipts.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-REGISTRY",
+      "path_pc": "E:\\IMPERIUM\\REGISTRY",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/REGISTRY",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Machine-readable control memory for scripts/tools/policies.",
+      "allowed_writes": [
+        "schema-aligned registry updates"
+      ],
+      "forbidden_writes": [
+        "breaking key changes without checker updates"
+      ],
+      "receipt_policy": "Registry edits require checker result references.",
+      "stale_policy": "Warn if registry claims unavailable files.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-SCHEMAS",
+      "path_pc": "E:\\IMPERIUM\\schemas",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/schemas",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "MECHANICUS",
+      "purpose": "JSON contract schemas for machine checks.",
+      "allowed_writes": [
+        "task-scoped schema additions"
+      ],
+      "forbidden_writes": [
+        "silent schema drift"
+      ],
+      "receipt_policy": "Schema changes require json.tool + checker outputs.",
+      "stale_policy": "Warn if schema exists but absent in schema_registry.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-TOOLS",
+      "path_pc": "E:\\IMPERIUM\\TOOLS",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/TOOLS",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "MECHANICUS",
+      "purpose": "Operational scripts and checkers.",
+      "allowed_writes": [
+        "small checker additions"
+      ],
+      "forbidden_writes": [
+        "auto-commit or auto-push logic"
+      ],
+      "receipt_policy": "Tool changes require py_compile and run receipts.",
+      "stale_policy": "Warn when script registry is out of sync.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-TESTS",
+      "path_pc": "E:\\IMPERIUM\\tests",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/tests",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "MECHANICUS",
+      "purpose": "Fixtures and test support assets.",
+      "allowed_writes": [
+        "minimal task fixtures"
+      ],
+      "forbidden_writes": [
+        "broad unrelated test rewrites"
+      ],
+      "receipt_policy": "Fixture purpose must be evidenced by checker usage.",
+      "stale_policy": "Warn on stale or misleading fixtures.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-ARTIFACTS",
+      "path_pc": "E:\\IMPERIUM\\ARTIFACTS",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/ARTIFACTS",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Historical continuity/evidence area.",
+      "allowed_writes": [
+        "append-only when explicitly scoped"
+      ],
+      "forbidden_writes": [
+        "history rewrite",
+        "mass cleanup"
+      ],
+      "receipt_policy": "If touched, explicit justification required.",
+      "stale_policy": "Historical references may be stale by design.",
+      "status": "WARNING"
+    },
+    {
+      "zone_id": "ZONE-RUNTIME",
+      "path_pc": "E:\\IMPERIUM\\.imperium_runtime",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/.imperium_runtime",
+      "git_tracked_expected": false,
+      "local_only": true,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Runtime reports, temporary receipts and generated evidence.",
+      "allowed_writes": [
+        "task runtime evidence"
+      ],
+      "forbidden_writes": [
+        "using runtime as long-term canon source"
+      ],
+      "receipt_policy": "Runtime evidence supports claims but is contour-local.",
+      "stale_policy": "Always compare runtime timestamp with current head.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-PC-BUNDLE-INBOX",
+      "path_pc": "E:\\IMPERIUM_LOCAL_HANDOFF\\BUNDLE_INTAKE",
+      "path_vm2": null,
+      "git_tracked_expected": false,
+      "local_only": true,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "PC-side controlled bundle intake and quarantine area.",
+      "allowed_writes": [
+        "PC intake launcher controlled unpack"
+      ],
+      "forbidden_writes": [
+        "blind apply/commit"
+      ],
+      "receipt_policy": "PC intake must emit review report.",
+      "stale_policy": "VM2 cannot directly verify PC-local contents.",
+      "status": "WARNING"
+    },
+    {
+      "zone_id": "ZONE-VM2-HANDOFF-OUT",
+      "path_pc": null,
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/_handoff_out",
+      "git_tracked_expected": false,
+      "local_only": true,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "VM2 outbound bundle drop for PC review.",
+      "allowed_writes": [
+        "bundle zip",
+        "bundle sha256"
+      ],
+      "forbidden_writes": [
+        "canonical source storage"
+      ],
+      "receipt_policy": "Bundle must include manifest/receipts/truth evidence.",
+      "stale_policy": "Warn if bundle baseline differs from current head.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-VM2-BUNDLE-VERIFY-TMP",
+      "path_pc": null,
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/.imperium_runtime/bundle_verify_tmp",
+      "git_tracked_expected": false,
+      "local_only": true,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Temporary extraction area used by verify_worker_bundle.",
+      "allowed_writes": [
+        "temporary verifier extraction"
+      ],
+      "forbidden_writes": [
+        "manual long-term storage"
+      ],
+      "receipt_policy": "Temporary only, no canon claims.",
+      "stale_policy": "UNKNOWN until each run confirms cleanup.",
+      "status": "UNKNOWN"
+    },
+    {
+      "zone_id": "ZONE-KIRO-ADVISORY-DOC",
+      "path_pc": "E:\\IMPERIUM\\DOCS\\AUDITS\\KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ASTRONOMICON",
+      "purpose": "Raw technical advisory input for future reconciliation.",
+      "allowed_writes": [
+        "registration metadata updates only when scoped"
+      ],
+      "forbidden_writes": [
+        "treating advisory as accepted doctrine"
+      ],
+      "receipt_policy": "Advisory usage must reference registration packet.",
+      "stale_policy": "Warn if advisory base head is older than active baseline.",
+      "status": "WARNING"
+    },
+    {
+      "zone_id": "ZONE-SCRIPTORIUM-REGISTRY",
+      "path_pc": "E:\\IMPERIUM\\REGISTRY\\SCRIPT_REGISTRY.json",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/REGISTRY/SCRIPT_REGISTRY.json",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Script capability and safety metadata index.",
+      "allowed_writes": [
+        "conservative registry updates with checks"
+      ],
+      "forbidden_writes": [
+        "marking dangerous scripts safe without owner gate"
+      ],
+      "receipt_policy": "check_script_registry_v0_1 output required.",
+      "stale_policy": "Warn on missing script-path entries.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-ARSENAL-INDEX",
+      "path_pc": "E:\\IMPERIUM\\REGISTRY\\ARSENAL_TOOL_INDEX.json",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/REGISTRY/ARSENAL_TOOL_INDEX.json",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "support_layer": "ARSENAL",
+      "purpose": "External tool catalog for planning and gating.",
+      "allowed_writes": [
+        "conservative tool metadata updates"
+      ],
+      "forbidden_writes": [
+        "claiming install without evidence"
+      ],
+      "receipt_policy": "arsenal checker output required for updates.",
+      "stale_policy": "Warn when official source links are missing/unknown.",
+      "status": "PROVEN"
+    },
+    {
+      "zone_id": "ZONE-ARSENAL-INSTALL-STATUS",
+      "path_pc": "E:\\IMPERIUM\\REGISTRY\\ARSENAL_INSTALL_STATUS.json",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/REGISTRY/ARSENAL_INSTALL_STATUS.json",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "support_layer": "ARSENAL",
+      "purpose": "Contour-specific installation availability status.",
+      "allowed_writes": [
+        "checked status updates with command evidence"
+      ],
+      "forbidden_writes": [
+        "declaring owner-approved install without decision"
+      ],
+      "receipt_policy": "install checks must include commands and version output.",
+      "stale_policy": "Warn when install status head lags current baseline.",
+      "status": "WARNING"
+    }
+  ]
+}

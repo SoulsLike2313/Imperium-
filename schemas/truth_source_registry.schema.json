@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Truth Source Registry v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "updated_at_utc",
+    "task_id",
+    "current_baseline_head",
+    "git_truth",
+    "authority",
+    "truth_precedence",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.truth_source_registry.v0_1"
+    },
+    "updated_at_utc": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "current_baseline_head": {
+      "type": "string",
+      "minLength": 40,
+      "maxLength": 40
+    },
+    "stale_baseline_heads": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "git_truth": {
+      "type": "object",
+      "required": [
+        "repo",
+        "head_sha",
+        "commit_count",
+        "latest_commit_oneline",
+        "exact_tree_url"
+      ],
+      "properties": {
+        "repo": {
+          "type": "string"
+        },
+        "head_sha": {
+          "type": "string",
+          "minLength": 40,
+          "maxLength": 40
+        },
+        "commit_count": {
+          "type": "integer"
+        },
+        "latest_commit_oneline": {
+          "type": "string"
+        },
+        "exact_tree_url": {
+          "type": "string"
+        }
+      }
+    },
+    "authority": {
+      "type": "object",
+      "required": [
+        "commit_authority",
+        "push_authority",
+        "vm2_commit_allowed",
+        "vm2_push_allowed",
+        "owner_override_boundaries"
+      ],
+      "properties": {
+        "commit_authority": {
+          "type": "string"
+        },
+        "push_authority": {
+          "type": "string"
+        },
+        "vm2_commit_allowed": {
+          "type": "boolean"
+        },
+        "vm2_push_allowed": {
+          "type": "boolean"
+        },
+        "owner_override_boundaries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "advisory_truth_policy": {
+      "type": "object"
+    },
+    "truth_precedence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "rank",
+          "source",
+          "rule",
+          "evidence_ref",
+          "status"
+        ],
+        "properties": {
+          "rank": {
+            "type": "integer"
+          },
+          "source": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          },
+          "evidence_ref": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["PROVEN", "WARNING", "UNKNOWN", "BLOCKED"]
+          }
+        }
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["PROVEN", "WARNING", "UNKNOWN", "BLOCKED"]
+    }
+  }
+}

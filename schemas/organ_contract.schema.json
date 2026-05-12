@@ -1,0 +1,104 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Organ Contract v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "organ_id",
+    "responsibility",
+    "forbidden_actions",
+    "owned_paths",
+    "read_zones",
+    "write_zones",
+    "schemas",
+    "scripts",
+    "receipts",
+    "capabilities_required",
+    "self_report_port",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.organ_contract.v0_1"
+    },
+    "organ_id": {
+      "type": "string"
+    },
+    "responsibility": {
+      "type": "string"
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owned_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "read_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "write_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schemas": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capabilities_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "self_report_port": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PROVEN",
+        "WARNING",
+        "UNKNOWN",
+        "BLOCKED",
+        "DRAFT",
+        "ACTIVE",
+        "DEPRECATED"
+      ]
+    },
+    "stale_model": {
+      "type": "string"
+    },
+    "unknown_model": {
+      "type": "string"
+    },
+    "blocker_model": {
+      "type": "string"
+    }
+  }
+}

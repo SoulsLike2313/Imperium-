@@ -50,6 +50,36 @@
       "schema_id": "imperium.arsenal_tool_index.v0_1",
       "path": "schemas/arsenal_tool.schema.json",
       "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.zone_registry.v0_1",
+      "path": "schemas/zone_registry.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.truth_source_registry.v0_1",
+      "path": "schemas/truth_source_registry.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.capability_spine.v0_1",
+      "path": "schemas/capability_spine.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.warning_stale_baseline.v0_1",
+      "path": "schemas/warning_stale_baseline.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.organ_contract.v0_1",
+      "path": "schemas/organ_contract.schema.json",
+      "kind": "organ_contract"
+    },
+    {
+      "schema_id": "imperium.organ_self_report.v0_1",
+      "path": "schemas/organ_self_report.schema.json",
+      "kind": "organ_report"
     }
   ]
 }

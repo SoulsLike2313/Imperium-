@@ -1,11 +1,12 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-12T21:49:39.982771+00:00",
-  "generated_by": "TASK-20260513-BUNDLE-INTAKE-ROLLUP-HARDENING-V0_1",
+  "updated_at_utc": "2026-05-12T22:24:45.028070+00:00",
+  "generated_by": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
-    "Statuses are conservative; VERIFIED requires explicit recent evidence."
+    "Statuses are conservative; VERIFIED requires explicit recent evidence.",
+    "Act 3 seed checker registered for address/truth/capability spine."
   ],
   "scripts": [
     {
@@ -761,6 +762,61 @@
       ],
       "example_safe_invocation": "python3 TOOLS/verify_worker_bundle.py --bundle tests/fixtures/worker_bundle_v0_1/valid_minimal_bundle --repo-root . --human",
       "verification_command": "python3 TOOLS/verify_worker_bundle.py --bundle tests/fixtures/worker_bundle_v0_1/valid_minimal_bundle --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1",
+      "path": "TOOLS/check_act3_address_truth_capability_spine_v0_1.py",
+      "name": "check_act3_address_truth_capability_spine_v0_1.py",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Act 3 address/truth/capability registries and emit runtime receipts.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_act3_address_truth_capability_spine_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human"
+      ],
+      "reads": [
+        "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/TRUTH_SOURCE_REGISTRY_V0_1.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/CAPABILITY_SPINE_V0_1.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/WARNING_STALE_BASELINE_V0_1.json",
+        "REGISTRY/SCRIPT_REGISTRY.json",
+        "REGISTRY/ARSENAL_TOOL_INDEX.json",
+        "REGISTRY/ARSENAL_INSTALL_STATUS.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+      ],
+      "writes": [
+        ".imperium_runtime/administratum/act3_address_truth_capability_spine_check/"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/administratum/act3_address_truth_capability_spine_check/ACT3_ADDRESS_TRUTH_CAPABILITY_SPINE_CHECK_RESULT.json",
+        ".imperium_runtime/administratum/act3_address_truth_capability_spine_check/ACT3_ADDRESS_TRUTH_CAPABILITY_SPINE_CHECK_VERDICT.md",
+        ".imperium_runtime/administratum/act3_address_truth_capability_spine_check/ACT3_ADDRESS_TRUTH_CAPABILITY_SPINE_CHECK_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_act3_address_truth_capability_spine_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_act3_address_truth_capability_spine_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }

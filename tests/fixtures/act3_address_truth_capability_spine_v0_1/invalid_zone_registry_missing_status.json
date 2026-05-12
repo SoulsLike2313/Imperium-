@@ -1,0 +1,24 @@
+{
+  "schema_version": "imperium.zone_registry.v0_1",
+  "updated_at_utc": "2026-05-13T00:00:00Z",
+  "task_id": "TASK-20260513-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-SEED-V0_1",
+  "zones": [
+    {
+      "zone_id": "ZONE-INVALID",
+      "path_pc": "E:\\IMPERIUM",
+      "path_vm2": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+      "git_tracked_expected": true,
+      "local_only": false,
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Missing status on purpose",
+      "allowed_writes": [
+        "none"
+      ],
+      "forbidden_writes": [
+        "unsafe"
+      ],
+      "receipt_policy": "fixture",
+      "stale_policy": "fixture"
+    }
+  ]
+}
