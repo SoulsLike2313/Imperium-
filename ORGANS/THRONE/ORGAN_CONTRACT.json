@@ -1,0 +1,46 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ_id": "THRONE",
+  "responsibility": "Owner-controlled canonical acceptance kernel contour and canon boundary anchor.",
+  "category": "canon_and_protection",
+  "upstream_organs": [
+    "INQUISITION",
+    "ADMINISTRATUM"
+  ],
+  "downstream_organs": [
+    "CUSTODES"
+  ],
+  "provided_ports": [
+    "request_canon_acceptance",
+    "read_canon_state"
+  ],
+  "required_inputs": [
+    "owner_approved_clean_state",
+    "audit_receipts",
+    "task_evidence_bundle"
+  ],
+  "outputs": [
+    "canon_acceptance_decision_record"
+  ],
+  "stop_conditions": [
+    "missing_owner_approval",
+    "state_not_clean",
+    "critical_audit_failure"
+  ],
+  "owner_approval_required_for": [
+    "any_acceptance_decision",
+    "any_canonical_state_write"
+  ],
+  "forbidden_actions": [
+    "automatic_canonical_writes",
+    "automatic_push",
+    "silent_overrides",
+    "unapproved_boundary_changes"
+  ],
+  "operational_status": "NOT_OPERATIONAL",
+  "notes": [
+    "Scaffold only in v0.1.",
+    "No automation yet.",
+    "No scripts should claim canonical acceptance."
+  ]
+}

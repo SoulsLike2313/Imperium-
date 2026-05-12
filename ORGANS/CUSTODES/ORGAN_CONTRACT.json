@@ -1,0 +1,42 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ_id": "CUSTODES",
+  "responsibility": "Guard Throne boundary and protect clean accepted backup contour.",
+  "category": "canon_and_protection",
+  "upstream_organs": [
+    "THRONE"
+  ],
+  "downstream_organs": [],
+  "provided_ports": [
+    "verify_clean_backup_target",
+    "prepare_backup_guard_policy"
+  ],
+  "required_inputs": [
+    "owner_trigger",
+    "accepted_clean_state_reference",
+    "backup_target_reference"
+  ],
+  "outputs": [
+    "backup_guard_receipt"
+  ],
+  "stop_conditions": [
+    "owner_trigger_missing",
+    "state_not_accepted",
+    "backup_target_unavailable"
+  ],
+  "owner_approval_required_for": [
+    "backup_start",
+    "backup_policy_change"
+  ],
+  "forbidden_actions": [
+    "automatic_backup_without_owner",
+    "unverified_state_backup",
+    "boundary_override"
+  ],
+  "operational_status": "NOT_OPERATIONAL",
+  "notes": [
+    "Scaffold only in v0.1.",
+    "Target later: external-drive clean backup.",
+    "No backup automation yet."
+  ]
+}

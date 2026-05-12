@@ -1,0 +1,45 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ_id": "STRATEGIUM",
+  "responsibility": "Owner-triggered low-resource advisory research for system improvement options.",
+  "category": "improvement_and_learning",
+  "upstream_organs": [
+    "THRONE",
+    "ADMINISTRATUM"
+  ],
+  "downstream_organs": [
+    "SCHOLA_IMPERIALIS"
+  ],
+  "provided_ports": [
+    "collect_advisory_research_topics",
+    "emit_advisory_findings"
+  ],
+  "required_inputs": [
+    "owner_trigger",
+    "commit_diff_summary",
+    "known_limitations_snapshot"
+  ],
+  "outputs": [
+    "advisory_research_notes",
+    "improvement_hypotheses"
+  ],
+  "stop_conditions": [
+    "owner_trigger_missing",
+    "privacy_boundary_risk"
+  ],
+  "owner_approval_required_for": [
+    "research_run_start",
+    "publication_of_external_findings"
+  ],
+  "forbidden_actions": [
+    "automatic_code_changes",
+    "automatic_push",
+    "automatic_task_execution"
+  ],
+  "operational_status": "NOT_OPERATIONAL",
+  "notes": [
+    "Scaffold only in v0.1.",
+    "Authority is advisory only.",
+    "No internet automation yet."
+  ]
+}

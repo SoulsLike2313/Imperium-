@@ -1,0 +1,14 @@
+{
+  "schema_version": "ORGAN_STATUS_V0_1",
+  "organ_id": "STRATEGIUM",
+  "name": "Strategium",
+  "canonical_order": 9,
+  "category": "improvement_and_learning",
+  "maturity": "LEVEL_0_SCAFFOLD",
+  "operational": false,
+  "alive": true,
+  "can_accept_tasks": false,
+  "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md",
+  "status_note": "Scaffold only. Advisory research organ; no internet/research automation in v0.1.",
+  "created_by_task": "TASK-20260512-ORGAN-STANDARD-AND-SCAFFOLDS-V0_1"
+}

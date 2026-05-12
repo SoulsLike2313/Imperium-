@@ -1,0 +1,43 @@
+{
+  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "organ_id": "SCHOLA_IMPERIALIS",
+  "responsibility": "Owner learning advisory path based on system changes and accepted knowledge.",
+  "category": "improvement_and_learning",
+  "upstream_organs": [
+    "STRATEGIUM",
+    "THRONE",
+    "ADMINISTRATUM"
+  ],
+  "downstream_organs": [],
+  "provided_ports": [
+    "compile_owner_learning_notes",
+    "propose_owner_study_path"
+  ],
+  "required_inputs": [
+    "owner_trigger",
+    "change_history_summary",
+    "advisory_findings"
+  ],
+  "outputs": [
+    "owner_learning_notes",
+    "owner_study_path"
+  ],
+  "stop_conditions": [
+    "owner_trigger_missing",
+    "insufficient_reference_context"
+  ],
+  "owner_approval_required_for": [
+    "learning_path_publication"
+  ],
+  "forbidden_actions": [
+    "automatic_code_changes",
+    "automatic_policy_changes",
+    "claiming_operational_authority"
+  ],
+  "operational_status": "NOT_OPERATIONAL",
+  "notes": [
+    "Scaffold only in v0.1.",
+    "Authority is advisory only.",
+    "No autonomous learning automation yet."
+  ]
+}

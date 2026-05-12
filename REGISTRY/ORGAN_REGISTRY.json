@@ -1,11 +1,58 @@
 {
   "schema_version": "IMPERIUM_ORGAN_REGISTRY_V0_1",
-  "generated_at": "2026-05-11T16:41:31.654778+03:00",
-  "coverage": "scaffold_partial",
+  "generated_at": "2026-05-12T15:20:00+00:00",
+  "coverage": "canonical_10_with_scaffold_layers",
+  "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md",
   "organs": [
     {
+      "organ_id": "DOCTRINARIUM",
+      "name": "Doctrinarium",
+      "canonical_order": 1,
+      "category": "insight",
+      "path": "ORGANS/DOCTRINARIUM",
+      "status": "STRICT_BOOTSTRAP_GATE",
+      "maturity": "STRICT_BOOTSTRAP_GATE",
+      "operational_status": "BOOTSTRAP",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "preflight law/health gate",
+      "forbidden_responsibilities": [
+        "skip law checks"
+      ],
+      "ports": [
+        "ORGANS/DOCTRINARIUM/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_preflight.py"
+      ],
+      "schemas": [
+        "ORGANS/DOCTRINARIUM/SCHEMAS/preflight_task_execution_v1.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/DOCTRINARIUM/STATUS/*"
+      ],
+      "upstream_callers": [
+        "PC_SERVITOR",
+        "ADMINISTRATUM"
+      ],
+      "downstream_dependencies": [
+        "ORGANS/DOCTRINARIUM/LAWS"
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
       "organ_id": "ADMINISTRATUM",
+      "name": "Administratum",
+      "canonical_order": 2,
+      "category": "insight",
       "path": "ORGANS/ADMINISTRATUM",
+      "status": "BOOTSTRAP",
+      "maturity": "BOOTSTRAP",
+      "operational_status": "BOOTSTRAP",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
       "responsibility": "dispatch, registry updates, artifact assembly",
       "forbidden_responsibilities": [
         "rewrite doctrinal law",
@@ -25,20 +72,64 @@
         "CURRENT_STATE/*",
         "REGISTRY/*"
       ],
-      "upstream callers": [
+      "upstream_callers": [
         "PC_SERVITOR",
         "DOCTRINARIUM"
       ],
-      "downstream dependencies": [
+      "downstream_dependencies": [
         "ASTRONOMICON",
         "MECHANICUS",
         "INQUISITION"
-      ]
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "name": "Officio Agentis",
+      "canonical_order": 3,
+      "category": "insight",
+      "path": "ORGANS/OFFICIO_AGENTIS",
+      "status": "MINIMAL_SCOPE_ACTIVE",
+      "maturity": "MINIMAL_SCOPE_ACTIVE",
+      "operational_status": "BOOTSTRAP",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "agent profile, policy constraints, scope corridor",
+      "ports": [
+        "ORGANS/OFFICIO_AGENTIS/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py"
+      ],
+      "schemas": [
+        "ORGANS/OFFICIO_AGENTIS/SCHEMAS/*.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/OFFICIO_AGENTIS/AGENT_PROFILES/*"
+      ],
+      "upstream_callers": [
+        "ADMINISTRATUM",
+        "PC_SERVITOR"
+      ],
+      "downstream_dependencies": [
+        "ASTRONOMICON"
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
     },
     {
       "organ_id": "ASTRONOMICON",
+      "name": "Astronomicon",
+      "canonical_order": 4,
+      "category": "insight",
       "path": "ORGANS/ASTRONOMICON",
-      "responsibility": "plan TASK_ID->LOCAL_TASK_ID->STAGE_ID mapping",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "plan TASK_ID to STAGE map and progression contracts",
       "forbidden_responsibilities": [
         "direct execution",
         "direct git push"
@@ -57,41 +148,215 @@
       "state_files": [
         "ORGANS/ASTRONOMICON/TASKS/*"
       ],
-      "upstream callers": [
+      "upstream_callers": [
         "PC_SERVITOR",
         "DOCTRINARIUM",
         "ADMINISTRATUM"
       ],
-      "downstream dependencies": [
+      "downstream_dependencies": [
         "SPECULUM review flow"
-      ]
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
     },
     {
-      "organ_id": "DOCTRINARIUM",
-      "path": "ORGANS/DOCTRINARIUM",
-      "responsibility": "preflight law/health gate",
-      "forbidden_responsibilities": [
-        "skip law checks"
-      ],
+      "organ_id": "MECHANICUS",
+      "name": "Mechanicus",
+      "canonical_order": 5,
+      "category": "execution_form_purity",
+      "path": "ORGANS/MECHANICUS",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "tooling, script registry, machinery contracts",
       "ports": [
-        "ORGANS/DOCTRINARIUM/PORTS/*.schema.json"
+        "ORGANS/MECHANICUS/PORTS/*.schema.json"
       ],
       "scripts": [
-        "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_preflight.py"
+        "ORGANS/MECHANICUS/SCRIPTS/*"
       ],
       "schemas": [
-        "ORGANS/DOCTRINARIUM/SCHEMAS/preflight_task_execution_v1.schema.json"
+        "ORGANS/MECHANICUS/SCHEMAS/*.schema.json"
       ],
       "state_files": [
-        "ORGANS/DOCTRINARIUM/STATUS/*"
+        "ORGANS/MECHANICUS/REGISTRY/*"
       ],
-      "upstream callers": [
-        "PC_SERVITOR",
+      "upstream_callers": [
+        "ASTRONOMICON",
         "ADMINISTRATUM"
       ],
-      "downstream dependencies": [
-        "ORGANS/DOCTRINARIUM/LAWS"
-      ]
+      "downstream_dependencies": [
+        "INQUISITION"
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
+      "organ_id": "INQUISITION",
+      "name": "Inquisition",
+      "canonical_order": 6,
+      "category": "execution_form_purity",
+      "path": "ORGANS/INQUISITION",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "audit, drift detection, anti-fake-green scrutiny",
+      "ports": [
+        "ORGANS/INQUISITION/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/INQUISITION/SCRIPTS/*"
+      ],
+      "schemas": [
+        "ORGANS/INQUISITION/SCHEMAS/*.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/INQUISITION/REPORTS/*"
+      ],
+      "upstream_callers": [
+        "MECHANICUS",
+        "ADMINISTRATUM"
+      ],
+      "downstream_dependencies": [
+        "THRONE"
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
+      "organ_id": "THRONE",
+      "name": "Throne",
+      "canonical_order": 7,
+      "category": "canon_and_protection",
+      "path": "ORGANS/THRONE",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "Owner-controlled canonical kernel contour acceptance boundary",
+      "ports": [
+        "ORGANS/THRONE/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/THRONE/SCRIPTS/*"
+      ],
+      "schemas": [
+        "ORGANS/THRONE/SCHEMAS/*.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/THRONE/*"
+      ],
+      "upstream_callers": [
+        "INQUISITION",
+        "OWNER"
+      ],
+      "downstream_dependencies": [
+        "CUSTODES"
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
+      "organ_id": "CUSTODES",
+      "name": "Custodes",
+      "canonical_order": 8,
+      "category": "canon_and_protection",
+      "path": "ORGANS/CUSTODES",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "guard Throne boundary and clean backup protection contour",
+      "ports": [
+        "ORGANS/CUSTODES/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/CUSTODES/SCRIPTS/*"
+      ],
+      "schemas": [
+        "ORGANS/CUSTODES/SCHEMAS/*.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/CUSTODES/*"
+      ],
+      "upstream_callers": [
+        "THRONE",
+        "OWNER"
+      ],
+      "downstream_dependencies": [],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
+      "organ_id": "STRATEGIUM",
+      "name": "Strategium",
+      "canonical_order": 9,
+      "category": "improvement_and_learning",
+      "path": "ORGANS/STRATEGIUM",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "Owner-triggered low-resource advisory research for improvements",
+      "ports": [
+        "ORGANS/STRATEGIUM/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/STRATEGIUM/SCRIPTS/*"
+      ],
+      "schemas": [
+        "ORGANS/STRATEGIUM/SCHEMAS/*.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/STRATEGIUM/*"
+      ],
+      "upstream_callers": [
+        "OWNER",
+        "THRONE"
+      ],
+      "downstream_dependencies": [
+        "SCHOLA_IMPERIALIS"
+      ],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
+    },
+    {
+      "organ_id": "SCHOLA_IMPERIALIS",
+      "name": "Schola Imperialis",
+      "canonical_order": 10,
+      "category": "improvement_and_learning",
+      "path": "ORGANS/SCHOLA_IMPERIALIS",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "maturity": "LEVEL_0_SCAFFOLD",
+      "operational_status": "NOT_OPERATIONAL",
+      "operational": false,
+      "alive": true,
+      "can_accept_tasks": false,
+      "responsibility": "Owner learning path advisory from system changes",
+      "ports": [
+        "ORGANS/SCHOLA_IMPERIALIS/PORTS/*.schema.json"
+      ],
+      "scripts": [
+        "ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/*"
+      ],
+      "schemas": [
+        "ORGANS/SCHOLA_IMPERIALIS/SCHEMAS/*.schema.json"
+      ],
+      "state_files": [
+        "ORGANS/SCHOLA_IMPERIALIS/*"
+      ],
+      "upstream_callers": [
+        "OWNER",
+        "STRATEGIUM"
+      ],
+      "downstream_dependencies": [],
+      "owner_doctrine_source": "DOCS/OWNER_DOCTRINE/OWNER_ORGAN_DOCTRINE_V0_1.md"
     }
   ]
 }
