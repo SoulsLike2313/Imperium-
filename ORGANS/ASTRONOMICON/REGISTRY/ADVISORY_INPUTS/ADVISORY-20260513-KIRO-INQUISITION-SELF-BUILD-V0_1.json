@@ -1,0 +1,43 @@
+{
+  "advisory_id": "ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1",
+  "schema_version": "imperium.advisory_input.v0_1",
+  "created_at_utc": "2026-05-12T22:07:24.474066+00:00",
+  "updated_at_utc": "2026-05-12T22:07:24.474066+00:00",
+  "source": "KIRO",
+  "source_type": "EXTERNAL_TECHNICAL_ADVISOR",
+  "status": "REGISTERED_RAW_ADVISORY_NOT_RECONCILED",
+  "title": "Kiro advisory on IMPERIUM self-building organ lifecycle and Inquisition v0.1",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/090c75bdc5f56c808b7dc528c2e7ae7819501388",
+    "head": "090c75bdc5f56c808b7dc528c2e7ae7819501388",
+    "commit_count": 55,
+    "latest": "TASK-20260513: harden bundle intake regression checks"
+  },
+  "related_acts": [
+    "Act 3 — Address / Truth / Capability Spine",
+    "Act 4 — Full Registration Corridor",
+    "Act 5 — First Self-Descriptive Organ Build: Inquisition v0.1"
+  ],
+  "related_organs": [
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "INQUISITION",
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "MECHANICUS"
+  ],
+  "advisory_files": [
+    "DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513/KIRO_ADVISORY_INQUISITION_SELF_BUILD_20260513.md",
+    "DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513/README.md"
+  ],
+  "intended_future_use": [
+    "Reconcile into Act 3/Act 4/Act 5 planning",
+    "Transform into TASK/STAGE/RUN candidates",
+    "Use as advisory input for Inquisition v0.1 blueprint",
+    "Submit to Logos-Speculum for hard red-team review before implementation"
+  ],
+  "not_a_claim_of_implementation": true,
+  "owner_decision_required_before_doctrine": true,
+  "no_fake_green_note": "This is registered as raw advisory input only. It does not prove implementation or acceptance."
+}
