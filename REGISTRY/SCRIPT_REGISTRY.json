@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-13T14:40:11+00:00",
-  "generated_by": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+  "updated_at_utc": "2026-05-13T16:26:42+00:00",
+  "generated_by": "TASK-20260513-STEP7_1F-STEP7_2-BUNDLE-ROUTE-ASSET-REGISTRATION-SANCTUM-V0_4",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
@@ -15,7 +15,8 @@
     "Act 5 first-four-organs readiness checker registered (contract/self-report/readiness governance guard).",
     "Act 5 work-session / Administratum ACK skeleton tools and checker registered (continuation policy guard).",
     "Act 5 Sanctum action registry checker registered (action-id/risk/gate/receipt governance for Step 6).",
-    "Act 5 visual factory minimum checker registered (Step 7.1 structure-seed guard for assets/design-system/ui-lab intake doctrine)."
+    "Act 5 visual factory minimum checker registered (Step 7.1 structure-seed guard for assets/design-system/ui-lab intake doctrine).",
+    "Step 7.1F/7.2 bundle route checker + owner asset registration checker + Sanctum v0.4 prototype checker registered."
   ],
   "scripts": [
     {
@@ -1467,6 +1468,140 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_visual_factory_minimum_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_visual_factory_minimum_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-BUNDLE-ROUTE-REGISTRY-V0_1",
+      "path": "TOOLS/check_bundle_route_registry_v0_1.py",
+      "name": "check_bundle_route_registry_v0_1.py",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate canonical VM2/PC bundle route registry and policy coherence for Step 7.1F.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_bundle_route_registry_v0_1.py --repo-root .",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--json"
+      ],
+      "reads": [
+        "REGISTRY/BUNDLE_ROUTE_REGISTRY.json",
+        "DOCS/BUNDLE_ROUTE_POLICY_V0_1.md",
+        "schemas/bundle_route_registry_v0_1.schema.json",
+        "TOOLS/build_sanctum_state_v0_1.py"
+      ],
+      "writes": [],
+      "side_effects": [
+        "READ_ONLY_CHECK"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_bundle_route_registry_v0_1.py --repo-root .",
+      "verification_command": "python3 TOOLS/check_bundle_route_registry_v0_1.py --repo-root .",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-OWNER-ASSET-REGISTRATION-V0_1",
+      "path": "TOOLS/check_owner_asset_registration_v0_1.py",
+      "name": "check_owner_asset_registration_v0_1.py",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Step 7.2 screenshot interpretation cards and proposed asset manifest registration.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_owner_asset_registration_v0_1.py --repo-root .",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--json"
+      ],
+      "reads": [
+        "ASSETS/ASSET_MANIFEST.json",
+        "ASSETS/INBOX_OWNER_VISUAL_SORTING/*",
+        "CURRENT_STATE/OWNER_ASSET_REGISTRATION_STEP7_2_REPORT_20260513.md"
+      ],
+      "writes": [],
+      "side_effects": [
+        "READ_ONLY_CHECK"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_owner_asset_registration_v0_1.py --repo-root .",
+      "verification_command": "python3 TOOLS/check_owner_asset_registration_v0_1.py --repo-root .",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-SANCTUM-V0_4-VISUAL-FACTORY-V0_1",
+      "path": "TOOLS/check_sanctum_v0_4_visual_factory_v0_1.py",
+      "name": "check_sanctum_v0_4_visual_factory_v0_1.py",
+      "owner_organ": "SANCTUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Sanctum v0.4 visual prototype files, compile status, and route-registry binding.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_sanctum_v0_4_visual_factory_v0_1.py --repo-root .",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--json"
+      ],
+      "reads": [
+        "SANCTUM/sanctum_v0_4_visual_factory_qt.py",
+        "REGISTRY/BUNDLE_ROUTE_REGISTRY.json",
+        "ASSETS/ASSET_MANIFEST.json",
+        "CURRENT_STATE/SANCTUM_V0_4_VISUAL_PROTOTYPE_REPORT_20260513.md"
+      ],
+      "writes": [],
+      "side_effects": [
+        "READ_ONLY_CHECK"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_sanctum_v0_4_visual_factory_v0_1.py --repo-root .",
+      "verification_command": "python3 TOOLS/check_sanctum_v0_4_visual_factory_v0_1.py --repo-root .",
       "last_verified_at": null,
       "status": "REGISTERED"
     }

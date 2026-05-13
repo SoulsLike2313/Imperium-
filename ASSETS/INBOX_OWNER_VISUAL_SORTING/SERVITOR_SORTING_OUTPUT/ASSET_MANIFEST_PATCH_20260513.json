@@ -1,10 +1,10 @@
 {
-  "schema_version": "0.1",
+  "schema_version": "imperium.asset_manifest_patch.v0_1",
   "task_id": "TASK-20260513-STEP7_1F-STEP7_2-BUNDLE-ROUTE-ASSET-REGISTRATION-SANCTUM-V0_4",
-  "status": "proposed_registration_pending_owner_confirmation",
-  "generated_at_utc": "2026-05-13T16:19:19.178037+00:00",
-  "rule": "raw assets are evidence, not canon",
-  "assets": [
+  "created_at_utc": "2026-05-13T16:19:19.179220+00:00",
+  "operation": "UPSERT_ASSET_ENTRIES",
+  "owner_confirmation_required": true,
+  "assets_added_or_updated": [
     {
       "asset_id": "VF-20260513-001",
       "source_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/0039404fba9a69bd9e0b04215c7460f8.jpg",
@@ -644,41 +644,5 @@
       "can_promote_to_manifest": false
     }
   ],
-  "categories": [
-    "accepted",
-    "rejected",
-    "candidate",
-    "materials",
-    "layout",
-    "density",
-    "glow",
-    "cards_panels",
-    "orbit_core",
-    "navigation",
-    "organ_dashboard",
-    "sanctum_core",
-    "terminal_evidence",
-    "bundle_panel",
-    "typography",
-    "animation_restraint"
-  ],
-  "intake_zones": [
-    "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS",
-    "ASSETS/INBOX_OWNER_VISUAL_SORTING/ANNOTATED_SCREENSHOTS",
-    "ASSETS/INBOX_OWNER_VISUAL_SORTING/TEXT_NOTES",
-    "ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT"
-  ],
-  "owner_confirmation_required": true,
-  "registration_summary": {
-    "screenshots_found_total": 25,
-    "raw_count": 25,
-    "annotated_count": 0,
-    "proposed_counts": {
-      "accepted": 11,
-      "rejected": 2,
-      "candidate": 12,
-      "needs_owner_confirmation": 0
-    },
-    "final_canon_registered": false
-  }
+  "note": "Interpretation proposals only; not final canon."
 }

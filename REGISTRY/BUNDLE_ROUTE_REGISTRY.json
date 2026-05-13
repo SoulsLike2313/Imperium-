@@ -1,0 +1,42 @@
+{
+  "schema_version": "imperium.bundle_route_registry.v0_1",
+  "task_id": "TASK-20260513-STEP7_1F-STEP7_2-BUNDLE-ROUTE-ASSET-REGISTRATION-SANCTUM-V0_4",
+  "status": "ACTIVE_CANONICAL_ROUTE_POLICY",
+  "created_at_utc": "2026-05-13T16:14:35.347963+00:00",
+  "repo_truth_at_creation": {
+    "head": "8696c3e53afeeee476d0be57a2b7c113d55c8896",
+    "commit_count": 73,
+    "latest_commit_subject": "TASK-20260513: add Owner visual assets for Step 7",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8696c3e53afeeee476d0be57a2b7c113d55c8896"
+  },
+  "canonical_vm2_outbox": "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES/",
+  "canonical_pc_inbox": "E:\\IMPERIUM\\INBOX\\VM2_BUNDLES\\",
+  "legacy_scan_dirs": [
+    "/home/vboxuser2/IMPERIUM_WORK/_handoff_out/",
+    "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX/"
+  ],
+  "source_priority_order": [
+    "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES/",
+    "/home/vboxuser2/IMPERIUM_WORK/_handoff_out/",
+    "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX/"
+  ],
+  "fetch_latest_policy": {
+    "selection_order": "canonical_first_then_mtime",
+    "prefer_canonical_over_legacy": true,
+    "if_same_name_in_multiple_sources": "canonical_wins_then_newest_mtime_then_report_ambiguity"
+  },
+  "dedupe_policy": {
+    "key": "bundle_filename",
+    "primary_tiebreaker": "source_priority_order",
+    "secondary_tiebreaker": "modified_time_desc",
+    "ambiguity_reporting_required": true
+  },
+  "owner_rule": "canonical VM2_BUNDLES is mandatory primary source",
+  "notes": [
+    "Legacy scan dirs remain for backward-compatible discovery only.",
+    "Canonical outbox is required for new VM2 bundle emission.",
+    "Policy does not change READY_FOR_AGENT or Act 5 execution status."
+  ],
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false
+}

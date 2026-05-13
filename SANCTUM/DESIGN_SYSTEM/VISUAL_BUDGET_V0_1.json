@@ -1,32 +1,41 @@
 {
   "schema_version": "imperium.visual_budget.v0_1",
-  "task_id": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
-  "status": "starter_budget_pending_evidence",
+  "task_id": "TASK-20260513-STEP7_1F-STEP7_2-BUNDLE-ROUTE-ASSET-REGISTRATION-SANCTUM-V0_4",
+  "status": "evidence_ingested_budget_pending_owner_confirmation",
   "readability": {
     "primary_text_min_contrast_target": "AA_OR_BETTER",
-    "data_panel_readability_priority": "HIGH"
+    "data_panel_readability_priority": "HIGH",
+    "evidence_strip_always_readable": true
   },
   "runtime_safety": {
     "sanctum_runtime_rewrite_allowed": false,
     "runtime_touch_requires_ui_lab_evidence": true,
-    "baseline_runtime_file": "SANCTUM/sanctum_v0_29_qt.py"
+    "baseline_runtime_file": "SANCTUM/sanctum_v0_29_qt.py",
+    "experimental_runtime_allowed": [
+      "SANCTUM/sanctum_v0_4_visual_factory_qt.py"
+    ]
   },
   "fps_performance_caution": {
     "avoid_unbounded_effect_stacking": true,
-    "no_unverified_heavy_animation": true
+    "no_unverified_heavy_animation": true,
+    "no_fake_fps_claims": true
   },
   "glow_noise_limits": {
     "soft_glow_preferred": true,
     "no_noisy_neon": true,
-    "max_glow_regions_without_owner_review": 3
+    "max_glow_regions_without_owner_review": 3,
+    "orange_or_gold_signal_accents_limited": true
   },
   "animation_restraint": {
     "micro_motion_overload_forbidden": true,
-    "status_feedback_priority_over_decorative_motion": true
+    "status_feedback_priority_over_decorative_motion": true,
+    "ambient_motion_optional": true
   },
   "screenshot_evidence_requirement": {
     "required_for_visual_rule_promotion": true,
-    "raw_is_not_canon": true
+    "raw_is_not_canon": true,
+    "interpretation_is_not_canon": true,
+    "owner_confirmation_required_for_canon": true
   },
   "no_runtime_change_without_ui_lab_evidence": true,
   "no_fake_green_claim": true,

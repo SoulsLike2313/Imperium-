@@ -84,6 +84,21 @@ def open_manifest_from_zip(path: Path) -> dict[str, Any] | None:
         return None
 
 
+def _normalize_path_list(values: Any) -> list[str]:
+    if not isinstance(values, list):
+        return []
+    out: list[str] = []
+    for item in values:
+        if not isinstance(item, str):
+            continue
+        candidate = item.strip()
+        if not candidate:
+            continue
+        if candidate not in out:
+            out.append(candidate)
+    return out
+
+
 def find_latest_file(candidates: list[Path]) -> Path | None:
     files = [path for path in candidates if path.exists() and path.is_file()]
     if not files:
@@ -184,16 +199,60 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
     if err:
         blockers.append(err)
 
-    # --- Bundle discovery
-    handoff_out = Path("/home/vboxuser2/IMPERIUM_WORK/_handoff_out")
-    discovered_bundles: list[dict[str, Any]] = []
-    if handoff_out.exists() and handoff_out.is_dir():
-        zip_paths = sorted(
-            [p for p in handoff_out.glob("*.zip") if p.is_file()],
-            key=lambda p: p.stat().st_mtime,
-            reverse=True,
-        )
-        for p in zip_paths[:25]:
+    # --- Bundle discovery (canonical route first, legacy as fallback)
+    bundle_route_registry_path = repo_root / "REGISTRY/BUNDLE_ROUTE_REGISTRY.json"
+    bundle_route_registry, bundle_route_err = read_json(bundle_route_registry_path)
+    if bundle_route_err:
+        warnings.append(bundle_route_err)
+        bundle_route_registry = None
+
+    canonical_vm2_outbox = "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES/"
+    legacy_scan_dirs = [
+        "/home/vboxuser2/IMPERIUM_WORK/_handoff_out/",
+        "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX/",
+    ]
+    source_priority_order = [canonical_vm2_outbox, *legacy_scan_dirs]
+
+    if isinstance(bundle_route_registry, dict):
+        registry_canonical = bundle_route_registry.get("canonical_vm2_outbox")
+        registry_legacy = _normalize_path_list(bundle_route_registry.get("legacy_scan_dirs"))
+        registry_priority = _normalize_path_list(bundle_route_registry.get("source_priority_order"))
+        if isinstance(registry_canonical, str) and registry_canonical.strip():
+            canonical_vm2_outbox = registry_canonical.strip()
+        if registry_legacy:
+            legacy_scan_dirs = registry_legacy
+        if registry_priority:
+            source_priority_order = registry_priority
+        else:
+            source_priority_order = [canonical_vm2_outbox, *legacy_scan_dirs]
+
+    canonical_norm = canonical_vm2_outbox.rstrip("/")
+    ordered_norm = [item.rstrip("/") for item in source_priority_order if isinstance(item, str)]
+    if ordered_norm and ordered_norm[0] != canonical_norm:
+        warnings.append("bundle_route_policy_priority_not_canonical_first")
+        source_priority_order = [canonical_vm2_outbox] + [
+            item for item in source_priority_order if item.rstrip("/") != canonical_norm
+        ]
+
+    ordered_source_dirs: list[str] = []
+    for item in source_priority_order:
+        if not isinstance(item, str):
+            continue
+        cleaned = item.strip()
+        if not cleaned:
+            continue
+        if cleaned not in ordered_source_dirs:
+            ordered_source_dirs.append(cleaned)
+
+    discovered_candidates: list[dict[str, Any]] = []
+    duplicate_collisions: list[str] = []
+    for source_priority_index, source_dir in enumerate(ordered_source_dirs):
+        root = Path(source_dir)
+        if not root.exists() or not root.is_dir():
+            continue
+        for p in sorted(root.glob("*.zip"), key=lambda path: path.stat().st_mtime, reverse=True):
+            if not p.is_file():
+                continue
             sha_path = p.with_suffix(p.suffix + ".sha256")
             manifest = open_manifest_from_zip(p)
             source_head = None
@@ -207,9 +266,8 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
                 if isinstance(sgt, dict):
                     source_head = sgt.get("head")
                     source_tree = sgt.get("tree_url")
-                    if isinstance(source_head, str):
-                        if ok_head and source_head != local_head:
-                            status = "STALE"
+                    if isinstance(source_head, str) and ok_head and source_head != local_head:
+                        status = "STALE"
             if sha_path.exists():
                 expected_raw = sha_path.read_text(encoding="utf-8", errors="replace").strip()
                 sha_expected = expected_raw.split()[0] if expected_raw else ""
@@ -225,11 +283,14 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
             else:
                 warnings.append(f"bundle_sha256_missing:{p.name}")
 
-            discovered_bundles.append(
+            discovered_candidates.append(
                 {
                     "name": p.name,
                     "path": p.as_posix(),
+                    "source_dir": source_dir,
+                    "source_priority_index": source_priority_index,
                     "size_bytes": p.stat().st_size,
+                    "modified_epoch": int(p.stat().st_mtime),
                     "modified_at_utc": iso_mtime(p),
                     "age_seconds": round(path_age_seconds(p), 2),
                     "sha256_file_present": sha_path.exists(),
@@ -244,6 +305,41 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
                 }
             )
 
+    deduped: dict[str, dict[str, Any]] = {}
+    for item in sorted(
+        discovered_candidates,
+        key=lambda x: (
+            int(x.get("source_priority_index", 999)),
+            -int(x.get("modified_epoch", 0)),
+            str(x.get("name", "")),
+        ),
+    ):
+        name = str(item.get("name", ""))
+        if not name:
+            continue
+        if name not in deduped:
+            deduped[name] = item
+            continue
+        kept = deduped[name]
+        duplicate_collisions.append(f"{name}:{kept.get('source_dir')}:{item.get('source_dir')}")
+        kept_prio = int(kept.get("source_priority_index", 999))
+        item_prio = int(item.get("source_priority_index", 999))
+        if item_prio < kept_prio:
+            deduped[name] = item
+            continue
+        if item_prio == kept_prio and int(item.get("modified_epoch", 0)) > int(kept.get("modified_epoch", 0)):
+            deduped[name] = item
+
+    discovered_bundles = sorted(
+        deduped.values(),
+        key=lambda x: (
+            int(x.get("source_priority_index", 999)),
+            -int(x.get("modified_epoch", 0)),
+            str(x.get("name", "")),
+        ),
+    )[:100]
+    if duplicate_collisions:
+        warnings.append(f"bundle_name_collisions_detected:{len(duplicate_collisions)}")
     latest_bundle = discovered_bundles[0] if discovered_bundles else None
 
     inboxes: list[dict[str, Any]] = [
@@ -509,13 +605,24 @@ def gather_state(repo_root: Path, out_path: Path) -> tuple[dict[str, Any], list[
         },
         "bundles": {
             "inboxes": inboxes,
-            "handoff_out": {
-                "path": handoff_out.as_posix(),
-                "exists": handoff_out.exists(),
-                "readable": handoff_out.exists() and handoff_out.is_dir(),
+            "canonical_vm2_outbox": {
+                "path": canonical_vm2_outbox,
+                "exists": Path(canonical_vm2_outbox).exists(),
+                "readable": Path(canonical_vm2_outbox).exists() and Path(canonical_vm2_outbox).is_dir(),
+            },
+            "legacy_scan_dirs": legacy_scan_dirs,
+            "source_priority_order": ordered_source_dirs,
+            "route_registry_path": bundle_route_registry_path.relative_to(repo_root).as_posix(),
+            "route_registry_loaded": isinstance(bundle_route_registry, dict),
+            "route_registry_owner_rule": bundle_route_registry.get("owner_rule") if isinstance(bundle_route_registry, dict) else None,
+            "handoff_out": {  # backward-compat summary key
+                "path": canonical_vm2_outbox,
+                "exists": Path(canonical_vm2_outbox).exists(),
+                "readable": Path(canonical_vm2_outbox).exists() and Path(canonical_vm2_outbox).is_dir(),
             },
             "discovered_bundles": discovered_bundles,
             "latest_bundle": latest_bundle,
+            "duplicate_name_collisions": duplicate_collisions,
             "status_enum": [
                 "UNKNOWN",
                 "REMOTE_ONLY",
@@ -719,7 +826,8 @@ def print_human(state: dict[str, Any], out_path: Path, verdict_path: Path, recei
     bundles = state.get("bundles", {})
     discovered = bundles.get("discovered_bundles", [])
     print("BUNDLES")
-    print(f"  handoff_out: {bundles.get('handoff_out', {}).get('path')}")
+    print(f"  canonical_vm2_outbox: {bundles.get('canonical_vm2_outbox', {}).get('path')}")
+    print(f"  source_priority_order: {bundles.get('source_priority_order')}")
     print(f"  discovered_count: {len(discovered) if isinstance(discovered, list) else 0}")
     if isinstance(discovered, list) and discovered:
         print(f"  latest_bundle: {discovered[0].get('name')}")

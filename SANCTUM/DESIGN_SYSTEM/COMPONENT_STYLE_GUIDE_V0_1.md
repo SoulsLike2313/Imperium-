@@ -1,19 +1,33 @@
-# COMPONENT_STYLE_GUIDE_V0_1 (Starter)
+# COMPONENT_STYLE_GUIDE_V0_1
 
-Статус: starter guide, pending screenshot-backed refinement.
+## Confirmed Baseline Guidance
+- Keep operator readability above decorative effects.
+- Keep actionable controls explicit and keyboard-friendly where possible.
+- Preserve runtime safety: visual layer must not silently alter command behavior.
 
-Базовые роли компонентов:
-- `core_orbit_panel`
-- `operator_status_card`
-- `terminal_readability_panel`
-- `transfer_control_strip`
-- `organ_signal_badge`
+## Proposed Component Direction (Step 7.2, Pending Owner Confirmation)
 
-Каждый компонент должен хранить:
-- visual intent;
-- density target;
-- glow restraint;
-- readability floor;
-- runtime safety note.
+### Core / Orbit Panel
+- Central core node with restrained glow halo.
+- Orbit nodes represent organs/actions as labeled points.
+- Network links should remain thin and non-flickering.
 
-Финальные стили не фиксируются в Step 7.1.
+### Evidence / Truth Strip
+- Dedicated high-contrast strip for Git truth, route truth, and checker verdicts.
+- Use status chips: `PASS`, `WARN`, `BLOCKED` with clear color roles.
+
+### Bundle Panel
+- Show canonical route first and explicitly label legacy fallback sources.
+- Show source directory, mtime, and dedupe result for each bundle.
+
+### Cards and Metrics
+- Use layered dark cards with consistent spacing/radius scales.
+- Avoid over-saturated gradients behind dense text.
+
+### Motion
+- Keep animation restrained and state-driven.
+- Forbid heavy background animation in dense operator views.
+
+Raw screenshot is evidence, not canon.
+Servitor interpretation is proposal, not canon.
+Owner confirmation turns interpretation into accepted visual rule.

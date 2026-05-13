@@ -206,10 +206,20 @@ def build_report(repo_root: Path) -> dict[str, Any]:
         passes.append(f"json_valid:{rel}")
 
         if rel.endswith("ASSET_MANIFEST.json"):
-            if parsed.get("status") == "structure_seed_only":
+            status = parsed.get("status")
+            if status == "structure_seed_only":
                 passes.append("asset_manifest_status_structure_seed_only")
+            elif status == "proposed_registration_pending_owner_confirmation":
+                passes.append("asset_manifest_status_step7_2_proposed_registration_ok")
+                add_unique(
+                    warnings,
+                    "asset_manifest_status_is_step7_2_proposal_mode_not_structure_seed_only",
+                )
             else:
-                add_unique(blocked, "asset_manifest_status_must_be_structure_seed_only")
+                add_unique(
+                    blocked,
+                    "asset_manifest_status_must_be_structure_seed_only_or_step7_2_proposal_mode",
+                )
 
             if parsed.get("owner_confirmation_required") is True:
                 passes.append("asset_manifest_owner_confirmation_required_true")
