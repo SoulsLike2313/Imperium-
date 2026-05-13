@@ -1,0 +1,41 @@
+{
+  "schema_version": "imperium.stage_progress_report.v0_1",
+  "report_id": "STAGE-REPORT-EXAMPLE-20260513-0001",
+  "work_session_id": "WORK-SESSION-EXAMPLE-20260513-0001",
+  "task_id": "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+  "stage_id": "STEP_5",
+  "submitted_at_utc": "2026-05-13T00:10:00Z",
+  "submitted_by": "SERVITOR_EXAMPLE",
+  "repo_truth_at_submission": {
+    "head": "EXAMPLE_ONLY",
+    "commit_count": 0,
+    "latest_commit_subject": "EXAMPLE_ONLY"
+  },
+  "completed_actions": [
+    "Created schema drafts",
+    "Prepared checker skeleton"
+  ],
+  "changed_files": [
+    "schemas/work_session_v0_1.schema.json"
+  ],
+  "generated_receipts": [
+    ".imperium_runtime/example_receipt.json"
+  ],
+  "checks_run": [
+    "python3 -m py_compile TOOLS/check_work_session_administratum_ack_v0_1.py"
+  ],
+  "checker_verdicts": [
+    "WARN"
+  ],
+  "blockers": [],
+  "warnings": [
+    "Example-only skeleton"
+  ],
+  "next_requested_action": "REQUEST_REVIEW",
+  "servitor_claim": "Progress report submitted for Administratum review; continuation is not self-authorized.",
+  "evidence_paths": [
+    "DOCS/WORK_SESSION_ADMINISTRATUM_ACK_V0_1.md"
+  ],
+  "no_fake_green_statement": "Progress report is claim plus evidence only and not a continuation permission.",
+  "example_only": true
+}

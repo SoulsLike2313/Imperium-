@@ -1,0 +1,54 @@
+{
+  "schema_version": "imperium.work_session.v0_1",
+  "work_session_id": "WORK-SESSION-EXAMPLE-20260513-0001",
+  "task_id": "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+  "parent_general_task_id": "GENERAL-TASK-EXAMPLE-20260513-ACT5-PREFIRE",
+  "stage_scope": "STEP_5_WORK_SESSION_ADMINISTRATUM_ACK",
+  "created_at_utc": "2026-05-13T00:00:00Z",
+  "created_by": "SERVITOR_EXAMPLE",
+  "owner": "OWNER_EXAMPLE",
+  "status": "EXAMPLE_ONLY_NOT_ACTIVE",
+  "repo_truth_at_start": {
+    "head": "EXAMPLE_ONLY",
+    "commit_count": 0,
+    "latest_commit_subject": "EXAMPLE_ONLY"
+  },
+  "current_stage_id": "STEP_5",
+  "allowed_stage_ids": [
+    "STEP_5",
+    "STEP_6"
+  ],
+  "forbidden_actions": [
+    "Do not self-authorize continuation",
+    "Do not set READY_FOR_AGENT true",
+    "Do not claim Act 5 execution ready"
+  ],
+  "authority_limits": [
+    "Servitor report is claim+evidence only",
+    "Continuation requires Administratum ACK",
+    "Owner decision may be required"
+  ],
+  "required_receipts": [
+    "stage progress report",
+    "checker output",
+    "ack record"
+  ],
+  "progress_reports": [
+    "ORGANS/ADMINISTRATUM/REGISTRY/STAGE_PROGRESS_REPORTS/EXAMPLES/STAGE_PROGRESS_REPORT_EXAMPLE_V0_1.json"
+  ],
+  "administratum_acks": [
+    "ORGANS/ADMINISTRATUM/REGISTRY/ACKS/EXAMPLES/ADMINISTRATUM_ACK_EXAMPLE_V0_1.json"
+  ],
+  "stop_conditions": [
+    "BLOCKED evidence",
+    "Owner stop decision",
+    "policy violation"
+  ],
+  "continuation_policy": [
+    "No continuation without ACK",
+    "ACK is operational continuity only",
+    "ACK is not READY_FOR_AGENT approval"
+  ],
+  "no_fake_green_statement": "Example record only; not an active work session and not an execution approval.",
+  "example_only": true
+}

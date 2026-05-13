@@ -1,0 +1,145 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Work Session v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "work_session_id",
+    "task_id",
+    "parent_general_task_id",
+    "stage_scope",
+    "created_at_utc",
+    "created_by",
+    "owner",
+    "status",
+    "repo_truth_at_start",
+    "current_stage_id",
+    "allowed_stage_ids",
+    "forbidden_actions",
+    "authority_limits",
+    "required_receipts",
+    "progress_reports",
+    "administratum_acks",
+    "stop_conditions",
+    "continuation_policy",
+    "no_fake_green_statement"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.work_session.v0_1"
+    },
+    "work_session_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "parent_general_task_id": {
+      "type": "string"
+    },
+    "stage_scope": {
+      "type": "string"
+    },
+    "created_at_utc": {
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "SESSION_DRAFT",
+        "SESSION_ACTIVE",
+        "WAITING_FOR_ADMINISTRATUM_ACK",
+        "CONTINUE_ALLOWED",
+        "STOP_OWNER_REQUIRED",
+        "BLOCKED",
+        "CLOSED_WITH_RECEIPT",
+        "CLOSED_FAILED",
+        "EXAMPLE_ONLY_NOT_ACTIVE"
+      ]
+    },
+    "repo_truth_at_start": {
+      "type": "object",
+      "required": [
+        "head",
+        "commit_count",
+        "latest_commit_subject"
+      ],
+      "properties": {
+        "head": {
+          "type": "string"
+        },
+        "commit_count": {
+          "type": "integer"
+        },
+        "latest_commit_subject": {
+          "type": "string"
+        }
+      }
+    },
+    "current_stage_id": {
+      "type": "string"
+    },
+    "allowed_stage_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "authority_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "progress_reports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "administratum_acks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "continuation_policy": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "no_fake_green_statement": {
+      "type": "string"
+    },
+    "example_only": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

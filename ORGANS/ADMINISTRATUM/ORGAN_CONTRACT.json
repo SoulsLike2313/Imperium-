@@ -9,7 +9,9 @@
     "Track and report git/local truth surfaces",
     "Maintain continuity packs and memory surfaces",
     "Route task continuity signals and evidence",
-    "Provide work-session ACK design input (Step 5 target)"
+    "Provide work-session ACK design input (Step 5 target)",
+    "Maintain work-session / stage-progress / ACK continuity skeleton for long Servitor runs",
+    "Route continuation requests through Administratum ACK (no self-authorization)"
   ],
   "not_authority": [
     "Not canon/doctrine authority",
@@ -49,7 +51,9 @@
   "required_outputs": [
     "Continuity packs and comparison reports",
     "Operational memory indices",
-    "Task continuity guidance evidence"
+    "Task continuity guidance evidence",
+    "Work-session session/report/ack guidance records",
+    "Operational continuity ACK decisions with explicit limits"
   ],
   "ports": [
     "ORGANS/ADMINISTRATUM/PORTS/BLOCKERS_PORT.json",
@@ -62,7 +66,10 @@
     "TOOLS/run_administratum_git_cli_check.sh",
     "TOOLS/administratum_git_cli_check_v0_1.py",
     "ORGANS/ADMINISTRATUM/SCRIPTS/validate_policy_refs.py",
-    "ORGANS/ADMINISTRATUM/SCRIPTS/administratum_compare_continuity_pack.py"
+    "ORGANS/ADMINISTRATUM/SCRIPTS/administratum_compare_continuity_pack.py",
+    "TOOLS/register_stage_progress_report_v0_1.py",
+    "TOOLS/administratum_ack_stage_progress_v0_1.py",
+    "TOOLS/check_work_session_administratum_ack_v0_1.py"
   ],
   "dashboards_or_utilities": [
     "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/",
@@ -72,12 +79,16 @@
   "receipts": [
     "ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/",
     "ORGANS/ADMINISTRATUM/CONTINUITY/COMPARISONS/",
-    "ORGANS/ADMINISTRATUM/PORTS/LATEST_RECEIPTS_INDEX.json"
+    "ORGANS/ADMINISTRATUM/PORTS/LATEST_RECEIPTS_INDEX.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/",
+    "ORGANS/ADMINISTRATUM/REGISTRY/STAGE_PROGRESS_REPORTS/",
+    "ORGANS/ADMINISTRATUM/REGISTRY/ACKS/"
   ],
   "known_blockers": [
-    "Work-session ACK contract is not yet formalized (Step 5)",
     "Cross-organ evidence quality remains uneven",
-    "Continuity maturity still depends on upstream organ reporting"
+    "Continuity maturity still depends on upstream organ reporting",
+    "Work-session ACK v0.1 remains skeleton-level and not full runtime automation",
+    "Administratum ACK tooling currently supports controlled file-based flow only"
   ],
   "no_fake_green_rules": [
     "Continuity claims must include concrete evidence paths",
@@ -89,10 +100,11 @@
     "act5_guide_readiness": "READY",
     "claim_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
     "full_operational_claim": false,
-    "statement": "Administratum can provide minimal Act 5 continuity guidance, but Step 5 work-session ACK formalization is still required.",
+    "statement": "Administratum provides minimal Act 5 continuity guidance including Work Session/ACK skeleton, but this is not full operational runtime automation.",
     "known_gaps": [
-      "Formal work-session ACK schema is pending",
-      "No authority to declare execution readiness"
+      "No authority to declare execution readiness",
+      "Production-grade session automation is pending",
+      "ACK remains continuity permission only and cannot approve READY_FOR_AGENT"
     ]
   },
   "evidence_files": [
@@ -100,7 +112,12 @@
     "ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
     "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
     "ORGANS/ADMINISTRATUM/REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json",
-    "TOOLS/run_administratum_git_cli_check.sh"
+    "TOOLS/run_administratum_git_cli_check.sh",
+    "schemas/work_session_v0_1.schema.json",
+    "schemas/stage_progress_report_v0_1.schema.json",
+    "schemas/administratum_ack_v0_1.schema.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/README_WORK_SESSIONS_V0_1.md",
+    "DOCS/WORK_SESSION_ADMINISTRATUM_ACK_V0_1.md"
   ],
-  "last_reviewed_task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
+  "last_reviewed_task_id": "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1"
 }

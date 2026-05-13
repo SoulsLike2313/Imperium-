@@ -1,11 +1,11 @@
 {
   "schema_version": "imperium.organ_self_report.v0_1",
   "organ_id": "ADMINISTRATUM",
-  "generated_at_utc": "2026-05-13T13:06:32Z",
+  "generated_at_utc": "2026-05-13T13:32:08Z",
   "repo_truth_at_generation": {
-    "head": "7333c4e0a62353aac46b6b3bcb66d4e18cd0fc05",
-    "commit_count": 68,
-    "latest_commit_subject": "TASK-20260513: add Act 5 advisory ingest and modernization skeleton"
+    "head": "ab7cab9d6195fb4ca951471aedc8c488e2ef2516",
+    "commit_count": 69,
+    "latest_commit_subject": "TASK-20260513: add first four organs Act 5 readiness"
   },
   "current_status": "ACTIVE_GUIDE_READINESS_PROFILE",
   "maturity_level_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
@@ -22,7 +22,10 @@
     "TOOLS/administratum_git_cli_check_v0_1.py",
     "ORGANS/ADMINISTRATUM/SCRIPTS/administratum_build_continuity_pack.py",
     "ORGANS/ADMINISTRATUM/SCRIPTS/administratum_compare_continuity_pack.py",
-    "ORGANS/ADMINISTRATUM/SCRIPTS/validate_policy_refs.py"
+    "ORGANS/ADMINISTRATUM/SCRIPTS/validate_policy_refs.py",
+    "TOOLS/register_stage_progress_report_v0_1.py",
+    "TOOLS/administratum_ack_stage_progress_v0_1.py",
+    "TOOLS/check_work_session_administratum_ack_v0_1.py"
   ],
   "available_dashboards_or_utilities": [
     "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/",
@@ -30,20 +33,26 @@
     "ORGANS/ADMINISTRATUM/UTILITY/ORGAN_UTILITY.json"
   ],
   "known_blockers": [
-    "Work-session ACK continuation contract is pending Step 5",
     "Continuity confidence depends on upstream organ evidence quality",
-    "Administratum has no authority to declare execution readiness"
+    "Administratum has no authority to declare execution readiness",
+    "Work-session/ACK flow is v0.1 skeleton and not production automation",
+    "Administratum ACK cannot grant READY_FOR_AGENT or Owner approval"
   ],
   "next_required_work": [
-    "Implement Step 5 Work Session / Administratum ACK skeleton",
-    "Strengthen continuity evidence and policy checks",
-    "Integrate with Step 6 action registry boundaries"
+    "Integrate Step 6 Sanctum Action Registry boundaries",
+    "Add stricter session-state checker transitions for non-example records",
+    "Harden Owner escalation workflow for long-running sessions"
   ],
   "evidence_files": [
     "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
     "ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
     "ORGANS/ADMINISTRATUM/REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json",
-    "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json"
+    "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/README_WORK_SESSIONS_V0_1.md",
+    "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/EXAMPLES/WORK_SESSION_EXAMPLE_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/STAGE_PROGRESS_REPORTS/EXAMPLES/STAGE_PROGRESS_REPORT_EXAMPLE_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/ACKS/EXAMPLES/ADMINISTRATUM_ACK_EXAMPLE_V0_1.json",
+    "TOOLS/check_work_session_administratum_ack_v0_1.py"
   ],
-  "no_fake_green_statement": "Administratum readiness is continuity guidance, not canon or execution approval authority."
+  "no_fake_green_statement": "Administratum self-report confirms v0.1 skeleton readiness only; no self-authorization, no READY_FOR_AGENT approval, and no Act 5 execution readiness claim."
 }

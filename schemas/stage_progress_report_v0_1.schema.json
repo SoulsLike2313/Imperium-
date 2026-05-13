@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Stage Progress Report v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "report_id",
+    "work_session_id",
+    "task_id",
+    "stage_id",
+    "submitted_at_utc",
+    "submitted_by",
+    "repo_truth_at_submission",
+    "completed_actions",
+    "changed_files",
+    "generated_receipts",
+    "checks_run",
+    "checker_verdicts",
+    "blockers",
+    "warnings",
+    "next_requested_action",
+    "servitor_claim",
+    "evidence_paths",
+    "no_fake_green_statement"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.stage_progress_report.v0_1"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "work_session_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "submitted_at_utc": {
+      "type": "string"
+    },
+    "submitted_by": {
+      "type": "string"
+    },
+    "repo_truth_at_submission": {
+      "type": "object",
+      "required": [
+        "head",
+        "commit_count",
+        "latest_commit_subject"
+      ],
+      "properties": {
+        "head": {
+          "type": "string"
+        },
+        "commit_count": {
+          "type": "integer"
+        },
+        "latest_commit_subject": {
+          "type": "string"
+        }
+      }
+    },
+    "completed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generated_receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checks_run": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checker_verdicts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_requested_action": {
+      "type": "string",
+      "enum": [
+        "REQUEST_CONTINUE",
+        "REQUEST_OWNER_DECISION",
+        "REQUEST_REVIEW",
+        "REQUEST_STOP"
+      ]
+    },
+    "servitor_claim": {
+      "type": "string"
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "no_fake_green_statement": {
+      "type": "string"
+    },
+    "example_only": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

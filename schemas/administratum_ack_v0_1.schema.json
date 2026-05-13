@@ -1,0 +1,111 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Administratum ACK v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ack_id",
+    "work_session_id",
+    "report_id",
+    "issued_at_utc",
+    "issued_by",
+    "repo_truth_at_ack",
+    "decision",
+    "decision_reason",
+    "evidence_checked",
+    "required_next_action",
+    "allowed_next_stage_ids",
+    "forbidden_actions",
+    "owner_required",
+    "receipt_path",
+    "no_fake_green_statement"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.administratum_ack.v0_1"
+    },
+    "ack_id": {
+      "type": "string"
+    },
+    "work_session_id": {
+      "type": "string"
+    },
+    "report_id": {
+      "type": "string"
+    },
+    "issued_at_utc": {
+      "type": "string"
+    },
+    "issued_by": {
+      "type": "string"
+    },
+    "repo_truth_at_ack": {
+      "type": "object",
+      "required": [
+        "head",
+        "commit_count",
+        "latest_commit_subject"
+      ],
+      "properties": {
+        "head": {
+          "type": "string"
+        },
+        "commit_count": {
+          "type": "integer"
+        },
+        "latest_commit_subject": {
+          "type": "string"
+        }
+      }
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "CONTINUE_ALLOWED",
+        "STOP_OWNER_REQUIRED",
+        "BLOCKED",
+        "NEEDS_REVIEW",
+        "ACK_RECORDED_NO_CONTINUATION",
+        "EXAMPLE_ONLY_NOT_ACTIVE"
+      ]
+    },
+    "decision_reason": {
+      "type": "string"
+    },
+    "evidence_checked": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_next_action": {
+      "type": "string"
+    },
+    "allowed_next_stage_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_required": {
+      "type": "boolean"
+    },
+    "receipt_path": {
+      "type": "string"
+    },
+    "no_fake_green_statement": {
+      "type": "string"
+    },
+    "example_only": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

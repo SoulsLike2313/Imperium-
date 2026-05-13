@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-13T13:10:00+00:00",
-  "generated_by": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+  "updated_at_utc": "2026-05-13T13:32:50+00:00",
+  "generated_by": "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
@@ -12,7 +12,8 @@
     "Act 5 prefire current-truth coherence checker registered (synthesis/current state/entrypoint guard).",
     "Act 5 warning budget policy checker registered (fake-green blocker policy enforcement).",
     "Act 5 advisory ingest + modernization skeleton checker registered (advisory authority and step-sequencing guards).",
-    "Act 5 first-four-organs readiness checker registered (contract/self-report/readiness governance guard)."
+    "Act 5 first-four-organs readiness checker registered (contract/self-report/readiness governance guard).",
+    "Act 5 work-session / Administratum ACK skeleton tools and checker registered (continuation policy guard)."
   ],
   "scripts": [
     {
@@ -1207,6 +1208,156 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_first_four_organs_act5_readiness_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_first_four_organs_act5_readiness_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-REGISTER-STAGE-PROGRESS-REPORT-V0_1",
+      "path": "TOOLS/register_stage_progress_report_v0_1.py",
+      "name": "register_stage_progress_report_v0_1.py",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate/register stage progress report skeleton for long-session continuity flow.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/register_stage_progress_report_v0_1.py --input <report.json> --out <out.json>",
+      "required_args": [],
+      "optional_args": [
+        "--input",
+        "--out",
+        "--example"
+      ],
+      "reads": [
+        "stage progress report JSON files",
+        "schemas/stage_progress_report_v0_1.schema.json"
+      ],
+      "writes": [
+        "output JSON path when --out is provided"
+      ],
+      "side_effects": [
+        "MAY_MODIFY_REPO_WHEN_OUT_IN_REPO"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/register_stage_progress_report_v0_1.py --example",
+      "verification_command": "python3 -m py_compile TOOLS/register_stage_progress_report_v0_1.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-ADMINISTRATUM-ACK-STAGE-PROGRESS-V0_1",
+      "path": "TOOLS/administratum_ack_stage_progress_v0_1.py",
+      "name": "administratum_ack_stage_progress_v0_1.py",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Generate Administratum ACK skeleton from stage progress report with default NEEDS_REVIEW guard.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/administratum_ack_stage_progress_v0_1.py --input <report.json> --out <ack.json>",
+      "required_args": [],
+      "optional_args": [
+        "--input",
+        "--out",
+        "--decision",
+        "--allow-continue",
+        "--allowed-next-stage",
+        "--example"
+      ],
+      "reads": [
+        "stage progress report JSON files",
+        "git truth"
+      ],
+      "writes": [
+        "ACK JSON output path when --out is provided"
+      ],
+      "side_effects": [
+        "MAY_MODIFY_REPO_WHEN_OUT_IN_REPO"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": true,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/administratum_ack_stage_progress_v0_1.py --example",
+      "verification_command": "python3 -m py_compile TOOLS/administratum_ack_stage_progress_v0_1.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+      "path": "TOOLS/check_work_session_administratum_ack_v0_1.py",
+      "name": "check_work_session_administratum_ack_v0_1.py",
+      "owner_organ": "ADMINISTRATUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Step 5 work-session schemas, examples, tools, state guards, and no-fake-green constraints.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_work_session_administratum_ack_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human",
+        "--json"
+      ],
+      "reads": [
+        "schemas/work_session_v0_1.schema.json",
+        "schemas/stage_progress_report_v0_1.schema.json",
+        "schemas/administratum_ack_v0_1.schema.json",
+        "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/*",
+        "ORGANS/ADMINISTRATUM/REGISTRY/STAGE_PROGRESS_REPORTS/*",
+        "ORGANS/ADMINISTRATUM/REGISTRY/ACKS/*",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json"
+      ],
+      "writes": [
+        ".imperium_runtime/administratum/work_session_ack_check/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/administratum/work_session_ack_check/WORK_SESSION_ADMINISTRATUM_ACK_CHECK_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_work_session_administratum_ack_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_work_session_administratum_ack_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }

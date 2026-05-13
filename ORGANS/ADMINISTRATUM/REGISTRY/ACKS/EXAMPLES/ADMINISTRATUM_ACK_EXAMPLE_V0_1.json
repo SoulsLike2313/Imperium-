@@ -1,0 +1,28 @@
+{
+  "schema_version": "imperium.administratum_ack.v0_1",
+  "ack_id": "ADMIN-ACK-EXAMPLE-20260513-0001",
+  "work_session_id": "WORK-SESSION-EXAMPLE-20260513-0001",
+  "report_id": "STAGE-REPORT-EXAMPLE-20260513-0001",
+  "issued_at_utc": "2026-05-13T00:20:00Z",
+  "issued_by": "ADMINISTRATUM_EXAMPLE",
+  "repo_truth_at_ack": {
+    "head": "EXAMPLE_ONLY",
+    "commit_count": 0,
+    "latest_commit_subject": "EXAMPLE_ONLY"
+  },
+  "decision": "EXAMPLE_ONLY_NOT_ACTIVE",
+  "decision_reason": "Example skeleton only; no active continuation decision.",
+  "evidence_checked": [
+    "example progress report"
+  ],
+  "required_next_action": "REQUEST_OWNER_DECISION",
+  "allowed_next_stage_ids": [],
+  "forbidden_actions": [
+    "Do not set READY_FOR_AGENT true",
+    "Do not claim Owner approval"
+  ],
+  "owner_required": true,
+  "receipt_path": ".imperium_runtime/example_ack_receipt.json",
+  "no_fake_green_statement": "This is example-only and not an active ACK for continuation.",
+  "example_only": true
+}
