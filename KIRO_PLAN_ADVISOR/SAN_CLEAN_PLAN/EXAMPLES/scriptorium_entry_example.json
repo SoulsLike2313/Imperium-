@@ -1,0 +1,27 @@
+{
+  "_comment": "Пример записи скрипта в SCRIPTORIUM",
+  "_usage": "Использовать как шаблон при ручной регистрации",
+  
+  "script_id": "SCRIPT-VERIFY-REPO",
+  "name": "Repository Verification Script",
+  "path": "scripts/verify_repo.py",
+  "type": "checker",
+  "language": "python",
+  "version": "0.1",
+  "status": "active",
+  "owner": "ADMINISTRATUM",
+  "platform": ["WINDOWS", "LINUX"],
+  "dependencies": [],
+  "cli_args": [
+    {"name": "--verbose", "required": false, "description": "Подробный вывод"},
+    {"name": "--json", "required": false, "description": "JSON вывод"}
+  ],
+  "produces_receipt": false,
+  "has_dry_run": false,
+  "compiles": true,
+  "last_verified": "2026-05-14",
+  "description": "Основной скрипт верификации репозитория. Проверяет структуру, компиляцию, реестры.",
+  "notes": "Запускается как часть preflight checks",
+  "created": "2026-01-15",
+  "updated": "2026-05-14"
+}

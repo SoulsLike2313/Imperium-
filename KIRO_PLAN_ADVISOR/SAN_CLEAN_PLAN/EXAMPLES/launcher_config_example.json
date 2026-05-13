@@ -1,0 +1,38 @@
+{
+  "_comment": "Пример конфигурации лаунчера для IMPERIUM",
+  "_usage": "Скопировать в CONFIG/launcher_routes_v0_1.json и адаптировать",
+  
+  "schema_version": "launcher_routes_v0_1",
+  "description": "IMPERIUM Launcher Routes Configuration",
+  "created": "2026-05-14",
+  
+  "pc_repo_root": "E:\\IMPERIUM",
+  "vm2_repo_root": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+  
+  "external_context_local": "E:\\IMPERIUM_CONTEXT\\LOCAL",
+  "external_context_private": "E:\\IMPERIUM_CONTEXT\\PRIVATE",
+  
+  "vm2_bundle_outbox": "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES",
+  "pc_bundle_inbox": "E:\\IMPERIUM_CONTEXT\\LOCAL\\VM2_BUNDLES",
+  "pc_bundle_review": "E:\\IMPERIUM_CONTEXT\\LOCAL\\BUNDLE_REVIEWS",
+  
+  "ssh_pc_to_vm2": {
+    "user": "vboxuser2",
+    "host": "127.0.0.1",
+    "port": "2223",
+    "key": "$env:USERPROFILE\\.ssh\\imperium_pc_to_vm2_ed25519_20260418"
+  },
+  
+  "ssh_vm2_to_pc": {
+    "user": "pc",
+    "host": "10.0.2.2",
+    "key": "/home/vboxuser2/.ssh/imperium_vm2_to_pc_ed25519_20260418"
+  },
+  
+  "timeouts": {
+    "scp_default": 600,
+    "git_fetch": 120,
+    "git_push": 120,
+    "command_default": 300
+  }
+}

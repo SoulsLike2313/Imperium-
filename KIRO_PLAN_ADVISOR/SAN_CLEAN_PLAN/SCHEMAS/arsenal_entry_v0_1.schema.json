@@ -1,0 +1,90 @@
+{
+  "title": "ARSENAL Entry Schema v0.1",
+  "description": "Схема для записи внешнего инструмента в ARSENAL реестр",
+  "type": "object",
+  "required": ["tool_id", "name", "type", "status", "platform"],
+  "properties": {
+    "tool_id": {
+      "type": "string",
+      "pattern": "^TOOL-[A-Z0-9_-]+$",
+      "description": "Уникальный ID инструмента"
+    },
+    "name": {
+      "type": "string",
+      "description": "Имя инструмента"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["cli", "gui", "service", "library", "runtime", "ide", "vcs", "vm"],
+      "description": "Тип инструмента"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["development", "version_control", "virtualization", "security", "communication", "documentation", "testing", "deployment"],
+      "description": "Категория инструмента"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "deprecated", "experimental", "blocked"],
+      "description": "Статус использования"
+    },
+    "platform": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["WINDOWS", "LINUX", "ANY"]
+      }
+    },
+    "version": {
+      "type": "string",
+      "description": "Версия инструмента"
+    },
+    "install_path": {
+      "type": "object",
+      "properties": {
+        "windows": {"type": "string"},
+        "linux": {"type": "string"}
+      }
+    },
+    "command": {
+      "type": "object",
+      "properties": {
+        "windows": {"type": "string"},
+        "linux": {"type": "string"}
+      },
+      "description": "Команда для запуска"
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "command": {"type": "string"},
+        "expected_output_contains": {"type": "string"}
+      },
+      "description": "Как проверить что инструмент работает"
+    },
+    "used_by": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Какие скрипты/органы используют"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Орган-владелец"
+    },
+    "documentation_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date"
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}

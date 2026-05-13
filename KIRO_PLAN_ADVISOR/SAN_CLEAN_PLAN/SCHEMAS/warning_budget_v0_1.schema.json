@@ -1,0 +1,108 @@
+{
+  "title": "Warning Budget Schema v0.1",
+  "description": "Схема для классификации и бюджетирования warnings",
+  "type": "object",
+  "required": ["schema_version", "budget", "classifications"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "warning_budget_v0_1"
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "budget": {
+      "type": "object",
+      "required": ["legacy_allowed", "new_allowed", "total_current"],
+      "properties": {
+        "legacy_allowed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Допустимое количество legacy warnings"
+        },
+        "new_allowed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Допустимое количество новых warnings (обычно 0)"
+        },
+        "total_current": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Текущее общее количество warnings"
+        },
+        "legacy_current": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "new_current": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "classifications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["warning_id", "source", "classification", "message_pattern"],
+        "properties": {
+          "warning_id": {
+            "type": "string",
+            "pattern": "^WARN-[A-Z0-9_-]+$"
+          },
+          "source": {
+            "type": "string",
+            "description": "Файл или модуль источник"
+          },
+          "message_pattern": {
+            "type": "string",
+            "description": "Regex паттерн сообщения"
+          },
+          "classification": {
+            "type": "string",
+            "enum": ["legacy", "new", "transient", "ignored"],
+            "description": "Классификация warning"
+          },
+          "reason": {
+            "type": "string",
+            "description": "Причина классификации"
+          },
+          "fix_task": {
+            "type": "string",
+            "description": "ID задачи для исправления (если есть)"
+          },
+          "added_date": {
+            "type": "string",
+            "format": "date"
+          },
+          "expected_fix_date": {
+            "type": "string",
+            "format": "date"
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "description": "Группировка по источникам",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "legacy_count": {"type": "integer"},
+          "new_count": {"type": "integer"},
+          "notes": {"type": "string"}
+        }
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["WITHIN_BUDGET", "OVER_BUDGET", "CRITICAL"],
+      "description": "Общий вердикт по бюджету"
+    }
+  }
+}

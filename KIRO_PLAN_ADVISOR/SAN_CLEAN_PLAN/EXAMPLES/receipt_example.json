@@ -1,0 +1,61 @@
+{
+  "_comment": "Пример receipt файла от лаунчера",
+  "_usage": "Все лаунчеры должны генерировать receipts в этом формате",
+  
+  "schema_version": "launcher_receipt_v0_1",
+  "launcher_id": "FETCH_BUNDLE",
+  "task_id": "TASK-20260514-001",
+  "started_at_utc": "2026-05-14T10:30:00.000Z",
+  "completed_at_utc": "2026-05-14T10:30:45.123Z",
+  "verdict": "PASS",
+  
+  "steps": [
+    {
+      "step": "PLATFORM_CHECK",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-14T10:30:01.000Z",
+      "details": {
+        "platform": "WINDOWS"
+      }
+    },
+    {
+      "step": "TASK_ID_CHECK",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-14T10:30:02.000Z",
+      "details": {
+        "task_id": "TASK-20260514-001"
+      }
+    },
+    {
+      "step": "SCP_COMMAND_BUILD",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-14T10:30:03.000Z",
+      "details": {
+        "command": "scp -r -i ... vboxuser2@127.0.0.1:..."
+      }
+    },
+    {
+      "step": "SCP_EXECUTE",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-14T10:30:40.000Z",
+      "details": {}
+    },
+    {
+      "step": "BUNDLE_VERIFY",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-14T10:30:44.000Z",
+      "details": {
+        "bundle_path": "E:\\IMPERIUM_CONTEXT\\LOCAL\\VM2_BUNDLES\\TASK-20260514-001_BUNDLE"
+      }
+    },
+    {
+      "step": "MANIFEST_CHECK",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-14T10:30:45.000Z",
+      "details": {}
+    }
+  ],
+  
+  "errors": [],
+  "warnings": []
+}

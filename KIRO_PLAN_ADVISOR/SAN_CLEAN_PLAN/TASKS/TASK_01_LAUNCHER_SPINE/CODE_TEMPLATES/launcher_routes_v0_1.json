@@ -1,0 +1,74 @@
+{
+  "schema_version": "launcher_routes_v0_1",
+  "description": "IMPERIUM Launcher Routes Configuration",
+  "created": "2026-05-14",
+  
+  "pc_repo_root": "E:\\IMPERIUM",
+  "vm2_repo_root": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+  
+  "external_context_local": "E:\\IMPERIUM_CONTEXT\\LOCAL",
+  "external_context_private": "E:\\IMPERIUM_CONTEXT\\PRIVATE",
+  
+  "legacy_paths": {
+    "comment": "Эти пути устарели и должны быть заменены",
+    "old_local": "E:\\IMPERIUM_LOCAL",
+    "old_private": "E:\\IMPERIUM_PRIVATE"
+  },
+  
+  "vm2_bundle_outbox": "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES",
+  "pc_bundle_inbox": "E:\\IMPERIUM_CONTEXT\\LOCAL\\VM2_BUNDLES",
+  "pc_bundle_review": "E:\\IMPERIUM_CONTEXT\\LOCAL\\BUNDLE_REVIEWS",
+  
+  "ssh_pc_to_vm2": {
+    "user": "vboxuser2",
+    "host": "127.0.0.1",
+    "port": "2223",
+    "key": "$env:USERPROFILE\\.ssh\\imperium_pc_to_vm2_ed25519_20260418"
+  },
+  
+  "ssh_vm2_to_pc": {
+    "user": "pc",
+    "host": "10.0.2.2",
+    "key": "/home/vboxuser2/.ssh/imperium_vm2_to_pc_ed25519_20260418"
+  },
+  
+  "runtime_dirs": {
+    "receipts": ".imperium_runtime/launcher",
+    "verdicts": ".imperium_runtime/verdicts",
+    "logs": ".imperium_runtime/logs"
+  },
+  
+  "timeouts": {
+    "scp_default": 600,
+    "git_fetch": 120,
+    "git_push": 120,
+    "command_default": 300
+  },
+  
+  "launchers": {
+    "fetch_bundle": {
+      "id": "FETCH_BUNDLE",
+      "script": "TOOLS/launcher_fetch_bundle_v0_1.py",
+      "platform": "WINDOWS",
+      "description": "Fetch bundle from VM2 to PC"
+    },
+    "apply_bundle": {
+      "id": "APPLY_BUNDLE",
+      "script": "TOOLS/launcher_apply_bundle_v0_1.py",
+      "platform": "WINDOWS",
+      "description": "Apply bundle to PC repository"
+    },
+    "commit_push": {
+      "id": "COMMIT_PUSH",
+      "script": "TOOLS/launcher_commit_push_v0_1.py",
+      "platform": "WINDOWS",
+      "description": "Commit and push from PC"
+    },
+    "sync_vm2": {
+      "id": "SYNC_VM2",
+      "script": "TOOLS/launcher_sync_vm2_v0_1.py",
+      "platform": "LINUX",
+      "description": "Sync VM2 with GitHub"
+    }
+  }
+}

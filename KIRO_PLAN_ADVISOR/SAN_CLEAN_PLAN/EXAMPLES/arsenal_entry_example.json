@@ -1,0 +1,34 @@
+{
+  "_comment": "Пример записи инструмента в ARSENAL",
+  "_usage": "Использовать как шаблон при ручной регистрации",
+  
+  "tool_id": "TOOL-GIT",
+  "name": "git",
+  "type": "vcs",
+  "category": "version_control",
+  "status": "active",
+  "platform": ["WINDOWS", "LINUX"],
+  "version": "2.40.0",
+  "install_path": {
+    "windows": "C:\\Program Files\\Git\\bin\\git.exe",
+    "linux": "/usr/bin/git"
+  },
+  "command": {
+    "windows": "git",
+    "linux": "git"
+  },
+  "verification": {
+    "command": "git --version",
+    "expected_output_contains": "git version"
+  },
+  "used_by": [
+    "SCRIPT-VERIFY-REPO",
+    "LAUNCHER-COMMIT-PUSH",
+    "LAUNCHER-SYNC-VM2"
+  ],
+  "owner": "MECHANICUS",
+  "documentation_url": "https://git-scm.com/docs",
+  "notes": "Основной VCS. Критически важен для всех операций.",
+  "last_verified": "2026-05-14",
+  "created": "2026-01-01"
+}

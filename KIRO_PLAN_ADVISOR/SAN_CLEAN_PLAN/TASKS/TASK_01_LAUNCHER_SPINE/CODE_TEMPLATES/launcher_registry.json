@@ -1,0 +1,128 @@
+{
+  "schema_version": "launcher_registry_v0_1",
+  "description": "IMPERIUM Launcher Registry — реестр всех зарегистрированных лаунчеров",
+  "created": "2026-05-14",
+  "updated": "2026-05-14",
+  
+  "launchers": [
+    {
+      "id": "IMPERIUM_LAUNCHER_FRAMEWORK",
+      "name": "IMPERIUM Launcher Framework",
+      "version": "0.1",
+      "script_path": "TOOLS/imperium_launcher_v0_1.py",
+      "type": "framework",
+      "platform": ["WINDOWS", "LINUX"],
+      "description": "Базовый framework для всех IMPERIUM лаунчеров",
+      "status": "active",
+      "owner": "MECHANICUS",
+      "dependencies": [],
+      "provides": [
+        "BaseLauncher",
+        "LauncherConfig",
+        "LauncherReceipt"
+      ],
+      "created": "2026-05-14"
+    },
+    {
+      "id": "FETCH_BUNDLE",
+      "name": "Fetch Bundle Launcher",
+      "version": "0.1",
+      "script_path": "TOOLS/launcher_fetch_bundle_v0_1.py",
+      "type": "launcher",
+      "platform": ["WINDOWS"],
+      "description": "Получение bundle с VM2 на PC через SSH/SCP",
+      "status": "active",
+      "owner": "MECHANICUS",
+      "dependencies": ["IMPERIUM_LAUNCHER_FRAMEWORK"],
+      "cli_args": [
+        {"name": "--task", "required": true, "description": "Task ID для bundle"},
+        {"name": "--dry-run", "required": false, "description": "Режим dry-run"},
+        {"name": "--verbose", "required": false, "description": "Подробный вывод"}
+      ],
+      "produces_receipt": true,
+      "created": "2026-05-14"
+    },
+    {
+      "id": "APPLY_BUNDLE",
+      "name": "Apply Bundle Launcher",
+      "version": "0.1",
+      "script_path": "TOOLS/launcher_apply_bundle_v0_1.py",
+      "type": "launcher",
+      "platform": ["WINDOWS"],
+      "description": "Применение bundle к репозиторию на PC",
+      "status": "active",
+      "owner": "MECHANICUS",
+      "dependencies": ["IMPERIUM_LAUNCHER_FRAMEWORK"],
+      "cli_args": [
+        {"name": "--task", "required": true, "description": "Task ID для bundle"},
+        {"name": "--force", "required": false, "description": "Принудительное применение"},
+        {"name": "--dry-run", "required": false, "description": "Режим dry-run"},
+        {"name": "--verbose", "required": false, "description": "Подробный вывод"}
+      ],
+      "produces_receipt": true,
+      "created": "2026-05-14"
+    },
+    {
+      "id": "COMMIT_PUSH",
+      "name": "Commit Push Launcher",
+      "version": "0.1",
+      "script_path": "TOOLS/launcher_commit_push_v0_1.py",
+      "type": "launcher",
+      "platform": ["WINDOWS"],
+      "description": "Коммит и push изменений на PC (ТОЛЬКО PC)",
+      "status": "active",
+      "owner": "MECHANICUS",
+      "dependencies": ["IMPERIUM_LAUNCHER_FRAMEWORK"],
+      "cli_args": [
+        {"name": "--task", "required": false, "description": "Task ID для commit message"},
+        {"name": "--message", "required": false, "description": "Commit message"},
+        {"name": "--no-push", "required": false, "description": "Только commit без push"},
+        {"name": "--dry-run", "required": false, "description": "Режим dry-run"},
+        {"name": "--verbose", "required": false, "description": "Подробный вывод"}
+      ],
+      "produces_receipt": true,
+      "platform_restriction": "WINDOWS_ONLY",
+      "created": "2026-05-14"
+    },
+    {
+      "id": "SYNC_VM2",
+      "name": "Sync VM2 Launcher",
+      "version": "0.1",
+      "script_path": "TOOLS/launcher_sync_vm2_v0_1.py",
+      "type": "launcher",
+      "platform": ["LINUX"],
+      "description": "Синхронизация VM2 с GitHub после push с PC",
+      "status": "active",
+      "owner": "MECHANICUS",
+      "dependencies": ["IMPERIUM_LAUNCHER_FRAMEWORK"],
+      "cli_args": [
+        {"name": "--expected-head", "required": false, "description": "Ожидаемый HEAD после sync"},
+        {"name": "--dry-run", "required": false, "description": "Режим dry-run"},
+        {"name": "--verbose", "required": false, "description": "Подробный вывод"}
+      ],
+      "produces_receipt": true,
+      "platform_restriction": "LINUX_ONLY",
+      "created": "2026-05-14"
+    }
+  ],
+  
+  "workflow_sequences": {
+    "vm2_to_pc_bundle_flow": {
+      "description": "Полный цикл передачи bundle с VM2 на PC",
+      "steps": [
+        {"step": 1, "launcher": "FETCH_BUNDLE", "platform": "PC", "description": "Получить bundle с VM2"},
+        {"step": 2, "launcher": "APPLY_BUNDLE", "platform": "PC", "description": "Применить bundle к репо"},
+        {"step": 3, "launcher": "COMMIT_PUSH", "platform": "PC", "description": "Закоммитить и запушить"},
+        {"step": 4, "launcher": "SYNC_VM2", "platform": "VM2", "description": "Синхронизировать VM2"}
+      ]
+    }
+  },
+  
+  "statistics": {
+    "total_launchers": 5,
+    "active_launchers": 5,
+    "windows_only": 3,
+    "linux_only": 1,
+    "cross_platform": 1
+  }
+}

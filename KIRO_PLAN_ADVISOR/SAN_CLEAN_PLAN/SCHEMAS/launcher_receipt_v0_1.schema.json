@@ -1,0 +1,71 @@
+{
+  "title": "IMPERIUM Launcher Receipt Schema v0.1",
+  "description": "Схема для receipt файлов, генерируемых лаунчерами",
+  "type": "object",
+  "required": ["schema_version", "launcher_id", "started_at_utc", "completed_at_utc", "verdict"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "launcher_receipt_v0_1"
+    },
+    "launcher_id": {
+      "type": "string",
+      "description": "Идентификатор лаунчера"
+    },
+    "task_id": {
+      "type": ["string", "null"],
+      "description": "ID задачи (если применимо)"
+    },
+    "started_at_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Время начала в UTC ISO8601"
+    },
+    "completed_at_utc": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Время завершения в UTC ISO8601"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "ERROR", "NOT_STARTED", "PARTIAL"],
+      "description": "Финальный вердикт выполнения"
+    },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["step", "status", "timestamp_utc"],
+        "properties": {
+          "step": {
+            "type": "string",
+            "description": "Название шага"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["STARTED", "PASS", "FAIL", "SKIPPED", "BLOCKED", "PARTIAL", "CONFLICT", "ERROR"],
+            "description": "Статус шага"
+          },
+          "timestamp_utc": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "details": {
+            "type": "object",
+            "description": "Дополнительные детали шага"
+          }
+        }
+      }
+    },
+    "errors": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Список ошибок"
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Список предупреждений"
+    }
+  }
+}

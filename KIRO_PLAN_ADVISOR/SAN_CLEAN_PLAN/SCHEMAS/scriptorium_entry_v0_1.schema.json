@@ -1,0 +1,100 @@
+{
+  "title": "SCRIPTORIUM Entry Schema v0.1",
+  "description": "Схема для записи скрипта в SCRIPTORIUM реестр",
+  "type": "object",
+  "required": ["script_id", "name", "path", "type", "status", "owner"],
+  "properties": {
+    "script_id": {
+      "type": "string",
+      "pattern": "^SCRIPT-[A-Z0-9_-]+$",
+      "description": "Уникальный ID скрипта"
+    },
+    "name": {
+      "type": "string",
+      "description": "Человекочитаемое имя скрипта"
+    },
+    "path": {
+      "type": "string",
+      "description": "Относительный путь от корня репозитория"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["checker", "launcher", "utility", "generator", "migrator", "test", "service", "framework"],
+      "description": "Тип скрипта"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["python", "powershell", "bash", "javascript"],
+      "default": "python"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+(\\.\\d+)?$",
+      "description": "Версия скрипта"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "deprecated", "legacy", "experimental", "archived"],
+      "description": "Статус скрипта"
+    },
+    "owner": {
+      "type": "string",
+      "description": "Орган-владелец скрипта"
+    },
+    "platform": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["WINDOWS", "LINUX", "ANY"]
+      },
+      "description": "Поддерживаемые платформы"
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Зависимости от других скриптов"
+    },
+    "cli_args": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {"type": "string"},
+          "required": {"type": "boolean"},
+          "description": {"type": "string"}
+        }
+      }
+    },
+    "produces_receipt": {
+      "type": "boolean",
+      "default": false
+    },
+    "has_dry_run": {
+      "type": "boolean",
+      "default": false
+    },
+    "compiles": {
+      "type": "boolean",
+      "description": "Проходит py_compile"
+    },
+    "last_verified": {
+      "type": "string",
+      "format": "date",
+      "description": "Дата последней верификации"
+    },
+    "description": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    }
+  }
+}
