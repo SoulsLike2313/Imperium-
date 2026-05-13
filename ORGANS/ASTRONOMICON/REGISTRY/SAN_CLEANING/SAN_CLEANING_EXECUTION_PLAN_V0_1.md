@@ -21,6 +21,13 @@ Advisory policy:
 - Pass criteria: complete read-only inventory across scripts/files/tools/bundles/reports/warnings/orphans with no deletion.
 - Risk: hidden runtime/generated drift misclassified as product source.
 
+## Stage 1.5 - Repo Parity / External Local Context
+- Advisory sections used: 2, 3, 8, 10, 11, 12, 15.
+- Files expected: repo parity policy, local/private externalization plan, migration report, externalization manifest, current state report.
+- Scripts/checkers expected: PC externalization launcher and repo parity checker.
+- Pass criteria: tracked parity across GitHub/PC/VM2 is proven; local/private/generated payloads are moved outside canonical repo roots or explicitly left as ambiguous with Owner-visible reasons.
+- Risk: fake parity claims when PC migration/access proof is missing, or ambiguous local payloads are silently ignored.
+
 ## Stage 2 - Folder Taxonomy Normalization
 - Advisory sections used: 2, 11, 12, 15.
 - Files expected: approved classification manifest, movement plan, zone definitions.

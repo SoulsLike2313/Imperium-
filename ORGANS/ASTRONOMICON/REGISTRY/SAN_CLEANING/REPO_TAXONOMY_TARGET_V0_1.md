@@ -23,6 +23,8 @@ Advisory policy:
 | Generated reports | Machine-generated verification reports | `.imperium_runtime/` | Local runtime | Runtime systems | Short-lived | Runtime report schema checks | Low/Derived | Never treat as canonical source implementation |
 | Receipts | Execution receipts and evidence | `.imperium_runtime/` and bundle receipts | Local runtime + bundle | Mechanicus/Admin | Task-bounded | Receipt presence and integrity checks | Medium | Include in bundles, do not promote as product code |
 | Bundles | VM2 handoff artifacts | `/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES/` | Local-only outside repo | VM2 worker + PC owner | Task-bounded | Bundle completeness checker | Medium | Must include deletion evidence when deletions occur |
+| PC external local context | Local operational payloads externalized from PC repo | `E:\\IMPERIUM_LOCAL\\` | Local-only outside repo | PC operator + Owner | Rolling | Externalization manifest and parity checker | Medium | Keep outside canonical repo root; include only metadata in bundles |
+| PC external private context | Owner-private payloads and sensitive handoff inputs | `E:\\IMPERIUM_PRIVATE\\` | Private local-only | Owner | Owner-controlled | Inclusion decision must be explicit | Hidden by default | Never commit private payloads; include only by Owner decision |
 | Temporary work | Scratch workspace for short-lived prep | `tmp/` or explicit temp folders | Local-only | Current executor | <= task lifetime | Optional sanity checker | Hidden by default | Purge after task or quarantine |
 | Quarantine | Suspect/unclassified imports awaiting decision | `INBOX/QUARANTINE/` (or approved quarantine path) | Tracked if policy says so | Ingestion owner + review authority | Decision-bounded | Quarantine policy checker | Medium | No direct promotion without review |
 | Legacy/obsolete | Historical continuity context | `CURRENT_STATE/`, `ARTIFACTS/`, `ORGANS/*/CONTINUITY/` legacy areas | Tracked | Respective owners | Long-lived | Legacy warning gates only | Low | Do not mass-delete without owner approval |
@@ -34,3 +36,10 @@ Advisory policy:
 - `ARCHIVE` and `OBSERVED` are removed by Owner decision in this step.
 - Future broad deletion requires classification + manifest + Owner approval unless already explicitly authorized.
 - `SCRIPTORIUM` and `ARSENAL` live under `ORGANS/MECHANICUS/`.
+
+## Repo Parity / Externalization Clarifications
+- Canonical tracked repo zones stay inside `E:\\IMPERIUM` (PC) and `/home/vboxuser2/IMPERIUM_WORK/Imperium-` (VM2).
+- Local-only zones should be externalized to `E:\\IMPERIUM_LOCAL` on PC (future VM mirror: `~/IMPERIUM_LOCAL`).
+- Private Owner-controlled zones should be externalized to `E:\\IMPERIUM_PRIVATE` on PC (future VM mirror: `~/IMPERIUM_PRIVATE`).
+- Generated/cache deletion is allowed only for ignored/untracked disposable caches (`__pycache__`, `*.pyc`, `.pytest_cache`) with manifest evidence.
+- Quarantine policy remains mandatory for uncertain files: if classification is ambiguous, leave in place and escalate for Owner decision.
