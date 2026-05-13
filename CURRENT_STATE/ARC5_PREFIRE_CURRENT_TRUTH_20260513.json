@@ -1,9 +1,9 @@
 {
   "schema_version": "imperium.current_truth.arc5_prefire.v0_1",
-  "generated_at_utc": "2026-05-13T10:31:52Z",
-  "repo_head": "d3e0fa80c24b2a3c1f6412abc87e7f4cc889d45c",
-  "commit_count": 67,
-  "latest_commit_subject": "TASK-20260513: add Act 5 warning budget policy",
+  "generated_at_utc": "2026-05-13T13:08:48Z",
+  "repo_head": "7333c4e0a62353aac46b6b3bcb66d4e18cd0fc05",
+  "commit_count": 68,
+  "latest_commit_subject": "TASK-20260513: add Act 5 advisory ingest and modernization skeleton",
   "current_arc": "ARC_5_PREFIRE",
   "current_phase": "PREFIRE_IMPLEMENTATION",
   "act5_execution_ready": false,
@@ -25,30 +25,36 @@
     "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
     "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
     "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json",
     "REGISTRY/WARNING_BUDGET.json"
   ],
   "next_allowed_actions": [
-    "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
     "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
-    "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1"
+    "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+    "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1"
   ],
   "blockers": [
     "READY_FOR_AGENT not approved",
-    "first four organs not unified",
+    "act5 execution remains blocked until step-sequence evidence is complete",
+    "OFFICIO_AGENTIS remains below target Level 5 maturity (currently Level 4)",
     "work-session Administratum ACK model not formalized",
     "Sanctum action registry not formalized",
     "Visual Factory Minimum (Step 7) not started by design",
     "Inquisition v0.1 contract not approved",
-    "advisory ingest/modernization skeleton awaiting PC acceptance",
-    "warning budget policy awaiting PC acceptance and baseline measurement"
+    "first-four readiness and modernization state awaiting PC acceptance"
   ],
-  "owner_notes_summary": "Арка 5 остаётся в prefire-подготовке: advisory ingest и modernization skeleton зарегистрированы, но execution блокирован до последовательного прохождения шагов 4-10 и owner-gated READY_FOR_AGENT доказательств.",
+  "owner_notes_summary": "Шаг 4 зарегистрировал guide-readiness контур для первых четырёх органов, но это не execution-ready состояние: READY_FOR_AGENT=false, Act 5 execution blocked, визуальный поток остаётся Step 7.",
   "warning_budget_file": "REGISTRY/WARNING_BUDGET.json",
   "warning_budget_status": "ACTIVE_PREFIRE_POLICY_PENDING_PC_ACCEPTANCE",
   "advisory_response_file": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
   "modernization_file": "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
   "prefire_preparation_tasks_file": "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
   "advisory_ingest_status": "ACTIVE_PREFIRE_SKELETON_PENDING_PC_ACCEPTANCE",
-  "next_recommended_step": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
-  "assets_policy_step": "STEP_7_VISUAL_FACTORY_MINIMUM"
+  "first_four_organs_readiness_file": "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json",
+  "organ_contract_schema_file": "schemas/organ_contract_v0_2.schema.json",
+  "organ_self_report_schema_file": "schemas/organ_self_report_v0_1.schema.json",
+  "first_four_readiness_status": "ACTIVE_PREFIRE_GUIDE_STRUCTURE_PENDING_PC_ACCEPTANCE",
+  "next_recommended_step": "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+  "assets_policy_step": "STEP_7_VISUAL_FACTORY_MINIMUM",
+  "inquisition_status": "NOT_BUILT_YET"
 }

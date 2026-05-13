@@ -1,0 +1,47 @@
+{
+  "schema_version": "imperium.organ_self_report.v0_1",
+  "organ_id": "DOCTRINARIUM",
+  "generated_at_utc": "2026-05-13T13:06:32Z",
+  "repo_truth_at_generation": {
+    "head": "7333c4e0a62353aac46b6b3bcb66d4e18cd0fc05",
+    "commit_count": 68,
+    "latest_commit_subject": "TASK-20260513: add Act 5 advisory ingest and modernization skeleton"
+  },
+  "current_status": "ACTIVE_GUIDE_READINESS_PROFILE",
+  "maturity_level_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+  "act5_readiness": "READY",
+  "available_ports": [
+    "ORGANS/DOCTRINARIUM/PORTS/BLOCKERS_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/CONTINUITY_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/RECEIPT_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/SCRIPT_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/TEST_PORT.json"
+  ],
+  "available_scripts": [
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_doctrine.py",
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_laws.py",
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_all_organs.py",
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_preflight.py"
+  ],
+  "available_dashboards_or_utilities": [
+    "ORGANS/DOCTRINARIUM/UTILITY/WEB_DASHBOARD_V0_8/",
+    "ORGANS/DOCTRINARIUM/UTILITY/ORGAN_UTILITY.json"
+  ],
+  "known_blockers": [
+    "Hard-law enforcement across all zones is incomplete",
+    "Owner-level canon acceptance artifacts are external",
+    "Cross-organ maturity remains uneven"
+  ],
+  "next_required_work": [
+    "Align law enforcement evidence with Step 5/6 execution planning",
+    "Formalize stronger machine checks for no-fake-green doctrine",
+    "Keep Act 5 readiness claims strictly evidence-gated"
+  ],
+  "evidence_files": [
+    "ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+    "ORGANS/DOCTRINARIUM/ORGAN_STATUS.json",
+    "ORGANS/DOCTRINARIUM/LAWS/NO_FAKE_GREEN_POLICY.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/DOCTRINARIUM_STATUS_REPORT.json"
+  ],
+  "no_fake_green_statement": "Doctrinarium readiness means guide-role boundaries only; it is not a claim of full operational or execution authority."
+}

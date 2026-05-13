@@ -1,0 +1,103 @@
+{
+  "schema_version": "imperium.organ_contract.v0_2",
+  "organ_id": "ASTRONOMICON",
+  "organ_name": "Astronomicon",
+  "status": "ACTIVE_GUIDE_READINESS_PROFILE",
+  "maturity_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+  "act5_role": "Own planning/advisory-buffer/registration corridor for GENERAL_TASK->TASK->STAGE->READY gate preparation.",
+  "authority_scope": [
+    "Maintain prefire planning and registration records",
+    "Register advisory responses and modernization skeletons",
+    "Define stage progression and gate prerequisites",
+    "Expose roadmap and planning blockers"
+  ],
+  "not_authority": [
+    "Advisory buffer is not execution authority",
+    "Astronomicon does not auto-execute stages",
+    "Astronomicon does not auto-approve READY_FOR_AGENT",
+    "Astronomicon does not replace Owner stage approvals"
+  ],
+  "owner_organs_or_zones": [
+    "ORGANS/ASTRONOMICON",
+    "ORGANS/ASTRONOMICON/REGISTRY",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER"
+  ],
+  "read_zones": [
+    "CURRENT_STATE/",
+    "REGISTRY/",
+    "ORGANS/ADMINISTRATUM/",
+    "ORGANS/OFFICIO_AGENTIS/",
+    "ORGANS/DOCTRINARIUM/"
+  ],
+  "write_zones": [
+    "ORGANS/ASTRONOMICON/",
+    "ORGANS/ASTRONOMICON/REGISTRY/",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/"
+  ],
+  "forbidden_actions": [
+    "Execute raw advisory directly",
+    "Set READY_FOR_AGENT true without evidence",
+    "Claim Act 5 execution ready",
+    "Bypass Owner stage-map approval"
+  ],
+  "required_inputs": [
+    "Owner intent and task directives",
+    "Advisory inputs from Kiro/Speculum-like sources",
+    "Doctrinarium/Administratum/Officio boundaries",
+    "Warning budget and no-fake-green policy"
+  ],
+  "required_outputs": [
+    "Registered planning artifacts (general task/task/stage/gate)",
+    "Advisory response and modernization linkage",
+    "Prefire readiness registries and checker outputs"
+  ],
+  "ports": [
+    "ORGANS/ASTRONOMICON/PORTS/get_task_map.schema.json",
+    "ORGANS/ASTRONOMICON/PORTS/get_stage_map.schema.json",
+    "ORGANS/ASTRONOMICON/PORTS/get_next_stage.schema.json",
+    "ORGANS/ASTRONOMICON/PORTS/report_task_plan_defect.schema.json"
+  ],
+  "checks": [
+    "TOOLS/check_advisory_ingest_modernization_v0_1.py",
+    "TOOLS/check_first_four_organs_act5_readiness_v0_1.py",
+    "TOOLS/check_arc5_prefire_current_truth_v0_1.py"
+  ],
+  "dashboards_or_utilities": [
+    "ORGANS/ASTRONOMICON/UTILITY/astronomicon_dashboard_v0_7.ps1",
+    "ORGANS/ASTRONOMICON/UTILITIES/astra_pipeline_utility_v0_4.py"
+  ],
+  "receipts": [
+    "ORGANS/ASTRONOMICON/PORTS/LATEST_RECEIPTS_INDEX.json",
+    ".imperium_runtime/astronomicon/*"
+  ],
+  "known_blockers": [
+    "Stage execution authority remains blocked by design",
+    "Owner stage-map approval is still pending",
+    "READY_FOR_AGENT remains false",
+    "Visual factory and action registry steps are pending"
+  ],
+  "no_fake_green_rules": [
+    "Raw advisory must remain advisory-only until promoted",
+    "Planning registration does not imply execution readiness",
+    "Gate changes require explicit evidence and Owner approval",
+    "Missing stage evidence must produce WARN/BLOCKED"
+  ],
+  "readiness_claim": {
+    "act5_guide_readiness": "READY",
+    "claim_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+    "full_operational_claim": false,
+    "statement": "Astronomicon can guide Act 5 planning/promotion/gate flow at minimal readiness, while execution remains intentionally blocked.",
+    "known_gaps": [
+      "Execution is not authorized by this contract",
+      "Owner stage-map approvals are still required"
+    ]
+  },
+  "evidence_files": [
+    "ORGANS/ASTRONOMICON/README.md",
+    "ORGANS/ASTRONOMICON/ORGAN_STATUS.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/README_ADVISORY_BUFFER_V0_1.md"
+  ],
+  "last_reviewed_task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
+}

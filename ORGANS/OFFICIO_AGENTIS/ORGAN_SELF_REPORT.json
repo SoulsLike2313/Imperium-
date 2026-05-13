@@ -1,0 +1,43 @@
+{
+  "schema_version": "imperium.organ_self_report.v0_1",
+  "organ_id": "OFFICIO_AGENTIS",
+  "generated_at_utc": "2026-05-13T13:06:32Z",
+  "repo_truth_at_generation": {
+    "head": "7333c4e0a62353aac46b6b3bcb66d4e18cd0fc05",
+    "commit_count": 68,
+    "latest_commit_subject": "TASK-20260513: add Act 5 advisory ingest and modernization skeleton"
+  },
+  "current_status": "PARTIAL_GUIDE_READINESS_PROFILE",
+  "maturity_level_claim": "LEVEL_4_CHECKABLE",
+  "act5_readiness": "PARTIAL",
+  "available_ports": [
+    "ORGANS/OFFICIO_AGENTIS/PORTS/BLOCKERS_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/CONTINUITY_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/RECEIPT_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/SCRIPT_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/TEST_PORT.json"
+  ],
+  "available_scripts": [
+    "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py"
+  ],
+  "available_dashboards_or_utilities": [
+    "No dedicated dashboard utility registered for Officio Agentis in this step"
+  ],
+  "known_blockers": [
+    "Runtime permission enforcement remains minimal",
+    "No dedicated Act 5 checker for response-contract enforcement",
+    "Requires Step 5 session/ACK model integration"
+  ],
+  "next_required_work": [
+    "Promote to LEVEL_5 via enforcement evidence and checker coverage",
+    "Define machine-checkable response-contract assertions",
+    "Integrate explicit permission boundaries with Step 6 action registry"
+  ],
+  "evidence_files": [
+    "ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+    "ORGANS/OFFICIO_AGENTIS/ORGAN_STATUS.json",
+    "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py",
+    "ORGANS/OFFICIO_AGENTIS/CONFIG/SERVITOR_RESPONSE_CONTRACT_V0_1.md"
+  ],
+  "no_fake_green_statement": "Officio Agentis PARTIAL status means guidance exists but enforcement depth is insufficient for Level 5 claim."
+}

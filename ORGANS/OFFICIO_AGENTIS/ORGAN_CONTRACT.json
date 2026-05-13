@@ -1,0 +1,99 @@
+{
+  "schema_version": "imperium.organ_contract.v0_2",
+  "organ_id": "OFFICIO_AGENTIS",
+  "organ_name": "Officio Agentis",
+  "status": "PARTIAL_GUIDE_READINESS_PROFILE",
+  "maturity_level": "LEVEL_4_CHECKABLE",
+  "act5_role": "Define and constrain agent role/response/authority boundaries for controlled Act 5 execution staging.",
+  "authority_scope": [
+    "Maintain agent profile and scope policy definitions",
+    "Define response-contract expectations",
+    "Clarify execution permission boundaries",
+    "Provide policy framing for stop/uncertainty behavior"
+  ],
+  "not_authority": [
+    "Does not auto-enforce every permission at runtime yet",
+    "Does not override Owner approvals",
+    "Does not set READY_FOR_AGENT true",
+    "Does not directly execute organ build tasks"
+  ],
+  "owner_organs_or_zones": [
+    "ORGANS/OFFICIO_AGENTIS",
+    "ORGANS/OFFICIO_AGENTIS/AGENT_PROFILES",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES",
+    "ORGANS/OFFICIO_AGENTIS/SCOPES"
+  ],
+  "read_zones": [
+    "CURRENT_STATE/",
+    "ORGANS/ASTRONOMICON/REGISTRY/",
+    "ORGANS/ADMINISTRATUM/",
+    "REGISTRY/"
+  ],
+  "write_zones": [
+    "ORGANS/OFFICIO_AGENTIS/",
+    "ORGANS/OFFICIO_AGENTIS/SCOPES/",
+    "ORGANS/OFFICIO_AGENTIS/AGENT_PROFILES/"
+  ],
+  "forbidden_actions": [
+    "Claim full permission enforcement without evidence",
+    "Treat advisory as execution authority",
+    "Set READY_FOR_AGENT true",
+    "Claim full operational maturity"
+  ],
+  "required_inputs": [
+    "Agent profile records",
+    "Response/uncertainty policy constraints",
+    "Task scope context from Administratum/Astronomicon"
+  ],
+  "required_outputs": [
+    "Agent scope constraints",
+    "Authority-limit documentation",
+    "Policy-aware response boundaries"
+  ],
+  "ports": [
+    "ORGANS/OFFICIO_AGENTIS/PORTS/BLOCKERS_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/CONTINUITY_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/RECEIPT_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/SCRIPT_PORT.json",
+    "ORGANS/OFFICIO_AGENTIS/PORTS/TEST_PORT.json"
+  ],
+  "checks": [
+    "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py",
+    "TOOLS/check_first_four_organs_act5_readiness_v0_1.py"
+  ],
+  "dashboards_or_utilities": [
+    "No dedicated dashboard utility registered in this step"
+  ],
+  "receipts": [
+    "ORGANS/OFFICIO_AGENTIS/PORTS/LATEST_RECEIPTS_INDEX.json"
+  ],
+  "known_blockers": [
+    "Runtime permission enforcement layer is minimal",
+    "No dedicated checker for response-contract enforcement yet",
+    "Work-session ACK integration is pending Step 5"
+  ],
+  "no_fake_green_rules": [
+    "Authority must be described as limits, not claims",
+    "Missing runtime enforcement must be explicit",
+    "No execution readiness claim without gate evidence",
+    "No promotion of raw advisory into direct commands"
+  ],
+  "readiness_claim": {
+    "act5_guide_readiness": "PARTIAL",
+    "claim_level": "LEVEL_4_CHECKABLE",
+    "full_operational_claim": false,
+    "statement": "Officio Agentis is checkable and useful for boundary guidance, but lacks evidence for Level 5 minimal readiness in enforcement depth.",
+    "known_gaps": [
+      "Permission enforcement is not complete",
+      "Dedicated Act 5 enforcement checker is not yet formalized"
+    ]
+  },
+  "evidence_files": [
+    "ORGANS/OFFICIO_AGENTIS/README.md",
+    "ORGANS/OFFICIO_AGENTIS/ORGAN_STATUS.json",
+    "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py",
+    "ORGANS/OFFICIO_AGENTIS/CONFIG/SERVITOR_RESPONSE_CONTRACT_V0_1.md",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/UNCERTAINTY_STOP_POLICY.json"
+  ],
+  "last_reviewed_task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
+}

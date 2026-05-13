@@ -1,0 +1,110 @@
+{
+  "schema_version": "imperium.first_four_organs_act5_readiness.v0_1",
+  "status": "ACT5_GUIDE_READINESS_REGISTERED",
+  "created_at_utc": "2026-05-13T13:06:32Z",
+  "task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+  "repo_truth_at_creation": {
+    "head": "7333c4e0a62353aac46b6b3bcb66d4e18cd0fc05",
+    "commit_count": 68,
+    "latest_commit_subject": "TASK-20260513: add Act 5 advisory ingest and modernization skeleton"
+  },
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false,
+  "target_maturity": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+  "organs": [
+    {
+      "organ_id": "DOCTRINARIUM",
+      "contract_file": "ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/DOCTRINARIUM/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/DOCTRINARIUM/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "act5_guide_readiness": "READY",
+      "role_in_act5": "Doctrine/law/no-fake-green guard for prefire sequencing",
+      "blockers": [
+        "Hard-law enforcement automation incomplete"
+      ],
+      "evidence_files": [
+        "ORGANS/DOCTRINARIUM/LAWS/NO_FAKE_GREEN_POLICY.json",
+        "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_all_organs.py",
+        "ORGANS/DOCTRINARIUM/REPORTS/DOCTRINARIUM_STATUS_REPORT.json"
+      ],
+      "next_required_work": [
+        "Keep doctrine checks synchronized with Step 5/6 contract changes"
+      ]
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "contract_file": "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/ADMINISTRATUM/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "act5_guide_readiness": "READY",
+      "role_in_act5": "Continuity and operational memory routing",
+      "blockers": [
+        "Work-session ACK model is pending Step 5"
+      ],
+      "evidence_files": [
+        "ORGANS/ADMINISTRATUM/REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json",
+        "TOOLS/run_administratum_git_cli_check.sh"
+      ],
+      "next_required_work": [
+        "Formalize session/ACK continue-stop model"
+      ]
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "contract_file": "ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/OFFICIO_AGENTIS/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/OFFICIO_AGENTIS/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_4_CHECKABLE",
+      "act5_guide_readiness": "PARTIAL",
+      "role_in_act5": "Agent authority and permission boundary guidance",
+      "blockers": [
+        "Runtime permission enforcement depth is limited",
+        "Dedicated Act 5 enforcement checker absent"
+      ],
+      "evidence_files": [
+        "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py",
+        "ORGANS/OFFICIO_AGENTIS/CONFIG/SERVITOR_RESPONSE_CONTRACT_V0_1.md"
+      ],
+      "next_required_work": [
+        "Raise to Level 5 with machine-checkable enforcement evidence"
+      ]
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "contract_file": "ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/ASTRONOMICON/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/ASTRONOMICON/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "act5_guide_readiness": "READY",
+      "role_in_act5": "Planning and registration corridor governance",
+      "blockers": [
+        "Execution authority remains intentionally blocked",
+        "Owner stage-map approval is pending"
+      ],
+      "evidence_files": [
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+        "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/README_ADVISORY_BUFFER_V0_1.md"
+      ],
+      "next_required_work": [
+        "Preserve advisory-only authority and gate evidence discipline"
+      ]
+    }
+  ],
+  "global_blockers": [
+    "Act 5 execution remains blocked by design",
+    "READY_FOR_AGENT remains false",
+    "OFFICIO_AGENTIS currently below target Level 5 maturity",
+    "Work-session ACK and Sanctum action registry steps are pending",
+    "Visual Factory Minimum remains Step 7 and not executed"
+  ],
+  "next_required_steps": [
+    "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+    "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+    "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+    "TASK-20260513-INQUISITION-V0_1-CONTRACT-V0_1",
+    "TASK-20260513-READY-FOR-AGENT-GATE-PROOF-V0_1"
+  ]
+}

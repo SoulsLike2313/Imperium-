@@ -1,0 +1,189 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Organ Contract v0.2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "organ_id",
+    "organ_name",
+    "status",
+    "maturity_level",
+    "act5_role",
+    "authority_scope",
+    "not_authority",
+    "owner_organs_or_zones",
+    "read_zones",
+    "write_zones",
+    "forbidden_actions",
+    "required_inputs",
+    "required_outputs",
+    "ports",
+    "checks",
+    "dashboards_or_utilities",
+    "receipts",
+    "known_blockers",
+    "no_fake_green_rules",
+    "readiness_claim",
+    "evidence_files",
+    "last_reviewed_task_id"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.organ_contract.v0_2"
+    },
+    "organ_id": {
+      "type": "string"
+    },
+    "organ_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "maturity_level": {
+      "type": "string",
+      "enum": [
+        "LEVEL_0_NAME_ONLY",
+        "LEVEL_1_SCAFFOLD",
+        "LEVEL_2_DOCUMENTED",
+        "LEVEL_3_CONTRACTED",
+        "LEVEL_4_CHECKABLE",
+        "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+        "LEVEL_6_OPERATIONAL_LIMITED",
+        "LEVEL_7_FULLY_OPERATIONAL"
+      ]
+    },
+    "act5_role": {
+      "type": "string"
+    },
+    "authority_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_authority": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_organs_or_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "read_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "write_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dashboards_or_utilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "no_fake_green_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "readiness_claim": {
+      "type": "object",
+      "required": [
+        "act5_guide_readiness",
+        "claim_level",
+        "full_operational_claim",
+        "statement"
+      ],
+      "properties": {
+        "act5_guide_readiness": {
+          "type": "string",
+          "enum": [
+            "READY",
+            "PARTIAL",
+            "BLOCKED"
+          ]
+        },
+        "claim_level": {
+          "type": "string"
+        },
+        "full_operational_claim": {
+          "type": "boolean"
+        },
+        "statement": {
+          "type": "string"
+        },
+        "known_gaps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "evidence_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_reviewed_task_id": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

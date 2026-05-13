@@ -1,0 +1,47 @@
+{
+  "schema_version": "imperium.organ_self_report.v0_1",
+  "organ_id": "ASTRONOMICON",
+  "generated_at_utc": "2026-05-13T13:06:32Z",
+  "repo_truth_at_generation": {
+    "head": "7333c4e0a62353aac46b6b3bcb66d4e18cd0fc05",
+    "commit_count": 68,
+    "latest_commit_subject": "TASK-20260513: add Act 5 advisory ingest and modernization skeleton"
+  },
+  "current_status": "ACTIVE_GUIDE_READINESS_PROFILE",
+  "maturity_level_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+  "act5_readiness": "READY",
+  "available_ports": [
+    "ORGANS/ASTRONOMICON/PORTS/get_task_map.schema.json",
+    "ORGANS/ASTRONOMICON/PORTS/get_stage_map.schema.json",
+    "ORGANS/ASTRONOMICON/PORTS/get_next_stage.schema.json",
+    "ORGANS/ASTRONOMICON/PORTS/report_task_plan_defect.schema.json"
+  ],
+  "available_scripts": [
+    "TOOLS/check_advisory_ingest_modernization_v0_1.py",
+    "TOOLS/check_arc5_prefire_current_truth_v0_1.py",
+    "ORGANS/ASTRONOMICON/SCRIPTS/validate_astra_route.py",
+    "ORGANS/ASTRONOMICON/SCRIPTS/create_astra_task_record.py"
+  ],
+  "available_dashboards_or_utilities": [
+    "ORGANS/ASTRONOMICON/UTILITY/astronomicon_dashboard_v0_7.ps1",
+    "ORGANS/ASTRONOMICON/UTILITIES/astra_pipeline_utility_v0_4.py"
+  ],
+  "known_blockers": [
+    "Execution authority remains intentionally blocked",
+    "Owner stage-map approval is pending",
+    "READY_FOR_AGENT gate remains false by policy"
+  ],
+  "next_required_work": [
+    "Complete Step 5 and Step 6 dependencies",
+    "Maintain strict advisory-only authority boundaries",
+    "Prepare evidence package for future READY_FOR_AGENT gate proof"
+  ],
+  "evidence_files": [
+    "ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+    "ORGANS/ASTRONOMICON/ORGAN_STATUS.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/README_ADVISORY_BUFFER_V0_1.md"
+  ],
+  "no_fake_green_statement": "Astronomicon readiness is planning/governance guidance only and must not be interpreted as execution authorization."
+}

@@ -1,63 +1,103 @@
 {
-  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "schema_version": "imperium.organ_contract.v0_2",
   "organ_id": "DOCTRINARIUM",
-  "status": "STRICT_BOOTSTRAP_GATE",
-  "owner_approval_state": "OWNER_REVIEW_REQUIRED",
-  "allowed_write_roots": [
-    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1",
-    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM"
+  "organ_name": "Doctrinarium",
+  "status": "ACTIVE_GUIDE_READINESS_PROFILE",
+  "maturity_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+  "act5_role": "Doctrine/canon/law/no-fake-green guide gate before and during Act 5 prefire transitions.",
+  "authority_scope": [
+    "Define and maintain doctrine/law constraints",
+    "Provide preflight doctrine checks and blocker framing",
+    "Detect and report fake-green risk",
+    "Gate advisory-to-doctrine promotion expectations"
   ],
-  "forbidden_roots": [
-    "E:\\IMPERIUM\\ARCHIVE",
-    "E:\\IMPERIUM\\SANCTUM",
-    "E:\\IMPERIUM\\THRONE"
+  "not_authority": [
+    "Does not execute arbitrary implementation tasks",
+    "Does not override Owner decisions",
+    "Does not auto-approve READY_FOR_AGENT",
+    "Does not perform destructive cleanup execution"
   ],
-  "entrypoints": [
-    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_doctrine.py",
-    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_laws.py",
-    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_organ_standard.py",
-    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_validate_all_organs.py",
-    "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\doctrinarium_generate_status_report.py"
+  "owner_organs_or_zones": [
+    "ORGANS/DOCTRINARIUM",
+    "ORGANS/DOCTRINARIUM/LAWS",
+    "ORGANS/DOCTRINARIUM/DOCTRINE",
+    "ORGANS/DOCTRINARIUM/STANDARDS"
   ],
-  "required_receipts": [
-    "00_input_freeze_receipt.json",
-    "01_doctrine_validation_receipt.json",
-    "02_law_registry_receipt.json",
-    "03_organ_standard_schema_receipt.json",
-    "04_doctrinarium_organ_registration_receipt.json",
-    "05_all_organs_gap_report_receipt.json",
-    "06_status_report_receipt.json"
+  "read_zones": [
+    "CURRENT_STATE/",
+    "REGISTRY/",
+    "ORGANS/*/ORGAN_STATUS.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/"
   ],
-  "responsibilities": [
-    "validate doctrine documents",
-    "validate law registry",
-    "validate organ standards",
-    "validate all organs",
-    "perform task preflight later",
-    "detect fake green",
-    "produce blocker reports",
-    "answer callers later"
+  "write_zones": [
+    "ORGANS/DOCTRINARIUM/",
+    "ORGANS/DOCTRINARIUM/REPORTS/",
+    "ORGANS/DOCTRINARIUM/RECEIPTS/"
   ],
-  "explicitly_not_responsible_for": [
-    "executing task stages",
-    "repairing other organs directly",
-    "replacing Owner",
-    "accepting baseline",
-    "accepting final artifacts",
-    "approving canon by itself",
-    "writing THRONE",
-    "touching Sanctum",
-    "scanning Archive without approval"
+  "forbidden_actions": [
+    "Claim Act 5 execution ready",
+    "Set READY_FOR_AGENT true",
+    "Override Owner approval path",
+    "Mark unresolved blockers as PASS"
   ],
-  "self_report_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\STATUS\\ORGAN_STATUS_REPORT.md",
-  "health_check_path": "E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\REPORTS\\DOCTRINARIUM_STATUS_REPORT.json",
-  "known_limitations": [
-    "law enforcement coverage is partial at v0_1 scaffold",
-    "real task execution remains blocked pending owner approval and enforcement maturity"
+  "required_inputs": [
+    "Doctrinarium laws and doctrine index",
+    "Current state and registry truth",
+    "Warning budget policy",
+    "Act 5 prefire synthesis context"
   ],
-  "current_blockers": [
-    "NO_REAL_TASK_WITH_BOOTSTRAP_DOCTRINE",
-    "owner approval artifact for canon doctrine is missing"
+  "required_outputs": [
+    "Doctrine/law validation outcomes",
+    "Blocker reports and no-fake-green constraints",
+    "Act 5 gate guidance statements"
   ],
-  "last_verified_at": "2026-05-09T16:51:44.171250+00:00"
+  "ports": [
+    "ORGANS/DOCTRINARIUM/PORTS/BLOCKERS_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/CONTINUITY_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/RECEIPT_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/SCRIPT_PORT.json",
+    "ORGANS/DOCTRINARIUM/PORTS/TEST_PORT.json"
+  ],
+  "checks": [
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_doctrine.py",
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_laws.py",
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_all_organs.py"
+  ],
+  "dashboards_or_utilities": [
+    "ORGANS/DOCTRINARIUM/UTILITY/WEB_DASHBOARD_V0_8/",
+    "ORGANS/DOCTRINARIUM/UTILITY/ORGAN_UTILITY.json"
+  ],
+  "receipts": [
+    "ORGANS/DOCTRINARIUM/RECEIPTS/",
+    "ORGANS/DOCTRINARIUM/PORTS/LATEST_RECEIPTS_INDEX.json"
+  ],
+  "known_blockers": [
+    "Hard-law enforcement is incomplete across full repo surface",
+    "Owner canon approval artifact chain remains external to this contract",
+    "Cross-organ maturity is uneven"
+  ],
+  "no_fake_green_rules": [
+    "No PASS claim without evidence files",
+    "Unknown/Warning signals must not be hidden",
+    "Readiness claims must include maturity and blockers",
+    "Doctrinal guidance is not execution authorization"
+  ],
+  "readiness_claim": {
+    "act5_guide_readiness": "READY",
+    "claim_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+    "full_operational_claim": false,
+    "statement": "Doctrinarium can guide Act 5 no-fake-green and doctrine boundaries at minimal readiness level, but is not fully operational.",
+    "known_gaps": [
+      "Full enforcement automation is not complete",
+      "Owner acceptance artifacts remain separate"
+    ]
+  },
+  "evidence_files": [
+    "ORGANS/DOCTRINARIUM/README.md",
+    "ORGANS/DOCTRINARIUM/ORGAN_STATUS.json",
+    "ORGANS/DOCTRINARIUM/LAWS/NO_FAKE_GREEN_POLICY.json",
+    "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_all_organs.py",
+    "ORGANS/DOCTRINARIUM/REPORTS/DOCTRINARIUM_STATUS_REPORT.json"
+  ],
+  "last_reviewed_task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
 }

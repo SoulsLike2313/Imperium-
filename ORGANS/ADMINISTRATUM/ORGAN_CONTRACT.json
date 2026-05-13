@@ -1,102 +1,106 @@
 {
-  "schema_version": "ORGAN_CONTRACT_V0_1",
+  "schema_version": "imperium.organ_contract.v0_2",
   "organ_id": "ADMINISTRATUM",
   "organ_name": "Administratum",
-  "status": "BOOTSTRAP",
-  "responsibilities": [
-    "own memory/index state",
-    "own address registry",
-    "own current state snapshots",
-    "own chronology/timeline surfaces",
-    "build continuity packs",
-    "compare continuity packs",
-    "report handoff integrity",
-    "collect organ reports as evidence",
-    "report missing state explicitly"
+  "status": "ACTIVE_GUIDE_READINESS_PROFILE",
+  "maturity_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+  "act5_role": "Continuity/memory/orientation and operational routing guide for Act 5 prefire and Servitor work continuity.",
+  "authority_scope": [
+    "Track and report git/local truth surfaces",
+    "Maintain continuity packs and memory surfaces",
+    "Route task continuity signals and evidence",
+    "Provide work-session ACK design input (Step 5 target)"
   ],
-  "explicitly_not_responsible_for": [
-    "approving canon doctrine",
-    "replacing Owner decisions",
-    "executing arbitrary task stages",
-    "enforcing laws directly",
-    "repairing other organs directly",
-    "writing THRONE",
-    "editing Sanctum",
-    "archive recursive scan without Owner approval",
-    "declaring continuity green without supporting evidence"
+  "not_authority": [
+    "Not canon/doctrine authority",
+    "Cannot override Owner or Doctrinarium law gates",
+    "Cannot self-approve READY_FOR_AGENT",
+    "Cannot execute destructive cleanup by policy"
   ],
-  "allowed_write_roots": [
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM",
-    "E:\\IMPERIUM\\ARTIFACTS\\TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1"
+  "owner_organs_or_zones": [
+    "ORGANS/ADMINISTRATUM",
+    "ORGANS/ADMINISTRATUM/MEMORY",
+    "ORGANS/ADMINISTRATUM/CONTINUITY",
+    "ORGANS/ADMINISTRATUM/REGISTRY"
   ],
-  "forbidden_roots": [
-    "E:\\IMPERIUM\\ARCHIVE",
-    "E:\\IMPERIUM\\SANCTUM",
-    "E:\\IMPERIUM\\THRONE"
+  "read_zones": [
+    "CURRENT_STATE/",
+    "REGISTRY/",
+    "ORGANS/*/",
+    "SANCTUM/README_SANCTUM_EXPERIMENTAL_STATUS.md"
   ],
-  "entrypoints": [
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_build_continuity_pack.py",
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\administratum_compare_continuity_pack.py",
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\WEB_DASHBOARD_V0_1\\dashboard_server.py",
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\UTILITY\\launch_administratum_dashboard_v0_1.ps1"
+  "write_zones": [
+    "ORGANS/ADMINISTRATUM/",
+    "ORGANS/ADMINISTRATUM/REPORTS/",
+    "ORGANS/ADMINISTRATUM/CONTINUITY/"
   ],
-  "scripts": [
-    "administratum_build_continuity_pack.py",
-    "administratum_compare_continuity_pack.py",
-    "dashboard_server.py",
-    "app.js"
+  "forbidden_actions": [
+    "Claim canon authority",
+    "Claim final continuity green without evidence",
+    "Set READY_FOR_AGENT true",
+    "Start Act 5 execution"
   ],
-  "required_receipts": [
-    "09_RECEIPTS/02_administratum_organ_formalization_receipt.json",
-    "09_RECEIPTS/03_continuity_engine_receipt.json",
-    "09_RECEIPTS/05_dashboard_build_receipt.json",
-    "09_RECEIPTS/06_button_test_receipt.json"
+  "required_inputs": [
+    "Git truth signals",
+    "Current-state files",
+    "Organ reports and status outputs",
+    "Warning budget constraints"
   ],
-  "expected_reports": [
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.json",
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REPORTS\\ADMINISTRATUM_CONTINUITY_STATUS.md",
-    "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS"
+  "required_outputs": [
+    "Continuity packs and comparison reports",
+    "Operational memory indices",
+    "Task continuity guidance evidence"
   ],
-  "dashboard_requirement": {
-    "required": true,
-    "dashboard_id": "ADMINISTRATUM_WEB_DASHBOARD_V0_1",
-    "script_backed_required": true,
-    "active_action_buttons_allowed": [
-      "BUILD_CONTINUITY_PACK"
+  "ports": [
+    "ORGANS/ADMINISTRATUM/PORTS/BLOCKERS_PORT.json",
+    "ORGANS/ADMINISTRATUM/PORTS/CONTINUITY_PORT.json",
+    "ORGANS/ADMINISTRATUM/PORTS/RECEIPT_PORT.json",
+    "ORGANS/ADMINISTRATUM/PORTS/SCRIPT_PORT.json",
+    "ORGANS/ADMINISTRATUM/PORTS/TEST_PORT.json"
+  ],
+  "checks": [
+    "TOOLS/run_administratum_git_cli_check.sh",
+    "TOOLS/administratum_git_cli_check_v0_1.py",
+    "ORGANS/ADMINISTRATUM/SCRIPTS/validate_policy_refs.py",
+    "ORGANS/ADMINISTRATUM/SCRIPTS/administratum_compare_continuity_pack.py"
+  ],
+  "dashboards_or_utilities": [
+    "ORGANS/ADMINISTRATUM/UTILITY/WEB_DASHBOARD_V0_3/",
+    "ORGANS/ADMINISTRATUM/UTILITY/GIT_SYNC_CONSOLE/git_sync_console_v0_1.py",
+    "ORGANS/ADMINISTRATUM/UTILITY/ORGAN_UTILITY.json"
+  ],
+  "receipts": [
+    "ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/",
+    "ORGANS/ADMINISTRATUM/CONTINUITY/COMPARISONS/",
+    "ORGANS/ADMINISTRATUM/PORTS/LATEST_RECEIPTS_INDEX.json"
+  ],
+  "known_blockers": [
+    "Work-session ACK contract is not yet formalized (Step 5)",
+    "Cross-organ evidence quality remains uneven",
+    "Continuity maturity still depends on upstream organ reporting"
+  ],
+  "no_fake_green_rules": [
+    "Continuity claims must include concrete evidence paths",
+    "Missing evidence must remain WARN/BLOCKED",
+    "Administratum routing does not equal execution approval",
+    "No silent promotion of advisory into execution authority"
+  ],
+  "readiness_claim": {
+    "act5_guide_readiness": "READY",
+    "claim_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+    "full_operational_claim": false,
+    "statement": "Administratum can provide minimal Act 5 continuity guidance, but Step 5 work-session ACK formalization is still required.",
+    "known_gaps": [
+      "Formal work-session ACK schema is pending",
+      "No authority to declare execution readiness"
     ]
   },
-  "continuity_pack_requirement": {
-    "required": true,
-    "pack_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\PACKS",
-    "comparison_root": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\CONTINUITY\\COMPARISONS"
-  },
-  "owner_approval_state": "OWNER_REVIEW_REQUIRED",
-  "known_limitations": [
-    "No Sanctum integration in v0_1",
-    "No VM2/THRONE integration",
-    "Continuity quality depends on available organ evidence files",
-    "No canon claims are allowed from this surface"
+  "evidence_files": [
+    "ORGANS/ADMINISTRATUM/README.md",
+    "ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json",
+    "TOOLS/run_administratum_git_cli_check.sh"
   ],
-  "current_blockers": [
-    "Organ ecosystem still has multiple Doctrinarium-reported gaps",
-    "Law enforcement remains incomplete across codex set"
-  ],
-  "last_verified_at": "2026-05-10T11:03:31.2969823+03:00",
-  "capabilities": [
-    "git_public_memory_index",
-    "local_private_boundary_index",
-    "archive_history_retrieval",
-    "current_state_continuity",
-    "task_handoff_bundle_planning",
-    "servitor_scope_routing",
-    "vm2_bootstrap_orientation",
-    "artifact_receipt_registry"
-  ],
-  "forbidden_authority": [
-    "canon_declaration",
-    "hard_law_override",
-    "agent_identity_definition",
-    "secret_publication",
-    "throne_sync_without_owner"
-  ]
+  "last_reviewed_task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
 }

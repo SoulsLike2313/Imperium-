@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Organ Self Report v0.1 (Act5 Prefire)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "organ_id",
+    "generated_at_utc",
+    "repo_truth_at_generation",
+    "current_status",
+    "maturity_level_claim",
+    "act5_readiness",
+    "available_ports",
+    "available_scripts",
+    "available_dashboards_or_utilities",
+    "known_blockers",
+    "next_required_work",
+    "evidence_files",
+    "no_fake_green_statement"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.organ_self_report.v0_1"
+    },
+    "organ_id": {
+      "type": "string"
+    },
+    "generated_at_utc": {
+      "type": "string"
+    },
+    "repo_truth_at_generation": {
+      "type": "object",
+      "required": [
+        "head",
+        "commit_count",
+        "latest_commit_subject"
+      ],
+      "properties": {
+        "head": {
+          "type": "string"
+        },
+        "commit_count": {
+          "type": "integer"
+        },
+        "latest_commit_subject": {
+          "type": "string"
+        }
+      }
+    },
+    "current_status": {
+      "type": "string"
+    },
+    "maturity_level_claim": {
+      "type": "string",
+      "enum": [
+        "LEVEL_0_NAME_ONLY",
+        "LEVEL_1_SCAFFOLD",
+        "LEVEL_2_DOCUMENTED",
+        "LEVEL_3_CONTRACTED",
+        "LEVEL_4_CHECKABLE",
+        "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+        "LEVEL_6_OPERATIONAL_LIMITED",
+        "LEVEL_7_FULLY_OPERATIONAL"
+      ]
+    },
+    "act5_readiness": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "PARTIAL",
+        "BLOCKED"
+      ]
+    },
+    "available_ports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "available_scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "available_dashboards_or_utilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "known_blockers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_required_work": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "no_fake_green_statement": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

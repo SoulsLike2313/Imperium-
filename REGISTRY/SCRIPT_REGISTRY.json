@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-13T10:35:20+00:00",
-  "generated_by": "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1",
+  "updated_at_utc": "2026-05-13T13:10:00+00:00",
+  "generated_by": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
@@ -11,7 +11,8 @@
     "Act 4 registration corridor checker registered; READY_FOR_AGENT negative gate enforced.",
     "Act 5 prefire current-truth coherence checker registered (synthesis/current state/entrypoint guard).",
     "Act 5 warning budget policy checker registered (fake-green blocker policy enforcement).",
-    "Act 5 advisory ingest + modernization skeleton checker registered (advisory authority and step-sequencing guards)."
+    "Act 5 advisory ingest + modernization skeleton checker registered (advisory authority and step-sequencing guards).",
+    "Act 5 first-four-organs readiness checker registered (contract/self-report/readiness governance guard)."
   ],
   "scripts": [
     {
@@ -1144,6 +1145,68 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_advisory_ingest_modernization_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_advisory_ingest_modernization_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+      "path": "TOOLS/check_first_four_organs_act5_readiness_v0_1.py",
+      "name": "check_first_four_organs_act5_readiness_v0_1.py",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate first four guide-organ contracts/self-reports and Act 5 readiness registry coherence without fake-green claims.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_first_four_organs_act5_readiness_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human",
+        "--json"
+      ],
+      "reads": [
+        "schemas/organ_contract_v0_2.schema.json",
+        "schemas/organ_self_report_v0_1.schema.json",
+        "ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+        "ORGANS/DOCTRINARIUM/ORGAN_SELF_REPORT.json",
+        "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+        "ORGANS/ADMINISTRATUM/ORGAN_SELF_REPORT.json",
+        "ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+        "ORGANS/OFFICIO_AGENTIS/ORGAN_SELF_REPORT.json",
+        "ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+        "ORGANS/ASTRONOMICON/ORGAN_SELF_REPORT.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "START_HERE.md",
+        "git status"
+      ],
+      "writes": [
+        ".imperium_runtime/astronomicon/first_four_organs_act5_readiness_check/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/astronomicon/first_four_organs_act5_readiness_check/FIRST_FOUR_ORGANS_ACT5_READINESS_CHECK_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_first_four_organs_act5_readiness_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_first_four_organs_act5_readiness_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }
