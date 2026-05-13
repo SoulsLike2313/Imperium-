@@ -1,0 +1,40 @@
+{
+  "schema_version": "imperium.current_truth.arc5_prefire.v0_1",
+  "generated_at_utc": "2026-05-13T09:45:22Z",
+  "repo_head": "4012b4c89317aa4a5c92d2c314279067b046653d",
+  "commit_count": 65,
+  "latest_commit_subject": "TASK-20260513: register Kiro Act 5 prefire audit",
+  "current_arc": "ARC_5_PREFIRE",
+  "current_phase": "PREFIRE_IMPLEMENTATION",
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false,
+  "sanctum_status": "SUPER_EXPERIMENTAL_TRANSITIONAL_OPERATOR_DASHBOARD",
+  "sanctum_working_baseline": "SANCTUM/sanctum_v0_29_qt.py",
+  "rejected_sanctum_lines": [
+    "Sanctum EE",
+    "v0.30EE",
+    "R1",
+    "R2",
+    "generic standalone HTML dashboard as accepted UI"
+  ],
+  "important_files": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_READINESS_20260513.md",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_SYNTHESIS_20260513.md",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/20260513/KIRO_ACT5_PREFIRE_READINESS_AUDIT_20260513.md",
+    "SANCTUM/README_SANCTUM_EXPERIMENTAL_STATUS.md"
+  ],
+  "next_allowed_actions": [
+    "TASK-20260513-WARNING-BUDGET-V0_1",
+    "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1",
+    "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
+  ],
+  "blockers": [
+    "READY_FOR_AGENT not approved",
+    "first four organs not unified",
+    "warning budget not formalized",
+    "advisory ingest/modernization not formalized",
+    "Sanctum action registry not formalized",
+    "Inquisition v0.1 contract not approved"
+  ],
+  "owner_notes_summary": "Арка 5 допускает только prefire-подготовку: execution блокирован до формализации бюджетов предупреждений, advisory-модернизации и owner-gated READY_FOR_AGENT доказательств."
+}
