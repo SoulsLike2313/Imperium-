@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "imperium/external_context_index_v0_1.schema.json",
+  "title": "External Context Index v0.1 (Redacted)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "generated_from_pc_redacted_index",
+    "git_context",
+    "external_context",
+    "privacy_guardrails"
+  ],
+  "properties": {
+    "schema_version": { "type": "string" },
+    "task_id": { "type": "string" },
+    "generated_from_pc_redacted_index": { "type": "string" },
+    "generated_at_utc": { "type": ["string", "null"] },
+    "git_context": {
+      "type": "object",
+      "required": ["pc_repo_root", "vm2_repo_root", "required_head"],
+      "properties": {
+        "pc_repo_root": { "type": "string" },
+        "vm2_repo_root": { "type": "string" },
+        "required_head": { "type": "string" }
+      }
+    },
+    "external_context": {
+      "type": "object",
+      "required": ["local_root", "private_root", "local", "private", "route_status"],
+      "properties": {
+        "local_root": { "type": "string" },
+        "private_root": { "type": "string" },
+        "local": { "type": "object" },
+        "private": { "type": "object" },
+        "route_status": { "type": "object" }
+      }
+    },
+    "privacy_guardrails": {
+      "type": "object",
+      "required": ["private_payload_listing", "private_contents_included", "owner_controlled_private_inclusion"],
+      "properties": {
+        "private_payload_listing": { "type": "string" },
+        "private_contents_included": { "type": "boolean" },
+        "owner_controlled_private_inclusion": { "type": "boolean" }
+      }
+    }
+  }
+}

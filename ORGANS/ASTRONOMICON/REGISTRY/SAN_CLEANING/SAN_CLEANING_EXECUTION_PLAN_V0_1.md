@@ -28,6 +28,14 @@ Advisory policy:
 - Pass criteria: tracked parity across GitHub/PC/VM2 is proven; local/private/generated payloads are moved outside canonical repo roots or explicitly left as ambiguous with Owner-visible reasons.
 - Risk: fake parity claims when PC migration/access proof is missing, or ambiguous local payloads are silently ignored.
 
+## Stage 1.6 - External Context Registry + Address Repair
+- Advisory sections used: 2, 3, 8, 10, 11, 12, 15.
+- Purpose: unify external roots, index external local/private context, repair prompt/bundle/continuity/handoff path references, and register external context safely in Git without payload leakage.
+- Files expected: external context path policy, route map, continuity/handoff path policy, redacted external context index, address repair report.
+- Scripts/checkers expected: PC external context index launcher and external context registry checker.
+- Pass criteria: PC access is proven; unified external context root exists; redacted index exists; route map exists; address repair report exists; checker passes; no private payload committed.
+- Risk: stale legacy paths continue to route operations into non-canonical roots, causing silent operational drift.
+
 ## Stage 2 - Folder Taxonomy Normalization
 - Advisory sections used: 2, 11, 12, 15.
 - Files expected: approved classification manifest, movement plan, zone definitions.
