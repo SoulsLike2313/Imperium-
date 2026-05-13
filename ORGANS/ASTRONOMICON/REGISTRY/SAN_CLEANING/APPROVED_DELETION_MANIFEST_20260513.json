@@ -1,0 +1,59 @@
+{
+  "manifest_id": "TASK-20260513-SAN-CLEANING-ENTRY-DELETE-ARCHIVE-OBSERVED-AND-PLAN-V0_1",
+  "schema_version": "san_cleaning.deletion_manifest.v0_1",
+  "repo_root": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+  "kiro_advisory_input": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-SAN-CLEANING-BACKEND-TRUTH-V0_1.md",
+  "owner_authorization": {
+    "authorized": true,
+    "authorized_targets": [
+      "ARCHIVE",
+      "OBSERVED"
+    ],
+    "note": "Explicit Owner authorization for full deletion of ARCHIVE and OBSERVED."
+  },
+  "entries": [
+    {
+      "target_path": "ARCHIVE",
+      "existed_before": false,
+      "file_count": 0,
+      "directory_count": 0,
+      "total_bytes": 0,
+      "sample_paths": [],
+      "deletion_authorized_by_owner": true,
+      "deletion_reason": "Owner approved removal of repository dirt folders ARCHIVE and OBSERVED for San-Cleaning entry step.",
+      "deletion_method": "Exact-path deletion in VM2 working tree using python3 shutil.rmtree for existing targets; no broad patterns.",
+      "checked_absent_after": true,
+      "timestamp": "2026-05-13T20:39:39.599612+00:00",
+      "post_delete_checked_at_utc": "2026-05-13T20:39:57.923888+00:00"
+    },
+    {
+      "target_path": "OBSERVED",
+      "existed_before": true,
+      "file_count": 42,
+      "directory_count": 19,
+      "total_bytes": 74144,
+      "sample_paths": [
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/MOVED_HERE_MANIFEST.csv",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/00_AGENT_MAP.md",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/ROLLBACK_NOTES.md",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/07_CLINE_PC_REVIEW_PROMPT.md",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/00_MANIFEST.json",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/05_UNTRACKED_CANDIDATE_SUMMARY.md",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/01_EXECUTIVE_SUMMARY.md",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/02_INCLUDED_PATHS.md",
+        "OBSERVED/LEGACY_ROOT_IMPORTS_20260508_1731/OBSERVED_VM3_REPO_COPY/VM3_SEMANTIC_CANDIDATE_PACK_20260507_1155/08_EXTERNAL_RECEIPT.md"
+      ],
+      "deletion_authorized_by_owner": true,
+      "deletion_reason": "Owner approved removal of repository dirt folders ARCHIVE and OBSERVED for San-Cleaning entry step.",
+      "deletion_method": "Exact-path deletion in VM2 working tree using python3 shutil.rmtree for existing targets; no broad patterns.",
+      "checked_absent_after": true,
+      "timestamp": "2026-05-13T20:39:39.602454+00:00",
+      "post_delete_checked_at_utc": "2026-05-13T20:39:57.923948+00:00"
+    }
+  ],
+  "created_at_utc": "2026-05-13T20:39:39.602473+00:00",
+  "updated_at_utc": "2026-05-13T20:39:57.923954+00:00"
+}
