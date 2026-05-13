@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "imperium/repo_parity_externalization_manifest_v0_2.schema.json",
+  "title": "Repo Parity Externalization Manifest v0.2",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "source_path",
+      "repo_relative_path",
+      "git_status_kind",
+      "classification",
+      "action",
+      "timestamp",
+      "success"
+    ],
+    "properties": {
+      "source_path": { "type": "string" },
+      "repo_relative_path": { "type": "string" },
+      "git_status_kind": {
+        "type": "string",
+        "enum": ["ignored", "untracked", "tracked", "unknown"]
+      },
+      "classification": { "type": "string" },
+      "action": {
+        "type": "string",
+        "enum": [
+          "moved_to_local",
+          "moved_to_private",
+          "deleted_cache",
+          "left_in_place_ambiguous",
+          "left_in_place_tracked"
+        ]
+      },
+      "destination_path": {
+        "type": ["string", "null"]
+      },
+      "reason": { "type": "string" },
+      "timestamp": { "type": "string" },
+      "success": { "type": "boolean" },
+      "error": {
+        "type": ["string", "null"]
+      }
+    },
+    "additionalProperties": true
+  }
+}
