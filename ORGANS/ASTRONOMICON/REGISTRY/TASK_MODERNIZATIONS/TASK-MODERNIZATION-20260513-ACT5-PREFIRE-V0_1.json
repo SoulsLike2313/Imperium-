@@ -1,0 +1,280 @@
+{
+  "schema_version": "imperium.task_modernization.v0_1",
+  "modernization_id": "TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1",
+  "status": "MODERNIZATION_SKELETON_REGISTERED_PENDING_OWNER_APPROVAL",
+  "created_at_utc": "2026-05-13T10:31:18Z",
+  "source_advisory_response": "ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1",
+  "repo_truth_at_creation": {
+    "head": "d3e0fa80c24b2a3c1f6412abc87e7f4cc889d45c",
+    "commit_count": 67,
+    "latest_commit_subject": "TASK-20260513: add Act 5 warning budget policy"
+  },
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false,
+  "owner_approval_required_before_execution": true,
+  "accepted_recommendations": [
+    "Preserve strict prefire sequence and evidence gates",
+    "Require advisory->response->modernization promotion chain",
+    "Keep READY_FOR_AGENT false until owner-approved proof",
+    "Separate Sanctum runtime control from visual work",
+    "Defer visual factory actions to Step 7"
+  ],
+  "rejected_recommendations": [
+    "Direct execution from raw advisory content",
+    "Automatic READY_FOR_AGENT promotion",
+    "Giant Sanctum rewrite in prefire step",
+    "Auto-delete cleanup before Inquisition contract"
+  ],
+  "delayed_recommendations": [
+    "Playwright maturity and full golden screenshot stack",
+    "Deep command gateway hardening in all legacy actions",
+    "Expanded visual lab production system"
+  ],
+  "preparation_steps": [
+    {
+      "step_id": "STEP-01",
+      "title": "Prefire synthesis + Current Truth Refresh",
+      "status": "DONE",
+      "owner_organ": "ASTRONOMICON",
+      "target_files_or_zones": [
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_SYNTHESIS_20260513.md",
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+        "START_HERE.md"
+      ],
+      "must_not_do": [
+        "Do not claim Act 5 execution ready",
+        "Do not set READY_FOR_AGENT true"
+      ],
+      "acceptance_criteria": [
+        "Prefire synthesis registered",
+        "Current truth checker passes",
+        "Entrypoint points to Arc 5 prefire state"
+      ],
+      "next_step_after_completion": "STEP-02"
+    },
+    {
+      "step_id": "STEP-02",
+      "title": "Warning Budget v0.1",
+      "status": "DONE",
+      "owner_organ": "DOCTRINARIUM",
+      "target_files_or_zones": [
+        "REGISTRY/WARNING_BUDGET.json",
+        "DOCS/WARNING_BUDGET_POLICY_V0_1.md",
+        "TOOLS/check_warning_budget_v0_1.py"
+      ],
+      "must_not_do": [
+        "Do not hide legacy warning flood",
+        "Do not classify blocker warnings as pass"
+      ],
+      "acceptance_criteria": [
+        "Warning classes and budgets registered",
+        "Blocker rules enforce no-fake-green policy",
+        "Checker pass report attached"
+      ],
+      "next_step_after_completion": "STEP-03"
+    },
+    {
+      "step_id": "STEP-03",
+      "title": "Advisory Ingest + Modernization Skeleton",
+      "status": "CURRENT",
+      "owner_organ": "ASTRONOMICON",
+      "target_files_or_zones": [
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/",
+        "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/"
+      ],
+      "must_not_do": [
+        "Do not execute modernization plan",
+        "Do not build Inquisition now",
+        "Do not create ASSETS/DESIGN_SYSTEM/UI_LAB files in Step 3"
+      ],
+      "acceptance_criteria": [
+        "Registered advisory response exists",
+        "Modernization skeleton is pending owner approval",
+        "Prefire preparation candidates registry exists",
+        "Checker proves advisory is not execution authority"
+      ],
+      "next_step_after_completion": "STEP-04"
+    },
+    {
+      "step_id": "STEP-04",
+      "title": "First Four Organs Readiness",
+      "status": "PENDING",
+      "owner_organ": "DOCTRINARIUM",
+      "target_files_or_zones": [
+        "ORGANS/DOCTRINARIUM/",
+        "ORGANS/ADMINISTRATUM/",
+        "ORGANS/OFFICIO_AGENTIS/",
+        "ORGANS/ASTRONOMICON/"
+      ],
+      "must_not_do": [
+        "Do not claim full operational maturity",
+        "Do not skip readiness checker evidence"
+      ],
+      "acceptance_criteria": [
+        "Unified minimal guide-organ form defined",
+        "Readiness checker and outputs registered",
+        "No fake readiness claims"
+      ],
+      "next_step_after_completion": "STEP-05"
+    },
+    {
+      "step_id": "STEP-05",
+      "title": "Work Session / Administratum ACK skeleton",
+      "status": "PENDING",
+      "owner_organ": "ADMINISTRATUM",
+      "target_files_or_zones": [
+        "ORGANS/ADMINISTRATUM/",
+        "schemas/",
+        "DOCS/"
+      ],
+      "must_not_do": [
+        "Do not self-authorize servitor continuation",
+        "Do not bypass owner stop authority"
+      ],
+      "acceptance_criteria": [
+        "Session/ACK contract skeleton exists",
+        "Continue/stop gate rules documented",
+        "Checker contract identified"
+      ],
+      "next_step_after_completion": "STEP-06"
+    },
+    {
+      "step_id": "STEP-06",
+      "title": "Sanctum Action Registry v0.1",
+      "status": "PENDING",
+      "owner_organ": "ASTRONOMICON",
+      "target_files_or_zones": [
+        "SANCTUM/",
+        "REGISTRY/",
+        "TOOLS/"
+      ],
+      "must_not_do": [
+        "Do not rewrite Sanctum",
+        "Do not add ungated dangerous actions"
+      ],
+      "acceptance_criteria": [
+        "Action registry maps existing safe actions",
+        "Runtime/UI separation boundaries documented",
+        "Checker validates no ungated critical action"
+      ],
+      "next_step_after_completion": "STEP-07"
+    },
+    {
+      "step_id": "STEP-07",
+      "title": "Visual Factory Minimum",
+      "status": "PENDING",
+      "owner_organ": "ASTRONOMICON",
+      "target_files_or_zones": [
+        "ASSETS/",
+        "SANCTUM/DESIGN_SYSTEM/",
+        "SANCTUM/UI_LAB/"
+      ],
+      "must_not_do": [
+        "Do not execute before Step 6",
+        "Do not couple visual-only changes with runtime logic"
+      ],
+      "acceptance_criteria": [
+        "Minimum visual factory scaffolding exists",
+        "Owner review flow documented",
+        "No runtime regression from visual work"
+      ],
+      "next_step_after_completion": "STEP-08"
+    },
+    {
+      "step_id": "STEP-08",
+      "title": "Inquisition v0.1 Contract",
+      "status": "PENDING",
+      "owner_organ": "INQUISITION",
+      "target_files_or_zones": [
+        "ORGANS/INQUISITION/",
+        "schemas/",
+        "DOCS/"
+      ],
+      "must_not_do": [
+        "Do not build full Inquisition execution stack now",
+        "Do not permit auto-delete cleanup"
+      ],
+      "acceptance_criteria": [
+        "Quarantine-first cleanup taxonomy defined",
+        "TTL policy and non-goals documented",
+        "Contract checker plan registered"
+      ],
+      "next_step_after_completion": "STEP-09"
+    },
+    {
+      "step_id": "STEP-09",
+      "title": "Owner Stage Map Approval",
+      "status": "PENDING",
+      "owner_organ": "THRONE",
+      "target_files_or_zones": [
+        "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/",
+        "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/"
+      ],
+      "must_not_do": [
+        "Do not auto-approve stage map",
+        "Do not skip unresolved blockers"
+      ],
+      "acceptance_criteria": [
+        "Owner approval evidence recorded",
+        "Unresolved blockers acknowledged or resolved",
+        "Ready-for-agent preconditions explicitly listed"
+      ],
+      "next_step_after_completion": "STEP-10"
+    },
+    {
+      "step_id": "STEP-10",
+      "title": "READY_FOR_AGENT gate update with evidence only",
+      "status": "BLOCKED",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "target_files_or_zones": [
+        "ORGANS/ASTRONOMICON/REGISTRY/READY_FOR_AGENT/",
+        "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/",
+        "CURRENT_STATE/"
+      ],
+      "must_not_do": [
+        "Do not set READY_FOR_AGENT true without owner approval",
+        "Do not set READY_FOR_AGENT true without evidence pack"
+      ],
+      "acceptance_criteria": [
+        "Prior steps 1-9 verified",
+        "Evidence pack reviewed and approved",
+        "Owner explicitly authorizes gate change"
+      ],
+      "next_step_after_completion": "EXECUTION_GATING_DECISION"
+    }
+  ],
+  "promotion_candidates": [
+    "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+    "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+    "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+    "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+    "TASK-20260513-INQUISITION-V0_1-CONTRACT-V0_1",
+    "TASK-20260513-READY-FOR-AGENT-GATE-PROOF-V0_1"
+  ],
+  "blocked_execution_until": [
+    "Owner approves modernization skeleton",
+    "Step 4 and Step 5 evidence is available",
+    "Step 6 action registry baseline is verified",
+    "Step 7 visual factory minimum remains sequenced and not bypassed",
+    "Step 8 Inquisition contract approved",
+    "Step 9 owner stage-map approval recorded"
+  ],
+
+  "task_id": "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1",
+  "based_on_advisory_responses": [
+    "ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1"
+  ],
+  "changes": [
+    "Registered advisory response as non-execution authority",
+    "Mapped recommendations to accepted/rejected/delayed lists",
+    "Created prefire preparation candidate registry"
+  ],
+  "owner_decisions": [
+    "Approve step progression from Step 3 to Step 4",
+    "Authorize eventual READY_FOR_AGENT gate proof criteria"
+  ],
+  "updated_task_candidate_path": "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+  "legacy_schema_status": "OWNER_DECISION_REQUIRED"
+}

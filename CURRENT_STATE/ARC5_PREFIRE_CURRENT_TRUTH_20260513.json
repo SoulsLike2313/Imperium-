@@ -1,9 +1,9 @@
 {
   "schema_version": "imperium.current_truth.arc5_prefire.v0_1",
-  "generated_at_utc": "2026-05-13T10:10:44+00:00",
-  "repo_head": "11ea58b4cc7ff6a565e383dc35ca58b056d0cd79",
-  "commit_count": 66,
-  "latest_commit_subject": "TASK-20260513: add Act 5 prefire synthesis and current truth refresh",
+  "generated_at_utc": "2026-05-13T10:31:52Z",
+  "repo_head": "d3e0fa80c24b2a3c1f6412abc87e7f4cc889d45c",
+  "commit_count": 67,
+  "latest_commit_subject": "TASK-20260513: add Act 5 warning budget policy",
   "current_arc": "ARC_5_PREFIRE",
   "current_phase": "PREFIRE_IMPLEMENTATION",
   "act5_execution_ready": false,
@@ -21,22 +21,34 @@
     "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_READINESS_20260513.md",
     "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_SYNTHESIS_20260513.md",
     "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/20260513/KIRO_ACT5_PREFIRE_READINESS_AUDIT_20260513.md",
-    "SANCTUM/README_SANCTUM_EXPERIMENTAL_STATUS.md"
+    "SANCTUM/README_SANCTUM_EXPERIMENTAL_STATUS.md",
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+    "REGISTRY/WARNING_BUDGET.json"
   ],
   "next_allowed_actions": [
-    "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1",
     "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+    "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
     "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1"
   ],
   "blockers": [
     "READY_FOR_AGENT not approved",
     "first four organs not unified",
-    "advisory ingest/modernization not formalized",
+    "work-session Administratum ACK model not formalized",
     "Sanctum action registry not formalized",
+    "Visual Factory Minimum (Step 7) not started by design",
     "Inquisition v0.1 contract not approved",
+    "advisory ingest/modernization skeleton awaiting PC acceptance",
     "warning budget policy awaiting PC acceptance and baseline measurement"
   ],
-  "owner_notes_summary": "Арка 5 допускает только prefire-подготовку: execution блокирован до Owner/PC подтверждения warning budget, advisory-модернизации и owner-gated READY_FOR_AGENT доказательств.",
+  "owner_notes_summary": "Арка 5 остаётся в prefire-подготовке: advisory ingest и modernization skeleton зарегистрированы, но execution блокирован до последовательного прохождения шагов 4-10 и owner-gated READY_FOR_AGENT доказательств.",
   "warning_budget_file": "REGISTRY/WARNING_BUDGET.json",
-  "warning_budget_status": "ACTIVE_PREFIRE_POLICY_PENDING_PC_ACCEPTANCE"
+  "warning_budget_status": "ACTIVE_PREFIRE_POLICY_PENDING_PC_ACCEPTANCE",
+  "advisory_response_file": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
+  "modernization_file": "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+  "prefire_preparation_tasks_file": "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+  "advisory_ingest_status": "ACTIVE_PREFIRE_SKELETON_PENDING_PC_ACCEPTANCE",
+  "next_recommended_step": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+  "assets_policy_step": "STEP_7_VISUAL_FACTORY_MINIMUM"
 }

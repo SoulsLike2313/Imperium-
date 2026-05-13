@@ -1,0 +1,96 @@
+{
+  "schema_version": "imperium.advisory_response.v0_1",
+  "record_id": "ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1",
+  "status": "REGISTERED_RAW_ADVISORY_RESPONSE",
+  "created_at_utc": "2026-05-13T10:31:18Z",
+  "source": {
+    "advisor": "Kiro / Opus 4.7",
+    "source_file": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/20260513/KIRO_ACT5_PREFIRE_READINESS_AUDIT_20260513.md",
+    "source_status": "RAW_ADVISORY_INPUT",
+    "source_authority": "ADVISORY_ONLY_NOT_EXECUTION_AUTHORITY"
+  },
+  "repo_truth_at_registration": {
+    "head": "d3e0fa80c24b2a3c1f6412abc87e7f4cc889d45c",
+    "commit_count": 67,
+    "latest_commit_subject": "TASK-20260513: add Act 5 warning budget policy"
+  },
+  "related_files": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_READINESS_20260513.md",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_SYNTHESIS_20260513.md",
+    "REGISTRY/WARNING_BUDGET.json",
+    "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+    "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/README_ADVISORY_BUFFER_V0_1.md"
+  ],
+  "summary": {
+    "short_verdict": "Act 5 execution not ready; prefire implementation allowed",
+    "accepted_high_level_findings": [
+      "Current truth/stale entrypoint refresh was P0 and Step 1 delivered initial version",
+      "Warning budget was required and Step 2 delivered initial version",
+      "Advisory ingest and modernization are required before execution",
+      "First four guide-organs need unified minimal operational form",
+      "Sanctum needs action registry and runtime/UI separation",
+      "Visual factory minimum is needed but remains Step 7",
+      "Servitor long-session continuation needs Administratum ACK",
+      "Inquisition must be quarantine-first / no auto-delete",
+      "READY_FOR_AGENT must remain strict"
+    ],
+    "warnings_about_source": [
+      "Raw advisory may contain stale HEAD/commit-count references",
+      "Advisory is useful context but not execution authority",
+      "All findings require explicit promotion into task/stage structures"
+    ]
+  },
+  "accepted_findings": [
+    "Step 1 current-truth refresh and Step 2 warning budget should be treated as mandatory prefire controls",
+    "Advisory ingest must be transformed into registered response records",
+    "Modernization skeleton must gate owner approval before execution",
+    "Doctrinarium/Administratum/Officio Agentis/Astronomicon require unified minimal readiness",
+    "Sanctum action layer must move toward registry and runtime/UI boundary",
+    "Visual factory minimum belongs to Step 7, not Step 3",
+    "Servitor continuation model requires Administratum ACK contract",
+    "Inquisition planning must be quarantine-first and report-first"
+  ],
+  "rejected_or_delayed_findings": [
+    "No automatic READY_FOR_AGENT true",
+    "No giant Sanctum rewrite",
+    "No auto-delete cleanup",
+    "No direct execution from raw advisory",
+    "No asset stuffing before Step 7",
+    "No treating Kiro audit as canon without Owner promotion"
+  ],
+  "requires_owner_decision": [
+    "Step 4 vs Step 5 execution order when both are P0/P1 adjacent",
+    "Owner acceptance criteria for first four organ readiness minimum",
+    "Owner acceptance threshold for Sanctum action registry v0.1",
+    "Evidence bar for READY_FOR_AGENT gate proof package"
+  ],
+  "must_not_execute_directly": true,
+  "ready_for_agent_must_remain_false": true,
+  "act5_execution_ready": false,
+  "promotion_target": "TASK_MODERNIZATION_SKELETON",
+  "next_registry_record": "TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1",
+
+  "advisory_response_id": "ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1",
+  "review_pack_id": "REVIEW-PACK-20260513-INQUISITION-001-BLUEPRINT-SPECULUM-KIRO-V0_1",
+  "raw_response_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/20260513/KIRO_ACT5_PREFIRE_READINESS_AUDIT_20260513.md",
+  "recommendations": [
+    "Promote advisory findings into controlled prefire tasks",
+    "Keep execution blocked until owner-approved stage sequence",
+    "Track legacy warning debt while blocking new fake-green risks"
+  ],
+  "accepted_items": [
+    "Current truth refresh as P0",
+    "Warning budget as P0/P1",
+    "Advisory ingest + modernization before execution"
+  ],
+  "rejected_items": [
+    "Automatic readiness promotion",
+    "Raw advisory as direct doctrine"
+  ],
+  "owner_decisions_required": [
+    "Approve modernization skeleton promotion candidates",
+    "Approve READY_FOR_AGENT gate evidence policy"
+  ],
+  "not_doctrine_until_reconciled": true
+}

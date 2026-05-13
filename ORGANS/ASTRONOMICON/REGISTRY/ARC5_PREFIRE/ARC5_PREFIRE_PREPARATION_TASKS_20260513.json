@@ -1,0 +1,228 @@
+{
+  "schema_version": "imperium.arc5_prefire_preparation_tasks.v0_1",
+  "status": "PREFIRE_TASK_CANDIDATES_REGISTERED",
+  "created_at_utc": "2026-05-13T10:31:18Z",
+  "repo_truth_at_creation": {
+    "head": "d3e0fa80c24b2a3c1f6412abc87e7f4cc889d45c",
+    "commit_count": 67,
+    "latest_commit_subject": "TASK-20260513: add Act 5 warning budget policy"
+  },
+  "source_advisory_response": "ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1",
+  "source_modernization": "TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1",
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false,
+  "task_candidates": [
+    {
+      "task_id": "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+      "title": "First Four Organs Act 5 Readiness v0.1",
+      "status": "CANDIDATE_NOT_READY_FOR_EXECUTION",
+      "owner_organ": "DOCTRINARIUM",
+      "priority": "P0",
+      "depends_on": [
+        "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1"
+      ],
+      "target_zones": [
+        "ORGANS/DOCTRINARIUM/",
+        "ORGANS/ADMINISTRATUM/",
+        "ORGANS/OFFICIO_AGENTIS/",
+        "ORGANS/ASTRONOMICON/"
+      ],
+      "forbidden_actions": [
+        "Do not claim full operational maturity",
+        "Do not promote READY_FOR_AGENT"
+      ],
+      "acceptance_criteria": [
+        "Unified minimal contracts/status/self-report for first four organs",
+        "Readiness checker and evidence outputs",
+        "No fake-green claims"
+      ],
+      "expected_outputs": [
+        "First-four-organ readiness registry",
+        "Checker script and receipt",
+        "Updated current truth references"
+      ],
+      "checker_needed": "TOOLS/check_first_four_organs_act5_readiness_v0_1.py",
+      "ready_for_agent_impact": "FOUNDATIONAL_REQUIRED_BEFORE_GATE_PROOF",
+      "execution_now_allowed": false,
+      "sequence_step": 4
+    },
+    {
+      "task_id": "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+      "title": "Work Session and Administratum ACK skeleton v0.1",
+      "status": "CANDIDATE_NOT_READY_FOR_EXECUTION",
+      "owner_organ": "ADMINISTRATUM",
+      "priority": "P1",
+      "depends_on": [
+        "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1"
+      ],
+      "target_zones": [
+        "ORGANS/ADMINISTRATUM/",
+        "DOCS/",
+        "schemas/"
+      ],
+      "forbidden_actions": [
+        "Do not self-authorize Servitor continuation",
+        "Do not bypass Owner stop authority"
+      ],
+      "acceptance_criteria": [
+        "Work-session and progress-report skeleton defined",
+        "ACK continue/stop model documented",
+        "Checker contract prepared"
+      ],
+      "expected_outputs": [
+        "Session flow doc",
+        "ACK schema draft",
+        "State integration note"
+      ],
+      "checker_needed": "TOOLS/check_work_session_administratum_ack_v0_1.py",
+      "ready_for_agent_impact": "SUPPORTING_PRECONDITION",
+      "execution_now_allowed": false,
+      "sequence_step": 5
+    },
+    {
+      "task_id": "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+      "title": "Sanctum Action Registry v0.1",
+      "status": "CANDIDATE_NOT_READY_FOR_EXECUTION",
+      "owner_organ": "ASTRONOMICON",
+      "priority": "P1",
+      "depends_on": [
+        "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+        "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1"
+      ],
+      "target_zones": [
+        "SANCTUM/",
+        "REGISTRY/",
+        "TOOLS/"
+      ],
+      "forbidden_actions": [
+        "Do not rewrite Sanctum",
+        "Do not introduce ungated dangerous actions"
+      ],
+      "acceptance_criteria": [
+        "Action registry maps existing buttons/actions",
+        "Runtime/UI separation boundary documented",
+        "Gate checker validates no fake action claims"
+      ],
+      "expected_outputs": [
+        "Action registry file",
+        "Minimal integration patch",
+        "Checker and receipts"
+      ],
+      "checker_needed": "TOOLS/check_sanctum_action_registry_v0_1.py",
+      "ready_for_agent_impact": "RISK_REDUCTION_REQUIRED",
+      "execution_now_allowed": false,
+      "sequence_step": 6
+    },
+    {
+      "task_id": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+      "title": "Visual Factory Minimum v0.1",
+      "status": "CANDIDATE_NOT_READY_FOR_EXECUTION",
+      "owner_organ": "ASTRONOMICON",
+      "priority": "P1",
+      "depends_on": [
+        "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1"
+      ],
+      "target_zones": [
+        "ASSETS/",
+        "SANCTUM/DESIGN_SYSTEM/",
+        "SANCTUM/UI_LAB/"
+      ],
+      "forbidden_actions": [
+        "Do not execute in Step 3",
+        "Do not couple visual-only work with runtime logic",
+        "Do not claim visual factory complete without owner review"
+      ],
+      "acceptance_criteria": [
+        "Step 7 sequencing explicitly preserved",
+        "Minimum asset/design-system/ui-lab scaffolding created",
+        "Review/receipt flow documented"
+      ],
+      "expected_outputs": [
+        "ASSETS/DESIGN_SYSTEM/UI_LAB minimal structure",
+        "Visual policy manifests",
+        "Checker and screenshots plan"
+      ],
+      "checker_needed": "TOOLS/check_visual_factory_minimum_v0_1.py",
+      "ready_for_agent_impact": "DEFERRED_UNTIL_STEP_7",
+      "execution_now_allowed": false,
+      "sequence_step": 7,
+      "must_remain_not_current_step": true,
+      "execution_status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "task_id": "TASK-20260513-INQUISITION-V0_1-CONTRACT-V0_1",
+      "title": "Inquisition v0.1 Contract v0.1",
+      "status": "CANDIDATE_NOT_READY_FOR_EXECUTION",
+      "owner_organ": "INQUISITION",
+      "priority": "P1",
+      "depends_on": [
+        "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1"
+      ],
+      "target_zones": [
+        "ORGANS/INQUISITION/",
+        "DOCS/",
+        "schemas/"
+      ],
+      "forbidden_actions": [
+        "Do not build full Inquisition now",
+        "Do not implement auto-delete cleanup",
+        "Do not execute direct cleanup actions"
+      ],
+      "acceptance_criteria": [
+        "Quarantine-first taxonomy defined",
+        "TTL policy and non-goals registered",
+        "Contract checker plan registered"
+      ],
+      "expected_outputs": [
+        "Inquisition v0.1 contract file",
+        "Cleanup safety doctrine",
+        "Checker plan"
+      ],
+      "checker_needed": "TOOLS/check_inquisition_contract_v0_1.py",
+      "ready_for_agent_impact": "REQUIRED_BEFORE_GATE_PROOF",
+      "execution_now_allowed": false,
+      "sequence_step": 8,
+      "build_inquisition_now": false
+    },
+    {
+      "task_id": "TASK-20260513-READY-FOR-AGENT-GATE-PROOF-V0_1",
+      "title": "READY_FOR_AGENT Gate Proof v0.1",
+      "status": "CANDIDATE_NOT_READY_FOR_EXECUTION",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "priority": "P0",
+      "depends_on": [
+        "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1",
+        "TASK-20260513-WORK-SESSION-ADMINISTRATUM-ACK-V0_1",
+        "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+        "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+        "TASK-20260513-INQUISITION-V0_1-CONTRACT-V0_1",
+        "OWNER_STAGE_MAP_APPROVAL_REQUIRED"
+      ],
+      "target_zones": [
+        "ORGANS/ASTRONOMICON/REGISTRY/READY_FOR_AGENT/",
+        "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/",
+        "CURRENT_STATE/"
+      ],
+      "forbidden_actions": [
+        "Do not set READY_FOR_AGENT true without owner approval",
+        "Do not set READY_FOR_AGENT true without prior evidence"
+      ],
+      "acceptance_criteria": [
+        "Prior steps evidence pack complete",
+        "Owner approval explicitly recorded",
+        "Gate checker confirms policy compliance"
+      ],
+      "expected_outputs": [
+        "READY_FOR_AGENT gate proof pack",
+        "Checker output and receipts",
+        "Owner decision record"
+      ],
+      "checker_needed": "TOOLS/check_ready_for_agent_gate_proof_v0_1.py",
+      "ready_for_agent_impact": "ONLY_TASK_ALLOWED_TO_PROPOSE_TRUE_WITH_EVIDENCE",
+      "execution_now_allowed": false,
+      "sequence_step": 10,
+      "owner_approval_required": true,
+      "evidence_required_before_status_change": true
+    }
+  ]
+}

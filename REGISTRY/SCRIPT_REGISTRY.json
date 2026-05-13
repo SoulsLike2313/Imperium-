@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-13T10:08:30+00:00",
-  "generated_by": "TASK-20260513-WARNING-BUDGET-V0_1",
+  "updated_at_utc": "2026-05-13T10:35:20+00:00",
+  "generated_by": "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
@@ -10,7 +10,8 @@
     "Sanctum adaptive operator layer scripts registered (state build + checker).",
     "Act 4 registration corridor checker registered; READY_FOR_AGENT negative gate enforced.",
     "Act 5 prefire current-truth coherence checker registered (synthesis/current state/entrypoint guard).",
-    "Act 5 warning budget policy checker registered (fake-green blocker policy enforcement)."
+    "Act 5 warning budget policy checker registered (fake-green blocker policy enforcement).",
+    "Act 5 advisory ingest + modernization skeleton checker registered (advisory authority and step-sequencing guards)."
   ],
   "scripts": [
     {
@@ -1090,6 +1091,59 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_warning_budget_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_warning_budget_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-ADVISORY-INGEST-MODERNIZATION-V0_1",
+      "path": "TOOLS/check_advisory_ingest_modernization_v0_1.py",
+      "name": "check_advisory_ingest_modernization_v0_1.py",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Act 5 advisory ingest response, modernization skeleton, and prefire preparation task-candidate coherence.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_advisory_ingest_modernization_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human",
+        "--json"
+      ],
+      "reads": [
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+        "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/20260513/KIRO_ACT5_PREFIRE_READINESS_AUDIT_20260513.md",
+        "REGISTRY/WARNING_BUDGET.json",
+        "START_HERE.md",
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json"
+      ],
+      "writes": [
+        ".imperium_runtime/astronomicon/advisory_ingest_modernization_check/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/astronomicon/advisory_ingest_modernization_check/ADVISORY_INGEST_MODERNIZATION_CHECK_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_advisory_ingest_modernization_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_advisory_ingest_modernization_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }
