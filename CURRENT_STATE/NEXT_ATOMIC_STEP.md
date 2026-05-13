@@ -1,6 +1,12 @@
 # NEXT_ATOMIC_STEP
 
-- Current step completed by this task: Prefire synthesis and current truth refresh.
-- Next recommended step: `TASK-20260513-WARNING-BUDGET-V0_1`.
-- Alternative next step: `TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1`.
-- Forbidden next step: direct Inquisition execution and READY_FOR_AGENT true without evidence.
+- Step 1 completed: Prefire synthesis/current truth refresh.
+- Step 2 completed by this task: Warning Budget v0.1.
+- Next recommended step after PC acceptance: `TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1`.
+- Alternative next step (Owner explicit choice only): `TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1`.
+- Forbidden next step: direct Inquisition execution / READY_FOR_AGENT true without evidence.
+- Forbidden:
+  - direct Inquisition execution;
+  - READY_FOR_AGENT true;
+  - asset stuffing before Step 7;
+  - Sanctum rewrite.

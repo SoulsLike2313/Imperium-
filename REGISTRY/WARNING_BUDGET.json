@@ -1,0 +1,214 @@
+{
+  "schema_version": "imperium.warning_budget.v0_1",
+  "status": "ACTIVE_PREFIRE_POLICY",
+  "created_at_utc": "2026-05-13T10:00:59.072437+00:00",
+  "task_id": "TASK-20260513-WARNING-BUDGET-V0_1",
+  "repo_head_at_creation": "11ea58b4cc7ff6a565e383dc35ca58b056d0cd79",
+  "commit_count_at_creation": 66,
+  "latest_commit_subject_at_creation": "TASK-20260513: add Act 5 prefire synthesis and current truth refresh",
+  "purpose": "Formalize warning/fake-green policy for Act 5 Prefire before self-build preparation continues.",
+  "act5_execution_ready": false,
+  "ready_for_agent_must_remain_false": true,
+  "policy_summary": {
+    "why": "Warning flood must be classified so legacy debt is tracked while new critical risks are blocked.",
+    "scope": "Prefire governance for verdict semantics, warning classes, budgets, and blocker conversion rules.",
+    "non_goals": [
+      "Do not clean whole repo in this step",
+      "Do not delete/quarantine files",
+      "Do not claim Act 5 execution ready",
+      "Do not set READY_FOR_AGENT true"
+    ]
+  },
+  "verdict_semantics": {
+    "PASS": {
+      "definition": "All mandatory checks passed, no blockers, no new warning over budget, evidence attached.",
+      "allowed_in_prefire": true
+    },
+    "PASS_WITH_WARNINGS": {
+      "definition": "No blockers but warnings exist. Must classify warnings and distinguish legacy vs new.",
+      "allowed_in_prefire": true,
+      "notes": "Use only with explicit warning inventory and budget context."
+    },
+    "PASS_WITH_LEGACY_DEBT": {
+      "definition": "Current task passed, old known warnings remain, no new blocker, no new warning over budget.",
+      "allowed_in_prefire": true
+    },
+    "PASS_WITH_NEW_WARNINGS": {
+      "definition": "Allowed only for classified low-risk warnings explicitly accepted by owner policy.",
+      "allowed_in_prefire": true,
+      "forbidden_for": [
+        "FAKE_GREEN_RISK",
+        "READY_FOR_AGENT_POLICY",
+        "ADVISORY_AS_AUTHORITY",
+        "AUTO_DELETE_OR_CLEANUP_RISK",
+        "SECURITY_SECRET_RISK"
+      ]
+    },
+    "FAIL": {
+      "definition": "Check failed, fix required before claiming success.",
+      "allowed_in_prefire": true
+    },
+    "BLOCKED": {
+      "definition": "Unsafe to proceed; exact blocker reason required.",
+      "allowed_in_prefire": true
+    }
+  },
+  "warning_classes": [
+    {
+      "class_id": "FAKE_GREEN_RISK",
+      "severity": "BLOCKER",
+      "examples": [
+        "PASS claimed without evidence",
+        "READY_FOR_AGENT true without required approvals/evidence",
+        "Checker warnings hidden behind PASS",
+        "Action/button declared working without test/proof"
+      ]
+    },
+    {
+      "class_id": "CURRENT_TRUTH_STALE",
+      "severity": "BLOCKER_OR_WARN",
+      "examples": [
+        "CURRENT_STATE points to obsolete arc/head/next step",
+        "START_HERE points to stale entrypoint",
+        "Exact HEAD mismatch in handoff context"
+      ]
+    },
+    {
+      "class_id": "ADVISORY_AS_AUTHORITY",
+      "severity": "BLOCKER",
+      "examples": [
+        "Raw advisory executed without promotion to task/stage",
+        "Advisory mutates doctrine without Owner approval"
+      ]
+    },
+    {
+      "class_id": "READY_FOR_AGENT_POLICY",
+      "severity": "BLOCKER",
+      "examples": [
+        "READY_FOR_AGENT true without gate evidence",
+        "Missing Owner approval",
+        "Missing stage map approval"
+      ]
+    },
+    {
+      "class_id": "BUNDLE_INTAKE_SCOPE",
+      "severity": "BLOCKER",
+      "examples": [
+        "Unexpected files in VM2 bundle",
+        "No sha256 proof",
+        "No checker output",
+        "No exact base HEAD evidence"
+      ]
+    },
+    {
+      "class_id": "RAW_SUBPROCESS_OR_UNGATED_ACTION",
+      "severity": "WARNING_MUST_FIX_OR_BLOCKER",
+      "examples": [
+        "New UI action invokes unregistered command",
+        "Dangerous action bypasses registry/gateway"
+      ]
+    },
+    {
+      "class_id": "PATH_BOUNDARY_OR_PORTABILITY",
+      "severity": "LEGACY_TRACKED_WARNING",
+      "examples": [
+        "Hardcoded local paths",
+        "PC/VM2 path references"
+      ]
+    },
+    {
+      "class_id": "REGISTRY_DRIFT",
+      "severity": "WARNING_MUST_FIX",
+      "examples": [
+        "Script exists but not registered",
+        "Registry says operational but file/check missing"
+      ]
+    },
+    {
+      "class_id": "VISUAL_RUNTIME_COUPLING",
+      "severity": "WARNING_MUST_FIX",
+      "examples": [
+        "Visual-only change touches runtime/transfer logic",
+        "Generic UI rewrite replaces working behavior"
+      ]
+    },
+    {
+      "class_id": "AUTO_DELETE_OR_CLEANUP_RISK",
+      "severity": "BLOCKER",
+      "examples": [
+        "Direct delete in cleanup/audit flow",
+        "No quarantine/TTL manifest",
+        "No dry-run/report mode"
+      ]
+    },
+    {
+      "class_id": "WARNING_FLOOD",
+      "severity": "WARNING_MUST_CLASSIFY",
+      "examples": [
+        "Warning volume too high to inspect",
+        "Warnings not grouped by class",
+        "No baseline vs new warning separation"
+      ]
+    },
+    {
+      "class_id": "SECURITY_SECRET_RISK",
+      "severity": "BLOCKER",
+      "examples": [
+        "Private key material",
+        "Real tokens or credentials"
+      ]
+    }
+  ],
+  "budgets": {
+    "legacy_warning_baseline": "MEASURED_LATER",
+    "new_blocker_budget": 0,
+    "new_fake_green_budget": 0,
+    "new_ready_for_agent_policy_violations": 0,
+    "new_auto_delete_risks": 0,
+    "new_advisory_as_authority": 0,
+    "new_unregistered_dangerous_actions": 0,
+    "path_token_legacy_budget": "TRACKED_NOT_SOLVED_IN_V0_1",
+    "raw_subprocess_legacy_budget": "TRACKED_NOT_SOLVED_IN_V0_1"
+  },
+  "blocker_rules": [
+    "FAKE_GREEN_RISK => BLOCKED",
+    "READY_FOR_AGENT_POLICY => BLOCKED",
+    "ADVISORY_AS_AUTHORITY => BLOCKED",
+    "AUTO_DELETE_OR_CLEANUP_RISK => BLOCKED",
+    "BUNDLE_INTAKE_SCOPE => BLOCKED",
+    "SECURITY_SECRET_RISK => BLOCKED",
+    "Any PASS without required evidence => BLOCKED",
+    "Direct Act 5 execution before prefire prerequisites => BLOCKED"
+  ],
+  "legacy_debt_policy": {
+    "statement": "Legacy debt is tracked and must not be silently re-labeled as resolved.",
+    "tracking_mode": "BASELINE_PLUS_DIFF",
+    "allowed_during_prefire": true,
+    "must_be_listed_in_reports": true
+  },
+  "new_warning_policy": {
+    "statement": "New warnings are disallowed by default unless classified and accepted under budget rules.",
+    "default_for_new_blockers": "BLOCKED",
+    "default_for_new_noncritical": "WARN_AND_CLASSIFY",
+    "forbidden_new_warning_classes": [
+      "FAKE_GREEN_RISK",
+      "READY_FOR_AGENT_POLICY",
+      "ADVISORY_AS_AUTHORITY",
+      "AUTO_DELETE_OR_CLEANUP_RISK",
+      "SECURITY_SECRET_RISK"
+    ]
+  },
+  "required_evidence_for_pass": [
+    "Exact local HEAD and commit count",
+    "Checker outputs attached",
+    "Git status and diff context attached",
+    "No blocker-class warning present",
+    "No READY_FOR_AGENT promotion without evidence",
+    "Act 5 execution readiness remains false"
+  ],
+  "next_steps": [
+    "TASK-20260513-ADVISORY-INGEST-AND-MODERNIZATION-V0_1",
+    "TASK-20260513-FIRST-FOUR-ORGANS-ACT5-READINESS-V0_1 (Owner optional)",
+    "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1 (later sequence)"
+  ]
+}
