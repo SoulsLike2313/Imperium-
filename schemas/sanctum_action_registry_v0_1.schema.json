@@ -1,0 +1,230 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Sanctum Action Registry v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_id",
+    "status",
+    "created_at_utc",
+    "task_id",
+    "repo_truth_at_creation",
+    "purpose",
+    "sanctum_baseline",
+    "act5_execution_ready",
+    "ready_for_agent_status",
+    "actions",
+    "global_rules",
+    "forbidden_patterns",
+    "receipt_policy",
+    "test_policy",
+    "risk_policy",
+    "next_steps"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.sanctum_action_registry.v0_1"
+    },
+    "registry_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "created_at_utc": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "repo_truth_at_creation": {
+      "type": "object",
+      "required": [
+        "head",
+        "commit_count",
+        "latest_commit_subject"
+      ],
+      "properties": {
+        "head": {
+          "type": "string"
+        },
+        "commit_count": {
+          "type": "integer"
+        },
+        "latest_commit_subject": {
+          "type": "string"
+        }
+      }
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "sanctum_baseline": {
+      "type": "string"
+    },
+    "act5_execution_ready": {
+      "type": "boolean"
+    },
+    "ready_for_agent_status": {
+      "type": "boolean"
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "action_id",
+          "title",
+          "status",
+          "category",
+          "risk_level",
+          "owner_zone",
+          "description",
+          "current_ui_binding",
+          "handler_type",
+          "handler_reference",
+          "allowed_execution_context",
+          "required_prechecks",
+          "required_inputs",
+          "forbidden_inputs",
+          "expected_outputs",
+          "expected_receipts",
+          "rollback_or_recovery",
+          "test_or_smoke_check",
+          "no_fake_green_rules",
+          "implementation_status",
+          "notes"
+        ],
+        "properties": {
+          "action_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "REGISTERED_CONCEPT",
+              "REGISTERED_EXISTING_BEHAVIOR",
+              "REGISTERED_NEEDS_HANDLER",
+              "REGISTERED_NEEDS_TEST",
+              "BLOCKED_UNSAFE",
+              "DEPRECATED_DO_NOT_USE"
+            ]
+          },
+          "category": {
+            "type": "string"
+          },
+          "risk_level": {
+            "type": "string",
+            "enum": [
+              "LOW_OPEN_READONLY",
+              "MEDIUM_STATE_REFRESH",
+              "HIGH_FILE_TRANSFER",
+              "HIGH_GIT_WRITE",
+              "HIGH_REMOTE_SYNC",
+              "BLOCKED_DANGEROUS"
+            ]
+          },
+          "owner_zone": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "current_ui_binding": {
+            "type": "string"
+          },
+          "handler_type": {
+            "type": "string"
+          },
+          "handler_reference": {
+            "type": "string"
+          },
+          "allowed_execution_context": {
+            "type": "string"
+          },
+          "required_prechecks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forbidden_inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expected_outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "expected_receipts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rollback_or_recovery": {
+            "type": "string"
+          },
+          "test_or_smoke_check": {
+            "type": "string"
+          },
+          "no_fake_green_rules": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "implementation_status": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "global_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_patterns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipt_policy": {
+      "type": "object"
+    },
+    "test_policy": {
+      "type": "object"
+    },
+    "risk_policy": {
+      "type": "object"
+    },
+    "next_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

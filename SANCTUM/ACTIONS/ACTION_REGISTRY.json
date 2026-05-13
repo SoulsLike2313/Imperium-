@@ -1,0 +1,603 @@
+{
+  "schema_version": "imperium.sanctum_action_registry.v0_1",
+  "registry_id": "SANCTUM_ACTION_REGISTRY_V0_1",
+  "status": "ACTIVE_PREFIRE_REGISTRY",
+  "created_at_utc": "2026-05-13T13:55:00Z",
+  "task_id": "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+  "repo_truth_at_creation": {
+    "head": "6428f17f4fa54af28a52bd1b820207a1e56ce661",
+    "commit_count": 70,
+    "latest_commit_subject": "TASK-20260513: add work session Administratum ACK skeleton"
+  },
+  "sanctum_baseline": "SANCTUM/sanctum_v0_29_qt.py",
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false,
+  "purpose": "Register trustworthy Sanctum actions with explicit handlers, risk levels, prechecks, receipts, and test expectations before further UI expansion.",
+  "actions": [
+    {
+      "action_id": "ACTION-REFRESH-CURRENT-TRUTH",
+      "title": "Refresh Current Truth State",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "state",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "owner_zone": "SANCTUM/",
+      "description": "Refresh Sanctum operator state and current truth surfaces from local repo/runtime evidence.",
+      "current_ui_binding": "AdaptiveOperatorPanel.btn_refresh_state -> AdaptiveOperatorPanel.refresh_state",
+      "handler_type": "PYTHON_SCRIPT_WRAPPER",
+      "handler_reference": "TOOLS/build_sanctum_state_v0_1.py",
+      "allowed_execution_context": "LOCAL_SANCTUM_RUNTIME_SAFE_READ_REFRESH",
+      "required_prechecks": [
+        "Python runtime available",
+        "repo root resolved",
+        "no direct READY_FOR_AGENT mutation"
+      ],
+      "required_inputs": [
+        "--repo-root",
+        "--out"
+      ],
+      "forbidden_inputs": [
+        "READY_FOR_AGENT=true override",
+        "Act5 ready override"
+      ],
+      "expected_outputs": [
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_V0_1.json",
+        "Sanctum operator panel refresh"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_RECEIPT.json"
+      ],
+      "rollback_or_recovery": "Re-run action and compare generated state/receipt pair.",
+      "test_or_smoke_check": "Manual click + validate SANCTUM_STATE_RECEIPT.json exists and is recent.",
+      "no_fake_green_rules": [
+        "No PASS claim without state receipt",
+        "No implicit claim that Act5 execution is ready"
+      ],
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "notes": "Existing behavior in sanctum_v0_29_qt.py; safe refresh only."
+    },
+    {
+      "action_id": "ACTION-RUN-GIT-CLI-CHECK",
+      "title": "Run Git CLI Check",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "verification",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "owner_zone": "SANCTUM/",
+      "description": "Run Git truth check wrapper and show PASS/WARN/BLOCKED evidence to operator.",
+      "current_ui_binding": "MainWindow.btn_git_cli_check -> MainWindow.check_git_cli",
+      "handler_type": "PYTHON_SERVICE_WRAPPER",
+      "handler_reference": "SANCTUM/sanctum_git_cli_check_service_v0_1.py + TOOLS/run_administratum_git_cli_check.sh|.ps1",
+      "allowed_execution_context": "LOCAL_SANCTUM_RUNTIME_VERIFICATION_ONLY",
+      "required_prechecks": [
+        "wrapper script exists",
+        "git executable available",
+        "receipt output path writeable"
+      ],
+      "required_inputs": [
+        "repo root"
+      ],
+      "forbidden_inputs": [
+        "manual verdict override"
+      ],
+      "expected_outputs": [
+        "Git CLI verdict dialog",
+        "Git truth summary"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RECEIPT.json"
+      ],
+      "rollback_or_recovery": "Re-run checker and compare HEAD/verdict fields.",
+      "test_or_smoke_check": "Run button or CLI wrapper and confirm receipt + verdict markdown.",
+      "no_fake_green_rules": [
+        "Nonzero checker exit cannot be shown as PASS",
+        "UI must display checker verdict as-is"
+      ],
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "notes": "Existing sanctioned verification path."
+    },
+    {
+      "action_id": "ACTION-TEST-VM2-ROUTE",
+      "title": "Test PC-VM2 Route",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "remote_route",
+      "risk_level": "HIGH_REMOTE_SYNC",
+      "owner_zone": "SANCTUM/Transfer",
+      "description": "Test SSH route and required remote directories without destructive mutations.",
+      "current_ui_binding": "TransferPanel.btn_test -> TransferPanel.test_route",
+      "handler_type": "PYTHON_SERVICE_METHOD",
+      "handler_reference": "TransferService.test_route",
+      "allowed_execution_context": "OWNER_GATED_TRANSFER_CONTEXT",
+      "required_prechecks": [
+        "SSH key file exists",
+        "VM2 endpoint reachable",
+        "route lock policy acknowledged"
+      ],
+      "required_inputs": [
+        "TransferRoute settings"
+      ],
+      "forbidden_inputs": [
+        "arbitrary remote command injection"
+      ],
+      "expected_outputs": [
+        "Route test status text",
+        "Route label update"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_test_route.json"
+      ],
+      "rollback_or_recovery": "Set route state back to unlocked and repeat test.",
+      "test_or_smoke_check": "Manual button click and verify receipt action=test_route.",
+      "no_fake_green_rules": [
+        "Route PASS requires successful SSH command",
+        "Failure must remain visible"
+      ],
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "notes": "High-risk channel due to remote execution path; constrained command only."
+    },
+    {
+      "action_id": "ACTION-LIST-VM2-BUNDLES",
+      "title": "List VM2 Bundles",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "bundle",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "owner_zone": "SANCTUM/Transfer",
+      "description": "List remote VM2 handoff bundles and annotate local status/SHA freshness.",
+      "current_ui_binding": "TransferPanel.btn_refresh -> TransferPanel.refresh_bundles",
+      "handler_type": "PYTHON_SERVICE_METHOD",
+      "handler_reference": "TransferService.list_bundles",
+      "allowed_execution_context": "OWNER_GATED_TRANSFER_CONTEXT",
+      "required_prechecks": [
+        "SSH route reachable",
+        "remote outbox paths known"
+      ],
+      "required_inputs": [
+        "TransferRoute vm2 bundle directories"
+      ],
+      "forbidden_inputs": [
+        "untrusted remote path override"
+      ],
+      "expected_outputs": [
+        "Transfer bundle list UI",
+        "bundle status tagging"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_list_remote_bundles.json"
+      ],
+      "rollback_or_recovery": "Re-run refresh and compare source dirs + bundle counts.",
+      "test_or_smoke_check": "Manual refresh and verify status line contains source dirs.",
+      "no_fake_green_rules": [
+        "If remote list fails, UI must show unknown/error",
+        "No silent empty-success state"
+      ],
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "notes": "Read/list behavior only; does not apply bundles."
+    },
+    {
+      "action_id": "ACTION-FETCH-SELECTED-VM2-BUNDLE",
+      "title": "Fetch Selected VM2 Bundle",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "bundle",
+      "risk_level": "HIGH_FILE_TRANSFER",
+      "owner_zone": "SANCTUM/Transfer",
+      "description": "Fetch selected remote bundle to PC inbox with SHA verification when available.",
+      "current_ui_binding": "TransferPanel.btn_fetch -> TransferPanel.fetch_selected",
+      "handler_type": "PYTHON_SERVICE_METHOD",
+      "handler_reference": "TransferService.fetch_bundle",
+      "allowed_execution_context": "OWNER_GATED_TRANSFER_CONTEXT",
+      "required_prechecks": [
+        "Bundle selected",
+        "SSH/scp route available",
+        "PC inbox path exists"
+      ],
+      "required_inputs": [
+        "selected remote bundle path"
+      ],
+      "forbidden_inputs": [
+        "relative traversal bundle path",
+        "forced PASS on SHA_FAIL"
+      ],
+      "expected_outputs": [
+        "bundle zip in inbox",
+        "SHA status message"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_fetch_bundle.json"
+      ],
+      "rollback_or_recovery": "On SHA_FAIL remove fetched payload and retry from clean state.",
+      "test_or_smoke_check": "Manual fetch on PC contour; verify receipt status (PASS/PASS_WITH_WARNINGS/FAIL).",
+      "no_fake_green_rules": [
+        "SHA_FAIL must remain BLOCKED",
+        "COMMAND_PREP_ONLY must not be presented as fetch success"
+      ],
+      "implementation_status": "IMPLEMENTED_CONTEXT_DEPENDENT_PC_CONTOUR_REQUIRED",
+      "notes": "On non-Windows contour returns COMMAND_PREP_ONLY by design."
+    },
+    {
+      "action_id": "ACTION-ACCEPT-VM2-HANDOFF-PC-INTAKE",
+      "title": "Accept VM2 Handoff (PC Intake)",
+      "status": "REGISTERED_CONCEPT",
+      "category": "bundle_intake",
+      "risk_level": "HIGH_GIT_WRITE",
+      "owner_zone": "TOOLS/ + SANCTUM/",
+      "description": "Future guarded launcher: sha256 -> scope gate -> checks -> stage allowed files -> commit/push on PC.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "REGISTERED_CONCEPT_NO_UI_BINDING",
+      "handler_reference": "TOOLS/review_worker_bundle_intake.ps1 (future integrated launcher)",
+      "allowed_execution_context": "PC_OWNER_APPROVAL_REQUIRED",
+      "required_prechecks": [
+        "bundle SHA verified",
+        "scope gate pass",
+        "owner review approval",
+        "stage allowed files policy check"
+      ],
+      "required_inputs": [
+        "bundle zip path",
+        "repo root",
+        "incoming root"
+      ],
+      "forbidden_inputs": [
+        "NoApply bypass without evidence",
+        "commit/push without owner approval"
+      ],
+      "expected_outputs": [
+        "intake review report",
+        "apply decision record"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/bundle_intake_regression/BUNDLE_INTAKE_REGRESSION_RECEIPT.json"
+      ],
+      "rollback_or_recovery": "Stay in NoApply mode and rollback via review-only path.",
+      "test_or_smoke_check": "Define integration smoke after dedicated handler is wired to registry router.",
+      "no_fake_green_rules": [
+        "No apply/commit claim without proof receipts",
+        "No auto-promotion from advisory to execution"
+      ],
+      "implementation_status": "CONCEPT_ONLY_NOT_IMPLEMENTED_IN_SANCTUM_UI",
+      "notes": "Registered to prevent ungated ad-hoc intake launching."
+    },
+    {
+      "action_id": "ACTION-SYNC-VM2-EXACT-HEAD",
+      "title": "Sync VM2 to Exact PC HEAD",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "remote_sync",
+      "risk_level": "HIGH_REMOTE_SYNC",
+      "owner_zone": "SANCTUM/Transfer + TOOLS/",
+      "description": "Future safe launcher for exact-head sync with dirty-state quarantine and proof receipts.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "MISSING_HANDLER",
+      "handler_reference": "MISSING: future sync_vm2_exact_head handler",
+      "allowed_execution_context": "PC_OWNER_APPROVAL_REQUIRED",
+      "required_prechecks": [
+        "dirty VM2 state captured",
+        "quarantine manifest recorded",
+        "exact head target specified",
+        "owner approval recorded"
+      ],
+      "required_inputs": [
+        "target head",
+        "vm2 repo root"
+      ],
+      "forbidden_inputs": [
+        "hard reset without quarantine receipt",
+        "silent force sync"
+      ],
+      "expected_outputs": [
+        "sync report",
+        "head parity evidence"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_vm2_exact_head_sync.json"
+      ],
+      "rollback_or_recovery": "Restore from quarantine bundle if sync gate fails.",
+      "test_or_smoke_check": "Blocked until handler and quarantine policy are implemented.",
+      "no_fake_green_rules": [
+        "No sync PASS without before/after head proof",
+        "No direct destructive sync path"
+      ],
+      "implementation_status": "HANDLER_MISSING_NOT_EXECUTABLE",
+      "notes": "Explicitly registered as not implemented to avoid hidden dangerous operations."
+    },
+    {
+      "action_id": "ACTION-OPEN-CURRENT-TASK-FOLDER",
+      "title": "Open Current Task Folder",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "navigation",
+      "risk_level": "LOW_OPEN_READONLY",
+      "owner_zone": "SANCTUM/MainWindow",
+      "description": "Open selected artifact task directory in file explorer.",
+      "current_ui_binding": "MainWindow.btn_task_folder -> MainWindow.open_selected_task_folder",
+      "handler_type": "PYTHON_METHOD_VIA_UI",
+      "handler_reference": "MainWindow.open_selected_task_folder + MainWindow.open_path",
+      "allowed_execution_context": "LOCAL_UI_READONLY_NAVIGATION",
+      "required_prechecks": [
+        "ARTIFACTS root exists or fallback path resolved"
+      ],
+      "required_inputs": [
+        "selected task id"
+      ],
+      "forbidden_inputs": [
+        "path traversal outside repo root"
+      ],
+      "expected_outputs": [
+        "Explorer window at selected task path"
+      ],
+      "expected_receipts": [],
+      "rollback_or_recovery": "Re-open artifacts root if selected path is missing.",
+      "test_or_smoke_check": "Manual click and verify explorer target path.",
+      "no_fake_green_rules": [
+        "If path missing, UI must show warning"
+      ],
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "notes": "Low-risk navigation action."
+    },
+    {
+      "action_id": "ACTION-OPEN-ADVISORY-BUFFER",
+      "title": "Open Advisory Buffer",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "navigation",
+      "risk_level": "LOW_OPEN_READONLY",
+      "owner_zone": "SANCTUM/MainWindow",
+      "description": "Open Astronomicon advisory buffer zone directly for review.",
+      "current_ui_binding": "PARTIAL: Open Astra Utility button currently opens broad ASTRONOMICON root",
+      "handler_type": "NEEDS_PATH_SPECIFIC_HANDLER",
+      "handler_reference": "target path ORGANS/ASTRONOMICON/ADVISORY_BUFFER/",
+      "allowed_execution_context": "LOCAL_UI_READONLY_NAVIGATION",
+      "required_prechecks": [
+        "advisory buffer path exists"
+      ],
+      "required_inputs": [
+        "repo root path"
+      ],
+      "forbidden_inputs": [
+        "path outside advisory buffer"
+      ],
+      "expected_outputs": [
+        "Explorer opened at advisory buffer path"
+      ],
+      "expected_receipts": [],
+      "rollback_or_recovery": "Fallback to ASTRONOMICON root if path missing.",
+      "test_or_smoke_check": "Manual navigation test after dedicated binding is added.",
+      "no_fake_green_rules": [
+        "Do not claim direct advisory-buffer binding until it exists"
+      ],
+      "implementation_status": "DIRECT_BINDING_MISSING_PARTIAL_UI_COVERAGE_ONLY",
+      "notes": "Registered to eliminate ambiguous operator pathing."
+    },
+    {
+      "action_id": "ACTION-OPEN-ARC5-PREFIRE-ZONE",
+      "title": "Open ARC5 Prefire Zone",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "navigation",
+      "risk_level": "LOW_OPEN_READONLY",
+      "owner_zone": "SANCTUM/MainWindow",
+      "description": "Open ARC5_PREFIRE registry zone directly for operator continuity.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "MISSING_HANDLER",
+      "handler_reference": "target path ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/",
+      "allowed_execution_context": "LOCAL_UI_READONLY_NAVIGATION",
+      "required_prechecks": [
+        "ARC5 prefire path exists"
+      ],
+      "required_inputs": [
+        "repo root path"
+      ],
+      "forbidden_inputs": [
+        "path outside ARC5 prefire zone"
+      ],
+      "expected_outputs": [
+        "Explorer opened at ARC5 prefire zone"
+      ],
+      "expected_receipts": [],
+      "rollback_or_recovery": "Fallback to Astronomicon registry root.",
+      "test_or_smoke_check": "Manual navigation test after handler wiring.",
+      "no_fake_green_rules": [
+        "No direct-binding claim without UI handler"
+      ],
+      "implementation_status": "HANDLER_MISSING_NOT_EXECUTABLE",
+      "notes": "Needed for deterministic operator navigation in Step 6+."
+    },
+    {
+      "action_id": "ACTION-RUN-ACT5-PREFIRE-CHECKS",
+      "title": "Run Act5 Prefire Check Chain",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "verification",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "owner_zone": "TOOLS/ + SANCTUM/Operator Layer",
+      "description": "Run Step 1/2/3/4/5 checkers as one controlled verification chain.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "MISSING_HANDLER",
+      "handler_reference": "future wrapper for check_arc5/check_warning/check_advisory/check_first_four/check_work_session",
+      "allowed_execution_context": "LOCAL_VERIFICATION_CHAIN",
+      "required_prechecks": [
+        "all checker scripts present",
+        "python runtime resolved"
+      ],
+      "required_inputs": [
+        "repo root"
+      ],
+      "forbidden_inputs": [
+        "skip blocked verdicts",
+        "manual pass override"
+      ],
+      "expected_outputs": [
+        "chain summary",
+        "latest checker reports"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/astronomicon/*_check/*_RECEIPT.json"
+      ],
+      "rollback_or_recovery": "Re-run individual checkers for isolation when chain fails.",
+      "test_or_smoke_check": "Smoke defined; not run as a single wrapper in Step 6.",
+      "no_fake_green_rules": [
+        "Any blocked checker keeps chain blocked",
+        "Warnings cannot be hidden as PASS"
+      ],
+      "implementation_status": "HANDLER_MISSING_CHECKERS_EXIST_SEPARATELY",
+      "notes": "Registry entry prevents ad-hoc shell chains from UI."
+    },
+    {
+      "action_id": "ACTION-REGISTER-STAGE-PROGRESS-REPORT",
+      "title": "Register Stage Progress Report",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "administratum_work_session",
+      "risk_level": "HIGH_GIT_WRITE",
+      "owner_zone": "TOOLS/ADMINISTRATUM",
+      "description": "Future UI launcher for Step 5 report registration script.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "SCRIPT_AVAILABLE_UI_BINDING_MISSING",
+      "handler_reference": "TOOLS/register_stage_progress_report_v0_1.py",
+      "allowed_execution_context": "OWNER_GATED_WORK_SESSION_CONTEXT",
+      "required_prechecks": [
+        "work-session schema/report schema valid",
+        "input report validation PASS",
+        "no self-authorization fields"
+      ],
+      "required_inputs": [
+        "--input",
+        "--out"
+      ],
+      "forbidden_inputs": [
+        "continuation_allowed=true",
+        "ready_for_agent=true"
+      ],
+      "expected_outputs": [
+        "validated stage report JSON"
+      ],
+      "expected_receipts": [
+        "report file path in Administratum registry"
+      ],
+      "rollback_or_recovery": "Remove invalid draft and re-register with corrected input.",
+      "test_or_smoke_check": "Run script with --example or validation-only mode before UI binding.",
+      "no_fake_green_rules": [
+        "Progress report is claim+evidence only",
+        "Action cannot authorize continuation"
+      ],
+      "implementation_status": "SCRIPT_IMPLEMENTED_UI_BINDING_PENDING",
+      "notes": "High-risk because it writes controlled registry records."
+    },
+    {
+      "action_id": "ACTION-ISSUE-ADMINISTRATUM-ACK",
+      "title": "Issue Administratum ACK",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "administratum_work_session",
+      "risk_level": "HIGH_GIT_WRITE",
+      "owner_zone": "TOOLS/ADMINISTRATUM",
+      "description": "Future UI launcher for issuing Administratum ACK from a progress report.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "SCRIPT_AVAILABLE_UI_BINDING_MISSING",
+      "handler_reference": "TOOLS/administratum_ack_stage_progress_v0_1.py",
+      "allowed_execution_context": "OWNER_GATED_WORK_SESSION_CONTEXT",
+      "required_prechecks": [
+        "input report validated",
+        "decision defaults to NEEDS_REVIEW unless explicit safe flags",
+        "no READY_FOR_AGENT mutation"
+      ],
+      "required_inputs": [
+        "--input",
+        "--out",
+        "--decision"
+      ],
+      "forbidden_inputs": [
+        "owner_approval=true claims",
+        "ready_for_agent=true claims"
+      ],
+      "expected_outputs": [
+        "ack skeleton JSON",
+        "decision metadata"
+      ],
+      "expected_receipts": [
+        "ack file path in Administratum registry"
+      ],
+      "rollback_or_recovery": "Use NEEDS_REVIEW decision and require Owner review when uncertain.",
+      "test_or_smoke_check": "Run script --example and validation path before UI binding.",
+      "no_fake_green_rules": [
+        "ACK is continuity permission only",
+        "ACK cannot create Owner approval",
+        "ACK cannot set READY_FOR_AGENT true"
+      ],
+      "implementation_status": "SCRIPT_IMPLEMENTED_UI_BINDING_PENDING",
+      "notes": "Safety-critical record action; kept unbound in Step 6."
+    },
+    {
+      "action_id": "ACTION-READY-FOR-AGENT-GATE-CHECK",
+      "title": "READY_FOR_AGENT Gate Check",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "gate",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "owner_zone": "ASTRONOMICON/READY_FOR_AGENT",
+      "description": "Read and verify READY_FOR_AGENT evidence status without mutating gate value.",
+      "current_ui_binding": "NOT_BOUND_YET",
+      "handler_type": "MISSING_HANDLER",
+      "handler_reference": "future ready-for-agent proof checker wrapper",
+      "allowed_execution_context": "READ_ONLY_GATE_VERIFICATION",
+      "required_prechecks": [
+        "ready-for-agent registry files discovered",
+        "owner approval evidence path present for any true proposal"
+      ],
+      "required_inputs": [
+        "repo root",
+        "gate record paths"
+      ],
+      "forbidden_inputs": [
+        "write/flip READY_FOR_AGENT state",
+        "advisory-only approval"
+      ],
+      "expected_outputs": [
+        "gate status summary",
+        "evidence gap list"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/astronomicon/*ready*gate*receipt*.json"
+      ],
+      "rollback_or_recovery": "Keep gate false and escalate to Owner on any evidence gap.",
+      "test_or_smoke_check": "Define wrapper smoke after dedicated gate-proof checker is implemented.",
+      "no_fake_green_rules": [
+        "Step 6 may not set READY_FOR_AGENT true",
+        "Missing evidence keeps status blocked/unknown"
+      ],
+      "implementation_status": "HANDLER_MISSING_NOT_EXECUTABLE",
+      "notes": "Explicitly read-only gate action in Step 6."
+    }
+  ],
+  "global_rules": [
+    "UI may request action, but action execution is allowed only through this registry contract.",
+    "Every action must have explicit handler reference, risk level, and precheck chain.",
+    "Dangerous action requires precheck plus receipt evidence before PASS claims.",
+    "No fake green: any PASS claim without evidence receipts is forbidden.",
+    "No action may claim PASS without evidence receipts.",
+    "No action may set READY_FOR_AGENT true in Step 6.",
+    "No action may execute raw advisory as execution authority.",
+    "No action may delete or quarantine files in Step 6.",
+    "No action may revive Sanctum EE / v0.30EE / R1 / R2."
+  ],
+  "forbidden_patterns": [
+    "DIRECT_UI_RAW_SHELL_NO_REGISTRY",
+    "READY_FOR_AGENT_TRUE_WITHOUT_OWNER_EVIDENCE",
+    "ACT5_EXECUTION_READY_TRUE_IN_STEP6",
+    "RAW_ADVISORY_DIRECT_EXECUTION",
+    "AUTO_DELETE_OR_CLEANUP_IN_STEP6",
+    "EE_R2_REVIVAL"
+  ],
+  "receipt_policy": {
+    "require_receipt_for_high_risk": true,
+    "receipt_must_include_action_id": true,
+    "receipt_must_include_repo_truth_snapshot": true,
+    "missing_receipt_verdict": "BLOCKED"
+  },
+  "test_policy": {
+    "matrix_file": "SANCTUM/ACTIONS/ACTION_TEST_MATRIX_V0_1.json",
+    "no_fake_test_claims": true,
+    "manual_only_allowed_for_existing_ui": true,
+    "concept_actions_must_not_claim_tested": true
+  },
+  "risk_policy": {
+    "low_risk_rule": "Read-only navigation allowed with minimal checks.",
+    "medium_risk_rule": "State/verification actions require deterministic outputs and verdict propagation.",
+    "high_risk_rule": "Transfer/write/sync actions require explicit gates and receipts.",
+    "blocked_risk_rule": "Blocked dangerous actions remain non-executable until owner-approved hardening."
+  },
+  "next_steps": [
+    "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+    "Bind Step 6 registered actions to explicit handler router after Owner approval",
+    "Add Playwright-level UI action trust tests after Step 7 foundation"
+  ]
+}

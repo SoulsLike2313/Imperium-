@@ -1,0 +1,178 @@
+{
+  "schema_version": "imperium.sanctum_action_test_matrix.v0_1",
+  "matrix_id": "SANCTUM_ACTION_TEST_MATRIX_V0_1",
+  "created_at_utc": "2026-05-13T13:55:00Z",
+  "task_id": "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+  "act5_execution_ready": false,
+  "ready_for_agent_status": false,
+  "entries": [
+    {
+      "action_id": "ACTION-REFRESH-CURRENT-TRUTH",
+      "test_status": "MANUAL_ONLY_FOR_NOW",
+      "test_type": "UI_MANUAL",
+      "test_command_or_manual_check": "Click 'Refresh State' in Adaptive Operator Layer and inspect generated state files.",
+      "expected_result": "State refresh completes; UI updates status and timestamps.",
+      "receipt_expected": ".imperium_runtime/sanctum/state/SANCTUM_STATE_RECEIPT.json",
+      "current_test_evidence": [
+        "NOT_RUN_IN_STEP6_VM2_CONSOLE_ONLY"
+      ],
+      "blocker_if_missing": "Cannot claim tested until manual UI evidence is attached."
+    },
+    {
+      "action_id": "ACTION-RUN-GIT-CLI-CHECK",
+      "test_status": "SMOKE_DEFINED_NOT_RUN",
+      "test_type": "CLI_EQUIVALENT",
+      "test_command_or_manual_check": "bash TOOLS/run_administratum_git_cli_check.sh",
+      "expected_result": "Git CLI checker returns PASS/PASS_WITH_WARNINGS with receipt output.",
+      "receipt_expected": ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RECEIPT.json",
+      "current_test_evidence": [
+        "CLI preflight PASS in this task context"
+      ],
+      "blocker_if_missing": "UI claim must be blocked if checker cannot run or receipt missing."
+    },
+    {
+      "action_id": "ACTION-TEST-VM2-ROUTE",
+      "test_status": "MANUAL_ONLY_FOR_NOW",
+      "test_type": "UI_MANUAL_REMOTE",
+      "test_command_or_manual_check": "Click 'Test Route' in Transfer Control panel.",
+      "expected_result": "Route returns VM2_ROUTE_OK or explicit failure.",
+      "receipt_expected": ".imperium_runtime/transfer/receipts/*_test_route.json",
+      "current_test_evidence": [
+        "NOT_RUN_IN_STEP6"
+      ],
+      "blocker_if_missing": "Remote route action must stay unverified until receipt evidence exists."
+    },
+    {
+      "action_id": "ACTION-LIST-VM2-BUNDLES",
+      "test_status": "MANUAL_ONLY_FOR_NOW",
+      "test_type": "UI_MANUAL_REMOTE",
+      "test_command_or_manual_check": "Click 'Refresh Bundles' in Transfer Control panel.",
+      "expected_result": "Bundle list updates with status badges and details.",
+      "receipt_expected": ".imperium_runtime/transfer/receipts/*_list_remote_bundles.json",
+      "current_test_evidence": [
+        "NOT_RUN_IN_STEP6"
+      ],
+      "blocker_if_missing": "Bundle list action cannot be marked green without remote evidence."
+    },
+    {
+      "action_id": "ACTION-FETCH-SELECTED-VM2-BUNDLE",
+      "test_status": "MANUAL_ONLY_FOR_NOW",
+      "test_type": "UI_MANUAL_REMOTE",
+      "test_command_or_manual_check": "Select bundle and click 'Fetch Selected' on PC contour.",
+      "expected_result": "Fetch result includes SHA_PASS/SHA_MISSING/COMMAND_PREP_ONLY/FAIL.",
+      "receipt_expected": ".imperium_runtime/transfer/receipts/*_fetch_bundle.json",
+      "current_test_evidence": [
+        "NOT_RUN_IN_STEP6_NON_WINDOWS_CONTOUR"
+      ],
+      "blocker_if_missing": "High-risk transfer action must remain untrusted without receipt."
+    },
+    {
+      "action_id": "ACTION-ACCEPT-VM2-HANDOFF-PC-INTAKE",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST",
+      "test_type": "FUTURE_INTEGRATION",
+      "test_command_or_manual_check": "Future sanitized launcher around TOOLS/review_worker_bundle_intake.ps1.",
+      "expected_result": "Scope-gated intake with sha256 proof and owner decision path.",
+      "receipt_expected": ".imperium_runtime/bundle_intake_regression/BUNDLE_INTAKE_REGRESSION_RECEIPT.json",
+      "current_test_evidence": [
+        "CONCEPT_ONLY"
+      ],
+      "blocker_if_missing": "Do not permit runtime execution until handler router exists."
+    },
+    {
+      "action_id": "ACTION-SYNC-VM2-EXACT-HEAD",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST",
+      "test_type": "FUTURE_INTEGRATION",
+      "test_command_or_manual_check": "Future VM2 exact-head sync wrapper with quarantine receipt.",
+      "expected_result": "Before/after head proof and rollback safety record.",
+      "receipt_expected": ".imperium_runtime/transfer/receipts/*_vm2_exact_head_sync.json",
+      "current_test_evidence": [
+        "HANDLER_MISSING"
+      ],
+      "blocker_if_missing": "Must stay non-executable in Step 6."
+    },
+    {
+      "action_id": "ACTION-OPEN-CURRENT-TASK-FOLDER",
+      "test_status": "MANUAL_ONLY_FOR_NOW",
+      "test_type": "UI_MANUAL",
+      "test_command_or_manual_check": "Click 'Open Task Folder' with selected task item.",
+      "expected_result": "Explorer opens task folder or ARTIFACTS fallback.",
+      "receipt_expected": "NONE_LOW_RISK_UI_NAVIGATION",
+      "current_test_evidence": [
+        "NOT_RUN_IN_STEP6"
+      ],
+      "blocker_if_missing": "No blocker for execution; blocker only for tested claim."
+    },
+    {
+      "action_id": "ACTION-OPEN-ADVISORY-BUFFER",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST",
+      "test_type": "UI_NAVIGATION",
+      "test_command_or_manual_check": "Add dedicated advisory-buffer button/binding and test path open.",
+      "expected_result": "Opens ORGANS/ASTRONOMICON/ADVISORY_BUFFER directly.",
+      "receipt_expected": "NONE_LOW_RISK_UI_NAVIGATION",
+      "current_test_evidence": [
+        "DIRECT_BINDING_NOT_PRESENT"
+      ],
+      "blocker_if_missing": "Cannot mark as existing direct action until dedicated binding exists."
+    },
+    {
+      "action_id": "ACTION-OPEN-ARC5-PREFIRE-ZONE",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST",
+      "test_type": "UI_NAVIGATION",
+      "test_command_or_manual_check": "Add dedicated ARC5 prefire button/binding and test path open.",
+      "expected_result": "Opens ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE directly.",
+      "receipt_expected": "NONE_LOW_RISK_UI_NAVIGATION",
+      "current_test_evidence": [
+        "DIRECT_BINDING_NOT_PRESENT"
+      ],
+      "blocker_if_missing": "Cannot mark as implemented direct action until binding exists."
+    },
+    {
+      "action_id": "ACTION-RUN-ACT5-PREFIRE-CHECKS",
+      "test_status": "SMOKE_DEFINED_NOT_RUN",
+      "test_type": "CLI_CHAIN",
+      "test_command_or_manual_check": "Run Step checkers sequentially from shell until wrapper exists.",
+      "expected_result": "All required prefire checkers return no blockers.",
+      "receipt_expected": ".imperium_runtime/astronomicon/*_check/*_RECEIPT.json",
+      "current_test_evidence": [
+        "CHAIN_WRAPPER_NOT_IMPLEMENTED"
+      ],
+      "blocker_if_missing": "Wrapper action stays non-implemented until chain handler exists."
+    },
+    {
+      "action_id": "ACTION-REGISTER-STAGE-PROGRESS-REPORT",
+      "test_status": "SMOKE_DEFINED_NOT_RUN",
+      "test_type": "CLI_SCRIPT",
+      "test_command_or_manual_check": "python3 TOOLS/register_stage_progress_report_v0_1.py --example",
+      "expected_result": "Script shows safe usage and refuses self-authorization claims.",
+      "receipt_expected": "REPORT_JSON_OUTPUT_PATH",
+      "current_test_evidence": [
+        "SCRIPT_EXISTS_NOT_EXECUTED_IN_STEP6"
+      ],
+      "blocker_if_missing": "UI binding must remain disabled until script behavior is validated in flow."
+    },
+    {
+      "action_id": "ACTION-ISSUE-ADMINISTRATUM-ACK",
+      "test_status": "SMOKE_DEFINED_NOT_RUN",
+      "test_type": "CLI_SCRIPT",
+      "test_command_or_manual_check": "python3 TOOLS/administratum_ack_stage_progress_v0_1.py --example",
+      "expected_result": "Default decision NEEDS_REVIEW and no READY_FOR_AGENT mutation.",
+      "receipt_expected": "ACK_JSON_OUTPUT_PATH",
+      "current_test_evidence": [
+        "SCRIPT_EXISTS_NOT_EXECUTED_IN_STEP6"
+      ],
+      "blocker_if_missing": "Action remains unbound until flow validation exists."
+    },
+    {
+      "action_id": "ACTION-READY-FOR-AGENT-GATE-CHECK",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST",
+      "test_type": "FUTURE_GATE_CHECK",
+      "test_command_or_manual_check": "Future dedicated gate-proof checker wrapper invocation.",
+      "expected_result": "Read-only gate status with evidence gap detection.",
+      "receipt_expected": ".imperium_runtime/astronomicon/*ready*gate*receipt*.json",
+      "current_test_evidence": [
+        "HANDLER_MISSING"
+      ],
+      "blocker_if_missing": "No mutation path allowed; keep action non-executable until handler exists."
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 {
   "schema_version": "imperium.current_truth.arc5_prefire.v0_1",
-  "generated_at_utc": "2026-05-13T13:32:08Z",
-  "repo_head": "ab7cab9d6195fb4ca951471aedc8c488e2ef2516",
-  "commit_count": 69,
-  "latest_commit_subject": "TASK-20260513: add first four organs Act 5 readiness",
+  "generated_at_utc": "2026-05-13T13:55:51Z",
+  "repo_head": "6428f17f4fa54af28a52bd1b820207a1e56ce661",
+  "commit_count": 70,
+  "latest_commit_subject": "TASK-20260513: add work session Administratum ACK skeleton",
   "current_arc": "ARC_5_PREFIRE",
   "current_phase": "PREFIRE_IMPLEMENTATION",
   "act5_execution_ready": false,
@@ -31,23 +31,28 @@
     "schemas/stage_progress_report_v0_1.schema.json",
     "schemas/administratum_ack_v0_1.schema.json",
     "DOCS/WORK_SESSION_ADMINISTRATUM_ACK_V0_1.md",
-    "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/README_WORK_SESSIONS_V0_1.md"
+    "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/README_WORK_SESSIONS_V0_1.md",
+    "schemas/sanctum_action_registry_v0_1.schema.json",
+    "SANCTUM/ACTIONS/ACTION_REGISTRY.json",
+    "SANCTUM/ACTIONS/ACTION_TEST_MATRIX_V0_1.json",
+    "DOCS/SANCTUM_ACTION_REGISTRY_V0_1.md",
+    "TOOLS/check_sanctum_action_registry_v0_1.py"
   ],
   "next_allowed_actions": [
-    "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
     "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
-    "TASK-20260513-INQUISITION-V0_1-CONTRACT-V0_1"
+    "TASK-20260513-INQUISITION-V0_1-CONTRACT-V0_1",
+    "TASK-20260513-READY-FOR-AGENT-GATE-PROOF-V0_1"
   ],
   "blockers": [
     "READY_FOR_AGENT not approved",
     "act5 execution remains blocked until step-sequence evidence is complete",
     "OFFICIO_AGENTIS remains below target Level 5 maturity (currently Level 4)",
-    "Sanctum action registry not formalized",
     "Visual Factory Minimum (Step 7) not started by design",
     "Inquisition v0.1 contract not approved",
-    "work-session ACK structure is v0.1 skeleton pending PC acceptance"
+    "ready-for-agent gate proof has not been assembled",
+    "sanctum action registry is pending PC acceptance"
   ],
-  "owner_notes_summary": "Шаг 5 добавил machine-checkable skeleton для длинных сессий (WORK_SESSION/REPORT/ACK), но это не execution-ready контур: READY_FOR_AGENT=false, Act 5 execution blocked, assets остаются Step 7.",
+  "owner_notes_summary": "Шаг 6 зарегистрировал machine-checkable слой Sanctum действий (ACTION_ID/risk/gates/receipts), но Act 5 execution по-прежнему blocked и READY_FOR_AGENT=false; визуальная фабрика остаётся Step 7.",
   "warning_budget_file": "REGISTRY/WARNING_BUDGET.json",
   "warning_budget_status": "ACTIVE_PREFIRE_POLICY_PENDING_PC_ACCEPTANCE",
   "advisory_response_file": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/ADVISORY-RESPONSE-20260513-KIRO-ACT5-PREFIRE-V0_1.json",
@@ -58,12 +63,16 @@
   "organ_contract_schema_file": "schemas/organ_contract_v0_2.schema.json",
   "organ_self_report_schema_file": "schemas/organ_self_report_v0_1.schema.json",
   "first_four_readiness_status": "ACTIVE_PREFIRE_GUIDE_STRUCTURE_PENDING_PC_ACCEPTANCE",
-  "next_recommended_step": "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+  "next_recommended_step": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
   "assets_policy_step": "STEP_7_VISUAL_FACTORY_MINIMUM",
   "inquisition_status": "NOT_BUILT_YET",
   "work_session_schema_file": "schemas/work_session_v0_1.schema.json",
   "stage_progress_report_schema_file": "schemas/stage_progress_report_v0_1.schema.json",
   "administratum_ack_schema_file": "schemas/administratum_ack_v0_1.schema.json",
   "work_session_registry_zone": "ORGANS/ADMINISTRATUM/REGISTRY/WORK_SESSIONS/",
-  "work_session_ack_status": "ACTIVE_PREFIRE_SKELETON_PENDING_PC_ACCEPTANCE"
+  "work_session_ack_status": "ACTIVE_PREFIRE_SKELETON_PENDING_PC_ACCEPTANCE",
+  "sanctum_action_registry_file": "SANCTUM/ACTIONS/ACTION_REGISTRY.json",
+  "sanctum_action_test_matrix_file": "SANCTUM/ACTIONS/ACTION_TEST_MATRIX_V0_1.json",
+  "sanctum_action_registry_schema_file": "schemas/sanctum_action_registry_v0_1.schema.json",
+  "sanctum_action_registry_status": "ACTIVE_PREFIRE_REGISTRY_PENDING_PC_ACCEPTANCE"
 }
