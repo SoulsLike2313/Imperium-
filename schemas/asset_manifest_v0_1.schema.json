@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Asset Manifest v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "rule",
+    "assets",
+    "categories",
+    "intake_zones",
+    "owner_confirmation_required"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "rule": {
+      "type": "string"
+    },
+    "assets": {
+      "type": "array"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "intake_zones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_confirmation_required": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

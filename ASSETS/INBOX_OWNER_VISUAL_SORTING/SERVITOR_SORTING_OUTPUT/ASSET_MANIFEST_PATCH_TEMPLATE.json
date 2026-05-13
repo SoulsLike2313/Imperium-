@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "patch_id": "PATCH-TEMPLATE",
+  "status": "proposal_only",
+  "owner_confirmation_required": true,
+  "changes": [
+    {
+      "op": "add",
+      "category": "candidate",
+      "asset_id": "ASSET-TEMPLATE",
+      "path": "ASSETS/REFERENCES/CANDIDATE/example.png",
+      "confidence": "medium",
+      "reason": "template",
+      "can_promote_to_manifest": false
+    }
+  ]
+}

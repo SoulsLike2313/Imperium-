@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Golden Screenshot Manifest v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "screenshots"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.golden_screenshot_manifest.v0_1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "screenshots": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-13T13:56:09+00:00",
-  "generated_by": "TASK-20260513-SANCTUM-ACTION-REGISTRY-V0_1",
+  "updated_at_utc": "2026-05-13T14:40:11+00:00",
+  "generated_by": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
@@ -14,7 +14,8 @@
     "Act 5 advisory ingest + modernization skeleton checker registered (advisory authority and step-sequencing guards).",
     "Act 5 first-four-organs readiness checker registered (contract/self-report/readiness governance guard).",
     "Act 5 work-session / Administratum ACK skeleton tools and checker registered (continuation policy guard).",
-    "Act 5 Sanctum action registry checker registered (action-id/risk/gate/receipt governance for Step 6)."
+    "Act 5 Sanctum action registry checker registered (action-id/risk/gate/receipt governance for Step 6).",
+    "Act 5 visual factory minimum checker registered (Step 7.1 structure-seed guard for assets/design-system/ui-lab intake doctrine)."
   ],
   "scripts": [
     {
@@ -1413,6 +1414,59 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_sanctum_action_registry_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_sanctum_action_registry_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-VISUAL-FACTORY-MINIMUM-V0_1",
+      "path": "TOOLS/check_visual_factory_minimum_v0_1.py",
+      "name": "check_visual_factory_minimum_v0_1.py",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Step 7.1 Visual Factory Minimum structure seed folders/files/json/doctrine and runtime safety guards.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_visual_factory_minimum_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human",
+        "--json"
+      ],
+      "reads": [
+        "ASSETS/*",
+        "SANCTUM/DESIGN_SYSTEM/*",
+        "SANCTUM/UI_LAB/*",
+        "DOCS/VISUAL_FACTORY_MINIMUM_V0_1.md",
+        "REGISTRY/SCRIPT_REGISTRY.json",
+        "git diff/status"
+      ],
+      "writes": [
+        ".imperium_runtime/visual_factory_minimum_check/*"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/visual_factory_minimum_check/VISUAL_FACTORY_MINIMUM_CHECK_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_visual_factory_minimum_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_visual_factory_minimum_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }

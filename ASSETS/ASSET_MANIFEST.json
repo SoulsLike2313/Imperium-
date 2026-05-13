@@ -1,0 +1,28 @@
+{
+  "schema_version": "0.1",
+  "task_id": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+  "status": "structure_seed_only",
+  "rule": "raw assets are evidence, not canon",
+  "assets": [],
+  "categories": [
+    "accepted",
+    "rejected",
+    "candidate",
+    "materials",
+    "layout",
+    "density",
+    "glow",
+    "cards_panels",
+    "orbit_core",
+    "navigation",
+    "organ_dashboard",
+    "sanctum_core"
+  ],
+  "intake_zones": [
+    "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS",
+    "ASSETS/INBOX_OWNER_VISUAL_SORTING/ANNOTATED_SCREENSHOTS",
+    "ASSETS/INBOX_OWNER_VISUAL_SORTING/TEXT_NOTES",
+    "ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT"
+  ],
+  "owner_confirmation_required": true
+}

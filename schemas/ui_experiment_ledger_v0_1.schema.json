@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "UI Experiment Ledger v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "experiments"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.ui_experiment_ledger.v0_1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "experiments": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

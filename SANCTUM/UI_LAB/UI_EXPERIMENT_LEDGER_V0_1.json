@@ -1,0 +1,16 @@
+{
+  "schema_version": "imperium.ui_experiment_ledger.v0_1",
+  "task_id": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+  "status": "seed_only",
+  "experiments": [],
+  "experiment_fields": [
+    "experiment_id",
+    "source_asset_ids",
+    "purpose",
+    "files_touched",
+    "runtime_touched",
+    "status",
+    "evidence",
+    "owner_verdict"
+  ]
+}

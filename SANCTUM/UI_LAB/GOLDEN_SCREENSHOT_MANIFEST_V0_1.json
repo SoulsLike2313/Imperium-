@@ -1,0 +1,15 @@
+{
+  "schema_version": "imperium.golden_screenshot_manifest.v0_1",
+  "task_id": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+  "status": "seed_only",
+  "screenshots": [],
+  "screenshot_fields": [
+    "screenshot_id",
+    "path",
+    "scenario",
+    "source_ui",
+    "expected_visual_properties",
+    "approved_by_owner",
+    "sha256"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Visual Budget v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "readability",
+    "runtime_safety",
+    "fps_performance_caution",
+    "glow_noise_limits",
+    "animation_restraint",
+    "screenshot_evidence_requirement",
+    "no_runtime_change_without_ui_lab_evidence",
+    "no_fake_green_claim"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.visual_budget.v0_1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "readability": {
+      "type": "object"
+    },
+    "runtime_safety": {
+      "type": "object"
+    },
+    "fps_performance_caution": {
+      "type": "object"
+    },
+    "glow_noise_limits": {
+      "type": "object"
+    },
+    "animation_restraint": {
+      "type": "object"
+    },
+    "screenshot_evidence_requirement": {
+      "type": "object"
+    },
+    "no_runtime_change_without_ui_lab_evidence": {
+      "type": "boolean"
+    },
+    "no_fake_green_claim": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true
+}

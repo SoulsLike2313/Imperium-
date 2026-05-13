@@ -1,0 +1,34 @@
+{
+  "schema_version": "imperium.visual_budget.v0_1",
+  "task_id": "TASK-20260513-VISUAL-FACTORY-MINIMUM-V0_1",
+  "status": "starter_budget_pending_evidence",
+  "readability": {
+    "primary_text_min_contrast_target": "AA_OR_BETTER",
+    "data_panel_readability_priority": "HIGH"
+  },
+  "runtime_safety": {
+    "sanctum_runtime_rewrite_allowed": false,
+    "runtime_touch_requires_ui_lab_evidence": true,
+    "baseline_runtime_file": "SANCTUM/sanctum_v0_29_qt.py"
+  },
+  "fps_performance_caution": {
+    "avoid_unbounded_effect_stacking": true,
+    "no_unverified_heavy_animation": true
+  },
+  "glow_noise_limits": {
+    "soft_glow_preferred": true,
+    "no_noisy_neon": true,
+    "max_glow_regions_without_owner_review": 3
+  },
+  "animation_restraint": {
+    "micro_motion_overload_forbidden": true,
+    "status_feedback_priority_over_decorative_motion": true
+  },
+  "screenshot_evidence_requirement": {
+    "required_for_visual_rule_promotion": true,
+    "raw_is_not_canon": true
+  },
+  "no_runtime_change_without_ui_lab_evidence": true,
+  "no_fake_green_claim": true,
+  "owner_confirmation_required": true
+}
