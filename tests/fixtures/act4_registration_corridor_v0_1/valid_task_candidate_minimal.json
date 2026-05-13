@@ -1,0 +1,19 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-EXAMPLE",
+  "source_general_task_id": "GENERAL-TASK-EXAMPLE",
+  "title": "Example",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Example goal",
+  "scope": ["example"],
+  "non_goals": ["none"],
+  "owner_intent": "example",
+  "base_git_truth": {"head": "cfe0c317172b8de8efff186bc9c0a4fa18dc96ad"},
+  "required_capabilities": ["script_registry_check"],
+  "allowed_scripts": ["SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"],
+  "forbidden_tools": ["git push"],
+  "related_advisory_inputs": ["ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"],
+  "risks": ["example risk"],
+  "open_questions": ["example question"],
+  "next_required_phase": "REVIEW_PACK_REQUIRED"
+}

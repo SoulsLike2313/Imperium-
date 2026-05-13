@@ -1,0 +1,32 @@
+{
+  "schema_version": "imperium.ready_for_agent.v0_1",
+  "ready_id": "READY-FOR-AGENT-20260513-INQUISITION-V0_1-SELF-BUILD-BLOCKED-V0_1",
+  "task_id": "TASK-CANDIDATE-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "stage_map_id": "STAGE-MAP-DRAFT-20260513-INQUISITION-V0_1-SELF-BUILD-V0_1",
+  "status": "BLOCKED_PENDING_REVIEW_AND_MODERNIZATION",
+  "ready_for_agent": false,
+  "blocking_conditions": [
+    "review response not ingested",
+    "task modernization missing",
+    "stage map not approved",
+    "Owner decision pending",
+    "Act 5 not started"
+  ],
+  "evidence_refs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/REVIEW-PACK-20260513-INQUISITION-V0_1-SELF-BUILD-ADVISORY-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/STAGE-MAP-DRAFT-20260513-INQUISITION-V0_1-SELF-BUILD-V0_1.json"
+  ],
+  "required_checks": [
+    "advisory_response_ingest_check",
+    "task_modernization_check",
+    "stage_map_approval_check",
+    "owner_approval_check"
+  ],
+  "owner_approval": {
+    "required": true,
+    "granted": false,
+    "note": "Act 5 execution approval not requested in Act 4 seed"
+  },
+  "no_fake_green_verdict": "READY_FOR_AGENT_FALSE_BY_DESIGN"
+}

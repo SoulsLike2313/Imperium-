@@ -85,6 +85,41 @@
       "schema_id": "imperium.sanctum_state.v0_1",
       "path": "schemas/sanctum_state.schema.json",
       "kind": "state"
+    },
+    {
+      "schema_id": "imperium.task_candidate.v0_1",
+      "path": "schemas/task_candidate.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.advisory_review_pack.v0_1",
+      "path": "schemas/advisory_review_pack.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.advisory_response.v0_1",
+      "path": "schemas/advisory_response.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.task_modernization.v0_1",
+      "path": "schemas/task_modernization.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.stage_map.v0_1",
+      "path": "schemas/stage_map.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.ready_for_agent.v0_1",
+      "path": "schemas/ready_for_agent.schema.json",
+      "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.registration_corridor.v0_1",
+      "path": "schemas/registration_corridor.schema.json",
+      "kind": "registry"
     }
   ]
 }

@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Advisory Response v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "advisory_response_id",
+    "review_pack_id",
+    "source",
+    "status",
+    "raw_response_path",
+    "recommendations",
+    "accepted_items",
+    "rejected_items",
+    "owner_decisions_required",
+    "not_doctrine_until_reconciled"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.advisory_response.v0_1"
+    },
+    "advisory_response_id": {
+      "type": "string"
+    },
+    "review_pack_id": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "RECEIVED_RAW",
+        "INGESTED",
+        "PARTIALLY_RECONCILED",
+        "BLOCKED"
+      ]
+    },
+    "raw_response_path": {
+      "type": "string"
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accepted_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejected_items": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_decisions_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "not_doctrine_until_reconciled": {
+      "type": "boolean"
+    }
+  }
+}

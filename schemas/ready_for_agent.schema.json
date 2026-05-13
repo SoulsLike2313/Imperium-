@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Ready For Agent Gate v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "ready_id",
+    "task_id",
+    "stage_map_id",
+    "status",
+    "ready_for_agent",
+    "blocking_conditions",
+    "evidence_refs",
+    "required_checks",
+    "owner_approval",
+    "no_fake_green_verdict"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.ready_for_agent.v0_1"
+    },
+    "ready_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "stage_map_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "READY",
+        "BLOCKED_PENDING_REVIEW_AND_MODERNIZATION",
+        "BLOCKED"
+      ]
+    },
+    "ready_for_agent": {
+      "type": "boolean"
+    },
+    "blocking_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_checks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_approval": {
+      "type": "object"
+    },
+    "no_fake_green_verdict": {
+      "type": "string"
+    }
+  }
+}

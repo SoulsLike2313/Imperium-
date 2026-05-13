@@ -1,13 +1,14 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-12T22:58:12.730282+00:00",
-  "generated_by": "TASK-20260513-SANCTUM-ADAPTIVE-OPERATOR-LAYER-V0_1",
+  "updated_at_utc": "2026-05-13T00:05:02.533750+00:00",
+  "generated_by": "TASK-20260513-ACT4-FULL-REGISTRATION-CORRIDOR-SEED-V0_1",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
     "SCRIPTORIUM is support layer and not a new canon organ by default.",
     "Statuses are conservative; VERIFIED requires explicit recent evidence.",
     "Act 3 seed checker registered for address/truth/capability spine.",
-    "Sanctum adaptive operator layer scripts registered (state build + checker)."
+    "Sanctum adaptive operator layer scripts registered (state build + checker).",
+    "Act 4 registration corridor checker registered; READY_FOR_AGENT negative gate enforced."
   ],
   "scripts": [
     {
@@ -927,6 +928,63 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_sanctum_adaptive_operator_layer_v0_1.py --repo-root . --human",
       "verification_command": "python3 TOOLS/check_sanctum_adaptive_operator_layer_v0_1.py --repo-root . --human",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+      "path": "TOOLS/check_act4_registration_corridor_v0_1.py",
+      "name": "check_act4_registration_corridor_v0_1.py",
+      "owner_organ": "ASTRONOMICON",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Act 4 full registration corridor seed files and emit runtime receipts.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_act4_registration_corridor_v0_1.py --repo-root . --human",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--human"
+      ],
+      "reads": [
+        "ORGANS/ASTRONOMICON/REGISTRY/CORRIDOR/ACT4_REGISTRATION_CORRIDOR_V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/REVIEW-PACK-20260513-INQUISITION-V0_1-SELF-BUILD-ADVISORY-V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/STAGE-MAP-DRAFT-20260513-INQUISITION-V0_1-SELF-BUILD-V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/READY_FOR_AGENT/READY-FOR-AGENT-20260513-INQUISITION-V0_1-SELF-BUILD-BLOCKED-V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+        "schemas/*.json",
+        "REGISTRY/SCRIPT_REGISTRY.json",
+        "REGISTRY/ARSENAL_TOOL_INDEX.json",
+        "REGISTRY/ARSENAL_INSTALL_STATUS.json"
+      ],
+      "writes": [
+        ".imperium_runtime/astronomicon/act4_registration_corridor_check/ACT4_REGISTRATION_CORRIDOR_CHECK_RESULT.json",
+        ".imperium_runtime/astronomicon/act4_registration_corridor_check/ACT4_REGISTRATION_CORRIDOR_CHECK_VERDICT.md",
+        ".imperium_runtime/astronomicon/act4_registration_corridor_check/ACT4_REGISTRATION_CORRIDOR_CHECK_RECEIPT.json"
+      ],
+      "side_effects": [
+        "WRITES_RUNTIME_ONLY"
+      ],
+      "produces_receipts": true,
+      "receipt_paths": [
+        ".imperium_runtime/astronomicon/act4_registration_corridor_check/ACT4_REGISTRATION_CORRIDOR_CHECK_RECEIPT.json"
+      ],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_act4_registration_corridor_v0_1.py --repo-root . --human",
+      "verification_command": "python3 TOOLS/check_act4_registration_corridor_v0_1.py --repo-root . --human",
       "last_verified_at": null,
       "status": "REGISTERED"
     }

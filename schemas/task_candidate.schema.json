@@ -1,0 +1,117 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Task Candidate v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "source_general_task_id",
+    "title",
+    "status",
+    "goal",
+    "scope",
+    "non_goals",
+    "owner_intent",
+    "base_git_truth",
+    "required_capabilities",
+    "allowed_scripts",
+    "forbidden_tools",
+    "related_advisory_inputs",
+    "risks",
+    "open_questions",
+    "next_required_phase"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.task_candidate.v0_1"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "source_general_task_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+        "REVIEW_PACK_REQUIRED",
+        "UNDER_ADVISORY_REVIEW",
+        "MODERNIZATION_REQUIRED",
+        "READY_FOR_STAGE_MAPPING",
+        "READY_FOR_AGENT",
+        "BLOCKED"
+      ]
+    },
+    "goal": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "non_goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_intent": {
+      "type": "string"
+    },
+    "base_git_truth": {
+      "type": "object"
+    },
+    "required_capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_scripts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_advisory_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tooling_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_required_phase": {
+      "type": "string"
+    }
+  }
+}

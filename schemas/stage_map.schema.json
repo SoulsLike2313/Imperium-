@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Stage Map v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "stage_map_id",
+    "task_id",
+    "status",
+    "stages"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.stage_map.v0_1"
+    },
+    "stage_map_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT_NEEDS_REVIEW",
+        "REVIEW_EXPORTED",
+        "REVIEWED",
+        "MODERNIZED",
+        "APPROVED",
+        "BLOCKED"
+      ]
+    },
+    "stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "stage_id",
+          "goal",
+          "inputs",
+          "outputs",
+          "allowed_paths",
+          "forbidden_paths",
+          "required_scripts",
+          "required_capabilities",
+          "checks",
+          "receipts",
+          "owner_decision_gates",
+          "pass_criteria",
+          "fail_criteria",
+          "bundle_policy"
+        ],
+        "properties": {
+          "stage_id": {
+            "type": "string"
+          },
+          "goal": {
+            "type": "string"
+          },
+          "inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "allowed_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forbidden_paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_scripts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_capabilities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "checks": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "receipts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "owner_decision_gates": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pass_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fail_criteria": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "bundle_policy": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

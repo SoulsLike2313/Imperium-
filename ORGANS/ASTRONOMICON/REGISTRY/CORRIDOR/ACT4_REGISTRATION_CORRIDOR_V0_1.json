@@ -1,0 +1,162 @@
+{
+  "schema_version": "imperium.registration_corridor.v0_1",
+  "corridor_id": "ACT4-REGISTRATION-CORRIDOR-V0_1",
+  "task_id": "TASK-20260513-ACT4-FULL-REGISTRATION-CORRIDOR-SEED-V0_1",
+  "stage_id": "STAGE-001-ACT4-SCHEMAS-REGISTRIES-CHECKER-AND-INQUISITION-DRY-RUN-CANDIDATE-V0_1",
+  "updated_at_utc": "2026-05-13T00:00:00Z",
+  "owner_organ": "ASTRONOMICON",
+  "supporting_organs": [
+    "ADMINISTRATUM",
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "INQUISITION_LATER"
+  ],
+  "support_layers": [
+    "SCRIPTORIUM",
+    "ARSENAL"
+  ],
+  "base_git_truth": {
+    "head": "cfe0c317172b8de8efff186bc9c0a4fa18dc96ad",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/cfe0c317172b8de8efff186bc9c0a4fa18dc96ad",
+    "commit_count": 59,
+    "latest_commit_oneline": "TASK-20260513: repair Sanctum v0.30 truth dashboard and bundle fetch"
+  },
+  "required_act3_dependencies": [
+    "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/TRUTH_SOURCE_REGISTRY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/CAPABILITY_SPINE_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/WARNING_STALE_BASELINE_V0_1.json",
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ARSENAL_TOOL_INDEX.json",
+    "REGISTRY/ARSENAL_INSTALL_STATUS.json"
+  ],
+  "lifecycle_phases": [
+    {
+      "phase_id": "PHASE-01-GENERAL-TASK-TO-CANDIDATE",
+      "required_inputs": [
+        "registered_general_task",
+        "act3_truth_dependencies"
+      ],
+      "required_outputs": [
+        "task_candidate_record"
+      ],
+      "status": "PROVEN"
+    },
+    {
+      "phase_id": "PHASE-02-ADVISORY-REVIEW-EXPORT",
+      "required_inputs": [
+        "task_candidate_record"
+      ],
+      "required_outputs": [
+        "advisory_review_pack"
+      ],
+      "status": "PROVEN"
+    },
+    {
+      "phase_id": "PHASE-03-ADVISORY-RESPONSE-INGEST",
+      "required_inputs": [
+        "advisory_review_pack",
+        "external_advisory_response"
+      ],
+      "required_outputs": [
+        "advisory_response_record"
+      ],
+      "status": "WARNING"
+    },
+    {
+      "phase_id": "PHASE-04-TASK-MODERNIZATION",
+      "required_inputs": [
+        "advisory_response_record"
+      ],
+      "required_outputs": [
+        "task_modernization_record",
+        "updated_task_candidate"
+      ],
+      "status": "WARNING"
+    },
+    {
+      "phase_id": "PHASE-05-STAGE-MAP-AND-REVIEW",
+      "required_inputs": [
+        "updated_task_candidate"
+      ],
+      "required_outputs": [
+        "stage_map",
+        "stage_review_pack"
+      ],
+      "status": "WARNING"
+    },
+    {
+      "phase_id": "PHASE-06-READY-FOR-AGENT-GATE",
+      "required_inputs": [
+        "approved_stage_map",
+        "required_checks_and_receipts",
+        "owner_approval"
+      ],
+      "required_outputs": [
+        "ready_for_agent_record"
+      ],
+      "status": "WARNING"
+    }
+  ],
+  "allowed_status_enums": {
+    "corridor_status": [
+      "PROVEN",
+      "WARNING",
+      "UNKNOWN",
+      "BLOCKED"
+    ],
+    "task_candidate_status": [
+      "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+      "REVIEW_PACK_REQUIRED",
+      "UNDER_ADVISORY_REVIEW",
+      "MODERNIZATION_REQUIRED",
+      "READY_FOR_STAGE_MAPPING",
+      "READY_FOR_AGENT",
+      "BLOCKED"
+    ],
+    "review_pack_status": [
+      "DRAFT",
+      "READY_TO_EXPORT",
+      "EXPORTED",
+      "BLOCKED"
+    ],
+    "advisory_response_status": [
+      "RECEIVED_RAW",
+      "INGESTED",
+      "PARTIALLY_RECONCILED",
+      "BLOCKED"
+    ],
+    "task_modernization_status": [
+      "DRAFT",
+      "UPDATED",
+      "OWNER_DECISION_REQUIRED",
+      "BLOCKED"
+    ],
+    "stage_map_status": [
+      "DRAFT_NEEDS_REVIEW",
+      "REVIEW_EXPORTED",
+      "REVIEWED",
+      "MODERNIZED",
+      "APPROVED",
+      "BLOCKED"
+    ],
+    "ready_for_agent_status": [
+      "READY",
+      "BLOCKED_PENDING_REVIEW_AND_MODERNIZATION",
+      "BLOCKED"
+    ]
+  },
+  "ready_for_agent_gate_rules": [
+    "ready_for_agent must be false when advisory response ingest is missing",
+    "ready_for_agent must be false when modernization record is missing",
+    "ready_for_agent must be false when stage_map is draft/unapproved",
+    "ready_for_agent must be false when owner_approval is missing",
+    "ready_for_agent must be false when required checks/receipts are missing"
+  ],
+  "no_fake_green_rules": [
+    "No READY_FOR_AGENT without evidence_refs and required checks",
+    "Raw advisory input is not doctrine until reconciled",
+    "Chat claims cannot override receipts and git truth"
+  ],
+  "status": "PROVEN"
+}

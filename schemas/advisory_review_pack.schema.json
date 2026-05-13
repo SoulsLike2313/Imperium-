@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Advisory Review Pack v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "review_pack_id",
+    "task_id",
+    "status",
+    "reviewer_target",
+    "source_task_candidate",
+    "context_files",
+    "questions",
+    "constraints",
+    "required_response_format",
+    "no_fake_green_rules"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.advisory_review_pack.v0_1"
+    },
+    "review_pack_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "READY_TO_EXPORT",
+        "EXPORTED",
+        "BLOCKED"
+      ]
+    },
+    "reviewer_target": {
+      "type": "string"
+    },
+    "source_task_candidate": {
+      "type": "string"
+    },
+    "context_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_response_format": {
+      "type": "string"
+    },
+    "no_fake_green_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

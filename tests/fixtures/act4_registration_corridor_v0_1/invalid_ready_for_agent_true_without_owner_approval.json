@@ -1,0 +1,16 @@
+{
+  "schema_version": "imperium.ready_for_agent.v0_1",
+  "ready_id": "READY-INVALID-EXAMPLE",
+  "task_id": "TASK-CANDIDATE-EXAMPLE",
+  "stage_map_id": "STAGE-MAP-EXAMPLE",
+  "status": "READY",
+  "ready_for_agent": true,
+  "blocking_conditions": [],
+  "evidence_refs": [],
+  "required_checks": [],
+  "owner_approval": {
+    "required": true,
+    "granted": false
+  },
+  "no_fake_green_verdict": "INVALID"
+}

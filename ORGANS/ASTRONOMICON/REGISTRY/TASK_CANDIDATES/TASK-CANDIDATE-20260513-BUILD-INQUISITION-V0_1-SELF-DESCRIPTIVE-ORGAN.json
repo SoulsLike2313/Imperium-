@@ -1,0 +1,61 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "source_general_task_id": "GENERAL-TASK-20260512-IMPERIUM-FOUNDATION-ARCS-V0_1",
+  "title": "Build Inquisition v0.1 as first self-descriptive organ through IMPERIUM corridor",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Подготовить первую реализацию Inquisition v0.1 через полный цикл регистрации/review/modernization/stage gating без fake green.",
+  "scope": [
+    "Act 5 dry-run target registration",
+    "review pack export",
+    "advisory ingest plan",
+    "stage-map draft evolution"
+  ],
+  "non_goals": [
+    "Не реализовывать Inquisition в рамках Act 4 seed",
+    "Не выполнять commit/push из VM2",
+    "Не обходить review и owner gate"
+  ],
+  "owner_intent": "Act 4 должен подготовить строгий коридор, а не преждевременную реализацию organ.",
+  "base_git_truth": {
+    "head": "cfe0c317172b8de8efff186bc9c0a4fa18dc96ad",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/cfe0c317172b8de8efff186bc9c0a4fa18dc96ad",
+    "commit_count": 59
+  },
+  "required_capabilities": [
+    "organ_contract_validation",
+    "organ_self_report",
+    "inquisition_audit",
+    "script_registry_check",
+    "act3_spine_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+    "DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513/KIRO_ADVISORY_INQUISITION_SELF_BUILD_20260513.md"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ARSENAL_TOOL_INDEX.json",
+    "REGISTRY/ARSENAL_INSTALL_STATUS.json"
+  ],
+  "risks": [
+    "Raw advisory may be mistakenly treated as doctrine",
+    "READY_FOR_AGENT may be set prematurely without evidence",
+    "Missing modernization can carry stale assumptions into Act 5"
+  ],
+  "open_questions": [
+    "Какие минимальные Inquisition checks обязательны до первого execution?",
+    "Какие owner decisions должны быть explicit до READY_FOR_AGENT?",
+    "Какой формат advisory response лучше всего реингестить в modernization?"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED"
+}

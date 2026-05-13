@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Registration Corridor v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "corridor_id",
+    "task_id",
+    "stage_id",
+    "updated_at_utc",
+    "owner_organ",
+    "lifecycle_phases",
+    "required_act3_dependencies",
+    "ready_for_agent_gate_rules",
+    "no_fake_green_rules",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.registration_corridor.v0_1"
+    },
+    "corridor_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "stage_id": {
+      "type": "string"
+    },
+    "updated_at_utc": {
+      "type": "string"
+    },
+    "owner_organ": {
+      "type": "string"
+    },
+    "supporting_organs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "support_layers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "base_git_truth": {
+      "type": "object"
+    },
+    "required_act3_dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "lifecycle_phases": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "phase_id",
+          "required_inputs",
+          "required_outputs",
+          "status"
+        ],
+        "properties": {
+          "phase_id": {
+            "type": "string"
+          },
+          "required_inputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "required_outputs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PROVEN",
+              "WARNING",
+              "UNKNOWN",
+              "BLOCKED"
+            ]
+          }
+        }
+      }
+    },
+    "allowed_status_enums": {
+      "type": "object"
+    },
+    "ready_for_agent_gate_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "no_fake_green_rules": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PROVEN",
+        "WARNING",
+        "UNKNOWN",
+        "BLOCKED"
+      ]
+    }
+  }
+}

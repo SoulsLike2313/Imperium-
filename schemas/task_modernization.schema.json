@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "IMPERIUM Task Modernization v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "modernization_id",
+    "task_id",
+    "based_on_advisory_responses",
+    "changes",
+    "accepted_recommendations",
+    "rejected_recommendations",
+    "owner_decisions",
+    "updated_task_candidate_path",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "imperium.task_modernization.v0_1"
+    },
+    "modernization_id": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "based_on_advisory_responses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "accepted_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rejected_recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_decisions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "updated_task_candidate_path": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "UPDATED",
+        "OWNER_DECISION_REQUIRED",
+        "BLOCKED"
+      ]
+    }
+  }
+}
