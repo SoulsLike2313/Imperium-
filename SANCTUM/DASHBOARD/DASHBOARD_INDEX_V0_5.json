@@ -1,0 +1,79 @@
+{
+  "schema_version": "imperium.sanctum_dashboard_index.v0_5",
+  "task_id": "TASK-20260513-SANCTUM-DASHBOARD-V0_5-WORKING-PROTOTYPE",
+  "version": "SANCTUM_DASHBOARD_V0_5_WORKING_PROTOTYPE",
+  "generated_at": "2026-05-13T17:07:30.024098+00:00",
+  "dashboard_files": [
+    "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/index.html",
+    "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/styles.css",
+    "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/dashboard.js",
+    "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/dashboard_data.json",
+    "SANCTUM/DASHBOARD/DASHBOARD_INDEX_V0_5.json",
+    "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/README.md"
+  ],
+  "builder": "TOOLS/build_sanctum_dashboard_v0_5_data.py",
+  "checker": "TOOLS/check_sanctum_dashboard_v0_5.py",
+  "source_files_read": [
+    "REGISTRY/BUNDLE_ROUTE_REGISTRY.json",
+    "SANCTUM/ACTIONS/ACTION_REGISTRY.json",
+    "SANCTUM/ACTIONS/ACTION_TEST_MATRIX_V0_1.json",
+    "ASSETS/ASSET_MANIFEST.json",
+    "ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/SORTING_REPORT_20260513.md",
+    "ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/",
+    "SANCTUM/DESIGN_SYSTEM/DESIGN_TOKENS_V0_1.json",
+    "SANCTUM/DESIGN_SYSTEM/SANCTUM_VISUAL_RULES_V0_1.md",
+    "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+    "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+    "CURRENT_STATE/BUNDLE_ROUTE_FIX_20260513_REPORT.md",
+    "CURRENT_STATE/OWNER_ASSET_REGISTRATION_STEP7_2_REPORT_20260513.md",
+    "CURRENT_STATE/SANCTUM_V0_4_VISUAL_PROTOTYPE_REPORT_20260513.md",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ORGAN_REGISTRY.json"
+  ],
+  "organs": [
+    "CUSTODES",
+    "INQUISITION",
+    "MECHANICUS",
+    "ADMINISTRATUM",
+    "ASTRONOMICON",
+    "STRATEGIUM",
+    "OFFICIO_AGENTIS",
+    "THRONE",
+    "SCHOLA_IMPERIALIS",
+    "DOCTRINARIUM"
+  ],
+  "active_buttons": [
+    "toggle_orbit_animation",
+    "show_all_organs",
+    "show_guide_organs",
+    "show_warnings",
+    "filter_assets_accepted",
+    "filter_assets_candidate",
+    "filter_assets_rejected",
+    "clear_asset_filters",
+    "show_route_policy",
+    "show_action_registry",
+    "show_reports",
+    "compact_mode_toggle",
+    "clear_console"
+  ],
+  "disabled_planned_backend_actions": [
+    "real_backend_fetch_bundle_bridge",
+    "dangerous_backend_action_execution",
+    "ready_for_agent_mutation"
+  ],
+  "limitations": [
+    "Prototype is static UI_LAB dashboard; no direct dangerous backend execution.",
+    "Asset proposals remain non-canon until Owner confirmation.",
+    "READY_FOR_AGENT remains false and Act 5 execution remains blocked.",
+    "v0.29 baseline remains authoritative runtime; v0.4 preserved as technical proof."
+  ],
+  "future_promotion_requirements": [
+    "Backend bridge with gated receipts for safe actions",
+    "Playwright/UI evidence coverage",
+    "Owner visual acceptance of proposed rules/tokens",
+    "Dedicated acceptance gate before production promotion"
+  ]
+}

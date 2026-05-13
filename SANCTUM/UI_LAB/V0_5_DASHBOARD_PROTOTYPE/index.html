@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sanctum Dashboard v0.5 Prototype</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell" id="app-shell">
+    <header class="truth-bar">
+      <div class="truth-item"><span class="k">Task</span><span id="truth-task">TASK-20260513-SANCTUM-DASHBOARD-V0_5-WORKING-PROTOTYPE</span></div>
+      <div class="truth-item"><span class="k">Version</span><span>v0.5 Prototype</span></div>
+      <div class="truth-item"><span class="k">Expected HEAD</span><span id="truth-head">unknown</span></div>
+      <div class="truth-item"><span class="k">READY_FOR_AGENT</span><span class="badge blocked">false</span></div>
+      <div class="truth-item"><span class="k">Act5</span><span class="badge blocked">blocked</span></div>
+      <div class="truth-item"><span class="k">Warnings</span><span id="truth-warnings" class="badge warn">0</span></div>
+    </header>
+
+    <main class="main-grid">
+      <section class="core-zone panel">
+        <div class="panel-head">
+          <h2>Sanctum Core Orbit</h2>
+          <div class="row actions-row">
+            <button id="btn-toggle-orbit-animation" type="button">Toggle Orbit Animation</button>
+            <button id="btn-show-all-organs" type="button">Show All Organs</button>
+            <button id="btn-show-guide-organs" type="button">Show Guide Organs</button>
+            <button id="btn-show-warnings" type="button">Show Warnings</button>
+            <button id="btn-compact-mode-toggle" type="button">Compact Mode Toggle</button>
+          </div>
+        </div>
+        <div id="orbit-map" class="orbit-map animate">
+          <div class="core-nucleus">
+            <div class="core-ring ring-1"></div>
+            <div class="core-ring ring-2"></div>
+            <div class="core-label">SANCTUM CORE</div>
+          </div>
+          <svg id="orbit-lines" viewBox="0 0 1000 1000" preserveAspectRatio="none"></svg>
+          <div id="organ-nodes" class="organ-nodes"></div>
+        </div>
+      </section>
+
+      <section class="organ-zone panel">
+        <div class="panel-head">
+          <h2>Organ Detail</h2>
+          <p class="hint">Click an organ node to inspect role, status, evidence and warnings.</p>
+        </div>
+        <div id="organ-detail" class="detail-body"></div>
+      </section>
+
+      <section class="action-zone panel">
+        <div class="panel-head">
+          <h2>Action Registry</h2>
+          <div class="row actions-row">
+            <button id="btn-show-action-registry" type="button">Show Action Registry</button>
+            <button id="btn-filter-action-high" type="button">Filter High Risk</button>
+            <button id="btn-filter-action-blocked" type="button">Show Blocked/Planned</button>
+            <button id="btn-filter-action-clear" type="button">Clear Action Filters</button>
+          </div>
+        </div>
+        <input id="action-search" class="search" type="text" placeholder="Search action id/title/risk">
+        <div id="action-list" class="list"></div>
+      </section>
+
+      <section class="bundle-zone panel">
+        <div class="panel-head">
+          <h2>Bundle Route Policy</h2>
+          <div class="row actions-row">
+            <button id="btn-show-route-policy" type="button">Show Route Policy</button>
+            <button id="btn-refresh-bundle-snapshot" type="button">Simulate Bundle Refresh</button>
+            <button id="btn-filter-route-canonical" type="button">Canonical Only</button>
+            <button id="btn-filter-route-legacy" type="button">Legacy Only</button>
+            <button id="btn-filter-route-clear" type="button">All Sources</button>
+          </div>
+        </div>
+        <div id="bundle-route" class="detail-body"></div>
+        <div class="disabled-line">Real fetch requires backend bridge (planned, disabled in v0.5 prototype).</div>
+      </section>
+
+      <section class="asset-zone panel">
+        <div class="panel-head">
+          <h2>Asset Taste Evidence</h2>
+          <div class="row actions-row">
+            <button id="btn-filter-assets-accepted" type="button">Filter Assets: Accepted</button>
+            <button id="btn-filter-assets-candidate" type="button">Filter Assets: Candidate</button>
+            <button id="btn-filter-assets-rejected" type="button">Filter Assets: Rejected</button>
+            <button id="btn-clear-asset-filters" type="button">Clear Asset Filters</button>
+          </div>
+        </div>
+        <div id="asset-summary" class="detail-body"></div>
+        <div class="split">
+          <div id="asset-cards" class="list"></div>
+          <div id="asset-detail" class="detail-body"></div>
+        </div>
+      </section>
+
+      <section class="rules-zone panel">
+        <div class="panel-head">
+          <h2>Visual Rules / Tokens</h2>
+        </div>
+        <div id="rules-panel" class="detail-body"></div>
+      </section>
+
+      <section class="reports-zone panel">
+        <div class="panel-head">
+          <h2>Reports / Docs Index</h2>
+          <div class="row actions-row">
+            <button id="btn-show-reports" type="button">Show Reports</button>
+          </div>
+        </div>
+        <div class="split">
+          <div id="reports-list" class="list"></div>
+          <div id="report-detail" class="detail-body"></div>
+        </div>
+      </section>
+
+      <section class="console-zone panel">
+        <div class="panel-head">
+          <h2>Evidence Console</h2>
+          <button id="btn-clear-console" type="button">Clear Console</button>
+        </div>
+        <pre id="evidence-console" class="console"></pre>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

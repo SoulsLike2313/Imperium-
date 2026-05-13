@@ -1,0 +1,1129 @@
+{
+  "schema_version": "imperium.sanctum_dashboard_data.v0_5",
+  "task_id": "TASK-20260513-SANCTUM-DASHBOARD-V0_5-WORKING-PROTOTYPE",
+  "generated_at": "2026-05-13T17:07:30.022580+00:00",
+  "git_truth_snapshot": {
+    "expected_head": "b06d312bc2dc666523468cba727e4c8e4520dc8e",
+    "local_head": "b06d312bc2dc666523468cba727e4c8e4520dc8e",
+    "commit_count": 74,
+    "latest_commit": "b06d312 TASK-20260513: add bundle route fix asset registration and Sanctum v0.4 prototype",
+    "latest_known_commit_from_current_state": "TASK-20260513: add work session Administratum ACK skeleton"
+  },
+  "gate_truth": {
+    "ready_for_agent": false,
+    "act5_execution_ready": false
+  },
+  "organ_index": [
+    {
+      "organ_id": "CUSTODES",
+      "display_name": "Custodes",
+      "role_summary": "guard Throne boundary and clean backup protection contour",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "readiness_level": "LEVEL_0_SCAFFOLD",
+      "primary_files": [
+        "ORGANS/CUSTODES",
+        "ORGANS/CUSTODES/ORGAN_CONTRACT.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md"
+      ],
+      "available_actions": [],
+      "warnings": [
+        "not_in_first_four_scope",
+        "maturity_low_or_unknown"
+      ]
+    },
+    {
+      "organ_id": "INQUISITION",
+      "display_name": "Inquisition",
+      "role_summary": "audit, drift detection, anti-fake-green scrutiny",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "readiness_level": "LEVEL_0_SCAFFOLD",
+      "primary_files": [
+        "ORGANS/INQUISITION"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md"
+      ],
+      "available_actions": [],
+      "warnings": [
+        "not_in_first_four_scope",
+        "maturity_low_or_unknown"
+      ]
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "display_name": "Mechanicus",
+      "role_summary": "tooling, script registry, machinery contracts",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "readiness_level": "LEVEL_0_SCAFFOLD",
+      "primary_files": [
+        "ORGANS/MECHANICUS"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md"
+      ],
+      "available_actions": [
+        "ACTION-ACCEPT-VM2-HANDOFF-PC-INTAKE",
+        "ACTION-FETCH-SELECTED-VM2-BUNDLE",
+        "ACTION-LIST-VM2-BUNDLES",
+        "ACTION-OPEN-ADVISORY-BUFFER",
+        "ACTION-OPEN-ARC5-PREFIRE-ZONE",
+        "ACTION-OPEN-CURRENT-TASK-FOLDER",
+        "ACTION-REFRESH-CURRENT-TRUTH",
+        "ACTION-RUN-ACT5-PREFIRE-CHECKS",
+        "ACTION-RUN-GIT-CLI-CHECK",
+        "ACTION-SYNC-VM2-EXACT-HEAD",
+        "ACTION-TEST-VM2-ROUTE"
+      ],
+      "warnings": [
+        "not_in_first_four_scope",
+        "maturity_low_or_unknown"
+      ]
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "display_name": "Administratum",
+      "role_summary": "Continuity and operational memory routing",
+      "status": "READY",
+      "readiness_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "primary_files": [
+        "ORGANS/ADMINISTRATUM",
+        "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+        "ORGANS/ADMINISTRATUM/ORGAN_SELF_REPORT.json",
+        "ORGANS/ADMINISTRATUM/ORGAN_STATUS.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json"
+      ],
+      "available_actions": [
+        "ACTION-ISSUE-ADMINISTRATUM-ACK",
+        "ACTION-REGISTER-STAGE-PROGRESS-REPORT"
+      ],
+      "warnings": []
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "display_name": "Astronomicon",
+      "role_summary": "Planning and registration corridor governance",
+      "status": "READY",
+      "readiness_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "primary_files": [
+        "ORGANS/ASTRONOMICON",
+        "ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+        "ORGANS/ASTRONOMICON/ORGAN_SELF_REPORT.json",
+        "ORGANS/ASTRONOMICON/ORGAN_STATUS.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json"
+      ],
+      "available_actions": [
+        "ACTION-ACCEPT-VM2-HANDOFF-PC-INTAKE",
+        "ACTION-FETCH-SELECTED-VM2-BUNDLE",
+        "ACTION-LIST-VM2-BUNDLES",
+        "ACTION-OPEN-ADVISORY-BUFFER",
+        "ACTION-OPEN-ARC5-PREFIRE-ZONE",
+        "ACTION-OPEN-CURRENT-TASK-FOLDER",
+        "ACTION-READY-FOR-AGENT-GATE-CHECK",
+        "ACTION-REFRESH-CURRENT-TRUTH",
+        "ACTION-RUN-ACT5-PREFIRE-CHECKS",
+        "ACTION-RUN-GIT-CLI-CHECK",
+        "ACTION-SYNC-VM2-EXACT-HEAD",
+        "ACTION-TEST-VM2-ROUTE"
+      ],
+      "warnings": []
+    },
+    {
+      "organ_id": "STRATEGIUM",
+      "display_name": "Strategium",
+      "role_summary": "Owner-triggered low-resource advisory research for improvements",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "readiness_level": "LEVEL_0_SCAFFOLD",
+      "primary_files": [
+        "ORGANS/STRATEGIUM",
+        "ORGANS/STRATEGIUM/ORGAN_CONTRACT.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md"
+      ],
+      "available_actions": [],
+      "warnings": [
+        "not_in_first_four_scope",
+        "maturity_low_or_unknown"
+      ]
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "display_name": "Officio Agentis",
+      "role_summary": "Agent authority and permission boundary guidance",
+      "status": "PARTIAL",
+      "readiness_level": "LEVEL_4_CHECKABLE",
+      "primary_files": [
+        "ORGANS/OFFICIO_AGENTIS",
+        "ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+        "ORGANS/OFFICIO_AGENTIS/ORGAN_SELF_REPORT.json",
+        "ORGANS/OFFICIO_AGENTIS/ORGAN_STATUS.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json"
+      ],
+      "available_actions": [
+        "ACTION-READY-FOR-AGENT-GATE-CHECK"
+      ],
+      "warnings": []
+    },
+    {
+      "organ_id": "THRONE",
+      "display_name": "Throne",
+      "role_summary": "Owner-controlled canonical kernel contour acceptance boundary",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "readiness_level": "LEVEL_0_SCAFFOLD",
+      "primary_files": [
+        "ORGANS/THRONE",
+        "ORGANS/THRONE/ORGAN_CONTRACT.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md"
+      ],
+      "available_actions": [],
+      "warnings": [
+        "not_in_first_four_scope",
+        "maturity_low_or_unknown"
+      ]
+    },
+    {
+      "organ_id": "SCHOLA_IMPERIALIS",
+      "display_name": "Schola Imperialis",
+      "role_summary": "Owner learning path advisory from system changes",
+      "status": "ORGAN_SCAFFOLD_0_1",
+      "readiness_level": "LEVEL_0_SCAFFOLD",
+      "primary_files": [
+        "ORGANS/SCHOLA_IMPERIALIS",
+        "ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md"
+      ],
+      "available_actions": [],
+      "warnings": [
+        "not_in_first_four_scope",
+        "maturity_low_or_unknown"
+      ]
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "display_name": "Doctrinarium",
+      "role_summary": "Doctrine/law/no-fake-green guard for prefire sequencing",
+      "status": "READY",
+      "readiness_level": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "primary_files": [
+        "ORGANS/DOCTRINARIUM",
+        "ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+        "ORGANS/DOCTRINARIUM/ORGAN_SELF_REPORT.json",
+        "ORGANS/DOCTRINARIUM/ORGAN_STATUS.json"
+      ],
+      "related_reports": [
+        "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+        "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/FIRST_FOUR_ORGANS_ACT5_READINESS_20260513.json"
+      ],
+      "available_actions": [
+        "ACTION-RUN-ACT5-PREFIRE-CHECKS"
+      ],
+      "warnings": []
+    }
+  ],
+  "first_four_guides": {
+    "DOCTRINARIUM": {
+      "organ_id": "DOCTRINARIUM",
+      "contract_file": "ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/DOCTRINARIUM/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/DOCTRINARIUM/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "act5_guide_readiness": "READY",
+      "role_in_act5": "Doctrine/law/no-fake-green guard for prefire sequencing",
+      "blockers": [
+        "Hard-law enforcement automation incomplete"
+      ],
+      "evidence_files": [
+        "ORGANS/DOCTRINARIUM/LAWS/NO_FAKE_GREEN_POLICY.json",
+        "ORGANS/DOCTRINARIUM/SCRIPTS/doctrinarium_validate_all_organs.py",
+        "ORGANS/DOCTRINARIUM/REPORTS/DOCTRINARIUM_STATUS_REPORT.json"
+      ],
+      "next_required_work": [
+        "Keep doctrine checks synchronized with Step 5/6 contract changes"
+      ]
+    },
+    "ADMINISTRATUM": {
+      "organ_id": "ADMINISTRATUM",
+      "contract_file": "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/ADMINISTRATUM/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/ADMINISTRATUM/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "act5_guide_readiness": "READY",
+      "role_in_act5": "Continuity and operational memory routing",
+      "blockers": [
+        "Work-session ACK model is pending Step 5"
+      ],
+      "evidence_files": [
+        "ORGANS/ADMINISTRATUM/REPORTS/ADMINISTRATUM_CONTINUITY_STATUS.json",
+        "TOOLS/run_administratum_git_cli_check.sh"
+      ],
+      "next_required_work": [
+        "Formalize session/ACK continue-stop model"
+      ]
+    },
+    "ASTRONOMICON": {
+      "organ_id": "ASTRONOMICON",
+      "contract_file": "ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/ASTRONOMICON/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/ASTRONOMICON/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_5_ACT5_GUIDE_MINIMAL_READY",
+      "act5_guide_readiness": "READY",
+      "role_in_act5": "Planning and registration corridor governance",
+      "blockers": [
+        "Execution authority remains intentionally blocked",
+        "Owner stage-map approval is pending"
+      ],
+      "evidence_files": [
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/ARC5_PREFIRE_PREPARATION_TASKS_20260513.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/TASK_MODERNIZATIONS/TASK-MODERNIZATION-20260513-ACT5-PREFIRE-V0_1.json",
+        "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/README_ADVISORY_BUFFER_V0_1.md"
+      ],
+      "next_required_work": [
+        "Preserve advisory-only authority and gate evidence discipline"
+      ]
+    },
+    "OFFICIO_AGENTIS": {
+      "organ_id": "OFFICIO_AGENTIS",
+      "contract_file": "ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+      "self_report_file": "ORGANS/OFFICIO_AGENTIS/ORGAN_SELF_REPORT.json",
+      "status_file": "ORGANS/OFFICIO_AGENTIS/ORGAN_STATUS.json",
+      "current_maturity_claim": "LEVEL_4_CHECKABLE",
+      "act5_guide_readiness": "PARTIAL",
+      "role_in_act5": "Agent authority and permission boundary guidance",
+      "blockers": [
+        "Runtime permission enforcement depth is limited",
+        "Dedicated Act 5 enforcement checker absent"
+      ],
+      "evidence_files": [
+        "ORGANS/OFFICIO_AGENTIS/SCRIPTS/officio_agentis_scope.py",
+        "ORGANS/OFFICIO_AGENTIS/CONFIG/SERVITOR_RESPONSE_CONTRACT_V0_1.md"
+      ],
+      "next_required_work": [
+        "Raise to Level 5 with machine-checkable enforcement evidence"
+      ]
+    }
+  },
+  "action_index": [
+    {
+      "action_id": "ACTION-REFRESH-CURRENT-TRUTH",
+      "title": "Refresh Current Truth State",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "state",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "handler_reference": "TOOLS/build_sanctum_state_v0_1.py",
+      "required_prechecks": [
+        "Python runtime available",
+        "repo root resolved",
+        "no direct READY_FOR_AGENT mutation"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/sanctum/state/SANCTUM_STATE_RECEIPT.json"
+      ],
+      "test_or_smoke_check": "Manual click + validate SANCTUM_STATE_RECEIPT.json exists and is recent.",
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "test_status": "MANUAL_ONLY_FOR_NOW"
+    },
+    {
+      "action_id": "ACTION-RUN-GIT-CLI-CHECK",
+      "title": "Run Git CLI Check",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "verification",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "handler_reference": "SANCTUM/sanctum_git_cli_check_service_v0_1.py + TOOLS/run_administratum_git_cli_check.sh|.ps1",
+      "required_prechecks": [
+        "wrapper script exists",
+        "git executable available",
+        "receipt output path writeable"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RECEIPT.json"
+      ],
+      "test_or_smoke_check": "Run button or CLI wrapper and confirm receipt + verdict markdown.",
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "test_status": "SMOKE_DEFINED_NOT_RUN"
+    },
+    {
+      "action_id": "ACTION-TEST-VM2-ROUTE",
+      "title": "Test PC-VM2 Route",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "remote_route",
+      "risk_level": "HIGH_REMOTE_SYNC",
+      "handler_reference": "TransferService.test_route",
+      "required_prechecks": [
+        "SSH key file exists",
+        "VM2 endpoint reachable",
+        "route lock policy acknowledged"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_test_route.json"
+      ],
+      "test_or_smoke_check": "Manual button click and verify receipt action=test_route.",
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "test_status": "MANUAL_ONLY_FOR_NOW"
+    },
+    {
+      "action_id": "ACTION-LIST-VM2-BUNDLES",
+      "title": "List VM2 Bundles",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "bundle",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "handler_reference": "TransferService.list_bundles",
+      "required_prechecks": [
+        "SSH route reachable",
+        "remote outbox paths known"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_list_remote_bundles.json"
+      ],
+      "test_or_smoke_check": "Manual refresh and verify status line contains source dirs.",
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "test_status": "MANUAL_ONLY_FOR_NOW"
+    },
+    {
+      "action_id": "ACTION-FETCH-SELECTED-VM2-BUNDLE",
+      "title": "Fetch Selected VM2 Bundle",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "bundle",
+      "risk_level": "HIGH_FILE_TRANSFER",
+      "handler_reference": "TransferService.fetch_bundle",
+      "required_prechecks": [
+        "Bundle selected",
+        "SSH/scp route available",
+        "PC inbox path exists"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_fetch_bundle.json"
+      ],
+      "test_or_smoke_check": "Manual fetch on PC contour; verify receipt status (PASS/PASS_WITH_WARNINGS/FAIL).",
+      "implementation_status": "IMPLEMENTED_CONTEXT_DEPENDENT_PC_CONTOUR_REQUIRED",
+      "test_status": "MANUAL_ONLY_FOR_NOW"
+    },
+    {
+      "action_id": "ACTION-ACCEPT-VM2-HANDOFF-PC-INTAKE",
+      "title": "Accept VM2 Handoff (PC Intake)",
+      "status": "REGISTERED_CONCEPT",
+      "category": "bundle_intake",
+      "risk_level": "HIGH_GIT_WRITE",
+      "handler_reference": "TOOLS/review_worker_bundle_intake.ps1 (future integrated launcher)",
+      "required_prechecks": [
+        "bundle SHA verified",
+        "scope gate pass",
+        "owner review approval",
+        "stage allowed files policy check"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/bundle_intake_regression/BUNDLE_INTAKE_REGRESSION_RECEIPT.json"
+      ],
+      "test_or_smoke_check": "Define integration smoke after dedicated handler is wired to registry router.",
+      "implementation_status": "CONCEPT_ONLY_NOT_IMPLEMENTED_IN_SANCTUM_UI",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST"
+    },
+    {
+      "action_id": "ACTION-SYNC-VM2-EXACT-HEAD",
+      "title": "Sync VM2 to Exact PC HEAD",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "remote_sync",
+      "risk_level": "HIGH_REMOTE_SYNC",
+      "handler_reference": "MISSING: future sync_vm2_exact_head handler",
+      "required_prechecks": [
+        "dirty VM2 state captured",
+        "quarantine manifest recorded",
+        "exact head target specified",
+        "owner approval recorded"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/transfer/receipts/*_vm2_exact_head_sync.json"
+      ],
+      "test_or_smoke_check": "Blocked until handler and quarantine policy are implemented.",
+      "implementation_status": "HANDLER_MISSING_NOT_EXECUTABLE",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST"
+    },
+    {
+      "action_id": "ACTION-OPEN-CURRENT-TASK-FOLDER",
+      "title": "Open Current Task Folder",
+      "status": "REGISTERED_EXISTING_BEHAVIOR",
+      "category": "navigation",
+      "risk_level": "LOW_OPEN_READONLY",
+      "handler_reference": "MainWindow.open_selected_task_folder + MainWindow.open_path",
+      "required_prechecks": [
+        "ARTIFACTS root exists or fallback path resolved"
+      ],
+      "expected_receipts": [],
+      "test_or_smoke_check": "Manual click and verify explorer target path.",
+      "implementation_status": "IMPLEMENTED_IN_SANCTUM_BASELINE_MANUAL_VALIDATION_PENDING",
+      "test_status": "MANUAL_ONLY_FOR_NOW"
+    },
+    {
+      "action_id": "ACTION-OPEN-ADVISORY-BUFFER",
+      "title": "Open Advisory Buffer",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "navigation",
+      "risk_level": "LOW_OPEN_READONLY",
+      "handler_reference": "target path ORGANS/ASTRONOMICON/ADVISORY_BUFFER/",
+      "required_prechecks": [
+        "advisory buffer path exists"
+      ],
+      "expected_receipts": [],
+      "test_or_smoke_check": "Manual navigation test after dedicated binding is added.",
+      "implementation_status": "DIRECT_BINDING_MISSING_PARTIAL_UI_COVERAGE_ONLY",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST"
+    },
+    {
+      "action_id": "ACTION-OPEN-ARC5-PREFIRE-ZONE",
+      "title": "Open ARC5 Prefire Zone",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "navigation",
+      "risk_level": "LOW_OPEN_READONLY",
+      "handler_reference": "target path ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/",
+      "required_prechecks": [
+        "ARC5 prefire path exists"
+      ],
+      "expected_receipts": [],
+      "test_or_smoke_check": "Manual navigation test after handler wiring.",
+      "implementation_status": "HANDLER_MISSING_NOT_EXECUTABLE",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST"
+    },
+    {
+      "action_id": "ACTION-RUN-ACT5-PREFIRE-CHECKS",
+      "title": "Run Act5 Prefire Check Chain",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "verification",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "handler_reference": "future wrapper for check_arc5/check_warning/check_advisory/check_first_four/check_work_session",
+      "required_prechecks": [
+        "all checker scripts present",
+        "python runtime resolved"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/astronomicon/*_check/*_RECEIPT.json"
+      ],
+      "test_or_smoke_check": "Smoke defined; not run as a single wrapper in Step 6.",
+      "implementation_status": "HANDLER_MISSING_CHECKERS_EXIST_SEPARATELY",
+      "test_status": "SMOKE_DEFINED_NOT_RUN"
+    },
+    {
+      "action_id": "ACTION-REGISTER-STAGE-PROGRESS-REPORT",
+      "title": "Register Stage Progress Report",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "administratum_work_session",
+      "risk_level": "HIGH_GIT_WRITE",
+      "handler_reference": "TOOLS/register_stage_progress_report_v0_1.py",
+      "required_prechecks": [
+        "work-session schema/report schema valid",
+        "input report validation PASS",
+        "no self-authorization fields"
+      ],
+      "expected_receipts": [
+        "report file path in Administratum registry"
+      ],
+      "test_or_smoke_check": "Run script with --example or validation-only mode before UI binding.",
+      "implementation_status": "SCRIPT_IMPLEMENTED_UI_BINDING_PENDING",
+      "test_status": "SMOKE_DEFINED_NOT_RUN"
+    },
+    {
+      "action_id": "ACTION-ISSUE-ADMINISTRATUM-ACK",
+      "title": "Issue Administratum ACK",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "administratum_work_session",
+      "risk_level": "HIGH_GIT_WRITE",
+      "handler_reference": "TOOLS/administratum_ack_stage_progress_v0_1.py",
+      "required_prechecks": [
+        "input report validated",
+        "decision defaults to NEEDS_REVIEW unless explicit safe flags",
+        "no READY_FOR_AGENT mutation"
+      ],
+      "expected_receipts": [
+        "ack file path in Administratum registry"
+      ],
+      "test_or_smoke_check": "Run script --example and validation path before UI binding.",
+      "implementation_status": "SCRIPT_IMPLEMENTED_UI_BINDING_PENDING",
+      "test_status": "SMOKE_DEFINED_NOT_RUN"
+    },
+    {
+      "action_id": "ACTION-READY-FOR-AGENT-GATE-CHECK",
+      "title": "READY_FOR_AGENT Gate Check",
+      "status": "REGISTERED_NEEDS_HANDLER",
+      "category": "gate",
+      "risk_level": "MEDIUM_STATE_REFRESH",
+      "handler_reference": "future ready-for-agent proof checker wrapper",
+      "required_prechecks": [
+        "ready-for-agent registry files discovered",
+        "owner approval evidence path present for any true proposal"
+      ],
+      "expected_receipts": [
+        ".imperium_runtime/astronomicon/*ready*gate*receipt*.json"
+      ],
+      "test_or_smoke_check": "Define wrapper smoke after dedicated gate-proof checker is implemented.",
+      "implementation_status": "HANDLER_MISSING_NOT_EXECUTABLE",
+      "test_status": "NEEDS_HANDLER_BEFORE_TEST"
+    }
+  ],
+  "bundle_route": {
+    "canonical_vm2_outbox": "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES/",
+    "canonical_pc_inbox": "E:\\IMPERIUM\\INBOX\\VM2_BUNDLES\\",
+    "legacy_scan_dirs": [
+      "/home/vboxuser2/IMPERIUM_WORK/_handoff_out/",
+      "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX/"
+    ],
+    "source_priority_order": [
+      "/home/vboxuser2/IMPERIUM_WORK/VM2_BUNDLES/",
+      "/home/vboxuser2/IMPERIUM_WORK/_handoff_out/",
+      "/home/vboxuser2/IMPERIUM_PRIVATE/OUTBOX/"
+    ],
+    "owner_rule": "canonical VM2_BUNDLES is mandatory primary source"
+  },
+  "asset_summary": {
+    "total_assets": 25,
+    "proposed_accepted": 11,
+    "proposed_rejected": 2,
+    "proposed_candidate": 12,
+    "owner_confirmation_required": true,
+    "top_categories": [
+      {
+        "category": "orbit_core",
+        "count": 13
+      },
+      {
+        "category": "glow",
+        "count": 11
+      },
+      {
+        "category": "navigation",
+        "count": 10
+      },
+      {
+        "category": "cards_panels",
+        "count": 9
+      },
+      {
+        "category": "materials",
+        "count": 9
+      },
+      {
+        "category": "sanctum_core",
+        "count": 6
+      },
+      {
+        "category": "density",
+        "count": 5
+      },
+      {
+        "category": "organ_dashboard",
+        "count": 5
+      }
+    ],
+    "interpretation_cards_count": 25,
+    "sorting_report_excerpt": "# SORTING_REPORT_20260513\n\n- task_id: `TASK-20260513-STEP7_1F-STEP7_2-BUNDLE-ROUTE-ASSET-REGISTRATION-SANCTUM-V0_4`\n- screenshots_found_total: 25\n- annotated_count: 0\n- proposed_accepted: 11\n- proposed_rejected: 2\n- proposed_candidate: 12\n\n## Recurring Preferences (Inferred)"
+  },
+  "asset_cards": [
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_0039404fba9a69bd9e0b04215c7460f8.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/0039404fba9a69bd9e0b04215c7460f8.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "модульные карточки в единой сетке, мягкий cyan/magenta glow на тёмной базе, богатый набор графиков без светлого фона",
+      "suspected_disliked_elements": "перегруз мелкими декоративными акцентами",
+      "categories": [
+        "cards_panels",
+        "density",
+        "glow",
+        "organ_dashboard",
+        "typography"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "high",
+      "questions_for_owner": "Сохраняем high-density режим как отдельный compact preset?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_164ed485fd5513ecd0f9362766b5a736.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/164ed485fd5513ecd0f9362766b5a736.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "вертикальная ось как метафора связи ядра и интеллекта, космический масштаб и глубина",
+      "suspected_disliked_elements": "слишком абстрактно для прямого UI-компонента",
+      "categories": [
+        "orbit_core",
+        "sanctum_core",
+        "animation_restraint"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Нужна ли такая биометафора в runtime или только в splash/branding?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_31ce4506e86f524f98cd79e055779c5e.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/31ce4506e86f524f98cd79e055779c5e.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "образ дерева-сети для органной архитектуры, контраст синих и оранжевых узлов",
+      "suspected_disliked_elements": "иллюстративность выше, чем прикладной UI",
+      "categories": [
+        "orbit_core",
+        "navigation",
+        "sanctum_core"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Нужен ли tree-of-services как отдельный навигационный режим?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_3f345bccf83abe2e209613d5bcb257d0.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "единая цельная доска метрик, богатые графические слои",
+      "suspected_disliked_elements": "избыточный неон и эффекты вокруг контента",
+      "categories": [
+        "cards_panels",
+        "glow",
+        "density",
+        "organ_dashboard"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Оставляем ли только композицию без столь интенсивного свечения?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_419fa0bf382e1ce948793663f210249b.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/419fa0bf382e1ce948793663f210249b.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "волновая визуализация сигналов, единая цветовая тема",
+      "suspected_disliked_elements": "монопалитра в пурпур с низкой иерархией контраста",
+      "categories": [
+        "glow",
+        "cards_panels",
+        "animation_restraint"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "low",
+      "questions_for_owner": "Нужна ли отдельная mono-tone тема для аналитических экранов?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_5f82315f87783438692767b1163550cd.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/5f82315f87783438692767b1163550cd.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "глубокая тёмная сцена с ярким data-ядром, сочетание bar+line для доказательной панели, операторский характер",
+      "suspected_disliked_elements": "микротекст на дальнем плане",
+      "categories": [
+        "terminal_evidence",
+        "cards_panels",
+        "glow",
+        "density"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "high",
+      "questions_for_owner": "Нужна ли отдельная evidence-панель в таком стиле в v0.4?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_94771d4233f167e69f393525b3700eb2.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/94771d4233f167e69f393525b3700eb2.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "чёткие скруглённые блоки, понятная группировка карточек",
+      "suspected_disliked_elements": "слишком consumer/игровая подача, чрезмерно яркие candy-градиенты",
+      "categories": [
+        "cards_panels",
+        "typography"
+      ],
+      "proposed_status": "rejected",
+      "confidence": "medium",
+      "questions_for_owner": "Оставить только layout-скелет без визуального стиля?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_96cd06c7c216ee7dff1d18a8cdcc24db.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/96cd06c7c216ee7dff1d18a8cdcc24db.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "геопространственная сцена с узлами, умеренное зелёное свечение, ощущение стратегической карты",
+      "suspected_disliked_elements": "жёсткая привязка к конкретной карте мира",
+      "categories": [
+        "navigation",
+        "organ_dashboard",
+        "glow",
+        "materials"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "high",
+      "questions_for_owner": "Нужен ли глобус/карта как отдельный view режима операций?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_aa36b94b69f4423ba3db9fcc4a5ad48d.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/aa36b94b69f4423ba3db9fcc4a5ad48d.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "локальный hotspot поверх планеты, сеть поверх географии",
+      "suspected_disliked_elements": "минимум интерфейсных элементов",
+      "categories": [
+        "orbit_core",
+        "navigation",
+        "bundle_panel"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "medium",
+      "questions_for_owner": "Используем ли hotspot-эффект для подсветки активной зоны/узла?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_ba70df0118c985f639a2c3eeca307d4e.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ba70df0118c985f639a2c3eeca307d4e.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "лучевая концентрация в центре, слоистая карта поверхности",
+      "suspected_disliked_elements": "сильно кинематографичный стиль",
+      "categories": [
+        "orbit_core",
+        "sanctum_core",
+        "glow"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "medium",
+      "questions_for_owner": "Допустим ли такой эффект как idle-background для core-зоны?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_bc8a82022d33fea3218e90230bd4b2e4.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/bc8a82022d33fea3218e90230bd4b2e4.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "сетевые линии и узлы, образ data-tree",
+      "suspected_disliked_elements": "перегруз декоративными нодами, много иллюстративного кода",
+      "categories": [
+        "orbit_core",
+        "materials",
+        "animation_restraint"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Оставляем ли только мотив линий для фонового паттерна?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_c8cab52a13b52b6351bf205350ff7699.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/c8cab52a13b52b6351bf205350ff7699.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "вертикальная ось планет, симметрия и центрирующий диск, масштабная глубина",
+      "suspected_disliked_elements": "низкая прямолинейность для data widgets",
+      "categories": [
+        "orbit_core",
+        "sanctum_core",
+        "navigation"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "high",
+      "questions_for_owner": "Хотим ли в v0.4 статичный central-axis motif в core-панели?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_d937c359ced6eca38dd138673ea67f8a.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/d937c359ced6eca38dd138673ea67f8a.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "чистый синий спектр, научно-технический характер",
+      "suspected_disliked_elements": "биологическая конкретика может сузить контекст",
+      "categories": [
+        "materials",
+        "glow",
+        "terminal_evidence"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Использовать ли DNA-метафору только в исследовательских модулях?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_dbcd7f98e077adb9899cf3533b8c0032.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/dbcd7f98e077adb9899cf3533b8c0032.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "радиальные селекторы и орбитальные кнопки",
+      "suspected_disliked_elements": "явно game-ориентированный UI, перегруз декоративными элементами",
+      "categories": [
+        "navigation",
+        "cards_panels",
+        "glow"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "low",
+      "questions_for_owner": "Допустимо ли брать только radial-controls без геймификации?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_f2c651f33afd689ca43c37eddd8a1222.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/f2c651f33afd689ca43c37eddd8a1222.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "центральный оранжевый реактор/ядро, технические круговые HUD-слои, совмещение терминала и визуала",
+      "suspected_disliked_elements": "локальные перегруженные микроэлементы",
+      "categories": [
+        "orbit_core",
+        "terminal_evidence",
+        "navigation",
+        "materials"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "high",
+      "questions_for_owner": "Подтверждаем core-reactor motif как главный элемент v0.4?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_fc3b84d80d7a2d5ed50ba03761813b4b.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/fc3b84d80d7a2d5ed50ba03761813b4b.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "чёткая табличная и карточная иерархия, читаемые строки данных",
+      "suspected_disliked_elements": "слишком мягкий consumer-окрас фона",
+      "categories": [
+        "cards_panels",
+        "typography",
+        "density"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "medium",
+      "questions_for_owner": "Оставляем структурный каркас, но затемняем/металлизируем материалы?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_fc7534e4daf0ae1eeed98a835addd477.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/fc7534e4daf0ae1eeed98a835addd477.jpg",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "многоэкранная аналитика, четкие акцентные ring-charts",
+      "suspected_disliked_elements": "избыток cyan/purple свечения",
+      "categories": [
+        "cards_panels",
+        "glow",
+        "density",
+        "organ_dashboard"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Можно ли принять это как режим high-energy только для UI_LAB?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_Screenshot_2.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_2.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "центральный глобус/ядро, левый сайдбар + основные KPI-карточки, чёткая иерархия панелей",
+      "suspected_disliked_elements": "часть графики всё ещё декоративна",
+      "categories": [
+        "orbit_core",
+        "navigation",
+        "cards_panels",
+        "organ_dashboard"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "high",
+      "questions_for_owner": "Подтверждаем ли этот макет как главный вектор shell-композиции v0.4?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_11756.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_11756.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "глубина космической сцены, чувство движения через пространство",
+      "suspected_disliked_elements": "слишком cinematic/fantasy для рабочего UI",
+      "categories": [
+        "sanctum_core",
+        "orbit_core",
+        "materials"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "low",
+      "questions_for_owner": "Оставляем ли только цветовую атмосферу без сюжетной графики?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_2288.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_2288.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "богатая цветовая динамика",
+      "suspected_disliked_elements": "чрезмерная пестрота и перегруз, watermark/AI-label на кадре, низкая operator-практичность",
+      "categories": [
+        "glow",
+        "materials"
+      ],
+      "proposed_status": "rejected",
+      "confidence": "medium",
+      "questions_for_owner": "Подтверждаем ли исключение этого стиля из рабочих панелей?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_2763.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_2763.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "символическая космическая идентичность",
+      "suspected_disliked_elements": "сильный narrative-art без data-структур",
+      "categories": [
+        "sanctum_core",
+        "materials"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "low",
+      "questions_for_owner": "Нужна ли вообще figurative imagery (астронавт) в Sanctum?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_3323.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_3323.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "элегантная кольцевая геометрия, чистые световые траектории",
+      "suspected_disliked_elements": "пейзажная сцена не интерфейсна",
+      "categories": [
+        "orbit_core",
+        "materials",
+        "animation_restraint"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Можно ли использовать ring-arc motif как декоративный слой вокруг core?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_3696.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_3696.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "узлы и связи в центре, контраст синих и тёплых точек",
+      "suspected_disliked_elements": "нет явных текстовых/карточных зон",
+      "categories": [
+        "orbit_core",
+        "navigation",
+        "glow"
+      ],
+      "proposed_status": "candidate",
+      "confidence": "medium",
+      "questions_for_owner": "Используем ли сетевой burst как состояние активности ядра?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_4401.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_4401.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "золотая constellation-геометрия, компасная/картографическая семантика",
+      "suspected_disliked_elements": "высокая художественность, мало прямого UI",
+      "categories": [
+        "navigation",
+        "orbit_core",
+        "materials"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "medium",
+      "questions_for_owner": "Подтверждаем ли золотой акцент для навигационных линий/маяков?"
+    },
+    {
+      "card_file": "E:/IMPERIUM/ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/INTERPRETATION_CARDS/CARD_videoframe_5715.md",
+      "image_path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_5715.png",
+      "source_type": "raw",
+      "detected_markings": "None detected (raw image without arrows/circles/highlights/text callouts).",
+      "suspected_liked_elements": "структура нейросети с яркими узлами, контраст blue/orange для signal channels",
+      "suspected_disliked_elements": "нет модульных UI контейнеров",
+      "categories": [
+        "navigation",
+        "orbit_core",
+        "terminal_evidence"
+      ],
+      "proposed_status": "accepted",
+      "confidence": "medium",
+      "questions_for_owner": "Сохраняем ли orange secondary channel как тревожный/активный сигнал?"
+    }
+  ],
+  "reports_index": [
+    {
+      "title": "ARC5 Current Truth",
+      "path": "CURRENT_STATE/ARC5_PREFIRE_CURRENT_TRUTH_20260513.json",
+      "summary": "Current prefire truth and blocked execution status."
+    },
+    {
+      "title": "Next Atomic Step",
+      "path": "CURRENT_STATE/NEXT_ATOMIC_STEP.md",
+      "summary": "Current sequence and forbidden next actions."
+    },
+    {
+      "title": "Bundle Route Fix Report",
+      "path": "CURRENT_STATE/BUNDLE_ROUTE_FIX_20260513_REPORT.md",
+      "summary": "Canonical VM2 outbox route policy evidence."
+    },
+    {
+      "title": "Owner Asset Registration Step 7.2 Report",
+      "path": "CURRENT_STATE/OWNER_ASSET_REGISTRATION_STEP7_2_REPORT_20260513.md",
+      "summary": "Asset intake counts and proposal boundaries."
+    },
+    {
+      "title": "Sanctum v0.4 Prototype Report",
+      "path": "CURRENT_STATE/SANCTUM_V0_4_VISUAL_PROTOTYPE_REPORT_20260513.md",
+      "summary": "v0.4 technical proof status and limitations."
+    },
+    {
+      "title": "Visual Rules",
+      "path": "SANCTUM/DESIGN_SYSTEM/SANCTUM_VISUAL_RULES_V0_1.md",
+      "summary": "Confirmed and proposed visual rules."
+    },
+    {
+      "title": "Sorting Report",
+      "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/SERVITOR_SORTING_OUTPUT/SORTING_REPORT_20260513.md",
+      "summary": "Interpreted owner taste evidence report."
+    }
+  ],
+  "warnings": [
+    "No false PASS claims: READY_FOR_AGENT must remain false.",
+    "Act 5 execution remains blocked.",
+    "Disabled/planned actions in registry: 8"
+  ],
+  "ui_capabilities": {
+    "implemented_buttons": [
+      "toggle_orbit_animation",
+      "show_all_organs",
+      "show_guide_organs",
+      "show_warnings",
+      "filter_assets_accepted",
+      "filter_assets_candidate",
+      "filter_assets_rejected",
+      "clear_asset_filters",
+      "show_route_policy",
+      "show_action_registry",
+      "show_reports",
+      "compact_mode_toggle",
+      "clear_console"
+    ],
+    "disabled_or_planned": [
+      "real_backend_fetch_bundle_bridge",
+      "dangerous_backend_action_execution",
+      "ready_for_agent_mutation"
+    ]
+  },
+  "visual_rules_tokens_summary": {
+    "rules_preview": "# SANCTUM_VISUAL_RULES_V0_1\n\n## Confirmed Current Rules\n1. Accepted runtime baseline remains `SANCTUM/sanctum_v0_29_qt.py`.\n2. Visual experiments must run in `SANCTUM/UI_LAB` or separate experimental runtime files.\n3. No direct destructive rewrite of accepted runtime without explicit promotion.\n4. Screenshot intake enters only through `ASSETS/INBOX_OWNER_VISUAL_SORTING`.\n5. Canon visual rules require explicit Owner confirmation.\n6. Rejected patterns must stay documented for traceability.\n7. No false-pass: visual completeness cannot be claimed without evidence.\n\n## Proposed Rules from Step 7.2 (Pending Owner Confirmation)\n1. Core visual grammar: `central nucleus + orbit nodes + network links`.\n2. Operator readability priority: data cards, evidence strips, and terminal text must remain dominant.\n3. Palette direction: deep navy/charcoal base, cyan/blue highlights, limited orange/gold signal accents.\n4. Neon restraint: avoid broad saturated glow fields that reduce legibility.\n5. Bundle and truth panels should be explicit, readable, and evidence-first.\n6. Game-like UI motifs are candidate/rejected by default unless Owner explicitly approves.",
+    "tokens_status": "starter_tokens_pending_visual_references",
+    "tokens_roles": [
+      "bg_base",
+      "bg_elevated",
+      "panel_surface",
+      "panel_edge",
+      "text_primary",
+      "text_muted",
+      "accent_primary",
+      "accent_secondary",
+      "signal_warn",
+      "signal_blocked"
+    ]
+  }
+}

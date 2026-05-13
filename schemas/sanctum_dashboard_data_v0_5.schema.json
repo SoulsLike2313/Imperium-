@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium/schemas/sanctum_dashboard_data_v0_5.schema.json",
+  "title": "Sanctum Dashboard Data v0.5",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "generated_at",
+    "git_truth_snapshot",
+    "gate_truth",
+    "organ_index",
+    "first_four_guides",
+    "action_index",
+    "bundle_route",
+    "asset_summary",
+    "asset_cards",
+    "reports_index",
+    "warnings",
+    "ui_capabilities"
+  ],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "task_id": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "git_truth_snapshot": {"type": "object"},
+    "gate_truth": {
+      "type": "object",
+      "required": ["ready_for_agent", "act5_execution_ready"],
+      "properties": {
+        "ready_for_agent": {"type": "boolean"},
+        "act5_execution_ready": {"type": "boolean"}
+      }
+    },
+    "organ_index": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "organ_id",
+          "display_name",
+          "role_summary",
+          "status",
+          "readiness_level",
+          "primary_files",
+          "related_reports",
+          "available_actions",
+          "warnings"
+        ],
+        "properties": {
+          "organ_id": {"type": "string"},
+          "display_name": {"type": "string"},
+          "role_summary": {"type": "string"},
+          "status": {"type": "string"},
+          "readiness_level": {"type": "string"},
+          "primary_files": {"type": "array", "items": {"type": "string"}},
+          "related_reports": {"type": "array", "items": {"type": "string"}},
+          "available_actions": {"type": "array", "items": {"type": "string"}},
+          "warnings": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "first_four_guides": {"type": "object"},
+    "action_index": {"type": "array", "items": {"type": "object"}},
+    "bundle_route": {"type": "object"},
+    "asset_summary": {"type": "object"},
+    "asset_cards": {"type": "array", "items": {"type": "object"}},
+    "reports_index": {"type": "array", "items": {"type": "object"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "ui_capabilities": {"type": "object"}
+  },
+  "additionalProperties": true
+}

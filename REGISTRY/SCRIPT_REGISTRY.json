@@ -1,6 +1,6 @@
 {
   "schema_version": "imperium.script_registry.v0_1",
-  "updated_at_utc": "2026-05-13T16:26:42+00:00",
+  "updated_at_utc": "2026-05-13T17:00:31.800104+00:00",
   "generated_by": "TASK-20260513-STEP7_1F-STEP7_2-BUNDLE-ROUTE-ASSET-REGISTRATION-SANCTUM-V0_4",
   "legacy_source_schema_version": "IMPERIUM_SCRIPT_REGISTRY_V0_1",
   "notes": [
@@ -1602,6 +1602,99 @@
       ],
       "example_safe_invocation": "python3 TOOLS/check_sanctum_v0_4_visual_factory_v0_1.py --repo-root .",
       "verification_command": "python3 TOOLS/check_sanctum_v0_4_visual_factory_v0_1.py --repo-root .",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-BUILD-SANCTUM-DASHBOARD-V0_5-DATA",
+      "path": "TOOLS/build_sanctum_dashboard_v0_5_data.py",
+      "name": "build_sanctum_dashboard_v0_5_data.py",
+      "owner_organ": "SANCTUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Build machine-readable dashboard data/index snapshots for Sanctum v0.5 prototype.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/build_sanctum_dashboard_v0_5_data.py",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root"
+      ],
+      "reads": [
+        "REGISTRY/BUNDLE_ROUTE_REGISTRY.json",
+        "SANCTUM/ACTIONS/ACTION_REGISTRY.json",
+        "ASSETS/ASSET_MANIFEST.json",
+        "CURRENT_STATE/*",
+        "ORGANS/ASTRONOMICON/REGISTRY/ARC5_PREFIRE/*"
+      ],
+      "writes": [
+        "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/dashboard_data.json",
+        "SANCTUM/DASHBOARD/DASHBOARD_INDEX_V0_5.json"
+      ],
+      "side_effects": [
+        "MODIFIES_REPO"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": true,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0
+      ],
+      "example_safe_invocation": "python3 TOOLS/build_sanctum_dashboard_v0_5_data.py",
+      "verification_command": "python3 TOOLS/check_sanctum_dashboard_v0_5.py",
+      "last_verified_at": null,
+      "status": "REGISTERED"
+    },
+    {
+      "script_id": "SCRIPT-CHECK-SANCTUM-DASHBOARD-V0_5",
+      "path": "TOOLS/check_sanctum_dashboard_v0_5.py",
+      "name": "check_sanctum_dashboard_v0_5.py",
+      "owner_organ": "SANCTUM",
+      "support_layer": "SCRIPTORIUM",
+      "purpose": "Validate Sanctum Dashboard v0.5 prototype files, data/index integrity, and safety constraints.",
+      "platform": "CROSS_PLATFORM",
+      "runtime": "PYTHON3",
+      "entrypoint_command": "python3 TOOLS/check_sanctum_dashboard_v0_5.py --repo-root .",
+      "required_args": [],
+      "optional_args": [
+        "--repo-root",
+        "--json"
+      ],
+      "reads": [
+        "SANCTUM/UI_LAB/V0_5_DASHBOARD_PROTOTYPE/*",
+        "SANCTUM/DASHBOARD/DASHBOARD_INDEX_V0_5.json",
+        "git diff"
+      ],
+      "writes": [],
+      "side_effects": [
+        "READ_ONLY_CHECK"
+      ],
+      "produces_receipts": false,
+      "receipt_paths": [],
+      "modifies_repo": false,
+      "commit_push_capable": false,
+      "vm2_sync_capable": false,
+      "requires_owner_approval": false,
+      "safe_for_servitor": true,
+      "dangerous_if_misused": false,
+      "known_dependencies": [
+        "python3",
+        "git"
+      ],
+      "expected_exit_codes": [
+        0,
+        2
+      ],
+      "example_safe_invocation": "python3 TOOLS/check_sanctum_dashboard_v0_5.py --repo-root .",
+      "verification_command": "python3 TOOLS/check_sanctum_dashboard_v0_5.py --repo-root .",
       "last_verified_at": null,
       "status": "REGISTERED"
     }
