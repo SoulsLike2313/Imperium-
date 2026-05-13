@@ -1,0 +1,67 @@
+{
+  "schema_version": "imperium.advisory_review_pack.v0_1",
+  "review_pack_id": "REVIEW-PACK-20260513-INQUISITION-001-BLUEPRINT-SPECULUM-KIRO-V0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1",
+  "status": "READY_TO_EXPORT",
+  "reviewer_target": "LOGOS_SPECULUM_OR_KIRO_TECHNICAL_REVIEWER",
+  "source_task_candidate": "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1.json",
+  "source_general_task": "ORGANS/ASTRONOMICON/REGISTRY/GENERAL_TASKS/GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json",
+  "context_files": [
+    "DOCS/ACT4_FULL_REGISTRATION_CORRIDOR_SEED_20260513.md",
+    "DOCS/ACT3_ADDRESS_TRUTH_CAPABILITY_SPINE_SEED_20260513.md",
+    "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/TRUTH_SOURCE_REGISTRY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/CAPABILITY_SPINE_V0_1.json",
+    "ORGANS/ADMINISTRATUM/REGISTRY/WARNING_STALE_BASELINE_V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+    "DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513/KIRO_ADVISORY_INQUISITION_SELF_BUILD_20260513.md",
+    "ORGANS/ASTRONOMICON/REGISTRY/GENERAL_TASKS/GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/STAGE-MAP-DRAFT-20260513-INQUISITION-001-BLUEPRINT-V0_1.json"
+  ],
+  "git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "act3_dependencies": [
+    "ZONE_REGISTRY_V0_1",
+    "TRUTH_SOURCE_REGISTRY_V0_1",
+    "CAPABILITY_SPINE_V0_1",
+    "WARNING_STALE_BASELINE_V0_1"
+  ],
+  "act4_dependencies": [
+    "ACT4_REGISTRATION_CORRIDOR_V0_1",
+    "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN"
+  ],
+  "raw_advisory_input": "RAW_ADVISORY_INPUT_NOT_YET_RECONCILED",
+  "raw_advisory_ref": "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+  "questions": [
+    "What is the smallest useful Inquisition v0.1 organ contract that guarantees no-fake-green audit capability?",
+    "Which audit categories must Inquisition v0.1 detect before READY_FOR_AGENT can be set true for any task?",
+    "What should Inquisition v0.1 explicitly NOT audit yet to avoid scope creep?",
+    "Which files are mandatory for a real organ (minimum viable organ structure)?",
+    "Which schemas are missing that Inquisition v0.1 needs?",
+    "Which checks prevent fake green most effectively with minimal implementation?",
+    "What could cause unsafe over-automation if Inquisition is given too much authority?",
+    "Which stage in the blueprint task should be executed first and why?",
+    "What conditions should block READY_FOR_AGENT for the blueprint task specifically?",
+    "How should Inquisition report UNKNOWN status without turning it into a false PASS?"
+  ],
+  "constraints": [
+    "No commit/push from VM2",
+    "PC-only commit/push authority",
+    "Advisory is not doctrine until reconciled",
+    "No READY_FOR_AGENT without explicit evidence and owner approval",
+    "Blueprint task is planning only — no implementation",
+    "Advice is raw input until ingested and reconciled through modernization"
+  ],
+  "required_response_format": "Use ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_RESPONSES/* with schema advisory_response.schema.json. Map accepted/rejected recommendations explicitly. Include risk assessment for each recommendation.",
+  "no_fake_green_rules": [
+    "Do not declare READY_FOR_AGENT in review response",
+    "Flag unknowns as UNKNOWN/WARNING",
+    "Provide blockers instead of optimistic PASS claims",
+    "Do not claim implementation exists based on blueprint alone",
+    "Do not treat this review pack as proof of Inquisition readiness"
+  ]
+}

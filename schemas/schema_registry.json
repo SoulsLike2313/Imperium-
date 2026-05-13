@@ -120,6 +120,11 @@
       "schema_id": "imperium.registration_corridor.v0_1",
       "path": "schemas/registration_corridor.schema.json",
       "kind": "registry"
+    },
+    {
+      "schema_id": "imperium.general_task.v0_1",
+      "path": "schemas/general_task.schema.json",
+      "kind": "registry"
     }
   ]
 }

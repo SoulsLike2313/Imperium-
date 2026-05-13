@@ -12,6 +12,10 @@ STAGE_ID = "STAGE-001-ACT4-SCHEMAS-REGISTRIES-CHECKER-AND-INQUISITION-DRY-RUN-CA
 EXPECTED_HEAD = "cfe0c317172b8de8efff186bc9c0a4fa18dc96ad"
 EXPECTED_TREE_URL = f"https://github.com/SoulsLike2313/Imperium-/tree/{EXPECTED_HEAD}"
 
+# Decomposition phase: accept newer HEAD as valid for decomposition outputs
+DECOMPOSITION_HEAD = "8a7d279047669fc37a9cda49b460362c5bede952"
+DECOMPOSITION_TREE_URL = f"https://github.com/SoulsLike2313/Imperium-/tree/{DECOMPOSITION_HEAD}"
+
 STATUS_ENUM = {"PROVEN", "WARNING", "UNKNOWN", "BLOCKED"}
 RAW_ADVISORY_STATUS = "RAW_ADVISORY_INPUT_NOT_YET_RECONCILED"
 RAW_ADVISORY_STATUS_ALIAS = "REGISTERED_RAW_ADVISORY_NOT_RECONCILED"
@@ -46,6 +50,42 @@ SCHEMA_PATHS = [
     "schemas/stage_map.schema.json",
     "schemas/ready_for_agent.schema.json",
     "schemas/registration_corridor.schema.json",
+    "schemas/general_task.schema.json",
+]
+
+# --- Decomposition output paths ---
+GENERAL_TASK_JSON_PATH = (
+    "ORGANS/ASTRONOMICON/REGISTRY/GENERAL_TASKS/"
+    "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json"
+)
+FIRST_INQUISITION_CANDIDATE_PATH = (
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/"
+    "TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1.json"
+)
+FIRST_INQUISITION_STAGE_MAP_PATH = (
+    "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/"
+    "STAGE-MAP-DRAFT-20260513-INQUISITION-001-BLUEPRINT-V0_1.json"
+)
+INQUISITION_REVIEW_PACK_PATH = (
+    "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/"
+    "REVIEW-PACK-20260513-INQUISITION-001-BLUEPRINT-SPECULUM-KIRO-V0_1.json"
+)
+READY_GATE_V0_2_PATH = (
+    "ORGANS/ASTRONOMICON/REGISTRY/READY_FOR_AGENT/"
+    "READY-FOR-AGENT-20260513-INQUISITION-V0_1-SELF-BUILD-BLOCKED-V0_2.json"
+)
+
+INQUISITION_CANDIDATE_PATHS = [
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-002-REVIEW-PACK-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-003-ADVISORY-INGEST-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-004-TASK-MODERNIZATION-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-005-STAGE-MAP-APPROVAL-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-006-CONTRACT-REGISTRY-SCHEMAS-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-007-SELF-REPORT-PORT-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-008-FIRST-AUDIT-CHECKER-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-009-VM2-BUNDLE-PC-INTAKE-SYNC-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-010-OBSERVE-AGENT-BLOCKERS-V0_1.json",
 ]
 
 ACT3_DEP_PATHS = [
@@ -293,7 +333,7 @@ def check_review_pack(payload: dict[str, Any], blockers: list[str]) -> dict[str,
         add_unique(blockers, "review_pack_status_unexpected")
 
     src = payload.get("source_task_candidate")
-    if src != TASK_CANDIDATE_PATH:
+    if src not in (TASK_CANDIDATE_PATH, FIRST_INQUISITION_CANDIDATE_PATH):
         add_unique(blockers, "review_pack_source_task_candidate_mismatch")
 
     if payload.get("raw_advisory_input") != "RAW_ADVISORY_INPUT_NOT_YET_RECONCILED":
@@ -425,6 +465,198 @@ def check_advisory_registration(payload: dict[str, Any], blockers: list[str], wa
 
 
 
+def check_general_task_json(
+    payload: dict[str, Any], blockers: list[str], warnings: list[str]
+) -> dict[str, Any]:
+    """Validate the machine-readable GENERAL_TASK record."""
+    required = [
+        "schema_version",
+        "general_task_id",
+        "title",
+        "status",
+        "owner_intent",
+        "source_draft_path",
+        "base_git_truth",
+        "current_phase",
+        "desired_end_state",
+        "scope",
+        "non_goals",
+        "required_context_files",
+        "required_capabilities",
+        "supporting_organs",
+        "support_layers",
+        "related_advisory_inputs",
+        "decomposition_outputs",
+        "next_required_phase",
+        "ready_for_agent",
+        "no_fake_green_rules",
+        "owner_decision_gates",
+        "evidence_refs",
+    ]
+    for key in required:
+        if key not in payload:
+            add_unique(blockers, f"general_task_json_missing_field:{key}")
+
+    if payload.get("schema_version") != "imperium.general_task.v0_1":
+        add_unique(warnings, "general_task_json_schema_version_unexpected")
+
+    if payload.get("status") != "REGISTERED_FOR_DECOMPOSITION":
+        add_unique(blockers, "general_task_json_status_not_registered_for_decomposition")
+
+    if payload.get("ready_for_agent") is not False:
+        add_unique(blockers, "general_task_json_ready_for_agent_must_be_false")
+
+    base_truth = payload.get("base_git_truth")
+    if isinstance(base_truth, dict):
+        head = base_truth.get("head")
+        if head not in (EXPECTED_HEAD, DECOMPOSITION_HEAD):
+            add_unique(blockers, f"general_task_json_head_mismatch:{head}")
+    else:
+        add_unique(blockers, "general_task_json_base_git_truth_not_object")
+
+    decomp = payload.get("decomposition_outputs")
+    if isinstance(decomp, dict):
+        candidates = decomp.get("task_candidates")
+        if not isinstance(candidates, list) or len(candidates) < 1:
+            add_unique(blockers, "general_task_json_decomposition_outputs_no_candidates")
+    else:
+        add_unique(blockers, "general_task_json_decomposition_outputs_not_object")
+
+    return {"status": payload.get("status")}
+
+
+def check_inquisition_candidate(
+    payload: dict[str, Any], tag: str, blockers: list[str], warnings: list[str]
+) -> dict[str, Any]:
+    """Validate a single Inquisition task candidate."""
+    required = [
+        "schema_version",
+        "task_id",
+        "source_general_task_id",
+        "title",
+        "status",
+        "goal",
+        "scope",
+        "non_goals",
+        "owner_intent",
+        "base_git_truth",
+        "required_capabilities",
+        "allowed_scripts",
+        "forbidden_tools",
+        "related_advisory_inputs",
+        "risks",
+        "open_questions",
+        "next_required_phase",
+        "ready_for_agent",
+    ]
+    for key in required:
+        if key not in payload:
+            add_unique(blockers, f"{tag}:missing_field:{key}")
+
+    if payload.get("schema_version") != "imperium.task_candidate.v0_1":
+        add_unique(blockers, f"{tag}:schema_version_mismatch")
+
+    status = payload.get("status")
+    if status not in ("REGISTERED_CANDIDATE_NEEDS_REVIEW", "DRAFT_NEEDS_REVIEW"):
+        add_unique(blockers, f"{tag}:status_unexpected:{status}")
+
+    if payload.get("ready_for_agent") is not False:
+        add_unique(blockers, f"{tag}:ready_for_agent_must_be_false")
+
+    source_gt = payload.get("source_general_task_id")
+    if source_gt != "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN":
+        add_unique(blockers, f"{tag}:source_general_task_id_mismatch")
+
+    return {"task_id": payload.get("task_id"), "status": status}
+
+
+def check_inquisition_stage_map(
+    payload: dict[str, Any], blockers: list[str], warnings: list[str]
+) -> dict[str, Any]:
+    """Validate the first Inquisition task stage map draft."""
+    required = ["schema_version", "stage_map_id", "task_id", "status", "stages"]
+    for key in required:
+        if key not in payload:
+            add_unique(blockers, f"inquisition_stage_map_missing_field:{key}")
+
+    if payload.get("schema_version") != "imperium.stage_map.v0_1":
+        add_unique(blockers, "inquisition_stage_map_schema_version_mismatch")
+
+    if payload.get("status") != "DRAFT_NEEDS_REVIEW":
+        add_unique(blockers, "inquisition_stage_map_status_unexpected")
+    else:
+        add_unique(warnings, "inquisition_stage_map_is_draft_needs_review")
+
+    if payload.get("task_id") != "TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1":
+        add_unique(blockers, "inquisition_stage_map_task_id_mismatch")
+
+    stages = payload.get("stages")
+    if not isinstance(stages, list) or len(stages) < 5:
+        add_unique(blockers, "inquisition_stage_map_insufficient_stages")
+    else:
+        for idx, stage in enumerate(stages):
+            stag = f"inquisition_stage_map_stage[{idx}]"
+            if not isinstance(stage, dict):
+                add_unique(blockers, f"{stag}:not_object")
+                continue
+            for key in (
+                "stage_id", "goal", "inputs", "outputs", "allowed_paths",
+                "forbidden_paths", "required_scripts", "required_capabilities",
+                "checks", "receipts", "owner_decision_gates", "pass_criteria",
+                "fail_criteria", "bundle_policy",
+            ):
+                if key not in stage:
+                    add_unique(blockers, f"{stag}:missing_field:{key}")
+
+    return {"stages_count": len(stages) if isinstance(stages, list) else 0}
+
+
+def check_ready_gate_v0_2(
+    payload: dict[str, Any], blockers: list[str], warnings: list[str]
+) -> dict[str, Any]:
+    """Validate the v0_2 READY_FOR_AGENT negative gate."""
+    required = [
+        "schema_version", "ready_id", "task_id", "stage_map_id",
+        "status", "ready_for_agent", "blocking_conditions",
+        "evidence_refs", "required_checks", "owner_approval",
+        "no_fake_green_verdict",
+    ]
+    for key in required:
+        if key not in payload:
+            add_unique(blockers, f"ready_gate_v0_2_missing_field:{key}")
+
+    if payload.get("schema_version") != "imperium.ready_for_agent.v0_1":
+        add_unique(blockers, "ready_gate_v0_2_schema_version_mismatch")
+
+    if payload.get("status") != "BLOCKED_PENDING_REVIEW_AND_MODERNIZATION":
+        add_unique(blockers, "ready_gate_v0_2_status_unexpected")
+
+    if payload.get("ready_for_agent") is not False:
+        add_unique(blockers, "ready_gate_v0_2_ready_for_agent_must_be_false")
+
+    owner_approval = payload.get("owner_approval")
+    if isinstance(owner_approval, dict):
+        if owner_approval.get("required") is not True:
+            add_unique(blockers, "ready_gate_v0_2_owner_approval_required_not_true")
+        if owner_approval.get("granted") is not False:
+            add_unique(blockers, "ready_gate_v0_2_owner_approval_granted_not_false")
+    else:
+        add_unique(blockers, "ready_gate_v0_2_owner_approval_not_object")
+
+    blocking_conditions = payload.get("blocking_conditions")
+    if not isinstance(blocking_conditions, list) or len(blocking_conditions) < 3:
+        add_unique(blockers, "ready_gate_v0_2_blocking_conditions_insufficient")
+
+    evidence_refs = payload.get("evidence_refs")
+    if not isinstance(evidence_refs, list) or len(evidence_refs) < 3:
+        add_unique(blockers, "ready_gate_v0_2_evidence_refs_insufficient")
+
+    return {
+        "blocking_conditions_count": len(blocking_conditions)
+        if isinstance(blocking_conditions, list) else 0
+    }
+
+
 def render_verdict_md(report: dict[str, Any]) -> str:
     lines = [
         "# ACT4 REGISTRATION CORRIDOR CHECK VERDICT",
@@ -434,17 +666,25 @@ def render_verdict_md(report: dict[str, Any]) -> str:
         f"- timestamp_utc: {report['timestamp_utc']}",
         f"- repo_root: {report['repo_root']}",
         f"- expected_head: {EXPECTED_HEAD}",
+        f"- decomposition_head: {DECOMPOSITION_HEAD}",
         f"- verdict: {report['verdict']}",
         f"- blockers: {report['counts']['blockers']}",
         f"- warnings: {report['counts']['warnings']}",
         "",
-        "## Checked Files",
+        "## Checked Files (Seed)",
         f"- corridor: {CORRIDOR_PATH}",
         f"- task_candidate: {TASK_CANDIDATE_PATH}",
         f"- review_pack: {REVIEW_PACK_PATH}",
         f"- stage_map: {STAGE_MAP_PATH}",
         f"- ready_gate: {READY_GATE_PATH}",
         f"- advisory_registration: {ADVISORY_REG_PATH}",
+        "",
+        "## Checked Files (Decomposition)",
+        f"- general_task_json: {GENERAL_TASK_JSON_PATH}",
+        f"- first_inquisition_candidate: {FIRST_INQUISITION_CANDIDATE_PATH}",
+        f"- inquisition_stage_map: {FIRST_INQUISITION_STAGE_MAP_PATH}",
+        f"- inquisition_review_pack: {INQUISITION_REVIEW_PACK_PATH}",
+        f"- ready_gate_v0_2: {READY_GATE_V0_2_PATH}",
     ]
 
     if report["blockers"]:
@@ -505,6 +745,51 @@ def run_check(repo_root: Path) -> dict[str, Any]:
     if advisory_reg is not None:
         details["advisory_registration"] = check_advisory_registration(advisory_reg, blockers, warnings)
 
+    # --- Decomposition output checks ---
+    general_task_json = load_json(repo_root / GENERAL_TASK_JSON_PATH, "general_task_json", blockers)
+    if general_task_json is not None:
+        details["general_task_json"] = check_general_task_json(general_task_json, blockers, warnings)
+
+    # Check first Inquisition candidate
+    first_candidate = load_json(
+        repo_root / FIRST_INQUISITION_CANDIDATE_PATH, "first_inquisition_candidate", blockers
+    )
+    if first_candidate is not None:
+        details["first_inquisition_candidate"] = check_inquisition_candidate(
+            first_candidate, "first_inquisition_candidate", blockers, warnings
+        )
+
+    # Check first Inquisition stage map
+    inq_stage_map = load_json(
+        repo_root / FIRST_INQUISITION_STAGE_MAP_PATH, "inquisition_stage_map", blockers
+    )
+    if inq_stage_map is not None:
+        details["inquisition_stage_map"] = check_inquisition_stage_map(inq_stage_map, blockers, warnings)
+
+    # Check Inquisition review pack
+    inq_review_pack = load_json(
+        repo_root / INQUISITION_REVIEW_PACK_PATH, "inquisition_review_pack", blockers
+    )
+    if inq_review_pack is not None:
+        details["inquisition_review_pack"] = check_review_pack(inq_review_pack, blockers)
+
+    # Check READY_FOR_AGENT v0_2
+    ready_gate_v0_2 = load_json(
+        repo_root / READY_GATE_V0_2_PATH, "ready_gate_v0_2", blockers
+    )
+    if ready_gate_v0_2 is not None:
+        details["ready_gate_v0_2"] = check_ready_gate_v0_2(ready_gate_v0_2, blockers, warnings)
+
+    # Check all 10 Inquisition candidate files exist
+    missing_candidates = []
+    for cpath in INQUISITION_CANDIDATE_PATHS:
+        if not (repo_root / cpath).exists():
+            missing_candidates.append(cpath)
+    if missing_candidates:
+        for mc in missing_candidates:
+            add_unique(warnings, f"missing_inquisition_candidate:{mc}")
+    details["inquisition_candidates_found"] = len(INQUISITION_CANDIDATE_PATHS) - len(missing_candidates)
+
     if blockers:
         verdict = "BLOCKED"
     elif warnings:
@@ -564,6 +849,11 @@ def run_check(repo_root: Path) -> dict[str, Any]:
             STAGE_MAP_PATH,
             READY_GATE_PATH,
             ADVISORY_REG_PATH,
+            GENERAL_TASK_JSON_PATH,
+            FIRST_INQUISITION_CANDIDATE_PATH,
+            FIRST_INQUISITION_STAGE_MAP_PATH,
+            INQUISITION_REVIEW_PACK_PATH,
+            READY_GATE_V0_2_PATH,
             "schemas/schema_registry.json",
         ]
         + SCHEMA_PATHS

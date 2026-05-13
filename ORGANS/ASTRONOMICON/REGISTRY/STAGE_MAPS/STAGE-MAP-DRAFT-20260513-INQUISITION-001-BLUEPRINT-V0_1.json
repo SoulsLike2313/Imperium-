@@ -1,0 +1,430 @@
+{
+  "schema_version": "imperium.stage_map.v0_1",
+  "stage_map_id": "STAGE-MAP-DRAFT-20260513-INQUISITION-001-BLUEPRINT-V0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1",
+  "status": "DRAFT_NEEDS_REVIEW",
+  "stages": [
+    {
+      "stage_id": "STAGE-001-READ-SCHEMAS-AND-ADVISORY",
+      "goal": "Read current organ/self-description schemas and Kiro advisory to establish context.",
+      "inputs": [
+        "schemas/organ_contract.schema.json",
+        "schemas/organ_self_report.schema.json",
+        "DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513/KIRO_ADVISORY_INQUISITION_SELF_BUILD_20260513.md",
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+      ],
+      "outputs": [
+        "context_summary_receipt"
+      ],
+      "allowed_paths": [
+        "schemas",
+        "DOCS/AUDITS",
+        "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE",
+        "ORGANS/INQUISITION"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [
+        "act3_spine_check"
+      ],
+      "checks": [
+        "referenced files exist",
+        "advisory status is RAW"
+      ],
+      "receipts": [
+        "context_read_receipt"
+      ],
+      "owner_decision_gates": [],
+      "pass_criteria": [
+        "All referenced schemas and advisory files exist and are valid JSON/MD",
+        "Advisory status confirmed as RAW/not reconciled"
+      ],
+      "fail_criteria": [
+        "Missing schema files",
+        "Advisory treated as doctrine"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-002-DRAFT-INQUISITION-BLUEPRINT",
+      "goal": "Draft Inquisition v0.1 organ blueprint document.",
+      "inputs": [
+        "context from STAGE-001",
+        "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json"
+      ],
+      "outputs": [
+        "ORGANS/INQUISITION/BLUEPRINT/INQUISITION_V0_1_BLUEPRINT.md",
+        "ORGANS/INQUISITION/BLUEPRINT/INQUISITION_V0_1_BLUEPRINT.json"
+      ],
+      "allowed_paths": [
+        "ORGANS/INQUISITION/BLUEPRINT"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE",
+        "ORGANS/INQUISITION/TOOLS",
+        "ORGANS/INQUISITION/REGISTRY"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [
+        "organ_contract_validation"
+      ],
+      "checks": [
+        "blueprint JSON is valid",
+        "blueprint contains required sections"
+      ],
+      "receipts": [
+        "blueprint_draft_receipt"
+      ],
+      "owner_decision_gates": [],
+      "pass_criteria": [
+        "Blueprint document exists with identity, purpose, and scope sections",
+        "Blueprint JSON validates against expected structure"
+      ],
+      "fail_criteria": [
+        "Blueprint is empty or placeholder only",
+        "Blueprint claims implementation exists"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-003-DEFINE-RESPONSIBILITIES-AND-FORBIDDEN-ACTIONS",
+      "goal": "Define Inquisition v0.1 responsibilities and explicitly forbidden actions.",
+      "inputs": [
+        "blueprint draft from STAGE-002",
+        "Kiro advisory recommendations"
+      ],
+      "outputs": [
+        "responsibilities section in blueprint",
+        "forbidden_actions section in blueprint"
+      ],
+      "allowed_paths": [
+        "ORGANS/INQUISITION/BLUEPRINT"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [
+        "organ_contract_validation"
+      ],
+      "checks": [
+        "responsibilities list is non-empty",
+        "forbidden_actions list is non-empty",
+        "no overlap between responsibilities and forbidden_actions"
+      ],
+      "receipts": [
+        "responsibilities_receipt"
+      ],
+      "owner_decision_gates": [
+        "Owner confirms responsibility boundaries"
+      ],
+      "pass_criteria": [
+        "At least 5 responsibilities defined",
+        "At least 5 forbidden actions defined",
+        "Responsibilities focus on audit/detection not repair"
+      ],
+      "fail_criteria": [
+        "Responsibilities include repair/fix actions",
+        "Forbidden actions list is empty"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-004-DEFINE-OWNED-READ-WRITE-ZONES",
+      "goal": "Define which paths Inquisition owns, reads, and writes.",
+      "inputs": [
+        "ORGANS/ADMINISTRATUM/REGISTRY/ZONE_REGISTRY_V0_1.json",
+        "blueprint from STAGE-002/003"
+      ],
+      "outputs": [
+        "zone_map section in blueprint"
+      ],
+      "allowed_paths": [
+        "ORGANS/INQUISITION/BLUEPRINT",
+        "ORGANS/ADMINISTRATUM/REGISTRY"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [
+        "act3_spine_check"
+      ],
+      "checks": [
+        "zones do not conflict with existing zone registry",
+        "write zones are minimal and scoped"
+      ],
+      "receipts": [
+        "zone_map_receipt"
+      ],
+      "owner_decision_gates": [
+        "Owner confirms zone boundaries"
+      ],
+      "pass_criteria": [
+        "Owned zones defined under ORGANS/INQUISITION",
+        "Read zones include relevant registries and receipts",
+        "Write zones limited to own runtime and reports"
+      ],
+      "fail_criteria": [
+        "Write zones include other organs",
+        "Zones conflict with existing zone registry"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-005-DEFINE-FIRST-AUDIT-CATEGORIES",
+      "goal": "Define which audit categories Inquisition v0.1 will check first.",
+      "inputs": [
+        "Kiro advisory on audit priorities",
+        "blueprint from previous stages"
+      ],
+      "outputs": [
+        "audit_categories section in blueprint"
+      ],
+      "allowed_paths": [
+        "ORGANS/INQUISITION/BLUEPRINT"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [],
+      "checks": [
+        "at least 3 audit categories defined",
+        "categories are testable"
+      ],
+      "receipts": [
+        "audit_categories_receipt"
+      ],
+      "owner_decision_gates": [
+        "Owner confirms priority audit categories"
+      ],
+      "pass_criteria": [
+        "At least 3 concrete audit categories defined",
+        "Each category has detection criteria",
+        "Categories include fake_green detection"
+      ],
+      "fail_criteria": [
+        "Categories are abstract/untestable",
+        "No fake_green detection category"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-006-DEFINE-REQUIRED-CAPABILITIES-AND-SCRIPTS",
+      "goal": "Define capabilities and scripts Inquisition v0.1 requires.",
+      "inputs": [
+        "ORGANS/ADMINISTRATUM/REGISTRY/CAPABILITY_SPINE_V0_1.json",
+        "REGISTRY/SCRIPT_REGISTRY.json",
+        "REGISTRY/ARSENAL_TOOL_INDEX.json",
+        "blueprint from previous stages"
+      ],
+      "outputs": [
+        "capabilities section in blueprint",
+        "required_scripts section in blueprint"
+      ],
+      "allowed_paths": [
+        "ORGANS/INQUISITION/BLUEPRINT",
+        "REGISTRY"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [
+        "SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"
+      ],
+      "required_capabilities": [
+        "script_registry_check"
+      ],
+      "checks": [
+        "capabilities reference existing spine entries or declare UNKNOWN",
+        "scripts reference existing registry entries or declare NEW"
+      ],
+      "receipts": [
+        "capabilities_receipt"
+      ],
+      "owner_decision_gates": [],
+      "pass_criteria": [
+        "Capabilities mapped to ARSENAL/SCRIPTORIUM evidence",
+        "Unknown capabilities explicitly marked UNKNOWN"
+      ],
+      "fail_criteria": [
+        "Capabilities claimed without ARSENAL evidence",
+        "Scripts claimed without SCRIPTORIUM evidence"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-007-DEFINE-EVIDENCE-RECEIPT-MODEL",
+      "goal": "Define how Inquisition produces and stores evidence/receipts.",
+      "inputs": [
+        "schemas/receipt.schema.json",
+        "existing receipt patterns in .imperium_runtime",
+        "blueprint from previous stages"
+      ],
+      "outputs": [
+        "evidence_model section in blueprint"
+      ],
+      "allowed_paths": [
+        "ORGANS/INQUISITION/BLUEPRINT",
+        "schemas"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [],
+      "checks": [
+        "evidence model references existing receipt schema",
+        "runtime output paths are under .imperium_runtime"
+      ],
+      "receipts": [
+        "evidence_model_receipt"
+      ],
+      "owner_decision_gates": [],
+      "pass_criteria": [
+        "Evidence model defines receipt format",
+        "Runtime paths are scoped to .imperium_runtime/inquisition",
+        "Receipt schema reference is valid"
+      ],
+      "fail_criteria": [
+        "Evidence stored in tracked source without review",
+        "No receipt format defined"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-008-PRODUCE-BLUEPRINT-REVIEW-PACK",
+      "goal": "Produce a review pack for the completed blueprint.",
+      "inputs": [
+        "completed blueprint from STAGE-002 through STAGE-007"
+      ],
+      "outputs": [
+        "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/REVIEW-PACK-20260513-INQUISITION-001-BLUEPRINT-SPECULUM-KIRO-V0_1.json",
+        "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/REVIEW-PACK-20260513-INQUISITION-001-BLUEPRINT-SPECULUM-KIRO-V0_1.md"
+      ],
+      "allowed_paths": [
+        "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [],
+      "checks": [
+        "review pack JSON validates against advisory_review_pack schema",
+        "review pack contains targeted questions"
+      ],
+      "receipts": [
+        "review_pack_export_receipt"
+      ],
+      "owner_decision_gates": [
+        "Owner approves review questions before export"
+      ],
+      "pass_criteria": [
+        "Review pack exists in both JSON and MD format",
+        "Contains at least 5 targeted questions",
+        "References all blueprint sections"
+      ],
+      "fail_criteria": [
+        "Review pack is empty or generic",
+        "Missing no-fake-green rules"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-009-RUN-CORRIDOR-CHECKS",
+      "goal": "Run Act4 corridor checks to validate all outputs.",
+      "inputs": [
+        "all outputs from previous stages"
+      ],
+      "outputs": [
+        ".imperium_runtime/astronomicon/act4_registration_corridor_check/ACT4_REGISTRATION_CORRIDOR_CHECK_RESULT.json",
+        ".imperium_runtime/astronomicon/act4_registration_corridor_check/ACT4_REGISTRATION_CORRIDOR_CHECK_VERDICT.md"
+      ],
+      "allowed_paths": [
+        ".imperium_runtime/astronomicon"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [
+        "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+        "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1"
+      ],
+      "required_capabilities": [
+        "act4_corridor_check",
+        "act3_spine_check"
+      ],
+      "checks": [
+        "corridor check PASS or PASS_WITH_WARNINGS",
+        "no new blockers introduced"
+      ],
+      "receipts": [
+        "ACT4_REGISTRATION_CORRIDOR_CHECK_RECEIPT.json"
+      ],
+      "owner_decision_gates": [],
+      "pass_criteria": [
+        "Corridor check exits 0",
+        "No BLOCKED verdict"
+      ],
+      "fail_criteria": [
+        "Corridor check exits nonzero",
+        "New blockers detected"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    },
+    {
+      "stage_id": "STAGE-010-PREPARE-OWNER-REVIEW-SUMMARY",
+      "goal": "Prepare a summary for Owner review of the blueprint task.",
+      "inputs": [
+        "all outputs and receipts from previous stages"
+      ],
+      "outputs": [
+        "Owner review summary document"
+      ],
+      "allowed_paths": [
+        "DOCS",
+        "ORGANS/INQUISITION/BLUEPRINT"
+      ],
+      "forbidden_paths": [
+        ".git",
+        "THRONE"
+      ],
+      "required_scripts": [],
+      "required_capabilities": [],
+      "checks": [
+        "summary references all stage outputs",
+        "summary includes verdict and blockers"
+      ],
+      "receipts": [
+        "owner_review_summary_receipt"
+      ],
+      "owner_decision_gates": [
+        "Owner accepts or rejects blueprint",
+        "Owner decides next step"
+      ],
+      "pass_criteria": [
+        "Summary exists with clear verdict",
+        "All stage receipts referenced",
+        "Blockers and warnings listed"
+      ],
+      "fail_criteria": [
+        "Summary claims PASS without evidence",
+        "Missing stage references"
+      ],
+      "bundle_policy": "VM2 bundle only"
+    }
+  ]
+}

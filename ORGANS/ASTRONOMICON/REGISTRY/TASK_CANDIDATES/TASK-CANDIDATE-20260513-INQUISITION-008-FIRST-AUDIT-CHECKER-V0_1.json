@@ -1,0 +1,68 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-008-FIRST-AUDIT-CHECKER-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Build first Inquisition audit checker",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Detect first categories of fake green, stale truth, and registry mismatch. Produce evidence.",
+  "scope": [
+    "Create Inquisition checker script",
+    "Detect fake green (PASS without evidence)",
+    "Detect stale Git truth",
+    "Detect registry mismatch",
+    "Produce runtime receipts",
+    "Register in SCRIPTORIUM"
+  ],
+  "non_goals": [
+    "Do not attempt to repair detected issues",
+    "Do not audit all possible categories in v0.1",
+    "Do not mark READY_FOR_AGENT true",
+    "Do not commit/push from VM2"
+  ],
+  "owner_intent": "Inquisition v0.1 must detect at least one category of fake green and produce machine-readable evidence.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "inquisition_audit",
+    "script_registry_check",
+    "git_truth_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1",
+    "SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset",
+    "mass file deletion"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ARSENAL_TOOL_INDEX.json"
+  ],
+  "risks": [
+    "Checker may permit fake green if criteria are too loose",
+    "Checker may block everything if criteria are too strict",
+    "Missing py_compile validation"
+  ],
+  "open_questions": [
+    "Which audit categories are mandatory for v0.1?",
+    "What threshold separates WARNING from BLOCKED?",
+    "Should checker produce both JSON and MD output?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-007-SELF-REPORT-PORT-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Checker existence does not prove it catches all fake green. Evidence of detection required."
+}

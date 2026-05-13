@@ -1,0 +1,61 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-007-SELF-REPORT-PORT-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Build Inquisition self-report port",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Create a file-based self-report mechanism that makes Inquisition answer what it is, what it owns, what it checks, and what is blocked/unknown.",
+  "scope": [
+    "Create self-report script or port specification",
+    "Generate runtime report JSON/MD/receipt",
+    "Report must include: identity, owned zones, checks, blocked items, unknown items",
+    "Register script in SCRIPTORIUM"
+  ],
+  "non_goals": [
+    "Do not build audit checker yet",
+    "Do not mark READY_FOR_AGENT true",
+    "Do not commit/push from VM2"
+  ],
+  "owner_intent": "Inquisition must be able to describe itself machine-readably before it can audit others.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "organ_self_report",
+    "script_registry_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json"
+  ],
+  "risks": [
+    "Self-report may be too shallow to be useful",
+    "Missing stale/unknown/blocker fields in report",
+    "Script not registered in SCRIPTORIUM"
+  ],
+  "open_questions": [
+    "What fields are mandatory in a self-report?",
+    "Should self-report be a Python script or a JSON template?",
+    "How should UNKNOWN status be represented?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-006-CONTRACT-REGISTRY-SCHEMAS-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Self-report port does not prove audit capability exists."
+}

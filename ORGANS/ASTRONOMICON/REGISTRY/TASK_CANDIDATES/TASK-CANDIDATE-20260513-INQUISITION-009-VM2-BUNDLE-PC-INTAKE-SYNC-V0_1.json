@@ -1,0 +1,69 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-009-VM2-BUNDLE-PC-INTAKE-SYNC-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Execute implementation through VM2 bundle / PC intake / VM2 sync",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Execute through the proven bundle flow: VM2 generates bundle, PC performs intake/review/commit, VM2 syncs and verifies.",
+  "scope": [
+    "Prepare scoped VM2 bundle with evidence",
+    "PC intake review and commit decision",
+    "VM2 sync from PC commit",
+    "Emit self-check receipt",
+    "Verify HEAD/origin/remote match after sync"
+  ],
+  "non_goals": [
+    "Do not commit/push from VM2",
+    "Do not bypass PC intake review",
+    "Do not accept bundle without verification",
+    "Do not mark READY_FOR_AGENT true"
+  ],
+  "owner_intent": "Prove that Inquisition implementation flows through the established bundle/intake/sync pipeline.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "vm2_worker_bundle_generation",
+    "bundle_intake_review",
+    "pc_intake_apply",
+    "vm2_sync_receipt",
+    "git_truth_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-ADMINISTRATUM-GIT-CLI-CHECK-SH-V0_1",
+    "SCRIPT-VERIFY-WORKER-BUNDLE-V0_1",
+    "SCRIPT-REVIEW-WORKER-BUNDLE-INTAKE-PS1-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit from VM2",
+    "git push from VM2",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ARSENAL_TOOL_INDEX.json"
+  ],
+  "risks": [
+    "Bundle rejected due to missing proof",
+    "PC intake finds blockers",
+    "VM2 sync fails due to stale baseline"
+  ],
+  "open_questions": [
+    "What minimum bundle contents are required?",
+    "Should bundle include runtime receipts?",
+    "How to handle partial acceptance?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-008-FIRST-AUDIT-CHECKER-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Bundle generation does not prove PC accepted or committed the changes."
+}

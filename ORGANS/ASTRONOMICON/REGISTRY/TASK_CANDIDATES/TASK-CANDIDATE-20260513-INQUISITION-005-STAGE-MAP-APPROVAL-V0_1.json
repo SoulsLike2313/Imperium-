@@ -1,0 +1,63 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-005-STAGE-MAP-APPROVAL-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Approve stage map and gate criteria",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Split the first implementation task into stages, define pass/fail criteria, define allowed/forbidden paths, define scripts and capabilities, and produce READY_FOR_AGENT gate candidate.",
+  "scope": [
+    "Finalize stage map from draft to approved",
+    "Define pass/fail criteria for each stage",
+    "Define allowed/forbidden paths per stage",
+    "Define required scripts and capabilities per stage",
+    "Produce READY_FOR_AGENT gate candidate",
+    "Owner approval gate"
+  ],
+  "non_goals": [
+    "Do not execute implementation stages",
+    "Do not mark READY_FOR_AGENT true without Owner approval",
+    "Do not commit/push from VM2"
+  ],
+  "owner_intent": "Produce an approved stage map with clear boundaries that enables safe agent execution.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "act4_corridor_check",
+    "script_registry_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json"
+  ],
+  "risks": [
+    "Stage map too vague for safe agent execution",
+    "Missing pass/fail criteria allows fake green",
+    "READY_FOR_AGENT set without required evidence"
+  ],
+  "open_questions": [
+    "What minimum pass criteria prevent fake green?",
+    "Should each stage have independent Owner gate?",
+    "How granular should allowed_paths be?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-004-TASK-MODERNIZATION-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Stage map approval does not prove implementation is complete or correct."
+}

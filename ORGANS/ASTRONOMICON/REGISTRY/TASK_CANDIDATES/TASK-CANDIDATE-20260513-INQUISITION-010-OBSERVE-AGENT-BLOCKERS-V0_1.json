@@ -1,0 +1,66 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-010-OBSERVE-AGENT-BLOCKERS-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Observe agent behavior and feed blockers back into corridor",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Give an agent the READY_FOR_AGENT task, observe where it succeeds or blocks, improve corridor based on evidence.",
+  "scope": [
+    "Execute bounded agent task with stage map",
+    "Observe success/failure points",
+    "Document blockers with evidence",
+    "Produce refinement recommendations",
+    "Feed improvements back into corridor",
+    "Identify possible next tasks"
+  ],
+  "non_goals": [
+    "Do not auto-fix corridor issues without Owner review",
+    "Do not mark READY_FOR_AGENT true for subsequent tasks",
+    "Do not commit/push from VM2",
+    "Do not bypass observation with assumptions"
+  ],
+  "owner_intent": "Use real agent execution evidence to improve the corridor for future organ builds.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "act4_corridor_check",
+    "git_truth_check",
+    "bundle_intake_review"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-ADMINISTRATUM-GIT-CLI-CHECK-SH-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit from VM2",
+    "git push from VM2",
+    "destructive reset",
+    "mass file deletion"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json"
+  ],
+  "risks": [
+    "Agent may bypass stage boundaries",
+    "Observation may be too shallow to identify real blockers",
+    "Corridor improvements may introduce new issues"
+  ],
+  "open_questions": [
+    "How to measure agent compliance with stage map?",
+    "What constitutes a meaningful blocker vs noise?",
+    "Should observation produce a formal audit report?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-009-VM2-BUNDLE-PC-INTAKE-SYNC-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Observation task cannot be marked complete without evidence of actual agent execution and blocker documentation."
+}

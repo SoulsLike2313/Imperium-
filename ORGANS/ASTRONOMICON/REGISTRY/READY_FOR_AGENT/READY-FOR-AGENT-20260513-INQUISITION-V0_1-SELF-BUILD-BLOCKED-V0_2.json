@@ -1,0 +1,47 @@
+{
+  "schema_version": "imperium.ready_for_agent.v0_1",
+  "ready_id": "READY-FOR-AGENT-20260513-INQUISITION-V0_1-SELF-BUILD-BLOCKED-V0_2",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1",
+  "stage_map_id": "STAGE-MAP-DRAFT-20260513-INQUISITION-001-BLUEPRINT-V0_1",
+  "status": "BLOCKED_PENDING_REVIEW_AND_MODERNIZATION",
+  "ready_for_agent": false,
+  "blocking_conditions": [
+    "GENERAL_TASK decomposed but review responses not ingested",
+    "Task modernization missing — no accepted/rejected recommendations",
+    "First stage map draft not approved by Owner",
+    "Owner decision pending on blueprint scope and audit categories",
+    "Act 5 implementation not started",
+    "Advisory responses not yet received for blueprint task",
+    "No READY_FOR_AGENT evidence chain complete"
+  ],
+  "evidence_refs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/GENERAL_TASKS/GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-002-REVIEW-PACK-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-003-ADVISORY-INGEST-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-004-TASK-MODERNIZATION-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-005-STAGE-MAP-APPROVAL-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-006-CONTRACT-REGISTRY-SCHEMAS-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-007-SELF-REPORT-PORT-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-008-FIRST-AUDIT-CHECKER-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-009-VM2-BUNDLE-PC-INTAKE-SYNC-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/TASK_CANDIDATES/TASK-CANDIDATE-20260513-INQUISITION-010-OBSERVE-AGENT-BLOCKERS-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/STAGE_MAPS/STAGE-MAP-DRAFT-20260513-INQUISITION-001-BLUEPRINT-V0_1.json",
+    "ORGANS/ASTRONOMICON/REGISTRY/REVIEW_PACKS/REVIEW-PACK-20260513-INQUISITION-001-BLUEPRINT-SPECULUM-KIRO-V0_1.json"
+  ],
+  "required_checks": [
+    "advisory_response_ingest_check",
+    "task_modernization_check",
+    "stage_map_approval_check",
+    "owner_approval_check",
+    "blueprint_existence_check",
+    "corridor_check_pass"
+  ],
+  "owner_approval": {
+    "required": true,
+    "granted": false,
+    "note": "GENERAL_TASK decomposed to 10 task candidates. Review responses required before any execution approval. Owner must approve stage map and blueprint scope."
+  },
+  "no_fake_green_verdict": "READY_FOR_AGENT_FALSE_BY_DESIGN",
+  "supersedes": "READY-FOR-AGENT-20260513-INQUISITION-V0_1-SELF-BUILD-BLOCKED-V0_1"
+}

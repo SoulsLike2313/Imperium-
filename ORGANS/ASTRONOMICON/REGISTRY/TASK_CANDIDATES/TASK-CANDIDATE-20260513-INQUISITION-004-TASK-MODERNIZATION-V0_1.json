@@ -1,0 +1,62 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-004-TASK-MODERNIZATION-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Modernize task after advisory responses",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Reconcile accepted/rejected recommendations, update the actual task definition, identify Owner decisions, identify blockers.",
+  "scope": [
+    "Create modernization record with traceability",
+    "Update task candidate based on accepted recommendations",
+    "Update stage map draft if needed",
+    "Record Owner decisions explicitly",
+    "Identify remaining blockers"
+  ],
+  "non_goals": [
+    "Do not auto-accept all recommendations",
+    "Do not skip Owner decision gates",
+    "Do not mark READY_FOR_AGENT true",
+    "Do not commit/push from VM2"
+  ],
+  "owner_intent": "Produce a traceable modernization record that shows which advisory recommendations were accepted, rejected, or need Owner decision.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "task_modernization",
+    "act4_corridor_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json"
+  ],
+  "risks": [
+    "Untraceable changes to task candidate",
+    "Missing Owner decision on contested recommendations",
+    "Stale advisory input used after Git truth has moved"
+  ],
+  "open_questions": [
+    "Which recommendations require Owner decision vs auto-accept?",
+    "How to handle conflicting recommendations from multiple advisors?",
+    "Should modernization trigger stage map revision?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-003-ADVISORY-INGEST-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Modernization does not prove stage map is approved or implementation is ready."
+}

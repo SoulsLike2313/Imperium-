@@ -1,0 +1,62 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-003-ADVISORY-INGEST-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Register advisory responses",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Ingest Kiro/Speculum responses as raw advisory, preserve source and status, avoid treating advice as doctrine.",
+  "scope": [
+    "Receive and register advisory response records",
+    "Preserve raw response markdown",
+    "Create ingest receipts",
+    "Mark status as RAW until Owner reconciliation",
+    "Map recommendations to accept/reject/needs-owner-decision"
+  ],
+  "non_goals": [
+    "Do not treat advisory as doctrine",
+    "Do not auto-accept recommendations",
+    "Do not modernize task without Owner decision",
+    "Do not commit/push from VM2"
+  ],
+  "owner_intent": "Safely ingest external advisory input without conflating raw advice with approved doctrine.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "advisory_response_ingest",
+    "act4_corridor_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json"
+  ],
+  "risks": [
+    "Raw advisory mistakenly treated as doctrine",
+    "Ingest without proper status tracking",
+    "Missing Owner decision gate on accept/reject"
+  ],
+  "open_questions": [
+    "What format should advisory response records use?",
+    "How to track partial acceptance of recommendations?",
+    "Should ingest be automated or Owner-gated?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-002-REVIEW-PACK-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Advisory ingest does not prove recommendations are accepted or reconciled."
+}

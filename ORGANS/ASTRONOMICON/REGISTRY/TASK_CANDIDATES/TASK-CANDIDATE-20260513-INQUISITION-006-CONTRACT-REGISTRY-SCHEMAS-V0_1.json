@@ -1,0 +1,67 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-006-CONTRACT-REGISTRY-SCHEMAS-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Build Inquisition contract/registry/schemas",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Create real organ structure under ORGANS/INQUISITION with organ contract, registry, and schemas.",
+  "scope": [
+    "Create ORGANS/INQUISITION/ directory structure",
+    "Create organ contract JSON",
+    "Create organ registry entry",
+    "Create schemas if needed",
+    "Register in schema_registry if new schemas added",
+    "Run checker proof"
+  ],
+  "non_goals": [
+    "Do not build checker scripts yet",
+    "Do not build self-report port yet",
+    "Do not mark READY_FOR_AGENT true",
+    "Do not commit/push from VM2"
+  ],
+  "owner_intent": "Create the foundational organ structure that subsequent tasks will build upon.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "organ_contract_validation",
+    "act4_corridor_check",
+    "script_registry_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1",
+    "SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ARSENAL_TOOL_INDEX.json"
+  ],
+  "risks": [
+    "Organ structure may not match approved blueprint",
+    "Schema additions may conflict with existing schemas",
+    "Missing forbidden_actions in contract"
+  ],
+  "open_questions": [
+    "Which schemas are mandatory for Inquisition v0.1?",
+    "Should organ contract reference ORGAN_REGISTRY.json?",
+    "What is the minimum viable organ directory structure?"
+  ],
+  "depends_on": [
+    "TASK-CANDIDATE-20260513-INQUISITION-005-STAGE-MAP-APPROVAL-V0_1"
+  ],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Organ structure creation does not prove the organ works or audits correctly."
+}

@@ -1,0 +1,74 @@
+{
+  "schema_version": "imperium.task_candidate.v0_1",
+  "task_id": "TASK-CANDIDATE-20260513-INQUISITION-001-BLUEPRINT-V0_1",
+  "source_general_task_id": "GENERAL-TASK-20260513-BUILD-INQUISITION-V0_1-SELF-DESCRIPTIVE-ORGAN",
+  "title": "Register Inquisition v0.1 blueprint",
+  "status": "REGISTERED_CANDIDATE_NEEDS_REVIEW",
+  "goal": "Define what Inquisition v0.1 is: responsibilities, forbidden actions, owned/read/write zones, status enums, self-report expectations, and produce a draft organ contract.",
+  "scope": [
+    "Read current organ/self-description schemas and Kiro advisory",
+    "Draft Inquisition v0.1 organ blueprint",
+    "Define responsibilities and forbidden actions",
+    "Define owned/read/write zones",
+    "Define first audit categories",
+    "Define required capabilities and scripts",
+    "Define evidence/receipt model",
+    "Produce blueprint review pack",
+    "Run corridor checks",
+    "Prepare Owner review summary"
+  ],
+  "non_goals": [
+    "Do not implement Inquisition checker scripts yet",
+    "Do not create runtime receipts yet",
+    "Do not mark READY_FOR_AGENT true",
+    "Do not commit/push from VM2",
+    "Do not bypass review"
+  ],
+  "owner_intent": "Produce a clear, machine-readable blueprint for Inquisition v0.1 that can be reviewed and modernized before implementation begins.",
+  "base_git_truth": {
+    "repo": "https://github.com/SoulsLike2313/Imperium-",
+    "head": "8a7d279047669fc37a9cda49b460362c5bede952",
+    "exact_tree_url": "https://github.com/SoulsLike2313/Imperium-/tree/8a7d279047669fc37a9cda49b460362c5bede952",
+    "commit_count": 61
+  },
+  "required_capabilities": [
+    "organ_contract_validation",
+    "act3_spine_check",
+    "act4_corridor_check",
+    "script_registry_check"
+  ],
+  "allowed_scripts": [
+    "SCRIPT-CHECK-ACT4-REGISTRATION-CORRIDOR-V0_1",
+    "SCRIPT-CHECK-ACT3-ADDRESS-TRUTH-CAPABILITY-SPINE-V0_1",
+    "SCRIPT-CHECK-SCRIPT-REGISTRY-V0_1"
+  ],
+  "forbidden_tools": [
+    "git commit",
+    "git push",
+    "destructive reset",
+    "mass file deletion"
+  ],
+  "related_advisory_inputs": [
+    "ORGANS/ASTRONOMICON/REGISTRY/ADVISORY_INPUTS/ADVISORY-20260513-KIRO-INQUISITION-SELF-BUILD-V0_1.json",
+    "DOCS/AUDITS/KIRO_INQUISITION_SELF_BUILD_ADVISORY_20260513/KIRO_ADVISORY_INQUISITION_SELF_BUILD_20260513.md"
+  ],
+  "tooling_refs": [
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "REGISTRY/ARSENAL_TOOL_INDEX.json",
+    "REGISTRY/ARSENAL_INSTALL_STATUS.json"
+  ],
+  "risks": [
+    "Blueprint may be too abstract without concrete audit categories",
+    "Scope drift into implementation before review",
+    "Missing schema references for organ contract"
+  ],
+  "open_questions": [
+    "What is the minimal organ_contract for Inquisition v0.1?",
+    "Which audit categories are mandatory for first version?",
+    "Should blueprint include Sanctum integration spec?"
+  ],
+  "depends_on": [],
+  "next_required_phase": "REVIEW_PACK_REQUIRED",
+  "ready_for_agent": false,
+  "no_fake_green_note": "Blueprint registration does not prove implementation. Review and modernization required before execution."
+}
