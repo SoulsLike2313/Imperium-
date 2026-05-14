@@ -1,6 +1,262 @@
 {
   "schema_version": "astronomicon_dashboard_task_candidates_v0_1",
-  "last_generated_at_utc": "2026-05-14T18:38:53Z",
-  "count": 0,
-  "items": []
+  "last_generated_at_utc": "2026-05-14T19:02:44Z",
+  "count": 3,
+  "items": [
+    {
+      "schema_version": "task_candidate_v0_1",
+      "task_candidate_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+      "general_task_id": "GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1",
+      "title": "Build Astronomicon Workbench MVP corridor / Candidate 1",
+      "local_task_summary": "Implement real Workbench General Task intake and active-state registration",
+      "scope_in": [
+        "Astronomicon Workbench MVP",
+        "General Task registration",
+        "Local Task candidates",
+        "Selected Local Task",
+        "Speculum structured review",
+        "Modernization",
+        "Stage map",
+        "Stage review",
+        "Registration proof",
+        "Servitor handoff pack"
+      ],
+      "scope_out": [
+        "Inquisition build",
+        "VM2 sync",
+        "READY_FOR_AGENT true",
+        "Sanctum EE revival",
+        "UI polish beyond necessary Workbench usability",
+        "Full Doctrinarium build",
+        "Full Administratum build",
+        "Full Officio Agentis build"
+      ],
+      "target_organ": "ASTRONOMICON",
+      "files_likely_touched": [
+        "ORGANS/ASTRONOMICON/SCHEMAS/",
+        "ORGANS/ASTRONOMICON/TEMPLATES/",
+        "scripts/"
+      ],
+      "dependencies": [
+        "Astronomicon Workbench MVP baseline",
+        "Existing General Task parser and validator",
+        "Existing candidate decomposition script"
+      ],
+      "unresolved_questions": [
+        "Which Local Task candidate should be selected first",
+        "Which Speculum review fields must become hard gates in the next implementation"
+      ],
+      "metric_zones": {
+        "scope_size": "PENDING",
+        "touched_zones_count": "PENDING",
+        "file_change_risk": "PENDING",
+        "private_context_dependency": "PENDING",
+        "external_tool_dependency": "PENDING",
+        "ui_dependency": "PENDING",
+        "schema_dependency": "PENDING",
+        "script_dependency": "PENDING",
+        "dashboard_dependency": "PENDING",
+        "receipt_requirement_level": "PENDING",
+        "checker_requirement_level": "PENDING",
+        "owner_gate_level": "PENDING",
+        "rollback_complexity": "PENDING",
+        "artifact_complexity": "PENDING",
+        "stage_count_estimate": "PENDING",
+        "agent_context_load": "PENDING",
+        "ambiguity_level": "PENDING",
+        "dependency_count": "PENDING",
+        "blocker_probability": "PENDING",
+        "fake_green_risk": "PENDING",
+        "stale_data_risk": "PENDING",
+        "warning_noise_risk": "PENDING",
+        "local_vs_repo_boundary_risk": "PENDING",
+        "vm2_need_level": "PENDING",
+        "commit_batching_suitability": "PENDING",
+        "review_required_by_speculum": "PENDING"
+      },
+      "speculum_review_fields": [
+        "review_verdict",
+        "scope_corrections",
+        "required_checkers",
+        "required_receipts",
+        "metric_updates",
+        "final_recommendation"
+      ],
+      "speculum_review_status": "PENDING_NOT_REQUESTED",
+      "modernized": false,
+      "registered": false,
+      "current_status": "DRAFT_CANDIDATE_NOT_REGISTERED",
+      "_source_file": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\REGISTRY\\TASKS\\CANDIDATES\\TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01.json"
+    },
+    {
+      "schema_version": "task_candidate_v0_1",
+      "task_candidate_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-02",
+      "general_task_id": "GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1",
+      "title": "Build Astronomicon Workbench MVP corridor / Candidate 2",
+      "local_task_summary": "Implement candidate selection and structured Speculum task review export/import",
+      "scope_in": [
+        "Astronomicon Workbench MVP",
+        "General Task registration",
+        "Local Task candidates",
+        "Selected Local Task",
+        "Speculum structured review",
+        "Modernization",
+        "Stage map",
+        "Stage review",
+        "Registration proof",
+        "Servitor handoff pack"
+      ],
+      "scope_out": [
+        "Inquisition build",
+        "VM2 sync",
+        "READY_FOR_AGENT true",
+        "Sanctum EE revival",
+        "UI polish beyond necessary Workbench usability",
+        "Full Doctrinarium build",
+        "Full Administratum build",
+        "Full Officio Agentis build"
+      ],
+      "target_organ": "ASTRONOMICON",
+      "files_likely_touched": [
+        "ORGANS/ASTRONOMICON/SCHEMAS/",
+        "ORGANS/ASTRONOMICON/TEMPLATES/",
+        "scripts/"
+      ],
+      "dependencies": [
+        "Astronomicon Workbench MVP baseline",
+        "Existing General Task parser and validator",
+        "Existing candidate decomposition script"
+      ],
+      "unresolved_questions": [
+        "Which Local Task candidate should be selected first",
+        "Which Speculum review fields must become hard gates in the next implementation"
+      ],
+      "metric_zones": {
+        "scope_size": "PENDING",
+        "touched_zones_count": "PENDING",
+        "file_change_risk": "PENDING",
+        "private_context_dependency": "PENDING",
+        "external_tool_dependency": "PENDING",
+        "ui_dependency": "PENDING",
+        "schema_dependency": "PENDING",
+        "script_dependency": "PENDING",
+        "dashboard_dependency": "PENDING",
+        "receipt_requirement_level": "PENDING",
+        "checker_requirement_level": "PENDING",
+        "owner_gate_level": "PENDING",
+        "rollback_complexity": "PENDING",
+        "artifact_complexity": "PENDING",
+        "stage_count_estimate": "PENDING",
+        "agent_context_load": "PENDING",
+        "ambiguity_level": "PENDING",
+        "dependency_count": "PENDING",
+        "blocker_probability": "PENDING",
+        "fake_green_risk": "PENDING",
+        "stale_data_risk": "PENDING",
+        "warning_noise_risk": "PENDING",
+        "local_vs_repo_boundary_risk": "PENDING",
+        "vm2_need_level": "PENDING",
+        "commit_batching_suitability": "PENDING",
+        "review_required_by_speculum": "PENDING"
+      },
+      "speculum_review_fields": [
+        "review_verdict",
+        "scope_corrections",
+        "required_checkers",
+        "required_receipts",
+        "metric_updates",
+        "final_recommendation"
+      ],
+      "speculum_review_status": "PENDING_NOT_REQUESTED",
+      "modernized": false,
+      "registered": false,
+      "current_status": "DRAFT_CANDIDATE_NOT_REGISTERED",
+      "_source_file": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\REGISTRY\\TASKS\\CANDIDATES\\TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-02.json"
+    },
+    {
+      "schema_version": "task_candidate_v0_1",
+      "task_candidate_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-03",
+      "general_task_id": "GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1",
+      "title": "Build Astronomicon Workbench MVP corridor / Candidate 3",
+      "local_task_summary": "Implement stage map generation and stage review loop",
+      "scope_in": [
+        "Astronomicon Workbench MVP",
+        "General Task registration",
+        "Local Task candidates",
+        "Selected Local Task",
+        "Speculum structured review",
+        "Modernization",
+        "Stage map",
+        "Stage review",
+        "Registration proof",
+        "Servitor handoff pack"
+      ],
+      "scope_out": [
+        "Inquisition build",
+        "VM2 sync",
+        "READY_FOR_AGENT true",
+        "Sanctum EE revival",
+        "UI polish beyond necessary Workbench usability",
+        "Full Doctrinarium build",
+        "Full Administratum build",
+        "Full Officio Agentis build"
+      ],
+      "target_organ": "ASTRONOMICON",
+      "files_likely_touched": [
+        "ORGANS/ASTRONOMICON/SCHEMAS/",
+        "ORGANS/ASTRONOMICON/TEMPLATES/",
+        "scripts/"
+      ],
+      "dependencies": [
+        "Astronomicon Workbench MVP baseline",
+        "Existing General Task parser and validator",
+        "Existing candidate decomposition script"
+      ],
+      "unresolved_questions": [
+        "Which Local Task candidate should be selected first",
+        "Which Speculum review fields must become hard gates in the next implementation"
+      ],
+      "metric_zones": {
+        "scope_size": "PENDING",
+        "touched_zones_count": "PENDING",
+        "file_change_risk": "PENDING",
+        "private_context_dependency": "PENDING",
+        "external_tool_dependency": "PENDING",
+        "ui_dependency": "PENDING",
+        "schema_dependency": "PENDING",
+        "script_dependency": "PENDING",
+        "dashboard_dependency": "PENDING",
+        "receipt_requirement_level": "PENDING",
+        "checker_requirement_level": "PENDING",
+        "owner_gate_level": "PENDING",
+        "rollback_complexity": "PENDING",
+        "artifact_complexity": "PENDING",
+        "stage_count_estimate": "PENDING",
+        "agent_context_load": "PENDING",
+        "ambiguity_level": "PENDING",
+        "dependency_count": "PENDING",
+        "blocker_probability": "PENDING",
+        "fake_green_risk": "PENDING",
+        "stale_data_risk": "PENDING",
+        "warning_noise_risk": "PENDING",
+        "local_vs_repo_boundary_risk": "PENDING",
+        "vm2_need_level": "PENDING",
+        "commit_batching_suitability": "PENDING",
+        "review_required_by_speculum": "PENDING"
+      },
+      "speculum_review_fields": [
+        "review_verdict",
+        "scope_corrections",
+        "required_checkers",
+        "required_receipts",
+        "metric_updates",
+        "final_recommendation"
+      ],
+      "speculum_review_status": "PENDING_NOT_REQUESTED",
+      "modernized": false,
+      "registered": false,
+      "current_status": "DRAFT_CANDIDATE_NOT_REGISTERED",
+      "_source_file": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\REGISTRY\\TASKS\\CANDIDATES\\TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-03.json"
+    }
+  ]
 }

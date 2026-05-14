@@ -1,8 +1,20 @@
 {
   "schema_version": "astronomicon_dashboard_speculum_review_state_v0_1",
-  "last_generated_at_utc": "2026-05-14T18:38:53Z",
-  "task_review_status": "NOT_REQUESTED",
-  "stage_review_status": "NOT_REQUESTED",
-  "last_task_review_import": null,
-  "last_stage_review_import": null
+  "last_generated_at_utc": "2026-05-14T19:17:51Z",
+  "task_review_status": "IMPORTED_APPROVE_FOR_MODERNIZATION_WITH_CORRECTIONS",
+  "stage_review_status": "IMPORTED_APPROVE_STAGE_MAP_WITH_CORRECTIONS",
+  "last_task_review_import": "ORGANS/ASTRONOMICON/IMPORTS/SPECULUM_TASK_REVIEW/TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01/speculum_task_review_response.json",
+  "last_stage_review_import": "ORGANS/ASTRONOMICON/IMPORTS/SPECULUM_STAGE_REVIEW/LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01/speculum_stage_review_response.json",
+  "reviewed_task_candidate_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "review_verdict": "APPROVE_FOR_MODERNIZATION_WITH_CORRECTIONS",
+  "final_recommendation": "MODERNIZE_THIS_TASK_FIRST",
+  "blocker_count": 6,
+  "fake_green_risk_count": 6,
+  "ready_for_agent": false,
+  "stage_review_verdict": "APPROVE_STAGE_MAP_WITH_CORRECTIONS",
+  "stage_final_recommendation": "APPLY_CORRECTIONS_THEN_REGISTER_STAGE_MAP",
+  "stage_blocker_count": 6,
+  "stage_fake_green_risk_count": 7,
+  "stage_registration_condition_count": 7,
+  "stage_map_sha256_at_review_import": "31445487D211A83491BA6108B9C7534C7751E0C3D0C0E5BA72FCD558A26BA8F0"
 }

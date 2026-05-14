@@ -1,6 +1,6 @@
 {
   "schema_version": "astronomicon_dashboard_blockers_v0_1",
-  "last_generated_at_utc": "2026-05-14T18:38:53Z",
+  "last_generated_at_utc": "2026-05-14T19:02:44Z",
   "items": [
     "NO_ACTIVE_GENERAL_TASK",
     "REGISTER_BUTTON_DISABLED_UNTIL_VALIDATED_FLOW",

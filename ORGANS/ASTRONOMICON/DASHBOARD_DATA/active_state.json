@@ -1,14 +1,29 @@
 {
-  "schema_version": "astronomicon_dashboard_active_state_v0_1",
-  "last_generated_at_utc": "2026-05-14T18:38:53Z",
-  "status": "NO_ACTIVE_GENERAL_TASK",
-  "active_general_task": null,
-  "active_task": null,
-  "active_stage": null,
-  "active_run": null,
-  "ready_for_new_general_task_intake": true,
+  "schema_version": "astronomicon_active_state_v0_1",
+  "stale_status": "CURRENT_AT_GENERATION_TIME",
+  "git_head": "9d5c92c64afcacc40db6e74bcdd1145d5233a44d",
+  "commit_count": "85",
+  "general_task_id": "GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1",
+  "selected_task_candidate_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "modernized_local_task_id": "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "current_status": "LOCAL_STAGE_MAP_REGISTERED_WORKBENCH_ONLY",
+  "registration_kind": "WORKBENCH_ACTIVE_STATE_ONLY",
   "ready_for_agent": false,
-  "vm2_status": "DEFERRED_OFFLINE",
-  "stale_status": "CURRENT",
-  "fake_green_guard": "NO_ACTIVE_GENERAL_TASK_IF_NULL_POINTERS"
+  "source_paths": {
+    "selected_task": "ORGANS/ASTRONOMICON/DASHBOARD_DATA/selected_task.json",
+    "speculum_review": "ORGANS/ASTRONOMICON/IMPORTS/SPECULUM_TASK_REVIEW/TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01/speculum_task_review_response.json",
+    "modernized_local_task": "ORGANS/ASTRONOMICON/REGISTRY/TASKS/MODERNIZED/LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01.json"
+  },
+  "sha256": {
+    "selected_task": "364C2102F93E59D7892B96F1ACC8A935FF7231B449883980F524E49B53D07849",
+    "speculum_review": "B35937E3FAB5BC875A1466937C8EDE2C72673DAC12C11BFAB7B9C33FAEE73DE0",
+    "modernized_local_task": "48135584FE0CB27A48C9253360414468EBE6B3B9FE08DCEC9BD7C983CC80D48F"
+  },
+  "authority_scope": "ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY",
+  "vm2_sync_requested": false,
+  "servitor_handoff_created": false,
+  "inquisition_build_requested": false,
+  "registered_stage_map_id": "STAGE-MAP-LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "registered_stage_map_sha256": "8723CFFA5B07E2672889466F03884A5EC4EB8E1B9C88D24B5266ECBA9FACBB80",
+  "last_checked_at_utc": "2026-05-14T19:44:57Z"
 }

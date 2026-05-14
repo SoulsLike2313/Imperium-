@@ -1,0 +1,23 @@
+{
+  "schema_version": "astronomicon_stage_map_registration_state_v0_1",
+  "local_task_id": "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "stage_map_id": "STAGE-MAP-LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "status": "REGISTERED_LOCAL_WORKBENCH_ACTIVE_STATE_ONLY",
+  "registered_at_utc": "2026-05-14T19:44:57Z",
+  "git_head": "9d5c92c64afcacc40db6e74bcdd1145d5233a44d",
+  "commit_count": "85",
+  "ready_for_agent": false,
+  "registration_kind": "WORKBENCH_ACTIVE_STATE_ONLY",
+  "authority_scope": "ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY",
+  "owner_gate_used": true,
+  "repair_after_depth_120_failure": true,
+  "vm2_sync_requested": false,
+  "servitor_handoff_created": false,
+  "inquisition_build_requested": false,
+  "stage_map_path": "ORGANS/ASTRONOMICON/REGISTRY/STAGES/LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01/STAGE-MAP-LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01.json",
+  "stage_map_sha256_before_repair": "3A82BCF4AEEC56F55017E7FC13248CBB0A5301F28901CDF0C578DF72E6CA976C",
+  "stage_map_sha256_after_repair": "8723CFFA5B07E2672889466F03884A5EC4EB8E1B9C88D24B5266ECBA9FACBB80",
+  "check_all_receipt_path": "E:\\IMPERIUM_CONTEXT\\ASTRONOMICON\\RECEIPTS\\WORKBENCH_CHECK_RUN_RECEIPT_V0_1.json",
+  "check_all_receipt_sha256": "33E736CEDFBABBF4455A98FF73B089CAFC1AE7CF7835D13C181CA2BE31C9FEB9",
+  "next_gate": "OWNER_DECIDE_NEXT_LOCAL_STAGE_EXECUTION_PLAN"
+}

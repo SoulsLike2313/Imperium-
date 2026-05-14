@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Astronomicon Workbench Active State v0.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "last_checked_at_utc",
+    "stale_status",
+    "git_head",
+    "commit_count",
+    "general_task_id",
+    "selected_task_candidate_id",
+    "modernized_local_task_id",
+    "current_status",
+    "registration_kind",
+    "authority_scope",
+    "ready_for_agent",
+    "source_paths",
+    "sha256"
+  ],
+  "properties": {
+    "schema_version": { "const": "astronomicon_active_state_v0_1" },
+    "stale_status": { "enum": ["FRESH", "STALE", "UNKNOWN", "INVALID", "CURRENT_AT_GENERATION_TIME"] },
+    "registration_kind": { "const": "WORKBENCH_ACTIVE_STATE_ONLY" },
+    "authority_scope": { "const": "ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY" },
+    "ready_for_agent": { "const": false },
+    "vm2_sync_requested": { "const": false },
+    "servitor_handoff_created": { "const": false },
+    "inquisition_build_requested": { "const": false }
+  },
+  "additionalProperties": true
+}

@@ -1,6 +1,8 @@
 {
-  "schema_version": "astronomicon_dashboard_selected_task_v0_1",
-  "last_generated_at_utc": "2026-05-14T19:06:00Z",
+  "schema_version": "astronomicon_speculum_task_review_request_v0_1",
+  "export_id": "SPECULUM-TASK-REVIEW-TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "created_at_utc": "2026-05-14T19:08:01Z",
+  "source_selected_task_path": "ORGANS/ASTRONOMICON/DASHBOARD_DATA/selected_task.json",
   "selected_task_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
   "selected_task": {
     "schema_version": "task_candidate_v0_1",
@@ -86,6 +88,24 @@
     "registered": false,
     "current_status": "DRAFT_CANDIDATE_NOT_REGISTERED"
   },
-  "status": "SELECTED_DRAFT_CANDIDATE_NOT_REGISTERED",
-  "selection_note": "Manual Owner/Logos selection because Workbench selector action is still PLACEHOLDER. Candidate 1 chosen first because real intake and active-state registration block the rest of the corridor."
+  "review_purpose": "Review selected Local Task before modernization. Do not register. Do not set READY_FOR_AGENT true.",
+  "required_response_fields": [
+    "review_verdict",
+    "scope_corrections",
+    "required_checkers",
+    "required_receipts",
+    "metric_updates",
+    "blockers",
+    "fake_green_risks",
+    "final_recommendation",
+    "advisory_notes"
+  ],
+  "hard_rules": [
+    "No fake green",
+    "No READY_FOR_AGENT true",
+    "No VM2 sync",
+    "No Inquisition build",
+    "No registration without valid imported review",
+    "Repo purity must be preserved"
+  ]
 }

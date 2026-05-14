@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Astronomicon General Task Intake v0.1",
+  "type": "object",
+  "required": ["schema_version", "general_task_id", "title", "owner_goal", "desired_outcome", "scope_in", "scope_out", "ready_for_agent"],
+  "properties": {
+    "schema_version": { "const": "general_task_intake_v0_1" },
+    "general_task_id": { "type": "string", "pattern": "^GENERAL-TASK-" },
+    "title": { "type": "string", "minLength": 3 },
+    "owner_goal": { "type": "string", "minLength": 10 },
+    "desired_outcome": { "type": "string", "minLength": 10 },
+    "scope_in": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "scope_out": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "ready_for_agent": { "const": false },
+    "registration_kind": { "const": "WORKBENCH_ACTIVE_STATE_ONLY" }
+  },
+  "additionalProperties": true
+}

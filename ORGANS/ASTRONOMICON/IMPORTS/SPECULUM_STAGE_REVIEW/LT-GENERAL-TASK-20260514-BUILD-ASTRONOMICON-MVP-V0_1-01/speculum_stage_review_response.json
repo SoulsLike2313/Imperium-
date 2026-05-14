@@ -1,219 +1,108 @@
 {
-  "schema_version": "astronomicon_stage_map_v0_1",
-  "stage_map_id": "STAGE-MAP-LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
-  "local_task_id": "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
-  "source_task_candidate_id": "TC-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
-  "general_task_id": "GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1",
-  "title": "Stage map for real Workbench General Task intake and active-state registration",
-  "created_at_utc": "2026-05-14T19:22:02Z",
-  "git_head": "9d5c92c64afcacc40db6e74bcdd1145d5233a44d",
-  "commit_count": "85",
-  "status": "REGISTERED_LOCAL_WORKBENCH_ACTIVE_STATE_ONLY",
-  "ready_for_agent": false,
-  "registration_kind": "WORKBENCH_ACTIVE_STATE_ONLY",
-  "owner_gate_required": true,
-  "stage_count": 4,
-  "global_scope_out": [
-    "READY_FOR_AGENT true",
-    "VM2 sync",
-    "Inquisition build",
-    "Servitor handoff pack",
-    "Stage execution by external agent",
-    "Sanctum EE revival",
-    "UI polish beyond action truth"
-  ],
-  "stages": [
+  "schema_version": "speculum_stage_review_response_v0_1",
+  "reviewed_local_task_id": "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+  "review_verdict": "APPROVE_STAGE_MAP_WITH_CORRECTIONS",
+  "stage_corrections": [
+    {
+      "stage_id": "GLOBAL",
+      "type": "ADD_REQUIREMENT",
+      "item": "Speculum stage review import must be recorded before stage-map registration.",
+      "reason": "Stage map currently depends on external review, but registration must not proceed from an unimported/export-only response.",
+      "required_change": "Add/import a machine-readable Speculum stage review artifact that records review_verdict, final_recommendation, source export_id, reviewed_local_task_id, stage_map_path, stage_map_sha256, imported_at_utc, importer tool, and git_head. Registration remains blocked until this import exists and validates."
+    },
+    {
+      "stage_id": "GLOBAL",
+      "type": "ADD_PASS_FAIL_CONDITION",
+      "item": "Local-only registration boundary.",
+      "reason": "WORKBENCH_ACTIVE_STATE_ONLY can be misread as wider task registration or agent readiness unless the boundary is checked.",
+      "required_change": "Every registration receipt and active_state output must explicitly state registration_kind=WORKBENCH_ACTIVE_STATE_ONLY, ready_for_agent=false, vm2_sync_requested=false, servitor_handoff_created=false, inquisition_build_requested=false."
+    },
     {
       "stage_id": "STAGE-01-SCHEMA-STATE-CONTRACT",
-      "title": "Define Workbench intake and active-state contract",
-      "purpose": "Specify exact repo-safe artifacts and fields for Workbench General Task intake and active_state.json.",
-      "scope_in": [
-        "active_state.json required fields",
-        "normalized General Task artifact path rules",
-        "READY_FOR_AGENT=false invariant",
-        "WORKBENCH_ACTIVE_STATE_ONLY registration kind",
-        "sha256 and git_head provenance fields"
-      ],
-      "scope_out": [
-        "UI polish",
-        "VM2",
-        "Servitor dispatch",
-        "final registration"
-      ],
-      "expected_outputs": [
-        "schema/state contract documented in modernized task or schema file",
-        "field list for active_state.json",
-        "pass/fail criteria for active state"
-      ],
-      "required_checks": [
-        "active state schema has ready_for_agent=false invariant",
-        "no downstream stage map/servitor scope included"
-      ],
-      "pass_condition": "Contract clearly defines active-state-only registration and cannot be confused with agent readiness.",
-      "fail_condition": "Registration remains ambiguous or READY_FOR_AGENT can become true."
+      "type": "CLARIFY_REQUIREMENT",
+      "item": "Contract must be machine-checkable, not only documented prose.",
+      "reason": "A field list inside a task document is not enough for later guards to enforce active-state invariants.",
+      "required_change": "Create or update concrete schema/contract artifacts for General Task intake and active_state. Minimum path hints: ORGANS/ASTRONOMICON/SCHEMAS/general_task_intake_v0_1.schema.json and ORGANS/ASTRONOMICON/SCHEMAS/workbench_active_state_v0_1.schema.json, or an existing equivalent schema path referenced by the checker."
+    },
+    {
+      "stage_id": "STAGE-01-SCHEMA-STATE-CONTRACT",
+      "type": "ADD_REQUIREMENT",
+      "item": "Define stale_status model.",
+      "reason": "Stage 03 requires stale-aware dashboard state, but stale status is not strict unless enum, timestamps, source hashes, and age rule are explicit.",
+      "required_change": "Define stale_status enum and required fields: last_checked_at_utc, generated_at_utc, git_head, commit_count, source_paths, source_sha256, check_age_seconds or stale_after_seconds, and stale_reason. At minimum support FRESH, STALE, UNKNOWN, INVALID."
+    },
+    {
+      "stage_id": "STAGE-01-SCHEMA-STATE-CONTRACT",
+      "type": "ADD_PASS_FAIL_CONDITION",
+      "item": "READY_FOR_AGENT=false invariant must be schema-level and checker-level.",
+      "reason": "Human-readable scope_out is not enough to prevent accidental readiness escalation.",
+      "required_change": "Schema/checker must fail if ready_for_agent is true, missing, non-boolean, or implied by status strings such as READY, GREEN, AGENT_READY, DISPATCHABLE."
     },
     {
       "stage_id": "STAGE-02-INTAKE-PERSISTENCE",
-      "title": "Implement real Workbench General Task intake persistence",
-      "purpose": "Make Owner-entered General Task data persist as a real normalized artifact instead of placeholder UI success.",
-      "scope_in": [
-        "save Owner-entered form data",
-        "normalize to General Task schema",
-        "validate required fields",
-        "write deterministic repo-safe General Task artifact",
-        "emit intake receipt under E:\\IMPERIUM_CONTEXT"
-      ],
-      "scope_out": [
-        "candidate selection implementation",
-        "stage generation",
-        "agent handoff"
-      ],
-      "expected_outputs": [
-        "normalized General Task artifact",
-        "WORKBENCH_GENERAL_TASK_INTAKE_RECEIPT_V0_1",
-        "validation output"
-      ],
-      "required_checks": [
-        "general task validate exits 0",
-        "intake receipt includes source/output sha256",
-        "no placeholder success"
-      ],
-      "pass_condition": "Save/intake produces persisted artifact plus receipt and validation pass.",
-      "fail_condition": "Workbench claims success without artifact, receipt, and validation."
+      "type": "CLARIFY_REQUIREMENT",
+      "item": "Define exact persisted artifact boundary.",
+      "reason": "The phrase 'save Owner-entered form data' is too loose; it can produce raw drafts, duplicate files, or unvalidated data while still claiming success.",
+      "required_change": "Specify exact input source, normalized output path pattern, required fields, deterministic file naming, overwrite policy, and whether raw draft is retained. The normalized General Task artifact must validate before any receipt says PASS."
+    },
+    {
+      "stage_id": "STAGE-02-INTAKE-PERSISTENCE",
+      "type": "ADD_REQUIREMENT",
+      "item": "No-placeholder action truth.",
+      "reason": "Known Workbench buttons are mostly placeholder; Stage 02 can fake green by returning UI success without file output.",
+      "required_change": "A save/intake action must prove: request accepted, normalized artifact written, artifact sha256 computed, validation command exited 0, and receipt written outside repo under E:\\IMPERIUM_CONTEXT. Any UI success without these artifacts is FAIL."
+    },
+    {
+      "stage_id": "STAGE-02-INTAKE-PERSISTENCE",
+      "type": "ADD_REQUIREMENT",
+      "item": "UTF-8 and mojibake guard on intake artifacts.",
+      "reason": "Current project has known mojibake/encoding incidents; intake is a new text boundary and must not reintroduce broken content.",
+      "required_change": "Validate touched .md/.json/.html/.py files with strict UTF-8 decode and mojibake pattern scan. JSON/schema files should be UTF-8 clean and parser-safe; owner-facing Markdown may use UTF-8 with BOM only if the project explicitly allows it."
     },
     {
       "stage_id": "STAGE-03-ACTIVE-STATE-REGISTRATION",
-      "title": "Write active_state.json from real intake and selected task",
-      "purpose": "Create stale-aware dashboard active state with exact IDs, git truth, hashes, and READY_FOR_AGENT=false.",
-      "scope_in": [
-        "active_state.json",
-        "git_head and commit_count",
-        "general_task_id",
-        "selected_task_candidate_id",
-        "modernized_local_task_id",
-        "last_checked_at_utc",
-        "stale_status",
-        "source paths",
-        "sha256 values",
-        "ready_for_agent=false"
-      ],
-      "scope_out": [
-        "Administratum task registration",
-        "VM2 queue",
-        "Servitor dispatch"
-      ],
-      "expected_outputs": [
-        "ORGANS/ASTRONOMICON/DASHBOARD_DATA/active_state.json",
-        "ACTIVE_STATE_REGISTRATION_RECEIPT_V0_1"
-      ],
-      "required_checks": [
-        "active state validates",
-        "READY_FOR_AGENT remains false",
-        "git_head is exact"
-      ],
-      "pass_condition": "active_state.json proves local Workbench state only and remains stale-aware.",
-      "fail_condition": "State lacks provenance, becomes stale-hidden, or implies worker readiness."
+      "type": "CLARIFY_REQUIREMENT",
+      "item": "active_state.json is dashboard state, not task registration authority.",
+      "reason": "The word registration can be over-expanded into Administratum registration or agent readiness.",
+      "required_change": "active_state.json must include registration_kind=WORKBENCH_ACTIVE_STATE_ONLY and a field such as authority_scope='ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY'. It must not create VM2 queue, Servitor handoff, Administratum registration, or READY_FOR_AGENT=true."
+    },
+    {
+      "stage_id": "STAGE-03-ACTIVE-STATE-REGISTRATION",
+      "type": "ADD_REQUIREMENT",
+      "item": "Provenance completeness for active_state.json.",
+      "reason": "Dashboard state without source hashes and exact Git truth will become stale or unverifiable.",
+      "required_change": "Require exact git_head, commit_count, generated_at_utc, last_checked_at_utc, source_general_task_path, source_general_task_sha256, selected_task_path, selected_task_sha256, local_task_path, local_task_sha256, stage_map_path, stage_map_sha256, and checker_run_id."
+    },
+    {
+      "stage_id": "STAGE-03-ACTIVE-STATE-REGISTRATION",
+      "type": "ADD_PASS_FAIL_CONDITION",
+      "item": "Stale-hidden state must fail.",
+      "reason": "Dashboard showing old state as current is a fake-green path.",
+      "required_change": "Checker must fail if last_checked_at_utc is missing, unparsable, future-dated, older than the configured stale threshold, or inconsistent with current git_head/source hashes."
     },
     {
       "stage_id": "STAGE-04-CHECKERS-RECEIPTS-GUARDS",
-      "title": "Add checker and receipt guard layer",
-      "purpose": "Prevent fake green by checking placeholder UI, repo purity, UTF-8, Speculum import, and active state.",
-      "scope_in": [
-        "no-placeholder action checker",
-        "repo purity guard",
-        "UTF-8/mojibake guard",
-        "Speculum review import guard",
-        "Workbench check run receipt",
-        "Repo purity receipt"
-      ],
-      "scope_out": [
-        "full CI system",
-        "VM2 sync",
-        "new UI design system"
-      ],
-      "expected_outputs": [
-        "WORKBENCH_CHECK_RUN_RECEIPT_V0_1",
-        "REPO_PURITY_RECEIPT_V0_1",
-        "checker pass/fail summary"
-      ],
-      "required_checks": [
-        "no placeholder action emits success",
-        "no runtime/private/outbox artifacts under repo",
-        "touched files are UTF-8 clean",
-        "Speculum review is imported and reflected"
-      ],
-      "pass_condition": "All required guards produce explicit pass/fail evidence and Owner manual gate remains required.",
-      "fail_condition": "Any checker missing, fake-green-prone, or hiding warning/blocker state."
+      "type": "CLARIFY_REQUIREMENT",
+      "item": "Stage 04 remains bounded to this local task only.",
+      "reason": "The guard list is necessary, but it can sprawl into full CI, Inquisition, or platform work.",
+      "required_change": "Keep Stage 04 limited to checkers required for this Workbench intake/active-state corridor. No full CI system, no Inquisition build, no VM2 sync, no Servitor dispatch, no new design system."
+    },
+    {
+      "stage_id": "STAGE-04-CHECKERS-RECEIPTS-GUARDS",
+      "type": "ADD_REQUIREMENT",
+      "item": "Aggregate checker launcher.",
+      "reason": "Separate checkers without a single summary create manual blindness and allow partial green.",
+      "required_change": "Provide one launcher command that runs all required guards and emits one WORKBENCH_CHECK_RUN_RECEIPT_V0_1 with per-check PASS/FAIL/BLOCKED status, command, exit_code, started_at_utc, finished_at_utc, git_head, and artifact hashes."
+    },
+    {
+      "stage_id": "STAGE-04-CHECKERS-RECEIPTS-GUARDS",
+      "type": "ADD_REQUIREMENT",
+      "item": "Repo purity guard must include negative path scan.",
+      "reason": "The repo-purity rule is central and cannot be checked only by git status.",
+      "required_change": "Guard must fail if runtime/outbox/bundles/handoff/private context artifacts appear under E:\\IMPERIUM. It must also confirm receipts and run outputs are under E:\\IMPERIUM_CONTEXT, not inside the repo."
     }
   ],
-  "final_stage_map_pass_condition": [
-    "Stage map has exactly 4 bounded stages",
-    "No stage sets READY_FOR_AGENT true",
-    "No stage requests VM2 sync",
-    "No stage builds Inquisition",
-    "Every stage has pass/fail condition",
-    "Speculum stage review is required before registration",
-    "Speculum stage review import exists and is tied to exact local_task_id and stage_map_sha256",
-    "Machine-checkable intake and active-state contracts must exist before registration",
-    "active_state authority_scope must be ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY",
-    "vm2_sync_requested=false",
-    "servitor_handoff_created=false",
-    "inquisition_build_requested=false",
-    "repo purity guard must pass before registration",
-    "UTF-8/mojibake guard must pass before registration",
-    "Owner manual gate remains required after checker pass"
-  ],
-  "next_gate": "OWNER_DECIDE_NEXT_LOCAL_STAGE_EXECUTION_PLAN",
-  "authority_scope": "ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY",
-  "vm2_sync_requested": false,
-  "servitor_handoff_created": false,
-  "inquisition_build_requested": false,
-  "speculum_stage_review": {
-    "imported": true,
-    "review_verdict": "APPROVE_STAGE_MAP_WITH_CORRECTIONS",
-    "final_recommendation": "APPLY_CORRECTIONS_THEN_REGISTER_STAGE_MAP",
-    "review_source_path": "ORGANS/ASTRONOMICON/IMPORTS/SPECULUM_STAGE_REVIEW/LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01/speculum_stage_review_response.json",
-    "review_sha256": "52396AE46F9322AC5C5CAB99823F3BDFEC6A721692A9457591421696E146D39B",
-    "imported_before_registration": true
-  },
-  "required_registration_conditions": [
-    {
-      "condition": "Speculum stage review response is imported and bound to the exact reviewed_local_task_id and stage_map_sha256.",
-      "evidence_required": "SPECULUM_STAGE_REVIEW_IMPORT_RECEIPT_V0_1 with local_task_id, stage_map_sha256, review_verdict, final_recommendation, imported_at_utc, git_head.",
-      "blocks_registration_if_missing": true
-    },
-    {
-      "condition": "Stage map validates as exactly 4 bounded stages with no readiness escalation.",
-      "evidence_required": "astronomicon_stage_map_schema_validate_v0_1 exit 0 and STAGE_MAP_REGISTRATION_PRECHECK_RECEIPT_V0_1.",
-      "blocks_registration_if_missing": true
-    },
-    {
-      "condition": "Machine-checkable intake and active-state contracts exist.",
-      "evidence_required": "astronomicon_contract_schema_validate_v0_1 exit 0 and schema paths/hashes included in check-run receipt.",
-      "blocks_registration_if_missing": true
-    },
-    {
-      "condition": "WORKBENCH_ACTIVE_STATE_ONLY remains the only registration kind.",
-      "evidence_required": "active_state schema/checker output showing registration_kind=WORKBENCH_ACTIVE_STATE_ONLY, authority_scope=ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY, ready_for_agent=false.",
-      "blocks_registration_if_missing": true
-    },
-    {
-      "condition": "Repo purity is preserved.",
-      "evidence_required": "REPO_PURITY_RECEIPT_V0_1 showing no runtime/outbox/bundles/handoff/private context under E:\\IMPERIUM and receipts under E:\\IMPERIUM_CONTEXT.",
-      "blocks_registration_if_missing": true
-    },
-    {
-      "condition": "UTF-8/mojibake guard passes on touched artifacts.",
-      "evidence_required": "UTF8_MOJIBAKE_GUARD_RECEIPT_V0_1 with zero decode failures and zero mojibake hits.",
-      "blocks_registration_if_missing": true
-    },
-    {
-      "condition": "Owner manual gate remains required after checker pass.",
-      "evidence_required": "Stage map and check-run receipt include owner_gate_required=true and no auto-registration/auto-agent execution flag.",
-      "blocks_registration_if_missing": true
-    }
-  ],
-  "required_checkers_from_speculum": [
+  "required_checkers": [
     {
       "checker_name": "astronomicon_stage_map_schema_validate_v0_1",
       "stage_id": "GLOBAL",
@@ -279,7 +168,7 @@
       "failure_condition": "Any child checker FAIL/BLOCKED; launcher hides warnings; receipt omits failed commands; checker run claims readiness for agent execution."
     }
   ],
-  "required_receipts_from_speculum": [
+  "required_receipts": [
     {
       "receipt_name": "SPECULUM_STAGE_REVIEW_IMPORT_RECEIPT_V0_1",
       "stage_id": "GLOBAL",
@@ -404,7 +293,7 @@
       ]
     }
   ],
-  "blockers_from_speculum": [
+  "blockers": [
     {
       "blocker_id": "B-STAGE-REG-001",
       "severity": "BLOCKER",
@@ -448,7 +337,7 @@
       "required_resolution": "Keep Stage 04 as a guard layer for the Workbench corridor only. Split it if implementation tries to add full CI, dashboard redesign, VM2, or Inquisition behavior."
     }
   ],
-  "fake_green_risks_from_speculum": [
+  "fake_green_risks": [
     {
       "risk": "Workbench Save/Validate/Decompose buttons show success while still executing placeholder code.",
       "affected_stage": "STAGE-02-INTAKE-PERSISTENCE",
@@ -485,8 +374,50 @@
       "mitigation": "WORKBENCH_CHECK_RUN_RECEIPT must include per-check status and force overall FAIL/BLOCKED if any required checker fails or is missing."
     }
   ],
-  "corrections_applied_at_utc": "2026-05-14T19:31:15Z",
-  "registered_at_utc": "2026-05-14T19:44:57Z",
-  "registered_by_owner_gate": true,
-  "registration_receipt_kind": "STAGE_MAP_LOCAL_REGISTRATION_REPAIR_RECEIPT_V0_1"
+  "registration_conditions": [
+    {
+      "condition": "Speculum stage review response is imported and bound to the exact reviewed_local_task_id and stage_map_sha256.",
+      "evidence_required": "SPECULUM_STAGE_REVIEW_IMPORT_RECEIPT_V0_1 with local_task_id, stage_map_sha256, review_verdict, final_recommendation, imported_at_utc, git_head.",
+      "blocks_registration_if_missing": true
+    },
+    {
+      "condition": "Stage map validates as exactly 4 bounded stages with no readiness escalation.",
+      "evidence_required": "astronomicon_stage_map_schema_validate_v0_1 exit 0 and STAGE_MAP_REGISTRATION_PRECHECK_RECEIPT_V0_1.",
+      "blocks_registration_if_missing": true
+    },
+    {
+      "condition": "Machine-checkable intake and active-state contracts exist.",
+      "evidence_required": "astronomicon_contract_schema_validate_v0_1 exit 0 and schema paths/hashes included in check-run receipt.",
+      "blocks_registration_if_missing": true
+    },
+    {
+      "condition": "WORKBENCH_ACTIVE_STATE_ONLY remains the only registration kind.",
+      "evidence_required": "active_state schema/checker output showing registration_kind=WORKBENCH_ACTIVE_STATE_ONLY, authority_scope=ASTRONOMICON_WORKBENCH_DASHBOARD_ONLY, ready_for_agent=false.",
+      "blocks_registration_if_missing": true
+    },
+    {
+      "condition": "Repo purity is preserved.",
+      "evidence_required": "REPO_PURITY_RECEIPT_V0_1 showing no runtime/outbox/bundles/handoff/private context under E:\\IMPERIUM and receipts under E:\\IMPERIUM_CONTEXT.",
+      "blocks_registration_if_missing": true
+    },
+    {
+      "condition": "UTF-8/mojibake guard passes on touched artifacts.",
+      "evidence_required": "UTF8_MOJIBAKE_GUARD_RECEIPT_V0_1 with zero decode failures and zero mojibake hits.",
+      "blocks_registration_if_missing": true
+    },
+    {
+      "condition": "Owner manual gate remains required after checker pass.",
+      "evidence_required": "Stage map and check-run receipt include owner_gate_required=true and no auto-registration/auto-agent execution flag.",
+      "blocks_registration_if_missing": true
+    }
+  ],
+  "final_recommendation": "APPLY_CORRECTIONS_THEN_REGISTER_STAGE_MAP",
+  "advisory_notes": [
+    "The 4-stage separation is acceptable: contract, persistence, active state, guards. Do not split before registration unless Stage 04 expands beyond local guard work.",
+    "Stage 02 and Stage 03 are the highest fake-green zones because they convert UI/action claims into repo-visible state.",
+    "Registration here must mean only local Astronomicon Workbench stage-map registration. It must not imply Administratum registration, Servitor readiness, VM2 sync, or READY_FOR_AGENT=true.",
+    "Do not create a Servitor handoff pack in this local task. Handoff belongs after registered stage map, stage execution evidence, and a separate Owner gate.",
+    "Do not move receipts into the repo for convenience. Runtime evidence belongs under E:\\IMPERIUM_CONTEXT.",
+    "Do not let a dashboard display active state without last_checked_at_utc, stale_status, exact git_head, and source sha256."
+  ]
 }
