@@ -1,0 +1,70 @@
+﻿{
+    "schema_version":  "normalized_servitor_stage_execution_report_v0_1",
+    "imported_at_utc":  "2026-05-14T20:35:29Z",
+    "source_kind":  "zip",
+    "source_path":  "E:\\IMPERIUM_CONTEXT\\LOCAL\\OUTBOX\\PC_SERVITOR_BUNDLES\\LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01\\RESULT_20260514T201610Z\\checks.zip",
+    "source_report_sha256":  "BEB83D2F289CFDFF82A061EF02412EB89687145879D546923906792A22FDF8E8",
+    "source_check_receipt_sha256":  "E0A8F69D71B3178FC0D51805B5927DF3E6BF82D647CEAD9EE0758C7B1F7DF400",
+    "git_head":  "fda1a94398c1a335062551f088660b5f758d9dbc",
+    "commit_count":  "86",
+    "local_task_id":  "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+    "final_verdict":  "PASS_READY_FOR_PC_INTAKE",
+    "check_all_status":  "PASS",
+    "ready_for_agent":  false,
+    "vm2_sync_requested":  false,
+    "inquisition_build_requested":  false,
+    "stage_reports_count":  4,
+    "stage_reports":  [
+                          {
+                              "schema_version":  "normalized_servitor_stage_report_v0_1",
+                              "stage_id":  "STAGE-01-SCHEMA-STATE-CONTRACT",
+                              "status":  "PASS",
+                              "verdict":  "PASS",
+                              "source_stage_report_sha256":  "932DC7DB0A4F8030B332F610683A12A51EA1B06A987214B9602AD9B8D44456B4",
+                              "files_touched_count":  2,
+                              "checks_run_count":  2,
+                              "receipts_count":  1,
+                              "ready_for_agent":  false,
+                              "raw_human_text_omitted":  true
+                          },
+                          {
+                              "schema_version":  "normalized_servitor_stage_report_v0_1",
+                              "stage_id":  "STAGE-02-INTAKE-PERSISTENCE",
+                              "status":  "PASS",
+                              "verdict":  "PASS",
+                              "source_stage_report_sha256":  "6E28D8FD606804CBA2902E4AA0A32AE10FF71759C16C1839AED0A33FD4E632F2",
+                              "files_touched_count":  1,
+                              "checks_run_count":  2,
+                              "receipts_count":  1,
+                              "ready_for_agent":  false,
+                              "raw_human_text_omitted":  true
+                          },
+                          {
+                              "schema_version":  "normalized_servitor_stage_report_v0_1",
+                              "stage_id":  "STAGE-03-ACTIVE-STATE-REGISTRATION",
+                              "status":  "PASS",
+                              "verdict":  "PASS",
+                              "source_stage_report_sha256":  "84090BD23BCF6B3628105442815E107596AA6385FC8F27C5274C4F21B5838986",
+                              "files_touched_count":  1,
+                              "checks_run_count":  2,
+                              "receipts_count":  1,
+                              "ready_for_agent":  false,
+                              "raw_human_text_omitted":  true
+                          },
+                          {
+                              "schema_version":  "normalized_servitor_stage_report_v0_1",
+                              "stage_id":  "STAGE-04-CHECKERS-RECEIPTS-GUARDS",
+                              "status":  "PASS",
+                              "verdict":  "PASS",
+                              "source_stage_report_sha256":  "F58FB338F676AED9574F9A5E8C0AEAD545B73D37C812CB0859D0A1E936BB6BF8",
+                              "files_touched_count":  0,
+                              "checks_run_count":  4,
+                              "receipts_count":  3,
+                              "ready_for_agent":  false,
+                              "raw_human_text_omitted":  true
+                          }
+                      ],
+    "owner_summary_omitted_from_repo":  true,
+    "owner_summary_omission_reason":  "Human-facing non-canonical text is not imported into repository artifacts under language policy.",
+    "canonical_language_policy":  "IMPERIUM_CANONICAL_LANGUAGE_AND_UI_LOCALIZATION_POLICY_V0_1"
+}

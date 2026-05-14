@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  "normalized_servitor_stage_report_v0_1",
+    "stage_id":  "STAGE-01-SCHEMA-STATE-CONTRACT",
+    "status":  "PASS",
+    "verdict":  "PASS",
+    "source_stage_report_sha256":  "932DC7DB0A4F8030B332F610683A12A51EA1B06A987214B9602AD9B8D44456B4",
+    "files_touched_count":  2,
+    "checks_run_count":  2,
+    "receipts_count":  1,
+    "ready_for_agent":  false,
+    "raw_human_text_omitted":  true
+}

@@ -1,4 +1,4 @@
-import argparse, json, hashlib, sys
+import argparse, json, hashlib, sys, re
 from pathlib import Path
 
 try:
@@ -23,11 +23,12 @@ def emit(status, message, **kw):
 
 p = argparse.ArgumentParser()
 p.add_argument("--stage-map", required=True)
-p.add_argument("--expect-git-head", required=True)
+p.add_argument("--expect-git-head", required=False)
 a = p.parse_args()
 
 m = load_json(a.stage_map)
 bad = []
+warnings = []
 
 expected_top = {
     "schema_version": "astronomicon_stage_map_v0_1",
@@ -44,8 +45,17 @@ for k, v in expected_top.items():
     if m.get(k) != v:
         bad.append({"field": k, "expected": v, "actual": m.get(k)})
 
-if m.get("git_head") != a.expect_git_head:
-    bad.append({"field": "git_head", "expected": a.expect_git_head, "actual": m.get("git_head")})
+artifact_git_head = m.get("git_head")
+if not isinstance(artifact_git_head, str) or not re.fullmatch(r"[0-9a-fA-F]{40}", artifact_git_head or ""):
+    bad.append({"field": "git_head", "issue": "missing_or_invalid_40_hex_hash", "actual": artifact_git_head})
+elif a.expect_git_head and artifact_git_head != a.expect_git_head:
+    warnings.append({
+        "field": "git_head",
+        "issue": "artifact_provenance_head_differs_from_current_head",
+        "artifact_git_head": artifact_git_head,
+        "current_expected_git_head": a.expect_git_head,
+        "note": "Not blocking. Stage map git_head is artifact creation provenance, not future commit HEAD."
+    })
 
 stages = m.get("stages", [])
 if m.get("stage_count") != 4 or len(stages) != 4:
@@ -66,11 +76,7 @@ for st in stages:
     if st.get("fail_condition") in [None, ""]:
         bad.append({"stage_id": sid, "bad": "empty_fail_condition"})
 
-# Important:
-# Do NOT fail merely because forbidden actions appear inside scope_out/global_scope_out.
-# This checker fails only on actual readiness/escalation fields, not on text explaining prohibitions.
-
 if bad:
-    emit("BLOCKED", "stage map schema validation failed", bad=bad)
+    emit("BLOCKED", "stage map schema validation failed", bad=bad, warnings=warnings)
 
-emit("PASS", "stage map schema validation passed", stage_map=a.stage_map, sha256=sha256(a.stage_map))
+emit("PASS", "stage map schema validation passed", stage_map=a.stage_map, sha256=sha256(a.stage_map), warnings=warnings)

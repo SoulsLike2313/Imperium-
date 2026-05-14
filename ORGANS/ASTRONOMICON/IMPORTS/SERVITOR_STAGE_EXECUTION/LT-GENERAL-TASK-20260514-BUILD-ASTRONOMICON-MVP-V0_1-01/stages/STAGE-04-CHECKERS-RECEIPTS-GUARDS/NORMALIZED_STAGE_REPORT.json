@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  "normalized_servitor_stage_report_v0_1",
+    "stage_id":  "STAGE-04-CHECKERS-RECEIPTS-GUARDS",
+    "status":  "PASS",
+    "verdict":  "PASS",
+    "source_stage_report_sha256":  "F58FB338F676AED9574F9A5E8C0AEAD545B73D37C812CB0859D0A1E936BB6BF8",
+    "files_touched_count":  0,
+    "checks_run_count":  4,
+    "receipts_count":  3,
+    "ready_for_agent":  false,
+    "raw_human_text_omitted":  true
+}

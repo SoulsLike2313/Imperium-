@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  "normalized_servitor_stage_report_v0_1",
+    "stage_id":  "STAGE-03-ACTIVE-STATE-REGISTRATION",
+    "status":  "PASS",
+    "verdict":  "PASS",
+    "source_stage_report_sha256":  "84090BD23BCF6B3628105442815E107596AA6385FC8F27C5274C4F21B5838986",
+    "files_touched_count":  1,
+    "checks_run_count":  2,
+    "receipts_count":  1,
+    "ready_for_agent":  false,
+    "raw_human_text_omitted":  true
+}

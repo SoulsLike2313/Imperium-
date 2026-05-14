@@ -1,0 +1,10 @@
+﻿{
+    "schema_version":  "normalized_workbench_check_run_receipt_v0_1",
+    "imported_at_utc":  "2026-05-14T20:35:29Z",
+    "source_check_receipt_sha256":  "E0A8F69D71B3178FC0D51805B5927DF3E6BF82D647CEAD9EE0758C7B1F7DF400",
+    "overall_status":  "PASS",
+    "ready_for_agent":  false,
+    "owner_gate_required":  true,
+    "local_task_id":  "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+    "git_head":  "fda1a94398c1a335062551f088660b5f758d9dbc"
+}

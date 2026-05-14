@@ -1,0 +1,70 @@
+﻿{
+    "schema_version":  "servitor_source_hash_index_v0_1",
+    "source_kind":  "zip",
+    "source_path":  "E:\\IMPERIUM_CONTEXT\\LOCAL\\OUTBOX\\PC_SERVITOR_BUNDLES\\LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01\\RESULT_20260514T201610Z\\checks.zip",
+    "local_task_id":  "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+    "file_count":  12,
+    "files":  [
+                  {
+                      "relative_path":  "checks\\WORKBENCH_CHECK_RUN_RECEIPT_V0_1.json",
+                      "sha256":  "E0A8F69D71B3178FC0D51805B5927DF3E6BF82D647CEAD9EE0758C7B1F7DF400",
+                      "size_bytes":  4973
+                  },
+                  {
+                      "relative_path":  "receipts\\ACTIVE_STATE_REGISTRATION_RECEIPT_V0_1.json",
+                      "sha256":  "782C60D4095B4877FD68FC93ECC5561740D557BAD914EFF424F5831CBE801A70",
+                      "size_bytes":  979
+                  },
+                  {
+                      "relative_path":  "receipts\\REPO_PURITY_RECEIPT_V0_1.json",
+                      "sha256":  "E07ACA791ACEE3EBF3A936E74934151942C603BFD3348AF25DD524C08CAF117B",
+                      "size_bytes":  908
+                  },
+                  {
+                      "relative_path":  "receipts\\SPECULUM_STAGE_REVIEW_IMPORT_RECEIPT_V0_1.json",
+                      "sha256":  "C2C7E66C0C6BBD7150218A6003F209DE1BDFE82C71B44D960582AE5D7BBEAECD",
+                      "size_bytes":  1343
+                  },
+                  {
+                      "relative_path":  "receipts\\UTF8_MOJIBAKE_GUARD_RECEIPT_V0_1.json",
+                      "sha256":  "667BF1BD8D68075F1B7F886CF81C3F549DC5F9EE63E92EA4A375AC95E41C2384",
+                      "size_bytes":  445
+                  },
+                  {
+                      "relative_path":  "receipts\\WORKBENCH_GENERAL_TASK_INTAKE_RECEIPT_V0_1.json",
+                      "sha256":  "D2729463FE2B22CF4343274E2A3798F2DFE451C6AA0744BB5CA74C65FE41625C",
+                      "size_bytes":  576
+                  },
+                  {
+                      "relative_path":  "SERVITOR_OWNER_SUMMARY.md",
+                      "sha256":  "A58FB481B16C933007B7783F230B7F055A66AFD826043A6A870833695A5DEE9B",
+                      "size_bytes":  959
+                  },
+                  {
+                      "relative_path":  "SERVITOR_STAGE_EXECUTION_REPORT.json",
+                      "sha256":  "BEB83D2F289CFDFF82A061EF02412EB89687145879D546923906792A22FDF8E8",
+                      "size_bytes":  8399
+                  },
+                  {
+                      "relative_path":  "stages\\STAGE-01-SCHEMA-STATE-CONTRACT\\STAGE_REPORT.json",
+                      "sha256":  "932DC7DB0A4F8030B332F610683A12A51EA1B06A987214B9602AD9B8D44456B4",
+                      "size_bytes":  1837
+                  },
+                  {
+                      "relative_path":  "stages\\STAGE-02-INTAKE-PERSISTENCE\\STAGE_REPORT.json",
+                      "sha256":  "6E28D8FD606804CBA2902E4AA0A32AE10FF71759C16C1839AED0A33FD4E632F2",
+                      "size_bytes":  1624
+                  },
+                  {
+                      "relative_path":  "stages\\STAGE-03-ACTIVE-STATE-REGISTRATION\\STAGE_REPORT.json",
+                      "sha256":  "84090BD23BCF6B3628105442815E107596AA6385FC8F27C5274C4F21B5838986",
+                      "size_bytes":  1537
+                  },
+                  {
+                      "relative_path":  "stages\\STAGE-04-CHECKERS-RECEIPTS-GUARDS\\STAGE_REPORT.json",
+                      "sha256":  "F58FB338F676AED9574F9A5E8C0AEAD545B73D37C812CB0859D0A1E936BB6BF8",
+                      "size_bytes":  1900
+                  }
+              ],
+    "note":  "Source files are indexed by hash. Non-canonical human text is not copied into repo import."
+}

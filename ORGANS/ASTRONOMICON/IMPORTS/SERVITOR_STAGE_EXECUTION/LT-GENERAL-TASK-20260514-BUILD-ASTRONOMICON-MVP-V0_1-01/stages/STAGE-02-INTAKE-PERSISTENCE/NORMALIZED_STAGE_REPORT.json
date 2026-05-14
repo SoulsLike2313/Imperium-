@@ -1,0 +1,12 @@
+﻿{
+    "schema_version":  "normalized_servitor_stage_report_v0_1",
+    "stage_id":  "STAGE-02-INTAKE-PERSISTENCE",
+    "status":  "PASS",
+    "verdict":  "PASS",
+    "source_stage_report_sha256":  "6E28D8FD606804CBA2902E4AA0A32AE10FF71759C16C1839AED0A33FD4E632F2",
+    "files_touched_count":  1,
+    "checks_run_count":  2,
+    "receipts_count":  1,
+    "ready_for_agent":  false,
+    "raw_human_text_omitted":  true
+}

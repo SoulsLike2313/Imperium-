@@ -1,0 +1,52 @@
+﻿{
+    "schema_version":  "servitor_stage_execution_import_receipt_v0_1",
+    "imported_at_utc":  "2026-05-14T20:35:29Z",
+    "source_kind":  "zip",
+    "source_path":  "E:\\IMPERIUM_CONTEXT\\LOCAL\\OUTBOX\\PC_SERVITOR_BUNDLES\\LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01\\RESULT_20260514T201610Z\\checks.zip",
+    "git_head":  "fda1a94398c1a335062551f088660b5f758d9dbc",
+    "commit_count":  "86",
+    "local_task_id":  "LT-GENERAL-TASK-20260514-BUILD-ASTRONOMICON-MVP-V0_1-01",
+    "servitor_verdict":  "PASS_READY_FOR_PC_INTAKE",
+    "check_all_status":  "PASS",
+    "ready_for_agent":  false,
+    "vm2_sync_requested":  false,
+    "inquisition_build_requested":  false,
+    "owner_summary_omitted_from_repo":  true,
+    "imported_files":  [
+                           {
+                               "relative_path":  "checks\\NORMALIZED_WORKBENCH_CHECK_RUN_RECEIPT.json",
+                               "sha256":  "CD2669DB5A286808EB09404A17A11F616737B168989BBA094B772B57A4BE67A8",
+                               "size_bytes":  476
+                           },
+                           {
+                               "relative_path":  "NORMALIZED_SERVITOR_STAGE_EXECUTION_REPORT.json",
+                               "sha256":  "5B705690236FD8A066F15EF33145ADF1C816FEEDF0D4A1AF1DDA11061DB26345",
+                               "size_bytes":  4260
+                           },
+                           {
+                               "relative_path":  "source_hashes\\SERVITOR_SOURCE_HASH_INDEX.json",
+                               "sha256":  "8D0A7DC3117535271984EAFD0458817B8E12F8D8A6D7F46B06B7213DFDE1A2D2",
+                               "size_bytes":  3899
+                           },
+                           {
+                               "relative_path":  "stages\\STAGE-01-SCHEMA-STATE-CONTRACT\\NORMALIZED_STAGE_REPORT.json",
+                               "sha256":  "AEB2B40DD5A4C25492FB0301F0531E70FF6E76DBA5A02F3228D965DC366F3491",
+                               "size_bytes":  436
+                           },
+                           {
+                               "relative_path":  "stages\\STAGE-02-INTAKE-PERSISTENCE\\NORMALIZED_STAGE_REPORT.json",
+                               "sha256":  "682FEFC142F395B4D00132A78F49EB9C4BEAB9C0A6C148C9F35F63FC66B5519A",
+                               "size_bytes":  433
+                           },
+                           {
+                               "relative_path":  "stages\\STAGE-03-ACTIVE-STATE-REGISTRATION\\NORMALIZED_STAGE_REPORT.json",
+                               "sha256":  "22263EB5CF1DF0A26D3D63026874E7A3B357F373527423F7308FD7D7007B1F91",
+                               "size_bytes":  440
+                           },
+                           {
+                               "relative_path":  "stages\\STAGE-04-CHECKERS-RECEIPTS-GUARDS\\NORMALIZED_STAGE_REPORT.json",
+                               "sha256":  "AC8ED32A29824F9C5973FBA7807D273E350BD2062713A9E5570D7EE0C5FFEC44",
+                               "size_bytes":  439
+                           }
+                       ]
+}
