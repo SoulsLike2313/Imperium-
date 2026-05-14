@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium.servitor_response_contract.v0_1",
+  "title": "IMPERIUM Servitor Response Contract v0.1",
+  "type": "object",
+  "required": [
+    "task_id",
+    "stage_id",
+    "run_id",
+    "head_sha",
+    "verdict",
+    "bundle_path",
+    "changed_files",
+    "checks_run",
+    "receipts_created",
+    "warnings",
+    "blockers",
+    "continue_decision",
+    "next_stage",
+    "chat_output_limit",
+    "bundle_required_files",
+    "zip_transport_artifact",
+    "folder_bundle_canonical_evidence"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "head_sha": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{40}$"
+    },
+    "changed_files": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "checks_run": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "receipts_created": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "continue_decision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "next_stage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "chat_output_limit": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "object",
+          "required": [
+            "max_non_empty_lines",
+            "forbidden_long_lists_in_chat"
+          ],
+          "properties": {
+            "max_non_empty_lines": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "forbidden_long_lists_in_chat": {
+              "type": "boolean"
+            },
+            "forbidden_machine_summary_in_chat": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "bundle_required_files": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "zip_transport_artifact": {
+      "type": "boolean"
+    },
+    "folder_bundle_canonical_evidence": {
+      "type": "boolean"
+    },
+    "bundle_path": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": ".*\\S.*"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "PASS_PC_ONLY",
+        "PASS_WITH_WARNINGS",
+        "BLOCKED",
+        "FAILED",
+        "NEEDS_OWNER_APPROVAL",
+        "ADVISORY_REGISTERED_NOT_CANON",
+        "CONTRACT_READY_FOR_OWNER_REVIEW",
+        "INVENTORY_ONLY_NO_REPAIR",
+        "BLOCKED_MISSING_INPUT",
+        "BLOCKED_PDF_TEXT_EXTRACTION_FAILED",
+        "BLOCKED_UNEXPECTED_DIRTY_SCOPE",
+        "BLOCKED_CHECKER_FAILURE",
+        "BLOCKED_CHECKER_ENFORCEMENT_INCOMPLETE",
+        "BLOCKED_ZIP_TRANSPORT_CREATION_FAILED",
+        "BLOCKED_KIRO_PROTOCOL_SEED_INCOMPLETE",
+        "ZIP_NOT_CANONICAL_EVIDENCE"
+      ]
+    }
+  },
+  "additionalProperties": true
+}
