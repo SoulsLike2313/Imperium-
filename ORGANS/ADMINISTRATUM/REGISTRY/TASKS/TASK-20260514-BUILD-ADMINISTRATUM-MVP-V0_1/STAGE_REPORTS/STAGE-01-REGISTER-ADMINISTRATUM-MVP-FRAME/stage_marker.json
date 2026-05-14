@@ -1,0 +1,50 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "stage_id": "STAGE-01-REGISTER-ADMINISTRATUM-MVP-FRAME",
+  "status": "PASS",
+  "started_utc": "2026-05-14T21:24:09.340413+00:00",
+  "completed_utc": "2026-05-14T21:24:09.490900+00:00",
+  "prompt_path": "ORGANS/ADMINISTRATUM/REGISTRY/TASKS/TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1/PROMPTS/01_STAGE-01_REGISTER_ADMINISTRATUM_MVP_FRAME.md",
+  "evidence_paths": [
+    "ORGANS\\ADMINISTRATUM\\DOCS\\ADMINISTRATUM_MVP_V0_1.md",
+    "ORGANS\\ADMINISTRATUM\\REGISTRY\\ADMINISTRATUM_MVP_TASK_PLAN_V0_1.json",
+    "ORGANS\\ADMINISTRATUM\\REGISTRY\\TASKS\\TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1\\PROMPTS\\01_STAGE-01_REGISTER_ADMINISTRATUM_MVP_FRAME.md",
+    "ORGANS/ADMINISTRATUM/REPORTS/stage_01_register_administratum_mvp_frame_report_v0_1.json"
+  ],
+  "checker_commands": [
+    "git status --porcelain",
+    "git rev-parse HEAD",
+    "python stage-01-inline-check"
+  ],
+  "checker_results": {
+    "overall": "PASS",
+    "astronomicon_touched": []
+  },
+  "created_or_modified_paths": [
+    "ORGANS/ADMINISTRATUM/ADDRESS_BOOK",
+    "ORGANS/ADMINISTRATUM/CHRONICLE",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE",
+    "ORGANS/ADMINISTRATUM/BUNDLE_BUILDER",
+    "ORGANS/ADMINISTRATUM/DOCS/ADMINISTRATUM_MVP_V0_1.md",
+    "ORGANS/ADMINISTRATUM/REGISTRY/TASKS/TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+    "ORGANS/ADMINISTRATUM/REGISTRY/TASKS/TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1/PROMPTS"
+  ],
+  "git_head_before": "88add153b2b9659655bac8b2e775127eb61302cf",
+  "git_head_after": "88add153b2b9659655bac8b2e775127eb61302cf",
+  "pass_criteria_met": {
+    "repo_root_is_expected": true,
+    "required_dirs_exist": true,
+    "frame_files_exist": true,
+    "english_only_frame_files": true,
+    "astronomicon_not_modified": true,
+    "task_id_exact_in_plan": true,
+    "task_id_exact_in_doc": true,
+    "exactly_six_top_level_stages": true,
+    "stage_ids_match_contract": true,
+    "stage5_has_synthetic_substages": true,
+    "stage6_has_synthetic_substages": true,
+    "stop_behavior_documented": true
+  },
+  "stop_criteria_triggered": [],
+  "owner_comment_ru": "Этап 1 выполнен: каркас Administratum создан, проверки пройдены, Astronomicon не затронут."
+}

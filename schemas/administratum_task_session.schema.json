@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "administratum_task_session.schema.json",
+  "title": "Administratum Task Session v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "status",
+    "created_utc",
+    "updated_utc",
+    "required_stage_ids",
+    "stage_reports",
+    "owner_approval_required",
+    "paths"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "administratum_task_session_v0_1"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_title": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PLANNED",
+        "ACTIVE",
+        "STAGE_PASS",
+        "BLOCKED",
+        "STOPPED",
+        "STOPPED_PENDING_OWNER_APPROVAL",
+        "CLOSED_PASS",
+        "CLOSED_FAIL",
+        "BUNDLED"
+      ]
+    },
+    "created_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "required_stage_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "stage_reports": {
+      "type": "array",
+      "items": {
+        "$ref": "administratum_stage_report.schema.json"
+      }
+    },
+    "owner_approval_required": {
+      "type": "boolean"
+    },
+    "failed_stage_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stop_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "final_status": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "paths": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "session_dir",
+        "events_jsonl",
+        "stage_reports_dir",
+        "evidence_dir"
+      ],
+      "properties": {
+        "session_dir": {
+          "type": "string"
+        },
+        "events_jsonl": {
+          "type": "string"
+        },
+        "stage_reports_dir": {
+          "type": "string"
+        },
+        "evidence_dir": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

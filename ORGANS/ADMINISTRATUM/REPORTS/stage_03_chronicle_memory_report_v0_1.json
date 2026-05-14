@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "stage_id": "STAGE-03-BUILD-CHRONICLE-MEMORY-V0_1",
+  "checker_command": "py -3 scripts/administratum_chronicle_check_v0_1.py",
+  "checker_status": "PASS",
+  "chronicle_path": "ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl",
+  "schema_path": "schemas/administratum_chronicle_entry.schema.json",
+  "evidence_paths": [
+    "ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl",
+    "schemas/administratum_chronicle_entry.schema.json",
+    "scripts/administratum_chronicle_check_v0_1.py",
+    "ORGANS/ADMINISTRATUM/REPORTS/chronicle_check_report_v0_1.json"
+  ],
+  "pass_fail_reason": "Chronicle checker passed required JSONL/provenance/consistency validations.",
+  "checker_checks": {
+    "jsonl_lines_parse": true,
+    "required_fields_present": true,
+    "event_ids_unique": true,
+    "no_unsupported_pass_claims": true,
+    "provenance_fields_separate": true,
+    "no_contradictory_status_entries": true,
+    "required_initial_entries_present": true,
+    "line_count_at_least_required": true
+  },
+  "checker_failures": [],
+  "created_utc": "2026-05-14T21:28:43.486188+00:00"
+}

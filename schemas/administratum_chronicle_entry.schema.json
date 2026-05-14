@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "administratum_chronicle_entry.schema.json",
+  "title": "Administratum Chronicle Entry v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "timestamp_utc",
+    "scope",
+    "summary",
+    "status",
+    "evidence",
+    "provenance",
+    "current_git_truth",
+    "artifact_provenance"
+  ],
+  "properties": {
+    "event_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "event_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "scope": {
+      "type": "string",
+      "enum": [
+        "global",
+        "task"
+      ]
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "global_scope": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "current_git_truth": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "artifact_provenance": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "anyOf": [
+    {
+      "required": [
+        "task_id"
+      ]
+    },
+    {
+      "required": [
+        "global_scope"
+      ]
+    }
+  ]
+}

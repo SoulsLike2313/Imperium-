@@ -1,0 +1,59 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "stage_id": "STAGE-05-SYNTHETIC-SUCCESS-PROOF",
+  "status": "PASS",
+  "started_utc": "2026-05-14T21:35:33.440925+00:00",
+  "completed_utc": "2026-05-14T21:35:35.804375+00:00",
+  "prompt_path": "ORGANS/ADMINISTRATUM/REGISTRY/TASKS/TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1/PROMPTS/05_STAGE-05_SYNTHETIC_SUCCESS_PROOF.md",
+  "evidence_paths": [
+    "ORGANS/ADMINISTRATUM/REPORTS/stage_05_synthetic_success_proof_report_v0_1.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1/evidence/stage_1_success_evidence.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1/evidence/stage_2_success_evidence.json",
+    "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1/bundle_manifest.json"
+  ],
+  "checker_commands": [
+    "py -3 scripts/administratum_task_start_v0_1.py ...",
+    "py -3 scripts/administratum_stage_report_v0_1.py ...",
+    "py -3 scripts/administratum_task_close_v0_1.py ...",
+    "py -3 scripts/administratum_build_task_bundle_v0_1.py ...",
+    "py -3 scripts/administratum_check_all_v0_1.py"
+  ],
+  "checker_results": {
+    "substage_statuses": {
+      "STAGE-05-01-OPEN-SUCCESS-SESSION": "PASS",
+      "STAGE-05-02-RECORD-SUCCESS-STAGE-1": "PASS",
+      "STAGE-05-03-RECORD-SUCCESS-STAGE-2": "PASS",
+      "STAGE-05-04-CLOSE-SUCCESS-TASK": "CLOSED_PASS",
+      "STAGE-05-05-BUILD-SUCCESS-BUNDLE": "BUNDLED"
+    },
+    "pass_criteria_checks": {
+      "synthetic_task_started_active": true,
+      "both_stage_reports_valid": true,
+      "closed_pass_after_two_stages": true,
+      "bundle_manifest_lists_evidence": true,
+      "bundle_built_by_backend": true,
+      "check_all_pass_after_success_proof": true
+    },
+    "check_all_returncode": 0
+  },
+  "created_or_modified_paths": [
+    "ORGANS/ADMINISTRATUM/REPORTS/stage_05_synthetic_success_proof_report_v0_1.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1/evidence/stage_1_success_evidence.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1/evidence/stage_2_success_evidence.json",
+    "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1/bundle_manifest.json"
+  ],
+  "git_head_before": "88add153b2b9659655bac8b2e775127eb61302cf",
+  "git_head_after": "88add153b2b9659655bac8b2e775127eb61302cf",
+  "pass_criteria_met": {
+    "synthetic_task_started_active": true,
+    "both_stage_reports_valid": true,
+    "closed_pass_after_two_stages": true,
+    "bundle_manifest_lists_evidence": true,
+    "bundle_built_by_backend": true,
+    "check_all_pass_after_success_proof": true
+  },
+  "stop_criteria_triggered": [],
+  "owner_comment_ru": "Этап 5 выполнен: success-flow доказан, CLOSED_PASS и BUNDLED получены через backend-скрипты."
+}

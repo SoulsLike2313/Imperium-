@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "administratum_stage_report.schema.json",
+  "title": "Administratum Stage Report v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "stage_id",
+    "status",
+    "evidence_paths",
+    "checker_status",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "administratum_stage_report_v0_1"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "STAGE_PASS",
+        "FAIL",
+        "BLOCKED",
+        "STOPPED",
+        "STOPPED_PENDING_OWNER_APPROVAL"
+      ]
+    },
+    "checker_status": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string"
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

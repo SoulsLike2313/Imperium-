@@ -1,0 +1,60 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "stage_id": "STAGE-06-SYNTHETIC-FAIL-STOP-PROOF",
+  "status": "PASS_EXPECTED_FAILSTOP",
+  "started_utc": "2026-05-14T21:36:42.598158+00:00",
+  "completed_utc": "2026-05-14T21:36:44.760386+00:00",
+  "prompt_path": "ORGANS/ADMINISTRATUM/REGISTRY/TASKS/TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1/PROMPTS/06_STAGE-06_SYNTHETIC_FAIL_STOP_PROOF.md",
+  "evidence_paths": [
+    "ORGANS/ADMINISTRATUM/REPORTS/stage_06_synthetic_fail_stop_proof_report_v0_1.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/task_session.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stage_reports/STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stop_record.json"
+  ],
+  "checker_commands": [
+    "py -3 scripts/administratum_task_start_v0_1.py ...",
+    "py -3 scripts/administratum_stage_report_v0_1.py ...",
+    "py -3 scripts/administratum_task_stop_v0_1.py ...",
+    "py -3 scripts/administratum_check_all_v0_1.py"
+  ],
+  "checker_results": {
+    "substage_statuses": {
+      "STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1": "PASS",
+      "STAGE-06-02-DELIBERATE-STAGE-2-FAILURE-AND-STOP": "STOPPED_PENDING_OWNER_APPROVAL"
+    },
+    "pass_criteria_checks": {
+      "stage_06_01_pass": true,
+      "stage_06_02_deliberate_failure_triggered": true,
+      "stop_reason_recorded": true,
+      "final_status_stopped": true,
+      "owner_approval_required_true": true,
+      "closed_pass_not_produced": true,
+      "servitor_stopped_at_stage_06_02": true,
+      "check_all_expected_failstop_semantics": true
+    },
+    "deliberate_stage2_returncode": 1
+  },
+  "created_or_modified_paths": [
+    "ORGANS/ADMINISTRATUM/REPORTS/stage_06_synthetic_fail_stop_proof_report_v0_1.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/task_session.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stage_reports/STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1.json",
+    "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stop_record.json"
+  ],
+  "git_head_before": "88add153b2b9659655bac8b2e775127eb61302cf",
+  "git_head_after": "88add153b2b9659655bac8b2e775127eb61302cf",
+  "pass_criteria_met": {
+    "stage_06_01_pass": true,
+    "stage_06_02_deliberate_failure_triggered": true,
+    "stop_reason_recorded": true,
+    "final_status_stopped": true,
+    "owner_approval_required_true": true,
+    "closed_pass_not_produced": true,
+    "servitor_stopped_at_stage_06_02": true,
+    "check_all_expected_failstop_semantics": true
+  },
+  "stop_criteria_triggered": [
+    "Stage 6.2 deliberate fail-stop autonomous stop point reached.",
+    "Owner approval required for any Stage 6.3 continuation."
+  ],
+  "owner_comment_ru": "Этап 6 завершён ожидаемым fail-stop: подэтап 6.2 намеренно остановил задачу, продолжение возможно только после approval Owner."
+}

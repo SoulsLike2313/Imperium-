@@ -1,0 +1,43 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "created_utc": "2026-05-14T21:15:35Z",
+  "target_repo_path": "E:\\IMPERIUM\\ORGANS\\ADMINISTRATUM\\REGISTRY\\TASKS\\TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1\\PROMPTS",
+  "target_relative_path": "ORGANS/ADMINISTRATUM/REGISTRY/TASKS/TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1/PROMPTS",
+  "files": [
+    {
+      "filename": "01_STAGE-01_REGISTER_ADMINISTRATUM_MVP_FRAME.md",
+      "sha256": "f599bdb3d19275b5eb36a96c80624fec70878831a679e51a1ea4a1d9d7cabfe3",
+      "size_bytes": 4505
+    },
+    {
+      "filename": "02_STAGE-02_BUILD_ADDRESS_BOOK_V0_1.md",
+      "sha256": "0741d1b1f74cd036b96e55d588e27672351d3ea4822604b05afc01241dfb4b47",
+      "size_bytes": 4878
+    },
+    {
+      "filename": "03_STAGE-03_BUILD_CHRONICLE_MEMORY_V0_1.md",
+      "sha256": "9e59dee65f85f9c91c3a49d47684580c94a2d2d5e0f33585969887c98bbc735e",
+      "size_bytes": 4683
+    },
+    {
+      "filename": "04_STAGE-04_BUILD_TASK_LIFECYCLE_BACKEND_V0_1.md",
+      "sha256": "2c53c9beddf458c5dafd78aea3cb706e87b9bb345daacbfa8f0df210e357e764",
+      "size_bytes": 5437
+    },
+    {
+      "filename": "05_STAGE-05_SYNTHETIC_SUCCESS_PROOF.md",
+      "sha256": "77c933b1e3e203651af468b59344b0b62640572e1d55573a2f6adcbdff06a14b",
+      "size_bytes": 4970
+    },
+    {
+      "filename": "06_STAGE-06_SYNTHETIC_FAIL_STOP_PROOF.md",
+      "sha256": "303fff3f92d42a577bc263badae94575a58022ab4c5744066cdab68430b32313",
+      "size_bytes": 5495
+    },
+    {
+      "filename": "README_PROMPTS_INDEX.md",
+      "sha256": "13a35581764ac3b512a1c7596df2732014992306e38e2532f6c6da152565fc6f",
+      "size_bytes": 1274
+    }
+  ]
+}

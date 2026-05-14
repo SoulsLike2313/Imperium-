@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "stage_id": "STAGE-02-BUILD-ADDRESS-BOOK-V0_1",
+  "checker_command": "py -3 scripts/administratum_address_book_check_v0_1.py",
+  "checker_status": "PASS",
+  "address_book_path": "ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json",
+  "schema_path": "schemas/administratum_address_book.schema.json",
+  "evidence_paths": [
+    "ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json",
+    "schemas/administratum_address_book.schema.json",
+    "scripts/administratum_address_book_check_v0_1.py",
+    "ORGANS/ADMINISTRATUM/REPORTS/address_book_check_report_v0_1.json"
+  ],
+  "pass_fail_reason": "Address book checker passed all required validations.",
+  "checker_checks": {
+    "schema_contract_valid": true,
+    "required_entries_present": true,
+    "required_entry_fields_present": true,
+    "local_private_outside_repo": true,
+    "private_context_redacted_index_only": true,
+    "exact_tree_url_present": true,
+    "usage_policy_explicit": true
+  },
+  "checker_failures": [],
+  "created_utc": "2026-05-14T21:26:25.636105+00:00"
+}

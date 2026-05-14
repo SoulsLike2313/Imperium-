@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "administratum_address_book.schema.json",
+  "title": "Administratum Address Book v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_utc",
+    "usage_policy",
+    "addresses"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "administratum_address_book_v0_1"
+    },
+    "generated_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "usage_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default_agent_workspace",
+        "local_context_rule",
+        "private_context_rule",
+        "external_bundle_rule"
+      ],
+      "properties": {
+        "default_agent_workspace": {
+          "type": "string"
+        },
+        "local_context_rule": {
+          "type": "string"
+        },
+        "private_context_rule": {
+          "type": "string"
+        },
+        "external_bundle_rule": {
+          "type": "string"
+        }
+      }
+    },
+    "addresses": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "$ref": "#/$defs/address_entry"
+      }
+    }
+  },
+  "$defs": {
+    "address_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "zone_id",
+        "path_or_url",
+        "scope",
+        "privacy_class",
+        "agent_access_rule",
+        "git_tracked_expected",
+        "description",
+        "verification_method",
+        "last_verified_utc"
+      ],
+      "properties": {
+        "zone_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "path_or_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "enum": [
+            "repo",
+            "external_local",
+            "external_private",
+            "external_bundle",
+            "remote_url",
+            "vm2",
+            "status"
+          ]
+        },
+        "privacy_class": {
+          "type": "string",
+          "enum": [
+            "public_repo",
+            "local_index",
+            "private_index_only",
+            "external_status"
+          ]
+        },
+        "agent_access_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "git_tracked_expected": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verification_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "last_verified_utc": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

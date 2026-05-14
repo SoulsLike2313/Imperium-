@@ -1,0 +1,338 @@
+{
+  "schema_version": "administratum_mvp_task_plan_v0_1",
+  "created_utc": "20260514T211100Z",
+  "task": {
+    "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+    "title": "Build Administratum MVP v0.1",
+    "planning_owner": "Owner + Logos-Prime",
+    "planning_mode": "manual_administratum_frame",
+    "astronomicon_used": false,
+    "astra_used": false,
+    "ready_for_agent": false,
+    "vm2_sync_required_now": false,
+    "repo_root_expected": "E:\\IMPERIUM",
+    "external_context_roots": {
+      "local": "E:\\IMPERIUM_CONTEXT\\LOCAL",
+      "private": "E:\\IMPERIUM_CONTEXT\\PRIVATE"
+    },
+    "core_goals": [
+      "prove indexed address book",
+      "prove chronicle/memory with contradiction checks",
+      "prove task lifecycle start/report/stop/close",
+      "prove Administratum-owned bundle collection",
+      "prove expected fail-stop behavior without fake green"
+    ],
+    "global_rules": [
+      "Canonical repo artifacts are English-only by default.",
+      "Russian is allowed only in live chat and controlled UI/i18n resources.",
+      "No fake green.",
+      "PASS requires evidence.",
+      "Artifact provenance git_head is not current Git HEAD.",
+      "Task IDs must be copied exactly.",
+      "PowerShell ConvertTo-Json depth must not exceed 100.",
+      "Use Python for deep JSON if needed.",
+      "Do not modify Astronomicon during this task.",
+      "Do not set READY_FOR_AGENT true during this MVP.",
+      "Do not sync VM2 unless Owner explicitly commands it.",
+      "Do not place local/private/runtime outputs back inside the Git repo."
+    ]
+  },
+  "autonomous_execution_contract": {
+    "stage_sequence_required": true,
+    "servitor_reads_one_stage_then_executes": true,
+    "servitor_may_continue_on_green": true,
+    "servitor_must_stop_on_blocker": true,
+    "owner_approval_required_after_expected_stop": true,
+    "expected_autonomous_stop": {
+      "stage_id": "STAGE-06-SYNTHETIC-FAIL-STOP-PROOF",
+      "substage_id": "STAGE-06-02-DELIBERATE-STAGE-2-FAILURE-AND-STOP",
+      "expected_status": [
+        "STOPPED",
+        "STOPPED_PENDING_OWNER_APPROVAL"
+      ],
+      "reason": "deliberate synthetic failure proves Administratum stop protection"
+    },
+    "prompt_text_included": false,
+    "note": "This file contains stage execution contracts, not final Servitor prompts."
+  },
+  "stages": [
+    {
+      "stage_number": 1,
+      "stage_id": "STAGE-01-REGISTER-ADMINISTRATUM-MVP-FRAME",
+      "title": "Register Administratum MVP Frame",
+      "goal": "Create the minimal Administratum task frame and organ documentation inside Administratum, without invoking Astronomicon.",
+      "expected_outputs": [
+        "ORGANS/ADMINISTRATUM/DOCS/ADMINISTRATUM_MVP_V0_1.md",
+        "ORGANS/ADMINISTRATUM/REGISTRY/ADMINISTRATUM_MVP_TASK_PLAN_V0_1.json",
+        "minimal folder skeleton under ORGANS/ADMINISTRATUM/",
+        "explicit flags: astronomicon_used=false, astra_used=false, ready_for_agent=false"
+      ],
+      "green_criteria": [
+        "All required paths exist.",
+        "Files are UTF-8 and English-only.",
+        "No Astronomicon files are changed.",
+        "The task ID is exact: TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+        "Stage plan contains exactly 6 top-level stages.",
+        "Stage 5 and Stage 6 contain synthetic substages.",
+        "The plan explicitly includes stop behavior."
+      ],
+      "stop_criteria": [
+        "Stop if required Administratum directories cannot be created.",
+        "Stop if the repo root is not E:\\IMPERIUM.",
+        "Stop if files would need to be written outside approved locations.",
+        "Stop if a path conflict would overwrite existing canonical artifacts."
+      ]
+    },
+    {
+      "stage_number": 2,
+      "stage_id": "STAGE-02-BUILD-ADDRESS-BOOK-V0_1",
+      "title": "Build Address Book v0.1",
+      "goal": "Create and verify the Administratum address book.",
+      "expected_outputs": [
+        "ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json",
+        "schemas/administratum_address_book.schema.json",
+        "scripts/administratum_address_book_check_v0_1.py",
+        "ORGANS/ADMINISTRATUM/REPORTS/address_book_check_report_v0_1.json"
+      ],
+      "required_address_entries": [
+        {
+          "zone_id": "pc_git_repo",
+          "path_or_url": "E:\\IMPERIUM"
+        },
+        {
+          "zone_id": "local_context_root",
+          "path_or_url": "E:\\IMPERIUM_CONTEXT\\LOCAL"
+        },
+        {
+          "zone_id": "private_context_root",
+          "path_or_url": "E:\\IMPERIUM_CONTEXT\\PRIVATE"
+        },
+        {
+          "zone_id": "handoff_root",
+          "path_or_url": "E:\\IMPERIUM_CONTEXT\\LOCAL\\HANDOFF"
+        },
+        {
+          "zone_id": "task_bundles_root",
+          "path_or_url": "E:\\IMPERIUM_CONTEXT\\LOCAL\\TASK_BUNDLES"
+        },
+        {
+          "zone_id": "github_exact_tree_url",
+          "path_or_url": "exact HEAD tree URL, not floating master"
+        },
+        {
+          "zone_id": "vm2_repo_root",
+          "path_or_url": "/home/vboxuser2/IMPERIUM_WORK/Imperium-"
+        },
+        {
+          "zone_id": "vm2_status",
+          "path_or_url": "DEFERRED_OFFLINE unless Owner commands sync"
+        }
+      ],
+      "green_criteria": [
+        "Address book validates against schema.",
+        "Each required entry has zone_id, path_or_url, scope, privacy_class, agent_access_rule, git_tracked_expected, description, verification_method.",
+        "Private context entry is redacted/index-only.",
+        "No private payload is copied into Git.",
+        "Local/private use rule is explicit.",
+        "Exact Git tree URL is present.",
+        "Checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if local/private paths are inside E:\\IMPERIUM.",
+        "Stop if private payload would be committed.",
+        "Stop if the address book uses floating master as the only Git truth.",
+        "Stop if required entries are missing."
+      ]
+    },
+    {
+      "stage_number": 3,
+      "stage_id": "STAGE-03-BUILD-CHRONICLE-MEMORY-V0_1",
+      "title": "Build Chronicle / Memory v0.1",
+      "goal": "Create the first append-only Administratum chronicle for IMPERIUM history and lessons.",
+      "expected_outputs": [
+        "ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl",
+        "schemas/administratum_chronicle_entry.schema.json",
+        "scripts/administratum_chronicle_check_v0_1.py",
+        "ORGANS/ADMINISTRATUM/REPORTS/chronicle_check_report_v0_1.json"
+      ],
+      "required_initial_memory_entries": [
+        "Astronomicon backend corridor proved.",
+        "Servitor execution intake proved.",
+        "Language policy accepted.",
+        "Handoff created.",
+        "READY_FOR_AGENT remains false.",
+        "VM2 remains DEFERRED_OFFLINE.",
+        "Lesson: PowerShell ConvertTo-Json -Depth max is 100.",
+        "Lesson: Task IDs must be copied exactly.",
+        "Lesson: artifact provenance git_head is not current Git HEAD.",
+        "Lesson: canonical machine/repo artifacts should be English-only by default."
+      ],
+      "green_criteria": [
+        "JSONL is valid: every line parses.",
+        "Each event has event_id, event_type, task_id or global_scope, timestamp_utc, summary, evidence, provenance.",
+        "Event IDs are unique.",
+        "No contradictory status entries.",
+        "Closed tasks are not reopened without an explicit event.",
+        "Artifact provenance and current Git truth are separate fields.",
+        "Checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if chronicle has invalid JSONL.",
+        "Stop if any event claims unsupported PASS.",
+        "Stop if old artifact provenance is used as current HEAD.",
+        "Stop if task ID mismatch appears."
+      ]
+    },
+    {
+      "stage_number": 4,
+      "stage_id": "STAGE-04-BUILD-TASK-LIFECYCLE-BACKEND-V0_1",
+      "title": "Build Task Lifecycle Backend v0.1",
+      "goal": "Create the minimal backend scripts and schemas for Administratum task lifecycle.",
+      "expected_outputs": [
+        "schemas/administratum_task_session.schema.json",
+        "schemas/administratum_stage_report.schema.json",
+        "schemas/administratum_task_bundle_manifest.schema.json",
+        "scripts/administratum_task_start_v0_1.py",
+        "scripts/administratum_stage_report_v0_1.py",
+        "scripts/administratum_task_stop_v0_1.py",
+        "scripts/administratum_task_close_v0_1.py",
+        "scripts/administratum_build_task_bundle_v0_1.py",
+        "scripts/administratum_check_all_v0_1.py",
+        "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/.gitkeep or equivalent safe placeholder"
+      ],
+      "required_lifecycle_states": [
+        "PLANNED",
+        "ACTIVE",
+        "STAGE_PASS",
+        "BLOCKED",
+        "STOPPED",
+        "STOPPED_PENDING_OWNER_APPROVAL",
+        "CLOSED_PASS",
+        "CLOSED_FAIL",
+        "BUNDLED"
+      ],
+      "green_criteria": [
+        "task_start creates a valid task_session.json.",
+        "stage_report appends valid stage evidence.",
+        "task_close refuses to close if required stages are missing or failed.",
+        "task_stop records a reason and prevents fake success closure.",
+        "build_task_bundle collects evidence from session records without Servitor manually assembling the bundle.",
+        "check_all runs address book, chronicle, lifecycle fixture checks, and returns PASS.",
+        "Scripts support machine-readable JSON output.",
+        "Scripts do not require PowerShell ConvertTo-Json depth greater than 100."
+      ],
+      "stop_criteria": [
+        "Stop if scripts cannot validate their own fixture data.",
+        "Stop if task_close can close a failed or incomplete task as PASS.",
+        "Stop if task_stop loses the failure reason.",
+        "Stop if bundle builder depends on untracked private payload."
+      ]
+    },
+    {
+      "stage_number": 5,
+      "stage_id": "STAGE-05-SYNTHETIC-SUCCESS-PROOF",
+      "title": "Synthetic Success Proof",
+      "goal": "Prove Administratum can run a small successful two-stage task and collect the task bundle independently.",
+      "synthetic_task_id": "TASK-20260514-ADMINISTRATUM-PROOF-SUCCESS-V0_1",
+      "substages": [
+        {
+          "substage_id": "STAGE-05-01-OPEN-SUCCESS-SESSION",
+          "expected_status": "PASS",
+          "action": "Create an ACTIVE task session for the synthetic success task."
+        },
+        {
+          "substage_id": "STAGE-05-02-RECORD-SUCCESS-STAGE-1",
+          "expected_status": "PASS",
+          "action": "Record a valid stage report with a small tracked evidence artifact."
+        },
+        {
+          "substage_id": "STAGE-05-03-RECORD-SUCCESS-STAGE-2",
+          "expected_status": "PASS",
+          "action": "Record a second valid stage report with a small tracked evidence artifact."
+        },
+        {
+          "substage_id": "STAGE-05-04-CLOSE-SUCCESS-TASK",
+          "expected_status": "CLOSED_PASS",
+          "action": "Close the synthetic task as CLOSED_PASS."
+        },
+        {
+          "substage_id": "STAGE-05-05-BUILD-SUCCESS-BUNDLE",
+          "expected_status": "BUNDLED",
+          "action": "Build a task bundle from Administratum session records."
+        }
+      ],
+      "green_criteria": [
+        "Synthetic task starts as ACTIVE.",
+        "Both synthetic stage reports validate.",
+        "CLOSED_PASS is allowed only after both substages pass.",
+        "Bundle manifest lists all evidence artifacts.",
+        "Bundle is collected by Administratum bundle builder, not manually by Servitor.",
+        "check_all returns PASS after success proof."
+      ],
+      "stop_criteria": [
+        "Stop if either synthetic stage report is invalid.",
+        "Stop if task closes without both substages.",
+        "Stop if bundle omits required evidence.",
+        "Stop if success proof produces fake green."
+      ]
+    },
+    {
+      "stage_number": 6,
+      "stage_id": "STAGE-06-SYNTHETIC-FAIL-STOP-PROOF",
+      "title": "Synthetic Fail-Stop Proof",
+      "goal": "Prove Administratum can detect a deliberate stage failure, stop work, record the reason, and prevent fake green.",
+      "synthetic_task_id": "TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1",
+      "substages": [
+        {
+          "substage_id": "STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1",
+          "expected_status": "PASS",
+          "action": "Create an ACTIVE task session and record a valid first synthetic stage report."
+        },
+        {
+          "substage_id": "STAGE-06-02-DELIBERATE-STAGE-2-FAILURE-AND-STOP",
+          "expected_status": [
+            "STOPPED",
+            "STOPPED_PENDING_OWNER_APPROVAL"
+          ],
+          "action": "Attempt a second synthetic stage with a deliberately missing required artifact or invalid manifest. Stop here.",
+          "autonomous_stop_point": true,
+          "owner_approval_required_to_continue": true
+        },
+        {
+          "substage_id": "STAGE-06-03-OWNER-APPROVED-FAILED-EVIDENCE-BUNDLE",
+          "expected_status": "OPTIONAL_AFTER_OWNER_APPROVAL",
+          "action": "Build a failed/stopped evidence bundle from Administratum records only after Owner approval.",
+          "autonomous_execution_allowed": false
+        }
+      ],
+      "green_criteria": [
+        "Stage 6.1 PASS.",
+        "Stage 6.2 fails for the deliberate expected reason.",
+        "Administratum records the stop reason.",
+        "The task is not closed as CLOSED_PASS.",
+        "Servitor stops at Stage 6.2 and does not continue automatically.",
+        "Any continuation after Stage 6.2 requires explicit Owner approval.",
+        "check_all treats this as expected fail-stop proof, not as a system failure."
+      ],
+      "stop_criteria": [
+        "Stage 6.2 is itself the expected autonomous stop point.",
+        "Stop if the system tries to mark the deliberate fail task as success.",
+        "Stop if failure reason is missing.",
+        "Stop if Servitor tries to bypass Owner approval.",
+        "Stop if failed task bundle is built before stop evidence exists."
+      ]
+    }
+  ],
+  "whole_mvp_acceptance": [
+    "Stage 1 PASS.",
+    "Stage 2 PASS.",
+    "Stage 3 PASS.",
+    "Stage 4 PASS.",
+    "Stage 5 PASS.",
+    "Stage 6 reaches expected stop at Stage 6.2 and records it correctly.",
+    "Optional Stage 6.3 may run only after Owner approval.",
+    "READY_FOR_AGENT remains false unless a later separate task changes it.",
+    "VM2 remains deferred/offline unless Owner explicitly commands sync.",
+    "Final Administratum report states address book proved, chronicle/memory proved, task lifecycle proved, success bundle collection proved, fail-stop protection proved."
+  ]
+}

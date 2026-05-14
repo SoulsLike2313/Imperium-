@@ -1,0 +1,19 @@
+{
+  "schema_version": "administratum_chronicle_check_report_v0_1",
+  "status": "PASS",
+  "checked_utc": "2026-05-14T23:45:14.009813+00:00",
+  "chronicle_path": "ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl",
+  "schema_path": "schemas/administratum_chronicle_entry.schema.json",
+  "events_checked": 10,
+  "checks": {
+    "jsonl_lines_parse": true,
+    "required_fields_present": true,
+    "event_ids_unique": true,
+    "no_unsupported_pass_claims": true,
+    "provenance_fields_separate": true,
+    "no_contradictory_status_entries": true,
+    "required_initial_entries_present": true,
+    "line_count_at_least_required": true
+  },
+  "failures": []
+}

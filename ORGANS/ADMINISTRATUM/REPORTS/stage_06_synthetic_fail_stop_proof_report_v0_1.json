@@ -1,0 +1,283 @@
+{
+  "task_id": "TASK-20260514-BUILD-ADMINISTRATUM-MVP-V0_1",
+  "stage_id": "STAGE-06-SYNTHETIC-FAIL-STOP-PROOF",
+  "synthetic_task_id": "TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1",
+  "STAGE-06-01_status": "PASS",
+  "STAGE-06-02_deliberate_failure_reason": "Deliberate synthetic failure: PASS stage report rejected because required evidence path is missing.",
+  "stop_record_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stop_record.json",
+  "owner_approval_required": true,
+  "final_status": "STOPPED_PENDING_OWNER_APPROVAL",
+  "closed_pass_not_produced": true,
+  "checker_command": "py -3 scripts/administratum_check_all_v0_1.py",
+  "checker_status": "PASS",
+  "pass_failstop_reason": "Expected fail-stop behavior achieved at Stage 6.2.",
+  "pass_criteria_checks": {
+    "stage_06_01_pass": true,
+    "stage_06_02_deliberate_failure_triggered": true,
+    "stop_reason_recorded": true,
+    "final_status_stopped": true,
+    "owner_approval_required_true": true,
+    "closed_pass_not_produced": true,
+    "servitor_stopped_at_stage_06_02": true,
+    "check_all_expected_failstop_semantics": true
+  },
+  "command_runs": [
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1 --required-stage-id STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1 --required-stage-id STAGE-06-02-DELIBERATE-STAGE-2-FAILURE-AND-STOP",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}",
+      "stderr": "",
+      "stdout_json": {
+        "status": "PASS",
+        "task_id": "TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1",
+        "task_session_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/task_session.json",
+        "events_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/events.jsonl",
+        "repo_root": "E:\\IMPERIUM"
+      }
+    },
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_stage_report_v0_1.py --task-id TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1 --stage-id STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1 --status PASS --checker-status PASS --evidence-path ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/evidence/stage_1_pass_evidence.json",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1\", \"stage_id\": \"STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1\", \"stage_report_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stage_reports/STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1.json\"}",
+      "stderr": "",
+      "stdout_json": {
+        "status": "PASS",
+        "task_id": "TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1",
+        "stage_id": "STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1",
+        "stage_report_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stage_reports/STAGE-06-01-OPEN-FAILSTOP-SESSION-AND-PASS-STAGE-1.json"
+      }
+    },
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_stage_report_v0_1.py --task-id TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1 --stage-id STAGE-06-02-DELIBERATE-STAGE-2-FAILURE-AND-STOP --status PASS --checker-status PASS --evidence-path ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/evidence/stage_2_missing_required_artifact.json",
+      "returncode": 1,
+      "stdout": "{\"status\": \"FAIL\", \"reason\": \"missing required evidence path(s)\", \"missing_evidence\": [\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/evidence/stage_2_missing_required_artifact.json\"]}",
+      "stderr": "",
+      "stdout_json": {
+        "status": "FAIL",
+        "reason": "missing required evidence path(s)",
+        "missing_evidence": [
+          "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/evidence/stage_2_missing_required_artifact.json"
+        ]
+      }
+    },
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_stop_v0_1.py --task-id TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1 --failed-stage-id STAGE-06-02-DELIBERATE-STAGE-2-FAILURE-AND-STOP --stop-reason Deliberate synthetic failure: PASS stage report rejected because required evidence path is missing. --status STOPPED_PENDING_OWNER_APPROVAL --owner-approval-required true",
+      "returncode": 0,
+      "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1\", \"stop_record_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stop_record.json\", \"task_status\": \"STOPPED_PENDING_OWNER_APPROVAL\", \"owner_approval_required\": true}",
+      "stderr": "",
+      "stdout_json": {
+        "status": "PASS",
+        "task_id": "TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1",
+        "stop_record_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-20260514-ADMINISTRATUM-PROOF-FAILSTOP-V0_1/stop_record.json",
+        "task_status": "STOPPED_PENDING_OWNER_APPROVAL",
+        "owner_approval_required": true
+      }
+    },
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_check_all_v0_1.py",
+      "returncode": 0,
+      "stdout": "{\"schema_version\": \"administratum_check_all_report_v0_1\", \"status\": \"PASS\", \"checked_utc\": \"2026-05-14T21:36:44.745693+00:00\", \"checks\": {\"administratum_address_book_check_v0_1_pass\": true, \"administratum_chronicle_check_v0_1_pass\": true, \"task_close_rejects_missing_required_stages\": true, \"task_stop_records_reason_and_blocks_closed_pass\": true, \"bundle_builder_collects_session_evidence\": true, \"expected_failstop_semantics_ok\": true}, \"failures\": [], \"command_runs\": [{\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_address_book_check_v0_1.py\", \"returncode\": 0, \"stdout\": \"{\\\"schema_version\\\": \\\"administratum_address_book_check_report_v0_1\\\", \\\"status\\\": \\\"PASS\\\", \\\"checked_utc\\\": \\\"2026-05-14T21:36:43.381601+00:00\\\", \\\"address_book_path\\\": \\\"ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json\\\", \\\"schema_path\\\": \\\"schemas/administratum_address_book.schema.json\\\", \\\"checks\\\": {\\\"schema_contract_valid\\\": true, \\\"required_entries_present\\\": true, \\\"required_entry_fields_present\\\": true, \\\"local_private_outside_repo\\\": true, \\\"private_context_redacted_index_only\\\": true, \\\"exact_tree_url_present\\\": true, \\\"usage_policy_explicit\\\": true}, \\\"failures\\\": [], \\\"required_zone_ids\\\": [\\\"github_exact_tree_url\\\", \\\"handoff_root\\\", \\\"local_context_root\\\", \\\"pc_git_repo\\\", \\\"private_context_root\\\", \\\"task_bundles_root\\\", \\\"vm2_repo_root\\\", \\\"vm2_status\\\"]}\", \"stderr\": \"\", \"stdout_json\": {\"schema_version\": \"administratum_address_book_check_report_v0_1\", \"status\": \"PASS\", \"checked_utc\": \"2026-05-14T21:36:43.381601+00:00\", \"address_book_path\": \"ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json\", \"schema_path\": \"schemas/administratum_address_book.schema.json\", \"checks\": {\"schema_contract_valid\": true, \"required_entries_present\": true, \"required_entry_fields_present\": true, \"local_private_outside_repo\": true, \"private_context_redacted_index_only\": true, \"exact_tree_url_present\": true, \"usage_policy_explicit\": true}, \"failures\": [], \"required_zone_ids\": [\"github_exact_tree_url\", \"handoff_root\", \"local_context_root\", \"pc_git_repo\", \"private_context_root\", \"task_bundles_root\", \"vm2_repo_root\", \"vm2_status\"]}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_chronicle_check_v0_1.py\", \"returncode\": 0, \"stdout\": \"{\\\"schema_version\\\": \\\"administratum_chronicle_check_report_v0_1\\\", \\\"status\\\": \\\"PASS\\\", \\\"checked_utc\\\": \\\"2026-05-14T21:36:43.502956+00:00\\\", \\\"chronicle_path\\\": \\\"ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl\\\", \\\"schema_path\\\": \\\"schemas/administratum_chronicle_entry.schema.json\\\", \\\"events_checked\\\": 10, \\\"checks\\\": {\\\"jsonl_lines_parse\\\": true, \\\"required_fields_present\\\": true, \\\"event_ids_unique\\\": true, \\\"no_unsupported_pass_claims\\\": true, \\\"provenance_fields_separate\\\": true, \\\"no_contradictory_status_entries\\\": true, \\\"required_initial_entries_present\\\": true, \\\"line_count_at_least_required\\\": true}, \\\"failures\\\": []}\", \"stderr\": \"\", \"stdout_json\": {\"schema_version\": \"administratum_chronicle_check_report_v0_1\", \"status\": \"PASS\", \"checked_utc\": \"2026-05-14T21:36:43.502956+00:00\", \"chronicle_path\": \"ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl\", \"schema_path\": \"schemas/administratum_chronicle_entry.schema.json\", \"events_checked\": 10, \"checks\": {\"jsonl_lines_parse\": true, \"required_fields_present\": true, \"event_ids_unique\": true, \"no_unsupported_pass_claims\": true, \"provenance_fields_separate\": true, \"no_contradictory_status_entries\": true, \"required_initial_entries_present\": true, \"line_count_at_least_required\": true}, \"failures\": []}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1 --required-stage-id GUARD-STAGE-1\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1\\\", \\\"task_session_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/task_session.json\\\", \\\"events_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/events.jsonl\\\", \\\"repo_root\\\": \\\"E:\\\\\\\\IMPERIUM\\\"}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_close_v0_1.py --task-id TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1 --final-status CLOSED_PASS --required-stage-id GUARD-STAGE-1\", \"returncode\": 1, \"stdout\": \"{\\\"status\\\": \\\"FAIL\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1\\\", \\\"final_status_requested\\\": \\\"CLOSED_PASS\\\", \\\"reason\\\": \\\"task close gates failed\\\", \\\"validation_errors\\\": [\\\"missing required stage report(s): GUARD-STAGE-1\\\"]}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"FAIL\", \"task_id\": \"TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1\", \"final_status_requested\": \"CLOSED_PASS\", \"reason\": \"task close gates failed\", \"validation_errors\": [\"missing required stage report(s): GUARD-STAGE-1\"]}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-ADMINISTRATUM-STOP-GUARD-V0_1 --required-stage-id STOP-STAGE-1\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\\\", \\\"task_session_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/task_session.json\\\", \\\"events_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/events.jsonl\\\", \\\"repo_root\\\": \\\"E:\\\\\\\\IMPERIUM\\\"}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_stop_v0_1.py --task-id TASK-ADMINISTRATUM-STOP-GUARD-V0_1 --failed-stage-id STOP-STAGE-1 --stop-reason synthetic stop guard check --status STOPPED_PENDING_OWNER_APPROVAL --owner-approval-required true\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\\\", \\\"stop_record_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/stop_record.json\\\", \\\"task_status\\\": \\\"STOPPED_PENDING_OWNER_APPROVAL\\\", \\\"owner_approval_required\\\": true}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\", \"stop_record_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/stop_record.json\", \"task_status\": \"STOPPED_PENDING_OWNER_APPROVAL\", \"owner_approval_required\": true}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_close_v0_1.py --task-id TASK-ADMINISTRATUM-STOP-GUARD-V0_1 --final-status CLOSED_PASS --required-stage-id STOP-STAGE-1\", \"returncode\": 1, \"stdout\": \"{\\\"status\\\": \\\"FAIL\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\\\", \\\"final_status_requested\\\": \\\"CLOSED_PASS\\\", \\\"reason\\\": \\\"task close gates failed\\\", \\\"validation_errors\\\": [\\\"cannot close as CLOSED_PASS when task is stopped\\\", \\\"cannot close as CLOSED_PASS while owner_approval_required is true\\\", \\\"missing required stage report(s): STOP-STAGE-1\\\"]}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"FAIL\", \"task_id\": \"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\", \"final_status_requested\": \"CLOSED_PASS\", \"reason\": \"task close gates failed\", \"validation_errors\": [\"cannot close as CLOSED_PASS when task is stopped\", \"cannot close as CLOSED_PASS while owner_approval_required is true\", \"missing required stage report(s): STOP-STAGE-1\"]}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1 --required-stage-id FIXTURE-STAGE-1\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\\\", \\\"task_session_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/task_session.json\\\", \\\"events_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/events.jsonl\\\", \\\"repo_root\\\": \\\"E:\\\\\\\\IMPERIUM\\\"}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_stage_report_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1 --stage-id FIXTURE-STAGE-1 --status PASS --checker-status PASS --evidence-path ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/evidence/fixture_stage_1_evidence.json\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\\\", \\\"stage_id\\\": \\\"FIXTURE-STAGE-1\\\", \\\"stage_report_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/stage_reports/FIXTURE-STAGE-1.json\\\"}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"stage_id\": \"FIXTURE-STAGE-1\", \"stage_report_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/stage_reports/FIXTURE-STAGE-1.json\"}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_task_close_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1 --final-status CLOSED_PASS --required-stage-id FIXTURE-STAGE-1\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\\\", \\\"final_status\\\": \\\"CLOSED_PASS\\\", \\\"final_verdict_path\\\": \\\"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/final_verdict.json\\\"}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"final_status\": \"CLOSED_PASS\", \"final_verdict_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/final_verdict.json\"}}, {\"command\": \"C:\\\\Users\\\\PC\\\\AppData\\\\Local\\\\Python\\\\pythoncore-3.14-64\\\\python.exe scripts/administratum_build_task_bundle_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"returncode\": 0, \"stdout\": \"{\\\"status\\\": \\\"PASS\\\", \\\"task_id\\\": \\\"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\\\", \\\"task_status\\\": \\\"BUNDLED\\\", \\\"bundle_task_dir\\\": \\\"E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\\\", \\\"bundle_manifest_path\\\": \\\"E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/bundle_manifest.json\\\", \\\"artifact_count\\\": 5}\", \"stderr\": \"\", \"stdout_json\": {\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"task_status\": \"BUNDLED\", \"bundle_task_dir\": \"E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"bundle_manifest_path\": \"E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/bundle_manifest.json\", \"artifact_count\": 5}}], \"notes\": {\"expected_failstop_check\": \"expected fail-stop task status is STOPPED_PENDING_OWNER_APPROVAL\"}}",
+      "stderr": "",
+      "stdout_json": {
+        "schema_version": "administratum_check_all_report_v0_1",
+        "status": "PASS",
+        "checked_utc": "2026-05-14T21:36:44.745693+00:00",
+        "checks": {
+          "administratum_address_book_check_v0_1_pass": true,
+          "administratum_chronicle_check_v0_1_pass": true,
+          "task_close_rejects_missing_required_stages": true,
+          "task_stop_records_reason_and_blocks_closed_pass": true,
+          "bundle_builder_collects_session_evidence": true,
+          "expected_failstop_semantics_ok": true
+        },
+        "failures": [],
+        "command_runs": [
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_address_book_check_v0_1.py",
+            "returncode": 0,
+            "stdout": "{\"schema_version\": \"administratum_address_book_check_report_v0_1\", \"status\": \"PASS\", \"checked_utc\": \"2026-05-14T21:36:43.381601+00:00\", \"address_book_path\": \"ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json\", \"schema_path\": \"schemas/administratum_address_book.schema.json\", \"checks\": {\"schema_contract_valid\": true, \"required_entries_present\": true, \"required_entry_fields_present\": true, \"local_private_outside_repo\": true, \"private_context_redacted_index_only\": true, \"exact_tree_url_present\": true, \"usage_policy_explicit\": true}, \"failures\": [], \"required_zone_ids\": [\"github_exact_tree_url\", \"handoff_root\", \"local_context_root\", \"pc_git_repo\", \"private_context_root\", \"task_bundles_root\", \"vm2_repo_root\", \"vm2_status\"]}",
+            "stderr": "",
+            "stdout_json": {
+              "schema_version": "administratum_address_book_check_report_v0_1",
+              "status": "PASS",
+              "checked_utc": "2026-05-14T21:36:43.381601+00:00",
+              "address_book_path": "ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json",
+              "schema_path": "schemas/administratum_address_book.schema.json",
+              "checks": {
+                "schema_contract_valid": true,
+                "required_entries_present": true,
+                "required_entry_fields_present": true,
+                "local_private_outside_repo": true,
+                "private_context_redacted_index_only": true,
+                "exact_tree_url_present": true,
+                "usage_policy_explicit": true
+              },
+              "failures": [],
+              "required_zone_ids": [
+                "github_exact_tree_url",
+                "handoff_root",
+                "local_context_root",
+                "pc_git_repo",
+                "private_context_root",
+                "task_bundles_root",
+                "vm2_repo_root",
+                "vm2_status"
+              ]
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_chronicle_check_v0_1.py",
+            "returncode": 0,
+            "stdout": "{\"schema_version\": \"administratum_chronicle_check_report_v0_1\", \"status\": \"PASS\", \"checked_utc\": \"2026-05-14T21:36:43.502956+00:00\", \"chronicle_path\": \"ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl\", \"schema_path\": \"schemas/administratum_chronicle_entry.schema.json\", \"events_checked\": 10, \"checks\": {\"jsonl_lines_parse\": true, \"required_fields_present\": true, \"event_ids_unique\": true, \"no_unsupported_pass_claims\": true, \"provenance_fields_separate\": true, \"no_contradictory_status_entries\": true, \"required_initial_entries_present\": true, \"line_count_at_least_required\": true}, \"failures\": []}",
+            "stderr": "",
+            "stdout_json": {
+              "schema_version": "administratum_chronicle_check_report_v0_1",
+              "status": "PASS",
+              "checked_utc": "2026-05-14T21:36:43.502956+00:00",
+              "chronicle_path": "ORGANS/ADMINISTRATUM/CHRONICLE/imperium_chronicle_v0_1.jsonl",
+              "schema_path": "schemas/administratum_chronicle_entry.schema.json",
+              "events_checked": 10,
+              "checks": {
+                "jsonl_lines_parse": true,
+                "required_fields_present": true,
+                "event_ids_unique": true,
+                "no_unsupported_pass_claims": true,
+                "provenance_fields_separate": true,
+                "no_contradictory_status_entries": true,
+                "required_initial_entries_present": true,
+                "line_count_at_least_required": true
+              },
+              "failures": []
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1 --required-stage-id GUARD-STAGE-1",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1",
+              "task_session_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/task_session.json",
+              "events_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1/events.jsonl",
+              "repo_root": "E:\\IMPERIUM"
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_close_v0_1.py --task-id TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1 --final-status CLOSED_PASS --required-stage-id GUARD-STAGE-1",
+            "returncode": 1,
+            "stdout": "{\"status\": \"FAIL\", \"task_id\": \"TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1\", \"final_status_requested\": \"CLOSED_PASS\", \"reason\": \"task close gates failed\", \"validation_errors\": [\"missing required stage report(s): GUARD-STAGE-1\"]}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "FAIL",
+              "task_id": "TASK-ADMINISTRATUM-CLOSE-GUARD-V0_1",
+              "final_status_requested": "CLOSED_PASS",
+              "reason": "task close gates failed",
+              "validation_errors": [
+                "missing required stage report(s): GUARD-STAGE-1"
+              ]
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-ADMINISTRATUM-STOP-GUARD-V0_1 --required-stage-id STOP-STAGE-1",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-STOP-GUARD-V0_1",
+              "task_session_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/task_session.json",
+              "events_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/events.jsonl",
+              "repo_root": "E:\\IMPERIUM"
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_stop_v0_1.py --task-id TASK-ADMINISTRATUM-STOP-GUARD-V0_1 --failed-stage-id STOP-STAGE-1 --stop-reason synthetic stop guard check --status STOPPED_PENDING_OWNER_APPROVAL --owner-approval-required true",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\", \"stop_record_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/stop_record.json\", \"task_status\": \"STOPPED_PENDING_OWNER_APPROVAL\", \"owner_approval_required\": true}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-STOP-GUARD-V0_1",
+              "stop_record_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-STOP-GUARD-V0_1/stop_record.json",
+              "task_status": "STOPPED_PENDING_OWNER_APPROVAL",
+              "owner_approval_required": true
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_close_v0_1.py --task-id TASK-ADMINISTRATUM-STOP-GUARD-V0_1 --final-status CLOSED_PASS --required-stage-id STOP-STAGE-1",
+            "returncode": 1,
+            "stdout": "{\"status\": \"FAIL\", \"task_id\": \"TASK-ADMINISTRATUM-STOP-GUARD-V0_1\", \"final_status_requested\": \"CLOSED_PASS\", \"reason\": \"task close gates failed\", \"validation_errors\": [\"cannot close as CLOSED_PASS when task is stopped\", \"cannot close as CLOSED_PASS while owner_approval_required is true\", \"missing required stage report(s): STOP-STAGE-1\"]}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "FAIL",
+              "task_id": "TASK-ADMINISTRATUM-STOP-GUARD-V0_1",
+              "final_status_requested": "CLOSED_PASS",
+              "reason": "task close gates failed",
+              "validation_errors": [
+                "cannot close as CLOSED_PASS when task is stopped",
+                "cannot close as CLOSED_PASS while owner_approval_required is true",
+                "missing required stage report(s): STOP-STAGE-1"
+              ]
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_start_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1 --required-stage-id FIXTURE-STAGE-1",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"task_session_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/task_session.json\", \"events_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/events.jsonl\", \"repo_root\": \"E:\\\\IMPERIUM\"}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1",
+              "task_session_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/task_session.json",
+              "events_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/events.jsonl",
+              "repo_root": "E:\\IMPERIUM"
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_stage_report_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1 --stage-id FIXTURE-STAGE-1 --status PASS --checker-status PASS --evidence-path ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/evidence/fixture_stage_1_evidence.json",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"stage_id\": \"FIXTURE-STAGE-1\", \"stage_report_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/stage_reports/FIXTURE-STAGE-1.json\"}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1",
+              "stage_id": "FIXTURE-STAGE-1",
+              "stage_report_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/stage_reports/FIXTURE-STAGE-1.json"
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_task_close_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1 --final-status CLOSED_PASS --required-stage-id FIXTURE-STAGE-1",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"final_status\": \"CLOSED_PASS\", \"final_verdict_path\": \"ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/final_verdict.json\"}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1",
+              "final_status": "CLOSED_PASS",
+              "final_verdict_path": "ORGANS/ADMINISTRATUM/TASK_LIFECYCLE/SESSIONS/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/final_verdict.json"
+            }
+          },
+          {
+            "command": "C:\\Users\\PC\\AppData\\Local\\Python\\pythoncore-3.14-64\\python.exe scripts/administratum_build_task_bundle_v0_1.py --task-id TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1",
+            "returncode": 0,
+            "stdout": "{\"status\": \"PASS\", \"task_id\": \"TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"task_status\": \"BUNDLED\", \"bundle_task_dir\": \"E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1\", \"bundle_manifest_path\": \"E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/bundle_manifest.json\", \"artifact_count\": 5}",
+            "stderr": "",
+            "stdout_json": {
+              "status": "PASS",
+              "task_id": "TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1",
+              "task_status": "BUNDLED",
+              "bundle_task_dir": "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1",
+              "bundle_manifest_path": "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-ADMINISTRATUM-LIFECYCLE-FIXTURE-V0_1/bundle_manifest.json",
+              "artifact_count": 5
+            }
+          }
+        ],
+        "notes": {
+          "expected_failstop_check": "expected fail-stop task status is STOPPED_PENDING_OWNER_APPROVAL"
+        }
+      }
+    }
+  ],
+  "created_utc": "2026-05-14T21:36:44.760386+00:00"
+}

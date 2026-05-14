@@ -1,0 +1,100 @@
+{
+  "schema_version": "administratum_address_book_v0_1",
+  "generated_utc": "2026-05-14T21:40:00Z",
+  "usage_policy": {
+    "default_agent_workspace": "Agents work inside E:\\IMPERIUM by default.",
+    "local_context_rule": "E:\\IMPERIUM_CONTEXT\\LOCAL may be used only when a task explicitly references it.",
+    "private_context_rule": "E:\\IMPERIUM_CONTEXT\\PRIVATE is redacted/index-only by default; private payload must never be copied into Git.",
+    "external_bundle_rule": "Runtime task bundles stay outside the Git repo."
+  },
+  "addresses": [
+    {
+      "zone_id": "pc_git_repo",
+      "path_or_url": "E:\\IMPERIUM",
+      "scope": "repo",
+      "privacy_class": "public_repo",
+      "agent_access_rule": "default_workspace",
+      "git_tracked_expected": true,
+      "description": "Canonical Git repository root for Servitor execution.",
+      "verification_method": "git rev-parse --show-toplevel",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "local_context_root",
+      "path_or_url": "E:\\IMPERIUM_CONTEXT\\LOCAL",
+      "scope": "external_local",
+      "privacy_class": "local_index",
+      "agent_access_rule": "task_reference_required",
+      "git_tracked_expected": false,
+      "description": "Local context root outside Git for explicit task-scoped data.",
+      "verification_method": "path boundary check outside E:\\IMPERIUM",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "private_context_root",
+      "path_or_url": "E:\\IMPERIUM_CONTEXT\\PRIVATE",
+      "scope": "external_private",
+      "privacy_class": "private_index_only",
+      "agent_access_rule": "index_only_no_payload_in_git",
+      "git_tracked_expected": false,
+      "description": "Private context root; only redacted/index-level references allowed in repo.",
+      "verification_method": "path boundary check and privacy rule check",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "handoff_root",
+      "path_or_url": "E:\\IMPERIUM_CONTEXT\\LOCAL\\HANDOFF",
+      "scope": "external_local",
+      "privacy_class": "local_index",
+      "agent_access_rule": "task_reference_required",
+      "git_tracked_expected": false,
+      "description": "Handoff area for local non-repo transfer artifacts.",
+      "verification_method": "path boundary check outside E:\\IMPERIUM",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "task_bundles_root",
+      "path_or_url": "E:\\IMPERIUM_CONTEXT\\LOCAL\\TASK_BUNDLES",
+      "scope": "external_bundle",
+      "privacy_class": "local_index",
+      "agent_access_rule": "bundle_builder_managed_only",
+      "git_tracked_expected": false,
+      "description": "External task bundle root managed by Administratum bundle scripts.",
+      "verification_method": "path boundary check outside E:\\IMPERIUM",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "github_exact_tree_url",
+      "path_or_url": "https://github.com/SoulsLike2313/Imperium-/tree/88add153b2b9659655bac8b2e775127eb61302cf",
+      "scope": "remote_url",
+      "privacy_class": "public_repo",
+      "agent_access_rule": "read_only_reference",
+      "git_tracked_expected": false,
+      "description": "Exact GitHub tree URL pinned to current HEAD, not floating branch.",
+      "verification_method": "match /tree/<40-hex> pattern",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "vm2_repo_root",
+      "path_or_url": "/home/vboxuser2/IMPERIUM_WORK/Imperium-",
+      "scope": "vm2",
+      "privacy_class": "external_status",
+      "agent_access_rule": "deferred_until_owner_command",
+      "git_tracked_expected": false,
+      "description": "VM2 repository root reference for future sync only with Owner command.",
+      "verification_method": "string contract check",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    },
+    {
+      "zone_id": "vm2_status",
+      "path_or_url": "DEFERRED_OFFLINE",
+      "scope": "status",
+      "privacy_class": "external_status",
+      "agent_access_rule": "no_sync_without_owner_command",
+      "git_tracked_expected": false,
+      "description": "VM2 sync state for this task execution.",
+      "verification_method": "status equality check",
+      "last_verified_utc": "2026-05-14T21:40:00Z"
+    }
+  ]
+}

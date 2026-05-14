@@ -1,0 +1,27 @@
+{
+  "schema_version": "administratum_address_book_check_report_v0_1",
+  "status": "PASS",
+  "checked_utc": "2026-05-14T23:45:13.912870+00:00",
+  "address_book_path": "ORGANS/ADMINISTRATUM/ADDRESS_BOOK/imperium_address_book_v0_1.json",
+  "schema_path": "schemas/administratum_address_book.schema.json",
+  "checks": {
+    "schema_contract_valid": true,
+    "required_entries_present": true,
+    "required_entry_fields_present": true,
+    "local_private_outside_repo": true,
+    "private_context_redacted_index_only": true,
+    "exact_tree_url_present": true,
+    "usage_policy_explicit": true
+  },
+  "failures": [],
+  "required_zone_ids": [
+    "github_exact_tree_url",
+    "handoff_root",
+    "local_context_root",
+    "pc_git_repo",
+    "private_context_root",
+    "task_bundles_root",
+    "vm2_repo_root",
+    "vm2_status"
+  ]
+}
