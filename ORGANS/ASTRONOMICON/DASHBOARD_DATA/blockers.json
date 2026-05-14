@@ -1,0 +1,9 @@
+{
+  "schema_version": "astronomicon_dashboard_blockers_v0_1",
+  "last_generated_at_utc": "2026-05-14T18:18:29Z",
+  "items": [
+    "NO_ACTIVE_GENERAL_TASK",
+    "REGISTER_BUTTON_DISABLED_UNTIL_VALIDATED_FLOW",
+    "SPECULUM_IMPORT_NOT_FULLY_IMPLEMENTED"
+  ]
+}

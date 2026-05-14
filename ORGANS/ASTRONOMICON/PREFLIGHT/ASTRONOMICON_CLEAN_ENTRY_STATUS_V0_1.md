@@ -9,3 +9,6 @@
 - old San-Cleaning plan: not active execution canon
 - next intended General Task: build Astronomicon Workbench + Administratum Stage Acceptance Loop
 - Stage 0 verdict: PREPARED_FOR_NEW_GENERAL_TASK_INTAKE
+
+- operational bundles/runtime path: E:\\IMPERIUM_CONTEXT\\LOCAL (not repo OUTBOX/.imperium_runtime)
+

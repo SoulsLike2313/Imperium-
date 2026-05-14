@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium/astronomicon/local_task.schema.json",
+  "title": "Astronomicon Local Task",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "source_task_candidate_id",
+    "general_task_id",
+    "title",
+    "task_summary",
+    "files_allowed",
+    "files_forbidden",
+    "speculum_review_status",
+    "registration_status",
+    "current_status"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "task_id": { "type": "string", "minLength": 1 },
+    "source_task_candidate_id": { "type": "string", "minLength": 1 },
+    "general_task_id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "task_summary": { "type": "string", "minLength": 1 },
+    "files_allowed": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "files_forbidden": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "speculum_review_status": { "type": "string" },
+    "registration_status": { "type": "string" },
+    "current_status": { "type": "string" }
+  }
+}

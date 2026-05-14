@@ -13,3 +13,8 @@
 | Metric BLOCKER policy | hard stop unless Owner override | OWNER_CONFIRMATION_RECOMMENDED | keeps blocker semantics trustworthy | HIGH |
 | VM2 | deferred until PC corridor proven | DEFERRED_OFFLINE | avoids cross-contour noise before baseline is stable | HIGH |
 | commit/push automation | reject for now | REJECTED_FOR_NOW | no write automation before fail-closed controls | HIGH |
+
+## Route note
+
+- Owner confirmation recommended: local operational bundles use E:\\IMPERIUM_CONTEXT\\LOCAL\\OUTBOX\\PC_SERVITOR_BUNDLES; repo keeps tracked canonical artifacts only.
+

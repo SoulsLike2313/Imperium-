@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "imperium/astronomicon/astronomicon_dashboard_data.schema.json",
+  "title": "Astronomicon Dashboard Data Aggregate",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "active_state",
+    "general_task_current",
+    "task_candidates",
+    "selected_task",
+    "stage_map",
+    "speculum_review_state",
+    "blockers",
+    "workbench_meta"
+  ],
+  "additionalProperties": true,
+  "properties": {
+    "schema_version": { "type": "string" },
+    "active_state": { "type": "object" },
+    "general_task_current": { "type": "object" },
+    "task_candidates": { "type": "object" },
+    "selected_task": { "type": "object" },
+    "stage_map": { "type": "object" },
+    "speculum_review_state": { "type": "object" },
+    "blockers": { "type": "object" },
+    "workbench_meta": { "type": "object" }
+  }
+}

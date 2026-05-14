@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astronomicon Workbench MVP</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --panel: #ffffff;
+      --ink: #112233;
+      --muted: #4f6278;
+      --line: #d5dee8;
+      --accent: #0b6bb3;
+      --warn: #9a5a00;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    header {
+      padding: 12px 16px;
+      background: linear-gradient(90deg, #d9ebff, #f8fcff);
+      border-bottom: 1px solid var(--line);
+    }
+    h1 { margin: 0; font-size: 18px; }
+    .sub { margin-top: 4px; color: var(--muted); font-size: 13px; }
+    .layout {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 12px;
+      padding: 12px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    .panel h2 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+    }
+    textarea, input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 13px;
+      background: #fff;
+    }
+    textarea { min-height: 70px; resize: vertical; }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+      gap: 8px;
+    }
+    button {
+      border: 1px solid #2c7fbc;
+      background: #e8f4ff;
+      color: #114266;
+      border-radius: 6px;
+      padding: 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    button[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    pre {
+      margin: 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      background: #f8fbff;
+      border: 1px dashed var(--line);
+      border-radius: 6px;
+      padding: 8px;
+      font-size: 12px;
+      max-height: 180px;
+      overflow: auto;
+    }
+    .badge { color: var(--warn); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Astronomicon Workbench MVP (Dense Base)</h1>
+    <div class="sub">Dashboard/workbench-first flow. No fake green. Status mirrors backend dashboard JSON.</div>
+  </header>
+
+  <div class="layout">
+    <section class="panel">
+      <h2>General Task Input / Form</h2>
+      <div class="grid2">
+        <div><label>general_task_id</label><input id="gt_id" placeholder="GT-YYYYMMDD-..." /></div>
+        <div><label>title</label><input id="gt_title" placeholder="General task title" /></div>
+      </div>
+      <div class="grid2">
+        <div><label>owner_goal</label><textarea id="gt_goal"></textarea></div>
+        <div><label>desired_outcome</label><textarea id="gt_outcome"></textarea></div>
+      </div>
+      <div><label>scope_in (one per line)</label><textarea id="gt_scope_in"></textarea></div>
+      <div><label>scope_out (one per line)</label><textarea id="gt_scope_out"></textarea></div>
+      <div><label>Background (markdown body section)</label><textarea id="gt_background"></textarea></div>
+      <div><label>Detailed Owner Intent (markdown body section)</label><textarea id="gt_intent"></textarea></div>
+
+      <h2>Workbench Actions</h2>
+      <div class="actions">
+        <button data-action="save_general_task">Save General Task</button>
+        <button data-action="validate_general_task">Validate</button>
+        <button data-action="decompose_general_task">Decompose General Task</button>
+        <button data-action="export_task_to_speculum">Export Local Task to Speculum</button>
+        <button data-action="import_task_review">Import Speculum Task Review</button>
+        <button data-action="modernize_local_task">Modernize Local Task</button>
+        <button data-action="decompose_to_stages">Decompose to Stages</button>
+        <button data-action="export_stage_map">Export Stage Map to Speculum</button>
+        <button data-action="import_stage_review">Import Speculum Stage Review</button>
+        <button data-action="register" id="register_btn" disabled>Register</button>
+        <button data-action="refresh_dashboard_data">Refresh Dashboard Data</button>
+      </div>
+      <p class="sub">Action buttons are mapped to Python scripts in README. Some actions are MVP placeholders.</p>
+    </section>
+
+    <section>
+      <div class="panel">
+        <h2>Active State / Meta</h2>
+        <pre id="meta_panel">loading...</pre>
+      </div>
+      <div class="panel">
+        <h2>Local Task Candidates</h2>
+        <pre id="candidates_panel">loading...</pre>
+      </div>
+      <div class="panel">
+        <h2>Selected Local Task</h2>
+        <pre id="selected_panel">loading...</pre>
+      </div>
+      <div class="panel">
+        <h2>Speculum Review State</h2>
+        <pre id="speculum_panel">loading...</pre>
+      </div>
+      <div class="panel">
+        <h2>Stage Map / Blockers / Receipts</h2>
+        <pre id="stage_panel">loading...</pre>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    async function loadData() {
+      const meta = document.getElementById('meta_panel');
+      const candidates = document.getElementById('candidates_panel');
+      const selected = document.getElementById('selected_panel');
+      const speculum = document.getElementById('speculum_panel');
+      const stage = document.getElementById('stage_panel');
+      try {
+        const r = await fetch('/api/workbench-data');
+        const j = await r.json();
+        const d = j.dashboard_data || {};
+        meta.textContent = JSON.stringify({
+          active_state: d.active_state,
+          general_task_current: d.general_task_current,
+          workbench_meta: d.workbench_meta
+        }, null, 2);
+        candidates.textContent = JSON.stringify(d.task_candidates || {}, null, 2);
+        selected.textContent = JSON.stringify(d.selected_task || {}, null, 2);
+        speculum.textContent = JSON.stringify(d.speculum_review_state || {}, null, 2);
+        stage.textContent = JSON.stringify({ stage_map: d.stage_map, blockers: d.blockers }, null, 2);
+        const registerEnabled = !!(d.workbench_meta && d.workbench_meta.register_button_enabled);
+        document.getElementById('register_btn').disabled = !registerEnabled;
+      } catch (err) {
+        meta.innerHTML = 'Backend required for live data. Start: <span class="badge">python scripts/astronomicon_workbench_server.py</span>';
+        candidates.textContent = 'No API data.';
+        selected.textContent = 'No API data.';
+        speculum.textContent = 'No API data.';
+        stage.textContent = 'No API data.';
+      }
+    }
+
+    async function runAction(action) {
+      try {
+        const r = await fetch('/api/action', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action })
+        });
+        const j = await r.json();
+        console.log('action result', j);
+      } catch (err) {
+        console.warn('Action requires backend server.', err);
+      }
+      await loadData();
+    }
+
+    document.querySelectorAll('button[data-action]').forEach(btn => {
+      btn.addEventListener('click', () => runAction(btn.dataset.action));
+    });
+
+    loadData();
+  </script>
+</body>
+</html>

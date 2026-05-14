@@ -35,3 +35,8 @@
 |---|---|---|---|---|
 | TASK-20260514-ASTRONOMICON-WORKBENCH-MVP | implement clean General Task intake and read-only active state surfacing | ORGANS/ASTRONOMICON/, scripts/, schemas/, tests/ | schema validation, py_compile, fixture checks, active-state assertions | REQUIRED |
 | TASK-20260514-ADMINISTRATUM-STAGE-LOOP-MVP | implement minimal stage permission/submit/accept loop | ORGANS/ADMINISTRATUM/, scripts/, tests/ | loop contract checks, evidence gate checks | REQUIRED |
+
+## 4) Route note
+
+- Operational bundles/runtime live under E:\\IMPERIUM_CONTEXT\\LOCAL, not repo OUTBOX or .imperium_runtime.
+

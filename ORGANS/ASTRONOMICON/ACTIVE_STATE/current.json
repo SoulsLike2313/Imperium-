@@ -8,10 +8,10 @@
   "ready_for_new_general_task_intake": true,
   "ready_for_agent": false,
   "vm2_status": "DEFERRED_OFFLINE",
-  "source_head": "ee4f227f40c7cd476e604ad9e4aad5c829ef29c1",
+  "source_head": "8f8f18ca2f516515c2a878b1840f9e31f5965fcc",
   "notes": [
-    "Stage 0 clean entry preflight only.",
+    "Astronomicon dense base stage in progress.",
     "No active General Task is registered.",
-    "Old advisory/planning material is not active execution canon."
+    "Draft/test fixture data remains non-active and non-canon."
   ]
 }

@@ -1,0 +1,70 @@
+{
+  "schema_version": "task_candidate_v0_1",
+  "task_candidate_id": "TC-GT-TEST-ASTRONOMICON-MVP-V0_1-01",
+  "general_task_id": "GT-TEST-ASTRONOMICON-MVP-V0_1",
+  "title": "Test General Task for Astronomicon MVP dense base / Candidate 1",
+  "local_task_summary": "split parser validator and dashboard generator into separate scripts",
+  "scope_in": [
+    "ORGANS/ASTRONOMICON/",
+    "scripts/",
+    "tests/fixtures/astronomicon/"
+  ],
+  "scope_out": [
+    "SANCTUM/",
+    "KIRO_PLAN_ADVISOR/",
+    "VM2 routes"
+  ],
+  "target_organ": "ASTRONOMICON",
+  "files_likely_touched": [
+    "ORGANS/ASTRONOMICON/SCHEMAS/",
+    "ORGANS/ASTRONOMICON/TEMPLATES/",
+    "scripts/"
+  ],
+  "dependencies": [
+    "active state json",
+    "schema files"
+  ],
+  "unresolved_questions": [
+    "exact future Speculum import automation details"
+  ],
+  "metric_zones": {
+    "scope_size": "PENDING",
+    "touched_zones_count": "PENDING",
+    "file_change_risk": "PENDING",
+    "private_context_dependency": "PENDING",
+    "external_tool_dependency": "PENDING",
+    "ui_dependency": "PENDING",
+    "schema_dependency": "PENDING",
+    "script_dependency": "PENDING",
+    "dashboard_dependency": "PENDING",
+    "receipt_requirement_level": "PENDING",
+    "checker_requirement_level": "PENDING",
+    "owner_gate_level": "PENDING",
+    "rollback_complexity": "PENDING",
+    "artifact_complexity": "PENDING",
+    "stage_count_estimate": "PENDING",
+    "agent_context_load": "PENDING",
+    "ambiguity_level": "PENDING",
+    "dependency_count": "PENDING",
+    "blocker_probability": "PENDING",
+    "fake_green_risk": "PENDING",
+    "stale_data_risk": "PENDING",
+    "warning_noise_risk": "PENDING",
+    "local_vs_repo_boundary_risk": "PENDING",
+    "vm2_need_level": "PENDING",
+    "commit_batching_suitability": "PENDING",
+    "review_required_by_speculum": "PENDING"
+  },
+  "speculum_review_fields": [
+    "review_verdict",
+    "scope_corrections",
+    "required_checkers",
+    "required_receipts",
+    "metric_updates",
+    "final_recommendation"
+  ],
+  "speculum_review_status": "PENDING_NOT_REQUESTED",
+  "modernized": false,
+  "registered": false,
+  "current_status": "DRAFT_TEST_NOT_ACTIVE"
+}

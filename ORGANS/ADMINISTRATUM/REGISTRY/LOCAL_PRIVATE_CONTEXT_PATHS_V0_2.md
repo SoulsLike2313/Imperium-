@@ -1,18 +1,19 @@
 # Local/Private Context Paths v0.2
 
-Administratum path policy for repo parity and continuity routing.
+Administratum path policy for repo purity and continuity routing.
 
 ## Context Roots
 - Git context root (PC): `E:\IMPERIUM`
-- Local operational context root (PC): `E:\IMPERIUM_LOCAL`
-- Private Owner context root (PC): `E:\IMPERIUM_PRIVATE`
+- Local operational context root (PC): `E:\IMPERIUM_CONTEXT\LOCAL`
+- Private Owner context root (PC): `E:\IMPERIUM_CONTEXT\PRIVATE`
 - Git context root (VM2): `/home/vboxuser2/IMPERIUM_WORK/Imperium-`
-- VM2 external roots reserved for future:
-  - `~/IMPERIUM_LOCAL`
-  - `~/IMPERIUM_PRIVATE`
+
+## Legacy compatibility notes
+- Legacy labels (`E:\IMPERIUM_LOCAL`, `E:\IMPERIUM_PRIVATE`) are compatibility references only.
+- New operational writes must target `E:\IMPERIUM_CONTEXT\LOCAL` and `E:\IMPERIUM_CONTEXT\PRIVATE`.
 
 ## Continuity and Handoff Rule
-- Continuity Pack and full handoff collectors must explicitly read from these roots.
+- Continuity Pack and handoff collectors must read from registered roots.
 - Private context is included only by Owner decision.
 - Private/local payloads must never be committed.
 

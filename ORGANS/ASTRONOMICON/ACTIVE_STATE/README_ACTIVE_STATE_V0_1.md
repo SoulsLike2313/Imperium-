@@ -13,3 +13,6 @@ This folder answers one question: what is active right now?
 Null active pointers are intentional clean-entry state, not missing data.
 Any dashboard/viewer must show `NO_ACTIVE_GENERAL_TASK` and must not show fake green.
 Future intake/registration scripts must update this active-state set consistently.
+
+Operational bundles/runtime live under E:\\IMPERIUM_CONTEXT\\LOCAL; repo-local OUTBOX/.imperium_runtime are not active working zones.
+

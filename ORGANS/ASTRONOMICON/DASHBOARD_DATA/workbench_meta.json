@@ -1,0 +1,9 @@
+{
+  "schema_version": "astronomicon_dashboard_workbench_meta_v0_1",
+  "last_generated_at_utc": "2026-05-14T18:18:29Z",
+  "status": "NO_ACTIVE_GENERAL_TASK",
+  "register_button_enabled": false,
+  "decompose_button_enabled": false,
+  "stale_status": "CURRENT",
+  "data_source": "BACKEND_GENERATED_JSON"
+}

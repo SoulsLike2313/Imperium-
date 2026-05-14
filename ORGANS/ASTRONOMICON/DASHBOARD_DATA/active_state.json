@@ -1,0 +1,14 @@
+{
+  "schema_version": "astronomicon_dashboard_active_state_v0_1",
+  "last_generated_at_utc": "2026-05-14T18:18:29Z",
+  "status": "NO_ACTIVE_GENERAL_TASK",
+  "active_general_task": null,
+  "active_task": null,
+  "active_stage": null,
+  "active_run": null,
+  "ready_for_new_general_task_intake": true,
+  "ready_for_agent": false,
+  "vm2_status": "DEFERRED_OFFLINE",
+  "stale_status": "CURRENT",
+  "fake_green_guard": "NO_ACTIVE_GENERAL_TASK_IF_NULL_POINTERS"
+}

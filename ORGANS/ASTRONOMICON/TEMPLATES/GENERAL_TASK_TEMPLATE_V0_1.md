@@ -34,7 +34,7 @@ local_task_candidate_count_hint: 1
 priority: HIGH
 dependencies:
   - Replace with dependencies
-local_private_boundary_notes: Keep external local/private payload out of Git
+local_private_boundary_notes: LOCAL=E:\\IMPERIUM_CONTEXT\\LOCAL; PRIVATE=E:\\IMPERIUM_CONTEXT\\PRIVATE; keep payload out of Git
 dashboard_display_title: Replace with short dashboard title
 tags:
   - template
@@ -53,3 +53,4 @@ Describe the owner intent in plain, testable terms.
 ## Execution Notes
 
 Document any contour limitations, safety constraints, and expected evidence.
+
