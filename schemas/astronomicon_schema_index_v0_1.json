@@ -1,0 +1,18 @@
+{
+  "schema_version": "astronomicon_schema_index_v0_1",
+  "owner": "ASTRONOMICON",
+  "status": "DRAFT_INDEX",
+  "schemas": [
+    "ORGANS/ASTRONOMICON/SCHEMAS/general_task.schema.json",
+    "ORGANS/ASTRONOMICON/SCHEMAS/task_candidate.schema.json",
+    "ORGANS/ASTRONOMICON/SCHEMAS/local_task.schema.json",
+    "ORGANS/ASTRONOMICON/SCHEMAS/stage.schema.json",
+    "ORGANS/ASTRONOMICON/SCHEMAS/speculum_task_review_response.schema.json",
+    "ORGANS/ASTRONOMICON/SCHEMAS/speculum_stage_review_response.schema.json",
+    "ORGANS/ASTRONOMICON/SCHEMAS/astronomicon_dashboard_data.schema.json"
+  ],
+  "notes": [
+    "Canonical schema source is ORGANS/ASTRONOMICON/SCHEMAS.",
+    "This central index is a pointer for cross-organ discovery."
+  ]
+}

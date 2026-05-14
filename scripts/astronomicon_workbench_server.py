@@ -5,12 +5,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import subprocess
 import sys
 from http import HTTPStatus
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Callable
+
+from astronomicon_create_dashboard_data import generate_dashboard_data
+from astronomicon_general_task_lib import parse_markdown_general_task, validate_parsed_general_task
 
 
 def repo_root() -> Path:
@@ -39,6 +41,46 @@ def load_dashboard_data(dashboard_dir: Path) -> Dict[str, Any]:
         else:
             payload[name.replace(".json", "")] = {"missing": True, "path": str(path)}
     return payload
+
+
+def action_refresh_dashboard_data(dashboard_dir: Path) -> Dict[str, Any]:
+    result = generate_dashboard_data(dashboard_dir)
+    return {
+        "ok": True,
+        "action": "refresh_dashboard_data",
+        "verdict": result["verdict"],
+        "details": result,
+    }
+
+
+def action_validate_fixture() -> Dict[str, Any]:
+    fixture_path = repo_root() / "tests" / "fixtures" / "astronomicon" / "GT-TEST-ASTRONOMICON-MVP-V0_1.md"
+    parsed = parse_markdown_general_task(fixture_path)
+    errors = validate_parsed_general_task(parsed)
+    if errors:
+        return {
+            "ok": False,
+            "action": "validate_fixture",
+            "verdict": "BLOCKED_GENERAL_TASK_FORMAT_INVALID",
+            "details": {"error_count": len(errors), "errors": errors},
+        }
+    return {
+        "ok": True,
+        "action": "validate_fixture",
+        "verdict": "GENERAL_TASK_VALID",
+        "details": {"fixture_path": str(fixture_path), "error_count": 0},
+    }
+
+
+def action_not_implemented(action: str) -> Dict[str, Any]:
+    return {
+        "ok": False,
+        "action": action,
+        "verdict": "NOT_IMPLEMENTED_IN_MVP",
+        "details": {
+            "message": "Mapped in README; backend action not implemented yet."
+        },
+    }
 
 
 class WorkbenchHandler(SimpleHTTPRequestHandler):
@@ -81,30 +123,43 @@ class WorkbenchHandler(SimpleHTTPRequestHandler):
             return
 
         action = str(request.get("action", "")).strip()
-        if action in {"refresh_dashboard_data", "Refresh Dashboard Data"}:
-            script = repo_root() / "scripts" / "astronomicon_create_dashboard_data.py"
-            cmd = [sys.executable, str(script)]
-            proc = subprocess.run(cmd, capture_output=True, text=True)
+        normalized_action = "refresh_dashboard_data" if action == "Refresh Dashboard Data" else action
+        action_handlers: Dict[str, Callable[[], Dict[str, Any]]] = {
+            "refresh_dashboard_data": lambda: action_refresh_dashboard_data(self.dashboard_dir),
+            "validate_fixture": action_validate_fixture,
+            "save_general_task": lambda: action_not_implemented("save_general_task"),
+            "validate_general_task": lambda: action_not_implemented("validate_general_task"),
+            "decompose_general_task": lambda: action_not_implemented("decompose_general_task"),
+            "export_task_to_speculum": lambda: action_not_implemented("export_task_to_speculum"),
+            "import_task_review": lambda: action_not_implemented("import_task_review"),
+            "modernize_local_task": lambda: action_not_implemented("modernize_local_task"),
+            "decompose_to_stages": lambda: action_not_implemented("decompose_to_stages"),
+            "export_stage_map": lambda: action_not_implemented("export_stage_map"),
+            "import_stage_review": lambda: action_not_implemented("import_stage_review"),
+            "register": lambda: action_not_implemented("register"),
+        }
+
+        handler = action_handlers.get(normalized_action)
+        if handler is None:
+            payload = action_not_implemented(normalized_action)
+            self._write_json(HTTPStatus.OK, payload)
+            return
+
+        try:
+            payload = handler()
+        except Exception as exc:
             self._write_json(
-                HTTPStatus.OK if proc.returncode == 0 else HTTPStatus.BAD_REQUEST,
+                HTTPStatus.BAD_REQUEST,
                 {
-                    "status": "PASS" if proc.returncode == 0 else "FAIL",
-                    "action": action,
-                    "returncode": proc.returncode,
-                    "stdout": proc.stdout.strip(),
-                    "stderr": proc.stderr.strip(),
+                    "ok": False,
+                    "action": normalized_action,
+                    "verdict": "ACTION_FAILED",
+                    "details": {"error": str(exc)},
                 },
             )
             return
 
-        self._write_json(
-            HTTPStatus.OK,
-            {
-                "status": "PASS_WITH_WARNINGS",
-                "action": action,
-                "note": "MVP placeholder action. Use mapped script from README_WORKBENCH_V0_1.md.",
-            },
-        )
+        self._write_json(HTTPStatus.OK if payload.get("ok") else HTTPStatus.BAD_REQUEST, payload)
 
 
 def build_parser() -> argparse.ArgumentParser:

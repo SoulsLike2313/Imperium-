@@ -53,19 +53,15 @@ def build_parser() -> argparse.ArgumentParser:
     return parser
 
 
-def main() -> int:
-    parser = build_parser()
-    args = parser.parse_args()
-
+def generate_dashboard_data(out_dir: Path) -> Dict[str, Any]:
     root = repo_root()
-    out_dir = Path(args.out_dir).resolve()
+    out_dir = out_dir.resolve()
     astro_root = (root / "ORGANS" / "ASTRONOMICON").resolve()
 
     try:
         out_dir.relative_to(astro_root)
     except ValueError:
-        print(f"FAIL: output directory outside Astronomicon scope: {out_dir}")
-        return 2
+        raise ValueError(f"output directory outside Astronomicon scope: {out_dir}")
 
     active_state_path = root / "ORGANS" / "ASTRONOMICON" / "ACTIVE_STATE" / "current.json"
     active_state = read_json(
@@ -177,8 +173,36 @@ def main() -> int:
     write_json(out_dir / "blockers.json", blockers)
     write_json(out_dir / "workbench_meta.json", workbench_meta)
 
+    return {
+        "status": "PASS",
+        "verdict": "ASTRONOMICON_DASHBOARD_DATA_GENERATED",
+        "out_dir": str(out_dir),
+        "files_written": [
+            "active_state.json",
+            "general_task_current.json",
+            "task_candidates.json",
+            "selected_task.json",
+            "stage_map.json",
+            "speculum_review_state.json",
+            "blockers.json",
+            "workbench_meta.json",
+        ],
+    }
+
+
+def main() -> int:
+    parser = build_parser()
+    args = parser.parse_args()
+    out_dir = Path(args.out_dir)
+
+    try:
+        result = generate_dashboard_data(out_dir)
+    except Exception as exc:
+        print(f"FAIL: {exc}")
+        return 2
+
     print("PASS: ASTRONOMICON_DASHBOARD_DATA_GENERATED")
-    print(f"OUT_DIR: {out_dir}")
+    print(f"OUT_DIR: {result['out_dir']}")
     return 0
 
 

@@ -18,3 +18,4 @@ This folder contains MVP schema contracts for Astronomicon dense base:
 - Schema contracts are strict enough for MVP validation and future script hardening.
 - Speculum response schemas enforce structured fields; free-form advice is secondary.
 - These schemas do not declare canon or readiness by themselves.
+- Cross-zone schema pointer index: `schemas/astronomicon_schema_index_v0_1.json`.

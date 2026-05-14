@@ -3,6 +3,7 @@
 ## Purpose
 
 Minimal dashboard/workbench-first owner flow for Astronomicon MVP dense base.
+Backend server action handling uses direct Python function calls (no raw subprocess spawning).
 
 ## Start server
 
