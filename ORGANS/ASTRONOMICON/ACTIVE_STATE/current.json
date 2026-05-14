@@ -1,0 +1,17 @@
+{
+  "schema_version": "astronomicon_active_state_v0_1",
+  "active_general_task": null,
+  "active_task": null,
+  "active_stage": null,
+  "active_run": null,
+  "status": "NO_ACTIVE_GENERAL_TASK",
+  "ready_for_new_general_task_intake": true,
+  "ready_for_agent": false,
+  "vm2_status": "DEFERRED_OFFLINE",
+  "source_head": "ee4f227f40c7cd476e604ad9e4aad5c829ef29c1",
+  "notes": [
+    "Stage 0 clean entry preflight only.",
+    "No active General Task is registered.",
+    "Old advisory/planning material is not active execution canon."
+  ]
+}

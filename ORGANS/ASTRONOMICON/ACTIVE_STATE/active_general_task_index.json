@@ -1,0 +1,8 @@
+{
+  "schema_version": "astronomicon_active_index_v0_1",
+  "index_name": "active_general_task_index",
+  "source_head": "ee4f227f40c7cd476e604ad9e4aad5c829ef29c1",
+  "status": "EMPTY",
+  "items": [],
+  "note": "no active registered entries at Stage 0"
+}
