@@ -1,0 +1,13 @@
+{
+  "organ_id": "OFFICIO_AGENTIS",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "metrics": {
+    "report_count": 6,
+    "warnings_count": 1,
+    "blockers_count": 0,
+    "evidence_count": 6,
+    "stage_contracts_ready": 20,
+    "organ_priority_index": 3
+  }
+}

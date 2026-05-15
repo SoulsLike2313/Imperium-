@@ -1,0 +1,468 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "schema_count": 92,
+  "schemas": [
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/organ_self_report.schema.json",
+      "title": "organ_self_report"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/evidence_common.schema.json",
+      "title": "evidence_common"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/receipt_common.schema.json",
+      "title": "receipt_common"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/gate_report.schema.json",
+      "title": "gate_report"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/work_packet.schema.json",
+      "title": "work_packet"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/route_sheet.schema.json",
+      "title": "route_sheet"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/stage_map.schema.json",
+      "title": "stage_map"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/stage_record.schema.json",
+      "title": "stage_record"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/admin_stage_completion_receipt.schema.json",
+      "title": "admin_stage_completion_receipt"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/role_contract.schema.json",
+      "title": "role_contract"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/role_read_receipt.schema.json",
+      "title": "role_read_receipt"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/law_registry_entry.schema.json",
+      "title": "law_registry_entry"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/law_change_receipt.schema.json",
+      "title": "law_change_receipt"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/task_start_gate_verdict.schema.json",
+      "title": "task_start_gate_verdict"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/dashboard_state.schema.json",
+      "title": "dashboard_state"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/dashboard_actions.schema.json",
+      "title": "dashboard_actions"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/dashboard_metrics.schema.json",
+      "title": "dashboard_metrics"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/dashboard_evidence_index.schema.json",
+      "title": "dashboard_evidence_index"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/dashboard_render_report.schema.json",
+      "title": "dashboard_render_report"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/source_package_manifest.schema.json",
+      "title": "source_package_manifest"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/final_bundle_manifest.schema.json",
+      "title": "final_bundle_manifest"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/stale_status_report.schema.json",
+      "title": "stale_status_report"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/SCHEMAS/V1/repo_purity_report.schema.json",
+      "title": "repo_purity_report"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/organ_self_report.schema.json",
+      "title": "organ_self_report"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/evidence_common.schema.json",
+      "title": "evidence_common"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/receipt_common.schema.json",
+      "title": "receipt_common"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/gate_report.schema.json",
+      "title": "gate_report"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/work_packet.schema.json",
+      "title": "work_packet"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/route_sheet.schema.json",
+      "title": "route_sheet"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/stage_map.schema.json",
+      "title": "stage_map"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/stage_record.schema.json",
+      "title": "stage_record"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/admin_stage_completion_receipt.schema.json",
+      "title": "admin_stage_completion_receipt"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/role_contract.schema.json",
+      "title": "role_contract"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/role_read_receipt.schema.json",
+      "title": "role_read_receipt"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/law_registry_entry.schema.json",
+      "title": "law_registry_entry"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/law_change_receipt.schema.json",
+      "title": "law_change_receipt"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/task_start_gate_verdict.schema.json",
+      "title": "task_start_gate_verdict"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/dashboard_state.schema.json",
+      "title": "dashboard_state"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/dashboard_actions.schema.json",
+      "title": "dashboard_actions"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/dashboard_metrics.schema.json",
+      "title": "dashboard_metrics"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/dashboard_evidence_index.schema.json",
+      "title": "dashboard_evidence_index"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/dashboard_render_report.schema.json",
+      "title": "dashboard_render_report"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/source_package_manifest.schema.json",
+      "title": "source_package_manifest"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/final_bundle_manifest.schema.json",
+      "title": "final_bundle_manifest"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/stale_status_report.schema.json",
+      "title": "stale_status_report"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/SCHEMAS/V1/repo_purity_report.schema.json",
+      "title": "repo_purity_report"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/organ_self_report.schema.json",
+      "title": "organ_self_report"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/evidence_common.schema.json",
+      "title": "evidence_common"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/receipt_common.schema.json",
+      "title": "receipt_common"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/gate_report.schema.json",
+      "title": "gate_report"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/work_packet.schema.json",
+      "title": "work_packet"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/route_sheet.schema.json",
+      "title": "route_sheet"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/stage_map.schema.json",
+      "title": "stage_map"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/stage_record.schema.json",
+      "title": "stage_record"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/admin_stage_completion_receipt.schema.json",
+      "title": "admin_stage_completion_receipt"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/role_contract.schema.json",
+      "title": "role_contract"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/role_read_receipt.schema.json",
+      "title": "role_read_receipt"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/law_registry_entry.schema.json",
+      "title": "law_registry_entry"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/law_change_receipt.schema.json",
+      "title": "law_change_receipt"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/task_start_gate_verdict.schema.json",
+      "title": "task_start_gate_verdict"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/dashboard_state.schema.json",
+      "title": "dashboard_state"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/dashboard_actions.schema.json",
+      "title": "dashboard_actions"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/dashboard_metrics.schema.json",
+      "title": "dashboard_metrics"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/dashboard_evidence_index.schema.json",
+      "title": "dashboard_evidence_index"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/dashboard_render_report.schema.json",
+      "title": "dashboard_render_report"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/source_package_manifest.schema.json",
+      "title": "source_package_manifest"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/final_bundle_manifest.schema.json",
+      "title": "final_bundle_manifest"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/stale_status_report.schema.json",
+      "title": "stale_status_report"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/V1/repo_purity_report.schema.json",
+      "title": "repo_purity_report"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/organ_self_report.schema.json",
+      "title": "organ_self_report"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/evidence_common.schema.json",
+      "title": "evidence_common"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/receipt_common.schema.json",
+      "title": "receipt_common"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/gate_report.schema.json",
+      "title": "gate_report"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/work_packet.schema.json",
+      "title": "work_packet"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/route_sheet.schema.json",
+      "title": "route_sheet"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/stage_map.schema.json",
+      "title": "stage_map"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/stage_record.schema.json",
+      "title": "stage_record"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/admin_stage_completion_receipt.schema.json",
+      "title": "admin_stage_completion_receipt"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/role_contract.schema.json",
+      "title": "role_contract"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/role_read_receipt.schema.json",
+      "title": "role_read_receipt"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/law_registry_entry.schema.json",
+      "title": "law_registry_entry"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/law_change_receipt.schema.json",
+      "title": "law_change_receipt"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/task_start_gate_verdict.schema.json",
+      "title": "task_start_gate_verdict"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/dashboard_state.schema.json",
+      "title": "dashboard_state"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/dashboard_actions.schema.json",
+      "title": "dashboard_actions"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/dashboard_metrics.schema.json",
+      "title": "dashboard_metrics"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/dashboard_evidence_index.schema.json",
+      "title": "dashboard_evidence_index"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/dashboard_render_report.schema.json",
+      "title": "dashboard_render_report"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/source_package_manifest.schema.json",
+      "title": "source_package_manifest"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/final_bundle_manifest.schema.json",
+      "title": "final_bundle_manifest"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/stale_status_report.schema.json",
+      "title": "stale_status_report"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/SCHEMAS/V1/repo_purity_report.schema.json",
+      "title": "repo_purity_report"
+    }
+  ]
+}

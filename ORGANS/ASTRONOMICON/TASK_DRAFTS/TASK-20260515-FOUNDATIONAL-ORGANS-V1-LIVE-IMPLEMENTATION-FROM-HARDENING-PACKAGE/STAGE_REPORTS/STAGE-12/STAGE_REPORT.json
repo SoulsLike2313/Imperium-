@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 12,
+  "stage_id": "STAGE-12",
+  "stage_title": "Rollback stop receipt path",
+  "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-12_ROLLBACK_STOP_RECEIPT_PATH_PROMPT.md",
+  "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-12-ROLLBACK-STOP-RECEIPT-PATH/STAGE_REPORT.json",
+  "started_utc": "2026-05-15T06:29:01Z",
+  "completed_utc": "2026-05-15T06:29:01Z",
+  "verdict": "PASS",
+  "live_outputs": [
+    "ORGANS/ADMINISTRATUM/REPORTS/V1/rollback_stop_receipt_v1.json",
+    "ORGANS/ADMINISTRATUM/REPORTS/V1/warning_acceptance_receipt_v1.json"
+  ],
+  "checks_run": [
+    "json_parse"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0,
+  "notes": "live_outputs_generated",
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/STAGE_REPORTS/STAGE-12/EVIDENCE/stage_evidence.json"
+  ]
+}

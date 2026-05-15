@@ -1,0 +1,33 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "actions": [
+    {
+      "action_id": "administratum_open_dashboard_data",
+      "action_type": "read_only_view",
+      "enabled": true,
+      "disabled_reason": "",
+      "owner_gate_required": false,
+      "expected_receipt_path": "ORGANS/ADMINISTRATUM/REPORTS/V1/action_read_receipt_v1.json",
+      "failure_behavior": "show_error_and_keep_state"
+    },
+    {
+      "action_id": "administratum_refresh_snapshot",
+      "action_type": "read_only_export",
+      "enabled": true,
+      "disabled_reason": "",
+      "owner_gate_required": false,
+      "expected_receipt_path": "ORGANS/ADMINISTRATUM/REPORTS/V1/action_refresh_receipt_v1.json",
+      "failure_behavior": "show_error_and_keep_previous_snapshot"
+    },
+    {
+      "action_id": "administratum_write_state_transition",
+      "action_type": "state_transition",
+      "enabled": false,
+      "disabled_reason": "owner_gate_required",
+      "owner_gate_required": true,
+      "expected_receipt_path": "ORGANS/ADMINISTRATUM/REPORTS/V1/action_write_blocked_receipt_v1.json",
+      "failure_behavior": "blocked_no_mutation"
+    }
+  ]
+}

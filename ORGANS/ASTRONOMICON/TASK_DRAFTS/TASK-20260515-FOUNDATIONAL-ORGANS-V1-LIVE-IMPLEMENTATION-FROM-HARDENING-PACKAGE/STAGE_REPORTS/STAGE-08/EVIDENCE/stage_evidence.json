@@ -1,0 +1,20 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 8,
+  "stage_title": "Stale-status checkers",
+  "generated_at_utc": "2026-05-15T06:29:02Z",
+  "live_outputs": [
+    "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/stale_status_check_report_v1.json"
+  ],
+  "checks_run": [
+    "python scripts/foundational_organs_v1/check_foundational_organs_v1_stale_status.py"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0
+}

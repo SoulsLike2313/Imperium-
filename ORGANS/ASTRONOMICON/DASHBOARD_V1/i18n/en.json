@@ -1,0 +1,17 @@
+{
+  "status": "Status",
+  "freshness": "Freshness",
+  "generated": "Generated",
+  "git": "Git Head",
+  "metrics": "Metrics",
+  "metric": "Metric",
+  "value": "Value",
+  "evidence": "Evidence",
+  "actions": "Actions",
+  "action": "Action",
+  "mode": "Mode",
+  "receipt": "Receipt",
+  "enabled": "Enabled",
+  "disabled": "Disabled",
+  "sources": "Source paths"
+}

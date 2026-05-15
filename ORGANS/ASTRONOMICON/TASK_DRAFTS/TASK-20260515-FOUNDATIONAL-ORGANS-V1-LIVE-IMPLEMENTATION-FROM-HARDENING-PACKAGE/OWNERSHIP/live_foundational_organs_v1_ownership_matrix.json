@@ -1,0 +1,91 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "ownership_items": [
+    {
+      "artifact": "task_scope_and_stage_map",
+      "source_of_truth_owner": "ASTRONOMICON",
+      "may_read": [
+        "ADMINISTRATUM",
+        "OFFICIO_AGENTIS",
+        "DOCTRINARIUM",
+        "SANCTUM"
+      ],
+      "may_write": [
+        "ASTRONOMICON"
+      ],
+      "must_not_decide": [
+        "SANCTUM"
+      ]
+    },
+    {
+      "artifact": "work_packet_route_sheet_stage_completion",
+      "source_of_truth_owner": "ADMINISTRATUM",
+      "may_read": [
+        "ASTRONOMICON",
+        "OFFICIO_AGENTIS",
+        "DOCTRINARIUM",
+        "SANCTUM"
+      ],
+      "may_write": [
+        "ADMINISTRATUM"
+      ],
+      "must_not_decide": [
+        "SANCTUM",
+        "OFFICIO_AGENTIS"
+      ]
+    },
+    {
+      "artifact": "role_contracts_and_mode_contracts",
+      "source_of_truth_owner": "OFFICIO_AGENTIS",
+      "may_read": [
+        "ASTRONOMICON",
+        "ADMINISTRATUM",
+        "DOCTRINARIUM",
+        "SANCTUM"
+      ],
+      "may_write": [
+        "OFFICIO_AGENTIS"
+      ],
+      "must_not_decide": [
+        "SANCTUM",
+        "ADMINISTRATUM"
+      ]
+    },
+    {
+      "artifact": "law_registry_and_task_start_gate",
+      "source_of_truth_owner": "DOCTRINARIUM",
+      "may_read": [
+        "ASTRONOMICON",
+        "ADMINISTRATUM",
+        "OFFICIO_AGENTIS",
+        "SANCTUM"
+      ],
+      "may_write": [
+        "DOCTRINARIUM"
+      ],
+      "must_not_decide": [
+        "SANCTUM"
+      ]
+    },
+    {
+      "artifact": "dashboard_aggregation",
+      "source_of_truth_owner": "SANCTUM",
+      "may_read": [
+        "ASTRONOMICON",
+        "ADMINISTRATUM",
+        "OFFICIO_AGENTIS",
+        "DOCTRINARIUM"
+      ],
+      "may_write": [
+        "SANCTUM"
+      ],
+      "must_not_decide": [
+        "SANCTUM"
+      ],
+      "note": "read_only_aggregator_never_canonical_truth"
+    }
+  ],
+  "boundary_lint_policy": "no_cross_owner_writes_without_receipt"
+}

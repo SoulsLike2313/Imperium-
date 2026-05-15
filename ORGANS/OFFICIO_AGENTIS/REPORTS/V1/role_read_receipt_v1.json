@@ -1,0 +1,11 @@
+{
+  "receipt_id": "OFFICIO-ROLE-READ-001",
+  "role_id": "SERVITOR",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-CORRIDOR-PROOF",
+  "status": "PASS",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/V1/role_contract_v1.json"
+  ]
+}

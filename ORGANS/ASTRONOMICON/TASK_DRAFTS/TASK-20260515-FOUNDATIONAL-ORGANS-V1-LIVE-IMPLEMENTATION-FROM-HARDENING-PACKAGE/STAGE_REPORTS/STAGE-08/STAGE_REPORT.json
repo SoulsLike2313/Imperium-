@@ -1,0 +1,29 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 8,
+  "stage_id": "STAGE-08",
+  "stage_title": "Stale-status checkers",
+  "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-08_STALE_STATUS_CHECKERS_PROMPT.md",
+  "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-08-STALE-STATUS-CHECKERS/STAGE_REPORT.json",
+  "started_utc": "2026-05-15T06:29:02Z",
+  "completed_utc": "2026-05-15T06:29:02Z",
+  "verdict": "PASS",
+  "live_outputs": [
+    "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/stale_status_check_report_v1.json"
+  ],
+  "checks_run": [
+    "python scripts/foundational_organs_v1/check_foundational_organs_v1_stale_status.py"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0,
+  "notes": "live_stale_status_check",
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/STAGE_REPORTS/STAGE-08/EVIDENCE/stage_evidence.json"
+  ]
+}

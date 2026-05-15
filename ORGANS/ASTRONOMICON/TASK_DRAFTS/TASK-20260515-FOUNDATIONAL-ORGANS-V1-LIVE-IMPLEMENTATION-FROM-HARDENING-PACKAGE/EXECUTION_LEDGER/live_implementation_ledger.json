@@ -1,0 +1,431 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "started_utc": "2026-05-15T06:29:01Z",
+  "completed_utc": "2026-05-15T06:29:03Z",
+  "git_head_before": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "git_head_after": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "stages": [
+    {
+      "stage_number": 1,
+      "stage_title": "Source integrity and Owner matrix freeze",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-01_SOURCE_INTEGRITY_OWNER_MATRIX_FREEZE_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-01-RECONCILIATION-SCHEMAS-CONTRACTS/STAGES/STAGE-01-SOURCE-INTEGRITY-OWNER-MATRIX-FREEZE/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/SOURCE_INTEGRITY/live_source_manifest.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/SOURCE_INTEGRITY/source_package_read_report.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 2,
+      "stage_title": "Ownership matrix freeze and boundary lint",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-02_OWNERSHIP_MATRIX_FREEZE_BOUNDARY_LINT_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-01-RECONCILIATION-SCHEMAS-CONTRACTS/STAGES/STAGE-02-OWNERSHIP-MATRIX-FREEZE-BOUNDARY-LINT/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/OWNERSHIP/live_foundational_organs_v1_ownership_matrix.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/OWNERSHIP/boundary_lint_report.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 3,
+      "stage_title": "Schema baseline freeze",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-03_SCHEMA_BASELINE_FREEZE_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-01-RECONCILIATION-SCHEMAS-CONTRACTS/STAGES/STAGE-03-SCHEMA-BASELINE-FREEZE/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/SCHEMAS/v1_schema_index.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/SCHEMAS/v1_schema_validation_report.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 4,
+      "stage_title": "Gate index and stop behavior lock",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-04_GATE_INDEX_STOP_BEHAVIOR_LOCK_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-01-RECONCILIATION-SCHEMAS-CONTRACTS/STAGES/STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/GATES/live_v1_hardening_gate_index.json",
+        "ORGANS/ASTRONOMICON/V1/GATES/v1_hardening_gate_index.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 5,
+      "stage_title": "Backend report contract implementation Lane A",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-05_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_A_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-05-BACKEND-REPORT-CONTRACT-IMPLEMENTATION-LANE-A/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/BACKEND_TRUTH/lane_a_live_contract_report.json",
+        "ORGANS/ASTRONOMICON/V1/CORRIDOR/stage_map_v1.json",
+        "ORGANS/ADMINISTRATUM/V1/CORRIDOR/route_sheet_v1.json",
+        "ORGANS/ADMINISTRATUM/V1/CORRIDOR/work_packet_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 6,
+      "stage_title": "Backend report contract implementation Lane B",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-06_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_B_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-06-BACKEND-REPORT-CONTRACT-IMPLEMENTATION-LANE-B/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/BACKEND_TRUTH/lane_b_live_contract_report.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/admin_stage_completion_receipt_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/task_start_gate_verdict_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 7,
+      "stage_title": "No-fake-green checkers",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-07_NO_FAKE_GREEN_CHECKERS_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-07-NO-FAKE-GREEN-CHECKERS/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/no_fake_green_check_report_v1.json"
+      ],
+      "checks_run": [
+        "python scripts/foundational_organs_v1/check_foundational_organs_v1_no_fake_green.py"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 8,
+      "stage_title": "Stale-status checkers",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-08_STALE_STATUS_CHECKERS_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-08-STALE-STATUS-CHECKERS/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/stale_status_check_report_v1.json"
+      ],
+      "checks_run": [
+        "python scripts/foundational_organs_v1/check_foundational_organs_v1_stale_status.py"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 9,
+      "stage_title": "Route sheet and work packet wiring",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-09_ROUTE_SHEET_WORK_PACKET_WIRING_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/route_work_packet_wiring_report_v1.json",
+        "ORGANS/ADMINISTRATUM/V1/CORRIDOR/route_sheet_v1.json",
+        "ORGANS/ADMINISTRATUM/V1/CORRIDOR/work_packet_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 10,
+      "stage_title": "Stage completion receipt path",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-10_STAGE_COMPLETION_RECEIPT_PATH_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-10-STAGE-COMPLETION-RECEIPT-PATH/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/stage_completion_path_report_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/admin_stage_completion_receipt_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 11,
+      "stage_title": "Task start corridor gate link",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-11_TASK_START_CORRIDOR_GATE_LINK_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-11-TASK-START-CORRIDOR-GATE-LINK/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CORRIDOR/task_start_corridor_link_report_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/task_start_gate_verdict_v1.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/role_read_receipt_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 12,
+      "stage_title": "Rollback stop receipt path",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-12_ROLLBACK_STOP_RECEIPT_PATH_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-12-ROLLBACK-STOP-RECEIPT-PATH/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/rollback_stop_receipt_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/warning_acceptance_receipt_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 13,
+      "stage_title": "Dashboard adapter contract set A",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-13_DASHBOARD_ADAPTER_CONTRACT_SET_A_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-04-DASHBOARD-DATA-ADAPTERS/STAGES/STAGE-13-DASHBOARD-ADAPTER-CONTRACT-SET-A/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 14,
+      "stage_title": "Dashboard adapter contract set B",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-14_DASHBOARD_ADAPTER_CONTRACT_SET_B_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-04-DASHBOARD-DATA-ADAPTERS/STAGES/STAGE-14-DASHBOARD-ADAPTER-CONTRACT-SET-B/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+        "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 15,
+      "stage_title": "Dashboard render truth panels",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-15_DASHBOARD_RENDER_TRUTH_PANELS_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-05-DASHBOARD-UI-LAYER/STAGES/STAGE-15-DASHBOARD-RENDER-TRUTH-PANELS/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/DASHBOARD_V1/index.html",
+        "ORGANS/ADMINISTRATUM/DASHBOARD_V1/index.html",
+        "ORGANS/OFFICIO_AGENTIS/DASHBOARD_V1/index.html",
+        "ORGANS/DOCTRINARIUM/DASHBOARD_V1/index.html"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 16,
+      "stage_title": "Dashboard action receipt controls",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-16_DASHBOARD_ACTION_RECEIPT_CONTROLS_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-05-DASHBOARD-UI-LAYER/STAGES/STAGE-16-DASHBOARD-ACTION-RECEIPT-CONTROLS/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/DASHBOARD_ACTIONS/dashboard_action_contract_v1.json",
+        "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_actions.json",
+        "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_actions.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 17,
+      "stage_title": "UTF-8 and repo purity hardening checks",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-17_UTF8_REPO_PURITY_HARDENING_CHECKS_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-06-SANCTUM-E2E-CERTIFICATION/STAGES/STAGE-17-UTF8-REPO-PURITY-HARDENING-CHECKS/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/repo_purity_utf8_check_report_v1.json"
+      ],
+      "checks_run": [
+        "python scripts/foundational_organs_v1/check_foundational_organs_v1_repo_purity_utf8.py"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 18,
+      "stage_title": "Sanctum aggregation read-only wiring",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-18_SANCTUM_AGGREGATION_READ_ONLY_WIRING_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-06-SANCTUM-E2E-CERTIFICATION/STAGES/STAGE-18-SANCTUM-AGGREGATION-READ-ONLY-WIRING/STAGE_REPORT.json",
+      "live_outputs": [
+        "SANCTUM/FOUNDATIONAL_ORGANS_V1/index.html",
+        "SANCTUM/DASHBOARD_DATA/FOUNDATIONAL_ORGANS_V1/sanctum_aggregate_state.json",
+        "SANCTUM/REPORTS/FOUNDATIONAL_ORGANS_V1/sanctum_read_only_aggregation_report_v1.json"
+      ],
+      "checks_run": [
+        "json_parse"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 19,
+      "stage_title": "End-to-end proof run",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-19_END_TO_END_PROOF_RUN_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-06-SANCTUM-E2E-CERTIFICATION/STAGES/STAGE-19-END-TO-END-PROOF-RUN/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/E2E_PROOF/live_e2e_proof_report_v1.json"
+      ],
+      "checks_run": [
+        "python scripts/foundational_organs_v1/run_foundational_organs_v1_e2e_proof.py"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    },
+    {
+      "stage_number": 20,
+      "stage_title": "Final bundle and certification closure",
+      "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-20_FINAL_BUNDLE_CERTIFICATION_CLOSURE_PROMPT.md",
+      "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-06-SANCTUM-E2E-CERTIFICATION/STAGES/STAGE-20-FINAL-BUNDLE-CERTIFICATION-CLOSURE/STAGE_REPORT.json",
+      "live_outputs": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/final_live_implementation_bundle_manifest.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/evidence_completeness_report.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/warning_blocker_ledger.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/dashboard_open_instructions.md",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/READY_FOR_OWNER_REVIEW.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/READY_FOR_AGENT.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/FINAL_BUNDLE/final_live_implementation_summary.md",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/REPORTS/live_implementation_final_report.json",
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/EXECUTION_LEDGER/live_implementation_ledger.json"
+      ],
+      "checks_run": [
+        "python scripts/foundational_organs_v1/check_foundational_organs_v1_all.py"
+      ],
+      "verdict": "PASS",
+      "warnings": [],
+      "blockers": [],
+      "self_repairs": [],
+      "retry_count": 0
+    }
+  ],
+  "stages_completed_count": 20,
+  "stages_passed_count": 20,
+  "stages_failed_count": 0,
+  "self_repairs_count": 0,
+  "command_results": [
+    {
+      "command": "py -3 scripts/foundational_organs_v1/build_foundational_organs_v1_data.py",
+      "exit_code": 0,
+      "output_tail": "PASS\nORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/REPORTS/live_build_report_v1.json"
+    },
+    {
+      "command": "py -3 scripts/foundational_organs_v1/check_foundational_organs_v1_no_fake_green.py",
+      "exit_code": 0,
+      "output_tail": "PASS\nORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/no_fake_green_check_report_v1.json"
+    },
+    {
+      "command": "py -3 scripts/foundational_organs_v1/check_foundational_organs_v1_stale_status.py",
+      "exit_code": 0,
+      "output_tail": "PASS\nORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/stale_status_check_report_v1.json"
+    },
+    {
+      "command": "py -3 scripts/foundational_organs_v1/check_foundational_organs_v1_repo_purity_utf8.py",
+      "exit_code": 0,
+      "output_tail": "PASS\nORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/repo_purity_utf8_check_report_v1.json"
+    },
+    {
+      "command": "py -3 scripts/foundational_organs_v1/run_foundational_organs_v1_e2e_proof.py",
+      "exit_code": 0,
+      "output_tail": "PASS\nORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/E2E_PROOF/live_e2e_proof_report_v1.json"
+    }
+  ],
+  "warnings": [],
+  "blockers": [],
+  "final_verdict": "PASS",
+  "ready_for_owner_review": true,
+  "ready_for_agent": false
+}

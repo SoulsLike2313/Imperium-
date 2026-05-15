@@ -1,0 +1,97 @@
+{
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "source_file": "SANCTUM/DASHBOARD_DATA/FOUNDATIONAL_ORGANS_V1/foundational_organs_input.json",
+  "global_status": "PASS_WITH_WARNINGS",
+  "organs": [
+    {
+      "organ_id": "ASTRONOMICON",
+      "organ_name": "Astronomicon",
+      "status": "PASS_WITH_WARNINGS",
+      "stale_status": "fresh",
+      "warnings": [
+        "owner_gated_mutating_actions_disabled"
+      ],
+      "blockers": [],
+      "evidence_paths": [
+        "ORGANS/ASTRONOMICON/REPORTS/V1/action_read_receipt_v1.json",
+        "ORGANS/ASTRONOMICON/REPORTS/V1/action_refresh_receipt_v1.json",
+        "ORGANS/ASTRONOMICON/REPORTS/V1/action_write_blocked_receipt_v1.json",
+        "ORGANS/ASTRONOMICON/REPORTS/V1/dashboard_render_report_v1.json",
+        "ORGANS/ASTRONOMICON/REPORTS/V1/organ_self_report_v1.json",
+        "ORGANS/ASTRONOMICON/REPORTS/V1/source_package_manifest_v1.json"
+      ],
+      "state_path": "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+      "dashboard_path": "ORGANS/ASTRONOMICON/DASHBOARD_V1/index.html"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "organ_name": "Administratum",
+      "status": "PASS_WITH_WARNINGS",
+      "stale_status": "fresh",
+      "warnings": [
+        "owner_gated_mutating_actions_disabled"
+      ],
+      "blockers": [],
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/action_read_receipt_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/action_refresh_receipt_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/action_write_blocked_receipt_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/admin_stage_completion_receipt_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/dashboard_render_report_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/organ_self_report_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/rollback_stop_receipt_v1.json",
+        "ORGANS/ADMINISTRATUM/REPORTS/V1/route_work_packet_wiring_report_v1.json"
+      ],
+      "state_path": "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+      "dashboard_path": "ORGANS/ADMINISTRATUM/DASHBOARD_V1/index.html"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "organ_name": "Officio Agentis",
+      "status": "PASS_WITH_WARNINGS",
+      "stale_status": "fresh",
+      "warnings": [
+        "owner_gated_mutating_actions_disabled"
+      ],
+      "blockers": [],
+      "evidence_paths": [
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_read_receipt_v1.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_refresh_receipt_v1.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_write_blocked_receipt_v1.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/dashboard_render_report_v1.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/organ_self_report_v1.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/role_read_receipt_v1.json"
+      ],
+      "state_path": "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+      "dashboard_path": "ORGANS/OFFICIO_AGENTIS/DASHBOARD_V1/index.html"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "organ_name": "Doctrinarium",
+      "status": "PASS_WITH_WARNINGS",
+      "stale_status": "fresh",
+      "warnings": [
+        "owner_gated_mutating_actions_disabled"
+      ],
+      "blockers": [],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/action_read_receipt_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/action_refresh_receipt_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/action_write_blocked_receipt_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/dashboard_render_report_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/law_change_receipt_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/organ_self_report_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/task_start_gate_report_v1.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/V1/task_start_gate_verdict_v1.json"
+      ],
+      "state_path": "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+      "dashboard_path": "ORGANS/DOCTRINARIUM/DASHBOARD_V1/index.html"
+    }
+  ],
+  "warnings": [
+    "sanctum_is_read_only_aggregator"
+  ],
+  "blockers": [],
+  "write_actions_enabled": false
+}

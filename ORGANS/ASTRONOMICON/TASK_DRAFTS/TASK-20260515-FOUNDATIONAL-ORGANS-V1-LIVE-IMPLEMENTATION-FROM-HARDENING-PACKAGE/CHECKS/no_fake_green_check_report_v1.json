@@ -1,0 +1,74 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_id": "STAGE-07",
+  "generated_at_utc": "2026-05-15T06:29:02Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "state_checks": [
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+      "status": "PASS_WITH_WARNINGS",
+      "result": "PASS",
+      "reason": "ok"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+      "status": "PASS_WITH_WARNINGS",
+      "result": "PASS",
+      "reason": "ok"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+      "status": "PASS_WITH_WARNINGS",
+      "result": "PASS",
+      "reason": "ok"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+      "status": "PASS_WITH_WARNINGS",
+      "result": "PASS",
+      "reason": "ok"
+    }
+  ],
+  "action_checks": [
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_actions.json",
+      "result": "PASS",
+      "reason": "ok"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_actions.json",
+      "result": "PASS",
+      "reason": "ok"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_actions.json",
+      "result": "PASS",
+      "reason": "ok"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_actions.json",
+      "result": "PASS",
+      "reason": "ok"
+    }
+  ],
+  "fixture_checks": [
+    {
+      "fixture_id": "known_bad_missing_evidence",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "reason": "pass_without_evidence",
+      "match_expected": true
+    }
+  ],
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS"
+}

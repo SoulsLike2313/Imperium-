@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Officio Agentis Dashboard V1</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --line: #334155;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --font: "Segoe UI", "Trebuchet MS", sans-serif;
+    }
+    body { margin:0; background: radial-gradient(circle at top right, #1f2937, #0b1020 60%); color: var(--text); font-family: var(--font); }
+    .wrap { max-width: 1080px; margin: 24px auto; padding: 0 16px; }
+    .head { display:flex; justify-content: space-between; align-items:center; gap: 12px; }
+    .panel { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-top: 14px; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 12px; }
+    .chip { padding: 2px 8px; border-radius: 999px; font-size: 12px; border: 1px solid var(--line); }
+    .status-PASS { background: rgba(22,163,74,.2); color: #86efac; }
+    .status-PASS_WITH_WARNINGS { background: rgba(202,138,4,.2); color: #fde68a; }
+    .status-FAIL { background: rgba(220,38,38,.2); color: #fecaca; }
+    .status-BLOCKED { background: rgba(127,29,29,.3); color: #fecaca; }
+    table { width:100%; border-collapse: collapse; }
+    th, td { text-align:left; padding:8px; border-bottom:1px solid var(--line); vertical-align: top; }
+    .muted { color: var(--muted); }
+    button { border:1px solid var(--line); background:#1f2937; color:var(--text); border-radius:8px; padding:8px 10px; cursor:pointer; }
+    button[disabled] { opacity:.45; cursor:not-allowed; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h1>Officio Agentis V1 Dashboard</h1>
+        <div class="muted">Theme: Signal Contract. Data source: live V1 backend JSON.</div>
+      </div>
+      <div>
+        <button id="langEn">EN</button>
+        <button id="langRu">RU</button>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="grid">
+        <div><div class="muted" data-i18n="status">Status</div><div id="status"></div></div>
+        <div><div class="muted" data-i18n="freshness">Freshness</div><div id="fresh"></div></div>
+        <div><div class="muted" data-i18n="generated">Generated</div><div id="generated"></div></div>
+        <div><div class="muted" data-i18n="git">Git Head</div><div id="git" style="word-break:break-all"></div></div>
+      </div>
+    </div>
+    <div class="panel">
+      <h3 data-i18n="metrics">Metrics</h3>
+      <table id="metricsTable"></table>
+    </div>
+    <div class="panel">
+      <h3 data-i18n="evidence">Evidence</h3>
+      <ul id="evidenceList"></ul>
+    </div>
+    <div class="panel">
+      <h3 data-i18n="actions">Actions</h3>
+      <table id="actionsTable"></table>
+    </div>
+    <div class="panel">
+      <h3 data-i18n="sources">Source paths</h3>
+      <ul id="sourcesList"></ul>
+    </div>
+  </div>
+  <script src="data/dashboard_bundle.js"></script>
+  <script>
+    const bundle = window.DASHBOARD_BUNDLE;
+    const statusNode = document.getElementById('status');
+    const freshNode = document.getElementById('fresh');
+    const generatedNode = document.getElementById('generated');
+    const gitNode = document.getElementById('git');
+    const metricsTable = document.getElementById('metricsTable');
+    const evidenceList = document.getElementById('evidenceList');
+    const actionsTable = document.getElementById('actionsTable');
+    const sourcesList = document.getElementById('sourcesList');
+    let lang = 'en';
+    function render() {
+      const labels = bundle.labels[lang];
+      document.querySelectorAll('[data-i18n]').forEach((n) => { const k=n.dataset.i18n; if(labels[k]) n.textContent=labels[k]; });
+      statusNode.innerHTML = `<span class="chip status-${bundle.state.status}">${bundle.state.status}</span>`;
+      freshNode.textContent = bundle.state.stale_status;
+      generatedNode.textContent = bundle.state.generated_at_utc;
+      gitNode.textContent = bundle.state.git_head;
+      metricsTable.innerHTML = '<tr><th>' + labels.metric + '</th><th>' + labels.value + '</th></tr>' +
+        Object.entries(bundle.metrics.metrics).map(([k,v]) => `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+      evidenceList.innerHTML = bundle.evidence.evidence_items
+        .map((item) => `<li><code>${item.path}</code> <span class="muted">${item.kind}</span></li>`).join('');
+      actionsTable.innerHTML = '<tr><th>' + labels.action + '</th><th>' + labels.mode + '</th><th>' + labels.receipt + '</th></tr>' +
+        bundle.actions.actions.map((a) => `<tr><td>${a.action_id}</td><td>${a.enabled ? labels.enabled : labels.disabled + ': ' + a.disabled_reason}</td><td><code>${a.expected_receipt_path}</code></td></tr>`).join('');
+      sourcesList.innerHTML = bundle.state.data_source_paths.map((p) => `<li><code>${p}</code></li>`).join('');
+    }
+    document.getElementById('langEn').addEventListener('click', () => { lang='en'; render(); });
+    document.getElementById('langRu').addEventListener('click', () => { lang='ru'; render(); });
+    render();
+  </script>
+</body>
+</html>

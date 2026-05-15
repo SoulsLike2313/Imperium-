@@ -1,0 +1,9 @@
+{
+  "evidence_id": "ADMINISTRATUM-EVIDENCE-COMMON-V1",
+  "producer": "ADMINISTRATUM",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "evidence_paths": [
+    "ORGANS/ADMINISTRATUM/REPORTS/V1/organ_self_report_v1.json"
+  ]
+}

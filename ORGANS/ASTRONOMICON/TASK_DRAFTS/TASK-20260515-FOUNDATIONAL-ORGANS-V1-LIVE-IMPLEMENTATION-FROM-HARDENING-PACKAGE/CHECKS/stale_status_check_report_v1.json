@@ -1,0 +1,46 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_id": "STAGE-08",
+  "generated_at_utc": "2026-05-15T06:29:02Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "rows": [
+    {
+      "organ_id": "ASTRONOMICON",
+      "path": "ORGANS/ASTRONOMICON/V1/DASHBOARD_DATA/dashboard_state.json",
+      "result": "PASS",
+      "reason": "ok",
+      "declared_stale_status": "fresh"
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "path": "ORGANS/ADMINISTRATUM/V1/DASHBOARD_DATA/dashboard_state.json",
+      "result": "PASS",
+      "reason": "ok",
+      "declared_stale_status": "fresh"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "path": "ORGANS/OFFICIO_AGENTIS/V1/DASHBOARD_DATA/dashboard_state.json",
+      "result": "PASS",
+      "reason": "ok",
+      "declared_stale_status": "fresh"
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "path": "ORGANS/DOCTRINARIUM/V1/DASHBOARD_DATA/dashboard_state.json",
+      "result": "PASS",
+      "reason": "ok",
+      "declared_stale_status": "fresh"
+    }
+  ],
+  "fixture_check": {
+    "fixture_id": "known_bad_stale_marked_fresh",
+    "expected": "FAIL",
+    "actual": "FAIL",
+    "reason": "stale_status_mismatch",
+    "match_expected": true
+  },
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS"
+}

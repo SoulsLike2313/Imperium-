@@ -1,0 +1,11 @@
+{
+  "receipt_id": "LAW-CHANGE-001",
+  "law_id": "LAW-004",
+  "change_type": "activate",
+  "status": "PASS",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REGISTRY/V1/law_registry_entry_v1.json"
+  ]
+}

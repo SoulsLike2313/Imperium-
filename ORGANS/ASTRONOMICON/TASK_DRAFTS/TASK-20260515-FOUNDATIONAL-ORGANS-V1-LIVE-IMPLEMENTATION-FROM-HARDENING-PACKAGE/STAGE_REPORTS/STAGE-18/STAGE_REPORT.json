@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 18,
+  "stage_id": "STAGE-18",
+  "stage_title": "Sanctum aggregation read-only wiring",
+  "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-18_SANCTUM_AGGREGATION_READ_ONLY_WIRING_PROMPT.md",
+  "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-06-SANCTUM-E2E-CERTIFICATION/STAGES/STAGE-18-SANCTUM-AGGREGATION-READ-ONLY-WIRING/STAGE_REPORT.json",
+  "started_utc": "2026-05-15T06:29:01Z",
+  "completed_utc": "2026-05-15T06:29:01Z",
+  "verdict": "PASS",
+  "live_outputs": [
+    "SANCTUM/FOUNDATIONAL_ORGANS_V1/index.html",
+    "SANCTUM/DASHBOARD_DATA/FOUNDATIONAL_ORGANS_V1/sanctum_aggregate_state.json",
+    "SANCTUM/REPORTS/FOUNDATIONAL_ORGANS_V1/sanctum_read_only_aggregation_report_v1.json"
+  ],
+  "checks_run": [
+    "json_parse"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0,
+  "notes": "live_outputs_generated",
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/STAGE_REPORTS/STAGE-18/EVIDENCE/stage_evidence.json"
+  ]
+}

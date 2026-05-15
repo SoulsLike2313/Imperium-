@@ -1,0 +1,25 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 17,
+  "stage_id": "STAGE-17",
+  "stage_title": "UTF-8 and repo purity hardening checks",
+  "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-17_UTF8_REPO_PURITY_HARDENING_CHECKS_PROMPT.md",
+  "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-06-SANCTUM-E2E-CERTIFICATION/STAGES/STAGE-17-UTF8-REPO-PURITY-HARDENING-CHECKS/STAGE_REPORT.json",
+  "started_utc": "2026-05-15T06:29:03Z",
+  "completed_utc": "2026-05-15T06:29:03Z",
+  "verdict": "PASS",
+  "live_outputs": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CHECKS/repo_purity_utf8_check_report_v1.json"
+  ],
+  "checks_run": [
+    "python scripts/foundational_organs_v1/check_foundational_organs_v1_repo_purity_utf8.py"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0,
+  "notes": "live_utf8_repo_purity_check",
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/STAGE_REPORTS/STAGE-17/EVIDENCE/stage_evidence.json"
+  ]
+}

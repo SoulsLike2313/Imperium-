@@ -1,0 +1,10 @@
+{
+  "receipt_id": "ADMINISTRATUM-RECEIPT-COMMON-V1",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-CORRIDOR-PROOF",
+  "status": "PASS",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "evidence_paths": [
+    "ORGANS/ADMINISTRATUM/V1/EVIDENCE/evidence_common_v1.json"
+  ]
+}

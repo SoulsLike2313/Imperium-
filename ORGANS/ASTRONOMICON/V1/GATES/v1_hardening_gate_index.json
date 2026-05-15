@@ -1,0 +1,135 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "gates": [
+    {
+      "gate_id": "GATE-01",
+      "name": "Git Truth Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-02",
+      "name": "Source Package Integrity Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-03",
+      "name": "Owner Decision Matrix Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-04",
+      "name": "Ownership Boundary Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-05",
+      "name": "Stage Map Validity Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-06",
+      "name": "Evidence Schema Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-07",
+      "name": "No-Fake-Green Gate",
+      "owner_organ": "DOCTRINARIUM",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-08",
+      "name": "Dashboard Truth Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-09",
+      "name": "Task-Start Corridor Gate",
+      "owner_organ": "DOCTRINARIUM",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-10",
+      "name": "Rollback/Stop Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-11",
+      "name": "VM2/PC Boundary Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-12",
+      "name": "Registration Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-13",
+      "name": "UTF-8/Mojibake Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-14",
+      "name": "Repo Purity Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-15",
+      "name": "Stale Status Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    },
+    {
+      "gate_id": "GATE-16",
+      "name": "Owner Launch Gate",
+      "owner_organ": "ASTRONOMICON",
+      "pass_condition": "required_inputs_present_and_checks_pass",
+      "stop_condition": "missing_input_or_failed_checker",
+      "blocker_if_missing": true
+    }
+  ]
+}

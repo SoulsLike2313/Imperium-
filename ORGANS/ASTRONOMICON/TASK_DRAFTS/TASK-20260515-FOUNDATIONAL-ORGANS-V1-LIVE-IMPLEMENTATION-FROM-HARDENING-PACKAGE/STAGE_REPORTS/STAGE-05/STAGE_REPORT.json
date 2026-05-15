@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 5,
+  "stage_id": "STAGE-05",
+  "stage_title": "Backend report contract implementation Lane A",
+  "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-05_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_A_PROMPT.md",
+  "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-05-BACKEND-REPORT-CONTRACT-IMPLEMENTATION-LANE-A/STAGE_REPORT.json",
+  "started_utc": "2026-05-15T06:29:01Z",
+  "completed_utc": "2026-05-15T06:29:01Z",
+  "verdict": "PASS",
+  "live_outputs": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/BACKEND_TRUTH/lane_a_live_contract_report.json",
+    "ORGANS/ASTRONOMICON/V1/CORRIDOR/stage_map_v1.json",
+    "ORGANS/ADMINISTRATUM/V1/CORRIDOR/route_sheet_v1.json",
+    "ORGANS/ADMINISTRATUM/V1/CORRIDOR/work_packet_v1.json"
+  ],
+  "checks_run": [
+    "json_parse"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0,
+  "notes": "live_outputs_generated",
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/STAGE_REPORTS/STAGE-05/EVIDENCE/stage_evidence.json"
+  ]
+}

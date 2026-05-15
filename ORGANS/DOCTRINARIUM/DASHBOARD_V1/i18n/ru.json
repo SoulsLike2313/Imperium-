@@ -1,0 +1,17 @@
+{
+  "status": "Статус",
+  "freshness": "Свежесть",
+  "generated": "Сформировано",
+  "git": "Git Head",
+  "metrics": "Метрики",
+  "metric": "Метрика",
+  "value": "Значение",
+  "evidence": "Доказательства",
+  "actions": "Действия",
+  "action": "Действие",
+  "mode": "Режим",
+  "receipt": "Квитанция",
+  "enabled": "Включено",
+  "disabled": "Отключено",
+  "sources": "Пути источников"
+}

@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE",
+  "stage_number": 11,
+  "stage_id": "STAGE-11",
+  "stage_title": "Task start corridor gate link",
+  "source_prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-11_TASK_START_CORRIDOR_GATE_LINK_PROMPT.md",
+  "source_hardening_report_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-11-TASK-START-CORRIDOR-GATE-LINK/STAGE_REPORT.json",
+  "started_utc": "2026-05-15T06:29:01Z",
+  "completed_utc": "2026-05-15T06:29:01Z",
+  "verdict": "PASS",
+  "live_outputs": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/CORRIDOR/task_start_corridor_link_report_v1.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/V1/task_start_gate_verdict_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/role_read_receipt_v1.json"
+  ],
+  "checks_run": [
+    "json_parse"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "self_repairs": [],
+  "retry_count": 0,
+  "notes": "live_outputs_generated",
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-LIVE-IMPLEMENTATION-FROM-HARDENING-PACKAGE/STAGE_REPORTS/STAGE-11/EVIDENCE/stage_evidence.json"
+  ]
+}

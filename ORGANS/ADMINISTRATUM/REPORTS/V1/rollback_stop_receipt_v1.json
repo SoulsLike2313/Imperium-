@@ -1,0 +1,11 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-CORRIDOR-PROOF",
+  "stage_id": "STAGE-B",
+  "status": "STOPPED",
+  "reason": "controlled_failure_missing_role_receipt",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/role_read_receipt_v1.json"
+  ]
+}

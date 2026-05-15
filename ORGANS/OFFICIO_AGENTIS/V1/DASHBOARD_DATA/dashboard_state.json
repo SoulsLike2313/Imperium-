@@ -1,0 +1,30 @@
+{
+  "organ_id": "OFFICIO_AGENTIS",
+  "organ_name": "Officio Agentis",
+  "status": "PASS_WITH_WARNINGS",
+  "generated_at_utc": "2026-05-15T06:29:01Z",
+  "git_head": "fde9e511c8e1820a9986554633764660f79ac7e0",
+  "checked_at_utc": "2026-05-15T06:29:01Z",
+  "expires_after_seconds": 86400,
+  "stale_status": "fresh",
+  "warnings": [
+    "owner_gated_mutating_actions_disabled"
+  ],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_read_receipt_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_refresh_receipt_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_write_blocked_receipt_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/dashboard_render_report_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/organ_self_report_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/role_read_receipt_v1.json"
+  ],
+  "data_source_paths": [
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_read_receipt_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_refresh_receipt_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/action_write_blocked_receipt_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/dashboard_render_report_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/organ_self_report_v1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/V1/role_read_receipt_v1.json"
+  ]
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sanctum Foundational Organs V1</title>
+  <style>
+    :root { --bg:#0b1220; --card:#121a2d; --line:#2a3550; --text:#e2e8f0; --muted:#94a3b8; }
+    body { margin:0; background:linear-gradient(120deg,#0b1220,#111b30); color:var(--text); font-family:"Segoe UI","Trebuchet MS",sans-serif; }
+    .wrap { max-width:1100px; margin:24px auto; padding:0 16px; }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:12px; }
+    .card { border:1px solid var(--line); background:var(--card); border-radius:12px; padding:12px; }
+    .chip { border-radius:999px; padding:2px 8px; font-size:12px; border:1px solid var(--line); }
+    .status-PASS{background:rgba(22,163,74,.2);color:#86efac;}
+    .status-PASS_WITH_WARNINGS{background:rgba(202,138,4,.2);color:#fde68a;}
+    .status-FAIL{background:rgba(220,38,38,.2);color:#fecaca;}
+    .status-BLOCKED{background:rgba(153,27,27,.3);color:#fecaca;}
+    code { word-break: break-all; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Sanctum Foundational Organs V1 (Read-only)</h1>
+    <p style="color:var(--muted)">Sanctum aggregates backend truth. It does not own canonical truth and cannot mutate organ state.</p>
+    <div id="truthBar" class="card"></div>
+    <div id="cards" class="grid" style="margin-top:12px"></div>
+  </div>
+  <script src="data/aggregate_bundle.js"></script>
+  <script>
+    const data = window.SANCTUM_AGGREGATE;
+    const truth = document.getElementById('truthBar');
+    const cards = document.getElementById('cards');
+    truth.innerHTML = `<b>Global status:</b> <span class="chip status-${data.global_status}">${data.global_status}</span> &nbsp; <b>Generated:</b> ${data.generated_at_utc}`;
+    cards.innerHTML = data.organs.map((o)=>`
+      <div class="card">
+        <h3>${o.organ_name}</h3>
+        <div><span class="chip status-${o.status}">${o.status}</span> &nbsp; freshness: ${o.stale_status}</div>
+        <div style="margin-top:6px;color:var(--muted)">warnings: ${o.warnings.length} | blockers: ${o.blockers.length}</div>
+        <div style="margin-top:6px"><code>${o.dashboard_path}</code></div>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>
