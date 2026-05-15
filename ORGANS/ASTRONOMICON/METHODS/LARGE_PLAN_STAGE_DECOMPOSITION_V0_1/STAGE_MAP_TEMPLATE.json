@@ -1,0 +1,50 @@
+{
+  "task_id": "TASK-YYYYMMDD-NAME-V0_1",
+  "title": "Large Plan Derived Task",
+  "source_references": [
+    "path/to/advisory_manifest.json",
+    "path/to/section_index.json"
+  ],
+  "stages": [
+    {
+      "stage_id": "STAGE-01-EXAMPLE",
+      "stage_name": "Example Stage",
+      "goal": "Single focused purpose for this stage.",
+      "depends_on": [],
+      "inputs": [
+        "input/artifact/path"
+      ],
+      "files_to_create": [
+        "path/to/new_file"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [],
+      "scripts_to_run": [
+        "python script.py --check"
+      ],
+      "schemas_to_validate": [
+        "schemas/example.schema.json"
+      ],
+      "pass_criteria": [
+        "All required checks return PASS with evidence."
+      ],
+      "stop_criteria": [
+        "Stop on missing evidence or checker failure."
+      ],
+      "evidence_paths": [
+        "reports/example_stage_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "pass_requires_evidence_paths",
+        "warnings_non_empty_if_pass_with_warnings"
+      ],
+      "expected_receipts": [
+        "receipts/example_receipt.json"
+      ]
+    }
+  ],
+  "total_stages": 1,
+  "created_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "planning_status": "draft"
+}

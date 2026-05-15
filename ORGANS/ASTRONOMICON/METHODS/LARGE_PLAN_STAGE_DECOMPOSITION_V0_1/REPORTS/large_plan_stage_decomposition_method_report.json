@@ -1,0 +1,40 @@
+{
+  "task_id": "TASK-20260515-LARGE-PLAN-STAGE-DECOMPOSITION-METHOD-V0_1",
+  "started_utc": "2026-05-15T02:07:25.718552+00:00",
+  "completed_utc": "2026-05-15T02:10:42.000000+00:00",
+  "git_head_before": "b910e3c8ca70b765712968a09e6caf2d5f5cbf4d",
+  "source_advisory_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/DOCTRINARIUM_MVP_20260515",
+  "created_files": [
+    "EVIDENCE_AND_NO_FAKE_GREEN_GUIDE.md",
+    "EXAMPLES/DOCTRINARIUM_MVP_DECOMPOSITION_EXAMPLE.md",
+    "LARGE_PLAN_STAGE_DECOMPOSITION_METHOD.md",
+    "LARGE_PLAN_TO_TASK_PIPELINE.md",
+    "OWNER_DECISION_MATRIX_TEMPLATE.md",
+    "README.md",
+    "STAGE_DECOMPOSITION_CHECKLIST.md",
+    "STAGE_MAP_TEMPLATE.json",
+    "TASK_PACKAGE_TEMPLATE/EVIDENCE_REQUIREMENTS.template.json",
+    "TASK_PACKAGE_TEMPLATE/README.template.md",
+    "TASK_PACKAGE_TEMPLATE/SOURCE_REFERENCES.template.json",
+    "TASK_PACKAGE_TEMPLATE/STAGE_MAP.template.json",
+    "TASK_PACKAGE_TEMPLATE/TASK_MANIFEST.template.json",
+    "REPORTS/large_plan_stage_decomposition_method_report.json"
+  ],
+  "json_files_validated": [
+    "STAGE_MAP_TEMPLATE.json",
+    "REPORTS/large_plan_stage_decomposition_method_report.json",
+    "TASK_PACKAGE_TEMPLATE/EVIDENCE_REQUIREMENTS.template.json",
+    "TASK_PACKAGE_TEMPLATE/SOURCE_REFERENCES.template.json",
+    "TASK_PACKAGE_TEMPLATE/STAGE_MAP.template.json",
+    "TASK_PACKAGE_TEMPLATE/TASK_MANIFEST.template.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS",
+  "no_fake_green_evidence": [
+    "All template JSON files parse.",
+    "All markdown docs are non-empty.",
+    "No Cyrillic detected in canonical method artifacts.",
+    "Method package contains stage pass/stop/evidence gate guidance."
+  ]
+}

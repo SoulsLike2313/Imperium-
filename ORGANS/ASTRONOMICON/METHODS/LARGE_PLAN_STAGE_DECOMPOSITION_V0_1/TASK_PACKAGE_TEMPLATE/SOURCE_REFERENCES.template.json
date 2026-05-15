@@ -1,0 +1,12 @@
+{
+  "task_id": "TASK-YYYYMMDD-NAME-V0_1",
+  "references": [
+    {
+      "reference_id": "SRC-001",
+      "reference_type": "raw_advisory",
+      "path": "path/to/raw_file",
+      "canonical_status": "advisory_reference_only",
+      "promotion_status": "reference_only"
+    }
+  ]
+}

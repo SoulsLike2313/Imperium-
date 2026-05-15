@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-YYYYMMDD-NAME-V0_1",
+  "stages": [
+    {
+      "stage_id": "STAGE-01-EXAMPLE",
+      "required_evidence": [
+        "checker_report_path",
+        "stage_marker_path",
+        "hash_or_provenance_reference"
+      ],
+      "pass_without_evidence_allowed": false,
+      "warning_policy": "warnings_must_be_non_empty_if_status_pass_with_warnings"
+    }
+  ]
+}

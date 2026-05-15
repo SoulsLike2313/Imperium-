@@ -1,0 +1,16 @@
+{
+  "task_id": "TASK-YYYYMMDD-NAME-V0_1",
+  "title": "Task Manifest Template",
+  "source_package": "path/to/source_package",
+  "scope": "define_scope_here",
+  "ownership_boundaries": {
+    "owns": [
+      "list owned areas"
+    ],
+    "must_not_own": [
+      "list excluded areas"
+    ]
+  },
+  "status": "draft",
+  "created_utc": "YYYY-MM-DDTHH:MM:SSZ"
+}
