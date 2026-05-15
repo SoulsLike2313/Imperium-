@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "packet_id",
+    "hook_status",
+    "disabled_reason",
+    "evidence_paths",
+    "provenance",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "hook_status": {
+      "type": "string",
+      "enum": [
+        "disabled"
+      ]
+    },
+    "disabled_reason": {
+      "type": "string"
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "would_send_to": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

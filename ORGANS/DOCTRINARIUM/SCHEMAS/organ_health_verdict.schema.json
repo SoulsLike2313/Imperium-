@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "organ_id",
+    "verdict",
+    "checker_last_run_utc",
+    "evidence_paths",
+    "provenance",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "organ_id": {
+      "type": "string"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "HEALTHY",
+        "DEGRADED",
+        "BLOCKED"
+      ]
+    },
+    "checker_last_run_utc": {
+      "type": "string"
+    },
+    "freshness_seconds": {
+      "type": "number"
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

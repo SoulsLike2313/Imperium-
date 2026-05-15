@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-6",
+  "stage_name": "Inquisition Hook Disabled",
+  "status": "PASS",
+  "started_utc": "2026-05-15T02:59:03Z",
+  "completed_utc": "2026-05-15T02:59:03Z",
+  "checker_commands": [
+    "py -3 scripts/doctrinarium_verify_inquisition_hook_disabled_v0_1.py"
+  ],
+  "checker_results": [
+    {
+      "command": "py -3 scripts/doctrinarium_verify_inquisition_hook_disabled_v0_1.py",
+      "exit_code": 0
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/inquisition_hook_disabled_report.json",
+    "ORGANS/DOCTRINARIUM/INQUISITION_HOOKS/inquisition_hook_packet_v0_1.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "pass_criteria_met": [
+    "Violation records available",
+    "Hook packet generated",
+    "hook_status explicitly disabled",
+    "No artifact implies active Inquisition"
+  ],
+  "stop_criteria_triggered": []
+}

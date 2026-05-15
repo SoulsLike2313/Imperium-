@@ -1,0 +1,10 @@
+{
+  "name": "missing_required_field",
+  "laws": [
+    {
+      "law_id": "LAW-102",
+      "status": "active",
+      "description": "missing title and rules"
+    }
+  ]
+}

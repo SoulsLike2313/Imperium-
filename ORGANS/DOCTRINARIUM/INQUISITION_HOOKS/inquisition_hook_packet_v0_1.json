@@ -1,0 +1,16 @@
+{
+  "schema_version": "imperium.doctrinarium.inquisition_hook_packet.v0_1",
+  "packet_id": "HOOK-20260515T030248Z",
+  "hook_status": "disabled",
+  "disabled_reason": "Inquisition organ is not implemented in v0.1; active hook is forbidden.",
+  "would_send_to": [],
+  "send_attempted": false,
+  "related_violation_id": "VIOL-20260515T030248Z",
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/violation_record_report.json"
+  ],
+  "provenance": {
+    "source": "doctrinarium_verify_inquisition_hook_disabled_v0_1.py"
+  },
+  "timestamp_utc": "2026-05-15T03:02:48Z"
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "imperium.doctrinarium.law.v0_1",
+  "law_id": "LAW-003",
+  "title": "Organs Must Have README",
+  "status": "active",
+  "description": "Every organ must include a non-empty README that declares scope boundaries.",
+  "rules": [
+    "README must exist at organ root.",
+    "README must declare ownership boundary and non-ownership boundary."
+  ],
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "git_head": "a61c40e0be3569420f89af09cf5d79ffee8b8fad",
+    "created_by": "PC Servitor"
+  },
+  "timestamp_utc": "2026-05-15T02:52:45Z"
+}

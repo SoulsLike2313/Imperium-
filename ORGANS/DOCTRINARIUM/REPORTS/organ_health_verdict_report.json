@@ -1,0 +1,26 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.organ_health_verdict.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-4",
+  "timestamp_utc": "2026-05-15T03:02:47Z",
+  "started_utc": "2026-05-15T03:02:47Z",
+  "completed_utc": "2026-05-15T03:02:47Z",
+  "verdict": "PASS",
+  "organ_id": "DOCTRINARIUM",
+  "health_verdict": "HEALTHY",
+  "checker_last_run_utc": "2026-05-15T02:55:32Z",
+  "freshness_seconds": 435,
+  "required_freshness_seconds_max": 86400,
+  "warnings": [],
+  "blockers": [],
+  "reasons": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_collection_report.json",
+    "ORGANS/DOCTRINARIUM/ORGAN_HEALTH/COLLECTED_SELF_REPORTS/DOCTRINARIUM_self_report.json"
+  ],
+  "freshness_guard": {
+    "stale_should_fail": true,
+    "evaluated": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "law_id",
+    "change_type",
+    "provenance",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "receipt_id": {
+      "type": "string"
+    },
+    "law_id": {
+      "type": "string"
+    },
+    "change_type": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_id",
+    "requesting_agent",
+    "mode",
+    "provenance",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string"
+    },
+    "requesting_agent": {
+      "type": "string"
+    },
+    "mode": {
+      "type": "string"
+    },
+    "requested_utc": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

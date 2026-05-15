@@ -1,0 +1,14 @@
+{
+  "schema_version": "imperium.doctrinarium.organ_self_report.v0_1",
+  "organ_id": "DOCTRINARIUM",
+  "generated_utc": "2026-05-15T02:55:32Z",
+  "checker_last_run_utc": "2026-05-15T02:55:32Z",
+  "status": "HEALTHY",
+  "warnings": [],
+  "blockers": [],
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "created_by": "PC Servitor"
+  },
+  "timestamp_utc": "2026-05-15T02:55:32Z"
+}

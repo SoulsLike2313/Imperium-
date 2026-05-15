@@ -1,0 +1,12 @@
+{
+  "schema_version": "imperium.doctrinarium.receipt.v0_1",
+  "receipt_id": "SELF-BUILD-20260515T030332Z",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-8",
+  "verdict": "PASS",
+  "report_path": "ORGANS/DOCTRINARIUM/REPORTS/self_build_evaluation_report.json",
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/self_build_evaluation_report.json"
+  ],
+  "timestamp_utc": "2026-05-15T03:03:32Z"
+}

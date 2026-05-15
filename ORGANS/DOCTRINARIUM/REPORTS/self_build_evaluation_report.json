@@ -1,0 +1,91 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.self_build_evaluation.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-8",
+  "timestamp_utc": "2026-05-15T03:03:32Z",
+  "started_utc": "2026-05-15T03:03:32Z",
+  "completed_utc": "2026-05-15T03:03:32Z",
+  "verdict": "PASS",
+  "self_report_freshness_seconds": 480,
+  "self_report_freshness_seconds_max": 86400,
+  "check_all_verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "evidence_graph": [
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_v0_1.json",
+      "exists": true,
+      "type": "organ_self_report"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/check_all_report.json",
+      "exists": true,
+      "type": "integration_report"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/foundation_validation_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/schema_validation_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_collection_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/violation_record_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/REPORTS/inquisition_hook_disabled_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/TESTS/fake_green_test_report.json",
+      "exists": true,
+      "type": "check_all_evidence"
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_v0_1.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/check_all_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/foundation_validation_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/schema_validation_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_collection_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/violation_record_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/inquisition_hook_disabled_report.json",
+    "ORGANS/DOCTRINARIUM/TESTS/fake_green_test_report.json"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "imperium.doctrinarium.law.v0_1",
+  "law_id": "LAW-002",
+  "title": "Artifacts Must Have Provenance",
+  "status": "active",
+  "description": "Machine-readable artifacts must include provenance fields.",
+  "rules": [
+    "Reports must include task_id, timestamp_utc, and source/provenance metadata.",
+    "Missing provenance is a validation failure."
+  ],
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "git_head": "a61c40e0be3569420f89af09cf5d79ffee8b8fad",
+    "created_by": "PC Servitor"
+  },
+  "timestamp_utc": "2026-05-15T02:52:45Z"
+}

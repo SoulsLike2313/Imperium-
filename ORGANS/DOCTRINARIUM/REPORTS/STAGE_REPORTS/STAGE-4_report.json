@@ -1,0 +1,36 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-4",
+  "stage_name": "Organ Health",
+  "status": "PASS",
+  "started_utc": "2026-05-15T02:56:47Z",
+  "completed_utc": "2026-05-15T02:56:47Z",
+  "checker_commands": [
+    "py -3 scripts/doctrinarium_collect_organ_self_reports_v0_1.py",
+    "py -3 scripts/doctrinarium_evaluate_organ_health_v0_1.py"
+  ],
+  "checker_results": [
+    {
+      "command": "py -3 scripts/doctrinarium_collect_organ_self_reports_v0_1.py",
+      "exit_code": 0
+    },
+    {
+      "command": "py -3 scripts/doctrinarium_evaluate_organ_health_v0_1.py",
+      "exit_code": 0
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_collection_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_v0_1.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "pass_criteria_met": [
+    "Self-report schemas exist",
+    "Collection and evaluation scripts run",
+    "Health verdict report generated",
+    "Freshness logic evaluated and report includes checker_last_run_utc"
+  ],
+  "stop_criteria_triggered": []
+}

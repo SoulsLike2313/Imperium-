@@ -1,0 +1,39 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.law_registry_validation.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-2",
+  "timestamp_utc": "2026-05-15T03:02:47Z",
+  "started_utc": "2026-05-15T03:02:47Z",
+  "completed_utc": "2026-05-15T03:02:47Z",
+  "registry_id": "DOCTRINARIUM_LAW_REGISTRY_V0_1",
+  "verdict": "PASS",
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "git_head": "a61c40e0be3569420f89af09cf5d79ffee8b8fad",
+    "created_by": "PC Servitor"
+  },
+  "law_files_checked": [
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-001.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-002.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-003.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-004.json"
+  ],
+  "law_count": 4,
+  "duplicate_law_ids": [],
+  "invalid_laws": [],
+  "registry_missing_required_fields": [],
+  "registry_duplicate_law_entries": [],
+  "registry_missing_law_entries": [],
+  "registry_path_errors": [],
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/LAW_REGISTRY/LAW_REGISTRY_V0_1.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/schema_validation_report.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-001.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-002.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-003.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-004.json"
+  ]
+}

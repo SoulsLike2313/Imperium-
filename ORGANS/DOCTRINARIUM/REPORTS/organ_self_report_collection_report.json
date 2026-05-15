@@ -1,0 +1,22 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.organ_self_report_collection.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-4",
+  "timestamp_utc": "2026-05-15T03:02:47Z",
+  "started_utc": "2026-05-15T03:02:47Z",
+  "completed_utc": "2026-05-15T03:02:47Z",
+  "verdict": "PASS",
+  "required_organs": [
+    "DOCTRINARIUM"
+  ],
+  "organs_collected": [
+    "DOCTRINARIUM"
+  ],
+  "missing_organs": [],
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/ORGAN_HEALTH/COLLECTED_SELF_REPORTS/DOCTRINARIUM_self_report.json"
+  ]
+}

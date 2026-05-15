@@ -1,0 +1,37 @@
+{
+  "schema_version": "imperium.doctrinarium.law_registry.v0_1",
+  "registry_id": "DOCTRINARIUM_LAW_REGISTRY_V0_1",
+  "integrity_status": "pending_stage3_integrity_check",
+  "laws": [
+    {
+      "law_id": "LAW-001",
+      "title": "No Commit From VM2",
+      "status": "active",
+      "path": "ORGANS/DOCTRINARIUM/LAWS/LAW-001.json"
+    },
+    {
+      "law_id": "LAW-002",
+      "title": "Artifacts Must Have Provenance",
+      "status": "active",
+      "path": "ORGANS/DOCTRINARIUM/LAWS/LAW-002.json"
+    },
+    {
+      "law_id": "LAW-003",
+      "title": "Organs Must Have README",
+      "status": "active",
+      "path": "ORGANS/DOCTRINARIUM/LAWS/LAW-003.json"
+    },
+    {
+      "law_id": "LAW-004",
+      "title": "No Fake Green",
+      "status": "active",
+      "path": "ORGANS/DOCTRINARIUM/LAWS/LAW-004.json"
+    }
+  ],
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "git_head": "a61c40e0be3569420f89af09cf5d79ffee8b8fad",
+    "created_by": "PC Servitor"
+  },
+  "timestamp_utc": "2026-05-15T02:52:45Z"
+}

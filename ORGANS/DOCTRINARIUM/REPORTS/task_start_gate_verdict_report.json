@@ -1,0 +1,40 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.task_start_gate.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-5",
+  "timestamp_utc": "2026-05-15T03:02:47Z",
+  "started_utc": "2026-05-15T03:02:47Z",
+  "completed_utc": "2026-05-15T03:02:47Z",
+  "request": {
+    "schema_version": "imperium.doctrinarium.task_start_gate_request.v0_1",
+    "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "requesting_agent": "PC Servitor",
+    "mode": "cold_executor",
+    "requested_utc": "2026-05-15T03:02:47Z",
+    "provenance": {
+      "source": "doctrinarium_task_start_gate_v0_1.py"
+    },
+    "timestamp_utc": "2026-05-15T03:02:47Z"
+  },
+  "verdict": "ALLOW",
+  "allow_execution": true,
+  "reasons": [
+    "all_required_checks_passed"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/GATES/task_start_gate_request_v0_1.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json"
+  ],
+  "provenance": {
+    "source": "doctrinarium_task_start_gate_v0_1.py"
+  },
+  "self_test": {
+    "forced_blockers_result": "BLOCK",
+    "passed": true
+  }
+}

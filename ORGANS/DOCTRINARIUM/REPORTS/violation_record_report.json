@@ -1,0 +1,19 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.violation_record.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-5",
+  "timestamp_utc": "2026-05-15T03:02:48Z",
+  "started_utc": "2026-05-15T03:02:48Z",
+  "completed_utc": "2026-05-15T03:02:48Z",
+  "verdict": "PASS",
+  "violation_id": "VIOL-20260515T030248Z",
+  "severity": "LOW",
+  "source": "task_start_gate",
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json",
+    "ORGANS/DOCTRINARIUM/VIOLATIONS/violation_record_v0_1.json"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-8",
+  "stage_name": "Self-Build",
+  "status": "PASS",
+  "started_utc": "2026-05-15T03:01:41Z",
+  "completed_utc": "2026-05-15T03:01:41Z",
+  "checker_commands": [
+    "py -3 scripts/doctrinarium_self_build_eval_v0_1.py"
+  ],
+  "checker_results": [
+    {
+      "command": "py -3 scripts/doctrinarium_self_build_eval_v0_1.py",
+      "exit_code": 0
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/self_build_evaluation_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/self_build_receipt.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "pass_criteria_met": [
+    "Doctrinarium self-report exists and fresh",
+    "check_all report exists",
+    "Self-build report exists",
+    "Evidence paths point to real files",
+    "Final self-build verdict PASS"
+  ],
+  "stop_criteria_triggered": []
+}

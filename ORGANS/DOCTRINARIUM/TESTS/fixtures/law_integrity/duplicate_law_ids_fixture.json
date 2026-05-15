@@ -1,0 +1,23 @@
+{
+  "name": "duplicate_law_ids",
+  "laws": [
+    {
+      "law_id": "LAW-101",
+      "title": "Rule A",
+      "status": "active",
+      "description": "desc",
+      "rules": [
+        "rule"
+      ]
+    },
+    {
+      "law_id": "LAW-101",
+      "title": "Rule B",
+      "status": "active",
+      "description": "desc",
+      "rules": [
+        "rule"
+      ]
+    }
+  ]
+}

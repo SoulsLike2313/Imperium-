@@ -1,0 +1,17 @@
+{
+  "schema_version": "imperium.doctrinarium.law.v0_1",
+  "law_id": "LAW-001",
+  "title": "No Commit From VM2",
+  "status": "active",
+  "description": "No commit or push is allowed from VM2 execution context.",
+  "rules": [
+    "Any VM2-side execution must hand off artifacts for PC-side review and commit.",
+    "Direct VM2 commit attempts are blocking violations."
+  ],
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "git_head": "a61c40e0be3569420f89af09cf5d79ffee8b8fad",
+    "created_by": "PC Servitor"
+  },
+  "timestamp_utc": "2026-05-15T02:52:45Z"
+}

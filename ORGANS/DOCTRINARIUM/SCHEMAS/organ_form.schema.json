@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "organ_id",
+    "owner",
+    "provenance",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "object"
+    },
+    "timestamp_utc": {
+      "type": "string"
+    },
+    "organ_id": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "contact": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

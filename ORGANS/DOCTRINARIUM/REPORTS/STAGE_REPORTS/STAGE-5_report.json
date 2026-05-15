@@ -1,0 +1,36 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-5",
+  "stage_name": "Task Start Gate",
+  "status": "PASS",
+  "started_utc": "2026-05-15T02:58:23Z",
+  "completed_utc": "2026-05-15T02:58:23Z",
+  "checker_commands": [
+    "py -3 scripts/doctrinarium_task_start_gate_v0_1.py --task-id TASK-20260515-DOCTRINARIUM-MVP-V0_1 --requesting-agent \"PC Servitor\" --mode cold_executor",
+    "py -3 scripts/doctrinarium_record_violation_v0_1.py"
+  ],
+  "checker_results": [
+    {
+      "command": "py -3 scripts/doctrinarium_task_start_gate_v0_1.py",
+      "exit_code": 0
+    },
+    {
+      "command": "py -3 scripts/doctrinarium_record_violation_v0_1.py",
+      "exit_code": 0
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json",
+    "ORGANS/DOCTRINARIUM/REPORTS/violation_record_report.json",
+    "ORGANS/DOCTRINARIUM/VIOLATIONS/violation_record_v0_1.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "pass_criteria_met": [
+    "Gate accepted required input fields",
+    "Verdict JSON generated with evidence_paths",
+    "Blocker self-test confirms BLOCK behavior",
+    "Violation record artifacts generated"
+  ],
+  "stop_criteria_triggered": []
+}

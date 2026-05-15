@@ -1,0 +1,31 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-7",
+  "stage_name": "Integration / Tests",
+  "status": "PASS",
+  "started_utc": "2026-05-15T03:00:53Z",
+  "completed_utc": "2026-05-15T03:00:53Z",
+  "checker_commands": [
+    "py -3 scripts/doctrinarium_check_all_v0_1.py"
+  ],
+  "checker_results": [
+    {
+      "command": "py -3 scripts/doctrinarium_check_all_v0_1.py",
+      "exit_code": 0
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/check_all_report.json",
+    "ORGANS/DOCTRINARIUM/TESTS/fake_green_test_report.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "pass_criteria_met": [
+    "check_all runs all available subchecks",
+    "Aggregate report created",
+    "Fake-green checks included",
+    "Canonical language scan passed",
+    "Required evidence files exist"
+  ],
+  "stop_criteria_triggered": []
+}

@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-0",
+  "stage_name": "Planning / Registration Package",
+  "status": "PASS",
+  "started_utc": "2026-05-15T03:01:58Z",
+  "completed_utc": "2026-05-15T03:01:58Z",
+  "checker_commands": [
+    "preexisting planning package validation evidence accepted"
+  ],
+  "checker_results": [
+    {
+      "command": "planning package report existence check",
+      "exit_code": 0
+    }
+  ],
+  "evidence_paths": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1/REPORTS/doctrinarium_planning_package_report.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "pass_criteria_met": [
+    "Existing planning package report present and PASS"
+  ],
+  "stop_criteria_triggered": []
+}

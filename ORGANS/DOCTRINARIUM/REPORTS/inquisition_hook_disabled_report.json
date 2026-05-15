@@ -1,0 +1,19 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.inquisition_hook_disabled.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-6",
+  "timestamp_utc": "2026-05-15T03:02:48Z",
+  "started_utc": "2026-05-15T03:02:48Z",
+  "completed_utc": "2026-05-15T03:02:48Z",
+  "verdict": "PASS",
+  "hook_state": "disabled",
+  "disabled_reason": "Inquisition organ is not implemented in v0.1; active hook is forbidden.",
+  "send_attempted": false,
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/violation_record_report.json",
+    "ORGANS/DOCTRINARIUM/INQUISITION_HOOKS/inquisition_hook_packet_v0_1.json"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.schema_validation.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-2",
+  "timestamp_utc": "2026-05-15T03:02:47Z",
+  "started_utc": "2026-05-15T03:02:47Z",
+  "completed_utc": "2026-05-15T03:02:47Z",
+  "verdict": "PASS",
+  "validated_schemas": [
+    "ORGANS/DOCTRINARIUM/SCHEMAS/law.schema.json",
+    "ORGANS/DOCTRINARIUM/SCHEMAS/doctrine.schema.json",
+    "ORGANS/DOCTRINARIUM/SCHEMAS/law_registry.schema.json"
+  ],
+  "errors": {},
+  "warnings": [],
+  "blockers": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/SCHEMAS/law.schema.json",
+    "ORGANS/DOCTRINARIUM/SCHEMAS/doctrine.schema.json",
+    "ORGANS/DOCTRINARIUM/SCHEMAS/law_registry.schema.json"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "schema_version": "imperium.doctrinarium.report.v0_1",
+  "report_id": "doctrinarium.law_integrity.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "stage_id": "STAGE-3",
+  "timestamp_utc": "2026-05-15T03:02:47Z",
+  "started_utc": "2026-05-15T03:02:47Z",
+  "completed_utc": "2026-05-15T03:02:47Z",
+  "verdict": "PASS",
+  "registry_id": "DOCTRINARIUM_LAW_REGISTRY_V0_1",
+  "law_files_checked": [
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-001.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-002.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-003.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-004.json"
+  ],
+  "duplicate_law_ids": [],
+  "missing_required_fields": {},
+  "contradiction_count": 0,
+  "contradictions": [],
+  "fixture_results": [
+    {
+      "fixture": "duplicate_law_ids_fixture.json",
+      "expectation": "expect_duplicate_detection",
+      "detected": true,
+      "details": [
+        "LAW-101"
+      ]
+    },
+    {
+      "fixture": "missing_required_field_fixture.json",
+      "expectation": "expect_missing_fields_detection",
+      "detected": true,
+      "details": [
+        "LAW-102:['provenance', 'timestamp_utc', 'title']"
+      ]
+    },
+    {
+      "fixture": "contradiction_fixture.json",
+      "expectation": "expect_contradiction_detection",
+      "detected": true,
+      "details": [
+        "vm2_commit_rule_contradiction"
+      ]
+    }
+  ],
+  "warnings": [],
+  "blockers": [],
+  "issues": [],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/LAW_REGISTRY/LAW_REGISTRY_V0_1.json",
+    "ORGANS/DOCTRINARIUM/TESTS/law_integrity_fixture_results.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-001.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-002.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-003.json",
+    "ORGANS/DOCTRINARIUM/LAWS/LAW-004.json"
+  ]
+}

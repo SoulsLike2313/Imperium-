@@ -1,0 +1,25 @@
+{
+  "schema_version": "imperium.doctrinarium.registry.v0_1",
+  "organ_id": "DOCTRINARIUM",
+  "status": "active_mvp_build",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "boundaries": {
+    "owns": [
+      "law governance contracts",
+      "law integrity checks",
+      "organ health verdicting",
+      "task start gate verdicting",
+      "violation records",
+      "evidence reports"
+    ],
+    "does_not_own": [
+      "astronomicon registration engine",
+      "administratum execution backend",
+      "officio_agentis role definitions",
+      "active inquisition actions"
+    ]
+  },
+  "inquisition_hook_status": "disabled",
+  "created_by": "PC Servitor",
+  "canonical_status": "implemented"
+}

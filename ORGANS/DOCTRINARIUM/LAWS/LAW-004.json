@@ -1,0 +1,18 @@
+{
+  "schema_version": "imperium.doctrinarium.law.v0_1",
+  "law_id": "LAW-004",
+  "title": "No Fake Green",
+  "status": "active",
+  "description": "PASS verdicts require real evidence and warning integrity.",
+  "rules": [
+    "No PASS without evidence_paths.",
+    "No PASS_WITH_WARNINGS with empty warnings list.",
+    "Disabled features cannot be presented as active."
+  ],
+  "provenance": {
+    "source": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+    "git_head": "a61c40e0be3569420f89af09cf5d79ffee8b8fad",
+    "created_by": "PC Servitor"
+  },
+  "timestamp_utc": "2026-05-15T02:52:45Z"
+}

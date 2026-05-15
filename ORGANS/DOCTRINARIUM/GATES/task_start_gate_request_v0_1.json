@@ -1,0 +1,11 @@
+{
+  "schema_version": "imperium.doctrinarium.task_start_gate_request.v0_1",
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "requesting_agent": "PC Servitor",
+  "mode": "cold_executor",
+  "requested_utc": "2026-05-15T03:02:47Z",
+  "provenance": {
+    "source": "doctrinarium_task_start_gate_v0_1.py"
+  },
+  "timestamp_utc": "2026-05-15T03:02:47Z"
+}

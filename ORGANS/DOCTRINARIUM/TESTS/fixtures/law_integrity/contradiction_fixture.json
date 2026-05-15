@@ -1,0 +1,23 @@
+{
+  "name": "contradiction",
+  "laws": [
+    {
+      "law_id": "LAW-201",
+      "title": "No VM2 Commit",
+      "status": "active",
+      "description": "desc",
+      "rules": [
+        "No commit from VM2 is allowed"
+      ]
+    },
+    {
+      "law_id": "LAW-202",
+      "title": "Allow VM2 Commit",
+      "status": "active",
+      "description": "desc",
+      "rules": [
+        "Allow commit from VM2 for emergency"
+      ]
+    }
+  ]
+}
