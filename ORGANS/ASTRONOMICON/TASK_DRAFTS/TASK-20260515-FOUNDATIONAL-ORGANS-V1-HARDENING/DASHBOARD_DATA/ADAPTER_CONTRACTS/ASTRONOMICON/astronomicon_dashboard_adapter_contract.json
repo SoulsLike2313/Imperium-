@@ -1,0 +1,18 @@
+{
+  "organ_id": "ASTRONOMICON",
+  "owner_truth_categories": [
+    "task_future_memory",
+    "task_scope",
+    "stage_topology",
+    "registration_workflow"
+  ],
+  "must_not_decide": [
+    "execution_lifecycle",
+    "stage_completion_truth"
+  ],
+  "progress_requires_admin_receipt": true,
+  "registration_actions_enabled": false,
+  "disabled_reason": "owner_gate_required_for_registration_mutations",
+  "mock_data_allowed": false,
+  "not_source_of_truth": true
+}

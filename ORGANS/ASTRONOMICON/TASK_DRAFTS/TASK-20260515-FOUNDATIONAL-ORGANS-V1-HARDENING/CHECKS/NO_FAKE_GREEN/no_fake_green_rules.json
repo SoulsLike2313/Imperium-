@@ -1,0 +1,55 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-07-NO-FAKE-GREEN-CHECKERS",
+  "created_utc": "2026-05-15T05:41:18Z",
+  "rules": [
+    {
+      "rule_id": "PASS_REQUIRES_EVIDENCE",
+      "description": "PASS/GREEN/READY/COMPLETE require non-empty evidence list"
+    },
+    {
+      "rule_id": "PASS_WITH_WARNINGS_REQUIRES_WARNING_LIST",
+      "description": "PASS_WITH_WARNINGS requires non-empty warnings"
+    },
+    {
+      "rule_id": "PASS_FORBIDS_HIDDEN_WARNINGS",
+      "description": "PASS cannot carry warnings"
+    },
+    {
+      "rule_id": "BLOCKERS_FORBID_PASS",
+      "description": "blockers forbid PASS/GREEN"
+    },
+    {
+      "rule_id": "DASHBOARD_GREEN_REQUIRES_SOURCE_REPORT",
+      "description": "dashboard green needs source report and evidence index"
+    },
+    {
+      "rule_id": "ENABLED_ACTION_REQUIRES_RECEIPT_CONTRACT",
+      "description": "enabled action requires expected receipt and failure behavior"
+    },
+    {
+      "rule_id": "VISIBLE_SCRIPT_REQUIRES_EXISTENCE_OR_DISABLED_REASON",
+      "description": "script shown in UI must exist or be disabled"
+    },
+    {
+      "rule_id": "SANCTUM_CANNOT_OVERRIDE_ORGAN_STATUS",
+      "description": "sanctum aggregate cannot upgrade organ status"
+    },
+    {
+      "rule_id": "FIXTURE_CANNOT_COUNT_AS_PRODUCTION_EVIDENCE",
+      "description": "fixture-only data cannot be production proof"
+    },
+    {
+      "rule_id": "STALE_CANNOT_BE_GREEN",
+      "description": "stale or unknown freshness cannot be green"
+    },
+    {
+      "rule_id": "ADVISORY_CANNOT_BE_CANON",
+      "description": "advisory cannot satisfy canon acceptance"
+    },
+    {
+      "rule_id": "READY_FOR_AGENT_REQUIRES_OWNER_LAUNCH",
+      "description": "ready_for_agent true needs owner launch receipt"
+    }
+  ]
+}

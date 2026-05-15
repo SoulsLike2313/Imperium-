@@ -1,0 +1,19 @@
+{
+  "status_mapping": {
+    "PASS": "green_with_evidence",
+    "PASS_WITH_WARNINGS": "amber_or_amber_green_with_warning_count",
+    "FAIL": "red_failure",
+    "BLOCKED": "red_severe_blocker",
+    "UNKNOWN": "gray_or_amber_unknown",
+    "STALE": "amber_or_red_stale_never_green",
+    "NOT_APPLICABLE": "neutral_with_reason",
+    "DISABLED": "gray_disabled_with_reason"
+  },
+  "stage_visual_semantics": {
+    "completed": "dim_glow_only_if_admin_receipt_exists",
+    "active": "active_pulse_only_if_admin_route_state_active",
+    "future": "white_platinum_slow_glow",
+    "blocked": "severe_red_amber_with_reason",
+    "waiting_evidence": "cold_subdued_missing_evidence_marker"
+  }
+}

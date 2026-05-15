@@ -1,0 +1,8 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "created_utc": "2026-05-15T05:48:31Z",
+  "fixtures": 6,
+  "verdict": "PASS",
+  "inquisition_hook_status": "DISABLED_V1",
+  "advisory_reference_only": true
+}

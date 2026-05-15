@@ -1,0 +1,10 @@
+{
+  "id": "bad2",
+  "status": "GREEN",
+  "evidence_paths": [],
+  "warnings": [],
+  "blockers": [],
+  "freshness": "fresh",
+  "expected_result": "FAIL",
+  "fixture_only": true
+}

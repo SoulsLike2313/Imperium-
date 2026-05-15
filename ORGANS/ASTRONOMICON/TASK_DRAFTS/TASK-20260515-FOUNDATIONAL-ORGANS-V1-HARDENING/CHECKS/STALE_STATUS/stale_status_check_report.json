@@ -1,0 +1,70 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-08-STALE-STATUS-CHECKERS",
+  "created_utc": "2026-05-15T05:42:20Z",
+  "checker_path": "CHECKS/STALE_STATUS/stale_status_stage_local_check.py",
+  "fixtures_checked": 7,
+  "fresh_expected_pass": 2,
+  "stale_expected_fail": 2,
+  "unknown_expected_fail": 1,
+  "missing_field_expected_fail": 2,
+  "actual_results": [
+    {
+      "fixture": "fresh_dashboard_state_sample.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "fresh_report_sample.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "missing_generated_at_sample.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "missing_generated_at_utc"
+    },
+    {
+      "fixture": "missing_git_head_sample.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "missing_git_head"
+    },
+    {
+      "fixture": "stale_dashboard_state_sample.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "stale_or_unknown_green"
+    },
+    {
+      "fixture": "stale_report_sample.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "stale_or_unknown_green"
+    },
+    {
+      "fixture": "unknown_freshness_sample.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "stale_or_unknown_green"
+    }
+  ],
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS",
+  "coverage_limitations": [
+    "stage_local_fixtures_only",
+    "not_production_checker"
+  ],
+  "not_production_checker": true
+}

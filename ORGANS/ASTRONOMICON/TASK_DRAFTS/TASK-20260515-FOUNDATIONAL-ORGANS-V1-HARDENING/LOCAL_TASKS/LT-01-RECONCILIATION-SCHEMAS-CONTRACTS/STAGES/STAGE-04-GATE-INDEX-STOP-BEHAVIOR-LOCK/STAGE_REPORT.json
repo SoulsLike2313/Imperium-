@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-01-RECONCILIATION-SCHEMAS-CONTRACTS",
+  "stage_id": "STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK",
+  "stage_number": 4,
+  "prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-04_GATE_INDEX_STOP_BEHAVIOR_LOCK_PROMPT.md",
+  "started_utc": "2026-05-15T05:37:38Z",
+  "completed_utc": "2026-05-15T05:37:39Z",
+  "verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "checker_commands": [
+    "json parse gate artifacts"
+  ],
+  "checker_results": {
+    "gate_count": 16,
+    "json_parse": "PASS"
+  },
+  "evidence_paths": [
+    "E:/IMPERIUM/ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-01-RECONCILIATION-SCHEMAS-CONTRACTS/STAGES/STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK/EVIDENCE/gate_index_freeze_evidence.json",
+    "E:/IMPERIUM/ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-01-RECONCILIATION-SCHEMAS-CONTRACTS/STAGES/STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK/EVIDENCE/stop_behavior_evidence.json"
+  ],
+  "repaired_errors": [],
+  "retry_count": 0,
+  "git_head_during_stage": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "ready_for_hardening_execution": false,
+  "ready_for_agent": false
+}

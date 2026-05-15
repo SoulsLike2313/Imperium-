@@ -1,0 +1,32 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "created_utc": "2026-05-15T05:56:23Z",
+  "stage_reports_present": true,
+  "stage_report_count_expected": 20,
+  "stage_report_count_found": 20,
+  "required_paths_checked": [
+    "SOURCE_PACKAGE/HARDENING_SOURCE_PACKAGE_MANIFEST.json",
+    "OWNERSHIP/FOUNDATIONAL_ORGANS_V1_OWNERSHIP_FREEZE.json",
+    "GATES/V1_HARDENING_GATE_INDEX_FREEZE.json",
+    "SCHEMAS/SCHEMA_BASELINE_INDEX.json",
+    "BACKEND_TRUTH/BACKEND_TRUTH_BASELINE_INDEX.json",
+    "CHECKS/NO_FAKE_GREEN/no_fake_green_check_report.json",
+    "CHECKS/STALE_STATUS/stale_status_check_report.json",
+    "CORRIDOR/ROUTE_WORK_PACKET/route_work_packet_wiring_model.json",
+    "CORRIDOR/STAGE_COMPLETION/stage_completion_receipt_path.json",
+    "CORRIDOR/TASK_START/task_start_corridor_gate_model.json",
+    "CORRIDOR/ROLLBACK_STOP/rollback_stop_receipt_path.json",
+    "DASHBOARD_DATA/ADAPTER_CONTRACTS/FOUR_ORGAN_DASHBOARD_ADAPTER_INDEX.json",
+    "DASHBOARD_UI/RENDER_TRUTH/dashboard_render_truth_contract.json",
+    "DASHBOARD_UI/ACTION_CONTROLS/dashboard_action_control_contract.json",
+    "CHECKS/UTF8_REPO_PURITY/utf8_repo_purity_check_report.json",
+    "SANCTUM_AGGREGATION/READ_ONLY/sanctum_read_only_aggregation_contract.json",
+    "E2E_PROOF/SYNTHETIC_TASK_CORRIDOR/reports/e2e_synthetic_task_corridor_report.json"
+  ],
+  "missing_required_paths": [],
+  "all_json_valid": true,
+  "json_parse_errors": [],
+  "warnings_count_total": 2,
+  "blockers_count_total": 0,
+  "verdict": "PASS"
+}

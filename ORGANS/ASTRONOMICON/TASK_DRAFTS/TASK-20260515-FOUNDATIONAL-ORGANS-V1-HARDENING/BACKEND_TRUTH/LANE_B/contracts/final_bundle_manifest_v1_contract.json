@@ -1,0 +1,51 @@
+{
+  "contract_id": "FINAL_BUNDLE_MANIFEST_V1_CONTRACT",
+  "schema_id": "final_bundle_manifest",
+  "owner_organ": "Administratum",
+  "purpose": "Lane B contract for final_bundle_manifest",
+  "source_of_truth_category": "final_bundle_manifest",
+  "required_fields": [
+    "bundle_id",
+    "task_id",
+    "run_id",
+    "created_at_utc",
+    "included_files",
+    "included_hashes",
+    "per_stage_receipts",
+    "warnings",
+    "blockers",
+    "unresolved_items",
+    "continuity_summary_path",
+    "git_head_final"
+  ],
+  "optional_fields": [],
+  "producer": "Administratum",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

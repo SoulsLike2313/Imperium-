@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-03-TASK-CORRIDOR-WIRING",
+  "stage_id": "STAGE-11-TASK-START-CORRIDOR-GATE-LINK",
+  "stage_number": 11,
+  "prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-11_TASK_START_CORRIDOR_GATE_LINK_PROMPT.md",
+  "started_utc": "2026-05-15T05:44:57Z",
+  "completed_utc": "2026-05-15T05:44:57Z",
+  "verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "checker_commands": [
+    "json parse task start artifacts"
+  ],
+  "checker_results": {
+    "required_proofs_count": 12,
+    "fixture_count": 9,
+    "verdict": "PASS"
+  },
+  "evidence_paths": [
+    "E:/IMPERIUM/ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-11-TASK-START-CORRIDOR-GATE-LINK/EVIDENCE/task_start_corridor_gate_evidence.json"
+  ],
+  "repaired_errors": [],
+  "retry_count": 0,
+  "git_head_during_stage": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "ready_for_agent": false
+}

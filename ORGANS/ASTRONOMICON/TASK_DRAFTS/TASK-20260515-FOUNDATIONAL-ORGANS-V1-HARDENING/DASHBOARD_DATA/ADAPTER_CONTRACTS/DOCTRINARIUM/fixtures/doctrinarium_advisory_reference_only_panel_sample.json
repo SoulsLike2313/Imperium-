@@ -1,0 +1,7 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "advisory_reference_only_panel",
+  "reference_only": true,
+  "not_canon": true
+}

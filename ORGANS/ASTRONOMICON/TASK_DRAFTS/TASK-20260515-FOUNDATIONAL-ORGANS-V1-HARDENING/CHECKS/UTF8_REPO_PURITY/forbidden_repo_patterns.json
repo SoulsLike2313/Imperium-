@@ -1,0 +1,14 @@
+{
+  "forbidden_patterns": [
+    "E:/IMPERIUM_CONTEXT",
+    "E:/IMPERIUM_LOCAL",
+    "E:/IMPERIUM_PRIVATE",
+    "OUTBOX/",
+    "INBOX/",
+    ".imperium_runtime/"
+  ],
+  "warning_patterns": [
+    "mojibake_marker",
+    "russian_canonical_status_key"
+  ]
+}

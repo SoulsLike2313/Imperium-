@@ -1,0 +1,9 @@
+{
+  "task_ticket_id": "TT-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "submitted_by": "Owner",
+  "submitted_at_utc": "2026-05-15T05:43:14Z",
+  "source_context": "owner_launch_command",
+  "expected_astronomicon_lookup_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "fixture_only": true
+}

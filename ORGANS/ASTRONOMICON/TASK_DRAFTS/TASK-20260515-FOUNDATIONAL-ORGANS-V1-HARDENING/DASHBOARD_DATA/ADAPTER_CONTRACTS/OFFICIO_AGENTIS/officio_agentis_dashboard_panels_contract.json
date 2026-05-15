@@ -1,0 +1,13 @@
+{
+  "organ_id": "OFFICIO_AGENTIS",
+  "panels": [
+    "role_contract_registry_panel",
+    "mode_permission_matrix_panel",
+    "agent_scope_panel",
+    "prompt_trigger_rules_panel",
+    "stop_condition_panel",
+    "role_read_receipt_panel",
+    "capability_gap_panel",
+    "trust_proof_panel"
+  ]
+}

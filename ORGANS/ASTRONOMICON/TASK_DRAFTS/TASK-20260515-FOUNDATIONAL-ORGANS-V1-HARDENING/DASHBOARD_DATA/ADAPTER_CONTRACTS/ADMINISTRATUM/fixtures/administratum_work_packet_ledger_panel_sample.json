@@ -1,0 +1,7 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "work_packet_ledger_panel",
+  "work_packet_state": "PLANNED_NOT_STARTED",
+  "owner": "Administratum"
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:38:51Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "evidence_common",
+  "evidence_id": "EVID-001",
+  "evidence_type": "stage_output",
+  "owner_organ": "Astronomicon",
+  "created_at_utc": "2026-05-15T05:38:51Z",
+  "source_paths": [
+    "path/a.json"
+  ],
+  "source_hashes": [
+    "abc123"
+  ],
+  "related_task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "related_stage_id": "STAGE-05-BACKEND-REPORT-CONTRACT-IMPLEMENTATION-LANE-A",
+  "status": "PASS"
+}

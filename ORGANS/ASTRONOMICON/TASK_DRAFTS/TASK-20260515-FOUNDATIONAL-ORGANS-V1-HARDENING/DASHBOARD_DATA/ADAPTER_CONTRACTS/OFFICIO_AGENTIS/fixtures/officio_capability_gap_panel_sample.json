@@ -1,0 +1,9 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "capability_gap_panel",
+  "capability_gap_count": 1,
+  "warnings": [
+    "missing_advanced_auto_assignment"
+  ]
+}

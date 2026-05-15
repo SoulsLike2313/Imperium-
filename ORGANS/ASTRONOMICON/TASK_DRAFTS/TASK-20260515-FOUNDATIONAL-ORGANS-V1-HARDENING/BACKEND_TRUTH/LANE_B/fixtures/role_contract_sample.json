@@ -1,0 +1,32 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:40:06Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "role_contract",
+  "role_id": "SERVITOR",
+  "role_name": "PC Servitor",
+  "mode_id": "COLD_EXECUTOR",
+  "allowed_actions": [
+    "execute_stage_scope"
+  ],
+  "forbidden_actions": [
+    "fake_green"
+  ],
+  "required_reads": [
+    "task_prompt"
+  ],
+  "response_contract": "four_part_ru",
+  "stop_conditions": [
+    "blocker_detected"
+  ],
+  "evidence_requirements": [
+    "stage_report",
+    "evidence_json"
+  ],
+  "owner_approval_required": true,
+  "contract_status": "DRAFT_FROZEN"
+}

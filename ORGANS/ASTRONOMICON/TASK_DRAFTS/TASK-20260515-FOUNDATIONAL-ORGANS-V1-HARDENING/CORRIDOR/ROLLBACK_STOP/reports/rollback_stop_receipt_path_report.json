@@ -1,0 +1,59 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "created_utc": "2026-05-15T05:46:03Z",
+  "fixtures_checked": 7,
+  "results": [
+    {
+      "fixture": "bad_pass_with_blockers.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "blockers_forbid_pass"
+    },
+    {
+      "fixture": "bad_stop_without_reason.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "missing_reason"
+    },
+    {
+      "fixture": "sample_owner_decision_required_receipt.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "sample_partial_output_quarantine_record.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "sample_pass_with_warnings_receipt.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "sample_stage_blocked_receipt.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "sample_stop_immediate_receipt.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    }
+  ],
+  "verdict": "PASS",
+  "not_production_checker": true
+}

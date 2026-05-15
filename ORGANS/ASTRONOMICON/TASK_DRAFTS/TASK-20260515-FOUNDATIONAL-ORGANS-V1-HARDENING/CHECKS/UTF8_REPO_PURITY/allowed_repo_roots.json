@@ -1,0 +1,10 @@
+{
+  "allowed_roots": [
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/"
+  ],
+  "forbidden_external_roots": [
+    "E:/IMPERIUM_CONTEXT/",
+    "E:/IMPERIUM_LOCAL/",
+    "E:/IMPERIUM_PRIVATE/"
+  ]
+}

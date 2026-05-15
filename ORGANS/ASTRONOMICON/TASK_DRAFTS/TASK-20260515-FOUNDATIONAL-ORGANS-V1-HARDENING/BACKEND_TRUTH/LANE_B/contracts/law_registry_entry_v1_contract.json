@@ -1,0 +1,49 @@
+{
+  "contract_id": "LAW_REGISTRY_ENTRY_V1_CONTRACT",
+  "schema_id": "law_registry_entry",
+  "owner_organ": "Doctrinarium",
+  "purpose": "Lane B contract for law_registry_entry",
+  "source_of_truth_category": "law_registry_entry",
+  "required_fields": [
+    "law_id",
+    "law_title",
+    "law_status",
+    "law_version",
+    "law_path",
+    "law_hash",
+    "owner_accepted",
+    "active_from_utc",
+    "supersedes",
+    "evidence_paths"
+  ],
+  "optional_fields": [],
+  "producer": "Doctrinarium",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

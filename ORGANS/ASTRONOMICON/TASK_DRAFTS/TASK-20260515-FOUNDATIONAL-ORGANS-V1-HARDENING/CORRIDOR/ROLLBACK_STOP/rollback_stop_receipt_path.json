@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "created_utc": "2026-05-15T05:46:03Z",
+  "when_to_stop": [
+    "critical_gate_failure",
+    "invalid_json",
+    "ownership_violation",
+    "forbidden_write",
+    "fake_green_risk"
+  ],
+  "when_to_continue_with_warning": [
+    "non_critical_doc_warning",
+    "known_deferred_item_with_tracking"
+  ],
+  "when_owner_decision_required": [
+    "ownership_change",
+    "vm2_enable_request",
+    "canonization_request",
+    "hard_gate_warning_override"
+  ],
+  "how_to_preserve_partial_outputs": "retain_files_mark_partial_untrusted_no_auto_delete",
+  "how_to_record_blockers": "stage_blocked_receipt",
+  "how_to_record_warnings": "warning_acceptance_receipt",
+  "how_to_record_quarantine_recommendation": "partial_output_quarantine_record",
+  "how_to_avoid_hiding_warnings_in_pass": "pass_with_warnings_requires_non_empty_warnings",
+  "how_to_carry_unresolved_warnings_into_final_bundle": "warning_carry_forward_required"
+}

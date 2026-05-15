@@ -1,0 +1,9 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "blocked_stage_panel",
+  "status": "BLOCKED",
+  "blockers": [
+    "missing_admin_receipt"
+  ]
+}

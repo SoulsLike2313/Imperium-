@@ -1,0 +1,24 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:38:51Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "work_packet",
+  "work_packet_id": "WP-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "state": "PLANNED_NOT_STARTED",
+  "current_stage_id": null,
+  "assigned_role": null,
+  "route_sheet_path": "corridor/route_sheet.json",
+  "stage_map_path": "stage_map.json",
+  "evidence_paths": [
+    "corridor/task_ticket.json"
+  ],
+  "created_at_utc": "2026-05-15T05:38:51Z",
+  "updated_at_utc": "2026-05-15T05:38:51Z",
+  "owner_organ": "Administratum",
+  "not_execution_start": true
+}

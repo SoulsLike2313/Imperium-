@@ -1,0 +1,19 @@
+{
+  "contract_id": "sanctum_read_only_aggregation_contract_v0_1",
+  "created_utc": "2026-05-15T05:53:16Z",
+  "aggregation_mode": "read_only",
+  "source_of_truth_owner": "individual_organs",
+  "sanctum_truth_ownership": "none",
+  "may_read": true,
+  "may_render": true,
+  "may_request_action": true,
+  "may_write_canonical_state": false,
+  "may_upgrade_status": false,
+  "must_preserve_source_status": true,
+  "must_preserve_source_hash": true,
+  "must_preserve_source_path": true,
+  "must_preserve_freshness": true,
+  "warnings_visible_required": true,
+  "blockers_visible_required": true,
+  "evidence_links_visible_required": true
+}

@@ -1,0 +1,9 @@
+{
+  "stage_id": "STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING",
+  "display_state": "completed",
+  "source_admin_receipt_path": "fixtures/sample_admin_stage_completion_receipt.json",
+  "source_admin_receipt_hash": "abc",
+  "display_only": true,
+  "not_completion_truth": true,
+  "fixture_only": true
+}

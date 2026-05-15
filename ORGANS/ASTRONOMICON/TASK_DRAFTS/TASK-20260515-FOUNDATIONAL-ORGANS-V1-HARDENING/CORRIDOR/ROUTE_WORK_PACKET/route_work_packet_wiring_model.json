@@ -1,0 +1,55 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING",
+  "created_utc": "2026-05-15T05:43:14Z",
+  "corridor_phase": "pre_execution_wiring",
+  "source_of_truth_rules": {
+    "task_scope_owner": "Astronomicon",
+    "stage_topology_owner": "Astronomicon",
+    "work_packet_owner": "Administratum",
+    "route_sheet_owner": "Administratum"
+  },
+  "flow_steps": [
+    "task_id_received",
+    "task_lookup_in_astronomicon",
+    "lookup_trace_recorded",
+    "route_sheet_issued",
+    "work_packet_opened_planned_not_started",
+    "officio_doctrinarium_proofs_required_later"
+  ],
+  "required_inputs": [
+    "task_id",
+    "astronomicon_task_path",
+    "stage_map_hash",
+    "git_head"
+  ],
+  "required_outputs": [
+    "task_lookup_trace",
+    "route_sheet",
+    "work_packet_planned_not_started"
+  ],
+  "blocking_conditions": [
+    "missing_task_id",
+    "task_not_found",
+    "stage_map_missing",
+    "source_hash_mismatch",
+    "work_packet_already_active_without_owner_override",
+    "administratum_cannot_issue_route_sheet",
+    "ownership_conflict",
+    "source_package_stale",
+    "dirty_worktree",
+    "vm2_dependency_accidentally_required"
+  ],
+  "owner_organ_map": {
+    "Astronomicon": [
+      "task_scope",
+      "stage_topology"
+    ],
+    "Administratum": [
+      "route_sheet",
+      "work_packet"
+    ]
+  },
+  "not_execution_start": true,
+  "ready_for_agent": false
+}

@@ -1,0 +1,8 @@
+{
+  "fixture_only": true,
+  "stage_id": "STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING",
+  "display_state": "completed",
+  "display_only": false,
+  "not_completion_truth": false,
+  "expected_result": "FAIL"
+}

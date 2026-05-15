@@ -1,0 +1,6 @@
+{
+  "fixture_only": true,
+  "status_key": "УСПЕХ",
+  "path": "BACKEND_TRUTH/report.json",
+  "expected_result": "FAIL"
+}

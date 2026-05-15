@@ -1,0 +1,7 @@
+{
+  "fixture_only": true,
+  "status_key": "PASS",
+  "description": "english canonical status key",
+  "path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/.../artifact.json",
+  "expected_result": "PASS"
+}

@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-03-TASK-CORRIDOR-WIRING",
+  "stage_id": "STAGE-10-STAGE-COMPLETION-RECEIPT-PATH",
+  "stage_number": 10,
+  "prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-10_STAGE_COMPLETION_RECEIPT_PATH_PROMPT.md",
+  "started_utc": "2026-05-15T05:44:01Z",
+  "completed_utc": "2026-05-15T05:44:01Z",
+  "verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "checker_commands": [
+    "json parse stage completion fixtures"
+  ],
+  "checker_results": {
+    "fixture_count": 6,
+    "astronomicon_display_only": true,
+    "admin_receipt_required": true
+  },
+  "evidence_paths": [
+    "E:/IMPERIUM/ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-03-TASK-CORRIDOR-WIRING/STAGES/STAGE-10-STAGE-COMPLETION-RECEIPT-PATH/EVIDENCE/stage_completion_receipt_path_evidence.json"
+  ],
+  "repaired_errors": [],
+  "retry_count": 0,
+  "git_head_during_stage": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "ready_for_agent": false
+}

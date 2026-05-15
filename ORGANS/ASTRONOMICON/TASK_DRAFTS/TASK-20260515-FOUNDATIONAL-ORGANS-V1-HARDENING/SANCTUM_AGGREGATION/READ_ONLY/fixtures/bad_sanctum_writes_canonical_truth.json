@@ -1,0 +1,5 @@
+{
+  "fixture_only": true,
+  "attempt_write_canonical_truth": true,
+  "expected_result": "FAIL"
+}

@@ -1,0 +1,9 @@
+{
+  "organ_id": "OFFICIO_AGENTIS",
+  "evidence_index_fields": [
+    "role_contract_path",
+    "read_receipt_path",
+    "source_hash",
+    "freshness"
+  ]
+}

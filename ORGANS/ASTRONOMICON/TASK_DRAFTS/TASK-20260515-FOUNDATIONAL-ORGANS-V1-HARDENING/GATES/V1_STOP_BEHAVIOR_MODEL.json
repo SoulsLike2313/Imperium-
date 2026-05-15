@@ -1,0 +1,50 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK",
+  "created_utc": "2026-05-15T05:37:39Z",
+  "STOP_IMMEDIATE": [
+    "git_head_mismatch",
+    "dirty_worktree_before_stage",
+    "required_source_missing",
+    "invalid_json",
+    "ownership_collision",
+    "pass_without_evidence",
+    "stale_or_unknown_green",
+    "write_outside_allowed_path",
+    "inquisition_claimed_active",
+    "vm2_assumption_without_gate",
+    "owner_launch_gate_missing_before_execution"
+  ],
+  "PASS_WITH_WARNINGS_ALLOWED": {
+    "conditions": [
+      "warnings_non_blocking",
+      "warnings_explicit_non_empty",
+      "evidence_paths_present",
+      "future_stage_impact_documented"
+    ],
+    "forbidden_warning_classes": [
+      "evidence_integrity",
+      "ownership_violation",
+      "git_truth",
+      "repo_purity",
+      "stale_green",
+      "fake_green"
+    ]
+  },
+  "OWNER_DECISION_REQUIRED": [
+    "ownership_boundary_change",
+    "dashboard_mutation_enablement",
+    "hard_gate_warning_acceptance",
+    "stage_count_budget_change",
+    "vm2_enablement",
+    "advisory_canonization"
+  ],
+  "DEFER_TO_V1_1": [
+    "semantic_search",
+    "visual_law_diff",
+    "event_bus",
+    "autonomous_agent_scheduling",
+    "heavy_webgl_animation",
+    "bulk_actions"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "fixture_only": true,
+  "status": "GREEN",
+  "generated_at_utc": "2026-05-15T05:42:20Z",
+  "checked_at_utc": "2026-05-15T05:42:20Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "source_hash": "abc",
+  "expires_after_seconds": 10,
+  "stale_status": "unknown",
+  "freshness_verdict": "unknown",
+  "expected_result": "FAIL"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "bad5",
+  "status": "PASS",
+  "evidence_paths": [
+    "r.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "freshness": "fresh",
+  "action_enabled": true,
+  "expected_receipt_path": null,
+  "failure_behavior": null,
+  "expected_result": "FAIL",
+  "fixture_only": true
+}

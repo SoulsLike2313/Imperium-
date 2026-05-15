@@ -1,0 +1,46 @@
+{
+  "contract_id": "ROUTE_SHEET_V1_CONTRACT",
+  "schema_id": "route_sheet",
+  "owner_organ": "Administratum",
+  "purpose": "Lane A contract for route_sheet",
+  "source_of_truth_category": "route_sheet",
+  "required_fields": [
+    "route_sheet_id",
+    "task_id",
+    "issued_by",
+    "route_steps",
+    "required_organs",
+    "required_gates",
+    "source_task_path",
+    "stage_map_hash",
+    "issued_at_utc"
+  ],
+  "optional_fields": [],
+  "status_values_allowed": [
+    "PASS",
+    "PASS_WITH_WARNINGS",
+    "FAIL",
+    "BLOCKED",
+    "UNKNOWN"
+  ],
+  "warning_rules": [
+    "warnings_must_be_explicit"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required_for_pass"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required",
+    "git_head_required"
+  ],
+  "producer": "Administratum",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "fixture/reference contract inside hardening package only"
+}

@@ -1,0 +1,21 @@
+{
+  "render_contract_id": "dashboard_render_truth_contract_v0_1",
+  "created_utc": "2026-05-15T05:49:37Z",
+  "source_adapter_index": "DASHBOARD_DATA/ADAPTER_CONTRACTS/FOUR_ORGAN_DASHBOARD_ADAPTER_INDEX.json",
+  "truth_binding_required": true,
+  "mock_data_in_truth_panels_allowed": false,
+  "green_requires_evidence": true,
+  "stale_can_render_green": false,
+  "unknown_can_render_green": false,
+  "warnings_visible_required": true,
+  "blockers_visible_required": true,
+  "source_report_link_required": true,
+  "evidence_link_required": true,
+  "i18n_required": true,
+  "canonical_state_language": "ENGLISH",
+  "ui_languages_required": [
+    "en",
+    "ru"
+  ],
+  "animation_must_not_hide_truth": true
+}

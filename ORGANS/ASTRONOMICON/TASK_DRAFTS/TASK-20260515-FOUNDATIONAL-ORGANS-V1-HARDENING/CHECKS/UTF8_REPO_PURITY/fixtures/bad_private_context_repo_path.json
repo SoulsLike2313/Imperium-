@@ -1,0 +1,5 @@
+{
+  "fixture_only": true,
+  "path": "E:/IMPERIUM_CONTEXT/private_dump.json",
+  "expected_result": "FAIL"
+}

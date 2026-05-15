@@ -1,0 +1,40 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-01-SOURCE-INTEGRITY-OWNER-MATRIX-FREEZE",
+  "matrix_status": "frozen_for_execution_planning",
+  "owner_resolutions": [
+    "ownership boundaries must be explicit",
+    "backend truth before dashboard rendering",
+    "sanctum is read-only aggregation",
+    "no fake green and stale-status rules are mandatory",
+    "ready_for_agent stays false until owner launch gate"
+  ],
+  "frozen_decisions": [
+    "six-local-task decomposition target with about twenty stages",
+    "advisory vs canon separation",
+    "dashboard truth contract and evidence-first policy",
+    "inquisition remains disabled in v1 hardening scope"
+  ],
+  "disputed_points_remaining": [
+    "owner launch receipt issuance timing",
+    "final production rollout authorization after review"
+  ],
+  "source_hashes": {
+    "owner_ru_matrix": "a6cf14736990ae0619b3175059d1b6fe32c7271e54088b3e030328257fc67c0d",
+    "owner_answer_extract": "8f4e196567a4ac7517fae458babd6e693f6bfa8108a5ea1a4e562bcd0b04b1c4",
+    "owner_decision_matrix_en": "2843cd3ae003383f5be1bde47d9e186d7d4216b36bb592eef437584cdf371515",
+    "dashboard_truth_doctrine": "6309ced9523fd5865f4493efd9e41dc84f93c5af42d7a625e5efd05a8fe7b6f9",
+    "sanctum_integration_draft": "a3f2157aeda7c14bb1db70f08dba4e700a25a43cb4ca5db6684aa1c9fd6617dc",
+    "kiro_practical_review": "be36a82c662ff58b3d396766e1a36b33e02813ceaa2f70bb2bc6b442eaa8efd8",
+    "speculum_red_team_review": "5a534ecc2fce0c7b8c7d4b7b5b3aa691f21a3f78e45771b549731f3a01892aa4",
+    "reconciliation_source_manifest": "206a622a909142f7078791a19657709acfce19c53419a8f9da9a25aa0c21884a",
+    "reconciliation_table": "a0efe8b6a4bbe1a00366a11f725fe122b4f29225344076f8e772f5fa372b1761",
+    "reconciliation_summary": "3d7de1a3bb9a8079e7d3a33d599930c466fa103213f33c5c31fd94c06862d9f8",
+    "v1_blueprint": "358bd65656b5fd96f401314a7aaa2dddb36dec64e590344a91c43cb24d3e2aa9",
+    "v1_playbook": "e6b4ef93be63bb1d674d0790423a9f6464c86ff40ccb68a3c21e1b4ea40f98b2",
+    "ready_for_decomposition_verdict": "c16c765a954b18d1ecd036493e45e2249995983703c8ea0b43b663cdca62f22b",
+    "ready_for_execution_verdict": "1d603f984f5d7e01092627779b1a6e91195e4e6c197e901333eadfb0063f9196"
+  },
+  "hardening_execution_authorized": false,
+  "ready_for_agent": false
+}

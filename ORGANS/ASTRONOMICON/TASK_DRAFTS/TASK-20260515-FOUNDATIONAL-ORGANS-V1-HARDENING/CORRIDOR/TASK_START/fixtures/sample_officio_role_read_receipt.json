@@ -1,0 +1,10 @@
+{
+  "fixture_only": true,
+  "receipt_id": "OFF-READ-001",
+  "role_id": "SERVITOR",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "read_at_utc": "2026-05-15T05:44:57Z",
+  "read_hashes": [
+    "abc"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "fixture_only": true,
+  "aggregate_status": "PASS_WITH_WARNINGS",
+  "warning_count": 1,
+  "warnings_visible": true
+}

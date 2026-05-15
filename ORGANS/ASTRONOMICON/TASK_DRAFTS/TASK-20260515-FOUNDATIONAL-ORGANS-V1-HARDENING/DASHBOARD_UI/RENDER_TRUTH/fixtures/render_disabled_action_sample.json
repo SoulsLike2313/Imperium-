@@ -1,0 +1,12 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "status": "DISABLED",
+  "disabled_reason": "owner_gate_required",
+  "evidence_paths": [
+    "DASHBOARD_UI/ACTION_CONTROLS/per_organ_action_allowlist.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "expected_render": "disabled_gray"
+}

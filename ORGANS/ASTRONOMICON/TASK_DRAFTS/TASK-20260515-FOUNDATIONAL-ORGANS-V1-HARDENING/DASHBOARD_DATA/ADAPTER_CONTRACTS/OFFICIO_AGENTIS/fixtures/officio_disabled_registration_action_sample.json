@@ -1,0 +1,8 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "action_id": "register_role",
+  "enabled": false,
+  "disabled_reason": "owner_gate_required",
+  "owner_gate_required": true
+}

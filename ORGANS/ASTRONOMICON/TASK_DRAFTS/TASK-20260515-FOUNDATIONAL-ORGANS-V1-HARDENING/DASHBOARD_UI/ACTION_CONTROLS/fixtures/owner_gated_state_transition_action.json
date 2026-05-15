@@ -1,0 +1,30 @@
+{
+  "fixture_only": true,
+  "action_id": "confirm_task_start",
+  "organ_id": "ADMINISTRATUM",
+  "action_type": "owner_gated",
+  "enabled": false,
+  "disabled_reason": "owner_launch_receipt_required",
+  "owner_gate_required": true,
+  "confirmation_required": true,
+  "allowed_roles": [
+    "Owner"
+  ],
+  "source_of_truth_owner": "Administratum",
+  "target_script_or_action": "none",
+  "target_write_roots": [
+    "ORGANS/ADMINISTRATUM/"
+  ],
+  "expected_report_path": "reports/task_start_confirmation_report.json",
+  "expected_receipt_path": "receipts/task_start_confirmation_receipt.json",
+  "receipt_schema_id": "dashboard_action_receipt",
+  "timeout_seconds": 90,
+  "success_condition": "all_proofs_present",
+  "failure_condition": "missing_proofs",
+  "rollback_or_stop_behavior": "blocked",
+  "evidence_paths": [
+    "CORRIDOR/TASK_START/task_start_required_proofs.json"
+  ],
+  "warnings": [],
+  "blockers": []
+}

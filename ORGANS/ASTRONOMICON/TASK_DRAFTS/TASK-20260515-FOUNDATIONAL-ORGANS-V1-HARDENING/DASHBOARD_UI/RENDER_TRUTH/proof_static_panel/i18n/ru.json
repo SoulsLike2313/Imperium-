@@ -1,0 +1,9 @@
+{
+  "status.pass": "Успех",
+  "status.pass_with_warnings": "Успех с предупреждениями",
+  "status.blocked": "Блокировано",
+  "status.stale": "Устарело",
+  "status.disabled": "Отключено",
+  "label.evidence": "Доказательства",
+  "label.blockers": "Блокеры"
+}

@@ -1,0 +1,6 @@
+{
+  "fixture_only": true,
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "doctrinarium_gate_stale_status": "stale",
+  "expected_result": "FAIL"
+}

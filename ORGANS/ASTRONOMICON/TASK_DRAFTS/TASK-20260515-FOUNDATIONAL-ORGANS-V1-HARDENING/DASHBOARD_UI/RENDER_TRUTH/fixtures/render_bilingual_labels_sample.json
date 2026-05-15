@@ -1,0 +1,12 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "status": "PASS_WITH_WARNINGS",
+  "label_key": "status.pass_with_warnings",
+  "ui_languages": [
+    "en",
+    "ru"
+  ],
+  "canonical_state_key_language": "ENGLISH",
+  "expected_render": "bilingual_labels_supported"
+}

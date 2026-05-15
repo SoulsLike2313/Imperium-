@@ -1,0 +1,50 @@
+{
+  "contract_id": "ROLE_READ_RECEIPT_V1_CONTRACT",
+  "schema_id": "role_read_receipt",
+  "owner_organ": "Officio Agentis",
+  "purpose": "Lane B contract for role_read_receipt",
+  "source_of_truth_category": "role_read_receipt",
+  "required_fields": [
+    "receipt_id",
+    "role_id",
+    "agent_label",
+    "task_id",
+    "required_reads",
+    "read_paths",
+    "read_hashes",
+    "read_at_utc",
+    "acknowledged_stop_conditions",
+    "warnings",
+    "blockers"
+  ],
+  "optional_fields": [],
+  "producer": "Officio Agentis",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

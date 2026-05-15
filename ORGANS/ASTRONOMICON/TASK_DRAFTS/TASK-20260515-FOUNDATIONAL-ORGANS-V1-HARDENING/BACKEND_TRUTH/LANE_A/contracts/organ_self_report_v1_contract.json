@@ -1,0 +1,48 @@
+{
+  "contract_id": "ORGAN_SELF_REPORT_V1_CONTRACT",
+  "schema_id": "organ_self_report",
+  "owner_organ": "Doctrinarium",
+  "purpose": "Lane A contract for organ_self_report",
+  "source_of_truth_category": "organ_health_gate",
+  "required_fields": [
+    "organ_id",
+    "organ_name",
+    "status",
+    "generated_at_utc",
+    "git_head",
+    "source_paths",
+    "checks",
+    "warnings",
+    "blockers",
+    "evidence_paths",
+    "freshness"
+  ],
+  "optional_fields": [],
+  "status_values_allowed": [
+    "PASS",
+    "PASS_WITH_WARNINGS",
+    "FAIL",
+    "BLOCKED",
+    "UNKNOWN"
+  ],
+  "warning_rules": [
+    "warnings_must_be_explicit"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required_for_pass"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required",
+    "git_head_required"
+  ],
+  "producer": "Doctrinarium",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "fixture/reference contract inside hardening package only"
+}

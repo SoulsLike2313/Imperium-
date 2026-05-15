@@ -1,0 +1,8 @@
+{
+  "canonical_state_language": "ENGLISH",
+  "allowed_non_english_zones": [
+    "OWNER_REVIEW_NOTES_RU.md",
+    "proof_static_panel/i18n/ru.json"
+  ],
+  "forbidden_in_canonical_status_keys": true
+}

@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-07-NO-FAKE-GREEN-CHECKERS",
+  "created_utc": "2026-05-15T05:41:18Z",
+  "fixtures": [
+    "CHECKS/NO_FAKE_GREEN/fixtures/good_status_with_evidence.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_pass_without_evidence.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_pass_with_empty_evidence_array.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_pass_with_warnings.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_dashboard_green_missing_report.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_button_enabled_without_receipt.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_script_visible_without_last_report.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_sanctum_green_from_stale_source.json",
+    "CHECKS/NO_FAKE_GREEN/fixtures/bad_fixture_claims_production_pass.json"
+  ],
+  "good_fixture": "good_status_with_evidence.json",
+  "bad_fixtures": [
+    "bad_pass_without_evidence.json",
+    "bad_pass_with_empty_evidence_array.json",
+    "bad_pass_with_warnings.json",
+    "bad_dashboard_green_missing_report.json",
+    "bad_button_enabled_without_receipt.json",
+    "bad_script_visible_without_last_report.json",
+    "bad_sanctum_green_from_stale_source.json",
+    "bad_fixture_claims_production_pass.json"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "contract_id": "LAW_CHANGE_RECEIPT_V1_CONTRACT",
+  "schema_id": "law_change_receipt",
+  "owner_organ": "Doctrinarium",
+  "purpose": "Lane B contract for law_change_receipt",
+  "source_of_truth_category": "law_change_receipt",
+  "required_fields": [
+    "receipt_id",
+    "law_id",
+    "change_type",
+    "before_hash",
+    "after_hash",
+    "changed_at_utc",
+    "owner_approval_path",
+    "summary",
+    "warnings",
+    "blockers"
+  ],
+  "optional_fields": [],
+  "producer": "Doctrinarium",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

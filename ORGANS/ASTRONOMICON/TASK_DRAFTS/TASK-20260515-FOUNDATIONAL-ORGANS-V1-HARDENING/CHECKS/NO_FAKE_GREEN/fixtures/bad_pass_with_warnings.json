@@ -1,0 +1,14 @@
+{
+  "id": "bad3",
+  "status": "PASS",
+  "evidence_paths": [
+    "r.json"
+  ],
+  "warnings": [
+    "minor"
+  ],
+  "blockers": [],
+  "freshness": "fresh",
+  "expected_result": "FAIL",
+  "fixture_only": true
+}

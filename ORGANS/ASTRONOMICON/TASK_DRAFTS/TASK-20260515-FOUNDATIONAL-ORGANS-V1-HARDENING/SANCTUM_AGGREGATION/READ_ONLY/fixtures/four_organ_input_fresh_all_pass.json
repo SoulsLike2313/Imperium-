@@ -1,0 +1,26 @@
+{
+  "fixture_only": true,
+  "organs": [
+    {
+      "id": "ASTRONOMICON",
+      "status": "PASS",
+      "freshness": "fresh"
+    },
+    {
+      "id": "ADMINISTRATUM",
+      "status": "PASS",
+      "freshness": "fresh"
+    },
+    {
+      "id": "OFFICIO_AGENTIS",
+      "status": "PASS",
+      "freshness": "fresh"
+    },
+    {
+      "id": "DOCTRINARIUM",
+      "status": "PASS",
+      "freshness": "fresh"
+    }
+  ],
+  "expected_aggregate": "PASS"
+}

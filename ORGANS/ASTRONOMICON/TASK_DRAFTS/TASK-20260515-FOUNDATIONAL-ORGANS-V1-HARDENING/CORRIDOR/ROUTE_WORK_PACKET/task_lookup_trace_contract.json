@@ -1,0 +1,12 @@
+{
+  "schema_id": "task_lookup_trace",
+  "required_fields": [
+    "task_ticket_id",
+    "task_id",
+    "lookup_path",
+    "lookup_result",
+    "stage_map_hash",
+    "lookup_at_utc"
+  ],
+  "owner_organ": "Administratum"
+}

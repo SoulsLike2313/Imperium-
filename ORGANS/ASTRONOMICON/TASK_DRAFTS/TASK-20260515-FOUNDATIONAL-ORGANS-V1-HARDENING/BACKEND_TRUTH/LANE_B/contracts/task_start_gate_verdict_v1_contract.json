@@ -1,0 +1,52 @@
+{
+  "contract_id": "TASK_START_GATE_VERDICT_V1_CONTRACT",
+  "schema_id": "task_start_gate_verdict",
+  "owner_organ": "Doctrinarium",
+  "purpose": "Lane B contract for task_start_gate_verdict",
+  "source_of_truth_category": "task_start_gate_verdict",
+  "required_fields": [
+    "verdict_id",
+    "task_id",
+    "gate_id",
+    "law_index_hash",
+    "organ_health_report_path",
+    "officio_contract_reference",
+    "admin_work_packet_reference",
+    "verdict",
+    "warnings",
+    "blockers",
+    "evidence_paths",
+    "generated_at_utc",
+    "git_head"
+  ],
+  "optional_fields": [],
+  "producer": "Doctrinarium",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

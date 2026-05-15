@@ -1,0 +1,24 @@
+{
+  "fixture_only": true,
+  "receipt_id": "WARN-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "warning_codes": [
+    "DOC_WARN"
+  ],
+  "warning_descriptions": [
+    "non-critical wording issue"
+  ],
+  "accepted_by": "Administratum",
+  "acceptance_scope": "stage_only",
+  "carry_forward_to_final_bundle": true,
+  "created_at_utc": "2026-05-15T05:46:03Z",
+  "evidence_paths": [
+    "warn.json"
+  ],
+  "warnings": [
+    "DOC_WARN"
+  ],
+  "blockers": [],
+  "verdict": "PASS_WITH_WARNINGS"
+}

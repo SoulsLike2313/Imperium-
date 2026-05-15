@@ -1,0 +1,14 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "panels": [
+    "organ_health_matrix_panel",
+    "law_registry_panel",
+    "doctrine_browser_panel",
+    "law_readability_panel",
+    "law_execution_proof_panel",
+    "task_start_gate_panel",
+    "violations_panel",
+    "disabled_inquisition_hook_panel",
+    "advisory_reference_only_panel"
+  ]
+}

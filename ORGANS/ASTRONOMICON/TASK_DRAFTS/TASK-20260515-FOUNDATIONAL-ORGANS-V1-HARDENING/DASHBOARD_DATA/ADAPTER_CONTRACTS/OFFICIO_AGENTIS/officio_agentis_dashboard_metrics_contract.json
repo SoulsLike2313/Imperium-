@@ -1,0 +1,11 @@
+{
+  "organ_id": "OFFICIO_AGENTIS",
+  "metrics": [
+    "role_contract_count",
+    "valid_role_contract_count",
+    "missing_read_receipt_count",
+    "capability_gap_count",
+    "blocked_role_count",
+    "owner_gated_action_count"
+  ]
+}

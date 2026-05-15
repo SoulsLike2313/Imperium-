@@ -1,0 +1,54 @@
+{
+  "contract_id": "ADMIN_STAGE_COMPLETION_RECEIPT_V1_CONTRACT",
+  "schema_id": "admin_stage_completion_receipt",
+  "owner_organ": "Administratum",
+  "purpose": "Lane B contract for admin_stage_completion_receipt",
+  "source_of_truth_category": "admin_stage_completion_receipt",
+  "required_fields": [
+    "receipt_id",
+    "task_id",
+    "stage_id",
+    "run_id",
+    "completed_by",
+    "completion_verdict",
+    "started_at_utc",
+    "completed_at_utc",
+    "evidence_paths",
+    "evidence_hashes",
+    "checks_run",
+    "warnings",
+    "blockers",
+    "admin_verification_status",
+    "git_head"
+  ],
+  "optional_fields": [],
+  "producer": "Administratum",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

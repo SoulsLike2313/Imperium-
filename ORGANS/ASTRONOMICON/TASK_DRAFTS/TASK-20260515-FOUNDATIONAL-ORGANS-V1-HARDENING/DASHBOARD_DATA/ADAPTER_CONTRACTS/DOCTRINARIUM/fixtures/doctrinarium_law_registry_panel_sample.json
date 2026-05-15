@@ -1,0 +1,8 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "law_registry_panel",
+  "active_law_count": 4,
+  "draft_law_count": 2,
+  "law_integrity_warning_count": 0
+}

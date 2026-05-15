@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-05-BACKEND-REPORT-CONTRACT-IMPLEMENTATION-LANE-A",
+  "created_utc": "2026-05-15T05:38:51Z",
+  "contracts": [
+    "BACKEND_TRUTH/LANE_A/contracts/organ_self_report_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/evidence_common_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/receipt_common_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/gate_report_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/work_packet_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/route_sheet_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/stage_map_v1_contract.json",
+    "BACKEND_TRUTH/LANE_A/contracts/stage_record_v1_contract.json"
+  ],
+  "fixtures": [
+    "BACKEND_TRUTH/LANE_A/fixtures/organ_self_report_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/evidence_common_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/receipt_common_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/gate_report_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/work_packet_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/route_sheet_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/stage_map_sample.json",
+    "BACKEND_TRUTH/LANE_A/fixtures/stage_record_sample.json"
+  ],
+  "contract_count": 8,
+  "fixture_count": 8,
+  "verdict": "PASS"
+}

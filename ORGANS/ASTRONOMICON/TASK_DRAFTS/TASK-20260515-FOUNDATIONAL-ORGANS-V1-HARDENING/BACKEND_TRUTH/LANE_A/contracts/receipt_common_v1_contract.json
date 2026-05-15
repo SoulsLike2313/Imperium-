@@ -1,0 +1,48 @@
+{
+  "contract_id": "RECEIPT_COMMON_V1_CONTRACT",
+  "schema_id": "receipt_common",
+  "owner_organ": "Administratum",
+  "purpose": "Lane A contract for receipt_common",
+  "source_of_truth_category": "receipt_common",
+  "required_fields": [
+    "receipt_id",
+    "receipt_type",
+    "actor",
+    "action",
+    "timestamp_utc",
+    "before_state",
+    "after_state",
+    "evidence_hashes",
+    "source_report_paths",
+    "warnings",
+    "blockers"
+  ],
+  "optional_fields": [],
+  "status_values_allowed": [
+    "PASS",
+    "PASS_WITH_WARNINGS",
+    "FAIL",
+    "BLOCKED",
+    "UNKNOWN"
+  ],
+  "warning_rules": [
+    "warnings_must_be_explicit"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required_for_pass"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required",
+    "git_head_required"
+  ],
+  "producer": "Administratum",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "fixture/reference contract inside hardening package only"
+}

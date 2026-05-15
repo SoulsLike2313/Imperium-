@@ -1,0 +1,26 @@
+{
+  "fixture_only": true,
+  "receipt_id": "STOP-001",
+  "receipt_type": "ROLLBACK_STOP",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "trigger": "critical_gate_failure",
+  "stop_category": "STOP_IMMEDIATE",
+  "reason": "invalid_json_detected",
+  "blocking_gate": "EVIDENCE_SCHEMA_GATE",
+  "affected_files": [
+    "a.json"
+  ],
+  "partial_outputs": [
+    "b.json"
+  ],
+  "preservation_action": "keep_and_mark_partial",
+  "recommended_next_action": "repair_json_and_retry",
+  "owner_decision_required": false,
+  "created_at_utc": "2026-05-15T05:46:03Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [
+    "invalid_json"
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-16-DASHBOARD-ACTION-RECEIPT-CONTROLS",
+  "created_utc": "2026-05-15T05:50:54Z",
+  "checker_path": "DASHBOARD_UI/ACTION_CONTROLS/dashboard_action_receipt_control_static_check.py",
+  "fixtures_checked": 7,
+  "results": [
+    {
+      "fixture": "bad_action_without_failure_behavior.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "enabled_action_without_failure_behavior"
+    },
+    {
+      "fixture": "bad_action_wrong_owner_organ.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "wrong_owner_organ"
+    },
+    {
+      "fixture": "bad_enabled_action_without_receipt.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "enabled_non_read_only_without_receipt"
+    },
+    {
+      "fixture": "blocked_destructive_action.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "disabled_registration_action.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "owner_gated_state_transition_action.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "safe_read_only_export_action.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    }
+  ],
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS",
+  "not_production_checker": true
+}

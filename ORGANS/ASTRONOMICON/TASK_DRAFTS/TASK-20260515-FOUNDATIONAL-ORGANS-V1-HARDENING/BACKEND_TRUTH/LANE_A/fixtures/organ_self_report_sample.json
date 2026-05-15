@@ -1,0 +1,27 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:38:51Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "organ_self_report",
+  "organ_id": "DOCTRINARIUM",
+  "organ_name": "Doctrinarium",
+  "status": "PASS_WITH_WARNINGS",
+  "source_paths": [
+    "ORGANS/DOCTRINARIUM/ORGAN_SELF_REPORT.json"
+  ],
+  "checks": [
+    "self_report_schema_check"
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/REPORTS/self_report_check.json"
+  ],
+  "freshness": {
+    "checked_at_utc": "2026-05-15T05:38:51Z",
+    "expires_after_seconds": 3600,
+    "stale_status": "fresh"
+  }
+}

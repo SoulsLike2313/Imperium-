@@ -1,0 +1,77 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-17-UTF8-REPO-PURITY-HARDENING-CHECKS",
+  "created_utc": "2026-05-15T05:52:01Z",
+  "checker_path": "CHECKS/UTF8_REPO_PURITY/utf8_repo_purity_stage_local_check.py",
+  "fixtures_checked": 7,
+  "good_fixtures_passed": [
+    "good_canonical_english_json.json",
+    "good_ui_ru_i18n_json.json"
+  ],
+  "bad_fixtures_detected": [
+    "bad_canonical_russian_state.json",
+    "bad_private_context_repo_path.json",
+    "bad_runtime_outbox_repo_path.json",
+    "bad_untracked_junk_path.json",
+    "bad_mojibake_text_sample.txt"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "coverage_limitations": [
+    "stage_local_fixtures_only",
+    "not_production_checker"
+  ],
+  "not_production_checker": true,
+  "verdict": "PASS",
+  "results": [
+    {
+      "fixture": "bad_canonical_russian_state.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "non_english_canonical_status_key"
+    },
+    {
+      "fixture": "bad_private_context_repo_path.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "forbidden_repo_path"
+    },
+    {
+      "fixture": "bad_runtime_outbox_repo_path.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "forbidden_repo_path"
+    },
+    {
+      "fixture": "bad_untracked_junk_path.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "forbidden_repo_path"
+    },
+    {
+      "fixture": "good_canonical_english_json.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "good_ui_ru_i18n_json.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    },
+    {
+      "fixture": "bad_mojibake_text_sample.txt",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "mojibake_marker_detected"
+    }
+  ]
+}

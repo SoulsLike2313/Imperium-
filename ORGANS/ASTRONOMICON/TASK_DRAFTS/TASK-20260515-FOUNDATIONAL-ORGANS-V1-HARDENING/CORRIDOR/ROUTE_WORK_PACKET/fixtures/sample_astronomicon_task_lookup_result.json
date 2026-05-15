@@ -1,0 +1,7 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "lookup_result": "FOUND",
+  "stage_map_path": "STAGE_PROMPTS/STAGE_PROMPTS_MANIFEST.json",
+  "stage_map_hash": "demo-hash",
+  "fixture_only": true
+}

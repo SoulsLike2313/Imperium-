@@ -1,0 +1,21 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:40:06Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "task_start_gate_verdict",
+  "verdict_id": "TSG-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "gate_id": "TASK_START_CORRIDOR_GATE",
+  "law_index_hash": "abc",
+  "organ_health_report_path": "ORGANS/DOCTRINARIUM/REPORTS/organ_health.json",
+  "officio_contract_reference": "ORGANS/OFFICIO_AGENTIS/REGISTRY/ROLE_REGISTRY.json",
+  "admin_work_packet_reference": "ORGANS/ADMINISTRATUM/REPORTS/work_packet.json",
+  "verdict": "BLOCKED",
+  "evidence_paths": [
+    "proofs/missing_owner_launch_gate.json"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:40:06Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "role_read_receipt",
+  "receipt_id": "READ-001",
+  "role_id": "SERVITOR",
+  "agent_label": "PC Servitor",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "required_reads": [
+    "STAGE_PROMPT"
+  ],
+  "read_paths": [
+    "STAGE_PROMPTS/STAGE-01..."
+  ],
+  "read_hashes": [
+    "abc"
+  ],
+  "read_at_utc": "2026-05-15T05:40:06Z",
+  "acknowledged_stop_conditions": [
+    "real_blocker_only"
+  ]
+}

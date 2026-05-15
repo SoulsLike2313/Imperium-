@@ -1,0 +1,13 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "panels": [
+    "work_packet_ledger_panel",
+    "route_sheet_panel",
+    "stage_ledger_panel",
+    "receipt_history_panel",
+    "bundle_status_panel",
+    "continuity_pack_panel",
+    "git_truth_panel"
+  ],
+  "state_transition_buttons_enabled": false
+}

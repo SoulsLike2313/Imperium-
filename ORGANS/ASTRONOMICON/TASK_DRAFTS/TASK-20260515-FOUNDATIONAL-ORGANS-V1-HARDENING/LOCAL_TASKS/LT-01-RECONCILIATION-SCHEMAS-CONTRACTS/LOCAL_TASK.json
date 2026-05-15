@@ -1,0 +1,8 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-01-RECONCILIATION-SCHEMAS-CONTRACTS",
+  "title": "Reconciliation, Schemas, and Contracts",
+  "status": "in_progress",
+  "stage_count_planned": 4,
+  "current_stage": "STAGE-01-SOURCE-INTEGRITY-OWNER-MATRIX-FREEZE"
+}

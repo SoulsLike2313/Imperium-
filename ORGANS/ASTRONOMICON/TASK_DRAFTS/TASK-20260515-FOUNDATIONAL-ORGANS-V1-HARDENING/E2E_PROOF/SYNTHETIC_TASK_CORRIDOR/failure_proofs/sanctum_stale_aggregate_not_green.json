@@ -1,0 +1,7 @@
+{
+  "synthetic_only": true,
+  "not_production_evidence": true,
+  "expected_result": "BLOCKED",
+  "blocker_reason": "sanctum_cannot_show_green_when_stale",
+  "gate": "STALE_STATUS_GATE"
+}

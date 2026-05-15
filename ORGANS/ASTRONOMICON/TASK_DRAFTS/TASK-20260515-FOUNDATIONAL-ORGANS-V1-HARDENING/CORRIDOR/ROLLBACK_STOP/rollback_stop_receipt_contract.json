@@ -1,0 +1,24 @@
+{
+  "schema_id": "rollback_stop_receipt_contract",
+  "required_fields": [
+    "receipt_id",
+    "receipt_type",
+    "task_id",
+    "stage_id",
+    "trigger",
+    "stop_category",
+    "reason",
+    "blocking_gate",
+    "affected_files",
+    "partial_outputs",
+    "preservation_action",
+    "recommended_next_action",
+    "owner_decision_required",
+    "created_at_utc",
+    "git_head",
+    "warnings",
+    "blockers"
+  ],
+  "owner_organ": "Administratum",
+  "validation_expectation": "required_fields_present"
+}

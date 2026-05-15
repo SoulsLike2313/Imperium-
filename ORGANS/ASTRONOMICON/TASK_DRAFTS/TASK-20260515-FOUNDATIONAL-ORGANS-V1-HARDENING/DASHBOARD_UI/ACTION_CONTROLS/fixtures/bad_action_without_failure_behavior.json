@@ -1,0 +1,29 @@
+{
+  "fixture_only": true,
+  "action_id": "bad_generate_report",
+  "organ_id": "ASTRONOMICON",
+  "action_type": "generate_report",
+  "enabled": true,
+  "disabled_reason": null,
+  "owner_gate_required": true,
+  "confirmation_required": true,
+  "allowed_roles": [
+    "Owner"
+  ],
+  "source_of_truth_owner": "Astronomicon",
+  "target_script_or_action": "none",
+  "target_write_roots": [],
+  "expected_report_path": "reports/bad2.json",
+  "expected_receipt_path": "receipts/bad2.json",
+  "receipt_schema_id": "dashboard_action_receipt",
+  "timeout_seconds": 30,
+  "success_condition": "report_generated",
+  "failure_condition": null,
+  "rollback_or_stop_behavior": null,
+  "evidence_paths": [
+    "x"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "expected_result": "FAIL"
+}

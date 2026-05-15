@@ -1,0 +1,17 @@
+{
+  "schema_id": "warning_acceptance_receipt_contract",
+  "required_fields": [
+    "receipt_id",
+    "task_id",
+    "stage_id",
+    "warning_codes",
+    "warning_descriptions",
+    "accepted_by",
+    "acceptance_scope",
+    "carry_forward_to_final_bundle",
+    "created_at_utc",
+    "evidence_paths"
+  ],
+  "owner_organ": "Administratum",
+  "validation_expectation": "required_fields_present"
+}

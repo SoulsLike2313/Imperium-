@@ -1,0 +1,13 @@
+{
+  "id": "bad7",
+  "status": "GREEN",
+  "evidence_paths": [
+    "r.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "freshness": "stale",
+  "sanctum_aggregate": true,
+  "expected_result": "FAIL",
+  "fixture_only": true
+}

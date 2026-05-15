@@ -1,0 +1,8 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "created_utc": "2026-05-15T05:47:11Z",
+  "fixtures": 4,
+  "verdict": "PASS",
+  "mock_data_allowed": false,
+  "bundle_status_requires_manifest": true
+}

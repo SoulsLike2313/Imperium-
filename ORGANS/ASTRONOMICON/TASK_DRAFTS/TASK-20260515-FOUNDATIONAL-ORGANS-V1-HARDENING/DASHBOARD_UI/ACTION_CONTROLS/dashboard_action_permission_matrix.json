@@ -1,0 +1,13 @@
+{
+  "read_only_view": "allowed",
+  "read_only_export": "allowed_if_no_mutation",
+  "refresh_dashboard_data": "allowed_if_adapter_report_contract_exists",
+  "generate_report": "owner_or_role_gated",
+  "state_transition": "disabled_without_owner_approval",
+  "registration": "disabled_or_owner_gated",
+  "bundle_collection": "disabled_until_bundle_stage",
+  "continuity_pack_collection": "disabled_until_final_bundle_stage",
+  "destructive": "disabled",
+  "owner_gated": "disabled_until_owner_confirmation",
+  "disabled_placeholder": "allowed_visible_disabled"
+}

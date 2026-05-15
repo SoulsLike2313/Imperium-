@@ -1,0 +1,7 @@
+{
+  "fixture_only": true,
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "route_sheet_stage_map_hash": "aaa",
+  "astronomicon_stage_map_hash": "bbb",
+  "expected_result": "FAIL"
+}

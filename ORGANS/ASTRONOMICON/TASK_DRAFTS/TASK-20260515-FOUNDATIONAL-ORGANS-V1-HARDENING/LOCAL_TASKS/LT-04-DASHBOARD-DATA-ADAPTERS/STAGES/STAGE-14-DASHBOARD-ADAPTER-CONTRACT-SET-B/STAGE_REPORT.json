@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-04-DASHBOARD-DATA-ADAPTERS",
+  "stage_id": "STAGE-14-DASHBOARD-ADAPTER-CONTRACT-SET-B",
+  "stage_number": 14,
+  "prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-14_DASHBOARD_ADAPTER_CONTRACT_SET_B_PROMPT.md",
+  "started_utc": "2026-05-15T05:48:31Z",
+  "completed_utc": "2026-05-15T05:48:31Z",
+  "verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "checker_commands": [
+    "json parse dashboard adapter contracts set B"
+  ],
+  "checker_results": {
+    "officio_fixtures": 5,
+    "doctrinarium_fixtures": 6,
+    "sanctum_ready": false
+  },
+  "evidence_paths": [
+    "E:/IMPERIUM/ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-04-DASHBOARD-DATA-ADAPTERS/STAGES/STAGE-14-DASHBOARD-ADAPTER-CONTRACT-SET-B/EVIDENCE/dashboard_adapter_contract_set_b_evidence.json"
+  ],
+  "repaired_errors": [],
+  "retry_count": 0,
+  "git_head_during_stage": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "ready_for_agent": false
+}

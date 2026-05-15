@@ -1,0 +1,21 @@
+{
+  "required_fields": [
+    "receipt_id",
+    "action_id",
+    "organ_id",
+    "actor",
+    "role_id",
+    "started_at_utc",
+    "completed_at_utc",
+    "target_paths",
+    "before_hashes",
+    "after_hashes",
+    "verdict",
+    "warnings",
+    "blockers",
+    "expected_report_path",
+    "actual_report_path",
+    "failure_behavior"
+  ],
+  "read_only_may_skip_receipt": true
+}

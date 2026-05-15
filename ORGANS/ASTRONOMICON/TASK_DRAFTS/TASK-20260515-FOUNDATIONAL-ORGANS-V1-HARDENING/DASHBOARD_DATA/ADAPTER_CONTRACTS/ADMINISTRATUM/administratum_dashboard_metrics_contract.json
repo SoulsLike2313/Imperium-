@@ -1,0 +1,13 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "metrics": [
+    "work_packet_count",
+    "active_work_packet_count",
+    "blocked_work_packet_count",
+    "stage_receipt_coverage",
+    "route_sheet_count",
+    "bundle_completeness",
+    "continuity_pack_readiness",
+    "stale_report_count"
+  ]
+}

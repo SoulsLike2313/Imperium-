@@ -1,0 +1,17 @@
+{
+  "schema_id": "owner_decision_required_receipt_contract",
+  "required_fields": [
+    "receipt_id",
+    "task_id",
+    "stage_id",
+    "decision_topic",
+    "options",
+    "recommended_option",
+    "risk_if_unanswered",
+    "blocked_until_answered",
+    "created_at_utc",
+    "source_paths"
+  ],
+  "owner_organ": "Administratum",
+  "validation_expectation": "required_fields_present"
+}

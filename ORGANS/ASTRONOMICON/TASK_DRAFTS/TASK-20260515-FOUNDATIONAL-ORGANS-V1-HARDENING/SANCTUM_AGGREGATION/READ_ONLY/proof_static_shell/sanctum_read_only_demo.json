@@ -1,0 +1,8 @@
+{
+  "not_production": true,
+  "aggregation_mode": "read_only",
+  "demo_inputs": [
+    "fixtures/four_organ_input_fresh_all_pass.json",
+    "fixtures/four_organ_input_one_stale.json"
+  ]
+}

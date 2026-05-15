@@ -1,0 +1,56 @@
+{
+  "ASTRONOMICON": {
+    "allowed": [
+      "view_stage_map",
+      "read_only_export_review_pack",
+      "view_registration_readiness"
+    ],
+    "disabled_or_gated": [
+      "register_task",
+      "import_advisory_result",
+      "mutate_stage_map",
+      "mark_stage_complete"
+    ]
+  },
+  "ADMINISTRATUM": {
+    "allowed": [
+      "view_work_packet_ledger",
+      "view_route_sheet",
+      "read_only_export_reports"
+    ],
+    "disabled_or_gated": [
+      "open_work_packet",
+      "confirm_task_start",
+      "mark_stage_complete",
+      "collect_bundle",
+      "collect_continuity_pack"
+    ]
+  },
+  "OFFICIO_AGENTIS": {
+    "allowed": [
+      "view_role_contracts",
+      "view_read_receipts",
+      "view_capability_gaps"
+    ],
+    "disabled_or_gated": [
+      "register_role",
+      "assign_agent",
+      "change_contract",
+      "override_stop_condition"
+    ]
+  },
+  "DOCTRINARIUM": {
+    "allowed": [
+      "view_laws",
+      "view_doctrine",
+      "view_gate_reports",
+      "view_violations"
+    ],
+    "disabled_or_gated": [
+      "accept_canon",
+      "activate_law",
+      "change_law_status",
+      "activate_inquisition_hook"
+    ]
+  }
+}

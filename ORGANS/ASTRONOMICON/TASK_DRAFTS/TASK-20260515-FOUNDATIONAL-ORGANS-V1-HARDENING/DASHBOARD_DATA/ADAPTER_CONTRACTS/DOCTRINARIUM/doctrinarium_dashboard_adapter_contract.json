@@ -1,0 +1,21 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "owner_truth_categories": [
+    "law_registry",
+    "doctrine_registry",
+    "law_canon_acceptance",
+    "organ_health_gate",
+    "task_start_gate",
+    "violations",
+    "disabled_inquisition_hook"
+  ],
+  "must_not_decide": [
+    "task_scope",
+    "stage_topology",
+    "execution_lifecycle"
+  ],
+  "inquisition_hook_status": "DISABLED_V1",
+  "advisory_reference_only_required": true,
+  "mock_data_allowed": false,
+  "not_source_of_truth": true
+}

@@ -1,0 +1,71 @@
+{
+  "organs": [
+    {
+      "organ_id": "ASTRONOMICON",
+      "dashboard_adapter_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ASTRONOMICON/astronomicon_dashboard_adapter_contract.json",
+      "dashboard_state_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ASTRONOMICON/astronomicon_dashboard_state_contract.json",
+      "metrics_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ASTRONOMICON/astronomicon_dashboard_metrics_contract.json",
+      "evidence_index_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ASTRONOMICON/astronomicon_dashboard_evidence_index_contract.json",
+      "style_note": "topology_focus",
+      "source_truth_categories": [
+        "task_scope",
+        "stage_topology"
+      ],
+      "must_not_decide": [
+        "execution_lifecycle"
+      ],
+      "freshness_required": true,
+      "status_can_only_degrade_in_sanctum": true
+    },
+    {
+      "organ_id": "ADMINISTRATUM",
+      "dashboard_adapter_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ADMINISTRATUM/administratum_dashboard_adapter_contract.json",
+      "dashboard_state_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ADMINISTRATUM/administratum_dashboard_state_contract.json",
+      "metrics_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ADMINISTRATUM/administratum_dashboard_metrics_contract.json",
+      "evidence_index_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/ADMINISTRATUM/administratum_dashboard_evidence_index_contract.json",
+      "style_note": "execution_focus",
+      "source_truth_categories": [
+        "execution_lifecycle",
+        "stage_completion_truth"
+      ],
+      "must_not_decide": [
+        "stage_topology"
+      ],
+      "freshness_required": true,
+      "status_can_only_degrade_in_sanctum": true
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "dashboard_adapter_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/OFFICIO_AGENTIS/officio_agentis_dashboard_adapter_contract.json",
+      "dashboard_state_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/OFFICIO_AGENTIS/officio_agentis_dashboard_state_contract.json",
+      "metrics_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/OFFICIO_AGENTIS/officio_agentis_dashboard_metrics_contract.json",
+      "evidence_index_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/OFFICIO_AGENTIS/officio_agentis_dashboard_evidence_index_contract.json",
+      "style_note": "role_contract_focus",
+      "source_truth_categories": [
+        "role_contracts"
+      ],
+      "must_not_decide": [
+        "execution_lifecycle"
+      ],
+      "freshness_required": true,
+      "status_can_only_degrade_in_sanctum": true
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "dashboard_adapter_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/DOCTRINARIUM/doctrinarium_dashboard_adapter_contract.json",
+      "dashboard_state_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/DOCTRINARIUM/doctrinarium_dashboard_state_contract.json",
+      "metrics_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/DOCTRINARIUM/doctrinarium_dashboard_metrics_contract.json",
+      "evidence_index_contract_path": "DASHBOARD_DATA/ADAPTER_CONTRACTS/DOCTRINARIUM/doctrinarium_dashboard_evidence_index_contract.json",
+      "style_note": "law_gate_focus",
+      "source_truth_categories": [
+        "law_registry",
+        "task_start_gate"
+      ],
+      "must_not_decide": [
+        "stage_topology"
+      ],
+      "freshness_required": true,
+      "status_can_only_degrade_in_sanctum": true
+    }
+  ]
+}

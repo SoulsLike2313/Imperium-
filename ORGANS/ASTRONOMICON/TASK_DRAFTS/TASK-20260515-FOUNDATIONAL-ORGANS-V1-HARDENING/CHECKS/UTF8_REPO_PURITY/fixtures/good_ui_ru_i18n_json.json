@@ -1,0 +1,6 @@
+{
+  "fixture_only": true,
+  "path": "DASHBOARD_UI/RENDER_TRUTH/proof_static_panel/i18n/ru.json",
+  "ui_label": "Успех",
+  "expected_result": "PASS"
+}

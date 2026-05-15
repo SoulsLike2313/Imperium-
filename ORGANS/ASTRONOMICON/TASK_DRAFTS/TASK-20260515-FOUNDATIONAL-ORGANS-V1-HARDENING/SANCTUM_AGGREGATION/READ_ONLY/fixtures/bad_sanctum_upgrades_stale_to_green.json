@@ -1,0 +1,6 @@
+{
+  "fixture_only": true,
+  "input_status": "stale",
+  "output_status": "green",
+  "expected_result": "FAIL"
+}

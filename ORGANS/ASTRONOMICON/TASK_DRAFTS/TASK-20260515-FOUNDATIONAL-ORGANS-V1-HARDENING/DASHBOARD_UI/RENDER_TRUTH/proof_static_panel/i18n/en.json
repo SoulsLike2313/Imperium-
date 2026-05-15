@@ -1,0 +1,9 @@
+{
+  "status.pass": "Pass",
+  "status.pass_with_warnings": "Pass with warnings",
+  "status.blocked": "Blocked",
+  "status.stale": "Stale",
+  "status.disabled": "Disabled",
+  "label.evidence": "Evidence",
+  "label.blockers": "Blockers"
+}

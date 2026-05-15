@@ -1,0 +1,15 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "organ_id": "OFFICIO_AGENTIS",
+  "status": "PASS_WITH_WARNINGS",
+  "generated_at_utc": "2026-05-15T05:48:31Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [
+    "registration_action_disabled"
+  ],
+  "blockers": [],
+  "source_reports": [
+    "BACKEND_TRUTH/LANE_B/fixtures/role_contract_sample.json"
+  ]
+}

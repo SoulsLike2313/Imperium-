@@ -1,0 +1,48 @@
+{
+  "contract_id": "SOURCE_PACKAGE_MANIFEST_V1_CONTRACT",
+  "schema_id": "source_package_manifest",
+  "owner_organ": "Astronomicon",
+  "purpose": "Lane B contract for source_package_manifest",
+  "source_of_truth_category": "source_package_manifest",
+  "required_fields": [
+    "manifest_id",
+    "task_id",
+    "source_files",
+    "sha256",
+    "size_bytes",
+    "source_status",
+    "git_head_used",
+    "created_at_utc",
+    "required_for_execution"
+  ],
+  "optional_fields": [],
+  "producer": "Astronomicon",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "required_inputs": [
+    "task_id",
+    "stage_context"
+  ],
+  "required_outputs": [
+    "contract_instance"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required"
+  ],
+  "hash_rules": [
+    "git_head_or_source_hash_required"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required"
+  ],
+  "warning_rules": [
+    "warnings_visible_required"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "contract-only in hardening package; not production execution"
+}

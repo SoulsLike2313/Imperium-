@@ -1,0 +1,132 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-02-OWNERSHIP-MATRIX-FREEZE-BOUNDARY-LINT",
+  "rules": [
+    {
+      "rule_id": "OBR-001",
+      "description": "Astronomicon must not write execution lifecycle truth",
+      "blocked_pattern": "astronomicon_writes_execution_state",
+      "required_owner": "Administratum",
+      "allowed_writers": [
+        "Administratum"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Astronomicon sets work packet to ACTIVE",
+      "expected_fix": "Route execution state write via Administratum receipts"
+    },
+    {
+      "rule_id": "OBR-002",
+      "description": "Administratum must not own stage topology",
+      "blocked_pattern": "administratum_writes_stage_topology",
+      "required_owner": "Astronomicon",
+      "allowed_writers": [
+        "Astronomicon"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Administratum rewrites stage map",
+      "expected_fix": "Use Astronomicon stage map reference only"
+    },
+    {
+      "rule_id": "OBR-003",
+      "description": "Administratum cannot decide law or canon acceptance",
+      "blocked_pattern": "administratum_decides_canon",
+      "required_owner": "Doctrinarium",
+      "allowed_writers": [
+        "Doctrinarium"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Administratum marks law active",
+      "expected_fix": "Law acceptance via Doctrinarium + owner gate receipt"
+    },
+    {
+      "rule_id": "OBR-004",
+      "description": "Officio cannot own execution lifecycle",
+      "blocked_pattern": "officio_sets_execution_state",
+      "required_owner": "Administratum",
+      "allowed_writers": [
+        "Administratum"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Officio closes stage as complete",
+      "expected_fix": "Officio provides role proof only"
+    },
+    {
+      "rule_id": "OBR-005",
+      "description": "Officio cannot override Doctrinarium law truth",
+      "blocked_pattern": "officio_overrides_law",
+      "required_owner": "Doctrinarium",
+      "allowed_writers": [
+        "Doctrinarium"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Officio sets law status",
+      "expected_fix": "Law state from law registry entry and law change receipt"
+    },
+    {
+      "rule_id": "OBR-006",
+      "description": "Doctrinarium cannot own task scope or stage topology",
+      "blocked_pattern": "doctrinarium_writes_stage_map",
+      "required_owner": "Astronomicon",
+      "allowed_writers": [
+        "Astronomicon"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Doctrinarium edits task stage map",
+      "expected_fix": "Doctrinarium gates task start only"
+    },
+    {
+      "rule_id": "OBR-007",
+      "description": "Inquisition hook must remain disabled in V1",
+      "blocked_pattern": "doctrinarium_claims_active_inquisition",
+      "required_owner": "Doctrinarium",
+      "allowed_writers": [
+        "Doctrinarium"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Hook status ACTIVE_AUDIT",
+      "expected_fix": "Keep status DISABLED_V1 and not_audit true"
+    },
+    {
+      "rule_id": "OBR-008",
+      "description": "Sanctum is read-only aggregation",
+      "blocked_pattern": "sanctum_writes_canonical_truth",
+      "required_owner": "IndividualOrgans",
+      "allowed_writers": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Doctrinarium"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Sanctum updates law status",
+      "expected_fix": "Sanctum preserves source status only"
+    },
+    {
+      "rule_id": "OBR-009",
+      "description": "Dashboard layer cannot write source-of-truth state",
+      "blocked_pattern": "dashboard_mutates_canonical_state",
+      "required_owner": "SourceOwnerOrgan",
+      "allowed_writers": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Doctrinarium"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Dashboard button marks stage complete directly",
+      "expected_fix": "Use owner action contract and receipt"
+    },
+    {
+      "rule_id": "OBR-010",
+      "description": "Scripts/tools must declare owner and receipt before mutation",
+      "blocked_pattern": "tool_mutates_organ_without_receipt",
+      "required_owner": "OwningOrgan",
+      "allowed_writers": [
+        "OwningOrgan"
+      ],
+      "stop_if_violated": true,
+      "example_violation": "Undeclared script rewrites organ report",
+      "expected_fix": "Add explicit action contract and receipt path"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "task_start_gate_panel",
+  "task_start_gate_status": "BLOCKED_UNTIL_OWNER_REVIEW",
+  "evidence_path": "CORRIDOR/TASK_START/fixtures/sample_admin_task_start_confirmation.json"
+}

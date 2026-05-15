@@ -1,0 +1,17 @@
+{
+  "schema_id": "stage_blocked_receipt_contract",
+  "required_fields": [
+    "receipt_id",
+    "task_id",
+    "stage_id",
+    "blocked_by",
+    "blocker_code",
+    "blocker_description",
+    "evidence_paths",
+    "created_at_utc",
+    "git_head",
+    "recommended_fix"
+  ],
+  "owner_organ": "Administratum",
+  "validation_expectation": "required_fields_present"
+}

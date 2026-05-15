@@ -1,0 +1,127 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-11-TASK-START-CORRIDOR-GATE-LINK",
+  "created_utc": "2026-05-15T05:44:57Z",
+  "required_proofs": [
+    {
+      "proof_id": "astronomicon_task_scope_proof",
+      "owner_organ": "Astronomicon",
+      "required_artifact": "astronomicon_task_scope_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "astronomicon_stage_map_hash_proof",
+      "owner_organ": "Astronomicon",
+      "required_artifact": "astronomicon_stage_map_hash_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "administratum_route_sheet_proof",
+      "owner_organ": "Administratum",
+      "required_artifact": "administratum_route_sheet_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "administratum_work_packet_proof",
+      "owner_organ": "Administratum",
+      "required_artifact": "administratum_work_packet_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "doctrinarium_organ_health_gate_proof",
+      "owner_organ": "Doctrinarium",
+      "required_artifact": "doctrinarium_organ_health_gate_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "doctrinarium_law_readiness_gate_proof",
+      "owner_organ": "Doctrinarium",
+      "required_artifact": "doctrinarium_law_readiness_gate_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "officio_role_contract_proof",
+      "owner_organ": "Officio Agentis",
+      "required_artifact": "officio_role_contract_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "officio_role_read_receipt_proof",
+      "owner_organ": "Officio Agentis",
+      "required_artifact": "officio_role_read_receipt_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "git_truth_proof",
+      "owner_organ": "Astronomicon",
+      "required_artifact": "git_truth_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "source_package_integrity_proof",
+      "owner_organ": "Astronomicon",
+      "required_artifact": "source_package_integrity_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "no_fake_green_proof",
+      "owner_organ": "Astronomicon",
+      "required_artifact": "no_fake_green_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    },
+    {
+      "proof_id": "stale_status_proof",
+      "owner_organ": "Astronomicon",
+      "required_artifact": "stale_status_proof.json",
+      "hash_required": true,
+      "freshness_required": true,
+      "missing_behavior": "BLOCK",
+      "stale_behavior": "BLOCK",
+      "blocker_if_missing": true
+    }
+  ]
+}

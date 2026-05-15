@@ -1,0 +1,27 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-02-BACKEND-TRUTH-LAYER",
+  "stage_id": "STAGE-08-STALE-STATUS-CHECKERS",
+  "stage_number": 8,
+  "prompt_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-08_STALE_STATUS_CHECKERS_PROMPT.md",
+  "started_utc": "2026-05-15T05:42:20Z",
+  "completed_utc": "2026-05-15T05:42:20Z",
+  "verdict": "PASS",
+  "warnings": [],
+  "blockers": [],
+  "checker_commands": [
+    "py -3 CHECKS/STALE_STATUS/stale_status_stage_local_check.py"
+  ],
+  "checker_results": {
+    "fixtures_checked": 7,
+    "verdict": "PASS"
+  },
+  "evidence_paths": [
+    "E:/IMPERIUM/ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/LOCAL_TASKS/LT-02-BACKEND-TRUTH-LAYER/STAGES/STAGE-08-STALE-STATUS-CHECKERS/EVIDENCE/stale_status_evidence.json",
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/CHECKS/STALE_STATUS/stale_status_check_report.json"
+  ],
+  "repaired_errors": [],
+  "retry_count": 0,
+  "git_head_during_stage": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "ready_for_agent": false
+}

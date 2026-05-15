@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK",
+  "created_utc": "2026-05-15T05:37:39Z",
+  "stop_categories": 4,
+  "warning_policy_present": true,
+  "owner_launch_gate_required": true,
+  "verdict": "PASS"
+}

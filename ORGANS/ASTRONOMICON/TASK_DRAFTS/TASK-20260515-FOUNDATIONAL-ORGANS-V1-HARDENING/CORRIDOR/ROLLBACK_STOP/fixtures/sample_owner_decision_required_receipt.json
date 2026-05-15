@@ -1,0 +1,18 @@
+{
+  "fixture_only": true,
+  "receipt_id": "ODR-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "decision_topic": "ownership_boundary_change",
+  "options": [
+    "reject",
+    "accept_with_owner_override"
+  ],
+  "recommended_option": "reject",
+  "risk_if_unanswered": "execution_drift",
+  "blocked_until_answered": true,
+  "created_at_utc": "2026-05-15T05:46:03Z",
+  "source_paths": [
+    "ownership/freeze.json"
+  ]
+}

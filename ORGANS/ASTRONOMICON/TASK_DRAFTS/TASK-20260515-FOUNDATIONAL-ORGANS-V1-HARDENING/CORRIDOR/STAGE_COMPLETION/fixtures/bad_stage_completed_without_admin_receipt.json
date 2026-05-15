@@ -1,0 +1,8 @@
+{
+  "fixture_only": true,
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING",
+  "state": "COMPLETED",
+  "admin_receipt_path": null,
+  "expected_result": "FAIL"
+}

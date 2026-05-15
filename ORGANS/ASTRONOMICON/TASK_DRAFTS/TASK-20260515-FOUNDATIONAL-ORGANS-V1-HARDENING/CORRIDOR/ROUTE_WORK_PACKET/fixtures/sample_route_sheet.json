@@ -1,0 +1,27 @@
+{
+  "route_sheet_id": "RS-009",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "issued_by": "ADMINISTRATUM",
+  "required_organs": [
+    "Astronomicon",
+    "Administratum",
+    "Officio Agentis",
+    "Doctrinarium"
+  ],
+  "route_steps": [
+    "S01",
+    "S02"
+  ],
+  "source_task_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "source_stage_map_path": ".../STAGE_PROMPTS_MANIFEST.json",
+  "source_hashes": [
+    "abc"
+  ],
+  "required_gates": [
+    "GIT_TRUTH_GATE",
+    "SOURCE_PACKAGE_INTEGRITY_GATE"
+  ],
+  "issued_at_utc": "2026-05-15T05:43:14Z",
+  "fixture_only": true,
+  "not_execution_authorization": true
+}

@@ -1,0 +1,14 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "status": "BLOCKED",
+  "evidence_paths": [
+    "reports/stage_11_task_start_corridor_gate_link_report.json"
+  ],
+  "warnings": [],
+  "blockers": [
+    "missing_proof"
+  ],
+  "freshness": "fresh",
+  "expected_render": "blocked_red"
+}

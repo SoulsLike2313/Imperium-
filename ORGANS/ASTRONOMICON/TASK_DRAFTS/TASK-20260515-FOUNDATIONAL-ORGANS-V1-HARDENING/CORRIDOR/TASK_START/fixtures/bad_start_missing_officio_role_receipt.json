@@ -1,0 +1,6 @@
+{
+  "fixture_only": true,
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "missing_proof": "officio_role_receipt",
+  "expected_result": "FAIL"
+}

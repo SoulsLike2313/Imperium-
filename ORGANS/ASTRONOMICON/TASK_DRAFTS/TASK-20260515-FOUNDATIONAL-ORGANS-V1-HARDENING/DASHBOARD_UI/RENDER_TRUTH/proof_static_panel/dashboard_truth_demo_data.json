@@ -1,0 +1,19 @@
+{
+  "not_production_dashboard": true,
+  "samples": [
+    "fixtures/render_green_with_evidence_sample.json",
+    "fixtures/render_warning_with_warnings_sample.json",
+    "fixtures/render_blocked_with_blockers_sample.json",
+    "fixtures/render_stale_source_sample.json",
+    "fixtures/render_unknown_freshness_sample.json",
+    "fixtures/render_disabled_action_sample.json",
+    "fixtures/render_bilingual_labels_sample.json"
+  ],
+  "states": [
+    "PASS",
+    "PASS_WITH_WARNINGS",
+    "BLOCKED",
+    "STALE",
+    "DISABLED"
+  ]
+}

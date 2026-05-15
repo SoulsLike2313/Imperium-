@@ -1,0 +1,10 @@
+{
+  "canonical_state_keys_language": "ENGLISH",
+  "ui_label_sources": [
+    "DASHBOARD_UI/RENDER_TRUTH/proof_static_panel/i18n/en.json",
+    "DASHBOARD_UI/RENDER_TRUTH/proof_static_panel/i18n/ru.json"
+  ],
+  "russian_allowed_only_in_ui_labels_and_owner_notes": true,
+  "missing_translation_behavior": "fallback_to_en_with_warning",
+  "i18n_cannot_change_status_semantics": true
+}

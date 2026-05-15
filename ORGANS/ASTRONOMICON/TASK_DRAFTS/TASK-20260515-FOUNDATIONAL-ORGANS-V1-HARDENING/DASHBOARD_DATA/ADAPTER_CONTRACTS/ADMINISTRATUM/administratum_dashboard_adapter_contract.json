@@ -1,0 +1,21 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "owner_truth_categories": [
+    "execution_lifecycle",
+    "work_packet",
+    "route_sheet",
+    "stage_completion_truth",
+    "final_bundle",
+    "continuity_pack"
+  ],
+  "must_not_decide": [
+    "stage_topology",
+    "law_acceptance",
+    "role_contracts"
+  ],
+  "bundle_status_requires_manifest": true,
+  "state_transitions_enabled": false,
+  "disabled_reason": "action_receipt_controls_not_implemented_yet",
+  "mock_data_allowed": false,
+  "not_source_of_truth": true
+}

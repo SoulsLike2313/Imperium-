@@ -1,0 +1,5 @@
+{
+  "fixture_only": true,
+  "path": "tmp/garbage_generated_file.log",
+  "expected_result": "FAIL"
+}

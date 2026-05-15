@@ -1,0 +1,10 @@
+{
+  "fixture_only": true,
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "partial_outputs": [
+    "tmp/a.json"
+  ],
+  "quarantine_recommendation": "move_under_stage_partial_untrusted",
+  "destructive_action_performed": false
+}

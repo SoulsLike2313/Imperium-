@@ -1,0 +1,228 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-03-SCHEMA-BASELINE-FREEZE",
+  "created_utc": "2026-05-15T05:36:29Z",
+  "schema_field_requirements": {
+    "organ_self_report": [
+      "schema_version",
+      "organ_id",
+      "generated_at_utc",
+      "checker_last_run_utc",
+      "status",
+      "evidence_paths"
+    ],
+    "evidence_common": [
+      "schema_version",
+      "evidence_id",
+      "generated_at_utc",
+      "git_head",
+      "source_hash",
+      "evidence_paths"
+    ],
+    "receipt_common": [
+      "action",
+      "actor",
+      "after_state",
+      "before_state",
+      "evidence_hashes",
+      "evidence_paths",
+      "receipt_id",
+      "receipt_type",
+      "schema_version",
+      "source_report_paths",
+      "stage_id",
+      "task_id",
+      "timestamp_utc",
+      "verdict"
+    ],
+    "gate_report": [
+      "schema_version",
+      "gate_id",
+      "verdict",
+      "blockers",
+      "warnings",
+      "evidence_paths",
+      "checked_at_utc"
+    ],
+    "work_packet": [
+      "schema_version",
+      "task_id",
+      "local_task_id",
+      "stage_id",
+      "inputs",
+      "outputs",
+      "constraints"
+    ],
+    "route_sheet": [
+      "schema_version",
+      "task_id",
+      "route_steps",
+      "current_step",
+      "next_step"
+    ],
+    "stage_map": [
+      "schema_version",
+      "task_id",
+      "stages",
+      "depends_on",
+      "pass_criteria",
+      "stop_criteria"
+    ],
+    "stage_record": [
+      "schema_version",
+      "stage_id",
+      "status",
+      "started_utc",
+      "completed_utc",
+      "checker_results",
+      "evidence_paths"
+    ],
+    "admin_stage_completion_receipt": [
+      "action",
+      "actor",
+      "after_state",
+      "before_state",
+      "evidence_hashes",
+      "evidence_paths",
+      "receipt_id",
+      "receipt_type",
+      "schema_version",
+      "source_report_paths",
+      "stage_id",
+      "status",
+      "timestamp_utc"
+    ],
+    "role_contract": [
+      "schema_version",
+      "role_id",
+      "modes",
+      "constraints",
+      "owner",
+      "version"
+    ],
+    "role_read_receipt": [
+      "action",
+      "actor",
+      "after_state",
+      "before_state",
+      "evidence_hashes",
+      "git_head",
+      "read_utc",
+      "reader",
+      "receipt_id",
+      "receipt_type",
+      "role_id",
+      "schema_version",
+      "source_report_paths",
+      "timestamp_utc"
+    ],
+    "law_registry_entry": [
+      "schema_version",
+      "law_id",
+      "status",
+      "title",
+      "provenance",
+      "timestamp_utc"
+    ],
+    "law_change_receipt": [
+      "action",
+      "actor",
+      "after_state",
+      "before_state",
+      "change_type",
+      "evidence_hashes",
+      "law_id",
+      "reason",
+      "receipt_id",
+      "receipt_type",
+      "schema_version",
+      "source_report_paths",
+      "timestamp_utc"
+    ],
+    "task_start_gate_verdict": [
+      "schema_version",
+      "task_id",
+      "verdict",
+      "allow_execution",
+      "reasons",
+      "evidence_paths"
+    ],
+    "dashboard_state": [
+      "schema_version",
+      "panel_id",
+      "status",
+      "source_report",
+      "stale_status",
+      "generated_at_utc"
+    ],
+    "dashboard_actions": [
+      "action_id",
+      "allowed_roles",
+      "confirmation_required",
+      "disabled_reason",
+      "enabled",
+      "expected_receipt_path",
+      "expected_report_path",
+      "failure_condition",
+      "label_key",
+      "receipt_schema",
+      "requires_confirmation",
+      "schema_version",
+      "success_condition",
+      "target_script_or_action",
+      "timeout_seconds"
+    ],
+    "dashboard_metrics": [
+      "schema_version",
+      "metric_id",
+      "value",
+      "source_report",
+      "checked_at_utc"
+    ],
+    "dashboard_evidence_index": [
+      "schema_version",
+      "index_id",
+      "evidence_items",
+      "generated_at_utc"
+    ],
+    "dashboard_render_report": [
+      "schema_version",
+      "render_id",
+      "panels_rendered",
+      "source_reports",
+      "stale_panels"
+    ],
+    "source_package_manifest": [
+      "schema_version",
+      "task_id",
+      "sources",
+      "sha256",
+      "read_utc",
+      "git_head_used"
+    ],
+    "final_bundle_manifest": [
+      "schema_version",
+      "bundle_id",
+      "artifacts",
+      "hashes",
+      "created_utc"
+    ],
+    "stale_status_report": [
+      "artifact_id",
+      "checked_at_utc",
+      "expires_after_seconds",
+      "freshness_verdict",
+      "generated_at_utc",
+      "schema_version",
+      "stale_status"
+    ],
+    "repo_purity_report": [
+      "schema_version",
+      "git_head",
+      "allowed_paths",
+      "violations",
+      "verdict",
+      "timestamp_utc"
+    ]
+  }
+}

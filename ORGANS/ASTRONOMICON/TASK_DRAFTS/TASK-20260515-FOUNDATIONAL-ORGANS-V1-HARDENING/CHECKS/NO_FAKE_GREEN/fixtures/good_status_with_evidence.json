@@ -1,0 +1,13 @@
+{
+  "id": "good",
+  "status": "PASS",
+  "evidence_paths": [
+    "reports/a.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "freshness": "fresh",
+  "source_report_path": "reports/a.json",
+  "expected_result": "PASS",
+  "fixture_only": true
+}

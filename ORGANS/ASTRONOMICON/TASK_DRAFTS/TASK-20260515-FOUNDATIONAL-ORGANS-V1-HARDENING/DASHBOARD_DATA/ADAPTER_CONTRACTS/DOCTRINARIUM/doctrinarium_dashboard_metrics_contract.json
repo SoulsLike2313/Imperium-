@@ -1,0 +1,14 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "metrics": [
+    "active_law_count",
+    "draft_law_count",
+    "law_integrity_warning_count",
+    "organ_health_gate_status",
+    "task_start_gate_status",
+    "open_violation_count",
+    "disabled_hook_count",
+    "advisory_reference_count",
+    "stale_law_report_count"
+  ]
+}

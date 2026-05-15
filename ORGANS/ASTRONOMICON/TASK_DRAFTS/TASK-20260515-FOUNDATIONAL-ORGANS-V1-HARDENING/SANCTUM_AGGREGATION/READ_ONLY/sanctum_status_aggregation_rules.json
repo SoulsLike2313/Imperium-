@@ -1,0 +1,14 @@
+{
+  "rules": [
+    "aggregate_is_worst_status_never_best",
+    "any_blocked_makes_aggregate_blocked",
+    "any_fail_makes_aggregate_fail_unless_blocked_worse",
+    "stale_required_source_prevents_green",
+    "unknown_freshness_prevents_green",
+    "missing_evidence_prevents_green",
+    "warnings_must_be_visible",
+    "cannot_hide_source_organ_status",
+    "cannot_convert_disabled_inquisition_hook_to_audit_coverage",
+    "cannot_treat_advisory_as_canon"
+  ]
+}

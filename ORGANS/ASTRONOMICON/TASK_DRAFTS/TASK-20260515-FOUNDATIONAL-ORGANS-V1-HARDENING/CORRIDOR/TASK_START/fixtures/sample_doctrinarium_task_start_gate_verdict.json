@@ -1,0 +1,11 @@
+{
+  "fixture_only": true,
+  "verdict_id": "D-GATE-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "verdict": "PASS",
+  "generated_at_utc": "2026-05-15T05:44:57Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "evidence_paths": [
+    "gates/organ_health.json"
+  ]
+}

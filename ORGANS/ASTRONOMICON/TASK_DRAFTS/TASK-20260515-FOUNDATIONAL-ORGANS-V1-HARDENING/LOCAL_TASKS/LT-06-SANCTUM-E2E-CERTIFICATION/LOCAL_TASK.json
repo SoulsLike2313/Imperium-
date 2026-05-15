@@ -1,0 +1,8 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-06-SANCTUM-E2E-CERTIFICATION",
+  "title": "Sanctum E2E Certification",
+  "status": "in_progress",
+  "stage_count_planned": 4,
+  "current_stage": "STAGE-17-UTF8-REPO-PURITY-HARDENING-CHECKS"
+}

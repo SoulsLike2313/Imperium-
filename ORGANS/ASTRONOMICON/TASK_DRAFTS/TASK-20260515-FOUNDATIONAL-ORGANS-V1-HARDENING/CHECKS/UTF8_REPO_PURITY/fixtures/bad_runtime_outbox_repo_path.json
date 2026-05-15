@@ -1,0 +1,5 @@
+{
+  "fixture_only": true,
+  "path": "OUTBOX/runtime_dump.json",
+  "expected_result": "FAIL"
+}

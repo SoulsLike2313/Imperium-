@@ -1,0 +1,24 @@
+{
+  "adapter_id": "dashboard_adapter_common_v0_1",
+  "organ_id": "*",
+  "adapter_status": "DRAFT_FROZEN",
+  "source_reports": [
+    "required"
+  ],
+  "source_hashes": [
+    "required"
+  ],
+  "generated_at_utc": "2026-05-15T05:47:11Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "dashboard_state_path": "required",
+  "dashboard_metrics_path": "required",
+  "dashboard_evidence_index_path": "required",
+  "dashboard_panels_path": "required",
+  "dashboard_actions_path": "required",
+  "freshness": "required",
+  "warnings": "array",
+  "blockers": "array",
+  "mock_data_allowed": false,
+  "truth_source_required": true,
+  "not_source_of_truth": true
+}

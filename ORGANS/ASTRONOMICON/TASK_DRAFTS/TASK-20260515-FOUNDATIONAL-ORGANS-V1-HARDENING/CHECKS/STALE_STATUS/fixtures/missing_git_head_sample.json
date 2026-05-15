@@ -1,0 +1,11 @@
+{
+  "fixture_only": true,
+  "status": "PASS",
+  "generated_at_utc": "2026-05-15T05:42:20Z",
+  "checked_at_utc": "2026-05-15T05:42:20Z",
+  "source_hash": "abc",
+  "expires_after_seconds": 3600,
+  "stale_status": "fresh",
+  "freshness_verdict": "unknown",
+  "expected_result": "FAIL"
+}

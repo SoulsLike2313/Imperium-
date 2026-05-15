@@ -1,0 +1,28 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:40:06Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "final_bundle_manifest",
+  "bundle_id": "BUNDLE-001",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "run_id": "RUN-SYNTH-001",
+  "created_at_utc": "2026-05-15T05:40:06Z",
+  "included_files": [
+    "stage_report.json"
+  ],
+  "included_hashes": [
+    "abc"
+  ],
+  "per_stage_receipts": [
+    "admin_rec.json"
+  ],
+  "unresolved_items": [
+    "owner_review_required"
+  ],
+  "continuity_summary_path": "continuity/summary.md",
+  "git_head_final": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3"
+}

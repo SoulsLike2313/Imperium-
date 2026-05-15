@@ -1,0 +1,9 @@
+{
+  "fixture_only": true,
+  "receipt_id": "BAD-STOP-001",
+  "receipt_type": "ROLLBACK_STOP",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-12-ROLLBACK-STOP-RECEIPT-PATH",
+  "reason": "",
+  "expected_result": "FAIL"
+}

@@ -1,0 +1,11 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "evidence_index_fields": [
+    "receipt_id",
+    "source_report_path",
+    "source_hash",
+    "freshness",
+    "warnings",
+    "blockers"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "fixture_only": true,
+  "action_id": "register_task",
+  "organ_id": "ASTRONOMICON",
+  "action_type": "registration",
+  "enabled": false,
+  "disabled_reason": "owner_gate_required_and_not_implemented",
+  "owner_gate_required": true,
+  "confirmation_required": true,
+  "allowed_roles": [
+    "Owner"
+  ],
+  "source_of_truth_owner": "Astronomicon",
+  "target_script_or_action": "none",
+  "target_write_roots": [],
+  "expected_report_path": "reports/registration_action_report.json",
+  "expected_receipt_path": "receipts/registration_receipt.json",
+  "receipt_schema_id": "dashboard_action_receipt",
+  "timeout_seconds": 60,
+  "success_condition": "owner_receipt_present",
+  "failure_condition": "owner_receipt_missing",
+  "rollback_or_stop_behavior": "blocked",
+  "evidence_paths": [
+    "GATES/V1_OWNER_LAUNCH_GATE_REQUIREMENT.md"
+  ],
+  "warnings": [],
+  "blockers": []
+}

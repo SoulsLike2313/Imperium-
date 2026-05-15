@@ -1,0 +1,22 @@
+{
+  "schema_version": "v0_1",
+  "generated_at_utc": "2026-05-15T05:40:06Z",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "warnings": [],
+  "blockers": [],
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "schema_id": "law_registry_entry",
+  "law_id": "LAW-004",
+  "law_title": "No Fake Green",
+  "law_status": "ACTIVE_CANDIDATE",
+  "law_version": "0.1.0",
+  "law_path": "ORGANS/DOCTRINARIUM/LAWS/LAW-004-NO-FAKE-GREEN.md",
+  "law_hash": "abc",
+  "owner_accepted": false,
+  "active_from_utc": null,
+  "supersedes": null,
+  "evidence_paths": [
+    "reports/law_registry_validation.json"
+  ]
+}

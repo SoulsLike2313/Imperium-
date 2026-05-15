@@ -1,0 +1,31 @@
+{
+  "fixture_only": true,
+  "action_id": "bad_law_change",
+  "organ_id": "ADMINISTRATUM",
+  "action_type": "state_transition",
+  "enabled": true,
+  "disabled_reason": null,
+  "owner_gate_required": true,
+  "confirmation_required": true,
+  "allowed_roles": [
+    "Owner"
+  ],
+  "source_of_truth_owner": "Doctrinarium",
+  "target_script_or_action": "none",
+  "target_write_roots": [
+    "ORGANS/DOCTRINARIUM/"
+  ],
+  "expected_report_path": "reports/bad3.json",
+  "expected_receipt_path": "receipts/bad3.json",
+  "receipt_schema_id": "dashboard_action_receipt",
+  "timeout_seconds": 30,
+  "success_condition": "law_changed",
+  "failure_condition": "law_change_blocked",
+  "rollback_or_stop_behavior": "stop",
+  "evidence_paths": [
+    "y"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "expected_result": "FAIL"
+}

@@ -1,0 +1,474 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-04-GATE-INDEX-STOP-BEHAVIOR-LOCK",
+  "created_utc": "2026-05-15T05:37:39Z",
+  "gate_count": 16,
+  "gates": [
+    {
+      "gate_id": "GIT_TRUTH_GATE",
+      "owner_organ": "Administratum",
+      "purpose": "git_truth_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/git_truth_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": true,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "SOURCE_PACKAGE_INTEGRITY_GATE",
+      "owner_organ": "Astronomicon",
+      "purpose": "source_package_integrity_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/source_package_integrity_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "OWNER_DECISION_MATRIX_GATE",
+      "owner_organ": "Astronomicon",
+      "purpose": "owner_decision_matrix_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/owner_decision_matrix_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "OWNERSHIP_BOUNDARY_GATE",
+      "owner_organ": "Astronomicon",
+      "purpose": "ownership_boundary_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/ownership_boundary_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "STAGE_MAP_VALIDITY_GATE",
+      "owner_organ": "Astronomicon",
+      "purpose": "stage_map_validity_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/stage_map_validity_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "EVIDENCE_SCHEMA_GATE",
+      "owner_organ": "Doctrinarium",
+      "purpose": "evidence_schema_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/evidence_schema_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "NO_FAKE_GREEN_GATE",
+      "owner_organ": "Doctrinarium",
+      "purpose": "no_fake_green_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/no_fake_green_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": true,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "DASHBOARD_TRUTH_GATE",
+      "owner_organ": "Sanctum",
+      "purpose": "dashboard_truth_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/dashboard_truth_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "TASK_START_CORRIDOR_GATE",
+      "owner_organ": "Doctrinarium",
+      "purpose": "task_start_corridor_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/task_start_corridor_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "ROLLBACK_STOP_GATE",
+      "owner_organ": "Administratum",
+      "purpose": "rollback_stop_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/rollback_stop_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "VM2_PC_BOUNDARY_GATE",
+      "owner_organ": "Administratum",
+      "purpose": "vm2_pc_boundary_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/vm2_pc_boundary_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "REGISTRATION_GATE",
+      "owner_organ": "Astronomicon",
+      "purpose": "registration_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/registration_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "UTF8_MOJIBAKE_GATE",
+      "owner_organ": "Administratum",
+      "purpose": "utf8_mojibake_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/utf8_mojibake_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": true,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "REPO_PURITY_GATE",
+      "owner_organ": "Administratum",
+      "purpose": "repo_purity_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/repo_purity_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": true,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "STALE_STATUS_GATE",
+      "owner_organ": "Doctrinarium",
+      "purpose": "stale_status_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/stale_status_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": true,
+      "used_before_each_stage": true,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    },
+    {
+      "gate_id": "OWNER_LAUNCH_GATE",
+      "owner_organ": "Owner",
+      "purpose": "owner_launch_gate enforcement",
+      "required_inputs": [
+        "task_id",
+        "git_head",
+        "stage_context"
+      ],
+      "required_outputs": [
+        "gate_report",
+        "warnings",
+        "blockers"
+      ],
+      "pass_condition": "all required checks pass",
+      "warning_condition": "non-blocking warning list is non-empty and explicit",
+      "stop_condition": "any blocker or missing critical evidence",
+      "evidence_path_pattern": "**/owner_launch_gate*_report.json",
+      "used_before_execution": true,
+      "used_before_each_local_task": false,
+      "used_before_each_stage": false,
+      "future_stage_usage": "mapped in gate to stage usage map",
+      "blocker_if_missing": true,
+      "related_schema_ids": [
+        "gate_report",
+        "evidence_common",
+        "receipt_common"
+      ]
+    }
+  ],
+  "ready_for_agent": false,
+  "ready_for_hardening_execution": false
+}

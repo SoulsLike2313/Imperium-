@@ -1,0 +1,29 @@
+{
+  "fixture_only": true,
+  "action_id": "bad_state_transition",
+  "organ_id": "ADMINISTRATUM",
+  "action_type": "state_transition",
+  "enabled": true,
+  "disabled_reason": null,
+  "owner_gate_required": false,
+  "confirmation_required": true,
+  "allowed_roles": [
+    "Servitor"
+  ],
+  "source_of_truth_owner": "Administratum",
+  "target_script_or_action": "none",
+  "target_write_roots": [
+    "ORGANS/ADMINISTRATUM/"
+  ],
+  "expected_report_path": "reports/bad.json",
+  "expected_receipt_path": null,
+  "receipt_schema_id": null,
+  "timeout_seconds": 10,
+  "success_condition": "unknown",
+  "failure_condition": "unknown",
+  "rollback_or_stop_behavior": "none",
+  "evidence_paths": [],
+  "warnings": [],
+  "blockers": [],
+  "expected_result": "FAIL"
+}

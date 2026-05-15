@@ -1,0 +1,13 @@
+{
+  "organ_id": "ASTRONOMICON",
+  "panels": [
+    "task_corridor_panel",
+    "stage_map_panel",
+    "stage_progress_display_panel",
+    "registration_readiness_panel",
+    "review_pack_panel",
+    "blocked_stage_panel",
+    "evidence_links_panel"
+  ],
+  "display_only_completion": true
+}

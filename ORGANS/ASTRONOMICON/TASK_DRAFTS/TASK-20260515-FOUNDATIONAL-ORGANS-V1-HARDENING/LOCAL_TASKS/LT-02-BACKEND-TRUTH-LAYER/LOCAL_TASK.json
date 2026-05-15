@@ -1,0 +1,8 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-02-BACKEND-TRUTH-LAYER",
+  "title": "Backend Truth Layer",
+  "status": "in_progress",
+  "stage_count_planned": 4,
+  "current_stage": "STAGE-05-BACKEND-REPORT-CONTRACT-IMPLEMENTATION-LANE-A"
+}

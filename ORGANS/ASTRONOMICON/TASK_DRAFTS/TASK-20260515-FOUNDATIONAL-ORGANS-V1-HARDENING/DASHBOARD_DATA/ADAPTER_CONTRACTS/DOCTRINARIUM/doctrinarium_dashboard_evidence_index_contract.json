@@ -1,0 +1,10 @@
+{
+  "organ_id": "DOCTRINARIUM",
+  "evidence_index_fields": [
+    "law_registry_path",
+    "gate_verdict_path",
+    "organ_health_report_path",
+    "source_hash",
+    "freshness"
+  ]
+}

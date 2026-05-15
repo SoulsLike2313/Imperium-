@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "title": "Foundational Organs V1 Hardening",
+  "status": "in_execution_stage_loop",
+  "created_utc": "2026-05-15T05:33:11Z",
+  "git_head_at_creation": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3",
+  "source_package_manifest_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/SOURCE_PACKAGE/HARDENING_SOURCE_PACKAGE_MANIFEST.json",
+  "ready_for_agent": false,
+  "ready_for_hardening_execution": false,
+  "owner_launch_receipt_required": true,
+  "local_tasks_expected": 6,
+  "stage_count_expected": 20,
+  "no_vm2_sync": true
+}

@@ -1,0 +1,44 @@
+{
+  "contract_id": "STAGE_MAP_V1_CONTRACT",
+  "schema_id": "stage_map",
+  "owner_organ": "Astronomicon",
+  "purpose": "Lane A contract for stage_map",
+  "source_of_truth_category": "stage_topology",
+  "required_fields": [
+    "stage_map_id",
+    "task_id",
+    "stages",
+    "dependencies",
+    "source_of_truth_owner",
+    "created_at_utc",
+    "git_head"
+  ],
+  "optional_fields": [],
+  "status_values_allowed": [
+    "PASS",
+    "PASS_WITH_WARNINGS",
+    "FAIL",
+    "BLOCKED",
+    "UNKNOWN"
+  ],
+  "warning_rules": [
+    "warnings_must_be_explicit"
+  ],
+  "blocker_rules": [
+    "blockers_forbid_pass"
+  ],
+  "evidence_rules": [
+    "evidence_paths_required_for_pass"
+  ],
+  "freshness_rules": [
+    "generated_at_utc_required",
+    "git_head_required"
+  ],
+  "producer": "Astronomicon",
+  "consumer": "FoundationalOrgansV1Hardening",
+  "dashboard_visibility": true,
+  "sanctum_visibility": true,
+  "validation_expectation": "json_parse_and_required_fields_present",
+  "v1_stub_allowed": true,
+  "notes": "fixture/reference contract inside hardening package only"
+}

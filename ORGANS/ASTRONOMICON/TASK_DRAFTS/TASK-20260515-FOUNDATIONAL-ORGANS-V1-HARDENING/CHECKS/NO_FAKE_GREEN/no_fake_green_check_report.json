@@ -1,0 +1,97 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-07-NO-FAKE-GREEN-CHECKERS",
+  "created_utc": "2026-05-15T05:41:19Z",
+  "checker_path": "CHECKS/NO_FAKE_GREEN/no_fake_green_stage_local_check.py",
+  "fixtures_checked": 9,
+  "expected_pass_count": 1,
+  "expected_fail_count": 8,
+  "actual_pass_count": 1,
+  "actual_fail_count": 8,
+  "bad_fixtures_detected": [
+    "bad_button_enabled_without_receipt.json",
+    "bad_dashboard_green_missing_report.json",
+    "bad_fixture_claims_production_pass.json",
+    "bad_pass_with_empty_evidence_array.json",
+    "bad_pass_with_warnings.json",
+    "bad_pass_without_evidence.json",
+    "bad_sanctum_green_from_stale_source.json",
+    "bad_script_visible_without_last_report.json"
+  ],
+  "good_fixtures_passed": [
+    "good_status_with_evidence.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS",
+  "coverage_limitations": [
+    "stage_local_fixtures_only",
+    "not_production_checker"
+  ],
+  "not_production_checker": true,
+  "results": [
+    {
+      "fixture": "bad_button_enabled_without_receipt.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "enabled_action_without_receipt_contract"
+    },
+    {
+      "fixture": "bad_dashboard_green_missing_report.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "green_missing_source_report"
+    },
+    {
+      "fixture": "bad_fixture_claims_production_pass.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "fixture_claims_production_pass"
+    },
+    {
+      "fixture": "bad_pass_with_empty_evidence_array.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "pass_without_evidence"
+    },
+    {
+      "fixture": "bad_pass_with_warnings.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "pass_has_warnings"
+    },
+    {
+      "fixture": "bad_pass_without_evidence.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "pass_without_evidence"
+    },
+    {
+      "fixture": "bad_sanctum_green_from_stale_source.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "green_missing_source_report"
+    },
+    {
+      "fixture": "bad_script_visible_without_last_report.json",
+      "expected": "FAIL",
+      "actual": "FAIL",
+      "match_expected": true,
+      "reason": "visible_script_without_last_report_or_disabled_reason"
+    },
+    {
+      "fixture": "good_status_with_evidence.json",
+      "expected": "PASS",
+      "actual": "PASS",
+      "match_expected": true,
+      "reason": "ok"
+    }
+  ]
+}

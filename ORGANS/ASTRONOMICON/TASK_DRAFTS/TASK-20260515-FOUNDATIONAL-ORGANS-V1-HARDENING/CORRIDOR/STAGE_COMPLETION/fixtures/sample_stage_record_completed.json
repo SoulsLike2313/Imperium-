@@ -1,0 +1,10 @@
+{
+  "fixture_only": true,
+  "stage_record_id": "SR-010",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING",
+  "state": "COMPLETED",
+  "admin_receipt_path": "fixtures/sample_admin_stage_completion_receipt.json",
+  "warnings": [],
+  "blockers": []
+}

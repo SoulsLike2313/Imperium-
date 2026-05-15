@@ -1,0 +1,14 @@
+{
+  "organ_id": "ASTRONOMICON",
+  "state_fields": [
+    "task_count_known",
+    "stage_count_total",
+    "stage_count_with_admin_receipts",
+    "blocked_stage_count",
+    "missing_evidence_count",
+    "stale_source_count",
+    "warnings",
+    "blockers"
+  ],
+  "source_reports_required": true
+}

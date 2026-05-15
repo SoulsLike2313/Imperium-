@@ -1,0 +1,29 @@
+{
+  "fixture_only": true,
+  "action_id": "read_only_export_review_pack",
+  "organ_id": "ASTRONOMICON",
+  "action_type": "read_only_export",
+  "enabled": true,
+  "disabled_reason": null,
+  "owner_gate_required": false,
+  "confirmation_required": false,
+  "allowed_roles": [
+    "Owner",
+    "Servitor"
+  ],
+  "source_of_truth_owner": "Astronomicon",
+  "target_script_or_action": "none",
+  "target_write_roots": [],
+  "expected_report_path": "reports/review_pack_export_report.json",
+  "expected_receipt_path": null,
+  "receipt_schema_id": null,
+  "timeout_seconds": 30,
+  "success_condition": "export_generated_without_mutation",
+  "failure_condition": "export_error",
+  "rollback_or_stop_behavior": "report_failure",
+  "evidence_paths": [
+    "REPORTS/stage_14_dashboard_adapter_contract_set_b_report.json"
+  ],
+  "warnings": [],
+  "blockers": []
+}

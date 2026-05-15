@@ -1,0 +1,11 @@
+{
+  "organ_id": "ASTRONOMICON",
+  "evidence_index_fields": [
+    "evidence_id",
+    "source_report_path",
+    "source_hash",
+    "freshness",
+    "warnings",
+    "blockers"
+  ]
+}

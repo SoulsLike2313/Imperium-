@@ -1,0 +1,30 @@
+{
+  "fixture_only": true,
+  "action_id": "delete_bundle",
+  "organ_id": "ADMINISTRATUM",
+  "action_type": "destructive",
+  "enabled": false,
+  "disabled_reason": "destructive_actions_forbidden_in_v1",
+  "owner_gate_required": true,
+  "confirmation_required": true,
+  "allowed_roles": [
+    "Owner"
+  ],
+  "source_of_truth_owner": "Administratum",
+  "target_script_or_action": "none",
+  "target_write_roots": [],
+  "expected_report_path": "reports/destructive_action_report.json",
+  "expected_receipt_path": "receipts/destructive_receipt.json",
+  "receipt_schema_id": "dashboard_action_receipt",
+  "timeout_seconds": 0,
+  "success_condition": "not_applicable",
+  "failure_condition": "attempted_execution",
+  "rollback_or_stop_behavior": "stop_immediate",
+  "evidence_paths": [
+    "GATES/V1_STOP_BEHAVIOR_MODEL.json"
+  ],
+  "warnings": [],
+  "blockers": [
+    "destructive_disabled"
+  ]
+}

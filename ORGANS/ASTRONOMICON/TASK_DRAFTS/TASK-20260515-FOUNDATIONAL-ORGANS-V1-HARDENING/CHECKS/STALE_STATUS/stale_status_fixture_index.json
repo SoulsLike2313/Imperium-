@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-08-STALE-STATUS-CHECKERS",
+  "created_utc": "2026-05-15T05:42:20Z",
+  "fixtures": [
+    "CHECKS/STALE_STATUS/fixtures/fresh_report_sample.json",
+    "CHECKS/STALE_STATUS/fixtures/stale_report_sample.json",
+    "CHECKS/STALE_STATUS/fixtures/unknown_freshness_sample.json",
+    "CHECKS/STALE_STATUS/fixtures/missing_generated_at_sample.json",
+    "CHECKS/STALE_STATUS/fixtures/missing_git_head_sample.json",
+    "CHECKS/STALE_STATUS/fixtures/stale_dashboard_state_sample.json",
+    "CHECKS/STALE_STATUS/fixtures/fresh_dashboard_state_sample.json"
+  ]
+}

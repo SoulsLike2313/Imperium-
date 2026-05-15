@@ -1,0 +1,24 @@
+{
+  "fixture_only": true,
+  "receipt_id": "ADMIN-STAGE-010",
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "stage_id": "STAGE-09-ROUTE-SHEET-WORK-PACKET-WIRING",
+  "run_id": "RUN-SYNTH-001",
+  "completed_by": "Administratum",
+  "completion_verdict": "PASS",
+  "started_at_utc": "2026-05-15T05:44:01Z",
+  "completed_at_utc": "2026-05-15T05:44:01Z",
+  "evidence_paths": [
+    ".../route_work_packet_wiring_evidence.json"
+  ],
+  "evidence_hashes": [
+    "abc"
+  ],
+  "checks_run": [
+    "json_parse"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "admin_verification_status": "VERIFIED",
+  "git_head": "0f82d3a70c6660c37ab6246f73571a9a7f3e63e3"
+}

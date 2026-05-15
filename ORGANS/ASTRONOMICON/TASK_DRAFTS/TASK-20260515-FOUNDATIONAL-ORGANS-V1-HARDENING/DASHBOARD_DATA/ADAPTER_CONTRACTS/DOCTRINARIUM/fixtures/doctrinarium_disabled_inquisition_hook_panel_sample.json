@@ -1,0 +1,7 @@
+{
+  "fixture_only": true,
+  "not_production_evidence": true,
+  "panel": "disabled_inquisition_hook_panel",
+  "hook_status": "DISABLED_V1",
+  "not_audit": true
+}

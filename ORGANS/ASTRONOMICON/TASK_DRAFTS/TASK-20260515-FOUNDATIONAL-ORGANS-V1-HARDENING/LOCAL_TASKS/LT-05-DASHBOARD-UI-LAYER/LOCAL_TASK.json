@@ -1,0 +1,8 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "local_task_id": "LT-05-DASHBOARD-UI-LAYER",
+  "title": "Dashboard UI Layer",
+  "status": "in_progress",
+  "stage_count_planned": 2,
+  "current_stage": "STAGE-15-DASHBOARD-RENDER-TRUTH-PANELS"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "bad1",
+  "status": "PASS",
+  "evidence_paths": [],
+  "warnings": [],
+  "blockers": [],
+  "freshness": "fresh",
+  "expected_result": "FAIL",
+  "fixture_only": true
+}

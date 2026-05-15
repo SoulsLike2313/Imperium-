@@ -1,0 +1,8 @@
+{
+  "task_ticket_id": "TT-MISSING",
+  "task_id": "TASK-NOT-FOUND",
+  "lookup_result": "MISSING",
+  "blocker_reason": "task_not_found_in_astronomicon",
+  "expected_result": "BLOCKED",
+  "fixture_only": true
+}
