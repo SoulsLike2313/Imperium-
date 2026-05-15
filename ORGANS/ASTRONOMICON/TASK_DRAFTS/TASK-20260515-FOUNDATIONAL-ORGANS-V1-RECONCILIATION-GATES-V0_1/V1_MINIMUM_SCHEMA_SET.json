@@ -1,0 +1,258 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-RECONCILIATION-GATES-V0_1",
+  "minimum_schema_set": [
+    {
+      "schema_id": "organ_self_report",
+      "owner": "Doctrinarium",
+      "why_needed": "freshness and organ health evaluation input",
+      "v1_minimum_fields": "schema_version,organ_id,generated_at_utc,checker_last_run_utc,status,evidence_paths",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "Doctrinarium,Administratum,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "already available in MVP base"
+    },
+    {
+      "schema_id": "evidence_common",
+      "owner": "Doctrinarium",
+      "why_needed": "normalize evidence metadata",
+      "v1_minimum_fields": "schema_version,evidence_id,generated_at_utc,git_head,source_hash,evidence_paths",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "All organs",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "can start as thin wrapper"
+    },
+    {
+      "schema_id": "receipt_common",
+      "owner": "Doctrinarium",
+      "why_needed": "normalize receipt envelope",
+      "v1_minimum_fields": "schema_version,receipt_id,task_id,stage_id,verdict,timestamp_utc,evidence_paths",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "All organs",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "must be frozen before stage receipts"
+    },
+    {
+      "schema_id": "gate_report",
+      "owner": "Doctrinarium",
+      "why_needed": "standard gate PASS/STOP output",
+      "v1_minimum_fields": "schema_version,gate_id,verdict,blockers,warnings,evidence_paths,checked_at_utc",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "Astronomicon,Administratum,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "required for gate index execution"
+    },
+    {
+      "schema_id": "work_packet",
+      "owner": "Administratum",
+      "why_needed": "execute bounded work slice",
+      "v1_minimum_fields": "schema_version,task_id,local_task_id,stage_id,inputs,outputs,constraints",
+      "produced_by": "Administratum",
+      "consumed_by": "Servitor lane",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "must map to ownership matrix"
+    },
+    {
+      "schema_id": "route_sheet",
+      "owner": "Administratum",
+      "why_needed": "describe stage routing and transitions",
+      "v1_minimum_fields": "schema_version,task_id,route_steps,current_step,next_step",
+      "produced_by": "Administratum",
+      "consumed_by": "Administratum,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "corridor truth contract"
+    },
+    {
+      "schema_id": "stage_map",
+      "owner": "Astronomicon",
+      "why_needed": "canonical stage dependency map",
+      "v1_minimum_fields": "schema_version,task_id,stages,depends_on,pass_criteria,stop_criteria",
+      "produced_by": "Astronomicon",
+      "consumed_by": "Administratum,Doctrinarium,Officio",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "pre-launch mandatory"
+    },
+    {
+      "schema_id": "stage_record",
+      "owner": "Administratum",
+      "why_needed": "record stage execution outcome",
+      "v1_minimum_fields": "schema_version,stage_id,status,started_utc,completed_utc,checker_results,evidence_paths",
+      "produced_by": "Administratum",
+      "consumed_by": "Astronomicon,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "replaces chat-memory truth"
+    },
+    {
+      "schema_id": "admin_stage_completion_receipt",
+      "owner": "Administratum",
+      "why_needed": "formal stage completion proof",
+      "v1_minimum_fields": "schema_version,receipt_id,stage_id,status,evidence_paths,timestamp_utc",
+      "produced_by": "Administratum",
+      "consumed_by": "Astronomicon,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "must exist for every stage"
+    },
+    {
+      "schema_id": "role_contract",
+      "owner": "Officio Agentis",
+      "why_needed": "agent role/mode contract control",
+      "v1_minimum_fields": "schema_version,role_id,modes,constraints,owner,version",
+      "produced_by": "Officio Agentis",
+      "consumed_by": "Administratum,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "contract compliance must be testable"
+    },
+    {
+      "schema_id": "role_read_receipt",
+      "owner": "Officio Agentis",
+      "why_needed": "proof role contract was read",
+      "v1_minimum_fields": "schema_version,receipt_id,role_id,reader,read_utc,git_head",
+      "produced_by": "Officio Agentis",
+      "consumed_by": "Administratum,Doctrinarium",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "can be stubbed first then enforced"
+    },
+    {
+      "schema_id": "law_registry_entry",
+      "owner": "Doctrinarium",
+      "why_needed": "canonical law entry representation",
+      "v1_minimum_fields": "schema_version,law_id,status,title,provenance,timestamp_utc",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "Administratum,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "no advisory auto-promotion"
+    },
+    {
+      "schema_id": "law_change_receipt",
+      "owner": "Doctrinarium",
+      "why_needed": "track law registry mutation",
+      "v1_minimum_fields": "schema_version,receipt_id,law_id,change_type,reason,timestamp_utc",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "Astronomicon,Sanctum",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "needed before canon elevation"
+    },
+    {
+      "schema_id": "task_start_gate_verdict",
+      "owner": "Doctrinarium",
+      "why_needed": "allow/block execution admission",
+      "v1_minimum_fields": "schema_version,task_id,verdict,allow_execution,reasons,evidence_paths",
+      "produced_by": "Doctrinarium",
+      "consumed_by": "Administratum,Sanctum",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "mandatory corridor gate"
+    },
+    {
+      "schema_id": "dashboard_state",
+      "owner": "Sanctum",
+      "why_needed": "renderable dashboard truth state",
+      "v1_minimum_fields": "schema_version,panel_id,status,source_report,stale_status,generated_at_utc",
+      "produced_by": "Sanctum",
+      "consumed_by": "Owner display",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "must map to backend reports"
+    },
+    {
+      "schema_id": "dashboard_actions",
+      "owner": "Sanctum+Administratum",
+      "why_needed": "action button contract",
+      "v1_minimum_fields": "schema_version,action_id,allowed_roles,confirmation_required,timeout_seconds,receipt_schema",
+      "produced_by": "Sanctum+Administratum",
+      "consumed_by": "Owner display,Administratum",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "no action without receipt"
+    },
+    {
+      "schema_id": "dashboard_metrics",
+      "owner": "Sanctum",
+      "why_needed": "display metrics surface",
+      "v1_minimum_fields": "schema_version,metric_id,value,source_report,checked_at_utc",
+      "produced_by": "Sanctum",
+      "consumed_by": "Owner display",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "truth over animation"
+    },
+    {
+      "schema_id": "dashboard_evidence_index",
+      "owner": "Sanctum",
+      "why_needed": "index report links behind UI",
+      "v1_minimum_fields": "schema_version,index_id,evidence_items,generated_at_utc",
+      "produced_by": "Sanctum",
+      "consumed_by": "Owner display",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "supports no-fake-green audits"
+    },
+    {
+      "schema_id": "dashboard_render_report",
+      "owner": "Sanctum",
+      "why_needed": "prove render sources and staleness",
+      "v1_minimum_fields": "schema_version,render_id,panels_rendered,source_reports,stale_panels",
+      "produced_by": "Sanctum",
+      "consumed_by": "Administratum,Owner",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "must include disabled reasons where relevant"
+    },
+    {
+      "schema_id": "source_package_manifest",
+      "owner": "Astronomicon",
+      "why_needed": "frozen planning source inventory",
+      "v1_minimum_fields": "schema_version,task_id,sources,sha256,read_utc,git_head_used",
+      "produced_by": "Astronomicon",
+      "consumed_by": "All organs",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "launch precondition"
+    },
+    {
+      "schema_id": "final_bundle_manifest",
+      "owner": "Administratum",
+      "why_needed": "final evidence bundle completeness",
+      "v1_minimum_fields": "schema_version,bundle_id,artifacts,hashes,created_utc",
+      "produced_by": "Administratum",
+      "consumed_by": "Astronomicon,Owner",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "required for certification stage"
+    },
+    {
+      "schema_id": "stale_status_report",
+      "owner": "Doctrinarium+Sanctum",
+      "why_needed": "freshness evaluation output",
+      "v1_minimum_fields": "schema_version,artifact_id,generated_at_utc,expires_after_seconds,stale_status",
+      "produced_by": "Doctrinarium+Sanctum",
+      "consumed_by": "Dashboards and gates",
+      "must_exist_before_execution": false,
+      "can_be_stub_in_v1": true,
+      "defer_notes": "stale cannot be green"
+    },
+    {
+      "schema_id": "repo_purity_report",
+      "owner": "Administratum",
+      "why_needed": "scope and pollution check",
+      "v1_minimum_fields": "schema_version,git_head,allowed_paths,violations,verdict,timestamp_utc",
+      "produced_by": "Administratum",
+      "consumed_by": "Owner and gates",
+      "must_exist_before_execution": true,
+      "can_be_stub_in_v1": false,
+      "defer_notes": "prevents runtime payload leakage"
+    }
+  ]
+}

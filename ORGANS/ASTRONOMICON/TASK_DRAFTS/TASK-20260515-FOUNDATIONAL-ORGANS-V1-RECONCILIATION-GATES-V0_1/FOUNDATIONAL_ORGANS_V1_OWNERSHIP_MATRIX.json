@@ -1,0 +1,510 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-RECONCILIATION-GATES-V0_1",
+  "ownership_domains": {
+    "task_future_memory": {
+      "source_of_truth_owner": "Astronomicon",
+      "may_read": [
+        "Administratum",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Astronomicon"
+      ],
+      "must_not_decide": [
+        "Sanctum",
+        "Officio Agentis",
+        "Doctrinarium"
+      ],
+      "required_receipt": "astronomicon_memory_update_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "memory registry authority remains in Astronomicon"
+    },
+    "task_scope": {
+      "source_of_truth_owner": "Astronomicon",
+      "may_read": [
+        "All foundational organs",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Astronomicon"
+      ],
+      "must_not_decide": [
+        "Administratum",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "required_receipt": "task_scope_decision_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "scope changes require owner-approved task records"
+    },
+    "stage_topology": {
+      "source_of_truth_owner": "Astronomicon",
+      "may_read": [
+        "Administratum",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Astronomicon"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "stage_map_registration_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "topology is registration-level truth"
+    },
+    "execution_lifecycle": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Astronomicon",
+        "Sanctum"
+      ],
+      "required_receipt": "execution_lifecycle_update_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "execution state transitions owned by Administratum"
+    },
+    "work_packet": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Officio Agentis",
+        "Doctrinarium"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "work_packet_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "packet schema must be versioned"
+    },
+    "route_sheet": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Officio Agentis",
+        "Doctrinarium"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "route_sheet_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "route sheet drives stage corridor"
+    },
+    "stage_completion_truth": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum",
+        "Officio Agentis"
+      ],
+      "required_receipt": "admin_stage_completion_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "stage PASS/BLOCK truth comes from admin receipts"
+    },
+    "final_bundle": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Doctrinarium",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "final_bundle_manifest",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "bundle completeness audited by receipts"
+    },
+    "continuity_pack": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "continuity_pack_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "continuity truth fed from canonical execution artifacts"
+    },
+    "role_contracts": {
+      "source_of_truth_owner": "Officio Agentis",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Officio Agentis"
+      ],
+      "must_not_decide": [
+        "Administratum",
+        "Sanctum"
+      ],
+      "required_receipt": "role_contract_update_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "contract version pinned and auditable"
+    },
+    "mode_contracts": {
+      "source_of_truth_owner": "Officio Agentis",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Officio Agentis"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "mode_contract_update_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "mode behavior must match role contract"
+    },
+    "response_contracts": {
+      "source_of_truth_owner": "Officio Agentis",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Officio Agentis"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "response_contract_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "response envelope must remain deterministic"
+    },
+    "law_registry": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum",
+        "Administratum"
+      ],
+      "required_receipt": "law_registry_change_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "law entries cannot be edited by dashboard"
+    },
+    "doctrine_registry": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "doctrine_registry_change_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "canon change requires doctrinarium receipt"
+    },
+    "law_canon_acceptance": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum",
+        "Administratum"
+      ],
+      "required_receipt": "law_change_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "owner decision still required for acceptance flows"
+    },
+    "organ_health_gate": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "organ_health_verdict_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "stale health cannot be green"
+    },
+    "task_start_gate": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "task_start_gate_verdict_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "corridor launch requires gate verdict artifact"
+    },
+    "violations": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "violation_record_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "inquisition hook remains disabled in V1"
+    },
+    "dashboard_rendering": {
+      "source_of_truth_owner": "Sanctum",
+      "may_read": [
+        "All foundational organs"
+      ],
+      "may_write": [
+        "Sanctum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "dashboard_render_report",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "rendering is presentation-only"
+    },
+    "dashboard_data_adapters": {
+      "source_of_truth_owner": "Sanctum",
+      "may_read": [
+        "All foundational organs"
+      ],
+      "may_write": [
+        "Sanctum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "dashboard_adapter_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "adapters consume canonical reports only"
+    },
+    "dashboard_action_receipts": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "dashboard_action_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "actions need confirm, timeout, failure receipt"
+    },
+    "sanctum_aggregation": {
+      "source_of_truth_owner": "Sanctum",
+      "may_read": [
+        "All foundational organs"
+      ],
+      "may_write": [
+        "Sanctum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "sanctum_aggregation_report",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "aggregation never overrides source truth"
+    },
+    "source_package_manifest": {
+      "source_of_truth_owner": "Astronomicon",
+      "may_read": [
+        "Administratum",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Astronomicon"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "source_package_manifest_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "hashes and provenance mandatory"
+    },
+    "evidence_schemas": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "evidence_schema_change_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "schema gate controls pass criteria"
+    },
+    "receipt_schemas": {
+      "source_of_truth_owner": "Doctrinarium",
+      "may_read": [
+        "Astronomicon",
+        "Administratum",
+        "Officio Agentis",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Doctrinarium"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "receipt_schema_change_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "receipt contracts cannot drift silently"
+    },
+    "repo_purity": {
+      "source_of_truth_owner": "Administratum",
+      "may_read": [
+        "Astronomicon",
+        "Officio Agentis",
+        "Doctrinarium",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Administratum"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "repo_purity_report",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "runtime/local payload separation required"
+    },
+    "git_truth": {
+      "source_of_truth_owner": "Astronomicon",
+      "may_read": [
+        "All foundational organs",
+        "Sanctum"
+      ],
+      "may_write": [
+        "Astronomicon"
+      ],
+      "must_not_decide": [
+        "Sanctum"
+      ],
+      "required_receipt": "git_truth_receipt",
+      "dashboard_display_allowed": true,
+      "sanctum_display_allowed": true,
+      "notes": "git head and branch truth must be explicit"
+    }
+  }
+}

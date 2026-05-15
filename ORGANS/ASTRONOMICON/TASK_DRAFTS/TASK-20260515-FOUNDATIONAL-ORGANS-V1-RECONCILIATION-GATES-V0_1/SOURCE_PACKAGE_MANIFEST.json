@@ -1,0 +1,204 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-RECONCILIATION-GATES-V0_1",
+  "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+  "sources": [
+    {
+      "source_id": "owner_answer_sheet",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/OWNER_ANSWER_SHEET_V0_1.md",
+      "exists": true,
+      "sha256": "4547ef8d943f83ec876ce20553534eb86a0bf9bcf3adc4994e01859c6417e060",
+      "size_bytes": 4990,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "owner_answer_extract",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/OWNER_ANSWER_EXTRACT.json",
+      "exists": true,
+      "sha256": "8f4e196567a4ac7517fae458babd6e693f6bfa8108a5ea1a4e562bcd0b04b1c4",
+      "size_bytes": 3174,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "four_organs_v1_shape_draft",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/FOUR_ORGANS_V1_SHAPE_DRAFT.md",
+      "exists": true,
+      "sha256": "a1385d279bd4f4d5dad0dcfae601bfc2f04ab99b0fd825728d19e17e004f530b",
+      "size_bytes": 4095,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "dashboard_truth_and_beauty_doctrine",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/DASHBOARD_TRUTH_AND_BEAUTY_DOCTRINE_V0_1.md",
+      "exists": true,
+      "sha256": "6309ced9523fd5865f4493efd9e41dc84f93c5af42d7a625e5efd05a8fe7b6f9",
+      "size_bytes": 2204,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "sanctum_infinity_gauntlet_draft",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/SANCTUM_INFINITY_GAUNTLET_INTEGRATION_DRAFT.md",
+      "exists": true,
+      "sha256": "a3f2157aeda7c14bb1db70f08dba4e700a25a43cb4ca5db6684aa1c9fd6617dc",
+      "size_bytes": 1951,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "foundational_decision_matrix_en",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/FOUNDATIONAL_ORGANS_V1_DECISION_MATRIX.md",
+      "exists": true,
+      "sha256": "2843cd3ae003383f5be1bde47d9e186d7d4216b36bb592eef437584cdf371515",
+      "size_bytes": 3624,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "owner_ru_approved_full_matrix",
+      "source_role": "owner_matrix",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/PREFILL_RU_OWNER_READABLE/FULL_QUESTIONNAIRE_PREFILL_MATRIX_RU_OWNER_APPROVED_V0_1.md",
+      "exists": true,
+      "sha256": "a6cf14736990ae0619b3175059d1b6fe32c7271e54088b3e030328257fc67c0d",
+      "size_bytes": 31594,
+      "source_status": "owner_approved",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "kiro_practical_recommendations",
+      "source_role": "kiro_recommendation",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/KIRO_PRACTICAL_RECOMMENDATIONS_20260515/KIRO_FOUNDATIONAL_ORGANS_V1_PRACTICAL_RECOMMENDATIONS_20260515.md",
+      "exists": true,
+      "sha256": "be36a82c662ff58b3d396766e1a36b33e02813ceaa2f70bb2bc6b442eaa8efd8",
+      "size_bytes": 23405,
+      "source_status": "advisory_reference_only",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "speculum_red_team_report",
+      "source_role": "speculum_red_team",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/SPECULUM_RED_TEAM_20260515/SPECULUM_FOUNDATIONAL_ORGANS_V1_RED_TEAM_20260515.md",
+      "exists": true,
+      "sha256": "5a534ecc2fce0c7b8c7d4b7b5b3aa691f21a3f78e45771b549731f3a01892aa4",
+      "size_bytes": 49505,
+      "source_status": "red_team_reference_only",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "advisory_reviews_manifest",
+      "source_role": "package_manifest",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/advisory_reviews_manifest.json",
+      "exists": true,
+      "sha256": "0d324e716fea48cfa258384730573099fad2a2d9f04923e6dee20c833bf3eec2",
+      "size_bytes": 1834,
+      "source_status": "advisory_reference_only",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "advisory_reviews_ingest_report",
+      "source_role": "package_manifest",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/REPORTS/kiro_speculum_reviews_ingest_report_v0_1.json",
+      "exists": true,
+      "sha256": "3c3f4f338cccbb2e5e5d48ba88abe3f3ab62b4ea69d1c7198445c7a6e9efa11c",
+      "size_bytes": 1994,
+      "source_status": "advisory_reference_only",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_readme",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/README.md",
+      "exists": true,
+      "sha256": "67a187dfcbc0b9a89ea283e51b4fddbb2f067d56000e5d7556a4bee5a63f3578",
+      "size_bytes": 727,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_registry",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/REGISTRY/DOCTRINARIUM_REGISTRY.json",
+      "exists": true,
+      "sha256": "f12d4dfc53c29912e273074e8bbe799e38713b36d2cac3cddb0df315ee998e6e",
+      "size_bytes": 727,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_build_report",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/REPORTS/doctrinarium_mvp_build_report_v0_1.json",
+      "exists": true,
+      "sha256": "5a57e1acb7563b38d06943d1ae3b760d7dcfb598f4245bc056aa68c698b9de33",
+      "size_bytes": 13685,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_check_all_report",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/REPORTS/check_all_report.json",
+      "exists": true,
+      "sha256": "bb6e3d173eb84997b59d1438dbf4c8a47b146467793bd87b3d23ec51d8e299bd",
+      "size_bytes": 3133,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_self_build_report",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/REPORTS/self_build_evaluation_report.json",
+      "exists": true,
+      "sha256": "71d61a5e2b1aaaed3aad39d7a076d3e25a8b26b091e514d4894210be2abb4302",
+      "size_bytes": 3196,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_task_start_gate_report",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json",
+      "exists": true,
+      "sha256": "87146c04e66c0fe85613ad00c651309d32bb0172a4cb9de3e371fd54ec68601f",
+      "size_bytes": 1332,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    },
+    {
+      "source_id": "doctrinarium_organ_health_report",
+      "source_role": "doctrinarium_status",
+      "repo_path": "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json",
+      "exists": true,
+      "sha256": "3300aefbb03314586e460f02da9bd5a6e1cdb6d22bee5aa563d1f50e3918e841",
+      "size_bytes": 879,
+      "source_status": "mvp_status",
+      "git_head_used": "5d9808bf45b34a7a46cdfb2dd053f26bc7af0bd6",
+      "read_utc": "2026-05-15T04:50:44Z"
+    }
+  ]
+}
