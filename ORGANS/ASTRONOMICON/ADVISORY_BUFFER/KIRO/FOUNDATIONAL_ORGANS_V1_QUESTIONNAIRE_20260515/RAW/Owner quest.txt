@@ -1,0 +1,387 @@
+# KIRO_ORGAN_V1_QUESTIONNAIRE_20260515.md
+
+## IMPERIUM Foundational Organs V1 Definition Questionnaire
+
+**Document Type:** Advisory / Questionnaire  
+**Status:** Draft for Owner Review  
+**Date:** 2026-05-15  
+**Scope:** Astronomicon, Administratum, Officio Agentis, Doctrinarium
+
+---
+
+# 1. Executive Summary
+
+## Why These Questions Matter Before Hardening
+
+Hardening without clear organ definitions creates three failure modes:
+
+1. **Scope Creep** — organs absorb functions that belong elsewhere, creating tangled dependencies
+2. **Fake Green** — dashboards show green without real backend evidence, masking rot
+3. **Boundary Collision** — two organs claim the same artifact type, causing ownership disputes
+
+This questionnaire forces explicit decisions before any hardening script is written. Each answer becomes a constraint that shapes:
+- what files/scripts each organ owns
+- what checks prove the organ is alive
+- what dashboard panels display real truth
+- what gates block progression when evidence is missing
+
+## How Answers Become a Hardening Plan
+
+```
+Owner Answers
+    ↓
+Decision Matrix (what each organ owns/rejects)
+    ↓
+V1 Criteria Checklist (testable pass/fail)
+    ↓
+Hardening Stages (ordered implementation phases)
+    ↓
+Scripts/Schemas/Checks (concrete artifacts)
+    ↓
+Dashboard Panels (visual truth layer)
+    ↓
+Test Plan (verification that V1 criteria are met)
+    ↓
+Registration Package (ORGAN_REGISTRY.json update)
+    ↓
+Execution Plan (who does what, when)
+```
+
+---
+
+# 2. Questionnaire: Astronomicon
+
+**Organ Purpose Summary:** Navigation beacon / stage map / task routing / progress visibility
+
+## A. Role / Rules / Limits Questions
+
+| question_id | question | why_this_matters | answer_type | example_answer_options | affected_future_artifacts |
+|-------------|----------|------------------|-------------|------------------------|---------------------------|
+| ASTRO-01 | What is the atomic unit Astronomicon tracks? | Defines the granularity of stage maps and routing tables | single_choice | `task` / `work_packet` / `stage` / `milestone` | `ASTRONOMICON_STAGE_SCHEMA.json`, routing scripts |
+| ASTRO-02 | Does Astronomicon own the definition of task states, or does it only read states defined elsewhere? | Determines if state machine lives here or in Administratum | single_choice | `owns_states` / `reads_states_from_administratum` | state enum schema, dashboard state panels |
+| ASTRO-03 | What is the maximum number of concurrent stages Astronomicon must track? | Affects data structure and dashboard layout complexity | number | `10` / `25` / `50` / `unlimited` | stage map renderer, performance tests |
+| ASTRO-04 | Must Astronomicon provide routing recommendations, or only visibility? | Decides if it has active logic or is passive display | single_choice | `visibility_only` / `routing_recommendations` / `mandatory_routing_gates` | routing engine script, gate check logic |
+| ASTRO-05 | What evidence format proves a stage transition occurred? | Defines receipt schema for stage changes | single_choice | `json_receipt` / `log_entry` / `both` | `STAGE_TRANSITION_RECEIPT_SCHEMA.json` |
+| ASTRO-06 | Who can modify the stage map? | Access control boundary | multi_choice | `owner_only` / `any_organ` / `administratum_only` | permission checks, audit log |
+| ASTRO-07 | Does Astronomicon own the global task dependency graph? | Determines if dependency logic lives here | single_choice | `yes` / `no_strategium_owns` / `shared` | dependency schema, cycle detection script |
+| ASTRO-08 | What happens when a stage has no valid next stage? | Error handling policy | single_choice | `block_and_alert` / `allow_manual_override` / `escalate_to_owner` | error handler, dashboard alert panel |
+| ASTRO-09 | Must Astronomicon persist stage history, or only current state? | Storage and audit requirements | single_choice | `current_only` / `full_history` / `rolling_window_N_days` | history storage, archive script |
+| ASTRO-10 | Does Astronomicon generate its own health report, or rely on external audit? | Self-check vs external check boundary | single_choice | `self_report` / `inquisition_audits` / `both` | `ASTRONOMICON_HEALTH_REPORT.json`, health check script |
+| ASTRO-11 | What is the refresh interval for stage map updates? | Performance and staleness tradeoff | single_choice | `realtime` / `on_event` / `polling_N_seconds` | update trigger logic, dashboard refresh |
+| ASTRO-12 | Does Astronomicon own the "blocked" state, or does it only display blocks declared elsewhere? | Ownership of blocker semantics | single_choice | `owns_blocked` / `displays_only` | blocker schema, unblock workflow |
+| ASTRO-13 | What visual metaphor should the stage map use? | Dashboard design driver | single_choice | `linear_pipeline` / `directed_graph` / `kanban_columns` / `tree` | dashboard layout, rendering library choice |
+| ASTRO-14 | Must Astronomicon integrate with Sanctum, or can it run standalone? | Deployment boundary | single_choice | `sanctum_required` / `standalone_possible` / `both_modes` | Sanctum integration layer, standalone runner |
+
+## B. Dashboard Questions
+
+| dashboard_question_id | question | why_this_matters | answer_type | example_answer_options | affected_dashboard_components |
+|-----------------------|----------|------------------|-------------|------------------------|-------------------------------|
+| ASTRO-DASH-01 | Should the stage map be the primary panel or one of several? | Layout hierarchy | single_choice | `primary_fullscreen` / `left_panel` / `tab_among_equals` | main layout, panel sizing |
+| ASTRO-DASH-02 | What color scheme indicates stage health? | Visual language consistency | color_map | `green/yellow/red` / `blue/orange/red` / `owner_custom_palette` | CSS/theme file, legend panel |
+| ASTRO-DASH-03 | Should blocked stages pulse/animate or remain static? | Attention urgency | single_choice | `static` / `pulse` / `border_highlight` | animation CSS, accessibility settings |
+| ASTRO-DASH-04 | What information appears on hover over a stage node? | Detail density | multi_choice | `stage_name` / `owner` / `last_update` / `blocker_reason` / `receipt_link` | tooltip component, data fetch |
+| ASTRO-DASH-05 | Should the dashboard allow stage transitions, or only display? | Interaction model | single_choice | `display_only` / `allow_transitions_with_confirmation` / `allow_transitions_no_confirmation` | button components, confirmation modal |
+| ASTRO-DASH-06 | What is the maximum acceptable load time for the stage map? | Performance requirement | number_ms | `500` / `1000` / `2000` | lazy loading, caching strategy |
+| ASTRO-DASH-07 | Should historical stage transitions be viewable in dashboard? | Audit visibility | single_choice | `no` / `yes_separate_tab` / `yes_inline_timeline` | history panel, timeline component |
+| ASTRO-DASH-08 | What language should dashboard labels use? | i18n requirement | single_choice | `english_only` / `russian_only` / `bilingual_toggle` | i18n files, language switcher |
+
+## C. Astronomicon V1 Draft Criteria
+
+**This organ can be called V1 when:**
+
+| # | Criterion | Testable By |
+|---|-----------|-------------|
+| 1 | Stage schema exists and validates against JSON Schema | schema validation script |
+| 2 | At least one real stage map is populated from backend data | integration test |
+| 3 | Stage transitions generate receipts in defined format | receipt validation test |
+| 4 | Dashboard displays stage map from real backend, not mock | manual inspection + data trace |
+| 5 | Blocked stages are visually distinct and show blocker reason | UI test |
+| 6 | Health report script runs and produces valid output | script execution test |
+| 7 | Stage map refresh works at defined interval | timing test |
+| 8 | No hardcoded mock data in dashboard | code grep for mock patterns |
+| 9 | Ownership boundary documented and enforced (no state machine logic if answer was `reads_states`) | code review |
+| 10 | Sanctum integration works if required by answer | integration test |
+
+## D. Boundary Warning
+
+**Astronomicon must NOT own:**
+- Task content/payload (Administratum owns)
+- Agent assignment logic (Officio Agentis owns)
+- Doctrine/rules interpretation (Doctrinarium owns)
+- Audit verdicts (Inquisition owns)
+- Execution of tasks (Servitors own)
+
+**Collision Risks:**
+- Astronomicon vs Administratum: who owns task state enum?
+- Astronomicon vs Strategium: who owns dependency graph?
+
+**STOP / Owner Decision Triggers:**
+- If Astronomicon starts containing task execution logic
+- If stage transitions bypass receipt generation
+- If dashboard shows green without backend evidence file
+
+## E. Hardening Impact
+
+| Answer Category | Blocker Before V1? | Deferrable to V1.1? |
+|-----------------|-------------------|---------------------|
+| Atomic unit definition (ASTRO-01) | YES | NO |
+| State ownership (ASTRO-02) | YES | NO |
+| Evidence format (ASTRO-05) | YES | NO |
+| History persistence (ASTRO-09) | NO | YES |
+| Visual metaphor (ASTRO-13) | NO | YES (can start with simple) |
+| Sanctum integration (ASTRO-14) | DEPENDS on deployment plan | MAYBE |
+
+---
+
+# 3. Questionnaire: Administratum
+
+**Organ Purpose Summary:** Work packet management / task lifecycle / receipts / bureaucratic truth
+
+## A. Role / Rules / Limits Questions
+
+| question_id | question | why_this_matters | answer_type | example_answer_options | affected_future_artifacts |
+|-------------|----------|------------------|-------------|------------------------|---------------------------|
+| ADMIN-01 | What is the canonical work unit Administratum manages? | Core data model | single_choice | `task` / `work_packet` / `ticket` / `order` | `WORK_PACKET_SCHEMA.json` |
+| ADMIN-02 | Does Administratum own the task state machine, or share it? | State authority | single_choice | `owns_exclusively` / `shared_with_astronomicon` / `reads_from_external` | state transition logic, validation |
+| ADMIN-03 | What fields are mandatory on every work packet? | Schema strictness | multi_choice | `id` / `title` / `owner` / `created_at` / `state` / `assigned_agent` / `priority` | schema required fields |
+| ADMIN-04 | Must every state transition produce a receipt? | Audit trail completeness | single_choice | `yes_always` / `only_major_transitions` / `optional` | receipt generation logic |
+| ADMIN-05 | What is the receipt format? | Interoperability | single_choice | `json` / `yaml` / `markdown` / `json_and_markdown` | receipt schema, receipt renderer |
+| ADMIN-06 | Who can create work packets? | Access control | multi_choice | `owner_only` / `any_organ` / `doctrinarium_via_advisory` / `external_api` | permission checks, API design |
+| ADMIN-07 | Who can close/complete work packets? | Completion authority | multi_choice | `owner_only` / `assigned_agent` / `inquisition_after_audit` | completion workflow, gate checks |
+| ADMIN-08 | Does Administratum enforce priority ordering, or only store it? | Active vs passive | single_choice | `enforces_ordering` / `stores_only` / `recommends_only` | priority queue logic |
+| ADMIN-09 | What happens to orphaned work packets (no assigned agent)? | Error handling | single_choice | `block_until_assigned` / `auto_assign_default` / `alert_owner` | orphan detection script |
+| ADMIN-10 | Does Administratum own the artifact routing policy? | Artifact ownership | single_choice | `yes` / `no_separate_policy_organ` / `shared_with_doctrinarium` | `ARTIFACT_ROUTING_POLICY.md` location |
+| ADMIN-11 | Must Administratum validate work packet content against schema before accepting? | Input validation | single_choice | `yes_strict` / `yes_warn_only` / `no_validation` | validation script, error messages |
+| ADMIN-12 | Does Administratum generate daily/weekly summary reports? | Reporting scope | single_choice | `no` / `daily` / `weekly` / `on_demand` | report generation script, schedule |
+| ADMIN-13 | What is the retention policy for closed work packets? | Storage management | single_choice | `forever` / `archive_after_N_days` / `delete_after_N_days` | archive script, storage schema |
+| ADMIN-14 | Does Administratum own the Git CLI check integration? | Current reality alignment | single_choice | `yes_owns` / `no_separate_tool` / `shared_with_sanctum` | `run_administratum_git_cli_check.sh` ownership |
+
+## B. Dashboard Questions
+
+| dashboard_question_id | question | why_this_matters | answer_type | example_answer_options | affected_dashboard_components |
+|-----------------------|----------|------------------|-------------|------------------------|-------------------------------|
+| ADMIN-DASH-01 | Should the work packet list be the primary view? | Layout priority | single_choice | `yes_primary` / `no_secondary_to_stage_map` / `tab_among_equals` | main layout |
+| ADMIN-DASH-02 | What columns appear in the work packet table? | Information density | multi_choice | `id` / `title` / `state` / `priority` / `assigned_agent` / `created_at` / `updated_at` / `blocker` | table component, column config |
+| ADMIN-DASH-03 | Should state transitions be possible from dashboard? | Interaction model | single_choice | `no_display_only` / `yes_with_confirmation` / `yes_direct` | action buttons, confirmation modal |
+| ADMIN-DASH-04 | How should overdue/stale work packets be highlighted? | Attention mechanism | single_choice | `row_color` / `badge` / `separate_section` / `no_highlight` | CSS, filter logic |
+| ADMIN-DASH-05 | Should receipt history be visible per work packet? | Audit accessibility | single_choice | `no` / `yes_expandable_row` / `yes_separate_panel` | receipt viewer component |
+| ADMIN-DASH-06 | What filtering options are required? | Usability | multi_choice | `by_state` / `by_agent` / `by_priority` / `by_date_range` / `by_organ` | filter controls, query logic |
+| ADMIN-DASH-07 | Should bulk actions be supported? | Efficiency | single_choice | `no` / `yes_select_multiple` | checkbox column, bulk action bar |
+| ADMIN-DASH-08 | What is the default sort order? | UX consistency | single_choice | `priority_desc` / `created_at_desc` / `updated_at_desc` / `state_then_priority` | sort logic, UI indicator |
+
+## C. Administratum V1 Draft Criteria
+
+**This organ can be called V1 when:**
+
+| # | Criterion | Testable By |
+|---|-----------|-------------|
+| 1 | Work packet schema exists and validates | schema validation script |
+| 2 | Work packets can be created, read, updated via defined interface | CRUD test |
+| 3 | State transitions generate receipts | receipt existence check |
+| 4 | Receipt format matches defined schema | receipt validation |
+| 5 | Dashboard displays real work packets from backend | data trace test |
+| 6 | Orphaned work packet detection works | orphan detection test |
+| 7 | Git CLI check integration runs and produces report | script execution test |
+| 8 | No mock data in dashboard | code grep |
+| 9 | Permission checks enforce defined access rules | permission test |
+| 10 | Health/status report script exists and runs | script execution test |
+
+## D. Boundary Warning
+
+**Administratum must NOT own:**
+- Stage/routing logic (Astronomicon owns)
+- Agent capability definitions (Officio Agentis owns)
+- Doctrine interpretation (Doctrinarium owns)
+- Audit verdicts (Inquisition owns)
+- Script execution (Mechanicus/Servitors own)
+
+**Collision Risks:**
+- Administratum vs Astronomicon: task state ownership
+- Administratum vs Doctrinarium: artifact routing policy ownership
+
+**STOP / Owner Decision Triggers:**
+- If Administratum starts routing tasks (Astronomicon's job)
+- If receipts are generated without actual state change
+- If work packets are created without schema validation
+
+## E. Hardening Impact
+
+| Answer Category | Blocker Before V1? | Deferrable to V1.1? |
+|-----------------|-------------------|---------------------|
+| Work unit definition (ADMIN-01) | YES | NO |
+| State machine ownership (ADMIN-02) | YES | NO |
+| Receipt format (ADMIN-05) | YES | NO |
+| Summary reports (ADMIN-12) | NO | YES |
+| Retention policy (ADMIN-13) | NO | YES |
+| Bulk actions (ADMIN-DASH-07) | NO | YES |
+
+---
+
+# 4. Questionnaire: Officio Agentis
+
+**Organ Purpose Summary:** Agent registry / capability mapping / assignment authority / agent health
+
+## A. Role / Rules / Limits Questions
+
+| question_id | question | why_this_matters | answer_type | example_answer_options | affected_future_artifacts |
+|-------------|----------|------------------|-------------|------------------------|---------------------------|
+| OFFAG-01 | What is an "agent" in IMPERIUM? | Core definition | single_choice | `human_operator` / `ai_agent` / `script` / `any_executor` / `all_of_above` | `AGENT_SCHEMA.json` |
+| OFFAG-02 | What fields define an agent's capabilities? | Capability model | multi_choice | `skills_list` / `organ_affinity` / `task_type_allowlist` / `clearance_level` / `availability_status` | agent schema, matching logic |
+| OFFAG-03 | Does Officio Agentis perform automatic agent-task matching, or only provide recommendations? | Active vs advisory | single_choice | `auto_assign` / `recommend_only` / `manual_only` | matching algorithm, assignment workflow |
+| OFFAG-04 | What happens when no agent matches a task's requirements? | Error handling | single_choice | `block_task` / `escalate_to_owner` / `assign_default_agent` / `create_capability_gap_report` | gap detection script, alert |
+| OFFAG-05 | Does Officio Agentis track agent workload/capacity? | Load balancing | single_choice | `yes_tracks_capacity` / `no_external_system` / `yes_but_advisory_only` | capacity schema, load balancer |
+| OFFAG-06 | Who can register new agents? | Access control | multi_choice | `owner_only` / `self_registration` / `administratum_creates` | registration workflow, permission check |
+| OFFAG-07 | Who can deactivate/retire agents? | Lifecycle control | multi_choice | `owner_only` / `self_deactivation` / `inquisition_can_suspend` | deactivation workflow |
+| OFFAG-08 | Does Officio Agentis own the agent health check, or delegate to each agent? | Health authority | single_choice | `centralized_health_check` / `agents_self_report` / `both` | health check script, report schema |
+| OFFAG-09 | What is the agent availability model? | Scheduling | single_choice | `always_available` / `schedule_based` / `on_demand_ping` | availability schema, scheduler |
+| OFFAG-10 | Does Officio Agentis maintain agent performance history? | Performance tracking | single_choice | `no` / `yes_task_completion_rate` / `yes_full_metrics` | performance schema, history storage |
+| OFFAG-11 | How does Officio Agentis handle agent conflicts (two agents claim same task)? | Conflict resolution | single_choice | `first_claim_wins` / `priority_based` / `owner_decides` / `block_until_resolved` | conflict detection, resolution workflow |
+| OFFAG-12 | Does Officio Agentis integrate with external agent systems (e.g., Kiro, other AI)? | Integration scope | single_choice | `no_internal_only` / `yes_via_adapter` / `yes_native_integration` | adapter interface, external agent schema |
+| OFFAG-13 | What evidence proves an agent is "alive"? | Liveness definition | multi_choice | `heartbeat` / `recent_task_completion` / `health_endpoint_response` / `owner_attestation` | liveness check script |
+
+## B. Dashboard Questions
+
+| dashboard_question_id | question | why_this_matters | answer_type | example_answer_options | affected_dashboard_components |
+|-----------------------|----------|------------------|-------------|------------------------|-------------------------------|
+| OFFAG-DASH-01 | Should the agent list be a table or card grid? | Visual style | single_choice | `table` / `card_grid` / `hybrid` | agent list component |
+| OFFAG-DASH-02 | What agent status indicators are needed? | Status visibility | multi_choice | `active/inactive` / `available/busy` / `healthy/unhealthy` / `online/offline` | status badges, legend |
+| OFFAG-DASH-03 | Should current assignments be visible per agent? | Workload visibility | single_choice | `no` / `yes_count_only` / `yes_full_list` | assignment panel |
+| OFFAG-DASH-04 | Should capability matching be visualizable? | Debugging aid | single_choice | `no` / `yes_match_score_display` / `yes_full_match_breakdown` | matching visualization |
+| OFFAG-DASH-05 | Should agent registration be possible from dashboard? | Admin workflow | single_choice | `no_cli_only` / `yes_form` / `yes_import_from_file` | registration form |
+| OFFAG-DASH-06 | How should capability gaps be displayed? | Gap visibility | single_choice | `no_display` / `alert_banner` / `dedicated_gap_panel` | gap alert component |
+| OFFAG-DASH-07 | Should performance history be graphable? | Trend analysis | single_choice | `no` / `yes_simple_chart` / `yes_detailed_analytics` | chart component |
+
+## C. Officio Agentis V1 Draft Criteria
+
+**This organ can be called V1 when:**
+
+| # | Criterion | Testable By |
+|---|-----------|-------------|
+| 1 | Agent schema exists and validates | schema validation |
+| 2 | At least 3 agents are registered with real data | registry inspection |
+| 3 | Agent-task matching logic exists (even if manual) | code review |
+| 4 | Capability gap detection works | gap test with unmatched task |
+| 5 | Agent health check produces valid report | health check execution |
+| 6 | Dashboard displays real agent data | data trace |
+| 7 | Agent registration workflow works | registration test |
+| 8 | No mock agents in production registry | registry audit |
+| 9 | Conflict handling defined and implemented | conflict test |
+| 10 | Liveness evidence is collected | evidence file check |
+
+## D. Boundary Warning
+
+**Officio Agentis must NOT own:**
+- Task content/state (Administratum owns)
+- Task routing/stages (Astronomicon owns)
+- Agent training/doctrine (Schola Imperialis / Doctrinarium own)
+- Agent audit/compliance (Inquisition owns)
+- Script execution (Mechanicus owns)
+
+**Collision Risks:**
+- Officio Agentis vs Administratum: who assigns agents to tasks?
+- Officio Agentis vs Schola Imperialis: who defines agent capabilities?
+
+**STOP / Owner Decision Triggers:**
+- If Officio Agentis starts executing tasks (Servitor's job)
+- If agent registration bypasses schema validation
+- If capability matching uses hardcoded rules instead of registry data
+
+## E. Hardening Impact
+
+| Answer Category | Blocker Before V1? | Deferrable to V1.1? |
+|-----------------|-------------------|---------------------|
+| Agent definition (OFFAG-01) | YES | NO |
+| Capability model (OFFAG-02) | YES | NO |
+| Matching mode (OFFAG-03) | YES | NO |
+| Performance history (OFFAG-10) | NO | YES |
+| External integration (OFFAG-12) | NO | YES (mega-hardening) |
+| Analytics charts (OFFAG-DASH-07) | NO | YES |
+
+---
+
+# 5. Questionnaire: Doctrinarium
+
+**Organ Purpose Summary:** Doctrine repository / rules interpretation / advisory ingest / canonical truth gate
+
+## A. Role / Rules / Limits Questions
+
+| question_id | question | why_this_matters | answer_type | example_answer_options | affected_future_artifacts |
+|-------------|----------|------------------|-------------|------------------------|---------------------------|
+| DOCTR-01 | What is a "doctrine" in IMPERIUM? | Core definition | single_choice | `rule_set` / `policy_document` / `schema` / `all_normative_content` | `DOCTRINE_SCHEMA.json` |
+| DOCTR-02 | What is the lifecycle of doctrine? | State machine | ordered_list | `draft → review → accepted → active → deprecated → archived` | doctrine state enum, transitions |
+| DOCTR-03 | Who can propose new doctrine? | Authorship control | multi_choice | `owner_only` / `any_organ` / `doctrinarium_internal` / `external_advisory` | proposal workflow |
+| DOCTR-04 | Who can accept/canonize doctrine? | Acceptance authority | single_choice | `owner_only` / `doctrinarium_council` / `quorum_of_organs` | acceptance gate |
+| DOCTR-05 | Does Doctrinarium interpret doctrine for other organs, or only store it? | Active vs passive | single_choice | `storage_only` / `provides_interpretation_api` / `enforces_compliance` | interpretation service |
+| DOCTR-06 | How is advisory material distinguished from canonical doctrine? | Truth boundary | single_choice | `separate_folders` / `status_field` / `file_naming_convention` / `all_three` | folder structure, schema field |
+| DOCTR-07 | What evidence proves doctrine was followed? | Compliance evidence | multi_choice | `checklist_receipt` / `audit_log_entry` / `test_pass_report` / `owner_attestation` | compliance evidence schema |
+| DOCTR-08 | Does Doctrinarium own schema definitions, or is that separate? | Schema authority | single_choice | `owns_all_schemas` / `owns_doctrine_schemas_only` / `schemas_separate_organ` | schema folder ownership |
+| DOCTR-09 | How are doctrine conflicts resolved (two doctrines contradict)? | Conflict resolution | single_choice | `newer_wins` / `owner_decides` / `specificity_wins` / `block_until_resolved` | conflict detection, resolution workflow |
+| DOCTR-10 | Does Doctrinarium provide doctrine search/query? | Discoverability | single_choice | `no_manual_browse` / `yes_keyword_search` / `yes_semantic_search` | search index, query API |
+| DOCTR-11 | What is the format for canonical doctrine documents? | Standardization | single_choice | `markdown` / `json` / `yaml` / `markdown_with_json_frontmatter` | document template |
+| DOCTR-12 | Does Doctrinarium track doctrine version history? | Versioning | single_choice | `no` / `yes_git_based` / `yes_internal_versioning` | version schema, diff tool |
+| DOCTR-13 | How does Doctrinarium handle external advisory material (e.g., Kiro output)? | Ingest pipeline | single_choice | `reject_all` / `ingest_as_draft` / `ingest_with_owner_review_gate` | ingest script, review queue |
+| DOCTR-14 | Does Doctrinarium generate compliance reports? | Reporting scope | single_choice | `no` / `yes_per_organ` / `yes_global` | compliance report script |
+
+## B. Dashboard Questions
+
+| dashboard_question_id | question | why_this_matters | answer_type | example_answer_options | affected_dashboard_components |
+|-----------------------|----------|------------------|-------------|------------------------|-------------------------------|
+| DOCTR-DASH-01 | Should doctrine be browsable as a tree or flat list? | Navigation model | single_choice | `tree_by_category` / `flat_list` / `both_views` | doctrine browser component |
+| DOCTR-DASH-02 | How should doctrine status be indicated? | Status visibility | single_choice | `badge` / `color_code` / `icon` / `all_three` | status indicator |
+| DOCTR-DASH-03 | Should advisory (non-canonical) material be visible in dashboard? | Advisory visibility | single_choice | `hidden` / `separate_tab` / `inline_with_warning` | advisory panel |
+| DOCTR-DASH-04 | Should doctrine acceptance be possible from dashboard? | Workflow integration | single_choice | `no_cli_only` / `yes_owner_only` / `yes_with_approval_flow` | acceptance button, approval modal |
+| DOCTR-DASH-05 | Should doctrine search be in dashboard? | Discoverability | single_choice | `no` / `yes_basic` / `yes_advanced_filters` | search bar, filter panel |
+| DOCTR-DASH-06 | How should doctrine conflicts be displayed? | Conflict visibility | single_choice | `no_display` / `alert_banner` / `dedicated_conflict_panel` | conflict alert |
+| DOCTR-DASH-07 | Should version history be viewable per doctrine? | Audit trail | single_choice | `no` / `yes_diff_view` / `yes_timeline` | version history panel |
+| DOCTR-DASH-08 | Should compliance status per organ be visible? | Compliance overview | single_choice | `no` / `yes_summary` / `yes_detailed_breakdown` | compliance matrix panel |
+
+## C. Doctrinarium V1 Draft Criteria
+
+**This organ can be called V1 when:**
+
+| # | Criterion | Testable By |
+|---|-----------|-------------|
+| 1 | Doctrine schema exists and validates | schema validation |
+| 2 | At least 5 canonical doctrines are stored | doctrine count check |
+| 3 | Advisory vs canonical distinction is enforced | folder/status check |
+| 4 | Doctrine acceptance workflow works | acceptance test |
+| 5 | Dashboard displays real doctrine data | data trace |
+| 6 | Doctrine search works (if enabled) | search test |
+| 7 | External advisory ingest pipeline works | ingest test |
+| 8 | No mock doctrine in canonical store | audit |
+| 9 | Conflict detection works | conflict test |
+| 10 | Compliance evidence format is defined | schema check |
+
+## D. Boundary Warning
+
+**Doctrinarium must NOT own:**
+- Task execution (Servitors own)
+- Task routing (Astronomicon owns)
+- Agent assignment (Officio Agentis owns)
+- Audit verdicts (Inquisition owns)
+- Script implementation (Mechanicus owns)
+
+**Collision Risks:**
+- Doctrinarium vs Administratum: artifact routing policy ownership
+- Doctrinarium vs Schola Imperialis: training material vs doctrine
+- Doctrinarium vs Inquisition: compliance checking vs audit
+
+**STOP / Owner Decision Triggers:**
+- If Doctrinarium auto-canonizes without Owner acceptance
+- If advisory material is treated as canonical
+- If doctrine is modified without version tracking
+
+## E. Hardening Impact
+
+| Answer Category | Blocker Before V1? | Deferrable to V1.1? |
+|-----------------|-------------------|---------------------|
+| Doctrine definition (DOCTR-01) | YES | NO |
+| Acceptance authority (DOCTR-04) | YES | NO |
+| Advisory distinction (DOCTR-06) | YES | NO |
+| Semantic search (DOCTR-10) | NO | YES (mega-hardening) |
+| Compliance reports (DOCTR-14) | NO | YES |
+| Version diff view (DOCTR-DASH-07) | NO | YES |
+
+---
+
+# 6. Cross-

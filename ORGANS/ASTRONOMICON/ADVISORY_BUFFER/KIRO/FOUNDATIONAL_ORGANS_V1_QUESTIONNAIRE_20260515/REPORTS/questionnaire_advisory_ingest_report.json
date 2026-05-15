@@ -1,0 +1,44 @@
+{
+  "advisory_id": "KIRO-FOUNDATIONAL-ORGANS-V1-QUESTIONNAIRE-20260515",
+  "task": "ingest Kiro foundational organs V1 questionnaire",
+  "started_utc": "2026-05-15T03:33:14.3955094Z",
+  "completed_utc": "2026-05-15T03:33:36.3485101Z",
+  "git_head_before": "79bd18de42822f8d8a04fd3019cccaf29f373b45",
+  "source_folder": "C:\\Users\\PC\\Desktop\\NEED\\FROM_KIRO",
+  "target_folder": "E:\\IMPERIUM\\ORGANS\\ASTRONOMICON\\ADVISORY_BUFFER\\KIRO\\FOUNDATIONAL_ORGANS_V1_QUESTIONNAIRE_20260515",
+  "files_copied": [
+    {
+      "filename": "Owner quest.txt",
+      "source_path": "C:\\Users\\PC\\Desktop\\NEED\\FROM_KIRO\\Owner quest.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/FOUNDATIONAL_ORGANS_V1_QUESTIONNAIRE_20260515/RAW/Owner quest.txt",
+      "sha256": "8d702fce825df7b2c824f32bce81446a07a2fd1e7b0dd6ea4f0f9f63ee416797",
+      "size_bytes": 29755,
+      "copied_utc": "2026-05-15T03:33:14.3955094Z"
+    },
+    {
+      "filename": "Owner quest2.txt",
+      "source_path": "C:\\Users\\PC\\Desktop\\NEED\\FROM_KIRO\\Owner quest2.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/FOUNDATIONAL_ORGANS_V1_QUESTIONNAIRE_20260515/RAW/Owner quest2.txt",
+      "sha256": "85bd5e9301a8a14aa5045287a0acbb59770ea6bcb54f6306aa601419d892dd86",
+      "size_bytes": 24242,
+      "copied_utc": "2026-05-15T03:33:14.3955094Z"
+    }
+  ],
+  "created_files": [
+    "README.md",
+    "MANIFEST/raw_file_manifest.json",
+    "MANIFEST/raw_file_hashes.sha256",
+    "INDEX/section_index.md",
+    "EXTRACTED/questionnaire_extract.md",
+    "REPORTS/questionnaire_advisory_ingest_report.json"
+  ],
+  "warnings": [],
+  "blockers": [],
+  "verdict": "PASS",
+  "no_fake_green_evidence": [
+    "raw files copied",
+    "sha256 hashes recorded",
+    "manifest JSON parses",
+    "advisory status explicitly reference-only"
+  ]
+}

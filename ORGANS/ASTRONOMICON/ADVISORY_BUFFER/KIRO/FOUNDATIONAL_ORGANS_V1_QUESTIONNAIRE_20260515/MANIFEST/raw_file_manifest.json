@@ -1,0 +1,31 @@
+{
+  "advisory_id": "KIRO-FOUNDATIONAL-ORGANS-V1-QUESTIONNAIRE-20260515",
+  "source_type": "external_advisory_questionnaire",
+  "source_name": "Kiro",
+  "topic": "Foundational organs V1 definition questionnaire",
+  "raw_preserved": true,
+  "advisory_not_canon": true,
+  "requires_owner_review_before_canon": true,
+  "source_folder": "C:\\Users\\PC\\Desktop\\NEED\\FROM_KIRO",
+  "repo_folder": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/FOUNDATIONAL_ORGANS_V1_QUESTIONNAIRE_20260515",
+  "raw_files": [
+    {
+      "filename": "Owner quest.txt",
+      "source_path": "C:\\Users\\PC\\Desktop\\NEED\\FROM_KIRO\\Owner quest.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/FOUNDATIONAL_ORGANS_V1_QUESTIONNAIRE_20260515/RAW/Owner quest.txt",
+      "sha256": "8d702fce825df7b2c824f32bce81446a07a2fd1e7b0dd6ea4f0f9f63ee416797",
+      "size_bytes": 29755,
+      "copied_utc": "2026-05-15T03:33:14.3955094Z"
+    },
+    {
+      "filename": "Owner quest2.txt",
+      "source_path": "C:\\Users\\PC\\Desktop\\NEED\\FROM_KIRO\\Owner quest2.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/FOUNDATIONAL_ORGANS_V1_QUESTIONNAIRE_20260515/RAW/Owner quest2.txt",
+      "sha256": "85bd5e9301a8a14aa5045287a0acbb59770ea6bcb54f6306aa601419d892dd86",
+      "size_bytes": 24242,
+      "copied_utc": "2026-05-15T03:33:14.3955094Z"
+    }
+  ],
+  "git_head_at_ingest": "79bd18de42822f8d8a04fd3019cccaf29f373b45",
+  "created_utc": "2026-05-15T03:33:14.3955094Z"
+}

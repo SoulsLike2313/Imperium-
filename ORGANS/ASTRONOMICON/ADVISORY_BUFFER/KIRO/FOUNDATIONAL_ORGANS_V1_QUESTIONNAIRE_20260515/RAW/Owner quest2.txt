@@ -1,0 +1,619 @@
+# 6. Cross-Organ Questions
+
+These questions apply to all four foundational organs together and establish shared standards.
+
+| question_id | question | why_this_matters | answer_type | example_answer_options | affected_artifacts_all_organs |
+|-------------|----------|------------------|-------------|------------------------|-------------------------------|
+| CROSS-01 | What is the universal evidence file format? | Interoperability between organs | single_choice | `json_only` / `json_plus_markdown_summary` / `yaml` / `organ_decides_individually` | all receipt schemas, all report schemas |
+| CROSS-02 | What is the common self-report schema structure? | Consistent health monitoring | multi_choice | `organ_id` / `timestamp` / `status_enum` / `check_results_array` / `warnings_array` / `blockers_array` / `evidence_links` | `ORGAN_HEALTH_REPORT_SCHEMA.json` |
+| CROSS-03 | What status enum values are universal across all organs? | Shared vocabulary | ordered_list | `PASS` / `PASS_WITH_WARNINGS` / `FAIL` / `BLOCKED` / `UNKNOWN` / `NOT_APPLICABLE` | all status fields, all dashboards |
+| CROSS-04 | What is the universal warning severity scale? | Consistent alerting | ordered_list | `INFO` / `WARNING` / `ERROR` / `CRITICAL` / `BLOCKER` | all warning fields, dashboard alerts |
+| CROSS-05 | What is the universal blocker vocabulary? | Consistent blocking semantics | multi_choice | `MISSING_EVIDENCE` / `SCHEMA_VIOLATION` / `OWNER_APPROVAL_REQUIRED` / `DEPENDENCY_FAILED` / `TIMEOUT` / `CONFLICT_UNRESOLVED` | all blocker fields, gate logic |
+| CROSS-06 | What is the common task lifecycle hook interface? | Organ coordination | multi_choice | `on_task_created` / `on_task_assigned` / `on_task_started` / `on_task_completed` / `on_task_blocked` / `on_task_failed` | hook registry, event bus schema |
+| CROSS-07 | What proves "no fake green"? | Anti-fake-green enforcement | multi_choice | `evidence_file_exists` / `evidence_file_not_empty` / `evidence_file_validates_against_schema` / `evidence_timestamp_recent` / `evidence_hash_matches` | all green/pass logic, dashboard green indicators |
+| CROSS-08 | What is the common dashboard language policy? | i18n consistency | single_choice | `english_only` / `russian_only` / `english_default_russian_toggle` / `russian_default_english_toggle` / `per_organ_choice` | all dashboard i18n files |
+| CROSS-09 | What is the common visual style/asset source? | Visual consistency | single_choice | `owner_provided_palette` / `imperium_default_theme` / `per_organ_theme` / `sanctum_unified_theme` | all CSS/theme files, asset folders |
+| CROSS-10 | How do organs integrate with Sanctum? | Sanctum architecture | single_choice | `all_organs_in_sanctum` / `organs_standalone_sanctum_aggregates` / `hybrid_some_in_some_out` | Sanctum integration layer, organ runners |
+| CROSS-11 | What is the common receipt filename convention? | File organization | single_choice | `{ORGAN}_{ACTION}_{TIMESTAMP}.json` / `{TIMESTAMP}_{ORGAN}_{ACTION}.json` / `{ACTION}_{ORGAN}_{TIMESTAMP}.json` | all receipt generation scripts |
+| CROSS-12 | What is the common report filename convention? | File organization | single_choice | `{ORGAN}_REPORT_{TIMESTAMP}.json` / `{ORGAN}_HEALTH_{TIMESTAMP}.json` / `{ORGAN}_STATUS_{TIMESTAMP}.json` | all report generation scripts |
+| CROSS-13 | What is the shared ownership boundary enforcement mechanism? | Boundary protection | single_choice | `code_review_only` / `schema_enforced_organ_field` / `folder_based_ownership` / `registry_based_ownership_check` | ownership validation scripts |
+| CROSS-14 | What is the common timestamp format? | Time consistency | single_choice | `ISO8601_UTC` / `ISO8601_LOCAL` / `UNIX_EPOCH` / `YYYYMMDD_HHMMSS` | all timestamp fields |
+| CROSS-15 | What is the minimum evidence retention period before archival? | Storage policy | single_choice | `7_days` / `30_days` / `90_days` / `365_days` / `forever` | archive scripts, storage quotas |
+
+---
+
+# 7. Recommended Answer Sheet Template
+
+Copy this template and fill in your answers. Use the `answer` field for your decision.
+
+---
+
+## ASTRONOMICON ANSWERS
+
+### Role / Rules / Limits
+
+```
+ASTRO-01: [atomic unit]
+answer: 
+
+ASTRO-02: [state ownership]
+answer: 
+
+ASTRO-03: [max concurrent stages]
+answer: 
+
+ASTRO-04: [routing vs visibility]
+answer: 
+
+ASTRO-05: [evidence format]
+answer: 
+
+ASTRO-06: [stage map modification access]
+answer: 
+
+ASTRO-07: [dependency graph ownership]
+answer: 
+
+ASTRO-08: [no valid next stage handling]
+answer: 
+
+ASTRO-09: [history persistence]
+answer: 
+
+ASTRO-10: [health report ownership]
+answer: 
+
+ASTRO-11: [refresh interval]
+answer: 
+
+ASTRO-12: [blocked state ownership]
+answer: 
+
+ASTRO-13: [visual metaphor]
+answer: 
+
+ASTRO-14: [sanctum integration]
+answer: 
+```
+
+### Dashboard
+
+```
+ASTRO-DASH-01: [stage map panel priority]
+answer: 
+
+ASTRO-DASH-02: [color scheme]
+answer: 
+
+ASTRO-DASH-03: [blocked stage animation]
+answer: 
+
+ASTRO-DASH-04: [hover information]
+answer: 
+
+ASTRO-DASH-05: [transition interaction]
+answer: 
+
+ASTRO-DASH-06: [max load time ms]
+answer: 
+
+ASTRO-DASH-07: [history visibility]
+answer: 
+
+ASTRO-DASH-08: [dashboard language]
+answer: 
+```
+
+---
+
+## ADMINISTRATUM ANSWERS
+
+### Role / Rules / Limits
+
+```
+ADMIN-01: [work unit definition]
+answer: 
+
+ADMIN-02: [state machine ownership]
+answer: 
+
+ADMIN-03: [mandatory work packet fields]
+answer: 
+
+ADMIN-04: [receipt on every transition]
+answer: 
+
+ADMIN-05: [receipt format]
+answer: 
+
+ADMIN-06: [work packet creation access]
+answer: 
+
+ADMIN-07: [work packet completion access]
+answer: 
+
+ADMIN-08: [priority enforcement]
+answer: 
+
+ADMIN-09: [orphaned work packet handling]
+answer: 
+
+ADMIN-10: [artifact routing policy ownership]
+answer: 
+
+ADMIN-11: [schema validation on accept]
+answer: 
+
+ADMIN-12: [summary reports]
+answer: 
+
+ADMIN-13: [retention policy]
+answer: 
+
+ADMIN-14: [git cli check ownership]
+answer: 
+```
+
+### Dashboard
+
+```
+ADMIN-DASH-01: [work packet list priority]
+answer: 
+
+ADMIN-DASH-02: [table columns]
+answer: 
+
+ADMIN-DASH-03: [state transition from dashboard]
+answer: 
+
+ADMIN-DASH-04: [overdue highlight]
+answer: 
+
+ADMIN-DASH-05: [receipt history visibility]
+answer: 
+
+ADMIN-DASH-06: [filtering options]
+answer: 
+
+ADMIN-DASH-07: [bulk actions]
+answer: 
+
+ADMIN-DASH-08: [default sort order]
+answer: 
+```
+
+---
+
+## OFFICIO AGENTIS ANSWERS
+
+### Role / Rules / Limits
+
+```
+OFFAG-01: [agent definition]
+answer: 
+
+OFFAG-02: [capability fields]
+answer: 
+
+OFFAG-03: [matching mode]
+answer: 
+
+OFFAG-04: [no match handling]
+answer: 
+
+OFFAG-05: [workload tracking]
+answer: 
+
+OFFAG-06: [agent registration access]
+answer: 
+
+OFFAG-07: [agent deactivation access]
+answer: 
+
+OFFAG-08: [health check ownership]
+answer: 
+
+OFFAG-09: [availability model]
+answer: 
+
+OFFAG-10: [performance history]
+answer: 
+
+OFFAG-11: [conflict handling]
+answer: 
+
+OFFAG-12: [external integration]
+answer: 
+
+OFFAG-13: [liveness evidence]
+answer: 
+```
+
+### Dashboard
+
+```
+OFFAG-DASH-01: [list style]
+answer: 
+
+OFFAG-DASH-02: [status indicators]
+answer: 
+
+OFFAG-DASH-03: [assignment visibility]
+answer: 
+
+OFFAG-DASH-04: [matching visualization]
+answer: 
+
+OFFAG-DASH-05: [registration from dashboard]
+answer: 
+
+OFFAG-DASH-06: [gap display]
+answer: 
+
+OFFAG-DASH-07: [performance charts]
+answer: 
+```
+
+---
+
+## DOCTRINARIUM ANSWERS
+
+### Role / Rules / Limits
+
+```
+DOCTR-01: [doctrine definition]
+answer: 
+
+DOCTR-02: [doctrine lifecycle]
+answer: 
+
+DOCTR-03: [proposal access]
+answer: 
+
+DOCTR-04: [acceptance authority]
+answer: 
+
+DOCTR-05: [interpretation mode]
+answer: 
+
+DOCTR-06: [advisory distinction method]
+answer: 
+
+DOCTR-07: [compliance evidence]
+answer: 
+
+DOCTR-08: [schema ownership]
+answer: 
+
+DOCTR-09: [conflict resolution]
+answer: 
+
+DOCTR-10: [search capability]
+answer: 
+
+DOCTR-11: [document format]
+answer: 
+
+DOCTR-12: [version history]
+answer: 
+
+DOCTR-13: [external advisory handling]
+answer: 
+
+DOCTR-14: [compliance reports]
+answer: 
+```
+
+### Dashboard
+
+```
+DOCTR-DASH-01: [browse style]
+answer: 
+
+DOCTR-DASH-02: [status indication]
+answer: 
+
+DOCTR-DASH-03: [advisory visibility]
+answer: 
+
+DOCTR-DASH-04: [acceptance from dashboard]
+answer: 
+
+DOCTR-DASH-05: [search in dashboard]
+answer: 
+
+DOCTR-DASH-06: [conflict display]
+answer: 
+
+DOCTR-DASH-07: [version history view]
+answer: 
+
+DOCTR-DASH-08: [compliance visibility]
+answer: 
+```
+
+---
+
+## CROSS-ORGAN ANSWERS
+
+```
+CROSS-01: [universal evidence format]
+answer: 
+
+CROSS-02: [self-report schema fields]
+answer: 
+
+CROSS-03: [universal status enum]
+answer: 
+
+CROSS-04: [warning severity scale]
+answer: 
+
+CROSS-05: [blocker vocabulary]
+answer: 
+
+CROSS-06: [task lifecycle hooks]
+answer: 
+
+CROSS-07: [no-fake-green proof]
+answer: 
+
+CROSS-08: [dashboard language policy]
+answer: 
+
+CROSS-09: [visual style source]
+answer: 
+
+CROSS-10: [sanctum integration model]
+answer: 
+
+CROSS-11: [receipt filename convention]
+answer: 
+
+CROSS-12: [report filename convention]
+answer: 
+
+CROSS-13: [ownership boundary enforcement]
+answer: 
+
+CROSS-14: [timestamp format]
+answer: 
+
+CROSS-15: [evidence retention period]
+answer: 
+```
+
+---
+
+# 8. How to Convert Answers Into Hardening Plan
+
+## Conversion Pipeline
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     OWNER ANSWERS                                │
+│  (filled answer sheet from section 7)                           │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   DECISION MATRIX                                │
+│  For each organ:                                                 │
+│  - OWNS: list of functions/artifacts this organ owns            │
+│  - REJECTS: list of functions this organ must not touch         │
+│  - SHARES: list of shared responsibilities with boundaries      │
+│  - DEPENDS_ON: list of other organs this organ needs            │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   V1 CRITERIA CHECKLIST                          │
+│  For each organ:                                                 │
+│  - Testable pass/fail criteria derived from answers             │
+│  - Mapped to specific evidence files                            │
+│  - Ordered by dependency (what must exist first)                │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                   HARDENING STAGES                               │
+│  Stage 0: Schema Foundation                                      │
+│    - All JSON schemas defined and validated                     │
+│    - Cross-organ schemas (evidence, receipt, report)            │
+│                                                                  │
+│  Stage 1: Backend Core                                           │
+│    - Core scripts for each organ                                │
+│    - Receipt generation working                                 │
+│    - Health check scripts working                               │
+│                                                                  │
+│  Stage 2: Evidence Pipeline                                      │
+│    - All evidence files generated from real operations          │
+│    - No mock data                                               │
+│    - Evidence validation scripts                                │
+│                                                                  │
+│  Stage 3: Dashboard Foundation                                   │
+│    - Dashboard reads real backend data                          │
+│    - Basic panels for each organ                                │
+│    - No fake green                                              │
+│                                                                  │
+│  Stage 4: Integration                                            │
+│    - Cross-organ communication working                          │
+│    - Sanctum integration (if required)                          │
+│    - Task lifecycle hooks connected                             │
+│                                                                  │
+│  Stage 5: V1 Certification                                       │
+│    - All V1 criteria pass                                       │
+│    - Registration package complete                              │
+│    - Owner acceptance                                           │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│              SCRIPTS / SCHEMAS / CHECKS                          │
+│  Per organ:                                                      │
+│  - {ORGAN}_SCHEMA.json (core data schema)                       │
+│  - {ORGAN}_RECEIPT_SCHEMA.json (receipt format)                 │
+│  - {ORGAN}_HEALTH_CHECK.py (health check script)                │
+│  - {ORGAN}_REPORT_GENERATOR.py (report script)                  │
+│  - {ORGAN}_VALIDATOR.py (validation script)                     │
+│                                                                  │
+│  Cross-organ:                                                    │
+│  - EVIDENCE_SCHEMA.json                                         │
+│  - RECEIPT_SCHEMA.json                                          │
+│  - HEALTH_REPORT_SCHEMA.json                                    │
+│  - NO_FAKE_GREEN_CHECKER.py                                     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    DASHBOARDS                                    │
+│  Per organ:                                                      │
+│  - {organ}_dashboard.py (or .qml / .html)                       │
+│  - {organ}_panels/ (panel components)                           │
+│  - {organ}_theme.css (if per-organ theme)                       │
+│                                                                  │
+│  Unified:                                                        │
+│  - sanctum_organ_aggregator.py (if Sanctum integration)         │
+│  - imperium_theme.css (if unified theme)                        │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    TEST PLAN                                     │
+│  Per organ:                                                      │
+│  - test_{organ}_schema.py (schema validation tests)             │
+│  - test_{organ}_health.py (health check tests)                  │
+│  - test_{organ}_receipts.py (receipt generation tests)          │
+│  - test_{organ}_dashboard.py (dashboard data binding tests)     │
+│                                                                  │
+│  Cross-organ:                                                    │
+│  - test_no_fake_green.py                                        │
+│  - test_cross_organ_hooks.py                                    │
+│  - test_ownership_boundaries.py                                 │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                REGISTRATION PACKAGE                              │
+│  - ORGAN_REGISTRY.json update (all 4 organs at V1)              │
+│  - SCHEMA_REGISTRY.json update (all new schemas)                │
+│  - SCRIPT_REGISTRY.json update (all new scripts)                │
+│  - V1_CERTIFICATION_RECEIPT.json (evidence of V1 criteria pass) │
+│  - OWNER_ACCEPTANCE_RECEIPT.json (Owner sign-off)               │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                  EXECUTION PLAN                                  │
+│  WHO: assigned agent/organ per task                             │
+│  WHAT: specific deliverable                                     │
+│  WHEN: stage and order                                          │
+│  EVIDENCE: what proves completion                               │
+│  GATE: what blocks next step                                    │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+## Stage Gate Criteria
+
+Each stage has explicit gates before proceeding:
+
+| Stage | Gate Criteria | Evidence Required |
+|-------|---------------|-------------------|
+| 0 → 1 | All schemas validate | Schema validation report |
+| 1 → 2 | Core scripts run without error | Script execution receipts |
+| 2 → 3 | Evidence files exist and validate | Evidence validation report |
+| 3 → 4 | Dashboards display real data | Dashboard data trace report |
+| 4 → 5 | Cross-organ hooks work | Integration test report |
+| 5 → V1 | All V1 criteria pass | V1 certification receipt |
+
+## Deferred Items Tracking
+
+Items marked "deferrable to V1.1 or mega-hardening" go into:
+
+```
+DEFERRED_ITEMS.json
+{
+  "v1_1": [
+    { "question_id": "ASTRO-09", "answer": "...", "reason": "..." },
+    ...
+  ],
+  "mega_hardening": [
+    { "question_id": "OFFAG-12", "answer": "...", "reason": "..." },
+    ...
+  ]
+}
+```
+
+---
+
+# 9. Red-Team Notes
+
+## Risks If Questions Are Skipped
+
+| Skipped Question Category | Risk | Severity |
+|---------------------------|------|----------|
+| Atomic unit definitions (ASTRO-01, ADMIN-01, etc.) | Organs build incompatible data models | CRITICAL |
+| State ownership (ASTRO-02, ADMIN-02) | Two organs fight over state machine, causing conflicts | CRITICAL |
+| Evidence format (CROSS-01) | Organs produce incompatible evidence, breaking cross-organ checks | HIGH |
+| No-fake-green proof (CROSS-07) | Dashboards show green without real evidence, masking failures | CRITICAL |
+| Acceptance authority (DOCTR-04) | Advisory material treated as canonical, causing doctrine drift | HIGH |
+| Boundary definitions (all D sections) | Organs steal each other's functions, creating tangled dependencies | HIGH |
+
+## Risks If Questions Are Answered Vaguely
+
+| Vague Answer Pattern | Risk | Example |
+|----------------------|------|---------|
+| "depends" / "maybe" / "sometimes" | No clear implementation path | "ASTRO-02: depends on context" |
+| "all of the above" without priority | Feature creep, no MVP | "ADMIN-03: all fields mandatory" |
+| "owner decides later" for blockers | Hardening stalls waiting for decisions | "DOCTR-09: owner decides" |
+| "flexible" / "configurable" | No default behavior, endless options | "CROSS-08: flexible per user" |
+
+## Specific Red Flags
+
+1. **If ASTRO-02 and ADMIN-02 both say "owns_exclusively"** → Conflict. One must yield.
+
+2. **If CROSS-07 does not include "evidence_file_validates_against_schema"** → Fake green risk. Empty or malformed evidence could pass.
+
+3. **If DOCTR-04 is not "owner_only"** → Doctrine could be canonized without Owner awareness.
+
+4. **If OFFAG-03 is "auto_assign" but ADMIN-07 is "owner_only"** → Agents can be assigned but cannot complete tasks. Deadlock.
+
+5. **If CROSS-10 is "per_organ_choice"** → No unified Sanctum. Each organ becomes isolated silo.
+
+6. **If any dashboard question allows "display_only" but corresponding role question allows "enforces"** → Dashboard cannot trigger enforcement. Mismatch.
+
+## Pre-Hardening Checklist
+
+Before starting hardening, verify:
+
+- [ ] All CRITICAL blocker questions have clear answers
+- [ ] No contradictory answers between organs
+- [ ] No contradictory answers between role and dashboard for same organ
+- [ ] CROSS-07 (no-fake-green) has at least 3 proof requirements
+- [ ] All "owner_only" answers are acceptable to Owner (not too restrictive)
+- [ ] All "auto" answers are acceptable to Owner (not too permissive)
+- [ ] Deferred items are explicitly listed with rationale
+
+---
+
+# 10. Document Metadata
+
+```
+document_id: KIRO_ORGAN_V1_QUESTIONNAIRE_20260515
+document_type: advisory_questionnaire
+status: draft_for_owner_review
+created_by: kiro_architecture_advisor
+created_at: 2026-05-15
+target_organs: [astronomicon, administratum, officio_agentis, doctrinarium]
+purpose: define_v1_form_before_hardening
+next_action: owner_fills_answer_sheet
+after_answers: convert_to_hardening_plan
+```
+
+---
+
+**END OF QUESTIONNAIRE**
+
+---
+
+*This document is advisory material. It becomes canonical only after Owner acceptance and registration in Doctrinarium.*
