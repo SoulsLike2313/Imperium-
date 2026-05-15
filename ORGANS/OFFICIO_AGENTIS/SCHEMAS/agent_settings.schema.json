@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "officio_agent_settings.schema.json",
+  "title": "Officio Agent Settings v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "temperature_concept",
+    "verbosity",
+    "autonomy",
+    "question_threshold",
+    "risk_tolerance",
+    "execution_strictness",
+    "evidence_strictness",
+    "memory_behavior"
+  ],
+  "properties": {
+    "temperature_concept": {
+      "oneOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "verbosity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "autonomy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "question_threshold": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risk_tolerance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_strictness": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_strictness": {
+      "type": "string",
+      "minLength": 1
+    },
+    "memory_behavior": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

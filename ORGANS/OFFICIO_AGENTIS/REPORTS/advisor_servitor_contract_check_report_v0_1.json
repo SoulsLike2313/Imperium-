@@ -1,0 +1,39 @@
+{
+  "schema_version": "officio_role_contract_check_report_v0_1",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "role_id": "ADVISOR_SERVITOR",
+  "status": "PASS",
+  "checked_utc": "2026-05-15T01:21:26.954055+00:00",
+  "checks": {
+    "role_json_exists": true,
+    "role_md_exists": true,
+    "modes_exists": true,
+    "prompt_exists": true,
+    "tests_exists": true,
+    "role_json_has_required_keys": true,
+    "task_id_exact": true,
+    "role_id_matches_argument": true,
+    "settings_required_keys_present": true,
+    "owner_language_russian": true,
+    "canonical_artifact_language_english": true,
+    "required_modes_present": true,
+    "required_tests_present": true,
+    "tests_have_required_fields": true,
+    "prompt_required_markers_present": true,
+    "md_forbids_fake_green": true,
+    "execution_boundary_no_promotion": true,
+    "mission_planning_research_options": true,
+    "question_policy_defined": true,
+    "source_citation_required": true,
+    "role_specific_checks_pass": true,
+    "role_json_canonical_language_english_only": true
+  },
+  "failures": [],
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/ADVISOR_SERVITOR.json",
+    "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/ADVISOR_SERVITOR.md",
+    "ORGANS/OFFICIO_AGENTIS/MODES/ADVISOR_SERVITOR_MODES.json",
+    "ORGANS/OFFICIO_AGENTIS/PROMPTS/ADVISOR_SERVITOR_SYSTEM_PROMPT.md",
+    "ORGANS/OFFICIO_AGENTIS/TESTS/ADVISOR_SERVITOR_TESTS.json"
+  ]
+}

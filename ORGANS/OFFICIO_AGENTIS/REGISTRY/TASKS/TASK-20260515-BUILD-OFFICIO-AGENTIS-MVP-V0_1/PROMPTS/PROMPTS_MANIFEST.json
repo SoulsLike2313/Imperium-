@@ -1,0 +1,48 @@
+{
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "created_utc": "2026-05-15T00:51:43Z",
+  "target_repo_path": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\REGISTRY\\TASKS\\TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1\\PROMPTS",
+  "target_relative_path": "ORGANS/OFFICIO_AGENTIS/REGISTRY/TASKS/TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1/PROMPTS",
+  "files": [
+    {
+      "filename": "01_STAGE-01_OFFICIO_FOUNDATION_V0_1.md",
+      "sha256": "ff953bc47c358fd0b44157f1b87677467e2c9c6a92efa33da16f72f6b1c13bd2",
+      "size_bytes": 7317
+    },
+    {
+      "filename": "02_STAGE-02_SERVITOR_CONTRACT_V0_1.md",
+      "sha256": "08ca57a3f5168a4b70c4afb9c7d0b437aaf7006f937afcf031385e4c97854df6",
+      "size_bytes": 7185
+    },
+    {
+      "filename": "03_STAGE-03_LOGOS_PRIME_CONTRACT_V0_1.md",
+      "sha256": "291db869277308ba3f4abcc8d533e2d33fc4bad4d0f8636991df5dfa03612e66",
+      "size_bytes": 7183
+    },
+    {
+      "filename": "04_STAGE-04_LOGOS_SPECULUM_CONTRACT_V0_1.md",
+      "sha256": "4132ae3929afb5836293dc465410d7369369868222a042aa3e0bca0a68f80d99",
+      "size_bytes": 6919
+    },
+    {
+      "filename": "05_STAGE-05_ADVISOR_SERVITOR_CONTRACT_V0_1.md",
+      "sha256": "9357c76900de5b9c2fe5e706ea118d6280e82517beb5e72c8c48be58fb46d1d7",
+      "size_bytes": 6816
+    },
+    {
+      "filename": "06_STAGE-06_OFFICIO_TEST_SUITE_V0_1.md",
+      "sha256": "93f3857c1ac11fa7f548516b68beb02cb3669fa9342c2c8bd3d8f3743c74aa93",
+      "size_bytes": 6876
+    },
+    {
+      "filename": "07_STAGE-07_INTEGRATION_POLICIES_V0_1.md",
+      "sha256": "84d895deae9c151096382e5f0e399a47693dd3b4c5bbb013e11a23c4e8d1193f",
+      "size_bytes": 8716
+    },
+    {
+      "filename": "README_PROMPTS_INDEX.md",
+      "sha256": "08dff59f3c7d1e98695163b0aab2142c0c3904157a53f27ba06e9621e8e340ff",
+      "size_bytes": 1477
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "schema_version": "officio_agent_mode_v0_1",
+  "role_id": "ADVISOR_SERVITOR",
+  "modes": [
+    {
+      "mode_id": "RESEARCH",
+      "purpose": "Collect and summarize relevant evidence and sources.",
+      "allowed_actions": [
+        "gather_sources",
+        "summarize_findings",
+        "highlight_uncertainty"
+      ],
+      "forbidden_actions": [
+        "repo_execution",
+        "unsourced_claims"
+      ],
+      "entry_conditions": [
+        "research_question_defined"
+      ],
+      "exit_conditions": [
+        "source_cited_findings_provided"
+      ],
+      "stop_conditions": [
+        "critical_source_unavailable"
+      ]
+    },
+    {
+      "mode_id": "PLAN_BUILDER",
+      "purpose": "Build implementation plans with sequencing.",
+      "allowed_actions": [
+        "define_steps",
+        "map_paths",
+        "estimate_risks"
+      ],
+      "forbidden_actions": [
+        "repo_execution_without_promotion"
+      ],
+      "entry_conditions": [
+        "goal_defined"
+      ],
+      "exit_conditions": [
+        "plan_with_sequence_and_paths_ready"
+      ],
+      "stop_conditions": [
+        "scope_ambiguity_blocker"
+      ]
+    },
+    {
+      "mode_id": "OPTIONS_REVIEW",
+      "purpose": "Compare options and recommend path.",
+      "allowed_actions": [
+        "compare_options",
+        "assess_tradeoffs",
+        "provide_recommendation"
+      ],
+      "forbidden_actions": [
+        "single_option_bias_without_rationale"
+      ],
+      "entry_conditions": [
+        "at_least_two_options_available"
+      ],
+      "exit_conditions": [
+        "options_table_and_recommendation_provided"
+      ],
+      "stop_conditions": [
+        "insufficient_option_data"
+      ]
+    },
+    {
+      "mode_id": "TASK_CLARIFIER",
+      "purpose": "Ask targeted clarification when needed.",
+      "allowed_actions": [
+        "ask_one_necessary_question",
+        "state_assumptions_if_answer_not_available"
+      ],
+      "forbidden_actions": [
+        "ask_unnecessary_questions",
+        "silent_guessing"
+      ],
+      "entry_conditions": [
+        "genuine_ambiguity_detected"
+      ],
+      "exit_conditions": [
+        "clarity_restored_or_assumption_logged"
+      ],
+      "stop_conditions": [
+        "ambiguity_blocks_safe_recommendation"
+      ]
+    }
+  ],
+  "allowed_transitions": [
+    {
+      "from_mode": "RESEARCH",
+      "to_mode": "OPTIONS_REVIEW",
+      "condition": "enough_sources_collected"
+    },
+    {
+      "from_mode": "OPTIONS_REVIEW",
+      "to_mode": "PLAN_BUILDER",
+      "condition": "recommended_option_selected"
+    },
+    {
+      "from_mode": "PLAN_BUILDER",
+      "to_mode": "TASK_CLARIFIER",
+      "condition": "critical_ambiguity_detected"
+    }
+  ]
+}

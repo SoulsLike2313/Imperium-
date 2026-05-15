@@ -1,0 +1,66 @@
+{
+  "schema_version": "officio_critical_tests_v0_1",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "critical_tests": [
+    {
+      "critical_id": "OA-CRIT-01",
+      "mapped_role_id": "SERVITOR",
+      "mapped_test_id": "SERVITOR-TEST-01-CLEAR-STAGE-NO-QUESTION",
+      "description": "Servitor clear stage executes without questions."
+    },
+    {
+      "critical_id": "OA-CRIT-02",
+      "mapped_role_id": "SERVITOR",
+      "mapped_test_id": "SERVITOR-TEST-02-MISSING-INPUT-STOP",
+      "description": "Servitor missing input creates STOP record."
+    },
+    {
+      "critical_id": "OA-CRIT-03",
+      "mapped_role_id": "LOGOS_PRIME",
+      "mapped_test_id": "LOGOS-PRIME-TEST-02-ENGLISH-WRITE-PROMPT-REFUSAL",
+      "description": "Logos-Prime refuses English write prompt."
+    },
+    {
+      "critical_id": "OA-CRIT-04",
+      "mapped_role_id": "LOGOS_PRIME",
+      "mapped_test_id": "LOGOS-PRIME-TEST-03-EXACT-PISHI-PROMT-ALLOWED",
+      "description": "Logos-Prime writes prompt only for exact Пиши промт."
+    },
+    {
+      "critical_id": "OA-CRIT-05",
+      "mapped_role_id": "LOGOS_SPECULUM",
+      "mapped_test_id": "LOGOS-SPECULUM-TEST-01-FAKE-GREEN-DETECTION",
+      "description": "Logos-Speculum finds fake green artifact."
+    },
+    {
+      "critical_id": "OA-CRIT-06",
+      "mapped_role_id": "LOGOS_SPECULUM",
+      "mapped_test_id": "LOGOS-SPECULUM-TEST-05-CLEAN-ARTIFACT-NO-FALSE-POSITIVE",
+      "description": "Logos-Speculum does not invent false positives for clean artifact."
+    },
+    {
+      "critical_id": "OA-CRIT-07",
+      "mapped_role_id": "ADVISOR_SERVITOR",
+      "mapped_test_id": "ADVISOR-SERVITOR-TEST-01-CLEAR-PLANNING-OPTIONS",
+      "description": "Advisor-Servitor gives options for clear planning task without unnecessary questions."
+    },
+    {
+      "critical_id": "OA-CRIT-08",
+      "mapped_role_id": "ADVISOR_SERVITOR",
+      "mapped_test_id": "ADVISOR-SERVITOR-TEST-02-GENUINE-AMBIGUITY-QUESTION",
+      "description": "Advisor-Servitor asks one necessary question for genuine ambiguity."
+    },
+    {
+      "critical_id": "OA-CRIT-09",
+      "mapped_role_id": "SERVITOR",
+      "mapped_test_id": "SERVITOR-TEST-06-OWNER-COMMENT-RUSSIAN",
+      "description": "Owner-facing comments are Russian."
+    },
+    {
+      "critical_id": "OA-CRIT-10",
+      "mapped_role_id": "SERVITOR",
+      "mapped_test_id": "SERVITOR-TEST-07-CANONICAL-ARTIFACT-ENGLISH",
+      "description": "Canonical machine artifacts are English-only."
+    }
+  ]
+}

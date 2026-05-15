@@ -1,0 +1,50 @@
+{
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "stage_id": "STAGE-07-OFFICIO-INTEGRATION-POLICIES-V0_1",
+  "status": "PASS",
+  "checker_commands": [
+    "py -3 scripts/officio_agentis_check_all_v0_1.py",
+    "python inline full-check synthesis for response-contract/policy/prompt-hierarchy/integration consistency"
+  ],
+  "checker_status": "PASS",
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/officio_agentis_check_all_report_v0_1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/officio_agentis_full_check_report_v0_1.json"
+  ],
+  "created_or_modified_paths": [
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_response_contract.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_stop_record.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_handoff_contract.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/QUESTION_POLICY.md",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/EVIDENCE_POLICY.md",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/LANGUAGE_POLICY.md",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/STOP_POLICY.md",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/PROMPT_WRITING_POLICY.md",
+    "ORGANS/OFFICIO_AGENTIS/POLICIES/EXECUTION_BOUNDARY_POLICY.md",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/OWNER_RESPONSE.json",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/ARTIFACT_RESPONSE.json",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/HANDOFF_RESPONSE.json",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/STAGE_REPORT_RESPONSE.json",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/MODE_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/RESPONSE_CONTRACT_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/POLICY_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/DOCS/ROLE_OVERVIEW.md",
+    "ORGANS/OFFICIO_AGENTIS/DOCS/MODE_TRANSITIONS.md",
+    "ORGANS/OFFICIO_AGENTIS/DOCS/PROMPT_HIERARCHY.md",
+    "ORGANS/OFFICIO_AGENTIS/DOCS/INTEGRATION_POINTS.md",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/officio_agentis_full_check_report_v0_1.json"
+  ],
+  "pass_criteria_met": {
+    "policies_consistent": true,
+    "response_contracts_valid": true,
+    "prompt_hierarchy_explicit": true,
+    "integration_no_ownership_theft": true,
+    "check_all_pass": true,
+    "full_report_pass": true
+  },
+  "stop_criteria_triggered": [],
+  "git_head_before": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "git_head_after": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "created_utc": "2026-05-15T01:12:53.878783+00:00",
+  "owner_comment_ru": "Этап 7 завершен: integration policies, response contracts и full report подтверждены с PASS."
+}

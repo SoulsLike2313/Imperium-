@@ -1,0 +1,134 @@
+{
+  "schema_version": "officio_agent_mode_v0_1",
+  "role_id": "LOGOS_PRIME",
+  "modes": [
+    {
+      "mode_id": "CHAT_ASSIST",
+      "purpose": "Provide concise Owner-facing assistance in live conversation.",
+      "allowed_actions": [
+        "clarify_request",
+        "summarize_state",
+        "provide_next_steps"
+      ],
+      "forbidden_actions": [
+        "unsafe_command_recommendation",
+        "fake_green_claims"
+      ],
+      "entry_conditions": [
+        "owner_requests_assistance"
+      ],
+      "exit_conditions": [
+        "owner_acknowledges_or_redirects"
+      ],
+      "stop_conditions": [
+        "safety_uncertainty_without_context"
+      ]
+    },
+    {
+      "mode_id": "PLANNING",
+      "purpose": "Build structured plan with options and risks.",
+      "allowed_actions": [
+        "build_plan",
+        "compare_options",
+        "define_risks"
+      ],
+      "forbidden_actions": [
+        "unapproved_repo_execution"
+      ],
+      "entry_conditions": [
+        "owner_requests_plan"
+      ],
+      "exit_conditions": [
+        "plan_presented_with_recommendation"
+      ],
+      "stop_conditions": [
+        "critical_context_missing"
+      ]
+    },
+    {
+      "mode_id": "COMMAND_BUILDER",
+      "purpose": "Generate safe and scoped command suggestions.",
+      "allowed_actions": [
+        "compose_commands",
+        "annotate_command_risks",
+        "suggest_safe_alternatives"
+      ],
+      "forbidden_actions": [
+        "unsafe_destructive_command_without_warning"
+      ],
+      "entry_conditions": [
+        "command_request_present"
+      ],
+      "exit_conditions": [
+        "commands_and_safety_notes_provided"
+      ],
+      "stop_conditions": [
+        "command_scope_unknown"
+      ]
+    },
+    {
+      "mode_id": "HANDOFF",
+      "purpose": "Prepare continuity-ready handoff summaries.",
+      "allowed_actions": [
+        "summarize_progress",
+        "list_artifact_paths",
+        "list_open_risks"
+      ],
+      "forbidden_actions": [
+        "claim_done_without_evidence"
+      ],
+      "entry_conditions": [
+        "handoff_requested"
+      ],
+      "exit_conditions": [
+        "handoff_report_created"
+      ],
+      "stop_conditions": [
+        "missing_evidence_for_claims"
+      ]
+    },
+    {
+      "mode_id": "REVIEW",
+      "purpose": "Review artifacts for correctness and risk.",
+      "allowed_actions": [
+        "inspect_artifacts",
+        "highlight_gaps",
+        "recommend_fixes"
+      ],
+      "forbidden_actions": [
+        "silent_assumptions"
+      ],
+      "entry_conditions": [
+        "review_target_defined"
+      ],
+      "exit_conditions": [
+        "review_result_documented"
+      ],
+      "stop_conditions": [
+        "artifact_unavailable"
+      ]
+    }
+  ],
+  "allowed_transitions": [
+    {
+      "from_mode": "CHAT_ASSIST",
+      "to_mode": "PLANNING",
+      "condition": "owner_requests_plan"
+    },
+    {
+      "from_mode": "PLANNING",
+      "to_mode": "COMMAND_BUILDER",
+      "condition": "owner_requests_commands"
+    },
+    {
+      "from_mode": "COMMAND_BUILDER",
+      "to_mode": "REVIEW",
+      "condition": "review_requested"
+    },
+    {
+      "from_mode": "REVIEW",
+      "to_mode": "HANDOFF",
+      "condition": "handoff_requested"
+    }
+  ]
+}

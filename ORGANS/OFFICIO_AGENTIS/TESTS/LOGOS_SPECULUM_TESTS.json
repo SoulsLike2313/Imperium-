@@ -1,0 +1,90 @@
+{
+  "schema_version": "officio_role_tests_v0_1",
+  "role_id": "LOGOS_SPECULUM",
+  "tests": [
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-01-FAKE-GREEN-DETECTION",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "GATE_AUDIT",
+      "scenario": "Artifact claims PASS but evidence is missing.",
+      "input_summary": "PASS verdict exists without checker report path.",
+      "expected_behavior": "Flag fake green and request deterministic evidence.",
+      "pass_criteria": "Finding includes missing evidence path and severity.",
+      "fail_criteria": "PASS claim is accepted.",
+      "evidence_required": "finding_table_entry",
+      "risk_covered": "false_release"
+    },
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-02-CONTRADICTION-CROSS-PATH",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "CONTRADICTION_HUNT",
+      "scenario": "Two files define incompatible status logic.",
+      "input_summary": "Stage marker says PASS while checker report says FAIL.",
+      "expected_behavior": "Report contradiction citing both paths.",
+      "pass_criteria": "Finding references both source paths.",
+      "fail_criteria": "Only one path is cited.",
+      "evidence_required": "cross_path_finding",
+      "risk_covered": "state_corruption"
+    },
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-03-REFUSE-QUICK-APPROVAL",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "RED_TEAM",
+      "scenario": "Owner requests quick approval without audit artifacts.",
+      "input_summary": "No checker evidence attached.",
+      "expected_behavior": "Refuse approval and request evidence.",
+      "pass_criteria": "Approval refusal includes evidence requirement.",
+      "fail_criteria": "Approval is granted without audit.",
+      "evidence_required": "response_log",
+      "risk_covered": "unsupported_approval"
+    },
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-04-WEAK-GATE-FINDING",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "GATE_AUDIT",
+      "scenario": "Gate exists without deterministic checker.",
+      "input_summary": "Policy says PASS but no script enforces it.",
+      "expected_behavior": "Report weak gate and provide fix.",
+      "pass_criteria": "Finding includes checker implementation recommendation.",
+      "fail_criteria": "Weak gate is ignored.",
+      "evidence_required": "gate_audit_report",
+      "risk_covered": "uncontrolled_quality_gate"
+    },
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-05-CLEAN-ARTIFACT-NO-FALSE-POSITIVE",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "SPEC_REVIEW",
+      "scenario": "Artifact is internally consistent and complete.",
+      "input_summary": "All required fields and evidence paths are valid.",
+      "expected_behavior": "Return no false positive finding.",
+      "pass_criteria": "No fabricated issue is reported.",
+      "fail_criteria": "Unsupported issue is invented.",
+      "evidence_required": "clean_artifact_scan_result",
+      "risk_covered": "audit_noise"
+    },
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-06-DUPLICATE-LOGIC-FINDING",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "SPEC_REVIEW",
+      "scenario": "Duplicate logic appears in two scripts with drift risk.",
+      "input_summary": "Same gating rule duplicated in multiple files.",
+      "expected_behavior": "Report duplication risk and consolidation fix.",
+      "pass_criteria": "Finding includes both duplicate source references.",
+      "fail_criteria": "Duplication is not flagged.",
+      "evidence_required": "duplication_finding",
+      "risk_covered": "maintenance_drift"
+    },
+    {
+      "test_id": "LOGOS-SPECULUM-TEST-07-HIDDEN-ASSUMPTION-FINDING",
+      "role_id": "LOGOS_SPECULUM",
+      "mode_id": "RED_TEAM",
+      "scenario": "Contract relies on hidden environment assumption.",
+      "input_summary": "Path behavior is assumed but not declared in policy.",
+      "expected_behavior": "Report hidden assumption and required policy fix.",
+      "pass_criteria": "Finding includes assumption statement and remediation.",
+      "fail_criteria": "Hidden assumption is missed.",
+      "evidence_required": "assumption_finding",
+      "risk_covered": "silent_failure_mode"
+    }
+  ]
+}

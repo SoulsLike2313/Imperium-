@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "officio_agent_response_contract.schema.json",
+  "title": "Officio Agent Response Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "contract_id",
+    "contract_name",
+    "description",
+    "required_sections",
+    "language_policy",
+    "evidence_policy",
+    "status_values"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "contract_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required_sections": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "language_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_comment_language",
+        "canonical_artifact_language"
+      ],
+      "properties": {
+        "owner_comment_language": {
+          "type": "string"
+        },
+        "canonical_artifact_language": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pass_requires_evidence",
+        "required_evidence_fields"
+      ],
+      "properties": {
+        "pass_requires_evidence": {
+          "type": "boolean"
+        },
+        "required_evidence_fields": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "status_values": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

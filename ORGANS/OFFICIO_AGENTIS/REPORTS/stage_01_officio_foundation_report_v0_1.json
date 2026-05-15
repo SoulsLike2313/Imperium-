@@ -1,0 +1,41 @@
+{
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "stage_id": "STAGE-01-OFFICIO-FOUNDATION-V0_1",
+  "status": "PASS",
+  "checker_command": "py -3 scripts/officio_agentis_validate_foundation_v0_1.py",
+  "checker_status": "PASS",
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/README.md",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/ROLE_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/SCHEMA_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_role_contract.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_mode.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_settings.schema.json"
+  ],
+  "created_or_modified_paths": [
+    "ORGANS/OFFICIO_AGENTIS/README.md",
+    "ORGANS/OFFICIO_AGENTIS/DOCS/ARCHITECTURE.md",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/ROLE_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/REGISTRY/SCHEMA_REGISTRY.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_role_contract.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_mode.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_settings.schema.json",
+    "scripts/officio_agentis_validate_foundation_v0_1.py",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/foundation_check_report_v0_1.json"
+  ],
+  "pass_criteria_met": {
+    "required_folders_exist": true,
+    "readme_exists": true,
+    "readme_markers_present": true,
+    "non_ownership_markers_present": true,
+    "base_schema_json_valid": true,
+    "role_registry_has_exact_roles": true,
+    "role_registry_roles_are_draft": true,
+    "schema_registry_lists_base_schemas": true
+  },
+  "stop_criteria_triggered": [],
+  "git_head_before": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "git_head_after": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "created_utc": "2026-05-15T00:57:26.675383+00:00",
+  "owner_comment_ru": "Этап 1 завершен: каркас Officio Agentis создан, базовые реестры/схемы и foundation-checker дали PASS."
+}

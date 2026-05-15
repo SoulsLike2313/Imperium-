@@ -1,0 +1,30 @@
+{
+  "schema_version": "officio_agent_response_contract_v0_1",
+  "contract_id": "OWNER_RESPONSE",
+  "contract_name": "Owner Live Response Contract",
+  "description": "Defines Owner-facing response shape for role outputs.",
+  "required_sections": [
+    "step",
+    "path",
+    "verdict",
+    "owner_comments_ru"
+  ],
+  "language_policy": {
+    "owner_comment_language": "RUSSIAN",
+    "canonical_artifact_language": "ENGLISH"
+  },
+  "evidence_policy": {
+    "pass_requires_evidence": true,
+    "required_evidence_fields": [
+      "checker_commands",
+      "checker_results",
+      "evidence_paths"
+    ]
+  },
+  "status_values": [
+    "PASS",
+    "FAIL",
+    "STOPPED",
+    "STOPPED_PENDING_OWNER_APPROVAL"
+  ]
+}

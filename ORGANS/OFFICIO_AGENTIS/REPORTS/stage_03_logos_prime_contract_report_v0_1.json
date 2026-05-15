@@ -1,0 +1,52 @@
+{
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "stage_id": "STAGE-03-LOGOS-PRIME-CONTRACT-V0_1",
+  "status": "PASS",
+  "checker_command": "py -3 scripts/officio_agentis_validate_role_contract_v0_1.py --role LOGOS_PRIME",
+  "checker_status": "PASS",
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.json",
+    "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.md",
+    "ORGANS/OFFICIO_AGENTIS/MODES/LOGOS_PRIME_MODES.json",
+    "ORGANS/OFFICIO_AGENTIS/PROMPTS/LOGOS_PRIME_SYSTEM_PROMPT.md",
+    "ORGANS/OFFICIO_AGENTIS/TESTS/LOGOS_PRIME_TESTS.json"
+  ],
+  "created_or_modified_paths": [
+    "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.json",
+    "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.md",
+    "ORGANS/OFFICIO_AGENTIS/MODES/LOGOS_PRIME_MODES.json",
+    "ORGANS/OFFICIO_AGENTIS/PROMPTS/LOGOS_PRIME_SYSTEM_PROMPT.md",
+    "ORGANS/OFFICIO_AGENTIS/TESTS/LOGOS_PRIME_TESTS.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/logos_prime_contract_check_report_v0_1.json"
+  ],
+  "pass_criteria_met": {
+    "role_json_exists": true,
+    "role_md_exists": true,
+    "modes_exists": true,
+    "prompt_exists": true,
+    "tests_exists": true,
+    "role_json_has_required_keys": true,
+    "task_id_exact": true,
+    "role_id_matches_argument": true,
+    "settings_required_keys_present": true,
+    "owner_language_russian": true,
+    "canonical_artifact_language_english": true,
+    "required_modes_present": true,
+    "required_tests_present": true,
+    "tests_have_required_fields": true,
+    "prompt_required_markers_present": true,
+    "md_forbids_fake_green": true,
+    "prompt_rule_exact_phrase_present": true,
+    "prompt_rule_in_tests_present": true,
+    "fact_assumption_proposal_split": true,
+    "no_repo_execution_without_approval": true,
+    "mission_protection_markers": true,
+    "role_specific_checks_pass": true,
+    "role_json_canonical_language_english_only": true
+  },
+  "stop_criteria_triggered": [],
+  "git_head_before": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "git_head_after": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "created_utc": "2026-05-15T01:02:39.846622+00:00",
+  "owner_comment_ru": "Этап 3 завершен: LOGOS_PRIME оформлен, включая правило точной фразы 'Пиши промт', checker дал PASS."
+}

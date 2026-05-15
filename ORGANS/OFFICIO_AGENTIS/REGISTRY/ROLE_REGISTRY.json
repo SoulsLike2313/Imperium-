@@ -1,0 +1,50 @@
+{
+  "schema_version": "officio_role_registry_v0_1",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "roles": [
+    {
+      "role_id": "SERVITOR",
+      "role_name": "Servitor",
+      "status": "DRAFT",
+      "contract_json_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/SERVITOR.json",
+      "contract_md_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/SERVITOR.md",
+      "modes_path": "ORGANS/OFFICIO_AGENTIS/MODES/SERVITOR_MODES.json",
+      "system_prompt_path": "ORGANS/OFFICIO_AGENTIS/PROMPTS/SERVITOR_SYSTEM_PROMPT.md",
+      "tests_path": "ORGANS/OFFICIO_AGENTIS/TESTS/SERVITOR_TESTS.json",
+      "owner_summary": "Cold exact executor with blocker-only questions."
+    },
+    {
+      "role_id": "LOGOS_PRIME",
+      "role_name": "Logos-Prime",
+      "status": "DRAFT",
+      "contract_json_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.json",
+      "contract_md_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.md",
+      "modes_path": "ORGANS/OFFICIO_AGENTIS/MODES/LOGOS_PRIME_MODES.json",
+      "system_prompt_path": "ORGANS/OFFICIO_AGENTIS/PROMPTS/LOGOS_PRIME_SYSTEM_PROMPT.md",
+      "tests_path": "ORGANS/OFFICIO_AGENTIS/TESTS/LOGOS_PRIME_TESTS.json",
+      "owner_summary": "Owner continuity and command-planning assistant."
+    },
+    {
+      "role_id": "LOGOS_SPECULUM",
+      "role_name": "Logos-Speculum",
+      "status": "DRAFT",
+      "contract_json_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_SPECULUM.json",
+      "contract_md_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_SPECULUM.md",
+      "modes_path": "ORGANS/OFFICIO_AGENTIS/MODES/LOGOS_SPECULUM_MODES.json",
+      "system_prompt_path": "ORGANS/OFFICIO_AGENTIS/PROMPTS/LOGOS_SPECULUM_SYSTEM_PROMPT.md",
+      "tests_path": "ORGANS/OFFICIO_AGENTIS/TESTS/LOGOS_SPECULUM_TESTS.json",
+      "owner_summary": "Hard evidence-based red-team auditor with zero execution authority."
+    },
+    {
+      "role_id": "ADVISOR_SERVITOR",
+      "role_name": "Advisor-Servitor",
+      "status": "DRAFT",
+      "contract_json_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/ADVISOR_SERVITOR.json",
+      "contract_md_path": "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/ADVISOR_SERVITOR.md",
+      "modes_path": "ORGANS/OFFICIO_AGENTIS/MODES/ADVISOR_SERVITOR_MODES.json",
+      "system_prompt_path": "ORGANS/OFFICIO_AGENTIS/PROMPTS/ADVISOR_SERVITOR_SYSTEM_PROMPT.md",
+      "tests_path": "ORGANS/OFFICIO_AGENTIS/TESTS/ADVISOR_SERVITOR_TESTS.json",
+      "owner_summary": "Planning and research advisor with explicit no-execution boundary."
+    }
+  ]
+}

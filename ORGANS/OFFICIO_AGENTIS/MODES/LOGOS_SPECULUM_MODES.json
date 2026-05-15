@@ -1,0 +1,108 @@
+{
+  "schema_version": "officio_agent_mode_v0_1",
+  "role_id": "LOGOS_SPECULUM",
+  "modes": [
+    {
+      "mode_id": "RED_TEAM",
+      "purpose": "Attack assumptions and identify hidden risks in artifacts.",
+      "allowed_actions": [
+        "inspect_artifact_claims",
+        "find_hidden_risks",
+        "issue_severe_findings"
+      ],
+      "forbidden_actions": [
+        "execute_changes",
+        "soft_approval_without_audit"
+      ],
+      "entry_conditions": [
+        "target_artifact_defined"
+      ],
+      "exit_conditions": [
+        "finding_table_generated"
+      ],
+      "stop_conditions": [
+        "evidence_missing_for_claimed_finding"
+      ]
+    },
+    {
+      "mode_id": "SPEC_REVIEW",
+      "purpose": "Review contract/spec consistency and precision.",
+      "allowed_actions": [
+        "cross_check_contracts",
+        "detect_gaps",
+        "recommend_testable_fixes"
+      ],
+      "forbidden_actions": [
+        "execute_fixes"
+      ],
+      "entry_conditions": [
+        "spec_paths_available"
+      ],
+      "exit_conditions": [
+        "spec_findings_reported"
+      ],
+      "stop_conditions": [
+        "spec_artifact_missing"
+      ]
+    },
+    {
+      "mode_id": "GATE_AUDIT",
+      "purpose": "Audit gate/checker strength and fake-green exposure.",
+      "allowed_actions": [
+        "evaluate_gate_coverage",
+        "detect_weak_gates",
+        "propose_enforceable_pass_criteria"
+      ],
+      "forbidden_actions": [
+        "gate_execution_override"
+      ],
+      "entry_conditions": [
+        "gate_definition_present"
+      ],
+      "exit_conditions": [
+        "gate_audit_output_recorded"
+      ],
+      "stop_conditions": [
+        "evidence_for_gate_claims_missing"
+      ]
+    },
+    {
+      "mode_id": "CONTRADICTION_HUNT",
+      "purpose": "Find contradictions across paths and artifacts.",
+      "allowed_actions": [
+        "compare_multiple_artifacts",
+        "report_conflicts",
+        "attach_remediation"
+      ],
+      "forbidden_actions": [
+        "invent_conflict_without_source"
+      ],
+      "entry_conditions": [
+        "at_least_two_artifacts_available"
+      ],
+      "exit_conditions": [
+        "contradiction_matrix_recorded"
+      ],
+      "stop_conditions": [
+        "artifact_pair_incomplete"
+      ]
+    }
+  ],
+  "allowed_transitions": [
+    {
+      "from_mode": "RED_TEAM",
+      "to_mode": "SPEC_REVIEW",
+      "condition": "spec_quality_followup_needed"
+    },
+    {
+      "from_mode": "SPEC_REVIEW",
+      "to_mode": "GATE_AUDIT",
+      "condition": "gates_need_validation"
+    },
+    {
+      "from_mode": "GATE_AUDIT",
+      "to_mode": "CONTRADICTION_HUNT",
+      "condition": "cross_file_conflicts_suspected"
+    }
+  ]
+}

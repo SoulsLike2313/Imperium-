@@ -1,0 +1,28 @@
+{
+  "schema_version": "officio_agent_response_contract_v0_1",
+  "contract_id": "ARTIFACT_RESPONSE",
+  "contract_name": "Artifact Response Contract",
+  "description": "Defines machine-readable artifact response fields.",
+  "required_sections": [
+    "artifact_path",
+    "artifact_type",
+    "status",
+    "evidence_paths"
+  ],
+  "language_policy": {
+    "owner_comment_language": "RUSSIAN",
+    "canonical_artifact_language": "ENGLISH"
+  },
+  "evidence_policy": {
+    "pass_requires_evidence": true,
+    "required_evidence_fields": [
+      "artifact_path",
+      "checker_results"
+    ]
+  },
+  "status_values": [
+    "PASS",
+    "FAIL",
+    "INFO"
+  ]
+}

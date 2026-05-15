@@ -1,0 +1,30 @@
+{
+  "schema_version": "officio_agent_response_contract_v0_1",
+  "contract_id": "HANDOFF_RESPONSE",
+  "contract_name": "Handoff Response Contract",
+  "description": "Defines handoff response structure between roles or organs.",
+  "required_sections": [
+    "from_role",
+    "to_role",
+    "summary",
+    "required_artifacts",
+    "open_risks",
+    "next_actions"
+  ],
+  "language_policy": {
+    "owner_comment_language": "RUSSIAN",
+    "canonical_artifact_language": "ENGLISH"
+  },
+  "evidence_policy": {
+    "pass_requires_evidence": true,
+    "required_evidence_fields": [
+      "required_artifacts",
+      "open_risks",
+      "next_actions"
+    ]
+  },
+  "status_values": [
+    "HANDOFF_READY",
+    "HANDOFF_BLOCKED"
+  ]
+}

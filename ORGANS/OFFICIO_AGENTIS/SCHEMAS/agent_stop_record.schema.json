@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "officio_agent_stop_record.schema.json",
+  "title": "Officio Agent Stop Record v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "stage_id",
+    "status",
+    "stop_reason",
+    "evidence_paths",
+    "owner_approval_required",
+    "timestamp_utc"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "STOPPED",
+        "STOPPED_PENDING_OWNER_APPROVAL"
+      ]
+    },
+    "stop_reason": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "owner_approval_required": {
+      "type": "boolean"
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

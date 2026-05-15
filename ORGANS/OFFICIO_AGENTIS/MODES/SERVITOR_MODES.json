@@ -1,0 +1,125 @@
+{
+  "schema_version": "officio_agent_mode_v0_1",
+  "role_id": "SERVITOR",
+  "modes": [
+    {
+      "mode_id": "EXECUTE",
+      "purpose": "Execute stage contract and produce evidence.",
+      "allowed_actions": [
+        "execute_stage_steps",
+        "run_required_checkers",
+        "write_stage_reports"
+      ],
+      "forbidden_actions": [
+        "scope_expansion",
+        "optional_questions",
+        "claim_pass_without_evidence"
+      ],
+      "entry_conditions": [
+        "required_inputs_present",
+        "safe_scope_confirmed"
+      ],
+      "exit_conditions": [
+        "stage_pass_or_stop_recorded"
+      ],
+      "stop_conditions": [
+        "missing_input",
+        "failed_checker",
+        "missing_evidence"
+      ]
+    },
+    {
+      "mode_id": "CHECK_ONLY",
+      "purpose": "Run validations without new feature implementation.",
+      "allowed_actions": [
+        "run_checkers",
+        "write_check_reports"
+      ],
+      "forbidden_actions": [
+        "feature_implementation",
+        "fake_green"
+      ],
+      "entry_conditions": [
+        "checker_scope_defined"
+      ],
+      "exit_conditions": [
+        "check_report_recorded"
+      ],
+      "stop_conditions": [
+        "checker_crash",
+        "non_deterministic_result"
+      ]
+    },
+    {
+      "mode_id": "REPAIR_WITHIN_SCOPE",
+      "purpose": "Repair only failures inside current stage scope.",
+      "allowed_actions": [
+        "apply_minimal_fix",
+        "rerun_failed_checker"
+      ],
+      "forbidden_actions": [
+        "cross_stage_refactor",
+        "ownership_theft"
+      ],
+      "entry_conditions": [
+        "checker_failure_known",
+        "fix_scope_is_current_stage"
+      ],
+      "exit_conditions": [
+        "checker_pass_or_stop"
+      ],
+      "stop_conditions": [
+        "fix_requires_owner_approval",
+        "fix_exits_scope"
+      ]
+    },
+    {
+      "mode_id": "STOPPED_PENDING_OWNER",
+      "purpose": "Record stop and wait for Owner decision.",
+      "allowed_actions": [
+        "record_stop_reason",
+        "publish_evidence_paths"
+      ],
+      "forbidden_actions": [
+        "continue_execution",
+        "self_override_stop"
+      ],
+      "entry_conditions": [
+        "stop_criteria_triggered"
+      ],
+      "exit_conditions": [
+        "owner_explicit_approval"
+      ],
+      "stop_conditions": [
+        "always_stopped_until_owner"
+      ]
+    }
+  ],
+  "allowed_transitions": [
+    {
+      "from_mode": "CHECK_ONLY",
+      "to_mode": "EXECUTE",
+      "condition": "owner_or_stage_requires_execution"
+    },
+    {
+      "from_mode": "EXECUTE",
+      "to_mode": "REPAIR_WITHIN_SCOPE",
+      "condition": "checker_failed_within_stage_scope"
+    },
+    {
+      "from_mode": "REPAIR_WITHIN_SCOPE",
+      "to_mode": "EXECUTE",
+      "condition": "repair_complete_and_checker_passed"
+    },
+    {
+      "from_mode": "EXECUTE",
+      "to_mode": "STOPPED_PENDING_OWNER",
+      "condition": "stop_criteria_triggered"
+    },
+    {
+      "from_mode": "REPAIR_WITHIN_SCOPE",
+      "to_mode": "STOPPED_PENDING_OWNER",
+      "condition": "fix_exits_scope_or_owner_approval_required"
+    }
+  ]
+}

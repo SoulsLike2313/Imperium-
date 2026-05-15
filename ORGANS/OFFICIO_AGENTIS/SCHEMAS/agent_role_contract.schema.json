@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "officio_agent_role_contract.schema.json",
+  "title": "Officio Agent Role Contract v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "role_id",
+    "role_name",
+    "mission",
+    "allowed_actions",
+    "forbidden_actions",
+    "question_policy",
+    "autonomy_level",
+    "evidence_requirement",
+    "response_style",
+    "artifact_style",
+    "stop_conditions",
+    "settings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^TASK-[0-9]{8}-[A-Z0-9\\-]+$"
+    },
+    "role_id": {
+      "type": "string",
+      "enum": [
+        "SERVITOR",
+        "LOGOS_PRIME",
+        "LOGOS_SPECULUM",
+        "ADVISOR_SERVITOR"
+      ]
+    },
+    "role_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mission": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "allowed_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "question_policy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "autonomy_level": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_requirement": {
+      "type": "string",
+      "minLength": 1
+    },
+    "response_style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_language",
+        "format",
+        "fact_assumption_proposal_split"
+      ],
+      "properties": {
+        "owner_language": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "fact_assumption_proposal_split": {
+          "type": "boolean"
+        }
+      }
+    },
+    "artifact_style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "canonical_language",
+        "allow_owner_comment_ru_field"
+      ],
+      "properties": {
+        "canonical_language": {
+          "type": "string"
+        },
+        "allow_owner_comment_ru_field": {
+          "type": "boolean"
+        }
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "settings": {
+      "$ref": "agent_settings.schema.json"
+    }
+  }
+}

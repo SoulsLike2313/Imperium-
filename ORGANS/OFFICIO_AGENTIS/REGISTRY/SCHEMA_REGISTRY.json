@@ -1,0 +1,34 @@
+{
+  "schema_version": "officio_schema_registry_v0_1",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "schemas": [
+    {
+      "schema_id": "agent_role_contract",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_role_contract.schema.json"
+    },
+    {
+      "schema_id": "agent_mode",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_mode.schema.json"
+    },
+    {
+      "schema_id": "agent_settings",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_settings.schema.json"
+    },
+    {
+      "schema_id": "agent_test_case",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_test_case.schema.json"
+    },
+    {
+      "schema_id": "agent_response_contract",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_response_contract.schema.json"
+    },
+    {
+      "schema_id": "agent_stop_record",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_stop_record.schema.json"
+    },
+    {
+      "schema_id": "agent_handoff_contract",
+      "path": "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_handoff_contract.schema.json"
+    }
+  ]
+}

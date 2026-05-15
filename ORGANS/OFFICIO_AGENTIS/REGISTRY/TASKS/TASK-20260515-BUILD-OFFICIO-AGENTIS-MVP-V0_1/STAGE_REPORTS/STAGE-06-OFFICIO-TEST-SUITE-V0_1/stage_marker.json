@@ -1,0 +1,61 @@
+{
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "stage_id": "STAGE-06-OFFICIO-TEST-SUITE-V0_1",
+  "status": "PASS",
+  "started_utc": "2026-05-15T01:08:35.785036+00:00",
+  "completed_utc": "2026-05-15T01:08:35.870583+00:00",
+  "prompt_path": "ORGANS/OFFICIO_AGENTIS/REGISTRY/TASKS/TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1/PROMPTS/06_STAGE-06_OFFICIO_TEST_SUITE_V0_1.md",
+  "evidence_paths": [
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/role_test_dry_run_report_v0_1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/officio_agentis_check_all_report_v0_1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/stage_06_officio_test_suite_report_v0_1.json"
+  ],
+  "checker_commands": [
+    "py -3 ORGANS/OFFICIO_AGENTIS/TESTS/run_role_tests.py --dry-run",
+    "py -3 ORGANS/OFFICIO_AGENTIS/TESTS/run_role_tests.py --critical-only --dry-run",
+    "py -3 scripts/officio_agentis_check_all_v0_1.py"
+  ],
+  "checker_results": {
+    "dry_run_status": "PASS",
+    "dry_run_checks": {
+      "dry_run_mode": true,
+      "test_case_schema_available": true,
+      "selected_role_files_loaded": true,
+      "each_selected_role_has_tests": true,
+      "test_fields_valid": true,
+      "critical_inventory_exists": true,
+      "required_critical_ids_present": true,
+      "critical_mappings_resolved": true
+    },
+    "check_all_status": "PASS",
+    "check_all_checks": {
+      "foundation_check_pass": true,
+      "role_servitor_check_pass": true,
+      "role_logos_prime_check_pass": true,
+      "role_logos_speculum_check_pass": true,
+      "role_advisor_servitor_check_pass": true,
+      "dry_run_tests_pass": true,
+      "critical_dry_run_tests_pass": true,
+      "role_registry_has_all_roles": true
+    }
+  },
+  "created_or_modified_paths": [
+    "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_test_case.schema.json",
+    "ORGANS/OFFICIO_AGENTIS/TESTS/OFFICIO_CRITICAL_TESTS.json",
+    "ORGANS/OFFICIO_AGENTIS/TESTS/run_role_tests.py",
+    "scripts/officio_agentis_check_all_v0_1.py",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/role_test_dry_run_report_v0_1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/officio_agentis_check_all_report_v0_1.json",
+    "ORGANS/OFFICIO_AGENTIS/REPORTS/stage_06_officio_test_suite_report_v0_1.json"
+  ],
+  "git_head_before": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "git_head_after": "737e73e15f9c5d07865b634f7fbdc974b0aec005",
+  "pass_criteria_met": {
+    "dry_run_report_pass": true,
+    "critical_coverage_present": true,
+    "critical_mapping_resolved": true,
+    "check_all_pass": true
+  },
+  "stop_criteria_triggered": [],
+  "owner_comment_ru": "Этап 6 PASS: критические тесты OA-CRIT-01..10 и dry-run suite подтверждены."
+}

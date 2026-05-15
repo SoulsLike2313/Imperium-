@@ -1,0 +1,30 @@
+{
+  "schema_version": "officio_policy_registry_v0_1",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "policies": [
+    {
+      "policy_id": "QUESTION_POLICY",
+      "path": "ORGANS/OFFICIO_AGENTIS/POLICIES/QUESTION_POLICY.md"
+    },
+    {
+      "policy_id": "EVIDENCE_POLICY",
+      "path": "ORGANS/OFFICIO_AGENTIS/POLICIES/EVIDENCE_POLICY.md"
+    },
+    {
+      "policy_id": "LANGUAGE_POLICY",
+      "path": "ORGANS/OFFICIO_AGENTIS/POLICIES/LANGUAGE_POLICY.md"
+    },
+    {
+      "policy_id": "STOP_POLICY",
+      "path": "ORGANS/OFFICIO_AGENTIS/POLICIES/STOP_POLICY.md"
+    },
+    {
+      "policy_id": "PROMPT_WRITING_POLICY",
+      "path": "ORGANS/OFFICIO_AGENTIS/POLICIES/PROMPT_WRITING_POLICY.md"
+    },
+    {
+      "policy_id": "EXECUTION_BOUNDARY_POLICY",
+      "path": "ORGANS/OFFICIO_AGENTIS/POLICIES/EXECUTION_BOUNDARY_POLICY.md"
+    }
+  ]
+}

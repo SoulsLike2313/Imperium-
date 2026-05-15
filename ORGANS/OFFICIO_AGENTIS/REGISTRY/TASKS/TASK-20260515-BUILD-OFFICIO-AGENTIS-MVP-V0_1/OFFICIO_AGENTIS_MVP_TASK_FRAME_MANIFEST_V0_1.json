@@ -1,0 +1,18 @@
+{
+  "created_utc": "2026-05-15T00:46:58Z",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "target_repo_dir": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\REGISTRY\\TASKS\\TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "target_relative_dir": "ORGANS/OFFICIO_AGENTIS/REGISTRY/TASKS/TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "files": [
+    {
+      "filename": "OFFICIO_AGENTIS_MVP_GENERAL_TASK_V0_1.md",
+      "sha256": "15e445ae41a022b9bc1b8996c9e9824a14f3454053f2e5c9108230d614ed2bcf",
+      "size_bytes": 13744
+    },
+    {
+      "filename": "OFFICIO_AGENTIS_MVP_TASK_PLAN_V0_1.json",
+      "sha256": "6d8197a76f8e285283eafcf482181f9727d0bd9b89be1a756fa656502cc9e691",
+      "size_bytes": 13093
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema_version": "officio_response_contract_registry_v0_1",
+  "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+  "contracts": [
+    {
+      "contract_id": "OWNER_RESPONSE",
+      "path": "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/OWNER_RESPONSE.json"
+    },
+    {
+      "contract_id": "ARTIFACT_RESPONSE",
+      "path": "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/ARTIFACT_RESPONSE.json"
+    },
+    {
+      "contract_id": "HANDOFF_RESPONSE",
+      "path": "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/HANDOFF_RESPONSE.json"
+    },
+    {
+      "contract_id": "STAGE_REPORT_RESPONSE",
+      "path": "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/STAGE_REPORT_RESPONSE.json"
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "schema_version": "officio_agentis_mvp_task_plan_v0_1",
+  "created_utc": "2026-05-15T00:46:58Z",
+  "task": {
+    "task_id": "TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+    "title": "Build Officio Agentis MVP v0.1",
+    "planning_owner": "Owner + Logos-Prime",
+    "advisory_input": [
+      "Kiro1.txt",
+      "Kiro2.txt"
+    ],
+    "planning_mode": "manual_officio_agentis_frame",
+    "astronomicon_used": false,
+    "astra_used": false,
+    "administratum_mvp_frozen": true,
+    "ready_for_agent": false,
+    "vm2_sync_required_now": false,
+    "repo_root_expected": "E:\\IMPERIUM",
+    "target_repo_dir": "E:\\IMPERIUM\\ORGANS\\OFFICIO_AGENTIS\\REGISTRY\\TASKS\\TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1",
+    "target_relative_dir": "ORGANS/OFFICIO_AGENTIS/REGISTRY/TASKS/TASK-20260515-BUILD-OFFICIO-AGENTIS-MVP-V0_1"
+  },
+  "target_roles": [
+    {
+      "role_id": "SERVITOR",
+      "status": "DRAFT"
+    },
+    {
+      "role_id": "LOGOS_PRIME",
+      "status": "DRAFT"
+    },
+    {
+      "role_id": "LOGOS_SPECULUM",
+      "status": "DRAFT"
+    },
+    {
+      "role_id": "ADVISOR_SERVITOR",
+      "status": "DRAFT"
+    }
+  ],
+  "stages": [
+    {
+      "stage_number": 1,
+      "stage_id": "STAGE-01-OFFICIO-FOUNDATION-V0_1",
+      "title": "Officio Agentis Foundation",
+      "goal": "Create the Officio Agentis organ skeleton, README, base schemas, registries, validation checker, and evidence report.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/README.md",
+        "ORGANS/OFFICIO_AGENTIS/DOCS/ARCHITECTURE.md",
+        "ORGANS/OFFICIO_AGENTIS/REGISTRY/ROLE_REGISTRY.json",
+        "ORGANS/OFFICIO_AGENTIS/REGISTRY/SCHEMA_REGISTRY.json",
+        "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_role_contract.schema.json",
+        "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_mode.schema.json",
+        "ORGANS/OFFICIO_AGENTIS/SCHEMAS/agent_settings.schema.json",
+        "scripts/officio_agentis_validate_foundation_v0_1.py",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/foundation_check_report_v0_1.json"
+      ],
+      "green_criteria": [
+        "All required Officio Agentis folders exist.",
+        "README defines purpose, boundaries, ownership, and non-goals.",
+        "Base schemas are valid JSON.",
+        "ROLE_REGISTRY.json lists SERVITOR, LOGOS_PRIME, LOGOS_SPECULUM, and ADVISOR_SERVITOR as DRAFT.",
+        "SCHEMA_REGISTRY.json lists base schemas with paths.",
+        "Officio Agentis does not claim ownership of other organs' authorities.",
+        "Foundation checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if schema JSON is invalid.",
+        "Stop if folder structure mismatches the required skeleton.",
+        "Stop if ROLE_REGISTRY.json misses any of the four roles.",
+        "Stop if Officio Agentis tries to own another organ's authority."
+      ]
+    },
+    {
+      "stage_number": 2,
+      "stage_id": "STAGE-02-SERVITOR-CONTRACT-V0_1",
+      "title": "Servitor Role Contract",
+      "goal": "Define Servitor as a cold exact executor with blocker-only questions, mandatory evidence, no creative drift, and no fake green.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/SERVITOR.json",
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/SERVITOR.md",
+        "ORGANS/OFFICIO_AGENTIS/MODES/SERVITOR_MODES.json",
+        "ORGANS/OFFICIO_AGENTIS/PROMPTS/SERVITOR_SYSTEM_PROMPT.md",
+        "ORGANS/OFFICIO_AGENTIS/TESTS/SERVITOR_TESTS.json",
+        "scripts/officio_agentis_validate_role_contract_v0_1.py",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/servitor_contract_check_report_v0_1.json"
+      ],
+      "green_criteria": [
+        "SERVITOR.json validates against agent_role_contract.schema.json.",
+        "Question policy is BLOCKER_ONLY.",
+        "Autonomy is LOW.",
+        "Evidence requirement is MANDATORY.",
+        "Owner-facing comments must be Russian.",
+        "Canonical machine artifacts must be English-only.",
+        "Tests cover clear-stage no-question behavior, missing input stop, failed checker stop, task ID contradiction stop, and Russian Owner comments.",
+        "Role contract checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if Servitor is allowed broad creative architecture drift.",
+        "Stop if Servitor can ask optional/non-blocking questions during clear execution.",
+        "Stop if fake green is not explicitly forbidden.",
+        "Stop if evidence is optional."
+      ]
+    },
+    {
+      "stage_number": 3,
+      "stage_id": "STAGE-03-LOGOS-PRIME-CONTRACT-V0_1",
+      "title": "Logos-Prime Role Contract",
+      "goal": "Define Logos-Prime as Owner's indispensable machine assistant, continuity keeper, developer-helper, command/planning helper, and fake-green guard.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.json",
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_PRIME.md",
+        "ORGANS/OFFICIO_AGENTIS/MODES/LOGOS_PRIME_MODES.json",
+        "ORGANS/OFFICIO_AGENTIS/PROMPTS/LOGOS_PRIME_SYSTEM_PROMPT.md",
+        "ORGANS/OFFICIO_AGENTIS/TESTS/LOGOS_PRIME_TESTS.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/logos_prime_contract_check_report_v0_1.json"
+      ],
+      "green_criteria": [
+        "LOGOS_PRIME.json validates against agent_role_contract.schema.json.",
+        "Mission includes continuity, planning, command help, review, and Owner protection from broken commands, mojibake, path confusion, stale Git truth, and fake green.",
+        "Prompt-writing rule is explicit: do not write prompts unless Owner says exactly '\u041f\u0438\u0448\u0438 \u043f\u0440\u043e\u043c\u0442'.",
+        "Response style is compact, table-first, path-first, and Russian for live Owner chat.",
+        "Role contract separates fact, assumption, and proposal.",
+        "Tests cover English 'write prompt' refusal and exact '\u041f\u0438\u0448\u0438 \u043f\u0440\u043e\u043c\u0442' prompt writing.",
+        "Role contract checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if exact '\u041f\u0438\u0448\u0438 \u043f\u0440\u043e\u043c\u0442' rule is missing.",
+        "Stop if Logos-Prime is allowed to execute repo changes without explicit Owner approval/mode.",
+        "Stop if fact/assumption/proposal separation is missing."
+      ]
+    },
+    {
+      "stage_number": 4,
+      "stage_id": "STAGE-04-LOGOS-SPECULUM-CONTRACT-V0_1",
+      "title": "Logos-Speculum Role Contract",
+      "goal": "Define Logos-Speculum as a hard evidence-based red-team role with severe critique and zero execution authority.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_SPECULUM.json",
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/LOGOS_SPECULUM.md",
+        "ORGANS/OFFICIO_AGENTIS/MODES/LOGOS_SPECULUM_MODES.json",
+        "ORGANS/OFFICIO_AGENTIS/PROMPTS/LOGOS_SPECULUM_SYSTEM_PROMPT.md",
+        "ORGANS/OFFICIO_AGENTIS/TESTS/LOGOS_SPECULUM_TESTS.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/logos_speculum_contract_check_report_v0_1.json"
+      ],
+      "green_criteria": [
+        "LOGOS_SPECULUM.json validates against agent_role_contract.schema.json.",
+        "Critique autonomy is HIGH but execution autonomy is ZERO.",
+        "Flattery and approval without audit are forbidden.",
+        "Every finding requires source path, artifact reference, exact problem, severity, fix, and pass criteria.",
+        "Tests cover fake green detection, contradiction detection, quick approval refusal, weak gate finding, and clean artifact no-false-positive behavior.",
+        "Role contract checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if Logos-Speculum can execute fixes.",
+        "Stop if evidence is optional for findings.",
+        "Stop if flattery or unsupported approval is not forbidden."
+      ]
+    },
+    {
+      "stage_number": 5,
+      "stage_id": "STAGE-05-ADVISOR-SERVITOR-CONTRACT-V0_1",
+      "title": "Advisor-Servitor Role Contract",
+      "goal": "Define Advisor-Servitor as a planning/research/options role that does not execute repo changes unless explicitly promoted.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/ADVISOR_SERVITOR.json",
+        "ORGANS/OFFICIO_AGENTIS/ROLE_CONTRACTS/ADVISOR_SERVITOR.md",
+        "ORGANS/OFFICIO_AGENTIS/MODES/ADVISOR_SERVITOR_MODES.json",
+        "ORGANS/OFFICIO_AGENTIS/PROMPTS/ADVISOR_SERVITOR_SYSTEM_PROMPT.md",
+        "ORGANS/OFFICIO_AGENTIS/TESTS/ADVISOR_SERVITOR_TESTS.json",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/advisor_servitor_contract_check_report_v0_1.json"
+      ],
+      "green_criteria": [
+        "ADVISOR_SERVITOR.json validates against agent_role_contract.schema.json.",
+        "Mission includes planning, research, option comparison, clarification, and advisory pack generation.",
+        "Execution boundary is explicit: no repo changes unless explicitly promoted to execution mode.",
+        "Tests cover clear planning without unnecessary questions, genuine ambiguity question, execution request requiring explicit promotion, source citation, and options with pros/cons/risks.",
+        "Role contract checker returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if Advisor-Servitor can execute repo changes without explicit promotion.",
+        "Stop if research/source citation requirements are missing.",
+        "Stop if question policy is too vague."
+      ]
+    },
+    {
+      "stage_number": 6,
+      "stage_id": "STAGE-06-OFFICIO-TEST-SUITE-V0_1",
+      "title": "Officio Agentis Test Suite",
+      "goal": "Create machine-checkable role behavior tests, a dry-run runner, critical test inventory, and aggregated check_all script.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/TESTS/OFFICIO_CRITICAL_TESTS.json",
+        "ORGANS/OFFICIO_AGENTIS/TESTS/run_role_tests.py",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/role_test_dry_run_report_v0_1.json",
+        "scripts/officio_agentis_check_all_v0_1.py"
+      ],
+      "green_criteria": [
+        "All role test JSON files validate against agent_test_case.schema.json.",
+        "OFFICIO_CRITICAL_TESTS.json includes critical tests for Servitor, Logos-Prime, Logos-Speculum, Advisor-Servitor, language policy, and artifact language separation.",
+        "run_role_tests.py supports --dry-run and produces a report without requiring live LLM execution.",
+        "officio_agentis_check_all_v0_1.py runs foundation, contract, registry, and dry-run test checks.",
+        "Dry-run report returns PASS."
+      ],
+      "stop_criteria": [
+        "Stop if test schema validation fails.",
+        "Stop if dry-run runner crashes.",
+        "Stop if critical tests are missing.",
+        "Stop if checker cannot distinguish PASS/FAIL deterministically."
+      ]
+    },
+    {
+      "stage_number": 7,
+      "stage_id": "STAGE-07-OFFICIO-INTEGRATION-POLICIES-V0_1",
+      "title": "Integration and Policies",
+      "goal": "Create Officio Agentis policies, response contracts, prompt hierarchy, integration docs, and full validation report.",
+      "expected_outputs": [
+        "ORGANS/OFFICIO_AGENTIS/POLICIES/QUESTION_POLICY.md",
+        "ORGANS/OFFICIO_AGENTIS/POLICIES/EVIDENCE_POLICY.md",
+        "ORGANS/OFFICIO_AGENTIS/POLICIES/LANGUAGE_POLICY.md",
+        "ORGANS/OFFICIO_AGENTIS/POLICIES/STOP_POLICY.md",
+        "ORGANS/OFFICIO_AGENTIS/POLICIES/PROMPT_WRITING_POLICY.md",
+        "ORGANS/OFFICIO_AGENTIS/POLICIES/EXECUTION_BOUNDARY_POLICY.md",
+        "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/OWNER_RESPONSE.json",
+        "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/ARTIFACT_RESPONSE.json",
+        "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/HANDOFF_RESPONSE.json",
+        "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/STAGE_REPORT_RESPONSE.json",
+        "ORGANS/OFFICIO_AGENTIS/DOCS/PROMPT_HIERARCHY.md",
+        "ORGANS/OFFICIO_AGENTIS/DOCS/INTEGRATION_POINTS.md",
+        "ORGANS/OFFICIO_AGENTIS/REPORTS/officio_agentis_full_check_report_v0_1.json"
+      ],
+      "green_criteria": [
+        "Policies reference role contracts and do not contradict them.",
+        "Response contracts validate against agent_response_contract.schema.json.",
+        "Prompt hierarchy is explicit.",
+        "Integration docs describe how other organs interact with Officio Agentis without ownership theft.",
+        "Full Officio checker returns PASS.",
+        "Final report states which functions are proven and which remain unproven."
+      ],
+      "stop_criteria": [
+        "Stop if policy contradicts a role contract.",
+        "Stop if response contract is invalid.",
+        "Stop if integration docs assign another organ's authority to Officio Agentis.",
+        "Stop if full checker fails."
+      ]
+    }
+  ],
+  "whole_mvp_acceptance": [
+    "All seven stages PASS.",
+    "All four role contracts exist in JSON and MD form.",
+    "All four roles have modes, system prompts, and tests.",
+    "Critical behavior tests exist and dry-run PASS.",
+    "Full Officio checker PASS.",
+    "No ownership theft from other organs.",
+    "READY_FOR_AGENT remains false.",
+    "VM2 remains deferred unless Owner commands sync."
+  ]
+}
