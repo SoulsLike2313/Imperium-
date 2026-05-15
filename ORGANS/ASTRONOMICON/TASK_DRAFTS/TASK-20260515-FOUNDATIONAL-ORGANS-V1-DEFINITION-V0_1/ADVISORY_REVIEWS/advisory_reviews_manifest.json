@@ -1,0 +1,28 @@
+﻿{
+    "task_id":  "TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1",
+    "manifest_id":  "KIRO-SPECULUM-ADVISORY-REVIEWS-MANIFEST-V0_1",
+    "status":  "advisory_reference_only",
+    "created_utc":  "2026-05-15T04:43:26.0819439Z",
+    "git_head_before":  "931940980288cd42ece295d1107633d1fc55abf2",
+    "inputs":  [
+                   {
+                       "review_id":  "SPECULUM-FOUNDATIONAL-ORGANS-V1-RED-TEAM-20260515",
+                       "source_role":  "Logos-Speculum",
+                       "target_path":  "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/SPECULUM_RED_TEAM_20260515/SPECULUM_FOUNDATIONAL_ORGANS_V1_RED_TEAM_20260515.md",
+                       "sha256":  "5a534ecc2fce0c7b8c7d4b7b5b3aa691f21a3f78e45771b549731f3a01892aa4",
+                       "size_bytes":  49505,
+                       "advisory_status":  "red_team_reference_only"
+                   },
+                   {
+                       "review_id":  "KIRO-FOUNDATIONAL-ORGANS-V1-PRACTICAL-RECOMMENDATIONS-20260515",
+                       "source_role":  "Kiro",
+                       "target_path":  "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/KIRO_PRACTICAL_RECOMMENDATIONS_20260515/KIRO_FOUNDATIONAL_ORGANS_V1_PRACTICAL_RECOMMENDATIONS_20260515.md",
+                       "sha256":  "be36a82c662ff58b3d396766e1a36b33e02813ceaa2f70bb2bc6b442eaa8efd8",
+                       "size_bytes":  23405,
+                       "advisory_status":  "practical_recommendations_reference_only"
+                   }
+               ],
+    "required_next_step":  "reconcile_owner_matrix_kiro_recommendations_speculum_red_team",
+    "not_canon":  true,
+    "not_execution_authorization":  true
+}

@@ -1,0 +1,33 @@
+﻿{
+    "report_id":  "KIRO-SPECULUM-REVIEWS-INGEST-REPORT-V0_1",
+    "task_id":  "TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1",
+    "created_utc":  "2026-05-15T04:43:26.0819439Z",
+    "git_head_before":  "931940980288cd42ece295d1107633d1fc55abf2",
+    "files_written":  [
+                          "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/SPECULUM_RED_TEAM_20260515/SPECULUM_FOUNDATIONAL_ORGANS_V1_RED_TEAM_20260515.md",
+                          "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/KIRO_PRACTICAL_RECOMMENDATIONS_20260515/KIRO_FOUNDATIONAL_ORGANS_V1_PRACTICAL_RECOMMENDATIONS_20260515.md",
+                          "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/advisory_reviews_manifest.json",
+                          "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1/ADVISORY_REVIEWS/REPORTS/kiro_speculum_reviews_ingest_report_v0_1.json"
+                      ],
+    "validation":  {
+                       "speculum_file_exists":  true,
+                       "kiro_file_exists":  true,
+                       "manifest_json_valid":  true,
+                       "report_json_valid":  true,
+                       "hashes_recorded":  true
+                   },
+    "warnings":  [
+
+                 ],
+    "blockers":  [
+
+                 ],
+    "verdict":  "PASS",
+    "no_fake_green_evidence":  [
+                                   "Speculum review written from embedded source content",
+                                   "Kiro recommendations written from embedded source content",
+                                   "SHA256 recorded for both files",
+                                   "Manifest/report JSON created",
+                                   "Worktree clean before write"
+                               ]
+}
