@@ -2,8 +2,8 @@
 # Public Git stores safe source, docs, indexes, receipts, and public state.
 # Local/private/heavy/generated sources stay out of Git.
 
-# Experimental test version - NEVER commit
-/IMPERIUM_TEST_VERSION/
+# NOTE: IMPERIUM_TEST_VERSION is now tracked in Git (promoted from experimental)
+# /IMPERIUM_TEST_VERSION/
 
 /ARCHIVE/
 /SSH_COMMAND_LIBRARY/

@@ -1,0 +1,22 @@
+{
+  "organ_id": "SCHOLA_IMPERIALIS",
+  "name": "Schola Imperialis",
+  "version": "0.1.0",
+  "status": "SEED",
+  "purpose": "Learning, memory, lessons learned, pattern extraction",
+  "backend_face": {
+    "responsibility": "Memory storage, lesson extraction, pattern library",
+    "outputs": ["MEMORY/*.json", "PATTERNS/*.json"]
+  },
+  "frontend_face": {
+    "responsibility": "Learning dashboard, pattern browser",
+    "outputs": ["DASHBOARD/index.html"]
+  },
+  "support_face": {
+    "responsibility": "Memory query scripts, lesson extractors",
+    "outputs": ["SCRIPTS/*.py"]
+  },
+  "dependencies": ["SECOND_BRAIN"],
+  "created_at": "2026-05-16T02:15:00.000000+00:00",
+  "updated_at": "2026-05-16T02:15:00.000000+00:00"
+}

@@ -1,0 +1,195 @@
+{
+  "schema_version": "IMPERIUM_HANDOFF_V0_1",
+  "generated_at": "2026-05-16T01:35:00Z",
+  "task_id": "K-12",
+  "task_name": "Servitor/Codex handoff prism",
+  
+  "purpose": "Checklist and protocol for handing off work between agents, sessions, and contexts",
+  
+  "handoff_types": {
+    "SESSION_HANDOFF": {
+      "description": "Continuing work in new session",
+      "required_context": [
+        "Last completed task",
+        "Current task in progress",
+        "Blockers",
+        "Recent receipts",
+        "Owner corrections"
+      ],
+      "artifacts": [
+        "OWNER_CHRONOLOGY_RU.md",
+        "EXPERIMENT_LEDGER.jsonl",
+        "Recent RCP-* receipts"
+      ]
+    },
+    "AGENT_HANDOFF": {
+      "description": "Transferring work to different agent",
+      "required_context": [
+        "Task definition",
+        "Scope boundaries",
+        "Constraints",
+        "Expected outputs",
+        "Evidence requirements"
+      ],
+      "artifacts": [
+        "Task specification",
+        "Relevant schemas",
+        "Input files",
+        "Output templates"
+      ]
+    },
+    "CODEX_HANDOFF": {
+      "description": "Documenting for future reference",
+      "required_context": [
+        "What was done",
+        "Why it was done",
+        "How it was done",
+        "What worked",
+        "What didn't work"
+      ],
+      "artifacts": [
+        "Lesson learned entry",
+        "Pattern documentation",
+        "Anti-pattern documentation"
+      ]
+    }
+  },
+  
+  "handoff_checklist": {
+    "before_handoff": [
+      {
+        "item": "Run verification",
+        "command": "RUN_ALL.ps1",
+        "evidence": "Master receipt"
+      },
+      {
+        "item": "Update chronology",
+        "file": "OWNER_CHRONOLOGY_RU.md",
+        "content": "What was done this session"
+      },
+      {
+        "item": "Update ledger",
+        "file": "EXPERIMENT_LEDGER.jsonl",
+        "content": "Experiment entries"
+      },
+      {
+        "item": "Document blockers",
+        "location": "Current task or chronology",
+        "content": "Any blocking issues"
+      },
+      {
+        "item": "Save receipts",
+        "location": "RECEIPTS/",
+        "content": "All verification receipts"
+      }
+    ],
+    "handoff_package": [
+      {
+        "item": "Context summary",
+        "content": "Current state, last action, next action"
+      },
+      {
+        "item": "File list",
+        "content": "Key files to read"
+      },
+      {
+        "item": "Constraint reminder",
+        "content": "NO edit main repo, NO fake green, etc."
+      },
+      {
+        "item": "Owner instructions",
+        "content": "Any specific Owner guidance"
+      }
+    ],
+    "after_handoff": [
+      {
+        "item": "Read context",
+        "action": "Read handoff package"
+      },
+      {
+        "item": "Verify state",
+        "action": "Run RUN_ALL.ps1"
+      },
+      {
+        "item": "Confirm understanding",
+        "action": "Summarize current state"
+      },
+      {
+        "item": "Continue work",
+        "action": "Pick up from last task"
+      }
+    ]
+  },
+  
+  "context_transfer_schema": {
+    "session_id": "string",
+    "timestamp": "ISO8601",
+    "last_completed_task": "string",
+    "current_task": "string|null",
+    "next_task": "string",
+    "blockers": "string[]",
+    "recent_receipts": "path[]",
+    "owner_corrections": "string[]",
+    "key_files": "path[]",
+    "constraints": "string[]",
+    "notes": "string"
+  },
+  
+  "memory_queries_for_handoff": [
+    {
+      "query": "What is the current task?",
+      "source": "OWNER_CHRONOLOGY_RU.md or task spec"
+    },
+    {
+      "query": "What was last completed?",
+      "source": "EXPERIMENT_LEDGER.jsonl"
+    },
+    {
+      "query": "What are the blockers?",
+      "source": "Recent receipts or chronology"
+    },
+    {
+      "query": "What are the constraints?",
+      "source": "SECOND_BRAIN/CONSTRAINTS.json"
+    },
+    {
+      "query": "What are the Owner rules?",
+      "source": "SECOND_BRAIN/RULES.json"
+    }
+  ],
+  
+  "anti_patterns": [
+    {
+      "pattern": "CONTEXT_LOSS",
+      "description": "Starting fresh without reading handoff",
+      "consequence": "Repeated work, missed constraints"
+    },
+    {
+      "pattern": "STALE_CONTEXT",
+      "description": "Using outdated handoff information",
+      "consequence": "Working on wrong state"
+    },
+    {
+      "pattern": "INCOMPLETE_HANDOFF",
+      "description": "Missing key information in handoff",
+      "consequence": "Blocked or wrong work"
+    },
+    {
+      "pattern": "NO_VERIFICATION",
+      "description": "Not verifying state after handoff",
+      "consequence": "Working on broken state"
+    }
+  ],
+  
+  "current_implementation": {
+    "OWNER_CHRONOLOGY_RU.md": "ACTIVE",
+    "EXPERIMENT_LEDGER.jsonl": "ACTIVE",
+    "RECEIPTS/": "ACTIVE",
+    "Context transfer schema": "NOT_IMPLEMENTED",
+    "Automated handoff package": "NOT_IMPLEMENTED",
+    "Memory queries": "SEED"
+  },
+  
+  "verdict": "PASS",
+  "notes": "Handoff protocol defined. Chronology and ledger active. Automated handoff NOT_IMPLEMENTED."
+}

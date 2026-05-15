@@ -1,0 +1,167 @@
+{
+  "schema_version": "IMPERIUM_BACKEND_SPEC_V0_1",
+  "generated_at": "2026-05-16T01:05:00Z",
+  "task_id": "K-06",
+  "task_name": "Backend block blueprint",
+  
+  "block_id": "BACKEND_CORE",
+  "purpose": "Truth, domain logic, organs, schemas, state, task/memory/role/law contracts",
+  
+  "storage_zones": {
+    "organ_contracts": {
+      "path": "BACKEND_CORE/ORGANS/",
+      "content": "Organ interface definitions, responsibilities, ports",
+      "format": "JSON schema + markdown docs",
+      "current_seed": "ORGANS/"
+    },
+    "registries": {
+      "path": "BACKEND_CORE/REGISTRIES/",
+      "content": "Machine-readable inventories: organs, scripts, schemas, commands",
+      "format": "JSON",
+      "current_seed": "REGISTRY/"
+    },
+    "task_state": {
+      "path": "BACKEND_CORE/TASK_STATE/",
+      "content": "Task lifecycle state, stage maps, blockers",
+      "format": "JSON",
+      "current_seed": null
+    },
+    "memory_indexes": {
+      "path": "BACKEND_CORE/MEMORY/",
+      "content": "Goals, rules, constraints, context indexes, error links",
+      "format": "JSON",
+      "current_seed": "SECOND_BRAIN/"
+    },
+    "laws_schemas": {
+      "path": "BACKEND_CORE/SCHEMAS/",
+      "content": "JSON schemas, truth contracts, validation rules",
+      "format": "JSON Schema",
+      "current_seed": "schemas/"
+    },
+    "canonical_status": {
+      "path": "BACKEND_CORE/STATUS/",
+      "content": "Current truth state for each component",
+      "format": "JSON",
+      "current_seed": null
+    }
+  },
+  
+  "organ_backend_faces": [
+    {
+      "organ": "Throne",
+      "backend_responsibility": "Owner authority, approval gates, final decisions",
+      "contracts": ["approval_request", "approval_response", "veto_record"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Doctrinarium",
+      "backend_responsibility": "Law, doctrine, schemas, canon definitions",
+      "contracts": ["schema_definition", "law_entry", "contradiction_report"],
+      "status": "PARTIAL"
+    },
+    {
+      "organ": "Administratum",
+      "backend_responsibility": "Address book, history, lifecycle, bundles",
+      "contracts": ["address_entry", "history_record", "bundle_manifest"],
+      "status": "PARTIAL"
+    },
+    {
+      "organ": "Astronomicon",
+      "backend_responsibility": "Task formation, decomposition, stage maps",
+      "contracts": ["task_definition", "stage_map", "decomposition_tree"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Officio Agentis",
+      "backend_responsibility": "Role contracts, output forms, agent settings",
+      "contracts": ["role_definition", "prompt_template", "output_form"],
+      "status": "SEED"
+    },
+    {
+      "organ": "Strategium",
+      "backend_responsibility": "Roadmap, priority, resource allocation",
+      "contracts": ["roadmap_entry", "priority_matrix", "resource_allocation"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Schola Imperialis",
+      "backend_responsibility": "Learning from successes/errors, pattern library",
+      "contracts": ["lesson_learned", "positive_pattern", "failure_pattern"],
+      "status": "SEED"
+    },
+    {
+      "organ": "Custodes",
+      "backend_responsibility": "Boundaries, safety, access policy, private/public split",
+      "contracts": ["access_policy", "boundary_definition", "risk_assessment"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Mechanicus",
+      "backend_responsibility": "Tools/scripts/capabilities registry",
+      "contracts": ["script_entry", "tool_capability", "health_status"],
+      "status": "TESTED"
+    },
+    {
+      "organ": "Inquisition",
+      "backend_responsibility": "Audit authority, fake-green/stale truth police",
+      "contracts": ["audit_verdict", "issue_report", "evidence_requirement"],
+      "status": "TESTED"
+    }
+  ],
+  
+  "registry_schemas": {
+    "ORGAN_REGISTRY": {
+      "fields": ["organ_id", "status", "owner", "backend_path", "frontend_path", "support_path"],
+      "current_location": "REGISTRY/ORGAN_REGISTRY.json"
+    },
+    "SCRIPT_REGISTRY": {
+      "fields": ["script_id", "path", "language", "health", "last_check", "owner"],
+      "current_location": "REGISTRY/SCRIPT_REGISTRY.json"
+    },
+    "SCHEMA_REGISTRY": {
+      "fields": ["schema_id", "path", "version", "status"],
+      "current_location": "schemas/schema_registry.json"
+    },
+    "COMMAND_ALLOWLIST": {
+      "fields": ["command", "risk_level", "requires_approval", "allowed_contexts"],
+      "current_location": "REGISTRY/COMMAND_ALLOWLIST.json"
+    }
+  },
+  
+  "truth_state_model": {
+    "per_component": {
+      "component_id": "string",
+      "status": "PASS|FAIL|PARTIAL|UNKNOWN|STALE|NOT_IMPLEMENTED",
+      "evidence_path": "path|null",
+      "evidence_timestamp": "ISO8601|null",
+      "freshness": "FRESH|STALE",
+      "blockers": "string[]"
+    },
+    "aggregate": {
+      "total_components": "number",
+      "pass_count": "number",
+      "fail_count": "number",
+      "partial_count": "number",
+      "unknown_count": "number",
+      "overall_status": "computed from components"
+    }
+  },
+  
+  "ports_exposed": [
+    "truth_state_port",
+    "evidence_receipt_port",
+    "memory_context_port",
+    "task_lifecycle_port"
+  ],
+  
+  "implementation_priority": [
+    {"item": "Truth state model", "priority": 1, "status": "NOT_IMPLEMENTED"},
+    {"item": "Registry sync", "priority": 2, "status": "PARTIAL"},
+    {"item": "Memory indexes", "priority": 3, "status": "SEED"},
+    {"item": "Task state", "priority": 4, "status": "NOT_IMPLEMENTED"},
+    {"item": "Organ contracts", "priority": 5, "status": "PARTIAL"}
+  ],
+  
+  "verdict": "PASS",
+  "notes": "Backend block spec defined. Storage zones, organ faces, registries, truth model documented."
+}

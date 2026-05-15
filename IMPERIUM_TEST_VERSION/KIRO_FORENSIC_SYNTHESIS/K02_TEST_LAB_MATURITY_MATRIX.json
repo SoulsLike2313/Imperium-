@@ -1,0 +1,146 @@
+{
+  "schema_version": "IMPERIUM_MATURITY_MATRIX_V0_1",
+  "generated_at": "2026-05-16T00:10:00Z",
+  "task_id": "K-02",
+  "task_name": "Test lab maturity audit",
+  
+  "maturity_levels": {
+    "seed": "Idea exists, minimal implementation",
+    "prototype": "Working code, not production-ready",
+    "tested": "Has tests, passes basic verification",
+    "mature": "Ready for promotion consideration",
+    "canon_candidate": "Ready for rewrite and canon import"
+  },
+  
+  "components": [
+    {
+      "name": "Testing Field",
+      "path": "TESTING_FIELD/",
+      "maturity": "tested",
+      "value": "First concrete smoke/test/promotion idea",
+      "debt": ["Qt dashboards not implemented", "Screenshot capture needs pyautogui"],
+      "works": ["smoke_sanctum.py", "RUN_SMOKE.ps1", "5/5 checks PASS"],
+      "not_portable": ["Hardcoded E:\\IMPERIUM paths"],
+      "future_canon": true,
+      "rewrite_required": ["Path configuration", "Remove hardcoded paths"]
+    },
+    {
+      "name": "Mechanicus",
+      "path": "ORGANS/MECHANICUS/",
+      "maturity": "tested",
+      "value": "Script scan/health/command gateway seed",
+      "debt": ["Command gateway not integrated with Sanctum"],
+      "works": ["script_scanner.py", "script_health_check.py", "RUN_SCRIPT_HEALTH.ps1", "823/824 healthy"],
+      "not_portable": ["Hardcoded paths"],
+      "future_canon": true,
+      "rewrite_required": ["Path configuration", "Integration with main Mechanicus"]
+    },
+    {
+      "name": "Inquisition",
+      "path": "ORGANS/INQUISITION/",
+      "maturity": "tested",
+      "value": "Fake-green/stale-truth/audit seed",
+      "debt": ["100 issues detected in main repo"],
+      "works": ["fake_green_detector.py", "stale_truth_detector.py", "full_audit.py", "RUN_AUDIT.ps1"],
+      "not_portable": ["Hardcoded paths"],
+      "future_canon": true,
+      "rewrite_required": ["Path configuration", "Integration with main Inquisition"]
+    },
+    {
+      "name": "Second Brain",
+      "path": "SECOND_BRAIN/",
+      "maturity": "prototype",
+      "value": "First structured active memory seed",
+      "debt": ["Not adaptive/semantic memory yet", "update_memory.py is scaffold"],
+      "works": ["ask_memory.py", "build_memory_summary.py", "6 goals, 10 rules, 8 forbidden, 5 errors"],
+      "not_portable": ["Static JSON files", "No real-time updates"],
+      "future_canon": true,
+      "rewrite_required": ["Semantic memory layer", "Real-time context server"]
+    },
+    {
+      "name": "Agent Memory Protocol",
+      "path": "AGENT_MEMORY_PROTOCOL/",
+      "maturity": "prototype",
+      "value": "First pre-task context handshake seed",
+      "debt": ["Not integrated into actual agent workflow"],
+      "works": ["agent_context_handshake.py", "PASS handshake with 8 constraints acknowledged"],
+      "not_portable": ["Depends on Second Brain structure"],
+      "future_canon": true,
+      "rewrite_required": ["Integration with task lifecycle", "Real agent binding"]
+    },
+    {
+      "name": "Live Workbench",
+      "path": "LIVE_WORKBENCH/",
+      "maturity": "seed",
+      "value": "First sandbox workbench/test-status prototype",
+      "debt": ["Toy sandbox only", "Not real live coding window"],
+      "works": ["run_sandbox_tests.py", "generate_workbench_status.py", "6/6 tests PASS"],
+      "not_portable": ["Calculator is toy example"],
+      "future_canon": false,
+      "rewrite_required": ["Real workbench concept", "Live agent observation"]
+    },
+    {
+      "name": "UF99 Prompt Standard",
+      "path": "PROMPT_STANDARD/UF99/",
+      "maturity": "tested",
+      "value": "First prompt standard family and validator",
+      "debt": ["Not adopted in actual prompts yet"],
+      "works": ["7 templates", "validate_uf99_prompt.py", "UF99_CHECKLIST.json"],
+      "not_portable": ["Templates are reference only"],
+      "future_canon": true,
+      "rewrite_required": ["Adoption in real workflows", "Integration with Officio Agentis"]
+    },
+    {
+      "name": "Communication Protocol",
+      "path": "COMMUNICATION_PROTOCOL/",
+      "maturity": "seed",
+      "value": "First message/status/stop formats",
+      "debt": ["Documentation only, no implementation"],
+      "works": ["MESSAGE_TYPES.json", "STATUS_FORMATS.json", "STOP_ESCALATION_RULES.md"],
+      "not_portable": ["No code implementation"],
+      "future_canon": true,
+      "rewrite_required": ["Implementation in agent communication layer"]
+    },
+    {
+      "name": "Sanctum Mirror",
+      "path": "SANCTUM_MIRROR/",
+      "maturity": "prototype",
+      "value": "First central review surface",
+      "debt": ["Static HTML, not live Sanctum", "Reads JSON reports, not backend truth"],
+      "works": ["GENERATE_INDEX.ps1", "index.html dashboard v2.0"],
+      "not_portable": ["Static generation, not real-time"],
+      "future_canon": false,
+      "rewrite_required": ["Real Sanctum integration", "Backend truth projection"]
+    },
+    {
+      "name": "Receipts/Reports",
+      "path": "RECEIPTS/, REPORTS/",
+      "maturity": "tested",
+      "value": "Evidence habit is starting to exist",
+      "debt": ["30+ receipts but no central receipt registry"],
+      "works": ["Receipt generation in all loops", "JSON + MD reports"],
+      "not_portable": ["Hardcoded paths in receipts"],
+      "future_canon": true,
+      "rewrite_required": ["Central receipt registry", "Provenance tracking"]
+    },
+    {
+      "name": "Monitoring/KPI",
+      "path": "MONITORING/",
+      "maturity": "seed",
+      "value": "KPI registry and collector seed",
+      "debt": ["Not connected to real metrics", "Static definitions"],
+      "works": ["KPI_REGISTRY.json", "kpi_collector.py"],
+      "not_portable": ["No real data sources"],
+      "future_canon": true,
+      "rewrite_required": ["Real metrics integration", "Live data collection"]
+    }
+  ],
+  
+  "overall_maturity": "prototype",
+  "canon_ready_count": 0,
+  "future_canon_count": 8,
+  "seed_only_count": 3,
+  
+  "verdict": "PARTIAL",
+  "notes": "Test lab has valuable seeds but nothing is canon-ready. All components need rewrite before integration."
+}

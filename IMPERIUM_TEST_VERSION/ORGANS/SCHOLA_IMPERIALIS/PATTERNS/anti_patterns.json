@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-05-15T23:31:34.294321+00:00",
+  "anti_patterns": [
+    {
+      "pattern": "Script Health",
+      "occurrences": 14,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Script Health failures"
+    },
+    {
+      "pattern": "Audit",
+      "occurrences": 14,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Audit failures"
+    },
+    {
+      "pattern": "Smoke Test",
+      "occurrences": 8,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Smoke Test failures"
+    },
+    {
+      "pattern": "Truth Spine",
+      "occurrences": 6,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Truth Spine failures"
+    }
+  ]
+}

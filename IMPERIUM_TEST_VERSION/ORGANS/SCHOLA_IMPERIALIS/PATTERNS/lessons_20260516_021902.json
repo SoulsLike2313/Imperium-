@@ -1,0 +1,466 @@
+{
+  "timestamp": "2026-05-15T23:19:02.824112+00:00",
+  "time_window": "all",
+  "summary": {
+    "total_lessons": 47,
+    "failures": 27,
+    "partials": 20,
+    "drift_issues": 0,
+    "audit_issues": 0,
+    "anti_patterns": 4,
+    "success_patterns": 1
+  },
+  "lessons": [
+    {
+      "source": "RCP-INQ-20260515_225230.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_225700.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_230409.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_230819.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_231757.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_232517.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_234417.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260515_234641.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260516_013847.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260516_014538.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260516_015506.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260516_015753.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260516_020617.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-INQ-20260516_021450.json",
+      "type": "failure",
+      "action": "full_audit",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MASTER-20260515_225525.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260515_230235.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260515_230645.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260515_231620.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260515_232343.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260515_234244.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Script Health",
+          "Audit",
+          "Agent Handshake"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260515_234508.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260516_013711.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260516_014403.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit",
+          "Truth Spine"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260516_015332.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit",
+          "Truth Spine"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260516_015620.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit",
+          "Truth Spine"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260516_020443.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit",
+          "Truth Spine"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MASTER-20260516_021316.json",
+      "type": "failure",
+      "action": "full_run",
+      "timestamp": null,
+      "details": {
+        "failed_checks": [
+          "Smoke Test",
+          "Script Health",
+          "Audit",
+          "Truth Spine",
+          "Registry Sync"
+        ]
+      }
+    },
+    {
+      "source": "RCP-MECH-20260515_225526.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260515_230236.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260515_230646.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260515_231622.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260515_232344.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260515_234245.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260515_234509.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260516_013712.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260516_014404.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260516_015333.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260516_015621.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260516_020444.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-MECH-20260516_021317.json",
+      "type": "partial",
+      "action": "script_health_check",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260515_231621.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260516_013712.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260516_014403.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260516_015333.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260516_015620.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260516_020443.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    },
+    {
+      "source": "RCP-SMOKE-20260516_021317.json",
+      "type": "partial",
+      "action": "smoke_test",
+      "timestamp": null,
+      "details": {}
+    }
+  ],
+  "anti_patterns": [
+    {
+      "pattern": "Script Health",
+      "occurrences": 13,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Script Health failures"
+    },
+    {
+      "pattern": "Audit",
+      "occurrences": 13,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Audit failures"
+    },
+    {
+      "pattern": "Smoke Test",
+      "occurrences": 7,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Smoke Test failures"
+    },
+    {
+      "pattern": "Truth Spine",
+      "occurrences": 5,
+      "severity": "HIGH",
+      "recommendation": "Investigate recurring Truth Spine failures"
+    }
+  ],
+  "success_patterns": [
+    {
+      "action": "smoke_test",
+      "success_count": 8,
+      "pattern": "Reliable smoke_test workflow",
+      "reusable": true
+    }
+  ],
+  "action_patterns": {
+    "{'type': 'script', 'name': 'create_test_version', 'description': 'Created IMPERIUM_TEST_VERSION experimental copy'}:None": 1,
+    "full_audit:FAIL": 14,
+    "full_run:FAIL": 13,
+    "script_health_check:PASS": 1,
+    "script_health_check:PARTIAL": 13,
+    "smoke_test:PASS": 8,
+    "smoke_test:PARTIAL": 7
+  }
+}

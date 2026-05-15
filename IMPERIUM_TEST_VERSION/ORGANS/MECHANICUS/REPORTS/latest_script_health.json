@@ -1,6 +1,6 @@
 ﻿{
     "repo_root":  "E:\\IMPERIUM",
-    "generated_at":  "2026-05-15T23:46:41.4984252+03:00",
+    "generated_at":  "2026-05-16T02:31:29.7994311+03:00",
     "broken_scripts":  {
                            "path":  "ORGANS/DOCTRINARIUM/UTILITY/WEB_DASHBOARD_V0_6/dashboard_server.py",
                            "error":  "  File \"E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6\\dashboard_server.py\", line 161     \"paths\": PATHS,`n        \"useful\": useful,                    ^ SyntaxError: invalid syntax",

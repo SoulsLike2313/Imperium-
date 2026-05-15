@@ -1,0 +1,32 @@
+{
+  "organ": "THRONE",
+  "timestamp": "2026-05-15T22:48:24.028328+00:00",
+  "checks": [
+    {
+      "check": "contract_exists",
+      "status": "PASS",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\ORGAN_CONTRACT.json"
+    },
+    {
+      "check": "contract_valid",
+      "status": "PASS",
+      "organ_id": "THRONE"
+    },
+    {
+      "check": "readme_exists",
+      "status": "PASS",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\README.md"
+    },
+    {
+      "check": "invariants_defined",
+      "status": "PASS",
+      "count": 4
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "verdict": "PASS"
+}

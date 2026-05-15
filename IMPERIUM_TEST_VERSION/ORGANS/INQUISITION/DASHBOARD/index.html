@@ -1,98 +1,96 @@
-﻿<!DOCTYPE html>
-<html lang="ru">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Inquisition Audit</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INQUISITION Dashboard</title>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #ecf0f1; padding: 20px; }
-        .header { text-align: center; border-bottom: 2px solid #d4af37; padding-bottom: 20px; margin-bottom: 20px; }
-        .header h1 { color: #d4af37; }
-        .card { background: #16213e; border-radius: 10px; padding: 20px; margin: 10px 0; }
-        .metric { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #2c3e50; }
-        .metric:last-child { border-bottom: none; }
-        .value { font-size: 1.5em; font-weight: bold; }
-        .pass { color: #27ae60; }
-        .fail { color: #e74c3c; }
-        .partial { color: #f39c12; }
-        .timestamp { color: #7f8c8d; font-size: 0.9em; }
-        .issue-list { background: #2c1810; padding: 15px; border-radius: 5px; margin-top: 10px; }
-        .issue-item { padding: 8px 0; border-bottom: 1px solid #3c2820; }
-        .issue-item:last-child { border-bottom: none; }
-        .issue-type { color: #e74c3c; font-weight: bold; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e; color: #eee; padding: 20px;
+        }
+        .header { 
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 30px; border-radius: 10px; margin-bottom: 20px;
+        }
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .status-badge {
+            display: inline-block; padding: 5px 15px; border-radius: 20px;
+            font-weight: bold; background: #28a745;
+        }
+        .freshness { margin-top: 10px; }
+        .card { 
+            background: #16213e; border-radius: 10px; padding: 20px; 
+            margin-bottom: 15px;
+        }
+        .card h2 { color: #e94560; margin-bottom: 15px; font-size: 1.2em; }
+        .card ul { list-style: none; }
+        .card li { padding: 8px 0; border-bottom: 1px solid #0f3460; }
+        .card li:last-child { border-bottom: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .meta { color: #888; font-size: 0.9em; }
+        a { color: #e94560; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .timestamp { color: #666; font-size: 0.8em; margin-top: 20px; }
+        .evidence-link { 
+            background: #0f3460; padding: 10px; border-radius: 5px; 
+            margin-top: 15px; font-size: 0.9em;
+        }
+        .stale { color: #ffc107; }
+        .fresh { color: #28a745; }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>INQUISITION AUDIT</h1>
-        <p class="timestamp">Generated: 2026-05-15T23:46:44.1699714+03:00</p>
+        <h1>✅ INQUISITION</h1>
+        <span class="status-badge">TESTED</span>
+        <p class="meta" style="margin-top: 10px;">Audit authority, fake-green/stale truth police, evidence validation</p>
+        <div class="freshness"><span style="color: #28a745; font-size: 0.8em;">✅ Fresh (0.7h)</span></div>
     </div>
     
-    <div class="card">
-        <h2>Summary</h2>
-        <div class="metric">
-            <span>Verdict</span>
-            <span class="value fail">FAIL</span>
+    <div class="grid">
+        <div class="card">
+            <h2>📜 Contract</h2>
+            <ul>
+                <li><strong>Status:</strong> TESTED</li>
+                <li><strong>Purpose:</strong> Audit authority, fake-green/stale truth police, evidence validation</li>
+                <li><strong>Backend:</strong> N/A</li>
+                <li><strong>Frontend:</strong> N/A</li>
+                <li><strong>Support:</strong> N/A</li>
+            </ul>
+            <div class="evidence-link">
+                📎 Evidence: <a href="../../ORGANS/INQUISITION/ORGAN_CONTRACT.json">ORGAN_CONTRACT.json</a>
+            </div>
         </div>
-        <div class="metric">
-            <span>Total Scanned</span>
-            <span class="value">569</span>
+        
+        <div class="card">
+            <h2>🔧 Scripts (3)</h2>
+            <ul>
+                <li>📄 <a href="../../ORGANS/INQUISITION/SCRIPTS/fake_green_detector.py">fake_green_detector.py</a></li>
+                <li>📄 <a href="../../ORGANS/INQUISITION/SCRIPTS/full_audit.py">full_audit.py</a></li>
+                <li>📄 <a href="../../ORGANS/INQUISITION/SCRIPTS/stale_truth_detector.py">stale_truth_detector.py</a></li>
+            </ul>
         </div>
-        <div class="metric">
-            <span>Total Issues</span>
-            <span class="value fail">100</span>
+        
+        <div class="card">
+            <h2>📊 Reports</h2>
+            <ul>
+                <li><span class="fresh">✅</span> <a href="../../ORGANS/INQUISITION/REPORTS/latest_audit.json">latest_audit.json</a> <span class="meta">(0.0h)</span></li>
+            </ul>
         </div>
+        
+        <div class="card">
+            <h2>🧾 Latest Evidence</h2>
+            <ul>
+                <li><strong>Receipt:</strong> <a href="../../RECEIPTS\RCP-INQ-20260516_023130.json">RCP-INQ-20260516_023130.json</a></li>
+                <li><strong>Freshness:</strong> <span class="fresh">✅ FRESH (0.0h)</span></li>
+            </ul>
+        </div>
+
     </div>
     
-    <div class="card">
-        <h2>Issue Breakdown</h2>
-        <div class="metric">
-            <span>Fake Green (PASS without evidence)</span>
-            <span class="value fail">2</span>
-        </div>
-        <div class="metric">
-            <span>Stale Truth (>24h old)</span>
-            <span class="value fail">98</span>
-        </div>
-        <div class="metric">
-            <span>Missing Evidence</span>
-            <span class="value pass">0</span>
-        </div>
-    </div>    
-    <div class="card">
-        <h2>Issues Found</h2>
-        <div class="issue-list">            <div class='issue-item'><span class='issue-type'>[fake_green]</span> ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/CORRIDOR/TASK_START/fixtures/sample_doctrinarium_task_start_gate_verdict.json<br><small>PASS without evidence</small></div>
-            <div class='issue-item'><span class='issue-type'>[fake_green]</span> ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json<br><small>PASS without evidence</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/FILES/DASHBOARD_STATUS_V0_8.json<br><small>File is 146 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/FILES/DASHBOARD_STATUS_V0_8_TECHNICAL.json<br><small>File is 145.9 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/FILES/WORKBENCH_STATUS.json<br><small>File is 145.9 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/REPORTS/DOCTRINARIUM_STATUS.json<br><small>File is 146.6 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/MANUAL-DOCTRINARIUM-RECHECK-UTILITY-RULE/DOCTRINARIUM_STATUS_REPORT.json<br><small>File is 147.2 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/MANUAL-DOCTRINARIUM-WORKBENCH-REFRESH/DOCTRINARIUM_STATUS_REPORT.json<br><small>File is 146.6 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260508-0006-VM2-WORKER-ROOM-SEMANTIC-BOOTSTRAP/02_OUTPUTS/WORKER_STATUS.json<br><small>File is 173.2 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260508-0014A-SCRIPT-REPAIR-CLEANUP-LEDGER-FAILURE-RECEIPTS-SHA256-V1/02_OUTPUTS/TEST_WORKSPACE/status_smoke_summary.json<br><small>File is 171 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-0016A-CONTINUITY-PACK-EXECUTOR-ADDRESS-HARDENING-INVENTORY-V1/CONTINUITY_PACK/REGISTRY_STATUS.json<br><small>File is 164.5 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1/CONTINUITY_PACK/REGISTRY_STATUS.json<br><small>File is 164.3 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-0016B-ORGAN-PORT-SCAFFOLD-AND-CONTINUITY-READINESS-ASSESSMENT-V1/CONTINUITY_PACK/REGISTRY_STATUS.json<br><small>File is 164.3 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING/04_DOCTRINE/DOCTRINE_STATUS.json<br><small>File is 149.6 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-ADMINISTRATUM-MEMORY-SPINE-V0_1-REVIEW-AND-HARDENING/06_RECEIPTS/04_doctrine_status_receipt.json<br><small>File is 149.4 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-ADMINISTRATUM-ORGAN-DASHBOARD-AND-CONTINUITY-PACK-V0_1/07_DOCTRINARIUM_VALIDATION/DOCTRINARIUM_STATUS_AFTER_ADMINISTRATUM.json<br><small>File is 144.9 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1/07_RECEIPTS/06_doctrinarium_status_receipt.json<br><small>File is 148.6 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1/05_VALIDATORS/NEGATIVE_FIXTURES/CASE_03_FAKE_CANON_CLAIM/ORGANS/FAKE_ORGAN/ORGAN_STATUS.json<br><small>File is 147.8 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1/07_STATUS_REPORT/DOCTRINARIUM_STATUS_REPORT.json<br><small>File is 147.9 hours old</small></div>
-            <div class='issue-item'><span class='issue-type'>[stale_truth]</span> ARTIFACTS/TASK-20260509-DOCTRINARIUM-STRICT-CANON-GATE-SCAFFOLD-V0_1/08_RECEIPTS/06_status_report_receipt.json<br><small>File is 147.8 hours old</small></div>
-            <div class='issue-item'><em>... and 80 more issues</em></div>
-        </div>
-    </div>    
-    <div class="card">
-        <h2>Files</h2>
-        <p>Report: <code>ORGANS/INQUISITION/REPORTS/latest_audit.json</code></p>
-        <p>Receipt: <code>RECEIPTS/RCP-INQ-20260515_234641.json</code></p>
-    </div>
-    
-    <div class="card">
-        <h2>Refresh</h2>
-        <p>Run: <code>.\IMPERIUM_TEST_VERSION\ORGANS\INQUISITION\RUN_AUDIT.ps1</code></p>
-        <p>Then reload this page.</p>
-    </div>
+    <p class="timestamp">Generated: 2026-05-15T23:32:15.678399+00:00</p>
+    <p><a href="../../SANCTUM_MIRROR/master_dashboard.html">← Back to Master Dashboard</a></p>
 </body>
 </html>

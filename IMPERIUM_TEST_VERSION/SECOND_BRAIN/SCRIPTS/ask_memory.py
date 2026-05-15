@@ -3,8 +3,8 @@
 ask_memory.py - Query the IMPERIUM Second Brain memory system.
 
 Usage:
-    py -3 IMPERIUM_TEST_VERSION\SECOND_BRAIN\SCRIPTS\ask_memory.py --query "What must an agent check before UI work?"
-    py -3 IMPERIUM_TEST_VERSION\SECOND_BRAIN\SCRIPTS\ask_memory.py --query "What actions are forbidden?" --category constraints
+    py -3 IMPERIUM_TEST_VERSION/SECOND_BRAIN/SCRIPTS/ask_memory.py --query "What must an agent check before UI work?"
+    py -3 IMPERIUM_TEST_VERSION/SECOND_BRAIN/SCRIPTS/ask_memory.py --query "What actions are forbidden?" --category constraints
 """
 
 import argparse

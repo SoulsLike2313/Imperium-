@@ -1,0 +1,120 @@
+{
+  "schema_version": "IMPERIUM_ORGAN_REGISTRY_V0_2",
+  "generated_at": "2026-05-16T02:01:00.000000+00:00",
+  "source": "manual_update",
+  "organs": [
+    {
+      "organ_id": "ADMINISTRATUM",
+      "name": "Administratum",
+      "status": "PARTIAL",
+      "backend_path": "ORGANS/ADMINISTRATUM/",
+      "frontend_path": null,
+      "support_path": "ORGANS/ADMINISTRATUM/SCRIPTS/",
+      "contract_path": "ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+      "purpose": "Address book, history, lifecycle, bundles"
+    },
+    {
+      "organ_id": "ASTRONOMICON",
+      "name": "Astronomicon",
+      "status": "SEED",
+      "backend_path": "ORGANS/ASTRONOMICON/",
+      "frontend_path": null,
+      "support_path": "ORGANS/ASTRONOMICON/SCRIPTS/",
+      "contract_path": "ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+      "purpose": "Task formation, decomposition, stage maps",
+      "scripts": ["task_manager.py", "smoke_astronomicon.py"]
+    },
+    {
+      "organ_id": "CUSTODES",
+      "name": "Custodes",
+      "status": "SEED",
+      "backend_path": "ORGANS/CUSTODES/",
+      "frontend_path": null,
+      "support_path": "ORGANS/CUSTODES/SCRIPTS/",
+      "contract_path": "ORGANS/CUSTODES/ORGAN_CONTRACT.json",
+      "purpose": "Boundaries, safety, access policy, private/public split",
+      "scripts": ["boundary_checker.py", "smoke_custodes.py"]
+    },
+    {
+      "organ_id": "INQUISITION",
+      "name": "Inquisition",
+      "status": "TESTED",
+      "backend_path": "ORGANS/INQUISITION/",
+      "frontend_path": "ORGANS/INQUISITION/DASHBOARD/",
+      "support_path": "ORGANS/INQUISITION/SCRIPTS/",
+      "contract_path": "ORGANS/INQUISITION/ORGAN_CONTRACT.json",
+      "purpose": "Audit authority, fake-green/stale truth police, evidence validation"
+    },
+    {
+      "organ_id": "MECHANICUS",
+      "name": "Mechanicus",
+      "status": "TESTED",
+      "backend_path": "ORGANS/MECHANICUS/",
+      "frontend_path": "ORGANS/MECHANICUS/DASHBOARD/",
+      "support_path": "ORGANS/MECHANICUS/SCRIPTS/",
+      "contract_path": "ORGANS/MECHANICUS/ORGAN_CONTRACT.json",
+      "purpose": "Tools/scripts/capabilities registry, command gateway"
+    },
+    {
+      "organ_id": "OFFICIO_AGENTIS",
+      "name": "Officio Agentis",
+      "status": "SEED",
+      "backend_path": "ORGANS/OFFICIO_AGENTIS/",
+      "frontend_path": null,
+      "support_path": "ORGANS/OFFICIO_AGENTIS/SCRIPTS/",
+      "contract_path": "ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+      "purpose": "Role contracts, output forms, agent settings"
+    },
+    {
+      "organ_id": "STRATEGIUM",
+      "name": "Strategium",
+      "status": "SEED",
+      "backend_path": "ORGANS/STRATEGIUM/",
+      "frontend_path": null,
+      "support_path": "ORGANS/STRATEGIUM/SCRIPTS/",
+      "contract_path": "ORGANS/STRATEGIUM/ORGAN_CONTRACT.json",
+      "purpose": "Roadmap, priority, resource allocation",
+      "scripts": ["roadmap_manager.py", "smoke_strategium.py"]
+    },
+    {
+      "organ_id": "THRONE",
+      "name": "Throne",
+      "status": "SEED",
+      "backend_path": "ORGANS/THRONE/",
+      "frontend_path": null,
+      "support_path": "ORGANS/THRONE/SCRIPTS/",
+      "contract_path": "ORGANS/THRONE/ORGAN_CONTRACT.json",
+      "purpose": "Owner authority, approval gates, final decisions",
+      "scripts": ["approval_gate.py", "smoke_throne.py"]
+    },
+    {
+      "organ_id": "DOCTRINARIUM",
+      "name": "Doctrinarium",
+      "status": "SEED",
+      "backend_path": "ORGANS/DOCTRINARIUM/",
+      "frontend_path": null,
+      "support_path": "ORGANS/DOCTRINARIUM/SCRIPTS/",
+      "contract_path": "ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+      "purpose": "Rules, schemas, truth contracts",
+      "scripts": ["smoke_doctrinarium.py"]
+    },
+    {
+      "organ_id": "SCHOLA_IMPERIALIS",
+      "name": "Schola Imperialis",
+      "status": "SEED",
+      "backend_path": "ORGANS/SCHOLA_IMPERIALIS/",
+      "frontend_path": null,
+      "support_path": "ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/",
+      "contract_path": "ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+      "purpose": "Learning, memory, lessons learned",
+      "scripts": ["smoke_schola.py"]
+    }
+  ],
+  "status_summary": {
+    "TESTED": ["INQUISITION", "MECHANICUS"],
+    "SEED": ["ASTRONOMICON", "CUSTODES", "OFFICIO_AGENTIS", "STRATEGIUM", "THRONE", "SCHOLA_IMPERIALIS", "DOCTRINARIUM"],
+    "PARTIAL": ["ADMINISTRATUM"]
+  },
+  "total_organs": 10,
+  "notes": "Phase 2 complete: All 4 missing organs now have functional scripts and smoke tests"
+}

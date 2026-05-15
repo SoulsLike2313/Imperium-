@@ -1,0 +1,75 @@
+{
+  "organ_id": "THRONE",
+  "organ_name": "Throne",
+  "version": "0.1.0",
+  "status": "SEED",
+  
+  "purpose": "Owner authority, approval gates, final decisions",
+  
+  "backend_face": {
+    "responsibility": "Owner authority, approval gates, final decisions",
+    "contracts": [
+      {
+        "contract_id": "approval_request",
+        "description": "Request for Owner approval",
+        "fields": ["request_id", "requester", "action", "scope", "risk_level", "evidence"]
+      },
+      {
+        "contract_id": "approval_response",
+        "description": "Owner approval decision",
+        "fields": ["request_id", "decision", "approver", "timestamp", "conditions", "notes"]
+      },
+      {
+        "contract_id": "veto_record",
+        "description": "Record of Owner veto",
+        "fields": ["veto_id", "request_id", "reason", "timestamp", "alternative"]
+      }
+    ],
+    "storage": "ORGANS/THRONE/APPROVALS/"
+  },
+  
+  "frontend_face": {
+    "responsibility": "Decision panel, UAT gates, approval log",
+    "ui_components": ["approval_panel", "decision_log", "uat_gate_view", "pending_queue"],
+    "dashboard": "ORGANS/THRONE/DASHBOARD/"
+  },
+  
+  "support_face": {
+    "responsibility": "Approval integrity tests; no silent auto-approval",
+    "test_types": [
+      "approval_gate_test",
+      "veto_enforcement_test",
+      "no_auto_approval_test"
+    ],
+    "scripts": "ORGANS/THRONE/SCRIPTS/"
+  },
+  
+  "ports": [
+    {
+      "port_id": "approval_request_port",
+      "direction": "inbound",
+      "from": "Any component",
+      "payload": "approval_request"
+    },
+    {
+      "port_id": "approval_response_port",
+      "direction": "outbound",
+      "to": "Requesting component",
+      "payload": "approval_response"
+    }
+  ],
+  
+  "invariants": [
+    "No mutating action without Owner approval for high-risk operations",
+    "No silent auto-approval",
+    "All approvals logged with evidence",
+    "Veto is final until Owner reverses"
+  ],
+  
+  "implementation_status": {
+    "backend_contracts": "PARTIAL",
+    "frontend_dashboard": "NOT_IMPLEMENTED",
+    "support_tests": "IMPLEMENTED",
+    "ports": "NOT_IMPLEMENTED"
+  }
+}

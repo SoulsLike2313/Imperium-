@@ -1,0 +1,94 @@
+{
+  "organ_id": "CUSTODES",
+  "organ_name": "Custodes",
+  "version": "0.1.0",
+  "status": "SEED",
+  
+  "purpose": "Boundaries, safety, access policy, private/public split",
+  
+  "backend_face": {
+    "responsibility": "Boundaries, safety, access policy, private/public split",
+    "contracts": [
+      {
+        "contract_id": "access_policy",
+        "description": "Access control policy",
+        "fields": ["policy_id", "resource", "allowed_actors", "denied_actors", "conditions"]
+      },
+      {
+        "contract_id": "boundary_definition",
+        "description": "Definition of system boundaries",
+        "fields": ["boundary_id", "type", "inside", "outside", "crossing_rules"]
+      },
+      {
+        "contract_id": "risk_assessment",
+        "description": "Risk assessment record",
+        "fields": ["assessment_id", "action", "risk_level", "mitigations", "approval_required"]
+      }
+    ],
+    "storage": "ORGANS/CUSTODES/POLICIES/"
+  },
+  
+  "frontend_face": {
+    "responsibility": "Access/risk boundary indicators",
+    "ui_components": ["boundary_map", "risk_indicator", "access_log", "violation_alerts"],
+    "dashboard": "ORGANS/CUSTODES/DASHBOARD/"
+  },
+  
+  "support_face": {
+    "responsibility": "Leak, permission, path boundary checks",
+    "test_types": [
+      "leak_detector",
+      "permission_test",
+      "boundary_violation_test",
+      "private_public_split_test"
+    ],
+    "scripts": "ORGANS/CUSTODES/SCRIPTS/"
+  },
+  
+  "ports": [
+    {
+      "port_id": "access_check_port",
+      "direction": "inbound",
+      "from": "Any component",
+      "payload": "access_request"
+    },
+    {
+      "port_id": "boundary_alert_port",
+      "direction": "outbound",
+      "to": "Inquisition/Throne",
+      "payload": "boundary_violation"
+    }
+  ],
+  
+  "invariants": [
+    "No access without policy check",
+    "Private data never exposed publicly",
+    "All boundary crossings logged",
+    "High-risk actions require Throne approval"
+  ],
+  
+  "boundaries": {
+    "private_zones": [
+      "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\",
+      "Local paths outside repo",
+      "Credentials and secrets"
+    ],
+    "public_zones": [
+      "Main repo tracked files",
+      "Documentation",
+      "Schemas"
+    ],
+    "crossing_rules": [
+      "Copy from main repo requires provenance",
+      "No secrets in tracked files",
+      "No private paths in public code"
+    ]
+  },
+  
+  "implementation_status": {
+    "backend_contracts": "PARTIAL",
+    "frontend_dashboard": "NOT_IMPLEMENTED",
+    "support_tests": "IMPLEMENTED",
+    "ports": "NOT_IMPLEMENTED"
+  }
+}

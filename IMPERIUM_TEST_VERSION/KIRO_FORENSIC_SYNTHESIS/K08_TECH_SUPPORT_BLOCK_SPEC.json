@@ -1,0 +1,195 @@
+{
+  "schema_version": "IMPERIUM_TECH_SUPPORT_SPEC_V0_1",
+  "generated_at": "2026-05-16T01:15:00Z",
+  "task_id": "K-08",
+  "task_name": "Technical Support block blueprint",
+  
+  "block_id": "TECH_SUPPORT",
+  "purpose": "Instrumental self-service: tests, repair, bug reports, logs, analyzers, builders",
+  "principle": "Every new thing gets strict tester and repair path",
+  
+  "support_zones": {
+    "testing_field": {
+      "path": "TECH_SUPPORT/TESTING_FIELD/",
+      "content": "Smoke tests, candidates, promotion queue",
+      "current_seed": "TESTING_FIELD/"
+    },
+    "mechanicus_tools": {
+      "path": "TECH_SUPPORT/MECHANICUS/",
+      "content": "Scripts, tools, health checkers",
+      "current_seed": "ORGANS/MECHANICUS/"
+    },
+    "inquisition_audits": {
+      "path": "TECH_SUPPORT/INQUISITION/",
+      "content": "Audit scanners, fake-green detectors",
+      "current_seed": "ORGANS/INQUISITION/"
+    },
+    "workbench": {
+      "path": "TECH_SUPPORT/WORKBENCH/",
+      "content": "Live sandbox for experiments",
+      "current_seed": "LIVE_WORKBENCH/"
+    },
+    "monitoring": {
+      "path": "TECH_SUPPORT/MONITORING/",
+      "content": "KPI collectors, health monitors",
+      "current_seed": "MONITORING/"
+    },
+    "receipts": {
+      "path": "TECH_SUPPORT/RECEIPTS/",
+      "content": "Evidence receipts from all checks",
+      "current_seed": "RECEIPTS/"
+    }
+  },
+  
+  "organ_support_faces": [
+    {
+      "organ": "Throne",
+      "support_responsibility": "Approval integrity tests; no silent auto-approval",
+      "test_types": ["approval_gate_test", "veto_enforcement_test"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Doctrinarium",
+      "support_responsibility": "Encoding/law/schema validators",
+      "test_types": ["schema_validation_test", "encoding_test", "contradiction_detector"],
+      "status": "PARTIAL"
+    },
+    {
+      "organ": "Administratum",
+      "support_responsibility": "Bundle/ledger consistency checks",
+      "test_types": ["bundle_integrity_test", "ledger_consistency_test"],
+      "status": "PARTIAL"
+    },
+    {
+      "organ": "Astronomicon",
+      "support_responsibility": "Stage gate/decomposition validators",
+      "test_types": ["stage_gate_test", "decomposition_completeness_test"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Officio Agentis",
+      "support_responsibility": "Prompt/role compliance tests",
+      "test_types": ["prompt_validation_test", "role_contract_test"],
+      "status": "SEED"
+    },
+    {
+      "organ": "Strategium",
+      "support_responsibility": "Plan coherence and scope checks",
+      "test_types": ["plan_coherence_test", "scope_boundary_test"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Schola Imperialis",
+      "support_responsibility": "Regression memory and anti-repeat tests",
+      "test_types": ["regression_test", "anti_repeat_test", "lesson_application_test"],
+      "status": "SEED"
+    },
+    {
+      "organ": "Custodes",
+      "support_responsibility": "Leak, permission, path boundary checks",
+      "test_types": ["leak_detector", "permission_test", "boundary_violation_test"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Mechanicus",
+      "support_responsibility": "Script health, dependency, repair queue",
+      "test_types": ["script_health_test", "dependency_check", "syntax_validation"],
+      "status": "TESTED"
+    },
+    {
+      "organ": "Inquisition",
+      "support_responsibility": "Fake-green/stale/evidence scanners",
+      "test_types": ["fake_green_scanner", "stale_truth_detector", "evidence_validator"],
+      "status": "TESTED"
+    }
+  ],
+  
+  "test_types": {
+    "smoke_test": {
+      "purpose": "Quick sanity check before promotion",
+      "duration": "< 30 seconds",
+      "evidence": "RCP-SMOKE-* receipt",
+      "current_seed": "TESTING_FIELD/RUN_SMOKE.ps1"
+    },
+    "health_check": {
+      "purpose": "Component health verification",
+      "duration": "< 60 seconds",
+      "evidence": "RCP-MECH-* receipt",
+      "current_seed": "ORGANS/MECHANICUS/"
+    },
+    "audit_scan": {
+      "purpose": "Fake-green and stale truth detection",
+      "duration": "< 120 seconds",
+      "evidence": "RCP-INQ-* receipt",
+      "current_seed": "ORGANS/INQUISITION/"
+    },
+    "integration_test": {
+      "purpose": "Cross-component interaction verification",
+      "duration": "< 300 seconds",
+      "evidence": "RCP-INT-* receipt",
+      "current_seed": null
+    },
+    "regression_test": {
+      "purpose": "Ensure fixed bugs stay fixed",
+      "duration": "varies",
+      "evidence": "RCP-REG-* receipt",
+      "current_seed": null
+    }
+  },
+  
+  "repair_workflow": {
+    "stages": [
+      {
+        "stage": "DETECT",
+        "actor": "Inquisition/Mechanicus",
+        "output": "Issue report with evidence"
+      },
+      {
+        "stage": "DIAGNOSE",
+        "actor": "Mechanicus/Agent",
+        "output": "Root cause analysis"
+      },
+      {
+        "stage": "REPAIR",
+        "actor": "Agent/Mechanicus",
+        "output": "Fix implementation"
+      },
+      {
+        "stage": "VERIFY",
+        "actor": "Testing Field",
+        "output": "Smoke test receipt"
+      },
+      {
+        "stage": "DOCUMENT",
+        "actor": "Schola Imperialis",
+        "output": "Lesson learned entry"
+      }
+    ],
+    "current_status": "PARTIAL"
+  },
+  
+  "receipt_types": {
+    "RCP-SMOKE": "Smoke test result",
+    "RCP-MECH": "Mechanicus health check",
+    "RCP-INQ": "Inquisition audit",
+    "RCP-MASTER": "Master verification",
+    "RCP-INT": "Integration test",
+    "RCP-REG": "Regression test"
+  },
+  
+  "ports_exposed": [
+    "evidence_receipt_port",
+    "promotion_port"
+  ],
+  
+  "implementation_priority": [
+    {"item": "Smoke tests", "priority": 1, "status": "TESTED"},
+    {"item": "Health checks", "priority": 2, "status": "TESTED"},
+    {"item": "Audit scans", "priority": 3, "status": "TESTED"},
+    {"item": "Repair workflow", "priority": 4, "status": "PARTIAL"},
+    {"item": "Regression tests", "priority": 5, "status": "NOT_IMPLEMENTED"}
+  ],
+  
+  "verdict": "PASS",
+  "notes": "Tech Support block spec defined. Testing Field, Mechanicus, Inquisition are tested. Repair workflow partial."
+}

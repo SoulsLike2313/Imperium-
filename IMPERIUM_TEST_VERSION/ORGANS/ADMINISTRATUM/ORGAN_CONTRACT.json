@@ -1,0 +1,66 @@
+{
+  "organ_id": "ADMINISTRATUM",
+  "organ_name": "Administratum",
+  "version": "0.1.0",
+  "status": "PARTIAL",
+  
+  "purpose": "Address book, history, lifecycle, bundles",
+  
+  "backend_face": {
+    "responsibility": "Address book, history, lifecycle, bundles",
+    "contracts": [
+      {
+        "contract_id": "address_entry",
+        "description": "Entry in the address book",
+        "fields": ["entry_id", "path", "type", "owner", "status"]
+      },
+      {
+        "contract_id": "history_record",
+        "description": "Historical record of actions",
+        "fields": ["record_id", "timestamp", "action", "actor", "target", "result"]
+      },
+      {
+        "contract_id": "bundle_manifest",
+        "description": "Manifest for a bundle",
+        "fields": ["bundle_id", "files", "hash", "created_at", "purpose"]
+      }
+    ],
+    "storage": "ORGANS/ADMINISTRATUM/"
+  },
+  
+  "frontend_face": {
+    "responsibility": "History/address/task state panels",
+    "ui_components": ["history_timeline", "address_book", "task_board"],
+    "dashboard": "ORGANS/ADMINISTRATUM/DASHBOARD/"
+  },
+  
+  "support_face": {
+    "responsibility": "Bundle/ledger consistency checks",
+    "test_types": [
+      "bundle_integrity_test",
+      "ledger_consistency_test",
+      "self_inventory",
+      "self_diagnosis"
+    ],
+    "scripts": "ORGANS/ADMINISTRATUM/SCRIPTS/"
+  },
+  
+  "provides": [
+    "self_inventory",
+    "self_diagnosis",
+    "error_precheck",
+    "known_errors_index"
+  ],
+  
+  "invariants": [
+    "All actions logged in history",
+    "Bundle manifests match actual files",
+    "Known errors indexed and searchable"
+  ],
+  
+  "implementation_status": {
+    "backend_contracts": "PARTIAL",
+    "frontend_dashboard": "NOT_IMPLEMENTED",
+    "support_tests": "IMPLEMENTED"
+  }
+}

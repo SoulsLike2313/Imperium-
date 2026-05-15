@@ -1,0 +1,172 @@
+{
+  "schema_version": "IMPERIUM_FRONTEND_SPEC_V0_1",
+  "generated_at": "2026-05-16T01:10:00Z",
+  "task_id": "K-07",
+  "task_name": "Frontend block blueprint",
+  
+  "block_id": "FRONTEND_SURFACE",
+  "purpose": "Read backend truth and form visual/app/dashboard/presentation",
+  "principle": "Visual equals backend truth 100%. No independent state. No fake green.",
+  
+  "projection_zones": {
+    "dashboards": {
+      "path": "FRONTEND_SURFACE/DASHBOARDS/",
+      "content": "HTML/static dashboards projecting backend truth",
+      "current_seed": "SANCTUM_MIRROR/"
+    },
+    "ui_adapters": {
+      "path": "FRONTEND_SURFACE/ADAPTERS/",
+      "content": "Adapters transforming backend data to UI format",
+      "current_seed": null
+    },
+    "i18n": {
+      "path": "FRONTEND_SURFACE/I18N/",
+      "content": "Internationalization: RU/EN labels, messages",
+      "current_seed": null
+    },
+    "screenshots": {
+      "path": "FRONTEND_SURFACE/SCREENSHOTS/",
+      "content": "Visual evidence of UI state",
+      "current_seed": "TESTING_FIELD/SCREENSHOTS/"
+    },
+    "uat_manifests": {
+      "path": "FRONTEND_SURFACE/UAT/",
+      "content": "User acceptance test manifests and results",
+      "current_seed": null
+    }
+  },
+  
+  "organ_frontend_faces": [
+    {
+      "organ": "Throne",
+      "frontend_responsibility": "Decision panel, UAT gates, approval log",
+      "ui_components": ["approval_panel", "decision_log", "uat_gate_view"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Doctrinarium",
+      "frontend_responsibility": "Law viewer, schema explorer, contradiction view",
+      "ui_components": ["law_browser", "schema_tree", "contradiction_list"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Administratum",
+      "frontend_responsibility": "History/address/task state panels",
+      "ui_components": ["history_timeline", "address_book", "task_board"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Astronomicon",
+      "frontend_responsibility": "Planning workbench, task map view",
+      "ui_components": ["task_map", "stage_progress", "decomposition_tree"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Officio Agentis",
+      "frontend_responsibility": "Role/mode selector and response contract view",
+      "ui_components": ["role_selector", "prompt_preview", "output_form_view"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Strategium",
+      "frontend_responsibility": "Campaign board, current focus, stop/go matrix",
+      "ui_components": ["roadmap_view", "priority_matrix", "focus_indicator"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Schola Imperialis",
+      "frontend_responsibility": "Lessons learned, positive patterns, failure patterns",
+      "ui_components": ["lesson_list", "pattern_library", "error_history"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Custodes",
+      "frontend_responsibility": "Access/risk boundary indicators",
+      "ui_components": ["boundary_map", "risk_indicator", "access_log"],
+      "status": "NOT_IMPLEMENTED"
+    },
+    {
+      "organ": "Mechanicus",
+      "frontend_responsibility": "Tool console, script status, command gateway",
+      "ui_components": ["script_health_grid", "command_console", "tool_inventory"],
+      "status": "SEED"
+    },
+    {
+      "organ": "Inquisition",
+      "frontend_responsibility": "Audit verdicts, blockers, evidence drilldown",
+      "ui_components": ["audit_verdict_panel", "blocker_list", "evidence_viewer"],
+      "status": "SEED"
+    }
+  ],
+  
+  "dashboard_types": {
+    "master_dashboard": {
+      "purpose": "Overall system health at a glance",
+      "data_source": "Backend truth state aggregate",
+      "components": ["organ_status_grid", "recent_activity", "blocker_summary"],
+      "current_seed": "SANCTUM_MIRROR/dashboard.html"
+    },
+    "organ_dashboard": {
+      "purpose": "Single organ deep dive",
+      "data_source": "Organ-specific backend state",
+      "components": ["organ_health", "recent_checks", "evidence_links"],
+      "current_seed": null
+    },
+    "task_dashboard": {
+      "purpose": "Task lifecycle view",
+      "data_source": "Task state from Astronomicon/Administratum",
+      "components": ["task_board", "stage_progress", "blockers"],
+      "current_seed": null
+    },
+    "audit_dashboard": {
+      "purpose": "Inquisition audit results",
+      "data_source": "Audit verdicts from Inquisition",
+      "components": ["verdict_summary", "issue_list", "evidence_drilldown"],
+      "current_seed": null
+    }
+  },
+  
+  "projection_rules": [
+    {
+      "rule": "NO_INDEPENDENT_STATE",
+      "description": "Frontend never stores truth. Always reads from backend.",
+      "violation": "Frontend showing data not in backend"
+    },
+    {
+      "rule": "EVIDENCE_TRACEABILITY",
+      "description": "Every UI card must link to source evidence",
+      "violation": "UI element without evidence_path"
+    },
+    {
+      "rule": "FRESHNESS_INDICATOR",
+      "description": "Show timestamp and freshness status for all data",
+      "violation": "Hiding staleness from user"
+    },
+    {
+      "rule": "NO_FAKE_GREEN",
+      "description": "Green only if backend status is PASS with fresh evidence",
+      "violation": "Green UI when backend is FAIL/STALE/UNKNOWN"
+    },
+    {
+      "rule": "BLOCKER_VISIBILITY",
+      "description": "Blockers always visible, never hidden",
+      "violation": "Hiding blockers to show clean dashboard"
+    }
+  ],
+  
+  "ports_consumed": [
+    "truth_state_port",
+    "ui_projection_port"
+  ],
+  
+  "implementation_priority": [
+    {"item": "Master dashboard", "priority": 1, "status": "SEED"},
+    {"item": "Evidence traceability", "priority": 2, "status": "NOT_IMPLEMENTED"},
+    {"item": "Freshness indicators", "priority": 3, "status": "NOT_IMPLEMENTED"},
+    {"item": "Organ dashboards", "priority": 4, "status": "NOT_IMPLEMENTED"},
+    {"item": "I18n support", "priority": 5, "status": "NOT_IMPLEMENTED"}
+  ],
+  
+  "verdict": "PASS",
+  "notes": "Frontend block spec defined. Projection zones, organ faces, dashboard types, rules documented."
+}

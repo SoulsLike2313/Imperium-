@@ -1,0 +1,71 @@
+{
+  "dashboard_path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/index.html",
+  "overall_verdict": "FAIL",
+  "receipt_id": "RCP-MASTER-20260516_014403",
+  "results": [
+    {
+      "category": "core",
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "name": "Smoke Test"
+    },
+    {
+      "category": "core",
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "name": "Script Health"
+    },
+    {
+      "category": "core",
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "name": "Audit"
+    },
+    {
+      "category": "new",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Second Brain"
+    },
+    {
+      "category": "new",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Live Workbench"
+    },
+    {
+      "category": "new",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Agent Handshake"
+    },
+    {
+      "category": "dashboard",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Dashboard"
+    },
+    {
+      "category": "truth",
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "name": "Truth Spine"
+    }
+  ],
+  "components": {
+    "new": [
+      "second_brain",
+      "live_workbench",
+      "agent_handshake"
+    ],
+    "core": [
+      "smoke_test",
+      "script_health",
+      "audit"
+    ]
+  },
+  "action": "full_run",
+  "version": "2.0",
+  "started_at_utc": "2026-05-16T01:44:03.5505969+03:00",
+  "finished_at_utc": "2026-05-16T01:45:42.2752699+03:00"
+}

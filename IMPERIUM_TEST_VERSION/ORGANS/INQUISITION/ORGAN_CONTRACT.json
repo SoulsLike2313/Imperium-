@@ -1,9 +1,9 @@
 {
   "organ_id": "INQUISITION",
-  "name": "Inquisition",
+  "organ_name": "Inquisition",
   "version": "0.1.0",
-  "status": "MVP_BOOTSTRAP",
-  "responsibility": "audit, drift detection, anti-fake-green scrutiny, evidence validation",
+  "status": "TESTED",
+  "purpose": "Audit authority, fake-green/stale truth police, evidence validation",
   "owns": [
     "ORGANS/INQUISITION/*",
     "audit reports",

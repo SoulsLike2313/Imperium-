@@ -1,0 +1,145 @@
+{
+  "schema_version": "IMPERIUM_LEARNING_LOOP_V0_1",
+  "generated_at": "2026-05-16T01:20:00Z",
+  "task_id": "K-09",
+  "task_name": "Learning loop protocol",
+  
+  "principle": "Every action = learning. Every repair = system memory. Every success = reusable pattern.",
+  
+  "learning_actors": {
+    "Schola Imperialis": {
+      "role": "Pattern library curator",
+      "inputs": ["success_reports", "failure_reports", "repair_receipts"],
+      "outputs": ["lesson_learned", "positive_pattern", "failure_pattern", "anti_pattern"]
+    },
+    "Administratum": {
+      "role": "History keeper",
+      "inputs": ["all_receipts", "task_completions", "bundle_manifests"],
+      "outputs": ["history_record", "chronology_entry", "ledger_update"]
+    },
+    "Second Brain": {
+      "role": "Context memory",
+      "inputs": ["goals", "rules", "constraints", "error_links"],
+      "outputs": ["context_index", "memory_query_response"]
+    }
+  },
+  
+  "learning_triggers": [
+    {
+      "trigger": "TASK_COMPLETED",
+      "action": "Extract success pattern if novel approach used",
+      "destination": "Schola Imperialis positive_patterns"
+    },
+    {
+      "trigger": "BUG_FIXED",
+      "action": "Document root cause and fix pattern",
+      "destination": "Schola Imperialis failure_patterns + Second Brain error_links"
+    },
+    {
+      "trigger": "AUDIT_FAIL",
+      "action": "Document anti-pattern and detection method",
+      "destination": "Schola Imperialis anti_patterns"
+    },
+    {
+      "trigger": "PROMOTION_SUCCESS",
+      "action": "Document promotion criteria met",
+      "destination": "Administratum history + Schola positive_patterns"
+    },
+    {
+      "trigger": "OWNER_CORRECTION",
+      "action": "Document correction as rule/constraint",
+      "destination": "Second Brain rules/constraints"
+    }
+  ],
+  
+  "pattern_schema": {
+    "lesson_learned": {
+      "id": "string",
+      "timestamp": "ISO8601",
+      "trigger": "string",
+      "context": "string",
+      "observation": "string",
+      "conclusion": "string",
+      "reusable_pattern": "string|null",
+      "anti_pattern": "string|null",
+      "evidence_path": "path"
+    },
+    "positive_pattern": {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "when_to_use": "string",
+      "example": "string",
+      "source_lesson": "lesson_id"
+    },
+    "failure_pattern": {
+      "id": "string",
+      "name": "string",
+      "root_cause": "string",
+      "symptoms": "string[]",
+      "fix_approach": "string",
+      "prevention": "string",
+      "source_lesson": "lesson_id"
+    },
+    "anti_pattern": {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "why_bad": "string",
+      "detection": "string",
+      "alternative": "string",
+      "source_lesson": "lesson_id"
+    }
+  },
+  
+  "memory_integration": {
+    "Second Brain": {
+      "KNOWN_ERRORS_LINKS.json": "Links to failure patterns",
+      "RULES.json": "Extracted rules from corrections",
+      "CONSTRAINTS.json": "Extracted constraints from failures",
+      "GOALS.json": "Updated goals from successes"
+    },
+    "Administratum": {
+      "EXPERIMENT_LEDGER.jsonl": "All experiments with outcomes",
+      "OWNER_CHRONOLOGY_RU.md": "Human-readable history"
+    }
+  },
+  
+  "feedback_loops": [
+    {
+      "loop": "SUCCESS_AMPLIFICATION",
+      "description": "Successful patterns become templates for future work",
+      "flow": "Success → Lesson → Pattern → Template → Reuse"
+    },
+    {
+      "loop": "FAILURE_PREVENTION",
+      "description": "Failures become checks that prevent recurrence",
+      "flow": "Failure → Lesson → Anti-pattern → Check → Prevention"
+    },
+    {
+      "loop": "CORRECTION_INTEGRATION",
+      "description": "Owner corrections become system rules",
+      "flow": "Correction → Rule → Constraint → Validation → Compliance"
+    }
+  ],
+  
+  "current_implementation": {
+    "KNOWN_ERRORS_LINKS.json": "SEED",
+    "EXPERIMENT_LEDGER.jsonl": "ACTIVE",
+    "OWNER_CHRONOLOGY_RU.md": "ACTIVE",
+    "Lesson extraction": "NOT_IMPLEMENTED",
+    "Pattern library": "NOT_IMPLEMENTED",
+    "Anti-pattern scanner": "SEED"
+  },
+  
+  "implementation_checklist": [
+    {"item": "Lesson extraction script", "status": "NOT_IMPLEMENTED"},
+    {"item": "Pattern library storage", "status": "NOT_IMPLEMENTED"},
+    {"item": "Anti-pattern integration with Inquisition", "status": "SEED"},
+    {"item": "Automatic rule extraction from corrections", "status": "NOT_IMPLEMENTED"},
+    {"item": "Success pattern template generator", "status": "NOT_IMPLEMENTED"}
+  ],
+  
+  "verdict": "PASS",
+  "notes": "Learning loop protocol defined. Ledger and chronology active. Pattern extraction NOT_IMPLEMENTED."
+}

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-05-15T23:22:29.076560+00:00",
+  "summary": {
+    "total_rules": 2,
+    "from_chronology": 2,
+    "from_memory": 0,
+    "from_forbidden": 0,
+    "forbidden": 1,
+    "required": 0,
+    "corrections": 1
+  },
+  "rules": [
+    {
+      "type": "FORBIDDEN",
+      "source": "chronology",
+      "text_ru": "НЕ product-v1)",
+      "confidence": "HIGH"
+    },
+    {
+      "type": "CORRECTION",
+      "source": "chronology",
+      "text_ru": "- `UF99_FEATURE",
+      "confidence": "MEDIUM"
+    }
+  ],
+  "by_category": {
+    "FORBIDDEN": [
+      {
+        "type": "FORBIDDEN",
+        "source": "chronology",
+        "text_ru": "НЕ product-v1)",
+        "confidence": "HIGH"
+      }
+    ],
+    "REQUIRED": [],
+    "CORRECTION": [
+      {
+        "type": "CORRECTION",
+        "source": "chronology",
+        "text_ru": "- `UF99_FEATURE",
+        "confidence": "MEDIUM"
+      }
+    ],
+    "OTHER": []
+  }
+}

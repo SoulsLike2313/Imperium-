@@ -3,8 +3,8 @@
 update_memory.py - Update IMPERIUM Second Brain memory entries.
 
 Usage:
-    py -3 IMPERIUM_TEST_VERSION\SECOND_BRAIN\SCRIPTS\update_memory.py --category goals --add "New goal description"
-    py -3 IMPERIUM_TEST_VERSION\SECOND_BRAIN\SCRIPTS\update_memory.py --category rules --add "New rule" --rule-category git
+    py -3 update_memory.py --category goals --add "New goal description"
+    py -3 update_memory.py --category rules --add "New rule" --rule-category git
 """
 
 import argparse
@@ -24,7 +24,7 @@ MEMORY_FILES = {
 }
 
 
-def load_json(path: Path) -> dict:
+def load_json(path):
     """Load JSON file safely."""
     if not path.exists():
         return {}
@@ -32,13 +32,13 @@ def load_json(path: Path) -> dict:
         return json.load(f)
 
 
-def save_json(path: Path, data: dict):
+def save_json(path, data):
     """Save JSON file."""
     with open(path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
-def add_goal(description: str, priority: str = "medium") -> dict:
+def add_goal(description, priority="medium"):
     """Add a new goal."""
     path = MEMORY_FILES["goals"]
     data = load_json(path)
@@ -47,7 +47,6 @@ def add_goal(description: str, priority: str = "medium") -> dict:
         data["goals"] = []
         data["schema_version"] = "IMPERIUM_GOALS_V0_1"
     
-    # Generate new ID
     existing_ids = [g["id"] for g in data["goals"]]
     new_num = 1
     while f"G{new_num:03d}" in existing_ids:
@@ -69,7 +68,7 @@ def add_goal(description: str, priority: str = "medium") -> dict:
     return new_goal
 
 
-def add_rule(rule: str, category: str = "general") -> dict:
+def add_rule(rule, category="general"):
     """Add a new rule."""
     path = MEMORY_FILES["rules"]
     data = load_json(path)
@@ -78,7 +77,6 @@ def add_rule(rule: str, category: str = "general") -> dict:
         data["rules"] = []
         data["schema_version"] = "IMPERIUM_RULES_V0_1"
     
-    # Generate new ID
     existing_ids = [r["id"] for r in data["rules"]]
     new_num = 1
     while f"R{new_num:03d}" in existing_ids:
@@ -99,7 +97,7 @@ def add_rule(rule: str, category: str = "general") -> dict:
     return new_rule
 
 
-def add_constraint(action: str, reason: str) -> dict:
+def add_constraint(action, reason):
     """Add a new forbidden action."""
     path = MEMORY_FILES["constraints"]
     data = load_json(path)
@@ -108,7 +106,6 @@ def add_constraint(action: str, reason: str) -> dict:
         data["forbidden_actions"] = []
         data["schema_version"] = "IMPERIUM_CONSTRAINTS_V0_1"
     
-    # Generate new ID
     existing_ids = [f["id"] for f in data["forbidden_actions"]]
     new_num = 1
     while f"F{new_num:03d}" in existing_ids:

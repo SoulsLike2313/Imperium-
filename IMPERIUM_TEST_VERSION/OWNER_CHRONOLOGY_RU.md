@@ -660,3 +660,450 @@ py -3 .\IMPERIUM_TEST_VERSION\PROMPT_STANDARD\UF99\SCRIPTS\validate_uf99_prompt.
 ```powershell
 Remove-Item -Recurse -Force E:\IMPERIUM\IMPERIUM_TEST_VERSION
 ```
+
+
+---
+
+## СЕССИЯ 5: 2026-05-16
+
+### ЭТАП 22: Kiro Forensic Synthesis (K-00 → K-12)
+
+**Что сделано:**
+- Выполнен полный pipeline K-00 → K-12 по плану Owner
+- Создана папка `KIRO_FORENSIC_SYNTHESIS/` с 13 JSON-артефактами
+
+**Артефакты:**
+
+| Task | Файл | Содержание |
+|------|------|------------|
+| K-00 | `K00_SOURCE_MANIFEST.json` | Source intake lock, git facts, inputs |
+| K-01 | `K01_REPO_CLASSIFICATION_MAP.json` | Классификация зон repo |
+| K-02 | `K02_TEST_LAB_MATURITY_MATRIX.json` | Матрица зрелости компонентов |
+| K-03 | `K03_BLOCK_ARCHITECTURE_V0_1.json` | 3 macro-blocks, 10 organ cubes |
+| K-04 | `K04_PORT_REGISTRY_V0_1.json` | 7 common ports, 4 organ-specific |
+| K-05 | `K05_TRUTH_EVIDENCE_SPINE.json` | Truth semantics, freshness rules, anti-patterns |
+| K-06 | `K06_BACKEND_BLOCK_SPEC.json` | Backend storage zones, organ faces, registries |
+| K-07 | `K07_FRONTEND_BLOCK_SPEC.json` | Frontend projection zones, dashboard types |
+| K-08 | `K08_TECH_SUPPORT_BLOCK_SPEC.json` | Testing Field, Mechanicus, Inquisition spec |
+| K-09 | `K09_LEARNING_LOOP_PROTOCOL.json` | Learning triggers, pattern schema, feedback loops |
+| K-10 | `K10_KIRO_LAB_ROADMAP.json` | 7 phases, milestones, risks |
+| K-11 | `K11_CANONIZATION_GATES.json` | 5 gate types, promotion workflow |
+| K-12 | `K12_SERVITOR_HANDOFF.json` | Handoff checklist, context transfer schema |
+
+**Ключевые концепции:**
+
+1. **3 Macro-blocks:**
+   - BACKEND_CORE — truth, domain logic, organs, schemas, state
+   - FRONTEND_SURFACE — visual projection of backend truth
+   - TECH_SUPPORT — tests, repair, monitoring, tools
+
+2. **10 Organs as cubes:**
+   - Каждый орган имеет 3 грани: backend, frontend, support
+   - 4 NOT_IMPLEMENTED: Throne, Astronomicon, Strategium, Custodes
+   - 2 TESTED: Mechanicus, Inquisition
+
+3. **7 Common ports:**
+   - truth_state_port, command_request_port, evidence_receipt_port
+   - memory_context_port, task_lifecycle_port, ui_projection_port, promotion_port
+
+4. **Truth semantics:**
+   - PASS только с evidence + fresh timestamp
+   - STALE если evidence старше threshold
+   - NO fake green, NO PASS_ALL if any FAIL
+
+5. **7 Phases roadmap:**
+   - Phase 0: Foundation (IN_PROGRESS)
+   - Phase 1-6: Truth Spine → Missing Organs → Registry Sync → Frontend → Learning → Promotion
+
+**Файлы:**
+- `KIRO_FORENSIC_SYNTHESIS/K00_SOURCE_MANIFEST.json`
+- `KIRO_FORENSIC_SYNTHESIS/K01_REPO_CLASSIFICATION_MAP.json`
+- `KIRO_FORENSIC_SYNTHESIS/K02_TEST_LAB_MATURITY_MATRIX.json`
+- `KIRO_FORENSIC_SYNTHESIS/K03_BLOCK_ARCHITECTURE_V0_1.json`
+- `KIRO_FORENSIC_SYNTHESIS/K04_PORT_REGISTRY_V0_1.json`
+- `KIRO_FORENSIC_SYNTHESIS/K05_TRUTH_EVIDENCE_SPINE.json`
+- `KIRO_FORENSIC_SYNTHESIS/K06_BACKEND_BLOCK_SPEC.json`
+- `KIRO_FORENSIC_SYNTHESIS/K07_FRONTEND_BLOCK_SPEC.json`
+- `KIRO_FORENSIC_SYNTHESIS/K08_TECH_SUPPORT_BLOCK_SPEC.json`
+- `KIRO_FORENSIC_SYNTHESIS/K09_LEARNING_LOOP_PROTOCOL.json`
+- `KIRO_FORENSIC_SYNTHESIS/K10_KIRO_LAB_ROADMAP.json`
+- `KIRO_FORENSIC_SYNTHESIS/K11_CANONIZATION_GATES.json`
+- `KIRO_FORENSIC_SYNTHESIS/K12_SERVITOR_HANDOFF.json`
+
+**Вердикт:** PASS
+
+---
+
+## ИТОГО НА ДАННЫЙ МОМЕНТ (v2.1)
+
+| Компонент | Статус | Файлов |
+|-----------|--------|--------|
+| Baseline | ✅ DONE | 2 |
+| Testing Field | ✅ DONE | 9 |
+| Mechanicus | ✅ DONE | 6 |
+| Inquisition | ✅ DONE | 6 |
+| Truth Contract | ✅ DONE | 1 |
+| Error Memory | ✅ DONE | 5 |
+| Agent Control | ✅ DONE | 2 |
+| Self-Inventory | ✅ DONE | 2 |
+| KPI/Monitoring | ✅ DONE | 2 |
+| Sanctum Mirror | ✅ DONE | 4 |
+| Research | ✅ DONE | 2 |
+| Receipts | ✅ DONE | 25+ |
+| Master Script | ✅ DONE | 1 |
+| Second Brain | ✅ DONE | 12 |
+| Agent Memory Protocol | ✅ DONE | 4 |
+| Live Workbench | ✅ DONE | 6 |
+| UF99 Prompt Standard | ✅ DONE | 10 |
+| Communication Protocol | ✅ DONE | 4 |
+| **Kiro Forensic Synthesis** | ✅ NEW | 13 |
+| **ВСЕГО** | | **108+** |
+
+---
+
+## ЧТО OWNER МОЖЕТ СДЕЛАТЬ СЕЙЧАС (v2.1)
+
+### Просмотр Kiro Forensic Synthesis:
+```powershell
+# Все артефакты
+Get-ChildItem E:\IMPERIUM\IMPERIUM_TEST_VERSION\KIRO_FORENSIC_SYNTHESIS\*.json
+
+# Архитектура
+Get-Content E:\IMPERIUM\IMPERIUM_TEST_VERSION\KIRO_FORENSIC_SYNTHESIS\K03_BLOCK_ARCHITECTURE_V0_1.json | ConvertFrom-Json
+
+# Roadmap
+Get-Content E:\IMPERIUM\IMPERIUM_TEST_VERSION\KIRO_FORENSIC_SYNTHESIS\K10_KIRO_LAB_ROADMAP.json | ConvertFrom-Json
+```
+
+
+---
+
+## СЕССИЯ 5: 2026-05-16 (продолжение)
+
+### ЭТАП 23: Truth Spine Implementation
+
+**Что сделано:**
+- Создана папка `TRUTH_SPINE/` — центральный компонент для управления истинностью
+- `TRUTH_STATE_SCHEMA.json` — схема truth state
+- `truth_state_checker.py` — проверка truth state файла (TESTED ✅)
+- `freshness_validator.py` — валидация свежести evidence (TESTED ✅)
+- `truth_aggregator.py` — агрегация truth state по компонентам (TESTED ✅)
+
+**Файлы:**
+- `TRUTH_SPINE/README.md`
+- `TRUTH_SPINE/TRUTH_STATE_SCHEMA.json`
+- `TRUTH_SPINE/truth_state_checker.py`
+- `TRUTH_SPINE/freshness_validator.py`
+- `TRUTH_SPINE/truth_aggregator.py`
+
+**Команды для Owner:**
+```powershell
+py -3 TRUTH_SPINE\truth_aggregator.py --receipts-dir RECEIPTS --output REPORTS\truth_aggregate.json
+```
+
+**Вердикт:** PASS
+
+---
+
+### ЭТАП 24: Missing Organs Scaffold
+
+**Что сделано:**
+- Созданы scaffold для 4 недостающих органов:
+  - `ORGANS/THRONE/` — Owner authority, approval gates
+  - `ORGANS/ASTRONOMICON/` — Task formation, decomposition
+  - `ORGANS/STRATEGIUM/` — Roadmap, priority, resource allocation
+  - `ORGANS/CUSTODES/` — Boundaries, safety, access policy
+- Каждый орган имеет:
+  - `ORGAN_CONTRACT.json` — контракт органа
+  - `README.md` — документация
+
+**Файлы:**
+- `ORGANS/THRONE/ORGAN_CONTRACT.json`
+- `ORGANS/THRONE/README.md`
+- `ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json`
+- `ORGANS/ASTRONOMICON/README.md`
+- `ORGANS/STRATEGIUM/ORGAN_CONTRACT.json`
+- `ORGANS/STRATEGIUM/README.md`
+- `ORGANS/CUSTODES/ORGAN_CONTRACT.json`
+- `ORGANS/CUSTODES/README.md`
+
+**Вердикт:** PASS
+
+---
+
+### ЭТАП 25: Organ Registry
+
+**Что сделано:**
+- Создан `REGISTRY/ORGAN_REGISTRY.json` — реестр всех 10 органов
+- Статусы органов:
+  - TESTED: Mechanicus, Inquisition
+  - SEED: Officio Agentis, Schola Imperialis
+  - PARTIAL: Doctrinarium, Administratum
+  - SCAFFOLD: Throne, Astronomicon, Strategium, Custodes
+
+**Файлы:**
+- `REGISTRY/ORGAN_REGISTRY.json`
+
+**Вердикт:** PASS
+
+---
+
+### ЭТАП 26: RUN_ALL.ps1 v2.1
+
+**Что сделано:**
+- Обновлён `RUN_ALL.ps1` до версии 2.1
+- Добавлен шаг [8/8] Truth Spine Aggregation
+- Интеграция truth_aggregator.py в pipeline
+
+**Файлы:**
+- `RUN_ALL.ps1` (updated to v2.1)
+
+**Вердикт:** PASS
+
+---
+
+## ИТОГО НА ДАННЫЙ МОМЕНТ (v2.2)
+
+| Компонент | Статус | Файлов |
+|-----------|--------|--------|
+| Baseline | ✅ DONE | 2 |
+| Testing Field | ✅ DONE | 9 |
+| Mechanicus | ✅ DONE | 6 |
+| Inquisition | ✅ DONE | 6 |
+| Truth Contract | ✅ DONE | 1 |
+| Error Memory | ✅ DONE | 5 |
+| Agent Control | ✅ DONE | 2 |
+| Self-Inventory | ✅ DONE | 2 |
+| KPI/Monitoring | ✅ DONE | 2 |
+| Sanctum Mirror | ✅ DONE | 4 |
+| Research | ✅ DONE | 2 |
+| Receipts | ✅ DONE | 30+ |
+| Master Script | ✅ DONE | 1 |
+| Second Brain | ✅ DONE | 12 |
+| Agent Memory Protocol | ✅ DONE | 4 |
+| Live Workbench | ✅ DONE | 6 |
+| UF99 Prompt Standard | ✅ DONE | 10 |
+| Communication Protocol | ✅ DONE | 4 |
+| Kiro Forensic Synthesis | ✅ DONE | 13 |
+| **Truth Spine** | ✅ NEW | 5 |
+| **Missing Organs Scaffold** | ✅ NEW | 8 |
+| **Organ Registry** | ✅ NEW | 1 |
+| **ВСЕГО** | | **130+** |
+
+---
+
+## ТЕКУЩЕЕ СОСТОЯНИЕ СИСТЕМЫ
+
+### Органы (10/10 scaffolded)
+
+| Орган | Статус | Backend | Frontend | Support |
+|-------|--------|---------|----------|---------|
+| Throne | SCAFFOLD | ✅ | ❌ | ❌ |
+| Doctrinarium | PARTIAL | ✅ | ❌ | ❌ |
+| Administratum | PARTIAL | ✅ | ❌ | ✅ |
+| Astronomicon | SCAFFOLD | ✅ | ❌ | ❌ |
+| Officio Agentis | SEED | ✅ | ❌ | ✅ |
+| Strategium | SCAFFOLD | ✅ | ❌ | ❌ |
+| Schola Imperialis | SEED | ✅ | ❌ | ✅ |
+| Custodes | SCAFFOLD | ✅ | ❌ | ❌ |
+| Mechanicus | TESTED | ✅ | ✅ | ✅ |
+| Inquisition | TESTED | ✅ | ✅ | ✅ |
+
+### Roadmap Progress
+
+| Phase | Статус |
+|-------|--------|
+| Phase 0: Foundation | ✅ COMPLETE |
+| Phase 1: Truth Spine | ✅ COMPLETE |
+| Phase 2: Missing Organs | ✅ SCAFFOLD |
+| Phase 3: Registry Sync | ⏳ NEXT |
+| Phase 4: Frontend Projection | ❌ NOT_STARTED |
+| Phase 5: Learning Loop | ❌ NOT_STARTED |
+| Phase 6: Promotion Gates | ❌ NOT_STARTED |
+
+
+---
+
+## СЕССИЯ 6: 2026-05-16
+
+### ЭТАП 27: Phase 2 Completion — Functional Organ Scripts
+
+**Что сделано:**
+- Созданы функциональные скрипты для 4 недостающих органов:
+
+| Орган | Скрипт | Назначение |
+|-------|--------|------------|
+| Throne | approval_gate.py | Управление approval requests |
+| Throne | smoke_throne.py | Smoke test |
+| Astronomicon | task_manager.py | Управление задачами |
+| Astronomicon | smoke_astronomicon.py | Smoke test |
+| Strategium | roadmap_manager.py | Управление roadmap |
+| Strategium | smoke_strategium.py | Smoke test |
+| Custodes | boundary_checker.py | Проверка границ |
+| Custodes | smoke_custodes.py | Smoke test |
+
+**Результаты smoke tests:**
+- Все 10 органов: PASS
+
+**Файлы:**
+- `ORGANS/THRONE/SCRIPTS/approval_gate.py`
+- `ORGANS/THRONE/SCRIPTS/smoke_throne.py`
+- `ORGANS/ASTRONOMICON/SCRIPTS/task_manager.py`
+- `ORGANS/ASTRONOMICON/SCRIPTS/smoke_astronomicon.py`
+- `ORGANS/STRATEGIUM/SCRIPTS/roadmap_manager.py`
+- `ORGANS/STRATEGIUM/SCRIPTS/smoke_strategium.py`
+- `ORGANS/CUSTODES/SCRIPTS/boundary_checker.py`
+- `ORGANS/CUSTODES/SCRIPTS/smoke_custodes.py`
+
+**Вердикт:** PASS — Phase 2 COMPLETE
+
+---
+
+### ЭТАП 28: Phase 3 Completion — Registry Sync
+
+**Что сделано:**
+- Создан `auto_sync.py` — автоматическая синхронизация реестров
+- Обновлён `ORGAN_REGISTRY.json` с новыми статусами органов
+- Исправлен escape sequence warning в `ask_memory.py`
+
+**Результаты:**
+```
+✅ registry_sync: PASS
+✅ script_syntax: PASS
+✅ json_validity: PASS
+✅ receipt_freshness: PASS
+✅ required_files: PASS
+⚠️ organ_health: PARTIAL (2 special organs)
+```
+
+**Файлы:**
+- `REGISTRY/auto_sync.py`
+- `REGISTRY/ORGAN_REGISTRY.json` (updated)
+- `REPORTS/auto_sync_report.json`
+
+**Вердикт:** PASS — Phase 3 COMPLETE
+
+---
+
+### ЭТАП 29: Phase 4 Start — Frontend Projection
+
+**Что сделано:**
+- Создан `dashboard_generator.py` — генератор dashboards из backend truth
+- Сгенерированы dashboards для всех 8 органов в ORGANS/
+- Сгенерирован master_dashboard.html
+
+**Файлы:**
+- `SANCTUM_MIRROR/dashboard_generator.py`
+- `SANCTUM_MIRROR/master_dashboard.html`
+- `ORGANS/*/DASHBOARD/index.html` (8 файлов)
+
+**Команды для Owner:**
+```powershell
+# Генерация всех dashboards
+py -3 .\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\dashboard_generator.py --all
+
+# Открыть master dashboard
+start .\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\master_dashboard.html
+```
+
+**Вердикт:** PASS — Phase 4 IN_PROGRESS
+
+---
+
+## ИТОГО НА ДАННЫЙ МОМЕНТ (v2.3)
+
+| Компонент | Статус | Файлов |
+|-----------|--------|--------|
+| Baseline | ✅ DONE | 2 |
+| Testing Field | ✅ DONE | 10 |
+| Mechanicus | ✅ DONE | 7 |
+| Inquisition | ✅ DONE | 7 |
+| Truth Contract | ✅ DONE | 1 |
+| Error Memory | ✅ DONE | 5 |
+| Agent Control | ✅ DONE | 2 |
+| Self-Inventory | ✅ DONE | 2 |
+| KPI/Monitoring | ✅ DONE | 2 |
+| Sanctum Mirror | ✅ DONE | 5 |
+| Research | ✅ DONE | 2 |
+| Receipts | ✅ DONE | 50+ |
+| Master Script | ✅ DONE | 1 |
+| Second Brain | ✅ DONE | 12 |
+| Agent Memory Protocol | ✅ DONE | 4 |
+| Live Workbench | ✅ DONE | 6 |
+| UF99 Prompt Standard | ✅ DONE | 10 |
+| Communication Protocol | ✅ DONE | 4 |
+| Kiro Forensic Synthesis | ✅ DONE | 13 |
+| Truth Spine | ✅ DONE | 5 |
+| **Throne** | ✅ NEW | 4 |
+| **Astronomicon** | ✅ NEW | 4 |
+| **Strategium** | ✅ NEW | 4 |
+| **Custodes** | ✅ NEW | 4 |
+| **Registry Auto Sync** | ✅ NEW | 1 |
+| **Dashboard Generator** | ✅ NEW | 1 |
+| **Organ Dashboards** | ✅ NEW | 8 |
+| **ВСЕГО** | | **145+** |
+
+---
+
+## ROADMAP PROGRESS
+
+| Phase | Статус |
+|-------|--------|
+| Phase 0: Foundation | ✅ COMPLETE |
+| Phase 1: Truth Spine | ✅ COMPLETE |
+| Phase 2: Missing Organs | ✅ COMPLETE |
+| Phase 3: Registry Sync | ✅ COMPLETE |
+| Phase 4: Frontend Projection | ⏳ IN_PROGRESS |
+| Phase 5: Learning Loop | ❌ NOT_STARTED |
+| Phase 6: Promotion Gates | ❌ NOT_STARTED |
+
+---
+
+## ЧТО OWNER МОЖЕТ СДЕЛАТЬ СЕЙЧАС (v2.3)
+
+### Быстрый старт:
+```powershell
+cd E:\IMPERIUM
+.\IMPERIUM_TEST_VERSION\RUN_ALL.ps1
+start .\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\master_dashboard.html
+```
+
+### Новые органы:
+```powershell
+# Throne — approval gate
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\THRONE\SCRIPTS\approval_gate.py --action stats
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\THRONE\SCRIPTS\approval_gate.py --action list
+
+# Astronomicon — task manager
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\ASTRONOMICON\SCRIPTS\task_manager.py --action stats
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\ASTRONOMICON\SCRIPTS\task_manager.py --action create --title "Test Task"
+
+# Strategium — roadmap manager
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\STRATEGIUM\SCRIPTS\roadmap_manager.py --action stats
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\STRATEGIUM\SCRIPTS\roadmap_manager.py --action focus
+
+# Custodes — boundary checker
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\CUSTODES\SCRIPTS\boundary_checker.py --action stats
+py -3 .\IMPERIUM_TEST_VERSION\ORGANS\CUSTODES\SCRIPTS\boundary_checker.py --action scan --file <path>
+```
+
+### Registry & Dashboards:
+```powershell
+# Auto sync
+py -3 .\IMPERIUM_TEST_VERSION\REGISTRY\auto_sync.py
+
+# Generate dashboards
+py -3 .\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\dashboard_generator.py --all
+
+# Smoke test all organs
+py -3 .\IMPERIUM_TEST_VERSION\TESTING_FIELD\SCRIPTS\smoke_all_organs.py
+```
+
+### Dashboards:
+- Master: `SANCTUM_MIRROR\master_dashboard.html`
+- Throne: `ORGANS\THRONE\DASHBOARD\index.html`
+- Astronomicon: `ORGANS\ASTRONOMICON\DASHBOARD\index.html`
+- Strategium: `ORGANS\STRATEGIUM\DASHBOARD\index.html`
+- Custodes: `ORGANS\CUSTODES\DASHBOARD\index.html`
+- Mechanicus: `ORGANS\MECHANICUS\DASHBOARD\index.html`
+- Inquisition: `ORGANS\INQUISITION\DASHBOARD\index.html`

@@ -1,0 +1,114 @@
+﻿{
+    "results":  [
+                    {
+                        "verdict":  "FAIL",
+                        "category":  "core",
+                        "name":  "Smoke Test",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "category":  "core",
+                        "name":  "Script Health",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "category":  "core",
+                        "name":  "Audit",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "new",
+                        "name":  "Second Brain",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "new",
+                        "name":  "Live Workbench",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "new",
+                        "name":  "Agent Handshake",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "dashboard",
+                        "name":  "Dashboard (Legacy)",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "dashboard",
+                        "name":  "Dashboard Generator",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "category":  "truth",
+                        "name":  "Truth Spine",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "registry",
+                        "name":  "Registry Sync",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "learning",
+                        "name":  "Lesson Extractor",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PARTIAL",
+                        "category":  "learning",
+                        "name":  "Anti-Pattern Scanner",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "learning",
+                        "name":  "Rule Extractor",
+                        "exit_code":  0
+                    }
+                ],
+    "action":  "full_run",
+    "started_at_utc":  "2026-05-16T02:29:56.1201712+03:00",
+    "version":  "2.2",
+    "dashboard_path":  "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/master_dashboard.html",
+    "components":  {
+                       "learning":  [
+                                        "lesson_extractor",
+                                        "anti_pattern_scanner",
+                                        "rule_extractor"
+                                    ],
+                       "new":  [
+                                   "second_brain",
+                                   "live_workbench",
+                                   "agent_handshake"
+                               ],
+                       "core":  [
+                                    "smoke_test",
+                                    "script_health",
+                                    "audit"
+                                ],
+                       "registry":  [
+                                        "auto_sync"
+                                    ],
+                       "dashboard":  [
+                                         "legacy_index",
+                                         "master_dashboard",
+                                         "organ_dashboards"
+                                     ]
+                   },
+    "receipt_id":  "RCP-MASTER-20260516_022956",
+    "finished_at_utc":  "2026-05-16T02:31:34.6854432+03:00",
+    "overall_verdict":  "FAIL"
+}

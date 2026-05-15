@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMINISTRATUM Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1a1a2e; color: #eee; padding: 20px;
+        }
+        .header { 
+            background: linear-gradient(135deg, #16213e 0%, #0f3460 100%);
+            padding: 30px; border-radius: 10px; margin-bottom: 20px;
+        }
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .status-badge {
+            display: inline-block; padding: 5px 15px; border-radius: 20px;
+            font-weight: bold; background: #ffc107;
+        }
+        .freshness { margin-top: 10px; }
+        .card { 
+            background: #16213e; border-radius: 10px; padding: 20px; 
+            margin-bottom: 15px;
+        }
+        .card h2 { color: #e94560; margin-bottom: 15px; font-size: 1.2em; }
+        .card ul { list-style: none; }
+        .card li { padding: 8px 0; border-bottom: 1px solid #0f3460; }
+        .card li:last-child { border-bottom: none; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .meta { color: #888; font-size: 0.9em; }
+        a { color: #e94560; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .timestamp { color: #666; font-size: 0.8em; margin-top: 20px; }
+        .evidence-link { 
+            background: #0f3460; padding: 10px; border-radius: 5px; 
+            margin-top: 15px; font-size: 0.9em;
+        }
+        .stale { color: #ffc107; }
+        .fresh { color: #28a745; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚠️ ADMINISTRATUM</h1>
+        <span class="status-badge">PARTIAL</span>
+        <p class="meta" style="margin-top: 10px;">Address book, history, lifecycle, bundles</p>
+        <div class="freshness"><span style="color: #28a745; font-size: 0.8em;">✅ Fresh (0.7h)</span></div>
+    </div>
+    
+    <div class="grid">
+        <div class="card">
+            <h2>📜 Contract</h2>
+            <ul>
+                <li><strong>Status:</strong> PARTIAL</li>
+                <li><strong>Purpose:</strong> Address book, history, lifecycle, bundles</li>
+                <li><strong>Backend:</strong> Address book, history, lifecycle, bundles</li>
+                <li><strong>Frontend:</strong> History/address/task state panels</li>
+                <li><strong>Support:</strong> Bundle/ledger consistency checks</li>
+            </ul>
+            <div class="evidence-link">
+                📎 Evidence: <a href="../../ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json">ORGAN_CONTRACT.json</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>🔧 Scripts (3)</h2>
+            <ul>
+                <li>📄 <a href="../../ORGANS/ADMINISTRATUM/SCRIPTS/error_precheck.py">error_precheck.py</a></li>
+                <li>📄 <a href="../../ORGANS/ADMINISTRATUM/SCRIPTS/self_diagnosis.py">self_diagnosis.py</a></li>
+                <li>📄 <a href="../../ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py">self_inventory.py</a></li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2>📊 Reports</h2>
+            <ul>
+                <li class='meta'>No reports found</li>
+            </ul>
+        </div>
+        
+    </div>
+    
+    <p class="timestamp">Generated: 2026-05-15T23:32:15.670426+00:00</p>
+    <p><a href="../../SANCTUM_MIRROR/master_dashboard.html">← Back to Master Dashboard</a></p>
+</body>
+</html>

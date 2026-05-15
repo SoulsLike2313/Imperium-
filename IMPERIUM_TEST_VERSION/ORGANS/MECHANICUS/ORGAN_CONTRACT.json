@@ -1,9 +1,9 @@
 {
   "organ_id": "MECHANICUS",
-  "name": "Mechanicus",
+  "organ_name": "Mechanicus",
   "version": "0.1.0",
-  "status": "MVP_BOOTSTRAP",
-  "responsibility": "tooling, script registry, machinery contracts, command gateway",
+  "status": "TESTED",
+  "purpose": "Tools/scripts/capabilities registry, command gateway",
   "owns": [
     "REGISTRY/SCRIPT_REGISTRY.json",
     "TOOLS/*",

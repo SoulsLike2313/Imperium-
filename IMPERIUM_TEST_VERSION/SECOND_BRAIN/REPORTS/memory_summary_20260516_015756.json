@@ -1,0 +1,94 @@
+{
+  "schema_version": "IMPERIUM_MEMORY_SUMMARY_V0_1",
+  "generated_at": "2026-05-16T01:57:56.115708",
+  "memory_root": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN",
+  "files_status": {
+    "goals": {
+      "path": "GOALS.json",
+      "exists": true,
+      "size_bytes": 1617
+    },
+    "rules": {
+      "path": "RULES.json",
+      "exists": true,
+      "size_bytes": 1990
+    },
+    "constraints": {
+      "path": "CONSTRAINTS.json",
+      "exists": true,
+      "size_bytes": 1609
+    },
+    "errors": {
+      "path": "KNOWN_ERRORS_LINKS.json",
+      "exists": true,
+      "size_bytes": 1188
+    },
+    "context": {
+      "path": "CONTEXT_INDEX.json",
+      "exists": true,
+      "size_bytes": 1433
+    },
+    "profile": {
+      "path": "OWNER_PROFILE_SEED.json",
+      "exists": true,
+      "size_bytes": 894
+    },
+    "queries": {
+      "path": "MEMORY_QUERIES.json",
+      "exists": true,
+      "size_bytes": 1518
+    }
+  },
+  "statistics": {
+    "total_goals": 6,
+    "critical_goals": 2,
+    "total_rules": 10,
+    "rules_by_category": {
+      "git": 3,
+      "paths": 1,
+      "output": 2,
+      "ui_work": 2,
+      "testing": 1,
+      "naming": 1
+    },
+    "total_forbidden_actions": 8,
+    "total_known_errors": 5,
+    "predefined_queries": 8,
+    "saved_answers": 0
+  },
+  "key_items": {
+    "goals": [
+      "Build runnable prototypes, not scaffolds",
+      "No fake PASS",
+      "Receipts and reports for every action",
+      "Dashboards show real data",
+      "Test version isolation"
+    ],
+    "rules": [
+      "No commit without Owner approval",
+      "No push without Owner approval",
+      "No merge without Owner approval",
+      "Work only inside IMPERIUM_TEST_VERSION",
+      "Create receipt for every significant action"
+    ],
+    "forbidden": [
+      "git commit",
+      "git push",
+      "git merge",
+      "Modify files outside IMPERIUM_TEST_VERSION",
+      "Delete main repo files"
+    ],
+    "allowed_paths": [
+      "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\**"
+    ],
+    "known_errors": [
+      "raw subprocess usage",
+      "warning flood from continuity packs",
+      "mojibake/encoding issues",
+      "stale dashboard HEAD",
+      "fake PASS without evidence"
+    ],
+    "owner_id": "Logos-Prime",
+    "preferred_language": "ru"
+  }
+}

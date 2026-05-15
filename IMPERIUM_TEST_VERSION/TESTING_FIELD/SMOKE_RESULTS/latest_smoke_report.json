@@ -28,21 +28,21 @@
                        "passed":  true
                    },
                    {
-                       "error":  null,
+                       "error":  "Uncommitted changes",
                        "description":  "Git working directory is clean (or only .gitignore/.vscode modified)",
                        "name":  "git_status",
-                       "git_head":  "54272f9",
-                       "passed":  true
+                       "git_head":  "2ae4892",
+                       "passed":  false
                    }
                ],
     "summary":  {
-                    "passed":  5,
-                    "verdict":  "PASS",
-                    "failed":  0,
+                    "passed":  4,
+                    "verdict":  "PARTIAL",
+                    "failed":  1,
                     "total_checks":  5,
-                    "pass_percent":  100,
-                    "git_head":  "54272f9"
+                    "pass_percent":  80,
+                    "git_head":  "2ae4892"
                 },
     "repo_root":  "E:\\IMPERIUM",
-    "generated_at":  "2026-05-15T23:45:09.5508232+03:00"
+    "generated_at":  "2026-05-16T02:29:56.8746018+03:00"
 }

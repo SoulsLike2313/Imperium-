@@ -1,0 +1,65 @@
+{
+  "organ_id": "OFFICIO_AGENTIS",
+  "organ_name": "Officio Agentis",
+  "version": "0.1.0",
+  "status": "SEED",
+  
+  "purpose": "Role contracts, output forms, agent settings",
+  
+  "backend_face": {
+    "responsibility": "Role contracts, output forms, agent settings",
+    "contracts": [
+      {
+        "contract_id": "role_definition",
+        "description": "Definition of an agent role",
+        "fields": ["role_id", "name", "responsibilities", "constraints", "output_format"]
+      },
+      {
+        "contract_id": "prompt_template",
+        "description": "Template for agent prompts",
+        "fields": ["template_id", "type", "sections", "required_fields"]
+      },
+      {
+        "contract_id": "output_form",
+        "description": "Required output format",
+        "fields": ["form_id", "fields", "validation_rules"]
+      }
+    ],
+    "storage": "ORGANS/OFFICIO_AGENTIS/"
+  },
+  
+  "frontend_face": {
+    "responsibility": "Role/mode selector and response contract view",
+    "ui_components": ["role_selector", "prompt_preview", "output_form_view"],
+    "dashboard": "ORGANS/OFFICIO_AGENTIS/DASHBOARD/"
+  },
+  
+  "support_face": {
+    "responsibility": "Prompt/role compliance tests",
+    "test_types": [
+      "prompt_validation_test",
+      "role_contract_test",
+      "output_form_test"
+    ],
+    "scripts": "PROMPT_STANDARD/UF99/SCRIPTS/"
+  },
+  
+  "provides": [
+    "scope_corridor",
+    "output_contract",
+    "uf99_templates",
+    "prompt_validator"
+  ],
+  
+  "invariants": [
+    "All agent outputs follow output contract",
+    "Prompts validated against UF99 standard",
+    "Scope corridor enforced"
+  ],
+  
+  "implementation_status": {
+    "backend_contracts": "SEED",
+    "frontend_dashboard": "NOT_IMPLEMENTED",
+    "support_tests": "IMPLEMENTED"
+  }
+}

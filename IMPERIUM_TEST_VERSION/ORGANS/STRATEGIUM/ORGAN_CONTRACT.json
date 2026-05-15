@@ -1,0 +1,75 @@
+{
+  "organ_id": "STRATEGIUM",
+  "organ_name": "Strategium",
+  "version": "0.1.0",
+  "status": "SEED",
+  
+  "purpose": "Roadmap, priority, resource allocation",
+  
+  "backend_face": {
+    "responsibility": "Roadmap, priority, resource allocation",
+    "contracts": [
+      {
+        "contract_id": "roadmap_entry",
+        "description": "Entry in the roadmap",
+        "fields": ["entry_id", "title", "phase", "priority", "status", "target_date", "dependencies"]
+      },
+      {
+        "contract_id": "priority_matrix",
+        "description": "Priority matrix for decisions",
+        "fields": ["matrix_id", "criteria", "weights", "items", "scores"]
+      },
+      {
+        "contract_id": "resource_allocation",
+        "description": "Resource allocation record",
+        "fields": ["allocation_id", "resource_type", "allocated_to", "amount", "period"]
+      }
+    ],
+    "storage": "ORGANS/STRATEGIUM/ROADMAP/"
+  },
+  
+  "frontend_face": {
+    "responsibility": "Campaign board, current focus, stop/go matrix",
+    "ui_components": ["roadmap_view", "priority_matrix", "focus_indicator", "stop_go_matrix"],
+    "dashboard": "ORGANS/STRATEGIUM/DASHBOARD/"
+  },
+  
+  "support_face": {
+    "responsibility": "Plan coherence and scope checks",
+    "test_types": [
+      "plan_coherence_test",
+      "scope_boundary_test",
+      "priority_consistency_test"
+    ],
+    "scripts": "ORGANS/STRATEGIUM/SCRIPTS/"
+  },
+  
+  "ports": [
+    {
+      "port_id": "roadmap_port",
+      "direction": "outbound",
+      "to": "Frontend/Astronomicon",
+      "payload": "roadmap_state"
+    },
+    {
+      "port_id": "priority_request_port",
+      "direction": "inbound",
+      "from": "Owner/Agent",
+      "payload": "priority_query"
+    }
+  ],
+  
+  "invariants": [
+    "Roadmap aligned with Owner goals",
+    "No scope creep without Owner approval",
+    "Priority changes logged",
+    "Resource allocation within budget"
+  ],
+  
+  "implementation_status": {
+    "backend_contracts": "PARTIAL",
+    "frontend_dashboard": "NOT_IMPLEMENTED",
+    "support_tests": "IMPLEMENTED",
+    "ports": "NOT_IMPLEMENTED"
+  }
+}

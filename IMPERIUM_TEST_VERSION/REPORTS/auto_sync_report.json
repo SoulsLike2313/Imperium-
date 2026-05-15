@@ -1,0 +1,146 @@
+{
+  "timestamp": "2026-05-15T23:02:43.511058+00:00",
+  "checks": [
+    {
+      "check": "registry_sync",
+      "status": "PASS",
+      "drift": {
+        "missing_in_registry": [],
+        "missing_in_filesystem": [],
+        "status_mismatch": [],
+        "path_mismatch": []
+      }
+    },
+    {
+      "check": "script_syntax",
+      "total": 40,
+      "valid": 40,
+      "invalid": 0,
+      "invalid_files": [],
+      "status": "PASS"
+    },
+    {
+      "check": "json_validity",
+      "total": 136,
+      "valid": 136,
+      "invalid": 0,
+      "invalid_files": [],
+      "status": "PASS"
+    },
+    {
+      "check": "receipt_freshness",
+      "total": 49,
+      "fresh": 49,
+      "stale": 0,
+      "stale_files": [],
+      "status": "PASS"
+    },
+    {
+      "check": "required_files",
+      "total": 4,
+      "present": 4,
+      "missing": [],
+      "status": "PASS"
+    },
+    {
+      "check": "organ_health",
+      "organs": [
+        {
+          "organ_id": "ADMINISTRATUM",
+          "status": "PARTIAL",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "ASTRONOMICON",
+          "status": "SEED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "CUSTODES",
+          "status": "SEED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "INQUISITION",
+          "status": "TESTED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "MECHANICUS",
+          "status": "TESTED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "OFFICIO_AGENTIS",
+          "status": "SEED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "STRATEGIUM",
+          "status": "SEED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "THRONE",
+          "status": "SEED",
+          "has_contract": true,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "GOOD"
+        },
+        {
+          "organ_id": "DOCTRINARIUM",
+          "status": "PARTIAL",
+          "has_contract": false,
+          "has_readme": false,
+          "has_scripts": false,
+          "health": "PARTIAL"
+        },
+        {
+          "organ_id": "SCHOLA_IMPERIALIS",
+          "status": "SEED",
+          "has_contract": false,
+          "has_readme": true,
+          "has_scripts": true,
+          "health": "PARTIAL"
+        }
+      ],
+      "total": 10,
+      "healthy": 8,
+      "status": "PARTIAL"
+    }
+  ],
+  "actions_taken": [],
+  "recommendations": [
+    {
+      "issue": "DOCTRINARIUM missing contract",
+      "action": "Create ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json"
+    },
+    {
+      "issue": "SCHOLA_IMPERIALIS missing contract",
+      "action": "Create ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json"
+    }
+  ],
+  "verdict": "PARTIAL"
+}

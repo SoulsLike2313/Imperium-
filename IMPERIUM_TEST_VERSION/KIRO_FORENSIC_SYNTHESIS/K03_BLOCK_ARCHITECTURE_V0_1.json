@@ -1,0 +1,159 @@
+{
+  "schema_version": "IMPERIUM_ARCHITECTURE_V0_1",
+  "generated_at": "2026-05-16T00:15:00Z",
+  "task_id": "K-03",
+  "task_name": "Owner block architecture formalization",
+  
+  "formula": "IMPERIUM = BACKEND_CORE + FRONTEND_SURFACE + TECH_SUPPORT",
+  "organ_formula": "Organ = backend_contract + frontend_adapter + support_tester",
+  
+  "macro_blocks": {
+    "BACKEND_CORE": {
+      "purpose": "Truth, domain logic, organs, schemas, state, task/memory/role/law contracts",
+      "stores": [
+        "Organ contracts",
+        "Registries",
+        "Task lifecycle state",
+        "Memory indexes",
+        "Laws/schemas",
+        "Canonical status"
+      ],
+      "owner_visible_result": "System knows itself and can accept tasks",
+      "test_version_path": "IMPERIUM_TEST_VERSION/BACKEND_CORE/",
+      "current_seeds": [
+        "SECOND_BRAIN (memory)",
+        "schemas/ (contracts)",
+        "REGISTRY/ (registries)"
+      ]
+    },
+    "FRONTEND_SURFACE": {
+      "purpose": "Read backend truth and form visual/app/dashboard/presentation",
+      "stores": [
+        "UI adapters",
+        "Dashboard data projections",
+        "i18n",
+        "Screenshots",
+        "UAT manifests"
+      ],
+      "owner_visible_result": "Visual equals backend truth 100%",
+      "test_version_path": "IMPERIUM_TEST_VERSION/FRONTEND_SURFACE/",
+      "current_seeds": [
+        "SANCTUM_MIRROR (static dashboard)",
+        "LIVE_WORKBENCH/DASHBOARD/"
+      ]
+    },
+    "TECH_SUPPORT": {
+      "purpose": "Instrumental self-service: tests, repair, bug reports, logs, analyzers, builders",
+      "stores": [
+        "Testing Field",
+        "Mechanicus tools",
+        "Inquisition audits",
+        "Workbench",
+        "Monitoring",
+        "Receipts"
+      ],
+      "owner_visible_result": "Every new thing gets strict tester and repair path",
+      "test_version_path": "IMPERIUM_TEST_VERSION/TECH_SUPPORT/",
+      "current_seeds": [
+        "TESTING_FIELD",
+        "ORGANS/MECHANICUS",
+        "ORGANS/INQUISITION",
+        "MONITORING",
+        "RECEIPTS"
+      ]
+    }
+  },
+  
+  "organ_cubes": [
+    {
+      "organ": "Throne",
+      "backend_face": "Owner authority, approval gates, final decisions",
+      "frontend_face": "Decision panel, UAT gates, approval log",
+      "support_face": "Approval integrity tests; no silent auto-approval",
+      "current_status": "NOT_IMPLEMENTED",
+      "test_version_seed": null
+    },
+    {
+      "organ": "Doctrinarium",
+      "backend_face": "Law, doctrine, schemas, canon definitions",
+      "frontend_face": "Law viewer, schema explorer, contradiction view",
+      "support_face": "Encoding/law/schema validators",
+      "current_status": "PARTIAL",
+      "test_version_seed": "schemas/"
+    },
+    {
+      "organ": "Administratum",
+      "backend_face": "Address book, history, lifecycle, bundles",
+      "frontend_face": "History/address/task state panels",
+      "support_face": "Bundle/ledger consistency checks",
+      "current_status": "PARTIAL",
+      "test_version_seed": "ORGANS/ADMINISTRATUM/"
+    },
+    {
+      "organ": "Astronomicon",
+      "backend_face": "Task formation, decomposition, stage maps",
+      "frontend_face": "Planning workbench, task map view",
+      "support_face": "Stage gate/decomposition validators",
+      "current_status": "NOT_IMPLEMENTED",
+      "test_version_seed": null
+    },
+    {
+      "organ": "Officio Agentis",
+      "backend_face": "Role contracts, output forms, agent settings",
+      "frontend_face": "Role/mode selector and response contract view",
+      "support_face": "Prompt/role compliance tests",
+      "current_status": "SEED",
+      "test_version_seed": "ORGANS/OFFICIO_AGENTIS/, PROMPT_STANDARD/UF99/"
+    },
+    {
+      "organ": "Strategium",
+      "backend_face": "Roadmap, priority, resource allocation",
+      "frontend_face": "Campaign board, current focus, stop/go matrix",
+      "support_face": "Plan coherence and scope checks",
+      "current_status": "NOT_IMPLEMENTED",
+      "test_version_seed": null
+    },
+    {
+      "organ": "Schola Imperialis",
+      "backend_face": "Learning from successes/errors, pattern library",
+      "frontend_face": "Lessons learned, positive patterns, failure patterns",
+      "support_face": "Regression memory and anti-repeat tests",
+      "current_status": "SEED",
+      "test_version_seed": "SECOND_BRAIN/KNOWN_ERRORS_LINKS.json"
+    },
+    {
+      "organ": "Custodes",
+      "backend_face": "Boundaries, safety, access policy, private/public split",
+      "frontend_face": "Access/risk boundary indicators",
+      "support_face": "Leak, permission, path boundary checks",
+      "current_status": "NOT_IMPLEMENTED",
+      "test_version_seed": null
+    },
+    {
+      "organ": "Mechanicus",
+      "backend_face": "Tools/scripts/capabilities registry",
+      "frontend_face": "Tool console, script status, command gateway",
+      "support_face": "Script health, dependency, repair queue",
+      "current_status": "TESTED",
+      "test_version_seed": "ORGANS/MECHANICUS/"
+    },
+    {
+      "organ": "Inquisition",
+      "backend_face": "Audit authority, fake-green/stale truth police",
+      "frontend_face": "Audit verdicts, blockers, evidence drilldown",
+      "support_face": "Fake-green/stale/evidence scanners",
+      "current_status": "TESTED",
+      "test_version_seed": "ORGANS/INQUISITION/"
+    }
+  ],
+  
+  "organ_status_summary": {
+    "NOT_IMPLEMENTED": ["Throne", "Astronomicon", "Strategium", "Custodes"],
+    "SEED": ["Officio Agentis", "Schola Imperialis"],
+    "PARTIAL": ["Doctrinarium", "Administratum"],
+    "TESTED": ["Mechanicus", "Inquisition"]
+  },
+  
+  "verdict": "PASS",
+  "notes": "Architecture formalized. 4 organs not implemented, 2 seeds, 2 partial, 2 tested."
+}

@@ -1,0 +1,75 @@
+{
+  "organ_id": "ASTRONOMICON",
+  "organ_name": "Astronomicon",
+  "version": "0.1.0",
+  "status": "SEED",
+  
+  "purpose": "Task formation, decomposition, stage maps",
+  
+  "backend_face": {
+    "responsibility": "Task formation, decomposition, stage maps",
+    "contracts": [
+      {
+        "contract_id": "task_definition",
+        "description": "Definition of a task",
+        "fields": ["task_id", "title", "description", "owner", "status", "priority", "dependencies", "deliverables"]
+      },
+      {
+        "contract_id": "stage_map",
+        "description": "Map of stages for a task",
+        "fields": ["task_id", "stages", "current_stage", "gates", "blockers"]
+      },
+      {
+        "contract_id": "decomposition_tree",
+        "description": "Hierarchical decomposition of task",
+        "fields": ["task_id", "parent_id", "children", "depth", "completion_status"]
+      }
+    ],
+    "storage": "ORGANS/ASTRONOMICON/TASKS/"
+  },
+  
+  "frontend_face": {
+    "responsibility": "Planning workbench, task map view",
+    "ui_components": ["task_map", "stage_progress", "decomposition_tree", "dependency_graph"],
+    "dashboard": "ORGANS/ASTRONOMICON/DASHBOARD/"
+  },
+  
+  "support_face": {
+    "responsibility": "Stage gate/decomposition validators",
+    "test_types": [
+      "stage_gate_test",
+      "decomposition_completeness_test",
+      "dependency_cycle_test"
+    ],
+    "scripts": "ORGANS/ASTRONOMICON/SCRIPTS/"
+  },
+  
+  "ports": [
+    {
+      "port_id": "task_lifecycle_port",
+      "direction": "outbound",
+      "to": "Agent/Support",
+      "payload": "task_lifecycle_state"
+    },
+    {
+      "port_id": "task_request_port",
+      "direction": "inbound",
+      "from": "Owner/Agent",
+      "payload": "task_definition"
+    }
+  ],
+  
+  "invariants": [
+    "No task without clear deliverables",
+    "No stage skip without gate pass",
+    "Blocked means stop, not improvise",
+    "Dependencies must be acyclic"
+  ],
+  
+  "implementation_status": {
+    "backend_contracts": "PARTIAL",
+    "frontend_dashboard": "NOT_IMPLEMENTED",
+    "support_tests": "IMPLEMENTED",
+    "ports": "NOT_IMPLEMENTED"
+  }
+}

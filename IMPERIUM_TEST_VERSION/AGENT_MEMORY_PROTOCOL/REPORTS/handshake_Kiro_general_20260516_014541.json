@@ -1,0 +1,113 @@
+{
+  "schema_version": "IMPERIUM_HANDSHAKE_REPORT_V0_1",
+  "agent": "Kiro",
+  "task_type": "general",
+  "handshake_time": "2026-05-16T01:45:41.670413",
+  "required_queries": [
+    "Q002",
+    "Q003"
+  ],
+  "query_results": [
+    {
+      "query_id": "Q002",
+      "query": "What actions are forbidden?",
+      "critical": true,
+      "found": true,
+      "answer": "[F001] FORBIDDEN: git commit\\n[F002] FORBIDDEN: git push\\n[F003] FORBIDDEN: git merge\\n[F004] FORBIDDEN: Modify files outside IMPERIUM_TEST_VERSION\\n[F005] FORBIDDEN: Delete main repo files\\n[F006] FORBIDDEN: Claim production-ready or V1\\n[F007] FORBIDDEN: Create fake PASS without evidence\\n[F008] FORBIDDEN: Expand taxonomy without runnable code",
+      "sources": [
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F001",
+          "value": "git commit"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F002",
+          "value": "git push"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F003",
+          "value": "git merge"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F004",
+          "value": "Modify files outside IMPERIUM_TEST_VERSION"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F005",
+          "value": "Delete main repo files"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F006",
+          "value": "Claim production-ready or V1"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F007",
+          "value": "Create fake PASS without evidence"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F008",
+          "value": "Expand taxonomy without runnable code"
+        }
+      ]
+    },
+    {
+      "query_id": "Q003",
+      "query": "What are the Owner goals?",
+      "critical": false,
+      "found": true,
+      "answer": "[G001] Build runnable prototypes, not scaffolds\\n[G002] No fake PASS\\n[G003] Receipts and reports for every action\\n[G004] Dashboards show real data\\n[G005] Test version isolation\\n[G006] Owner can verify everything",
+      "sources": [
+        {
+          "file": "GOALS.json",
+          "key": "G001",
+          "value": "Build runnable prototypes, not scaffolds"
+        },
+        {
+          "file": "GOALS.json",
+          "key": "G002",
+          "value": "No fake PASS"
+        },
+        {
+          "file": "GOALS.json",
+          "key": "G003",
+          "value": "Receipts and reports for every action"
+        },
+        {
+          "file": "GOALS.json",
+          "key": "G004",
+          "value": "Dashboards show real data"
+        },
+        {
+          "file": "GOALS.json",
+          "key": "G005",
+          "value": "Test version isolation"
+        },
+        {
+          "file": "GOALS.json",
+          "key": "G006",
+          "value": "Owner can verify everything"
+        }
+      ]
+    }
+  ],
+  "missing_context": [],
+  "constraints_acknowledged": [
+    "F001",
+    "F002",
+    "F003",
+    "F004",
+    "F005",
+    "F006",
+    "F007",
+    "F008"
+  ],
+  "ready_to_proceed": true,
+  "verdict": "PASS"
+}

@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-05-15T23:01:59.832106+00:00",
+  "checks": [
+    {
+      "check": "script_syntax",
+      "total": 39,
+      "valid": 39,
+      "invalid": 0,
+      "invalid_files": [],
+      "status": "PASS"
+    },
+    {
+      "check": "json_validity",
+      "total": 136,
+      "valid": 136,
+      "invalid": 0,
+      "invalid_files": [],
+      "status": "PASS"
+    },
+    {
+      "check": "receipt_freshness",
+      "total": 49,
+      "fresh": 49,
+      "stale": 0,
+      "stale_files": [],
+      "status": "PASS"
+    },
+    {
+      "check": "required_files",
+      "total": 4,
+      "present": 4,
+      "missing": [],
+      "status": "PASS"
+    }
+  ],
+  "verdict": "PASS"
+}

@@ -1,0 +1,211 @@
+{
+  "schema_version": "IMPERIUM_CANONIZATION_V0_1",
+  "generated_at": "2026-05-16T01:30:00Z",
+  "task_id": "K-11",
+  "task_name": "Canonization gate design",
+  
+  "principle": "Lab stays lab until promotion gates. No direct canon integration without Owner UAT.",
+  
+  "gate_types": {
+    "SMOKE_GATE": {
+      "purpose": "Quick sanity check",
+      "actor": "Testing Field",
+      "criteria": [
+        "Script syntax valid",
+        "No import errors",
+        "Basic functionality works"
+      ],
+      "evidence": "RCP-SMOKE-* receipt",
+      "blocking": true,
+      "auto_pass": false
+    },
+    "HEALTH_GATE": {
+      "purpose": "Component health verification",
+      "actor": "Mechanicus",
+      "criteria": [
+        "All dependencies available",
+        "No broken references",
+        "Health check passes"
+      ],
+      "evidence": "RCP-MECH-* receipt",
+      "blocking": true,
+      "auto_pass": false
+    },
+    "AUDIT_GATE": {
+      "purpose": "Fake-green and stale truth detection",
+      "actor": "Inquisition",
+      "criteria": [
+        "No fake green",
+        "No stale truth",
+        "Evidence for all claims"
+      ],
+      "evidence": "RCP-INQ-* receipt",
+      "blocking": true,
+      "auto_pass": false
+    },
+    "OWNER_UAT_GATE": {
+      "purpose": "Owner acceptance",
+      "actor": "Throne/Owner",
+      "criteria": [
+        "Owner reviewed",
+        "Owner approved",
+        "No Owner objections"
+      ],
+      "evidence": "Owner approval record",
+      "blocking": true,
+      "auto_pass": false
+    },
+    "INTEGRATION_GATE": {
+      "purpose": "Cross-component compatibility",
+      "actor": "Testing Field",
+      "criteria": [
+        "No conflicts with existing canon",
+        "Integration tests pass",
+        "No regression"
+      ],
+      "evidence": "RCP-INT-* receipt",
+      "blocking": true,
+      "auto_pass": false
+    }
+  },
+  
+  "promotion_workflow": {
+    "stages": [
+      {
+        "stage": "CANDIDATE",
+        "description": "Item proposed for promotion",
+        "gates_required": [],
+        "next_stage": "SMOKE_TESTED"
+      },
+      {
+        "stage": "SMOKE_TESTED",
+        "description": "Passed smoke gate",
+        "gates_required": ["SMOKE_GATE"],
+        "next_stage": "HEALTH_CHECKED"
+      },
+      {
+        "stage": "HEALTH_CHECKED",
+        "description": "Passed health gate",
+        "gates_required": ["HEALTH_GATE"],
+        "next_stage": "AUDITED"
+      },
+      {
+        "stage": "AUDITED",
+        "description": "Passed audit gate",
+        "gates_required": ["AUDIT_GATE"],
+        "next_stage": "UAT_PENDING"
+      },
+      {
+        "stage": "UAT_PENDING",
+        "description": "Awaiting Owner UAT",
+        "gates_required": [],
+        "next_stage": "UAT_APPROVED"
+      },
+      {
+        "stage": "UAT_APPROVED",
+        "description": "Owner approved",
+        "gates_required": ["OWNER_UAT_GATE"],
+        "next_stage": "INTEGRATION_TESTED"
+      },
+      {
+        "stage": "INTEGRATION_TESTED",
+        "description": "Passed integration gate",
+        "gates_required": ["INTEGRATION_GATE"],
+        "next_stage": "PROMOTED"
+      },
+      {
+        "stage": "PROMOTED",
+        "description": "Imported to canon",
+        "gates_required": [],
+        "next_stage": null
+      }
+    ]
+  },
+  
+  "promotion_receipt_schema": {
+    "receipt_id": "string",
+    "candidate_path": "path",
+    "candidate_type": "script|schema|organ|component",
+    "timestamp": "ISO8601",
+    "gates_passed": [
+      {
+        "gate": "string",
+        "result": "PASS|FAIL",
+        "evidence_path": "path",
+        "timestamp": "ISO8601"
+      }
+    ],
+    "owner_uat": {
+      "status": "PASS|FAIL|PENDING",
+      "reviewer": "string",
+      "timestamp": "ISO8601|null",
+      "notes": "string|null"
+    },
+    "promotion_decision": "PROMOTE|REJECT|DEFER",
+    "canon_target_path": "path|null",
+    "promoted_at": "ISO8601|null"
+  },
+  
+  "rejection_handling": {
+    "SMOKE_FAIL": {
+      "action": "Return to development",
+      "next_step": "Fix issues, re-submit"
+    },
+    "HEALTH_FAIL": {
+      "action": "Return to development",
+      "next_step": "Fix dependencies, re-submit"
+    },
+    "AUDIT_FAIL": {
+      "action": "Return to development",
+      "next_step": "Fix fake green/stale truth, re-submit"
+    },
+    "UAT_FAIL": {
+      "action": "Return to development",
+      "next_step": "Address Owner feedback, re-submit"
+    },
+    "INTEGRATION_FAIL": {
+      "action": "Return to development",
+      "next_step": "Fix conflicts, re-submit"
+    }
+  },
+  
+  "anti_patterns": [
+    {
+      "pattern": "SKIP_GATE",
+      "description": "Bypassing any gate",
+      "detection": "Missing gate receipt in promotion chain",
+      "consequence": "Promotion rejected"
+    },
+    {
+      "pattern": "AUTO_UAT",
+      "description": "Auto-approving Owner UAT",
+      "detection": "UAT receipt without Owner signature",
+      "consequence": "Promotion rejected"
+    },
+    {
+      "pattern": "STALE_GATE",
+      "description": "Using old gate results",
+      "detection": "Gate receipt older than threshold",
+      "consequence": "Re-run gate required"
+    },
+    {
+      "pattern": "PARTIAL_PROMOTION",
+      "description": "Promoting incomplete component",
+      "detection": "Missing required files in candidate",
+      "consequence": "Promotion rejected"
+    }
+  ],
+  
+  "current_implementation": {
+    "SMOKE_GATE": "PARTIAL",
+    "HEALTH_GATE": "PARTIAL",
+    "AUDIT_GATE": "PARTIAL",
+    "OWNER_UAT_GATE": "NOT_IMPLEMENTED",
+    "INTEGRATION_GATE": "NOT_IMPLEMENTED",
+    "Promotion workflow": "NOT_IMPLEMENTED",
+    "Promotion receipts": "NOT_IMPLEMENTED"
+  },
+  
+  "verdict": "PASS",
+  "notes": "Canonization gates defined. 5 gate types, promotion workflow, rejection handling documented."
+}

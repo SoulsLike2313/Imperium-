@@ -1,0 +1,191 @@
+{
+  "schema_version": "IMPERIUM_TRUTH_SPINE_V0_1",
+  "generated_at": "2026-05-16T01:00:00Z",
+  "task_id": "K-05",
+  "task_name": "Truth/evidence/freshness spine",
+  
+  "problem_statement": {
+    "over_green": "PASS labels without evidence or with stale evidence",
+    "fake_green": "PASS when actual state is FAIL or UNKNOWN",
+    "stale_truth": "Evidence older than threshold without STALE flag",
+    "pass_inflation": "PASS_ALL when any component is FAIL or PARTIAL"
+  },
+  
+  "truth_semantics": {
+    "PASS": {
+      "definition": "All checks passed with fresh evidence",
+      "requirements": [
+        "evidence_path exists and readable",
+        "evidence_timestamp within freshness_threshold",
+        "no blockers in evidence",
+        "exit_code == 0 for all commands"
+      ],
+      "forbidden_if": ["any FAIL", "any UNKNOWN", "stale evidence", "missing evidence"]
+    },
+    "PASS_WITH_WARNINGS": {
+      "definition": "All critical checks passed, non-critical warnings present",
+      "requirements": [
+        "all critical checks PASS",
+        "warnings documented in evidence",
+        "warnings are non-blocking"
+      ],
+      "forbidden_if": ["any critical FAIL", "undocumented warnings"]
+    },
+    "PARTIAL": {
+      "definition": "Some checks passed, some not run or incomplete",
+      "requirements": [
+        "at least one check PASS",
+        "incomplete checks documented",
+        "no false PASS claims"
+      ],
+      "forbidden_if": ["claiming full coverage"]
+    },
+    "FAIL": {
+      "definition": "One or more checks failed",
+      "requirements": [
+        "failure evidence captured",
+        "failure reason documented",
+        "exit_code != 0 or assertion failed"
+      ],
+      "forbidden_if": ["hiding failures", "downgrading to WARNING"]
+    },
+    "UNKNOWN": {
+      "definition": "Check not run or result indeterminate",
+      "requirements": [
+        "explicitly marked UNKNOWN",
+        "reason documented"
+      ],
+      "forbidden_if": ["defaulting to PASS", "silent skip"]
+    },
+    "STALE": {
+      "definition": "Evidence exists but exceeds freshness threshold",
+      "requirements": [
+        "evidence_timestamp older than threshold",
+        "STALE flag explicitly set",
+        "last_known_status preserved"
+      ],
+      "forbidden_if": ["claiming fresh", "hiding staleness"]
+    },
+    "NOT_IMPLEMENTED": {
+      "definition": "Feature/check does not exist yet",
+      "requirements": [
+        "explicitly marked NOT_IMPLEMENTED",
+        "no false claims of existence"
+      ],
+      "forbidden_if": ["claiming PASS", "claiming PARTIAL"]
+    }
+  },
+  
+  "freshness_rules": {
+    "default_threshold_hours": 24,
+    "critical_threshold_hours": 1,
+    "stale_action": "Mark STALE, preserve last_known_status",
+    "refresh_trigger": "Re-run check command",
+    "timestamp_format": "ISO8601 UTC"
+  },
+  
+  "evidence_requirements": {
+    "minimum_evidence": {
+      "command": "string - what was run",
+      "exit_code": "number - 0 for success",
+      "timestamp": "ISO8601 - when run",
+      "source": "path - where evidence stored"
+    },
+    "full_evidence": {
+      "command": "string",
+      "exit_code": "number",
+      "timestamp": "ISO8601",
+      "source": "path",
+      "stdout_path": "path|null",
+      "stderr_path": "path|null",
+      "hash": "sha256 of evidence file",
+      "duration_ms": "number"
+    },
+    "no_evidence_allowed": false,
+    "evidence_storage": "RECEIPTS/ folder with RCP-* prefix"
+  },
+  
+  "anti_patterns": [
+    {
+      "pattern": "PASS_ALL_SILENT",
+      "description": "Claiming PASS_ALL without running all checks",
+      "detection": "Check count mismatch, missing evidence files",
+      "fix": "Run all checks, document each result"
+    },
+    {
+      "pattern": "STALE_AS_FRESH",
+      "description": "Using old evidence without STALE flag",
+      "detection": "evidence_timestamp > threshold",
+      "fix": "Mark STALE or re-run check"
+    },
+    {
+      "pattern": "FAIL_HIDDEN",
+      "description": "Ignoring or hiding FAIL results",
+      "detection": "exit_code != 0 but status = PASS",
+      "fix": "Report FAIL, document reason"
+    },
+    {
+      "pattern": "PARTIAL_AS_PASS",
+      "description": "Claiming PASS when only some checks run",
+      "detection": "check_count < expected_count",
+      "fix": "Report PARTIAL, list missing checks"
+    },
+    {
+      "pattern": "WARNING_FLOOD_IGNORED",
+      "description": "Many warnings but claiming clean PASS",
+      "detection": "warning_count > threshold",
+      "fix": "Use PASS_WITH_WARNINGS, document warnings"
+    }
+  ],
+  
+  "truth_state_contract": {
+    "fields": {
+      "status": "PASS|PASS_WITH_WARNINGS|PARTIAL|FAIL|UNKNOWN|STALE|NOT_IMPLEMENTED",
+      "evidence_path": "path to receipt/evidence file",
+      "evidence_timestamp": "ISO8601 UTC",
+      "freshness_status": "FRESH|STALE",
+      "check_count": "number of checks run",
+      "pass_count": "number of PASS results",
+      "fail_count": "number of FAIL results",
+      "warning_count": "number of warnings",
+      "blockers": "array of blocking issues"
+    },
+    "invariants": [
+      "status == PASS implies fail_count == 0 AND evidence_path exists AND freshness_status == FRESH",
+      "status == FAIL implies fail_count > 0 AND evidence_path exists",
+      "status == STALE implies freshness_status == STALE",
+      "status == UNKNOWN implies evidence_path is null OR check not run"
+    ]
+  },
+  
+  "implementation_checklist": [
+    {
+      "item": "Receipt schema validation",
+      "status": "PARTIAL",
+      "location": "RECEIPTS/RECEIPT_SCHEMA.md"
+    },
+    {
+      "item": "Freshness checker script",
+      "status": "NOT_IMPLEMENTED",
+      "location": null
+    },
+    {
+      "item": "Truth state aggregator",
+      "status": "NOT_IMPLEMENTED",
+      "location": null
+    },
+    {
+      "item": "Anti-pattern scanner",
+      "status": "SEED",
+      "location": "ORGANS/INQUISITION/"
+    },
+    {
+      "item": "Evidence hash validator",
+      "status": "NOT_IMPLEMENTED",
+      "location": null
+    }
+  ],
+  
+  "verdict": "PASS",
+  "notes": "Truth spine defined. Fixes over-green problem by requiring evidence for PASS. Most implementation NOT_IMPLEMENTED."
+}

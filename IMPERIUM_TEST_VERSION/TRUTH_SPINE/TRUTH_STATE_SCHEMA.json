@@ -1,0 +1,87 @@
+{
+  "schema_id": "IMPERIUM_TRUTH_STATE_V0_1",
+  "title": "IMPERIUM Truth State Schema",
+  "version": "0.1.0",
+  "description": "Schema for truth state records in IMPERIUM system",
+  
+  "status_values": ["PASS", "PASS_WITH_WARNINGS", "PARTIAL", "FAIL", "UNKNOWN", "STALE", "NOT_IMPLEMENTED"],
+  "freshness_values": ["FRESH", "STALE", "UNKNOWN"],
+  
+  "required_fields": ["component_id", "status", "timestamp"],
+  
+  "fields": {
+    "component_id": {
+      "type": "string",
+      "description": "Unique identifier for the component"
+    },
+    "status": {
+      "type": "string",
+      "values": ["PASS", "PASS_WITH_WARNINGS", "PARTIAL", "FAIL", "UNKNOWN", "STALE", "NOT_IMPLEMENTED"],
+      "description": "Current truth status"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "ISO8601",
+      "description": "When this truth state was recorded"
+    },
+    "evidence_path": {
+      "type": "string|null",
+      "description": "Path to evidence file (receipt)"
+    },
+    "evidence_timestamp": {
+      "type": "string|null",
+      "format": "ISO8601",
+      "description": "When evidence was created"
+    },
+    "freshness": {
+      "type": "string",
+      "values": ["FRESH", "STALE", "UNKNOWN"],
+      "description": "Freshness status of evidence"
+    },
+    "freshness_threshold_hours": {
+      "type": "number",
+      "default": 24,
+      "description": "Hours before evidence becomes stale"
+    },
+    "check_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of checks run"
+    },
+    "pass_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of passed checks"
+    },
+    "fail_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of failed checks"
+    },
+    "warning_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Number of warnings"
+    },
+    "blockers": {
+      "type": "array",
+      "items": "string",
+      "description": "List of blocking issues"
+    },
+    "source": {
+      "type": "string",
+      "description": "Source of this truth state (script, manual, etc.)"
+    },
+    "notes": {
+      "type": "string|null",
+      "description": "Additional notes"
+    }
+  },
+  
+  "invariants": [
+    "status == PASS implies fail_count == 0 AND evidence_path exists AND freshness == FRESH",
+    "status == FAIL implies fail_count > 0 AND evidence_path exists",
+    "status == STALE implies freshness == STALE",
+    "status == UNKNOWN implies evidence_path is null OR check not run"
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "schema_version": "IMPERIUM_PORT_REGISTRY_V0_1",
+  "generated_at": "2026-05-16T00:20:00Z",
+  "task_id": "K-04",
+  "task_name": "Ports and adapters blueprint",
+  
+  "architecture_style": "hexagonal/ports-and-adapters",
+  "principle": "Domain logic separated from UI, storage, tests, external tools. Ports are stable contracts; adapters can change.",
+  
+  "common_ports": [
+    {
+      "port_id": "truth_state_port",
+      "from": "Backend",
+      "to": "Frontend/Support",
+      "payload": {
+        "status": "string",
+        "metric": "number|null",
+        "evidence": "path|null",
+        "freshness": "timestamp",
+        "source": "path"
+      },
+      "gate": "No stale value without STALE flag",
+      "failure_mode": "STALE_UNACKNOWLEDGED"
+    },
+    {
+      "port_id": "command_request_port",
+      "from": "Frontend/Owner",
+      "to": "Backend/Support",
+      "payload": {
+        "command_intent": "string",
+        "scope": "path[]",
+        "actor": "string",
+        "dry_run": "boolean",
+        "mutate": "boolean",
+        "required_approval": "boolean"
+      },
+      "gate": "No mutating command without Throne/Owner gate",
+      "failure_mode": "UNAUTHORIZED_MUTATION"
+    },
+    {
+      "port_id": "evidence_receipt_port",
+      "from": "Support",
+      "to": "Backend",
+      "payload": {
+        "command": "string",
+        "exit_code": "number",
+        "stdout_path": "path|null",
+        "stderr_path": "path|null",
+        "evidence_files": "path[]",
+        "hash": "string",
+        "timestamp": "timestamp"
+      },
+      "gate": "No PASS without evidence",
+      "failure_mode": "PASS_WITHOUT_EVIDENCE"
+    },
+    {
+      "port_id": "memory_context_port",
+      "from": "Agent",
+      "to": "Second Brain/Administratum",
+      "payload": {
+        "task_type": "string",
+        "role": "string",
+        "required_queries": "string[]",
+        "returned_context": "object"
+      },
+      "gate": "No task start without handshake for non-trivial work",
+      "failure_mode": "TASK_WITHOUT_CONTEXT"
+    },
+    {
+      "port_id": "task_lifecycle_port",
+      "from": "Astronomicon/Admin",
+      "to": "Agent/Support",
+      "payload": {
+        "task_id": "string",
+        "stage": "string",
+        "status": "string",
+        "blockers": "string[]",
+        "next_allowed_action": "string"
+      },
+      "gate": "Blocked means stop, not improvise",
+      "failure_mode": "BLOCKED_TASK_CONTINUED"
+    },
+    {
+      "port_id": "ui_projection_port",
+      "from": "Backend",
+      "to": "Frontend",
+      "payload": {
+        "dashboard_data": "object",
+        "source_evidence": "path[]",
+        "freshness": "timestamp"
+      },
+      "gate": "Visual must trace each card to source evidence",
+      "failure_mode": "VISUAL_WITHOUT_SOURCE"
+    },
+    {
+      "port_id": "promotion_port",
+      "from": "Testing Field",
+      "to": "Canonization",
+      "payload": {
+        "candidate": "path",
+        "smoke_result": "PASS|FAIL",
+        "screenshot": "path|null",
+        "risk": "low|medium|high",
+        "owner_uat": "PASS|FAIL|PENDING",
+        "promotion_decision": "PROMOTE|REJECT|DEFER"
+      },
+      "gate": "No canon import without promotion receipt",
+      "failure_mode": "UNREVIEWED_CANON_IMPORT"
+    }
+  ],
+  
+  "organ_specific_ports": [
+    {
+      "port_id": "mechanicus_script_health_port",
+      "owner": "Mechanicus",
+      "from": "Script Scanner",
+      "to": "Backend Registry",
+      "payload": {
+        "script_path": "path",
+        "syntax_valid": "boolean",
+        "health_status": "healthy|broken|unknown"
+      }
+    },
+    {
+      "port_id": "inquisition_audit_port",
+      "owner": "Inquisition",
+      "from": "Audit Scanner",
+      "to": "Backend Truth State",
+      "payload": {
+        "file_path": "path",
+        "issue_type": "fake_green|stale_truth|missing_evidence",
+        "severity": "critical|high|medium|low"
+      }
+    },
+    {
+      "port_id": "second_brain_query_port",
+      "owner": "Second Brain",
+      "from": "Agent",
+      "to": "Memory Store",
+      "payload": {
+        "query": "string",
+        "category": "goals|rules|constraints|errors|context",
+        "response": "object"
+      }
+    },
+    {
+      "port_id": "uf99_validation_port",
+      "owner": "Officio Agentis",
+      "from": "Prompt Validator",
+      "to": "Prompt Store",
+      "payload": {
+        "prompt_path": "path",
+        "template_type": "string",
+        "validation_result": "PASS|FAIL",
+        "missing_sections": "string[]"
+      }
+    }
+  ],
+  
+  "implementation_status": {
+    "truth_state_port": "NOT_IMPLEMENTED",
+    "command_request_port": "NOT_IMPLEMENTED",
+    "evidence_receipt_port": "PARTIAL",
+    "memory_context_port": "SEED",
+    "task_lifecycle_port": "NOT_IMPLEMENTED",
+    "ui_projection_port": "NOT_IMPLEMENTED",
+    "promotion_port": "NOT_IMPLEMENTED"
+  },
+  
+  "verdict": "PASS",
+  "notes": "Port registry defined. Most ports not implemented yet. Evidence receipt port has partial implementation through receipts."
+}

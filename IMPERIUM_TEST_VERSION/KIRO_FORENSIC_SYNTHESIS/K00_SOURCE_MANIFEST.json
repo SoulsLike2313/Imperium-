@@ -1,0 +1,113 @@
+{
+  "schema_version": "IMPERIUM_SOURCE_MANIFEST_V0_1",
+  "generated_at": "2026-05-16T00:00:00Z",
+  "task_id": "K-00",
+  "task_name": "Source intake lock",
+  
+  "git_facts": {
+    "commit": "2ae4892a992dfa4b4b68422cb1a4f1f1b17deba0",
+    "message": "EXPERIMENT: add Imperium test version reference lab",
+    "parent": "54272f9",
+    "branch": "master",
+    "status": "clean",
+    "github_scale": "+14112 additions, 153 files changed"
+  },
+  
+  "inputs_read": {
+    "pdf_plan": {
+      "name": "IMPERIUM_KIRO_PIPELINE_PLAN_20260516.pdf",
+      "status": "READ",
+      "pages": 6,
+      "key_content": [
+        "3 macro-blocks: Backend, Frontend, Tech Support",
+        "10 organs as cubes with 3 faces each",
+        "Ports/adapters architecture",
+        "K-00 to K-12 task pipeline",
+        "No direct canon integration",
+        "Lab stays lab until promotion gates"
+      ]
+    },
+    "logos_prime_analysis": {
+      "name": "LOGOS-PRIME-KIRO-TEST-VERSION-ANALYSIS-2ae4892.md",
+      "status": "READ",
+      "key_verdicts": [
+        "Test version is useful as committed experimental donor/reference lab",
+        "Not clean canon, must not merge as-is",
+        "Good seeds: Testing Field, Mechanicus, Inquisition, Second Brain, Agent Protocol, Workbench, UF99",
+        "Bad: .gitignore contradiction, hardcoded paths, generated junk, over-green labels"
+      ]
+    },
+    "main_repo": {
+      "path": "E:\\IMPERIUM",
+      "status": "READ_ONLY_REFERENCE",
+      "commit": "2ae4892",
+      "top_level_dirs": 20,
+      "tracked_files_estimate": 8246
+    },
+    "test_version": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+      "status": "READ_WRITE_TARGET",
+      "files_estimate": 151,
+      "components": [
+        "TESTING_FIELD",
+        "ORGANS/MECHANICUS",
+        "ORGANS/INQUISITION",
+        "ORGANS/ADMINISTRATUM",
+        "ORGANS/OFFICIO_AGENTIS",
+        "SECOND_BRAIN",
+        "AGENT_MEMORY_PROTOCOL",
+        "LIVE_WORKBENCH",
+        "PROMPT_STANDARD/UF99",
+        "COMMUNICATION_PROTOCOL",
+        "SANCTUM_MIRROR",
+        "MONITORING",
+        "RECEIPTS",
+        "REPORTS"
+      ]
+    },
+    "owner_vision": {
+      "status": "UNDERSTOOD",
+      "key_points": [
+        "Backend block = truth, domain logic, organs, schemas, state",
+        "Frontend block = visual projection of backend truth",
+        "Tech Support block = tests, repair, monitoring, tools",
+        "Organs as cubes with 3 faces",
+        "Every action = learning",
+        "Every repair = system memory",
+        "Every success = reusable pattern"
+      ]
+    }
+  },
+  
+  "inputs_not_read": {
+    "continuity_zip": {
+      "name": "KIRO_TEST_VERSION_20260516_005255.zip",
+      "reason": "Already have live access to IMPERIUM_TEST_VERSION"
+    },
+    "external_references": {
+      "status": "NOTED_NOT_ADOPTED",
+      "items": ["Playwright", "Just", "Nox", "Hexagonal architecture", "Uptime Kuma", "AgentPrism"]
+    }
+  },
+  
+  "blockers": [],
+  
+  "assumptions": [
+    "Main repo is stable/canon body",
+    "IMPERIUM_TEST_VERSION is experimental lab",
+    "No direct canon integration without Owner UAT",
+    "All work happens inside test version only",
+    "Copied main repo files must preserve provenance"
+  ],
+  
+  "constraints": [
+    "NO edit to main repo",
+    "NO production/V1 labels",
+    "NO fake green",
+    "NO PASS without evidence",
+    "NO direct copy without rewrite plan"
+  ],
+  
+  "verdict": "PASS",
+  "ready_for_next_stage": true
+}

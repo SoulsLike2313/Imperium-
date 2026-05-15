@@ -1,0 +1,207 @@
+{
+  "schema_version": "IMPERIUM_REPO_CLASSIFICATION_V0_1",
+  "generated_at": "2026-05-16T00:05:00Z",
+  "task_id": "K-01",
+  "task_name": "Repo forensic classification",
+  "commit": "2ae4892",
+  
+  "classification_legend": {
+    "canon": "Active production source, stable, reviewed",
+    "experiment": "Experimental, not production, may evolve freely",
+    "generated": "Runtime/build output, should not be in git",
+    "runtime": "Local execution artifacts, not source",
+    "trash": "Should be deleted or quarantined",
+    "owner_facing": "Documentation/reports for Owner review",
+    "machine_canonical": "Machine-readable contracts/schemas",
+    "reusable_pattern": "Proven pattern worth extracting",
+    "dangerous_copy": "Cannot copy directly, needs rewrite",
+    "future_canon": "Good seed, needs maturity before canon"
+  },
+  
+  "top_level_zones": [
+    {
+      "path": "src/imperium/",
+      "class": "canon",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Active Python package source"
+    },
+    {
+      "path": "scripts/",
+      "class": "canon",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Active verification and checker scripts"
+    },
+    {
+      "path": "tests/",
+      "class": "canon",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Active pytest coverage"
+    },
+    {
+      "path": "schemas/",
+      "class": "machine_canonical",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Active JSON schema contracts"
+    },
+    {
+      "path": "REGISTRY/",
+      "class": "machine_canonical",
+      "risk": "medium",
+      "action": "audit_drift",
+      "notes": "May drift from reality, needs sync"
+    },
+    {
+      "path": "TOOLS/",
+      "class": "canon",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Active operational wrappers"
+    },
+    {
+      "path": "SANCTUM/",
+      "class": "canon",
+      "risk": "medium",
+      "action": "maintain",
+      "notes": "Current UI runtime entry, has legacy files"
+    },
+    {
+      "path": "ORGANS/",
+      "class": "canon",
+      "risk": "medium",
+      "action": "audit",
+      "notes": "Organ definitions, some continuity packs are generated"
+    },
+    {
+      "path": "ARTIFACTS/",
+      "class": "generated",
+      "risk": "high",
+      "action": "quarantine",
+      "notes": "7094 entries, mostly historical task outputs, not source"
+    },
+    {
+      "path": "CURRENT_STATE/",
+      "class": "owner_facing",
+      "risk": "medium",
+      "action": "review",
+      "notes": "Legacy/caution zone, continuity context"
+    },
+    {
+      "path": "DOCS/",
+      "class": "owner_facing",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Documentation"
+    },
+    {
+      "path": "EXPLORER/",
+      "class": "generated",
+      "risk": "medium",
+      "action": "review",
+      "notes": "Screenshots and exploration outputs"
+    },
+    {
+      "path": "ASTRONOMICON/",
+      "class": "canon",
+      "risk": "medium",
+      "action": "maintain",
+      "notes": "Task formation, stage maps"
+    },
+    {
+      "path": "ASSETS/",
+      "class": "canon",
+      "risk": "low",
+      "action": "maintain",
+      "notes": "Static assets"
+    },
+    {
+      "path": "PC_ENGINEERING_ROOM/",
+      "class": "owner_facing",
+      "risk": "medium",
+      "action": "review",
+      "notes": "Legacy/caution zone"
+    },
+    {
+      "path": "KIRO_PLAN_ADVISOR/",
+      "class": "experiment",
+      "risk": "low",
+      "action": "review",
+      "notes": "Planning advisor prototype"
+    },
+    {
+      "path": ".imperium_runtime/",
+      "class": "runtime",
+      "risk": "low",
+      "action": "ignore",
+      "notes": "Runtime reports, should be in .gitignore"
+    },
+    {
+      "path": ".vscode/",
+      "class": "generated",
+      "risk": "low",
+      "action": "ignore",
+      "notes": "IDE settings"
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION/",
+      "class": "experiment",
+      "risk": "medium",
+      "action": "evolve_freely",
+      "notes": "Experimental lab, committed intentionally despite .gitignore"
+    }
+  ],
+  
+  "contradictions_found": [
+    {
+      "id": "GITIGNORE_CONTRADICTION",
+      "description": ".gitignore says /IMPERIUM_TEST_VERSION/ should not be committed, but Owner intentionally committed it",
+      "severity": "medium",
+      "resolution": "Add explicit exception policy comment in .gitignore or remove rule"
+    },
+    {
+      "id": "PYCACHE_COMMITTED",
+      "description": "__pycache__/*.pyc may be committed in some areas",
+      "severity": "low",
+      "resolution": "Exclude from future canon imports"
+    },
+    {
+      "id": "GENERATED_REPORTS_COMMITTED",
+      "description": "Many generated reports/receipts committed in ARTIFACTS and test version",
+      "severity": "low",
+      "resolution": "Acceptable as snapshot evidence, not as canon policy"
+    }
+  ],
+  
+  "risks_identified": [
+    {
+      "id": "HARDCODED_PATHS",
+      "description": "E:\\IMPERIUM hardcoded in many scripts",
+      "severity": "medium",
+      "mitigation": "Use $PSScriptRoot or config-based roots"
+    },
+    {
+      "id": "OVER_GREEN_LABELS",
+      "description": "PASS_ALL labels when audit FAIL or script health PARTIAL",
+      "severity": "high",
+      "mitigation": "Relabel to honest verdicts"
+    },
+    {
+      "id": "STALE_TRUTH",
+      "description": "98 stale truth issues detected by Inquisition",
+      "severity": "high",
+      "mitigation": "Add freshness timestamps and STALE flags"
+    },
+    {
+      "id": "FAKE_GREEN",
+      "description": "2 fake green issues detected",
+      "severity": "critical",
+      "mitigation": "No PASS without evidence"
+    }
+  ],
+  
+  "verdict": "PARTIAL",
+  "notes": "Repo has good structure but significant generated/stale content. Test version is useful lab but not canon."
+}
