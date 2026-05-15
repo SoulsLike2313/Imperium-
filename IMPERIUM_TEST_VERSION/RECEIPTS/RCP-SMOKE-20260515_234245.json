@@ -1,0 +1,21 @@
+﻿{
+    "exit_code":  0,
+    "errors":  [
+
+               ],
+    "repo_root":  "E:\\IMPERIUM",
+    "action":  "smoke_test",
+    "command":  "RUN_SMOKE.ps1",
+    "warnings":  [
+
+                 ],
+    "evidence_paths":  [
+                           "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json"
+                       ],
+    "finished_at_utc":  "2026-05-15T23:42:45.4771785+03:00",
+    "verdict":  "PASS",
+    "receipt_id":  "RCP-SMOKE-20260515_234245",
+    "report_path":  "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json",
+    "test_version_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+    "started_at_utc":  "2026-05-15T23:42:45.0126988+03:00"
+}

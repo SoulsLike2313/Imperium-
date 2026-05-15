@@ -1,0 +1,36 @@
+{
+  "schema_version": "IMPERIUM_KNOWN_ERRORS_LINKS_V0_1",
+  "error_index_path": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/KNOWN_ERRORS_INDEX.json",
+  "errors": [
+    {
+      "id": "ERR-0001",
+      "pattern": "raw subprocess usage",
+      "file": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/errors/ERR-0001.json",
+      "applies_to": ["command_execution"]
+    },
+    {
+      "id": "ERR-0002",
+      "pattern": "warning flood from continuity packs",
+      "file": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/errors/ERR-0002.json",
+      "applies_to": ["audit", "verification"]
+    },
+    {
+      "id": "ERR-0003",
+      "pattern": "mojibake/encoding issues",
+      "file": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/errors/ERR-0003.json",
+      "applies_to": ["file_operations"]
+    },
+    {
+      "id": "ERR-0004",
+      "pattern": "stale dashboard HEAD",
+      "file": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/errors/ERR-0004.json",
+      "applies_to": ["dashboard", "git"]
+    },
+    {
+      "id": "ERR-0005",
+      "pattern": "fake PASS without evidence",
+      "file": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/errors/ERR-0005.json",
+      "applies_to": ["verification", "testing"]
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPERIUM Test Version - Sanctum Mirror</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --accent-gold: #d4af37;
+            --accent-red: #e74c3c;
+            --accent-green: #27ae60;
+            --accent-yellow: #f39c12;
+            --accent-blue: #3498db;
+            --accent-purple: #9b59b6;
+            --text-light: #ecf0f1;
+            --text-muted: #95a5a6;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--accent-gold);
+            margin-bottom: 30px;
+        }
+        .header h1 { color: var(--accent-gold); font-size: 2em; margin-bottom: 10px; }
+        .header .subtitle { color: var(--text-muted); font-size: 0.9em; }
+        .warning-banner {
+            background: var(--accent-yellow);
+            color: #000;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .overall-status {
+            text-align: center;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            background: var(--bg-card);
+        }
+        .overall-status h2 { font-size: 1.2em; margin-bottom: 15px; color: var(--text-muted); }
+        .overall-status .verdict { font-size: 3em; font-weight: bold; }
+        .overall-status .git-head { color: var(--text-muted); margin-top: 10px; }
+        .section-title {
+            color: var(--accent-gold);
+            font-size: 1.3em;
+            margin: 30px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--accent-gold);
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-gold);
+        }
+        .card.new-component { border-left-color: var(--accent-blue); }
+        .card.memory { border-left-color: var(--accent-purple); }
+        .card h3 { color: var(--accent-gold); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .card.new-component h3 { color: var(--accent-blue); }
+        .card.memory h3 { color: var(--accent-purple); }
+        .metric { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .metric:last-child { border-bottom: none; }
+        .metric .label { color: var(--text-muted); }
+        .metric .value { font-weight: bold; font-size: 1.2em; }
+        .pass { color: var(--accent-green); }
+        .fail { color: var(--accent-red); }
+        .partial { color: var(--accent-yellow); }
+        .nodata { color: var(--text-muted); }
+        .unknown { color: var(--text-muted); }
+        .timestamp { color: var(--text-muted); font-size: 0.8em; margin-top: 15px; }
+        .commands {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .commands h3 { color: var(--accent-gold); margin-bottom: 15px; }
+        .command-item { background: #0d1117; padding: 10px 15px; border-radius: 5px; margin: 10px 0; font-family: 'Consolas', monospace; font-size: 0.9em; }
+        .command-label { color: var(--text-muted); font-size: 0.8em; margin-bottom: 5px; }
+        .footer { text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 0.8em; }
+        .badge { display: inline-block; padding: 2px 8px; border-radius: 3px; font-size: 0.7em; margin-left: 10px; }
+        .badge.new { background: var(--accent-blue); color: white; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>IMPERIUM TEST VERSION</h1>
+        <p class="subtitle">Sanctum Mirror Dashboard v2.0</p>
+    </div>
+    
+    <div class="warning-banner">
+        EXPERIMENTAL - This is a test version, not production
+    </div>
+    
+    <div class="overall-status">
+        <h2>OVERALL STATUS</h2>
+        <div class="verdict fail">FAIL</div>
+        <div class="git-head">Git HEAD: 54272f9</div>
+    </div>
+    
+    <h2 class="section-title">рџ”§ Core Systems</h2>
+    <div class="grid">
+        <div class="card">
+            <h3><span class="icon">рџ§Є</span> Testing Field - Smoke Test</h3>
+            <div class="metric">
+                <span class="label">Verdict</span>
+                <span class="value pass">PASS</span>
+            </div>
+            <div class="metric">
+                <span class="label">Checks Passed</span>
+                <span class="value">5 / 5</span>
+            </div>
+            <div class="timestamp">Last run: 2026-05-15T23:45:09.5508232+03:00</div>
+        </div>
+        
+        <div class="card">
+            <h3><span class="icon">вљ™пёЏ</span> Mechanicus - Script Health</h3>
+            <div class="metric">
+                <span class="label">Verdict</span>
+                <span class="value partial">PARTIAL</span>
+            </div>
+            <div class="metric">
+                <span class="label">Healthy Scripts</span>
+                <span class="value">823 / 824</span>
+            </div>
+            <div class="metric">
+                <span class="label">Health %</span>
+                <span class="value">99.9%</span>
+            </div>
+            <div class="timestamp">Last run: 2026-05-15T23:46:41.4984252+03:00</div>
+        </div>
+        
+        <div class="card">
+            <h3><span class="icon">рџ”Ќ</span> Inquisition - Audit</h3>
+            <div class="metric">
+                <span class="label">Verdict</span>
+                <span class="value fail">FAIL</span>
+            </div>
+            <div class="metric">
+                <span class="label">Files Scanned</span>
+                <span class="value">569</span>
+            </div>
+            <div class="metric">
+                <span class="label">Issues Found</span>
+                <span class="value fail">100</span>
+            </div>
+            <div class="metric">
+                <span class="label">Fake Green</span>
+                <span class="value fail">2</span>
+            </div>
+            <div class="metric">
+                <span class="label">Stale Truth</span>
+                <span class="value fail">98</span>
+            </div>
+            <div class="timestamp">Last run: 2026-05-15T23:46:44.1699714+03:00</div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">рџ§  Agent Intelligence <span class="badge new">NEW</span></h2>
+    <div class="grid">
+        <div class="card memory">
+            <h3><span class="icon">рџ§ </span> Second Brain - Memory</h3>
+            <div class="metric">
+                <span class="label">Status</span>
+                <span class="value unknown"></span>
+            </div>
+            <div class="metric">
+                <span class="label">Goals Loaded</span>
+                <span class="value"></span>
+            </div>
+            <div class="metric">
+                <span class="label">Rules Loaded</span>
+                <span class="value"></span>
+            </div>
+            <div class="metric">
+                <span class="label">Known Errors</span>
+                <span class="value"></span>
+            </div>
+            <div class="timestamp">Last run: 2026-05-15T23:46:44.310027</div>
+        </div>
+        
+        <div class="card memory">
+            <h3><span class="icon">рџ¤ќ</span> Agent Memory Protocol</h3>
+            <div class="metric">
+                <span class="label">Handshake Status</span>
+                <span class="value pass">PASS</span>
+            </div>
+            <div class="metric">
+                <span class="label">Queries Answered</span>
+                <span class="value">2</span>
+            </div>
+            <div class="timestamp">Last run: 2026-05-15T23:46:44.735122</div>
+        </div>
+    </div>
+    
+    <h2 class="section-title">рџ”¬ Development Tools <span class="badge new">NEW</span></h2>
+    <div class="grid">
+        <div class="card new-component">
+            <h3><span class="icon">рџ”¬</span> Live Workbench - Sandbox</h3>
+            <div class="metric">
+                <span class="label">Status</span>
+                <span class="value unknown"></span>
+            </div>
+            <div class="metric">
+                <span class="label">Tests Total</span>
+                <span class="value"></span>
+            </div>
+            <div class="metric">
+                <span class="label">Tests Passed</span>
+                <span class="value pass"></span>
+            </div>
+            <div class="metric">
+                <span class="label">Tests Failed</span>
+                <span class="value pass"></span>
+            </div>
+            <div class="timestamp">Last run: 2026-05-15T23:46:44.585279</div>
+        </div>
+        
+        <div class="card new-component">
+            <h3><span class="icon">рџ“ќ</span> UF99 Prompt Standard</h3>
+            <div class="metric">
+                <span class="label">Templates</span>
+                <span class="value">7</span>
+            </div>
+            <div class="metric">
+                <span class="label">Core</span>
+                <span class="value pass">UF99_CORE.md</span>
+            </div>
+            <div class="metric">
+                <span class="label">Validator</span>
+                <span class="value pass">validate_uf99_prompt.py</span>
+            </div>
+        </div>
+        
+        <div class="card new-component">
+            <h3><span class="icon">рџ“Ў</span> Communication Protocol</h3>
+            <div class="metric">
+                <span class="label">Message Types</span>
+                <span class="value">Defined</span>
+            </div>
+            <div class="metric">
+                <span class="label">Status Formats</span>
+                <span class="value">Defined</span>
+            </div>
+            <div class="metric">
+                <span class="label">Escalation Rules</span>
+                <span class="value pass">Active</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="commands">
+        <h3>Commands</h3>
+        <div class="command-label">Run all checks:</div>
+        <div class="command-item">.\IMPERIUM_TEST_VERSION\RUN_ALL.ps1</div>
+        <div class="command-label">Run smoke test:</div>
+        <div class="command-item">.\IMPERIUM_TEST_VERSION\TESTING_FIELD\RUN_SMOKE.ps1</div>
+        <div class="command-label">Run script health:</div>
+        <div class="command-item">.\IMPERIUM_TEST_VERSION\ORGANS\MECHANICUS\RUN_SCRIPT_HEALTH.ps1</div>
+        <div class="command-label">Run audit:</div>
+        <div class="command-item">.\IMPERIUM_TEST_VERSION\ORGANS\INQUISITION\RUN_AUDIT.ps1</div>
+        <div class="command-label">Build memory summary:</div>
+        <div class="command-item">py -3 .\IMPERIUM_TEST_VERSION\SECOND_BRAIN\SCRIPTS\build_memory_summary.py</div>
+        <div class="command-label">Run sandbox tests:</div>
+        <div class="command-item">py -3 .\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SCRIPTS\run_sandbox_tests.py</div>
+        <div class="command-label">Agent handshake:</div>
+        <div class="command-item">py -3 .\IMPERIUM_TEST_VERSION\AGENT_MEMORY_PROTOCOL\SCRIPTS\agent_context_handshake.py</div>
+        <div class="command-label">Regenerate this dashboard:</div>
+        <div class="command-item">.\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\GENERATE_INDEX.ps1</div>
+    </div>
+    
+    <div class="footer">
+        <p>Generated: 2026-05-15T23:46:44.9557430+03:00</p>
+        <p>IMPERIUM Test Version v2.0 - Experimental Sandbox</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "schema_version": "IMPERIUM_OWNER_PROFILE_V0_1",
+  "owner_id": "Logos-Prime",
+  "preferred_language": "ru",
+  "communication_style": {
+    "format": "structured",
+    "verbosity": "concise",
+    "technical_level": "high",
+    "prefer_commands_over_prose": true,
+    "prefer_exact_paths": true
+  },
+  "work_preferences": {
+    "runnable_over_scaffold": true,
+    "evidence_required": true,
+    "receipts_required": true,
+    "dashboards_preferred": true,
+    "no_fake_pass": true
+  },
+  "review_style": {
+    "wants_verification_commands": true,
+    "wants_checklist": true,
+    "wants_blockers_explicit": true,
+    "wants_next_steps": true
+  },
+  "project_doctrine": {
+    "no_commit_without_approval": true,
+    "no_push_without_approval": true,
+    "no_merge_without_approval": true,
+    "test_version_isolated": true,
+    "main_repo_readonly": true
+  }
+}

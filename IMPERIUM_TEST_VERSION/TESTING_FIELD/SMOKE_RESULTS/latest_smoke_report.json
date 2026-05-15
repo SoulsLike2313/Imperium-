@@ -1,0 +1,48 @@
+﻿{
+    "schema_version":  "IMPERIUM_SMOKE_V0_1",
+    "checks":  [
+                   {
+                       "path":  "SANCTUM/sanctum_v0_29_qt.py",
+                       "description":  "Sanctum main script exists",
+                       "name":  "sanctum_exists",
+                       "error":  null,
+                       "passed":  true
+                   },
+                   {
+                       "error":  null,
+                       "description":  "Sanctum script has valid Python syntax",
+                       "name":  "sanctum_syntax",
+                       "passed":  true
+                   },
+                   {
+                       "error":  null,
+                       "description":  "PyQt6 can be imported",
+                       "name":  "pyqt6_import",
+                       "passed":  true
+                   },
+                   {
+                       "path":  "AGENTS.md",
+                       "description":  "AGENTS.md workspace rules file exists",
+                       "name":  "agents_md_exists",
+                       "error":  null,
+                       "passed":  true
+                   },
+                   {
+                       "error":  null,
+                       "description":  "Git working directory is clean (or only .gitignore/.vscode modified)",
+                       "name":  "git_status",
+                       "git_head":  "54272f9",
+                       "passed":  true
+                   }
+               ],
+    "summary":  {
+                    "passed":  5,
+                    "verdict":  "PASS",
+                    "failed":  0,
+                    "total_checks":  5,
+                    "pass_percent":  100,
+                    "git_head":  "54272f9"
+                },
+    "repo_root":  "E:\\IMPERIUM",
+    "generated_at":  "2026-05-15T23:45:09.5508232+03:00"
+}

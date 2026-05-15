@@ -1,0 +1,57 @@
+{
+  "schema_version": "IMPERIUM_HANDSHAKE_V0_1",
+  "handshake_steps": [
+    {
+      "step": 1,
+      "name": "identify_agent",
+      "description": "Agent provides its name",
+      "required": true
+    },
+    {
+      "step": 2,
+      "name": "identify_task_type",
+      "description": "Agent specifies task type",
+      "required": true
+    },
+    {
+      "step": 3,
+      "name": "load_required_queries",
+      "description": "Load required queries for task type",
+      "required": true
+    },
+    {
+      "step": 4,
+      "name": "execute_queries",
+      "description": "Execute each required query against Second Brain",
+      "required": true
+    },
+    {
+      "step": 5,
+      "name": "check_missing_context",
+      "description": "Identify any UNKNOWN answers",
+      "required": true
+    },
+    {
+      "step": 6,
+      "name": "acknowledge_constraints",
+      "description": "Agent acknowledges forbidden actions",
+      "required": true
+    },
+    {
+      "step": 7,
+      "name": "generate_report",
+      "description": "Create handshake report",
+      "required": true
+    }
+  ],
+  "report_format": {
+    "agent": "string",
+    "task_type": "string",
+    "handshake_time": "ISO timestamp",
+    "required_queries": ["list of query IDs"],
+    "query_results": ["list of query results"],
+    "missing_context": ["list of UNKNOWN queries"],
+    "constraints_acknowledged": ["list of constraint IDs"],
+    "ready_to_proceed": "boolean"
+  }
+}

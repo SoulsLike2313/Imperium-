@@ -1,0 +1,48 @@
+{
+  "schema_version": "IMPERIUM_MEMORY_V0_1",
+  "description": "Schema for IMPERIUM Second Brain active memory system",
+  "memory_types": {
+    "goals": {
+      "file": "GOALS.json",
+      "description": "Owner goals and objectives",
+      "queryable": true
+    },
+    "rules": {
+      "file": "RULES.json",
+      "description": "Owner rules and requirements",
+      "queryable": true
+    },
+    "constraints": {
+      "file": "CONSTRAINTS.json",
+      "description": "Forbidden actions and limitations",
+      "queryable": true
+    },
+    "known_errors": {
+      "file": "KNOWN_ERRORS_LINKS.json",
+      "description": "Links to known error patterns",
+      "queryable": true
+    },
+    "context": {
+      "file": "CONTEXT_INDEX.json",
+      "description": "Context boundaries and paths",
+      "queryable": true
+    },
+    "owner_profile": {
+      "file": "OWNER_PROFILE_SEED.json",
+      "description": "Owner preferences and style",
+      "queryable": true
+    }
+  },
+  "query_format": {
+    "query": "string - natural language question",
+    "category": "optional - goals|rules|constraints|errors|context|profile|all",
+    "agent": "optional - agent name making query"
+  },
+  "answer_format": {
+    "query": "original query",
+    "found": "boolean",
+    "sources": ["list of source entries with file and key"],
+    "answer": "structured answer or UNKNOWN",
+    "confidence": "high|medium|low|unknown"
+  }
+}

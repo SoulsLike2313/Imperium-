@@ -1,0 +1,127 @@
+{
+  "schema_version": "IMPERIUM_KPI_REGISTRY_V0_1",
+  "created_at": "2026-05-15T22:00:00+00:00",
+  "description": "Registry of Key Performance Indicators for IMPERIUM system health",
+  "kpis": [
+    {
+      "kpi_id": "SCRIPT_HEALTH_PERCENT",
+      "name": "Script Health Percentage",
+      "description": "Percentage of registered scripts that exist and have valid syntax",
+      "owner_organ": "MECHANICUS",
+      "collector": "ORGANS/MECHANICUS/SCRIPTS/script_health_check.py",
+      "unit": "percent",
+      "target": 100,
+      "warning_threshold": 95,
+      "critical_threshold": 80,
+      "direction": "higher_is_better"
+    },
+    {
+      "kpi_id": "FAKE_GREEN_COUNT",
+      "name": "Fake Green Count",
+      "description": "Number of PASS verdicts without proper evidence",
+      "owner_organ": "INQUISITION",
+      "collector": "ORGANS/INQUISITION/SCRIPTS/fake_green_detector.py",
+      "unit": "count",
+      "target": 0,
+      "warning_threshold": 1,
+      "critical_threshold": 5,
+      "direction": "lower_is_better"
+    },
+    {
+      "kpi_id": "STALE_TRUTH_COUNT",
+      "name": "Stale Truth Count",
+      "description": "Number of truth claims that are outdated",
+      "owner_organ": "INQUISITION",
+      "collector": "ORGANS/INQUISITION/SCRIPTS/stale_truth_detector.py",
+      "unit": "count",
+      "target": 0,
+      "warning_threshold": 3,
+      "critical_threshold": 10,
+      "direction": "lower_is_better"
+    },
+    {
+      "kpi_id": "KNOWN_ERRORS_COUNT",
+      "name": "Known Errors Count",
+      "description": "Number of active known errors in database",
+      "owner_organ": "ADMINISTRATUM",
+      "collector": "ORGANS/ADMINISTRATUM/KNOWN_ERRORS/KNOWN_ERRORS_INDEX.json",
+      "unit": "count",
+      "target": 0,
+      "warning_threshold": 5,
+      "critical_threshold": 15,
+      "direction": "lower_is_better"
+    },
+    {
+      "kpi_id": "REPAIR_QUEUE_COUNT",
+      "name": "Repair Queue Count",
+      "description": "Number of items in repair queue",
+      "owner_organ": "MECHANICUS",
+      "collector": "ORGANS/MECHANICUS/REPAIR_QUEUE/",
+      "unit": "count",
+      "target": 0,
+      "warning_threshold": 5,
+      "critical_threshold": 20,
+      "direction": "lower_is_better"
+    },
+    {
+      "kpi_id": "ORGANS_OPERATIONAL_PERCENT",
+      "name": "Organs Operational Percentage",
+      "description": "Percentage of organs that are operational (not just scaffold)",
+      "owner_organ": "ADMINISTRATUM",
+      "collector": "ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py",
+      "unit": "percent",
+      "target": 100,
+      "warning_threshold": 50,
+      "critical_threshold": 20,
+      "direction": "higher_is_better"
+    },
+    {
+      "kpi_id": "ENTRYPOINTS_EXIST_PERCENT",
+      "name": "Entrypoints Exist Percentage",
+      "description": "Percentage of declared entrypoints that exist",
+      "owner_organ": "ADMINISTRATUM",
+      "collector": "ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py",
+      "unit": "percent",
+      "target": 100,
+      "warning_threshold": 90,
+      "critical_threshold": 70,
+      "direction": "higher_is_better"
+    },
+    {
+      "kpi_id": "GIT_WORKTREE_CLEAN",
+      "name": "Git Worktree Clean",
+      "description": "Whether git working directory is clean",
+      "owner_organ": "ADMINISTRATUM",
+      "collector": "git status --short",
+      "unit": "boolean",
+      "target": true,
+      "warning_threshold": null,
+      "critical_threshold": null,
+      "direction": "true_is_better"
+    },
+    {
+      "kpi_id": "WARNING_BUDGET_COMPLIANCE",
+      "name": "Warning Budget Compliance",
+      "description": "Whether warning counts are within budget",
+      "owner_organ": "INQUISITION",
+      "collector": "ORGANS/INQUISITION/WARNING_BUDGET.json",
+      "unit": "boolean",
+      "target": true,
+      "warning_threshold": null,
+      "critical_threshold": null,
+      "direction": "true_is_better"
+    },
+    {
+      "kpi_id": "SMOKE_PASS_RATE",
+      "name": "Smoke Test Pass Rate",
+      "description": "Percentage of smoke tests that pass",
+      "owner_organ": "TESTING_FIELD",
+      "collector": "TESTING_FIELD/SMOKE_RESULTS/",
+      "unit": "percent",
+      "target": 100,
+      "warning_threshold": 90,
+      "critical_threshold": 70,
+      "direction": "higher_is_better"
+    }
+  ]
+}

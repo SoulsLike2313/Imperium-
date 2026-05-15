@@ -1,0 +1,33 @@
+{
+  "error_id": "ERR-0005",
+  "created_at": "2026-05-15T22:30:00+00:00",
+  "category": "fake_green",
+  "severity": "HIGH",
+  "title": "Fake PASS without evidence - verdict claimed without proof",
+  "description": "Task or check marked as PASS but no evidence file, screenshot, or test result exists to prove it",
+  "symptoms": [
+    "PASS verdict in report but no evidence_path",
+    "Green status but nothing to click/verify",
+    "Owner cannot confirm what was actually checked"
+  ],
+  "root_cause": "Script returns PASS without generating evidence artifact",
+  "affected_files": [
+    "Any script that produces verdicts"
+  ],
+  "fix": {
+    "description": "Require evidence for every PASS verdict",
+    "steps": [
+      "Every PASS must have evidence_path in output",
+      "Evidence file must exist at that path",
+      "Evidence must be generated at same time as verdict",
+      "Add fake_green_detector to CI/audit"
+    ],
+    "code_example": "verdict = {\n    'status': 'PASS',\n    'evidence_path': 'path/to/evidence.json',\n    'evidence_hash': hashlib.sha256(evidence_content).hexdigest()\n}"
+  },
+  "prevention": {
+    "precheck_rule": "Reject PASS without evidence_path field",
+    "gate": "fake_green_detector in Inquisition"
+  },
+  "occurrences": [],
+  "status": "ACTIVE"
+}

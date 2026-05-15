@@ -1,0 +1,32 @@
+{
+  "error_id": "ERR-0003",
+  "created_at": "2026-05-15T22:30:00+00:00",
+  "category": "encoding",
+  "severity": "MEDIUM",
+  "title": "Mojibake / encoding issue in file content",
+  "description": "Files with non-ASCII characters (Russian, special symbols) may display incorrectly if encoding is not explicitly set to UTF-8",
+  "symptoms": [
+    "Russian text appears as garbage characters",
+    "Special symbols replaced with ???? or boxes",
+    "JSON parsing fails on non-ASCII content"
+  ],
+  "root_cause": "File opened without explicit encoding='utf-8' parameter",
+  "affected_files": [
+    "Any file with Russian/non-ASCII content"
+  ],
+  "fix": {
+    "description": "Always specify encoding when opening files",
+    "steps": [
+      "Replace open(path) with open(path, encoding='utf-8')",
+      "For JSON: json.load(f) after open with encoding",
+      "For writing: open(path, 'w', encoding='utf-8')"
+    ],
+    "code_example": "with open(path, 'r', encoding='utf-8') as f:\n    content = f.read()"
+  },
+  "prevention": {
+    "precheck_rule": "Scan for open() without encoding parameter",
+    "gate": "encoding_check in code review"
+  },
+  "occurrences": [],
+  "status": "ACTIVE"
+}

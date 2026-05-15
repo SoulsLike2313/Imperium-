@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMPERIUM Test Version - Sanctum Mirror</title>
+    <style>
+        :root {
+            --bg-dark: #1a1a2e;
+            --bg-card: #16213e;
+            --accent-gold: #d4af37;
+            --accent-red: #e74c3c;
+            --accent-green: #27ae60;
+            --accent-yellow: #f39c12;
+            --text-light: #ecf0f1;
+            --text-muted: #95a5a6;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-light);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid var(--accent-gold);
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            color: var(--accent-gold);
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            color: var(--text-muted);
+            font-size: 0.9em;
+        }
+        
+        .warning-banner {
+            background: var(--accent-yellow);
+            color: #000;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid #2c3e50;
+        }
+        
+        .card h2 {
+            color: var(--accent-gold);
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #2c3e50;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #2c3e50;
+        }
+        
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        
+        .status-badge {
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+        
+        .status-pass { background: var(--accent-green); color: #fff; }
+        .status-fail { background: var(--accent-red); color: #fff; }
+        .status-warn { background: var(--accent-yellow); color: #000; }
+        .status-unknown { background: #7f8c8d; color: #fff; }
+        
+        .command-box {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85em;
+            overflow-x: auto;
+        }
+        
+        .link-list {
+            list-style: none;
+        }
+        
+        .link-list li {
+            padding: 5px 0;
+        }
+        
+        .link-list a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+        
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+        
+        .kpi-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: var(--accent-gold);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚔️ IMPERIUM TEST VERSION</h1>
+        <div class="subtitle">Sanctum Mirror — Экспериментальный обзор</div>
+    </div>
+    
+    <div class="warning-banner">
+        ⚠️ ЭТО ЭКСПЕРИМЕНТАЛЬНАЯ ВЕРСИЯ — НЕ PRODUCTION
+    </div>
+    
+    <div class="grid">
+        <!-- Status Overview -->
+        <div class="card">
+            <h2>📊 Общий статус</h2>
+            <div class="status-item">
+                <span>Baseline</span>
+                <span class="status-badge status-pass">EVIDENCE</span>
+            </div>
+            <div class="status-item">
+                <span>Testing Field</span>
+                <span class="status-badge status-pass">READY</span>
+            </div>
+            <div class="status-item">
+                <span>Mechanicus</span>
+                <span class="status-badge status-pass">MVP</span>
+            </div>
+            <div class="status-item">
+                <span>Inquisition</span>
+                <span class="status-badge status-pass">MVP</span>
+            </div>
+            <div class="status-item">
+                <span>Organs Operational</span>
+                <span class="status-badge status-warn">0/10</span>
+            </div>
+        </div>
+        
+        <!-- KPIs -->
+        <div class="card">
+            <h2>📈 KPI Snapshot</h2>
+            <div class="status-item">
+                <span>Script Health</span>
+                <span class="kpi-value">~95%</span>
+            </div>
+            <div class="status-item">
+                <span>Fake Green</span>
+                <span class="kpi-value">?</span>
+            </div>
+            <div class="status-item">
+                <span>Known Errors</span>
+                <span class="kpi-value">2</span>
+            </div>
+            <div class="status-item">
+                <span>Warning Budget</span>
+                <span class="status-badge status-fail">OVER</span>
+            </div>
+        </div>
+        
+        <!-- Quick Commands -->
+        <div class="card">
+            <h2>🔧 Команды</h2>
+            <p style="color: var(--text-muted); margin-bottom: 10px;">Запустить в PowerShell:</p>
+            
+            <div class="command-box">
+                py -3 IMPERIUM_TEST_VERSION\TESTING_FIELD\SCRIPTS\smoke_sanctum.py
+            </div>
+            
+            <div class="command-box">
+                py -3 IMPERIUM_TEST_VERSION\ORGANS\INQUISITION\SCRIPTS\full_audit.py --repo-root E:\IMPERIUM
+            </div>
+            
+            <div class="command-box">
+                py -3 IMPERIUM_TEST_VERSION\MONITORING\kpi_collector.py --repo-root E:\IMPERIUM
+            </div>
+        </div>
+        
+        <!-- Testing Field -->
+        <div class="card">
+            <h2>🧪 Testing Field</h2>
+            <ul class="link-list">
+                <li>📁 TESTING_FIELD/</li>
+                <li>📋 CHECKLISTS/SMOKE_CHECKLIST.md</li>
+                <li>🔧 SCRIPTS/smoke_sanctum.py</li>
+                <li>🔧 SCRIPTS/capture_screenshot.py</li>
+                <li>📁 CANDIDATES/</li>
+                <li>📁 SMOKE_RESULTS/</li>
+            </ul>
+        </div>
+        
+        <!-- Mechanicus -->
+        <div class="card">
+            <h2>⚙️ Mechanicus</h2>
+            <ul class="link-list">
+                <li>📋 ORGAN_CONTRACT.json</li>
+                <li>🔧 script_scanner.py</li>
+                <li>🔧 script_health_check.py</li>
+                <li>🔧 command_gateway.py</li>
+                <li>📁 REPAIR_QUEUE/</li>
+            </ul>
+        </div>
+        
+        <!-- Inquisition -->
+        <div class="card">
+            <h2>🔍 Inquisition</h2>
+            <ul class="link-list">
+                <li>📋 ORGAN_CONTRACT.json</li>
+                <li>⚠️ WARNING_BUDGET.json</li>
+                <li>🔧 fake_green_detector.py</li>
+                <li>🔧 stale_truth_detector.py</li>
+                <li>🔧 full_audit.py</li>
+            </ul>
+        </div>
+        
+        <!-- Administratum -->
+        <div class="card">
+            <h2>📚 Administratum</h2>
+            <ul class="link-list">
+                <li>🔧 self_inventory.py</li>
+                <li>🔧 self_diagnosis.py</li>
+                <li>🔧 error_precheck.py</li>
+                <li>📁 KNOWN_ERRORS/</li>
+            </ul>
+        </div>
+        
+        <!-- Risks -->
+        <div class="card">
+            <h2>⚠️ Известные риски</h2>
+            <div class="status-item">
+                <span>Raw subprocess в Sanctum</span>
+                <span class="status-badge status-fail">HIGH</span>
+            </div>
+            <div class="status-item">
+                <span>Warning flood (117838)</span>
+                <span class="status-badge status-warn">MEDIUM</span>
+            </div>
+            <div class="status-item">
+                <span>Registry drift</span>
+                <span class="status-badge status-warn">MEDIUM</span>
+            </div>
+            <div class="status-item">
+                <span>Organs scaffold only</span>
+                <span class="status-badge status-warn">MEDIUM</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>IMPERIUM Test Version — Experimental Mirror</p>
+        <p>Generated: 2026-05-15 | HEAD: 54272f9 | Branch: master</p>
+        <p>Для Owner review — НЕ production</p>
+    </div>
+</body>
+</html>

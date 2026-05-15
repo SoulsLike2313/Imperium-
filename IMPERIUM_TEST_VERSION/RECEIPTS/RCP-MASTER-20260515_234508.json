@@ -1,0 +1,65 @@
+﻿{
+    "results":  [
+                    {
+                        "verdict":  "PASS",
+                        "category":  "core",
+                        "name":  "Smoke Test",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "category":  "core",
+                        "name":  "Script Health",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "category":  "core",
+                        "name":  "Audit",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "new",
+                        "name":  "Second Brain",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "new",
+                        "name":  "Live Workbench",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "new",
+                        "name":  "Agent Handshake",
+                        "exit_code":  0
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "category":  "dashboard",
+                        "name":  "Dashboard",
+                        "exit_code":  0
+                    }
+                ],
+    "action":  "full_run",
+    "started_at_utc":  "2026-05-15T23:45:08.7958934+03:00",
+    "version":  "2.0",
+    "dashboard_path":  "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/index.html",
+    "components":  {
+                       "core":  [
+                                    "smoke_test",
+                                    "script_health",
+                                    "audit"
+                                ],
+                       "new":  [
+                                   "second_brain",
+                                   "live_workbench",
+                                   "agent_handshake"
+                               ]
+                   },
+    "receipt_id":  "RCP-MASTER-20260515_234508",
+    "finished_at_utc":  "2026-05-15T23:46:45.1596261+03:00",
+    "overall_verdict":  "FAIL"
+}

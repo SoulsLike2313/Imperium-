@@ -1,0 +1,56 @@
+{
+  "organ_id": "INQUISITION",
+  "name": "Inquisition",
+  "version": "0.1.0",
+  "status": "MVP_BOOTSTRAP",
+  "responsibility": "audit, drift detection, anti-fake-green scrutiny, evidence validation",
+  "owns": [
+    "ORGANS/INQUISITION/*",
+    "audit reports",
+    "warning budgets"
+  ],
+  "provides": [
+    "fake_green_detector",
+    "stale_truth_detector",
+    "button_reality_audit",
+    "evidence_missing_audit",
+    "contradiction_detector",
+    "warning_budget_enforcement"
+  ],
+  "requires": [
+    "MECHANICUS.script_health_report",
+    "ADMINISTRATUM.registry_state"
+  ],
+  "forbidden": [
+    "approve_without_evidence",
+    "ignore_warnings_over_budget",
+    "mark_pass_without_proof"
+  ],
+  "kpis": [
+    {
+      "name": "fake_green_count",
+      "description": "Number of PASS verdicts without evidence",
+      "target": 0
+    },
+    {
+      "name": "stale_truth_count",
+      "description": "Number of stale/outdated truth claims",
+      "target": 0
+    },
+    {
+      "name": "evidence_coverage_percent",
+      "description": "Percentage of claims with evidence",
+      "target": 100
+    },
+    {
+      "name": "warning_budget_violations",
+      "description": "Number of warning budget overruns",
+      "target": 0
+    }
+  ],
+  "entry_points": {
+    "fake_green_detector": "ORGANS/INQUISITION/SCRIPTS/fake_green_detector.py",
+    "stale_truth_detector": "ORGANS/INQUISITION/SCRIPTS/stale_truth_detector.py",
+    "full_audit": "ORGANS/INQUISITION/SCRIPTS/full_audit.py"
+  }
+}

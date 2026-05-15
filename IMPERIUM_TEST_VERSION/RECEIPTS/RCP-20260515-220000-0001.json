@@ -1,0 +1,56 @@
+{
+  "receipt_id": "RCP-20260515-220000-0001",
+  "schema_version": "IMPERIUM_RECEIPT_V0_1",
+  "timestamp": "2026-05-15T22:00:00+00:00",
+  "action": {
+    "type": "script",
+    "name": "create_test_version",
+    "description": "Created IMPERIUM_TEST_VERSION experimental copy"
+  },
+  "actor": {
+    "type": "agent",
+    "id": "KIRO"
+  },
+  "inputs": {
+    "files_read": [
+      "AGENTS.md",
+      "REGISTRY/ORGAN_REGISTRY.json"
+    ],
+    "parameters": {
+      "target_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+      "variant": "A_inside_repo"
+    }
+  },
+  "outputs": {
+    "files_created": [
+      "IMPERIUM_TEST_VERSION/BASELINE_STATUS.json",
+      "IMPERIUM_TEST_VERSION/TASK_RULES.md",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/README.md",
+      "IMPERIUM_TEST_VERSION/ORGANS/MECHANICUS/ORGAN_CONTRACT.json",
+      "IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/ORGAN_CONTRACT.json"
+    ],
+    "files_modified": [
+      ".gitignore"
+    ],
+    "reports": []
+  },
+  "context": {
+    "git_head": "54272f9",
+    "git_branch": "master",
+    "git_clean": false,
+    "task_id": null
+  },
+  "result": {
+    "status": "SUCCESS",
+    "exit_code": 0,
+    "error": null,
+    "duration_seconds": null
+  },
+  "evidence": {
+    "paths": [
+      "IMPERIUM_TEST_VERSION/BASELINE_STATUS.json"
+    ],
+    "hashes": {}
+  },
+  "notes": "First receipt - test version creation"
+}

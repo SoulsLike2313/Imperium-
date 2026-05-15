@@ -1,0 +1,26 @@
+{
+  "schema_version": "IMPERIUM_BASELINE_STATUS_V0_1",
+  "created_at": "2026-05-15T21:55:00+00:00",
+  "baseline_type": "EVIDENCE_BASELINE",
+  "baseline_label": "evidence-baseline",
+  "NOT_product_v1": true,
+  "source_commit": "54272f9",
+  "source_commit_message": "TASK-20260515: implement live foundational organs V1 baseline",
+  "source_branch": "master",
+  "copy_location": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+  "copy_purpose": "experimental_plan_execution",
+  "rules": {
+    "no_commit": true,
+    "no_push": true,
+    "no_merge": true,
+    "owner_review_required": true,
+    "one_task_one_prompt": true
+  },
+  "current_state": {
+    "organs_operational": 0,
+    "organs_scaffold": 10,
+    "testing_field_exists": false,
+    "mechanicus_mvp": false,
+    "inquisition_mvp": false
+  }
+}

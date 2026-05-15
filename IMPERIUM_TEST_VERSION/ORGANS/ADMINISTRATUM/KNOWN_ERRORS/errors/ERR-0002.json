@@ -1,0 +1,38 @@
+{
+  "error_id": "ERR-0002",
+  "created_at": "2026-05-15T22:00:00+00:00",
+  "category": "config",
+  "severity": "MEDIUM",
+  "title": "Warning flood from continuity packs",
+  "description": "Legacy continuity packs in ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/ generate 117838 warnings, making verify_repo output noisy",
+  "symptoms": [
+    "verify_repo.py shows PASS_WITH_WARNINGS",
+    "117838 warnings in output",
+    "Hard to see real issues in warning flood"
+  ],
+  "root_cause": "Continuity packs contain historical files that trigger various checks",
+  "affected_files": [
+    "ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/*"
+  ],
+  "fix": {
+    "description": "Either clean up packs or exclude from scan",
+    "steps": [
+      "Option A: Archive old packs outside repo",
+      "Option B: Add CONTINUITY/PACKS/ to scan exclusions",
+      "Option C: Fix issues in packs (time-consuming)"
+    ]
+  },
+  "prevention": {
+    "precheck_rule": "Warning budget check before declaring PASS",
+    "gate": "warning_budget in Inquisition"
+  },
+  "occurrences": [
+    {
+      "date": "2026-05-15",
+      "context": "Running verify_repo.py on current repo",
+      "resolution_time_minutes": null,
+      "resolved": false
+    }
+  ],
+  "status": "ACTIVE"
+}

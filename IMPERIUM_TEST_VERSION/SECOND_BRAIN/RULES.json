@@ -1,0 +1,70 @@
+{
+  "schema_version": "IMPERIUM_RULES_V0_1",
+  "rules": [
+    {
+      "id": "R001",
+      "category": "git",
+      "rule": "No commit without Owner approval",
+      "applies_to": ["all_agents"]
+    },
+    {
+      "id": "R002",
+      "category": "git",
+      "rule": "No push without Owner approval",
+      "applies_to": ["all_agents"]
+    },
+    {
+      "id": "R003",
+      "category": "git",
+      "rule": "No merge without Owner approval",
+      "applies_to": ["all_agents"]
+    },
+    {
+      "id": "R004",
+      "category": "paths",
+      "rule": "Work only inside IMPERIUM_TEST_VERSION",
+      "applies_to": ["all_agents"],
+      "allowed_paths": ["E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\"]
+    },
+    {
+      "id": "R005",
+      "category": "output",
+      "rule": "Create receipt for every significant action",
+      "applies_to": ["all_agents"],
+      "receipt_path": "IMPERIUM_TEST_VERSION\\RECEIPTS\\"
+    },
+    {
+      "id": "R006",
+      "category": "output",
+      "rule": "Create report with evidence for every check",
+      "applies_to": ["all_agents"]
+    },
+    {
+      "id": "R007",
+      "category": "ui_work",
+      "rule": "Check PyQt6 availability before UI work",
+      "applies_to": ["ui_agents"],
+      "verification_command": "py -3 -c \"import PyQt6; print('OK')\""
+    },
+    {
+      "id": "R008",
+      "category": "ui_work",
+      "rule": "Check Sanctum syntax before UI changes",
+      "applies_to": ["ui_agents"],
+      "verification_command": "py -3 -m py_compile SANCTUM\\sanctum_v0_29_qt.py"
+    },
+    {
+      "id": "R009",
+      "category": "testing",
+      "rule": "Run smoke test after changes",
+      "applies_to": ["all_agents"],
+      "verification_command": ".\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\RUN_SMOKE.ps1"
+    },
+    {
+      "id": "R010",
+      "category": "naming",
+      "rule": "Do not call anything production or V1",
+      "applies_to": ["all_agents"]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "IMPERIUM_STATUS_FORMATS_V0_1",
+  "task_statuses": [
+    {"status": "NOT_STARTED", "description": "Задача не начата"},
+    {"status": "IN_PROGRESS", "description": "Задача выполняется"},
+    {"status": "BLOCKED", "description": "Задача заблокирована"},
+    {"status": "WAITING_OWNER", "description": "Ожидание решения Owner"},
+    {"status": "COMPLETED", "description": "Задача завершена успешно"},
+    {"status": "FAILED", "description": "Задача провалена"},
+    {"status": "CANCELLED", "description": "Задача отменена"}
+  ],
+  "verdicts": [
+    {"verdict": "PASS", "description": "Успех"},
+    {"verdict": "FAIL", "description": "Провал"},
+    {"verdict": "PARTIAL", "description": "Частичный успех"},
+    {"verdict": "BLOCKED", "description": "Заблокировано"},
+    {"verdict": "NO_DATA", "description": "Нет данных"}
+  ],
+  "owner_action_types": [
+    {"action": "APPROVE", "description": "Одобрить"},
+    {"action": "REJECT", "description": "Отклонить"},
+    {"action": "MODIFY", "description": "Изменить"},
+    {"action": "CLARIFY", "description": "Уточнить"},
+    {"action": "ESCALATE", "description": "Эскалировать"},
+    {"action": "DEFER", "description": "Отложить"}
+  ]
+}

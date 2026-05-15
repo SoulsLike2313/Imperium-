@@ -1,0 +1,112 @@
+{
+  "schema_version": "UF99_CHECKLIST_V0_1",
+  "required_fields": [
+    {
+      "field": "TASK_ID",
+      "required": true,
+      "format": "UF99-YYYY-MMDD-NNN",
+      "description": "Unique task identifier"
+    },
+    {
+      "field": "MODE",
+      "required": true,
+      "allowed_values": ["REPAIR", "RESEARCH", "FEATURE", "TEST", "REVIEW", "WORK"],
+      "description": "Task mode"
+    },
+    {
+      "field": "OWNER_GOAL",
+      "required": true,
+      "min_length": 10,
+      "description": "What Owner wants to achieve"
+    },
+    {
+      "field": "SCOPE",
+      "required": true,
+      "description": "Boundaries of work"
+    },
+    {
+      "field": "INPUTS",
+      "required": false,
+      "type": "list",
+      "description": "Input data and files"
+    },
+    {
+      "field": "ALLOWED_PATHS",
+      "required": true,
+      "type": "list",
+      "description": "Paths agent can modify"
+    },
+    {
+      "field": "FORBIDDEN_ACTIONS",
+      "required": true,
+      "type": "list",
+      "description": "Actions agent must not do"
+    },
+    {
+      "field": "REQUIRED_OUTPUTS",
+      "required": true,
+      "type": "list",
+      "description": "What agent must produce"
+    },
+    {
+      "field": "PASS_CRITERIA",
+      "required": true,
+      "type": "list",
+      "description": "How to know task succeeded"
+    },
+    {
+      "field": "FAIL_CRITERIA",
+      "required": false,
+      "type": "list",
+      "description": "How to know task failed"
+    },
+    {
+      "field": "VERIFICATION_COMMANDS",
+      "required": true,
+      "type": "list",
+      "description": "Commands to verify result"
+    },
+    {
+      "field": "OWNER_REVIEW",
+      "required": true,
+      "type": "list",
+      "description": "What Owner will check"
+    },
+    {
+      "field": "STOP_CONDITIONS",
+      "required": true,
+      "type": "list",
+      "description": "When to stop and ask"
+    },
+    {
+      "field": "MEMORY_QUERIES_REQUIRED",
+      "required": false,
+      "type": "list",
+      "description": "Memory queries to execute before work"
+    },
+    {
+      "field": "REPORT_FORMAT",
+      "required": true,
+      "allowed_values": ["JSON", "MD", "JSON+MD"],
+      "description": "Format of output report"
+    }
+  ],
+  "validation_rules": [
+    {
+      "rule": "TASK_ID must match pattern UF99-\\d{4}-\\d{4}-\\d{3}",
+      "severity": "error"
+    },
+    {
+      "rule": "MODE must be one of allowed values",
+      "severity": "error"
+    },
+    {
+      "rule": "ALLOWED_PATHS must not be empty",
+      "severity": "error"
+    },
+    {
+      "rule": "FORBIDDEN_ACTIONS should include git commit, git push for test version work",
+      "severity": "warning"
+    }
+  ]
+}

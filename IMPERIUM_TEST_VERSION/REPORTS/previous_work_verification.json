@@ -1,0 +1,56 @@
+{
+  "schema_version": "IMPERIUM_VERIFICATION_V0_1",
+  "verified_at": "2026-05-15T23:25:20+03:00",
+  "test_version_root": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+  "verification_result": "PASS",
+  "components": {
+    "smoke_test": {
+      "status": "WORKING",
+      "script": "TESTING_FIELD/RUN_SMOKE.ps1",
+      "report_created": true,
+      "receipt_created": true,
+      "verdict": "PASS",
+      "details": "5/5 checks passed"
+    },
+    "script_health": {
+      "status": "WORKING",
+      "script": "ORGANS/MECHANICUS/RUN_SCRIPT_HEALTH.ps1",
+      "report_created": true,
+      "receipt_created": true,
+      "dashboard_created": true,
+      "verdict": "PARTIAL",
+      "details": "823/824 healthy (99.9%)"
+    },
+    "audit": {
+      "status": "WORKING",
+      "script": "ORGANS/INQUISITION/RUN_AUDIT.ps1",
+      "report_created": true,
+      "receipt_created": true,
+      "dashboard_created": true,
+      "verdict": "FAIL",
+      "details": "100 issues (2 fake green, 98 stale truth)"
+    },
+    "sanctum_mirror": {
+      "status": "WORKING",
+      "script": "SANCTUM_MIRROR/GENERATE_INDEX.ps1",
+      "dashboard_created": true,
+      "reads_real_data": true
+    },
+    "master_script": {
+      "status": "WORKING",
+      "script": "RUN_ALL.ps1",
+      "receipt_created": true
+    }
+  },
+  "scaffold_only": [
+    "MONITORING/kpi_collector.py",
+    "ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py",
+    "ORGANS/ADMINISTRATUM/SCRIPTS/self_diagnosis.py"
+  ],
+  "broken": [],
+  "owner_review_needed": [
+    "98 stale truth files in main repo",
+    "2 fake green files in main repo",
+    "1 broken script to identify"
+  ]
+}

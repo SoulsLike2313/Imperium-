@@ -1,0 +1,33 @@
+{
+  "error_id": "ERR-0004",
+  "created_at": "2026-05-15T22:30:00+00:00",
+  "category": "stale_data",
+  "severity": "MEDIUM",
+  "title": "Stale dashboard HEAD - displayed commit differs from actual",
+  "description": "Dashboard shows old git HEAD while actual repo has moved forward, creating false sense of current state",
+  "symptoms": [
+    "Dashboard shows old commit hash",
+    "Status appears green but repo has changed",
+    "User makes decisions based on outdated information"
+  ],
+  "root_cause": "Dashboard caches HEAD value and doesn't refresh automatically",
+  "affected_files": [
+    "SANCTUM/sanctum_v0_29_qt.py",
+    "Any dashboard showing git state"
+  ],
+  "fix": {
+    "description": "Add freshness indicator and auto-refresh",
+    "steps": [
+      "Store timestamp when HEAD was fetched",
+      "Display age of data (e.g., '5 minutes ago')",
+      "Add refresh button or auto-refresh interval",
+      "Show STALE warning if data older than threshold"
+    ]
+  },
+  "prevention": {
+    "precheck_rule": "Check if displayed HEAD matches actual HEAD",
+    "gate": "stale_truth_detector in Inquisition"
+  },
+  "occurrences": [],
+  "status": "ACTIVE"
+}

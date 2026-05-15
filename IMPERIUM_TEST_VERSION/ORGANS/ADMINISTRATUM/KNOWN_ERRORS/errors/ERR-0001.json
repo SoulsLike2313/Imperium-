@@ -1,0 +1,39 @@
+{
+  "error_id": "ERR-0001",
+  "created_at": "2026-05-15T22:00:00+00:00",
+  "category": "runtime",
+  "severity": "HIGH",
+  "title": "Raw subprocess without command gateway",
+  "description": "Direct subprocess.run() or subprocess.Popen() calls bypass command gateway, losing audit trail and validation",
+  "symptoms": [
+    "No receipt generated for command execution",
+    "Command not validated against allowlist",
+    "no_raw_subprocess gate fails"
+  ],
+  "root_cause": "Developer used subprocess directly instead of command_gateway.execute_command()",
+  "affected_files": [
+    "SANCTUM/sanctum_v0_29_qt.py"
+  ],
+  "fix": {
+    "description": "Replace raw subprocess with command gateway",
+    "steps": [
+      "Import command_gateway: from ORGANS.MECHANICUS.SCRIPTS.command_gateway import execute_command",
+      "Replace subprocess.run(['cmd', 'args']) with execute_command('cmd', ['args'])",
+      "Handle result dict instead of CompletedProcess"
+    ],
+    "code_example": "result = execute_command('git', ['status', '--short'])\nif result['success']:\n    print(result['stdout'])"
+  },
+  "prevention": {
+    "precheck_rule": "Scan for subprocess.run|subprocess.Popen outside command_gateway.py",
+    "gate": "no_raw_subprocess in verify_repo.py"
+  },
+  "occurrences": [
+    {
+      "date": "2026-05-15",
+      "context": "Sanctum uses raw subprocess for git commands",
+      "resolution_time_minutes": null,
+      "resolved": false
+    }
+  ],
+  "status": "ACTIVE"
+}

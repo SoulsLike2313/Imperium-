@@ -1,0 +1,128 @@
+{
+  "schema_version": "IMPERIUM_HANDSHAKE_REPORT_V0_1",
+  "agent": "Codex",
+  "task_type": "ui_work",
+  "handshake_time": "2026-05-15T23:31:23.861684",
+  "required_queries": [
+    "Q001",
+    "Q002",
+    "Q005"
+  ],
+  "query_results": [
+    {
+      "query_id": "Q001",
+      "query": "What must an agent check before UI work?",
+      "critical": true,
+      "found": true,
+      "answer": "[R007] Check PyQt6 availability before UI work\\n[R008] Check Sanctum syntax before UI changes",
+      "sources": [
+        {
+          "file": "RULES.json",
+          "key": "R007",
+          "value": "Check PyQt6 availability before UI work"
+        },
+        {
+          "file": "RULES.json",
+          "key": "R008",
+          "value": "Check Sanctum syntax before UI changes"
+        }
+      ]
+    },
+    {
+      "query_id": "Q002",
+      "query": "What actions are forbidden?",
+      "critical": true,
+      "found": true,
+      "answer": "[F001] FORBIDDEN: git commit\\n[F002] FORBIDDEN: git push\\n[F003] FORBIDDEN: git merge\\n[F004] FORBIDDEN: Modify files outside IMPERIUM_TEST_VERSION\\n[F005] FORBIDDEN: Delete main repo files\\n[F006] FORBIDDEN: Claim production-ready or V1\\n[F007] FORBIDDEN: Create fake PASS without evidence\\n[F008] FORBIDDEN: Expand taxonomy without runnable code",
+      "sources": [
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F001",
+          "value": "git commit"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F002",
+          "value": "git push"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F003",
+          "value": "git merge"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F004",
+          "value": "Modify files outside IMPERIUM_TEST_VERSION"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F005",
+          "value": "Delete main repo files"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F006",
+          "value": "Claim production-ready or V1"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F007",
+          "value": "Create fake PASS without evidence"
+        },
+        {
+          "file": "CONSTRAINTS.json",
+          "key": "F008",
+          "value": "Expand taxonomy without runnable code"
+        }
+      ]
+    },
+    {
+      "query_id": "Q005",
+      "query": "What known errors should I watch for?",
+      "critical": false,
+      "found": true,
+      "answer": "[ERR-0001] raw subprocess usage\\n[ERR-0002] warning flood from continuity packs\\n[ERR-0003] mojibake/encoding issues\\n[ERR-0004] stale dashboard HEAD\\n[ERR-0005] fake PASS without evidence",
+      "sources": [
+        {
+          "file": "KNOWN_ERRORS_LINKS.json",
+          "key": "ERR-0001",
+          "value": "raw subprocess usage"
+        },
+        {
+          "file": "KNOWN_ERRORS_LINKS.json",
+          "key": "ERR-0002",
+          "value": "warning flood from continuity packs"
+        },
+        {
+          "file": "KNOWN_ERRORS_LINKS.json",
+          "key": "ERR-0003",
+          "value": "mojibake/encoding issues"
+        },
+        {
+          "file": "KNOWN_ERRORS_LINKS.json",
+          "key": "ERR-0004",
+          "value": "stale dashboard HEAD"
+        },
+        {
+          "file": "KNOWN_ERRORS_LINKS.json",
+          "key": "ERR-0005",
+          "value": "fake PASS without evidence"
+        }
+      ]
+    }
+  ],
+  "missing_context": [],
+  "constraints_acknowledged": [
+    "F001",
+    "F002",
+    "F003",
+    "F004",
+    "F005",
+    "F006",
+    "F007",
+    "F008"
+  ],
+  "ready_to_proceed": true,
+  "verdict": "PASS"
+}

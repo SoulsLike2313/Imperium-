@@ -1,0 +1,48 @@
+{
+  "schema_version": "IMPERIUM_CONTEXT_INDEX_V0_1",
+  "context_boundaries": {
+    "repo": {
+      "path": "E:\\IMPERIUM",
+      "type": "git_repository",
+      "access": "read_only_for_agents"
+    },
+    "test_version": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+      "type": "experimental_sandbox",
+      "access": "read_write_for_agents"
+    },
+    "private": {
+      "path": "E:\\IMPERIUM_CONTEXT\\LOCAL",
+      "type": "local_private",
+      "access": "owner_only"
+    }
+  },
+  "key_files": {
+    "agents_md": {
+      "path": "E:\\IMPERIUM\\AGENTS.md",
+      "description": "Workspace rules for agents",
+      "read_before": ["any_work"]
+    },
+    "sanctum_main": {
+      "path": "E:\\IMPERIUM\\SANCTUM\\sanctum_v0_29_qt.py",
+      "description": "Current Sanctum UI entry point",
+      "read_before": ["ui_work"]
+    },
+    "owner_chronology": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\OWNER_CHRONOLOGY_RU.md",
+      "description": "Experiment history in Russian",
+      "update_after": ["each_stage"]
+    },
+    "experiment_ledger": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\EXPERIMENT_LEDGER.jsonl",
+      "description": "Machine-readable experiment log",
+      "update_after": ["each_stage"]
+    }
+  },
+  "current_task_context": {
+    "task_type": null,
+    "allowed_paths": [],
+    "forbidden_paths": [],
+    "required_checks": []
+  }
+}

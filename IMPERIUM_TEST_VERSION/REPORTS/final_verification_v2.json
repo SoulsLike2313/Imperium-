@@ -1,0 +1,88 @@
+{
+  "schema_version": "IMPERIUM_VERIFICATION_REPORT_V0_2",
+  "generated_at": "2026-05-15T23:46:45Z",
+  "version": "2.0",
+  "overall_verdict": "PASS_ALL_NEW_COMPONENTS_WORKING",
+  
+  "core_systems": {
+    "smoke_test": {
+      "verdict": "PASS",
+      "checks_passed": 5,
+      "checks_total": 5
+    },
+    "script_health": {
+      "verdict": "PARTIAL",
+      "healthy": 823,
+      "total": 824,
+      "percent": 99.9
+    },
+    "audit": {
+      "verdict": "FAIL",
+      "issues": 100,
+      "fake_green": 2,
+      "stale_truth": 98,
+      "note": "Known debt in main repo, not test version"
+    }
+  },
+  
+  "new_components_v2": {
+    "second_brain": {
+      "verdict": "PASS",
+      "goals": 6,
+      "rules": 10,
+      "forbidden_actions": 8,
+      "known_errors": 5,
+      "scripts_tested": ["ask_memory.py", "build_memory_summary.py"]
+    },
+    "agent_memory_protocol": {
+      "verdict": "PASS",
+      "handshake_status": "READY",
+      "constraints_acknowledged": 8,
+      "scripts_tested": ["agent_context_handshake.py"]
+    },
+    "live_workbench": {
+      "verdict": "PASS",
+      "tests_total": 6,
+      "tests_passed": 6,
+      "tests_failed": 0,
+      "scripts_tested": ["run_sandbox_tests.py", "generate_workbench_status.py"]
+    },
+    "uf99_prompt_standard": {
+      "verdict": "PASS",
+      "templates": 7,
+      "validator_tested": true,
+      "scripts_tested": ["validate_uf99_prompt.py"]
+    },
+    "communication_protocol": {
+      "verdict": "PASS",
+      "message_types_defined": true,
+      "status_formats_defined": true,
+      "escalation_rules_defined": true
+    }
+  },
+  
+  "statistics": {
+    "total_files": 95,
+    "total_scripts": 21,
+    "new_components": 5,
+    "sandbox_tests": 6,
+    "uf99_templates": 7,
+    "receipts": 30,
+    "chronology_stages": 21
+  },
+  
+  "dashboards": {
+    "main": "SANCTUM_MIRROR/index.html",
+    "mechanicus": "ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "inquisition": "ORGANS/INQUISITION/DASHBOARD/index.html",
+    "workbench": "LIVE_WORKBENCH/DASHBOARD/index.html"
+  },
+  
+  "commands": {
+    "run_all": ".\\IMPERIUM_TEST_VERSION\\RUN_ALL.ps1",
+    "open_dashboard": "start .\\IMPERIUM_TEST_VERSION\\SANCTUM_MIRROR\\index.html",
+    "ask_memory": "py -3 .\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\SCRIPTS\\ask_memory.py --query goals",
+    "run_tests": "py -3 .\\IMPERIUM_TEST_VERSION\\LIVE_WORKBENCH\\SCRIPTS\\run_sandbox_tests.py",
+    "handshake": "py -3 .\\IMPERIUM_TEST_VERSION\\AGENT_MEMORY_PROTOCOL\\SCRIPTS\\agent_context_handshake.py"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "schema_version": "IMPERIUM_REQUIRED_QUERIES_V0_1",
+  "task_types": {
+    "ui_work": {
+      "required_queries": [
+        {
+          "id": "Q001",
+          "query": "What must an agent check before UI work?",
+          "category": "rules",
+          "critical": true
+        },
+        {
+          "id": "Q002",
+          "query": "What actions are forbidden?",
+          "category": "constraints",
+          "critical": true
+        },
+        {
+          "id": "Q005",
+          "query": "What known errors should I watch for?",
+          "category": "errors",
+          "critical": false
+        }
+      ]
+    },
+    "testing": {
+      "required_queries": [
+        {
+          "id": "Q007",
+          "query": "What verification is required after changes?",
+          "category": "rules",
+          "critical": true
+        },
+        {
+          "id": "Q002",
+          "query": "What actions are forbidden?",
+          "category": "constraints",
+          "critical": true
+        },
+        {
+          "id": "Q005",
+          "query": "What known errors should I watch for?",
+          "category": "errors",
+          "critical": false
+        }
+      ]
+    },
+    "repair": {
+      "required_queries": [
+        {
+          "id": "Q002",
+          "query": "What actions are forbidden?",
+          "category": "constraints",
+          "critical": true
+        },
+        {
+          "id": "Q004",
+          "query": "What paths can I modify?",
+          "category": "constraints",
+          "critical": true
+        },
+        {
+          "id": "Q005",
+          "query": "What known errors should I watch for?",
+          "category": "errors",
+          "critical": true
+        },
+        {
+          "id": "Q003",
+          "query": "What are the Owner goals?",
+          "category": "goals",
+          "critical": false
+        }
+      ]
+    },
+    "research": {
+      "required_queries": [
+        {
+          "id": "Q003",
+          "query": "What are the Owner goals?",
+          "category": "goals",
+          "critical": true
+        },
+        {
+          "id": "Q006",
+          "query": "What is the Owner communication style?",
+          "category": "profile",
+          "critical": false
+        }
+      ]
+    },
+    "general": {
+      "required_queries": [
+        {
+          "id": "Q002",
+          "query": "What actions are forbidden?",
+          "category": "constraints",
+          "critical": true
+        },
+        {
+          "id": "Q003",
+          "query": "What are the Owner goals?",
+          "category": "goals",
+          "critical": false
+        }
+      ]
+    }
+  }
+}

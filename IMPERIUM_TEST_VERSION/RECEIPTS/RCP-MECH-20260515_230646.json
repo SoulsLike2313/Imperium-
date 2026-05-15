@@ -1,0 +1,21 @@
+﻿{
+    "exit_code":  1,
+    "errors":  [
+
+               ],
+    "repo_root":  "E:\\IMPERIUM",
+    "action":  "script_health_check",
+    "command":  "RUN_SCRIPT_HEALTH.ps1",
+    "warnings":  [
+
+                 ],
+    "evidence_paths":  [
+                           "IMPERIUM_TEST_VERSION\\ORGANS\\MECHANICUS\\REPORTS\\latest_script_health.json"
+                       ],
+    "finished_at_utc":  "2026-05-15T23:08:19.3854200+03:00",
+    "verdict":  "PARTIAL",
+    "receipt_id":  "RCP-MECH-20260515_230646",
+    "report_path":  "IMPERIUM_TEST_VERSION\\ORGANS\\MECHANICUS\\REPORTS\\latest_script_health.json",
+    "test_version_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+    "started_at_utc":  "2026-05-15T23:06:46.4401217+03:00"
+}

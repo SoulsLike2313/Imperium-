@@ -1,0 +1,53 @@
+{
+  "schema_version": "IMPERIUM_MEMORY_QUERIES_V0_1",
+  "predefined_queries": [
+    {
+      "id": "Q001",
+      "query": "What must an agent check before UI work?",
+      "category": "rules",
+      "expected_sources": ["RULES.json:R007", "RULES.json:R008"]
+    },
+    {
+      "id": "Q002",
+      "query": "What actions are forbidden?",
+      "category": "constraints",
+      "expected_sources": ["CONSTRAINTS.json:forbidden_actions"]
+    },
+    {
+      "id": "Q003",
+      "query": "What are the Owner goals?",
+      "category": "goals",
+      "expected_sources": ["GOALS.json:goals"]
+    },
+    {
+      "id": "Q004",
+      "query": "What paths can I modify?",
+      "category": "constraints",
+      "expected_sources": ["CONSTRAINTS.json:allowed_paths"]
+    },
+    {
+      "id": "Q005",
+      "query": "What known errors should I watch for?",
+      "category": "errors",
+      "expected_sources": ["KNOWN_ERRORS_LINKS.json:errors"]
+    },
+    {
+      "id": "Q006",
+      "query": "What is the Owner communication style?",
+      "category": "profile",
+      "expected_sources": ["OWNER_PROFILE_SEED.json:communication_style"]
+    },
+    {
+      "id": "Q007",
+      "query": "What verification is required after changes?",
+      "category": "rules",
+      "expected_sources": ["RULES.json:R009"]
+    },
+    {
+      "id": "Q008",
+      "query": "Can I commit changes?",
+      "category": "constraints",
+      "expected_sources": ["CONSTRAINTS.json:F001"]
+    }
+  ]
+}

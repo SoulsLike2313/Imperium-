@@ -1,0 +1,55 @@
+{
+  "organ_id": "MECHANICUS",
+  "name": "Mechanicus",
+  "version": "0.1.0",
+  "status": "MVP_BOOTSTRAP",
+  "responsibility": "tooling, script registry, machinery contracts, command gateway",
+  "owns": [
+    "REGISTRY/SCRIPT_REGISTRY.json",
+    "TOOLS/*",
+    "scripts/*"
+  ],
+  "provides": [
+    "script_health_report",
+    "script_existence_check",
+    "script_syntax_check",
+    "command_gateway",
+    "repair_queue"
+  ],
+  "requires": [
+    "ADMINISTRATUM.registry_access",
+    "INQUISITION.audit_report"
+  ],
+  "forbidden": [
+    "direct_git_push",
+    "unregistered_script_execution",
+    "raw_subprocess_without_gateway"
+  ],
+  "kpis": [
+    {
+      "name": "script_health_percent",
+      "description": "Percentage of scripts passing health checks",
+      "target": 100
+    },
+    {
+      "name": "missing_scripts_count",
+      "description": "Number of registered scripts that don't exist",
+      "target": 0
+    },
+    {
+      "name": "syntax_failures_count",
+      "description": "Number of scripts with syntax errors",
+      "target": 0
+    },
+    {
+      "name": "raw_subprocess_violations",
+      "description": "Number of raw subprocess calls outside gateway",
+      "target": 0
+    }
+  ],
+  "entry_points": {
+    "script_health_check": "ORGANS/MECHANICUS/SCRIPTS/script_health_check.py",
+    "command_gateway": "ORGANS/MECHANICUS/SCRIPTS/command_gateway.py",
+    "repair_queue": "ORGANS/MECHANICUS/SCRIPTS/repair_queue.py"
+  }
+}

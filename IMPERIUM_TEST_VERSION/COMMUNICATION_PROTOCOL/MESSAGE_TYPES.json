@@ -1,0 +1,65 @@
+{
+  "schema_version": "IMPERIUM_MESSAGE_TYPES_V0_1",
+  "message_types": [
+    {
+      "type": "TASK_REQUEST",
+      "direction": "owner_to_agent",
+      "required_fields": ["ID", "MODE", "GOAL", "SCOPE"],
+      "optional_fields": ["INPUTS", "CONSTRAINTS"]
+    },
+    {
+      "type": "CLARIFICATION_QUESTION",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "QUESTION", "OPTIONS"],
+      "optional_fields": ["CONTEXT", "DEFAULT"]
+    },
+    {
+      "type": "STATUS_UPDATE",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "STATUS", "CURRENT_STEP"],
+      "optional_fields": ["PROGRESS", "NEXT_STEP", "ETA"]
+    },
+    {
+      "type": "BLOCKER_REPORT",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "BLOCKER", "IMPACT", "OWNER_ACTION_REQUIRED"],
+      "optional_fields": ["OPTIONS", "RECOMMENDED"]
+    },
+    {
+      "type": "PASS_REPORT",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "VERDICT", "SUMMARY", "OUTPUTS"],
+      "optional_fields": ["VERIFICATION", "OWNER_REVIEW"]
+    },
+    {
+      "type": "FAIL_REPORT",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "VERDICT", "REASON", "ERRORS"],
+      "optional_fields": ["ATTEMPTED", "RECOVERY_OPTIONS"]
+    },
+    {
+      "type": "OWNER_DECISION_REQUEST",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "QUESTION", "OPTIONS"],
+      "optional_fields": ["CONTEXT", "DEFAULT", "DEADLINE"]
+    },
+    {
+      "type": "MEMORY_QUERY",
+      "direction": "agent_to_system",
+      "required_fields": ["QUERY"],
+      "optional_fields": ["CATEGORY", "AGENT"]
+    },
+    {
+      "type": "MEMORY_ANSWER",
+      "direction": "system_to_agent",
+      "required_fields": ["QUERY", "FOUND", "ANSWER"],
+      "optional_fields": ["SOURCES", "CONFIDENCE"]
+    },
+    {
+      "type": "HANDOFF_REPORT",
+      "direction": "agent_to_owner",
+      "required_fields": ["TASK", "STATUS", "COMPLETED", "REMAINING"],
+      "optional_fields": ["FILES_CHANGED", "NEXT_STEPS", "OWNER_COMMANDS"]
+    }
+  ]
+}

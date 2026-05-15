@@ -1,0 +1,62 @@
+{
+  "schema_version": "IMPERIUM_CONSTRAINTS_V0_1",
+  "forbidden_actions": [
+    {
+      "id": "F001",
+      "action": "git commit",
+      "reason": "Requires Owner approval",
+      "exception": "None"
+    },
+    {
+      "id": "F002",
+      "action": "git push",
+      "reason": "Requires Owner approval",
+      "exception": "None"
+    },
+    {
+      "id": "F003",
+      "action": "git merge",
+      "reason": "Requires Owner approval",
+      "exception": "None"
+    },
+    {
+      "id": "F004",
+      "action": "Modify files outside IMPERIUM_TEST_VERSION",
+      "reason": "Test version isolation",
+      "exception": ".gitignore for test version exclusion"
+    },
+    {
+      "id": "F005",
+      "action": "Delete main repo files",
+      "reason": "Destructive action requires Owner approval",
+      "exception": "None"
+    },
+    {
+      "id": "F006",
+      "action": "Claim production-ready or V1",
+      "reason": "This is experimental work",
+      "exception": "None"
+    },
+    {
+      "id": "F007",
+      "action": "Create fake PASS without evidence",
+      "reason": "Violates truth contract",
+      "exception": "None"
+    },
+    {
+      "id": "F008",
+      "action": "Expand taxonomy without runnable code",
+      "reason": "Owner wants working prototypes, not scaffolds",
+      "exception": "None"
+    }
+  ],
+  "allowed_paths": [
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\**"
+  ],
+  "forbidden_paths": [
+    "E:\\IMPERIUM\\src\\**",
+    "E:\\IMPERIUM\\SANCTUM\\**",
+    "E:\\IMPERIUM\\ORGANS\\**",
+    "E:\\IMPERIUM\\scripts\\**"
+  ]
+}

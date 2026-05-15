@@ -1,0 +1,59 @@
+{
+  "schema_version": "IMPERIUM_KNOWN_ERRORS_V0_1",
+  "created_at": "2026-05-15T22:00:00+00:00",
+  "updated_at": "2026-05-15T22:30:00+00:00",
+  "total_errors": 5,
+  "by_category": {
+    "config": 1,
+    "runtime": 1,
+    "encoding": 1,
+    "stale_data": 1,
+    "fake_green": 1
+  },
+  "by_status": {
+    "ACTIVE": 5,
+    "RESOLVED": 0
+  },
+  "errors": [
+    {
+      "error_id": "ERR-0001",
+      "title": "Raw subprocess without command gateway",
+      "category": "runtime",
+      "severity": "HIGH",
+      "status": "ACTIVE",
+      "file": "errors/ERR-0001.json"
+    },
+    {
+      "error_id": "ERR-0002",
+      "title": "Warning flood from continuity packs",
+      "category": "config",
+      "severity": "MEDIUM",
+      "status": "ACTIVE",
+      "file": "errors/ERR-0002.json"
+    },
+    {
+      "error_id": "ERR-0003",
+      "title": "Mojibake / encoding issue in file content",
+      "category": "encoding",
+      "severity": "MEDIUM",
+      "status": "ACTIVE",
+      "file": "errors/ERR-0003.json"
+    },
+    {
+      "error_id": "ERR-0004",
+      "title": "Stale dashboard HEAD - displayed commit differs from actual",
+      "category": "stale_data",
+      "severity": "MEDIUM",
+      "status": "ACTIVE",
+      "file": "errors/ERR-0004.json"
+    },
+    {
+      "error_id": "ERR-0005",
+      "title": "Fake PASS without evidence - verdict claimed without proof",
+      "category": "fake_green",
+      "severity": "HIGH",
+      "status": "ACTIVE",
+      "file": "errors/ERR-0005.json"
+    }
+  ]
+}

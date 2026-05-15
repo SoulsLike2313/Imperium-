@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Mechanicus Script Health</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #ecf0f1; padding: 20px; }
+        .header { text-align: center; border-bottom: 2px solid #d4af37; padding-bottom: 20px; margin-bottom: 20px; }
+        .header h1 { color: #d4af37; }
+        .card { background: #16213e; border-radius: 10px; padding: 20px; margin: 10px 0; }
+        .metric { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #2c3e50; }
+        .metric:last-child { border-bottom: none; }
+        .value { font-size: 1.5em; font-weight: bold; }
+        .pass { color: #27ae60; }
+        .fail { color: #e74c3c; }
+        .partial { color: #f39c12; }
+        .timestamp { color: #7f8c8d; font-size: 0.9em; }
+        .broken-list { background: #2c1810; padding: 15px; border-radius: 5px; margin-top: 10px; }
+        .broken-item { padding: 5px 0; border-bottom: 1px solid #3c2820; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>вљ™пёЏ MECHANICUS SCRIPT HEALTH</h1>
+        <p class="timestamp">Generated: 2026-05-15T23:46:41.4984252+03:00</p>
+    </div>
+    
+    <div class="card">
+        <h2>Summary</h2>
+        <div class="metric">
+            <span>Verdict</span>
+            <span class="value partial">PARTIAL</span>
+        </div>
+        <div class="metric">
+            <span>Total Scripts</span>
+            <span class="value">824</span>
+        </div>
+        <div class="metric">
+            <span>Healthy</span>
+            <span class="value pass">823</span>
+        </div>
+        <div class="metric">
+            <span>Broken</span>
+            <span class="value fail">1</span>
+        </div>
+        <div class="metric">
+            <span>Health %</span>
+            <span class="value">99.9%</span>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>By Type</h2>
+        <div class="metric">
+            <span>Python (.py)</span>
+            <span class="value">677</span>
+        </div>
+        <div class="metric">
+            <span>PowerShell (.ps1)</span>
+            <span class="value">147</span>
+        </div>
+    </div>    
+    <div class="card">
+        <h2>вљ пёЏ Broken Scripts (1)</h2>
+        <div class="broken-list">            <div class='broken-item'>ORGANS/DOCTRINARIUM/UTILITY/WEB_DASHBOARD_V0_6/dashboard_server.py</div>
+        </div>
+    </div>    
+    <div class="card">
+        <h2>рџ“Ѓ Files</h2>
+        <p>Report: <code>ORGANS/MECHANICUS/REPORTS/latest_script_health.json</code></p>
+        <p>Receipt: <code>RECEIPTS/RCP-MECH-20260515_234509.json</code></p>
+    </div>
+    
+    <div class="card">
+        <h2>рџ”„ Refresh</h2>
+        <p>Run: <code>.\IMPERIUM_TEST_VERSION\ORGANS\MECHANICUS\RUN_SCRIPT_HEALTH.ps1</code></p>
+        <p>Then reload this page.</p>
+    </div>
+</body>
+</html>

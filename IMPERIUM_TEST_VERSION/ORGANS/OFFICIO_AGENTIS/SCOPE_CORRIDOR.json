@@ -1,0 +1,82 @@
+{
+  "schema_version": "IMPERIUM_SCOPE_CORRIDOR_V0_1",
+  "created_at": "2026-05-15T22:00:00+00:00",
+  "description": "Defines allowed and forbidden zones for agent operations",
+  "default_policy": "DENY",
+  "zones": {
+    "allowed_read": [
+      "AGENTS.md",
+      "README.md",
+      "START_HERE.md",
+      "REGISTRY/*",
+      "schemas/*",
+      "ORGANS/*/ORGAN_CONTRACT.json",
+      "ORGANS/*/README.md",
+      "DOCS/*",
+      "TESTING_FIELD/*",
+      "CURRENT_STATE/*",
+      "src/imperium/*",
+      "scripts/*",
+      "tests/*"
+    ],
+    "allowed_write": [
+      "TESTING_FIELD/CANDIDATES/*",
+      "TESTING_FIELD/SMOKE_RESULTS/*",
+      "TESTING_FIELD/SCREENSHOTS/*",
+      "ORGANS/*/REPORTS/*",
+      "ORGANS/*/RECEIPTS/*",
+      ".imperium_runtime/*"
+    ],
+    "allowed_execute": [
+      "scripts/*.py",
+      "TOOLS/*.ps1",
+      "TOOLS/*.sh",
+      "ORGANS/*/SCRIPTS/*.py",
+      "TESTING_FIELD/SCRIPTS/*.py"
+    ],
+    "forbidden": [
+      ".git/*",
+      "SANCTUM/*.py",
+      "PRIVATE_*/*",
+      "*.pem",
+      "*.key",
+      "credentials*",
+      "secrets*"
+    ],
+    "require_approval": [
+      "REGISTRY/*.json",
+      "schemas/*.json",
+      "AGENTS.md",
+      "pyproject.toml",
+      "ORGANS/*/ORGAN_CONTRACT.json"
+    ]
+  },
+  "agent_profiles": {
+    "KIRO": {
+      "role": "advisor",
+      "can_read": true,
+      "can_write": "TESTING_FIELD only",
+      "can_execute": false,
+      "can_commit": false
+    },
+    "CODEX_SERVITOR": {
+      "role": "executor",
+      "can_read": true,
+      "can_write": "allowed_write zones",
+      "can_execute": "allowed_execute zones",
+      "can_commit": false
+    },
+    "OWNER": {
+      "role": "owner",
+      "can_read": true,
+      "can_write": true,
+      "can_execute": true,
+      "can_commit": true
+    }
+  },
+  "violation_actions": {
+    "forbidden_access": "BLOCK + LOG",
+    "unapproved_write": "BLOCK + REQUEST_APPROVAL",
+    "scope_creep": "WARN + LOG"
+  }
+}

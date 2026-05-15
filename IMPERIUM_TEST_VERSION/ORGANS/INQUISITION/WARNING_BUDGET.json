@@ -1,0 +1,61 @@
+{
+  "schema_version": "IMPERIUM_WARNING_BUDGET_V0_1",
+  "created_at": "2026-05-15T22:00:00+00:00",
+  "description": "Warning budget defines acceptable warning counts per category",
+  "enforcement": "SOFT",
+  "budgets": {
+    "verify_repo": {
+      "blockers": 0,
+      "warnings": 1000,
+      "notes": "Legacy continuity packs create warning flood - known debt"
+    },
+    "script_health": {
+      "missing": 0,
+      "syntax_errors": 0,
+      "notes": "All registered scripts must exist and compile"
+    },
+    "raw_subprocess": {
+      "violations": 0,
+      "notes": "All subprocess calls must go through command gateway"
+    },
+    "fake_green": {
+      "count": 0,
+      "notes": "No PASS without evidence"
+    },
+    "stale_truth": {
+      "max_age_hours": 24,
+      "notes": "Truth claims older than 24h are stale"
+    },
+    "registry_drift": {
+      "unregistered_scripts": 50,
+      "missing_scripts": 0,
+      "notes": "Some unregistered scripts acceptable during bootstrap"
+    }
+  },
+  "known_debt": {
+    "verify_repo_warnings": {
+      "current": 117838,
+      "budget": 1000,
+      "over_budget": true,
+      "reason": "Legacy continuity packs in ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/",
+      "remediation": "Clean up continuity packs or exclude from scan"
+    }
+  },
+  "enforcement_rules": [
+    {
+      "rule": "BLOCKER_ZERO",
+      "description": "Blockers must be zero for PASS",
+      "action": "FAIL if blockers > 0"
+    },
+    {
+      "rule": "FAKE_GREEN_ZERO",
+      "description": "Fake green must be zero",
+      "action": "FAIL if fake_green > 0"
+    },
+    {
+      "rule": "WARNING_SOFT",
+      "description": "Warnings over budget = PASS_WITH_WARNINGS",
+      "action": "WARN if warnings > budget"
+    }
+  ]
+}

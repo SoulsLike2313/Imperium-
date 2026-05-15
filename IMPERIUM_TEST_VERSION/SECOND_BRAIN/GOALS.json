@@ -1,0 +1,47 @@
+{
+  "schema_version": "IMPERIUM_GOALS_V0_1",
+  "goals": [
+    {
+      "id": "G001",
+      "priority": "critical",
+      "goal": "Build runnable prototypes, not scaffolds",
+      "description": "Every component must be executable and produce real output",
+      "verification": "Owner can run command and see result"
+    },
+    {
+      "id": "G002",
+      "priority": "critical",
+      "goal": "No fake PASS",
+      "description": "Every PASS must have evidence, every FAIL must be honest",
+      "verification": "Inquisition audit finds no fake green"
+    },
+    {
+      "id": "G003",
+      "priority": "high",
+      "goal": "Receipts and reports for every action",
+      "description": "Every significant action creates JSON receipt and report",
+      "verification": "RECEIPTS folder contains timestamped files"
+    },
+    {
+      "id": "G004",
+      "priority": "high",
+      "goal": "Dashboards show real data",
+      "description": "HTML dashboards read from JSON reports, not static text",
+      "verification": "Dashboard updates after re-running scripts"
+    },
+    {
+      "id": "G005",
+      "priority": "high",
+      "goal": "Test version isolation",
+      "description": "All work inside IMPERIUM_TEST_VERSION, no changes to main repo",
+      "verification": "git status shows only .gitignore modified"
+    },
+    {
+      "id": "G006",
+      "priority": "medium",
+      "goal": "Owner can verify everything",
+      "description": "Clear commands, paths, checklists for Owner review",
+      "verification": "OWNER_REVIEW_RU.md has exact commands"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+﻿{
+    "action":  "full_run",
+    "receipt_id":  "RCP-MASTER-20260515_231620",
+    "finished_at_utc":  "2026-05-15T23:18:00.1627943+03:00",
+    "started_at_utc":  "2026-05-15T23:16:20.9564792+03:00",
+    "overall_verdict":  "FAIL",
+    "results":  [
+                    {
+                        "verdict":  "FAIL",
+                        "name":  "Smoke Test",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "name":  "Script Health",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "FAIL",
+                        "name":  "Audit",
+                        "exit_code":  1
+                    },
+                    {
+                        "verdict":  "PASS",
+                        "name":  "Dashboard",
+                        "exit_code":  0
+                    }
+                ],
+    "dashboard_path":  "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/index.html"
+}

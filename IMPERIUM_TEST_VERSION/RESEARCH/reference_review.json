@@ -1,0 +1,240 @@
+{
+  "schema_version": "IMPERIUM_REFERENCE_REVIEW_V0_1",
+  "generated_at": "2026-05-15T22:00:00+00:00",
+  "total_reviewed": 35,
+  "categories": [
+    "search_indexing",
+    "utilities",
+    "launcher",
+    "monitoring",
+    "terminal",
+    "api_client",
+    "database_gui",
+    "backend",
+    "agent_ai",
+    "static_analysis",
+    "python_tooling",
+    "data_storage",
+    "documentation",
+    "visual_regression",
+    "caution"
+  ],
+  "top_recommendations": [
+    {
+      "rank": 1,
+      "name": "Pydantic",
+      "url": "https://docs.pydantic.dev/",
+      "use_case": "Config/schema validation",
+      "priority": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "rank": 2,
+      "name": "Typer",
+      "url": "https://typer.tiangolo.com/",
+      "use_case": "CLI improvement",
+      "priority": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "rank": 3,
+      "name": "pre-commit",
+      "url": "https://pre-commit.com/",
+      "use_case": "Git hooks automation",
+      "priority": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "rank": 4,
+      "name": "Ruff",
+      "url": "https://docs.astral.sh/ruff/",
+      "use_case": "Fast Python linting",
+      "priority": "HIGH",
+      "risk": "LOW"
+    },
+    {
+      "rank": 5,
+      "name": "pytest-qt",
+      "url": "https://pytest-qt.readthedocs.io/",
+      "use_case": "Qt widget testing",
+      "priority": "HIGH",
+      "risk": "MEDIUM"
+    },
+    {
+      "rank": 6,
+      "name": "Rich",
+      "url": "https://rich.readthedocs.io/",
+      "use_case": "Beautiful terminal output",
+      "priority": "MEDIUM",
+      "risk": "LOW"
+    },
+    {
+      "rank": 7,
+      "name": "structlog",
+      "url": "https://www.structlog.org/",
+      "use_case": "Structured logging",
+      "priority": "MEDIUM",
+      "risk": "LOW"
+    },
+    {
+      "rank": 8,
+      "name": "Just",
+      "url": "https://github.com/casey/just",
+      "use_case": "Task automation",
+      "priority": "MEDIUM",
+      "risk": "LOW"
+    },
+    {
+      "rank": 9,
+      "name": "Uptime Kuma",
+      "url": "https://github.com/louislam/uptime-kuma",
+      "use_case": "Status page inspiration",
+      "priority": "LOW",
+      "risk": "LOW"
+    },
+    {
+      "rank": 10,
+      "name": "it-tools",
+      "url": "https://github.com/corentinth/it-tools",
+      "use_case": "Tool organization ideas",
+      "priority": "LOW",
+      "risk": "LOW"
+    }
+  ],
+  "do_not_use": [
+    {
+      "name": "beerus-android",
+      "reason": "Security/offsec tool - reference only"
+    }
+  ],
+  "references": [
+    {
+      "name": "mgrep",
+      "url": "https://github.com/mixedbread-ai/mgrep",
+      "category": "search_indexing",
+      "takeaway": "Semantic search ideas",
+      "risk": "HIGH",
+      "for_imperium": "Future consideration for repo intelligence"
+    },
+    {
+      "name": "it-tools",
+      "url": "https://github.com/corentinth/it-tools",
+      "category": "utilities",
+      "takeaway": "Many small tools in one UI",
+      "risk": "LOW",
+      "for_imperium": "TOOLS organization inspiration"
+    },
+    {
+      "name": "Flow Launcher",
+      "url": "https://github.com/flow-launcher/flow.launcher",
+      "category": "launcher",
+      "takeaway": "Command palette concept",
+      "risk": "LOW",
+      "for_imperium": "Quick command access ideas"
+    },
+    {
+      "name": "Uptime Kuma",
+      "url": "https://github.com/louislam/uptime-kuma",
+      "category": "monitoring",
+      "takeaway": "Status page, incident tracking",
+      "risk": "LOW",
+      "for_imperium": "Monitoring dashboard inspiration"
+    },
+    {
+      "name": "Waveterm",
+      "url": "https://github.com/wavetermdev/waveterm",
+      "category": "terminal",
+      "takeaway": "Terminal UX ideas",
+      "risk": "LOW",
+      "for_imperium": "Terminal panel inspiration"
+    },
+    {
+      "name": "Hoppscotch",
+      "url": "https://github.com/hoppscotch/hoppscotch",
+      "category": "api_client",
+      "takeaway": "Request/response UX",
+      "risk": "LOW",
+      "for_imperium": "API testing if needed"
+    },
+    {
+      "name": "Antares SQL",
+      "url": "https://github.com/antares-sql/antares",
+      "category": "database_gui",
+      "takeaway": "Data browsing UX",
+      "risk": "LOW",
+      "for_imperium": "Registry browsing UI ideas"
+    },
+    {
+      "name": "Agent Prism",
+      "url": "https://github.com/evilmartians/agent-prism",
+      "category": "agent_ai",
+      "takeaway": "Agent debugging/observability",
+      "risk": "MEDIUM",
+      "for_imperium": "Officio Agentis monitoring"
+    },
+    {
+      "name": "FB Infer",
+      "url": "https://fbinfer.com/",
+      "category": "static_analysis",
+      "takeaway": "Static analysis concepts",
+      "risk": "HIGH",
+      "for_imperium": "Inquisition code analysis inspiration"
+    },
+    {
+      "name": "Playwright",
+      "url": "https://playwright.dev/",
+      "category": "python_tooling",
+      "takeaway": "Browser automation",
+      "risk": "LOW",
+      "for_imperium": "Testing Field automation"
+    },
+    {
+      "name": "pytest-qt",
+      "url": "https://pytest-qt.readthedocs.io/",
+      "category": "python_tooling",
+      "takeaway": "Qt widget testing",
+      "risk": "MEDIUM",
+      "for_imperium": "Sanctum UI testing"
+    },
+    {
+      "name": "Pydantic",
+      "url": "https://docs.pydantic.dev/",
+      "category": "python_tooling",
+      "takeaway": "Data validation",
+      "risk": "LOW",
+      "for_imperium": "Config/schema validation"
+    },
+    {
+      "name": "Typer",
+      "url": "https://typer.tiangolo.com/",
+      "category": "python_tooling",
+      "takeaway": "CLI framework",
+      "risk": "LOW",
+      "for_imperium": "CLI improvement"
+    },
+    {
+      "name": "Rich",
+      "url": "https://rich.readthedocs.io/",
+      "category": "python_tooling",
+      "takeaway": "Beautiful terminal output",
+      "risk": "LOW",
+      "for_imperium": "Console output improvement"
+    },
+    {
+      "name": "pre-commit",
+      "url": "https://pre-commit.com/",
+      "category": "python_tooling",
+      "takeaway": "Git hooks management",
+      "risk": "LOW",
+      "for_imperium": "Automated checks before commit"
+    },
+    {
+      "name": "Ruff",
+      "url": "https://docs.astral.sh/ruff/",
+      "category": "python_tooling",
+      "takeaway": "Fast Python linter",
+      "risk": "LOW",
+      "for_imperium": "Code quality checks"
+    }
+  ]
+}

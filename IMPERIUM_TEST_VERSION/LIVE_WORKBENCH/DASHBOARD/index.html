@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Workbench</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #1a1a2e; color: #ecf0f1; padding: 20px; }
+        .header { text-align: center; border-bottom: 2px solid #d4af37; padding-bottom: 20px; margin-bottom: 20px; }
+        .header h1 { color: #d4af37; }
+        .card { background: #16213e; border-radius: 10px; padding: 20px; margin: 10px 0; }
+        .metric { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #2c3e50; }
+        .metric:last-child { border-bottom: none; }
+        .value { font-size: 1.5em; font-weight: bold; }
+        .pass { color: #27ae60; }
+        .fail { color: #e74c3c; }
+        .nodata { color: #95a5a6; }
+        .timestamp { color: #7f8c8d; font-size: 0.9em; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #2c3e50; }
+        th { color: #d4af37; }
+        code { background: #0d1117; padding: 2px 6px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>LIVE WORKBENCH</h1>
+        <p class="timestamp">Generated: 2026-05-15T23:46:44.585279</p>
+    </div>
+    
+    <div class="card">
+        <h2>Test Status</h2>
+        <div class="metric">
+            <span>Latest Test</span>
+            <span class="value pass">PASS</span>
+        </div>
+        <div class="metric">
+            <span>Results</span>
+            <span class="value">6/6 passed</span>
+        </div>
+        <div class="metric">
+            <span>Last Run</span>
+            <span>2026-05-15T23:46:44.414426</span>
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Sandbox Project</h2>
+        <div class="metric">
+            <span>Path</span>
+            <span><code>E:\IMPERIUM\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SANDBOX_PROJECT</code></span>
+        </div>
+        <div class="metric">
+            <span>Files</span>
+            <span class="value">2</span>
+        </div>
+        <table>
+            <tr><th>File</th><th>Size</th><th>Modified</th></tr>
+            <tr><td>app.py</td><td>1324 bytes</td><td>2026-05-15T23:31:42.826164</td></tr>\n<tr><td>tests\test_app.py</td><td>2560 bytes</td><td>2026-05-15T23:33:11.640448</td></tr>\n
+        </table>
+    </div>
+    
+    <div class="card">
+        <h2>Commands</h2>
+        <p><strong>Run tests:</strong></p>
+        <code>py -3 IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SCRIPTS\run_sandbox_tests.py</code>
+        <p style="margin-top: 15px;"><strong>Refresh status:</strong></p>
+        <code>py -3 IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SCRIPTS\generate_workbench_status.py</code>
+    </div>
+</body>
+</html>
