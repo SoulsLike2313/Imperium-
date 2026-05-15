@@ -1,0 +1,176 @@
+{
+  "task_id": "TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING",
+  "manifest_id": "FOUNDATIONAL-ORGANS-V1-HARDENING-STAGE-PROMPTS-MANIFEST-V0_1",
+  "created_utc": "2026-05-15T05:22:23.6913965Z",
+  "source_git_head": "c8458ed4eb3d8a6660b11cc21eedbf21c6a575e0",
+  "status": "registered_prompt_package_not_executed",
+  "prompt_count": 20,
+  "stage_range": "01-20",
+  "ready_for_agent": false,
+  "ready_for_hardening_execution": false,
+  "owner_launch_gate_required": true,
+  "execution_authorized_by_this_commit": false,
+  "commit_policy": "all_20_prompts_committed_together",
+  "prompts": [
+    {
+      "stage_number": 1,
+      "filename": "STAGE-01_SOURCE_INTEGRITY_OWNER_MATRIX_FREEZE_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-01_SOURCE_INTEGRITY_OWNER_MATRIX_FREEZE_PROMPT.md",
+      "sha256": "ca59c2a079e0dcb8b455db30709268fb1cf3d6cf02f18e62f48e914212d6f34a",
+      "size_bytes": 9940,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 2,
+      "filename": "STAGE-02_OWNERSHIP_MATRIX_FREEZE_BOUNDARY_LINT_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-02_OWNERSHIP_MATRIX_FREEZE_BOUNDARY_LINT_PROMPT.md",
+      "sha256": "238630e27984116f12e2c84b7f6d7642ea370daafa7ee0dae72d6ede8815439d",
+      "size_bytes": 8767,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 3,
+      "filename": "STAGE-03_SCHEMA_BASELINE_FREEZE_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-03_SCHEMA_BASELINE_FREEZE_PROMPT.md",
+      "sha256": "bfbf1b0e23484e9edbdccfd9ce6c86c1b82be9fa7ad1725bd475b68fd577eb08",
+      "size_bytes": 8646,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 4,
+      "filename": "STAGE-04_GATE_INDEX_STOP_BEHAVIOR_LOCK_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-04_GATE_INDEX_STOP_BEHAVIOR_LOCK_PROMPT.md",
+      "sha256": "d4087fc5e82f2115d285ec490fe0032050caa09be876670cc61db44499e7bfa9",
+      "size_bytes": 9213,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 5,
+      "filename": "STAGE-05_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_A_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-05_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_A_PROMPT.md",
+      "sha256": "5c0b2493c22c4fd227fd1228e4333329fcdc8f473c8fae398175f52bc94c4517",
+      "size_bytes": 9205,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 6,
+      "filename": "STAGE-06_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_B_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-06_BACKEND_REPORT_CONTRACT_IMPLEMENTATION_LANE_B_PROMPT.md",
+      "sha256": "0510e02fd3e6ae9765a83709d33e7fd65c70f565537a6506b2ed6ede5181c1c7",
+      "size_bytes": 9783,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 7,
+      "filename": "STAGE-07_NO_FAKE_GREEN_CHECKERS_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-07_NO_FAKE_GREEN_CHECKERS_PROMPT.md",
+      "sha256": "657b48064bfd2e5774f530fab736c59c7fa5544fcd7ed752833c2074da4453ba",
+      "size_bytes": 8122,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 8,
+      "filename": "STAGE-08_STALE_STATUS_CHECKERS_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-08_STALE_STATUS_CHECKERS_PROMPT.md",
+      "sha256": "d65068da2faf2aabc312d46dc408f73dd2455a1306642088c2070526a7d458a7",
+      "size_bytes": 8485,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 9,
+      "filename": "STAGE-09_ROUTE_SHEET_WORK_PACKET_WIRING_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-09_ROUTE_SHEET_WORK_PACKET_WIRING_PROMPT.md",
+      "sha256": "5e82ffa91dd7254304a75e4f50cfae421c6d32e5f78aae68208fb9bb91168de1",
+      "size_bytes": 8328,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 10,
+      "filename": "STAGE-10_STAGE_COMPLETION_RECEIPT_PATH_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-10_STAGE_COMPLETION_RECEIPT_PATH_PROMPT.md",
+      "sha256": "1224820064013fb30def14a073b58ddf4a0f83a62c8463f2b3673e3c8b190335",
+      "size_bytes": 7527,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 11,
+      "filename": "STAGE-11_TASK_START_CORRIDOR_GATE_LINK_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-11_TASK_START_CORRIDOR_GATE_LINK_PROMPT.md",
+      "sha256": "75bc1203921314a687de7121f5a038087c368dc8be658d272f8d7b62c49bf347",
+      "size_bytes": 8590,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 12,
+      "filename": "STAGE-12_ROLLBACK_STOP_RECEIPT_PATH_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-12_ROLLBACK_STOP_RECEIPT_PATH_PROMPT.md",
+      "sha256": "db9d62e4ab6b4de68878154be5d2811e5a42b8d633b91597c5d1030c708593d5",
+      "size_bytes": 9245,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 13,
+      "filename": "STAGE-13_DASHBOARD_ADAPTER_CONTRACT_SET_A_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-13_DASHBOARD_ADAPTER_CONTRACT_SET_A_PROMPT.md",
+      "sha256": "e56a7f91d4b4d2530f4fa14e602c551589c651346c7b63ea00ed5ad824cec35a",
+      "size_bytes": 11117,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 14,
+      "filename": "STAGE-14_DASHBOARD_ADAPTER_CONTRACT_SET_B_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-14_DASHBOARD_ADAPTER_CONTRACT_SET_B_PROMPT.md",
+      "sha256": "05b7ab58b2bfce856d71cfc8745538b7e2e2b5432d48403f518b611511b83c5c",
+      "size_bytes": 10602,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 15,
+      "filename": "STAGE-15_DASHBOARD_RENDER_TRUTH_PANELS_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-15_DASHBOARD_RENDER_TRUTH_PANELS_PROMPT.md",
+      "sha256": "2959491268f93e1ce5633630dfab8e5a9fa8d190ad448bbc421cecf352697936",
+      "size_bytes": 9070,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 16,
+      "filename": "STAGE-16_DASHBOARD_ACTION_RECEIPT_CONTROLS_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-16_DASHBOARD_ACTION_RECEIPT_CONTROLS_PROMPT.md",
+      "sha256": "fd91a366905537151237ac8d047a0fe11fb6cb82ce358e2e131ce8647f14e966",
+      "size_bytes": 9328,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 17,
+      "filename": "STAGE-17_UTF8_REPO_PURITY_HARDENING_CHECKS_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-17_UTF8_REPO_PURITY_HARDENING_CHECKS_PROMPT.md",
+      "sha256": "8890039046a66f48e12671bd1b5535f236e223755f504a90183b6035045d86fb",
+      "size_bytes": 8220,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 18,
+      "filename": "STAGE-18_SANCTUM_AGGREGATION_READ_ONLY_WIRING_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-18_SANCTUM_AGGREGATION_READ_ONLY_WIRING_PROMPT.md",
+      "sha256": "4e386b689bed7af8d328e659fead7795dcb1a8ba1123fa257373fda2648a770f",
+      "size_bytes": 9488,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 19,
+      "filename": "STAGE-19_END_TO_END_PROOF_RUN_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-19_END_TO_END_PROOF_RUN_PROMPT.md",
+      "sha256": "19371686cd7e3980523192f5d17d2b65a3ac52e9c2bd601962258d353bb3c7c8",
+      "size_bytes": 9076,
+      "required_markers_present": true
+    },
+    {
+      "stage_number": 20,
+      "filename": "STAGE-20_FINAL_BUNDLE_CERTIFICATION_CLOSURE_PROMPT.md",
+      "repo_path": "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-FOUNDATIONAL-ORGANS-V1-HARDENING/STAGE_PROMPTS/STAGE-20_FINAL_BUNDLE_CERTIFICATION_CLOSURE_PROMPT.md",
+      "sha256": "d59c0230d468e55ad4fbc57b3304fc5f74043fedb7465246432d82855c717be3",
+      "size_bytes": 10495,
+      "required_markers_present": true
+    }
+  ]
+}
