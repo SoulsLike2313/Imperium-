@@ -1,0 +1,56 @@
+﻿{
+    "task_id":  "TASK-20260515-FOUNDATIONAL-ORGANS-V1-DEFINITION-V0_1",
+    "status":  "owner_answer_sheet_v0_1",
+    "created_utc":  "2026-05-15T03:57:33.8847009Z",
+    "source":  "Owner live answers normalized into English canonical artifact",
+    "answers":  {
+                    "administratum_as_execution_truth":  true,
+                    "astronomicon_as_future_task_memory":  true,
+                    "raw_advisory_in_astronomicon":  true,
+                    "canon_acceptance_in_doctrinarium":  true,
+                    "canonical_evidence_json":  true,
+                    "optional_markdown_summaries":  true,
+                    "meaningful_transitions_require_receipts":  true,
+                    "organ_dashboards_mandatory_for_v1":  true,
+                    "dashboard_green_requires_real_evidence":  true,
+                    "sanctum_aggregates_organ_powers":  true,
+                    "officio_owner_gated_for_v1":  true,
+                    "doctrinarium_task_start_gate_checks_organs_and_laws":  true,
+                    "dashboard_actions_require_confirmation_and_receipts":  true,
+                    "canonical_files_english_ui_bilingual":  true,
+                    "organ_dashboards_keep_unique_spirit":  true,
+                    "evidence_archived_not_deleted_casually":  true,
+                    "organ_metrics_required":  true
+                },
+    "route":  [
+                  "TASK_ID received by Servitor or Owner",
+                  "Servitor checks Doctrinarium for organ/law readiness",
+                  "Servitor goes to Administratum with TASK_ID",
+                  "Administratum looks up task in Astronomicon",
+                  "Administratum issues addresses and route sheet",
+                  "Servitor enters Officio Agentis role/mode contract",
+                  "Servitor reads Astronomicon goal, scope, and stage map",
+                  "Administratum confirms correct task and authorizes start",
+                  "Servitor executes stages",
+                  "Administratum records each stage",
+                  "Administratum collects final bundle and continuity pack"
+              ],
+    "dashboard_law":  {
+                          "no_proof_no_truth":  true,
+                          "no_evidence_no_green":  true,
+                          "no_nonworking_buttons":  true,
+                          "scripts_shown_must_work":  true,
+                          "dashboard_reads_backend_reports":  true
+                      },
+    "visual_targets":  {
+                           "warhammer_imperial_spirit":  true,
+                           "scifi":  true,
+                           "jarvis_style":  true,
+                           "cosmic_animation":  true,
+                           "smooth_architecture":  true,
+                           "target_60fps_where_feasible":  true,
+                           "completed_stage_visual":  "dim glow",
+                           "active_stage_visual":  "active pulse and animation",
+                           "future_stage_visual":  "white-platinum slow stellar glow"
+                       }
+}
