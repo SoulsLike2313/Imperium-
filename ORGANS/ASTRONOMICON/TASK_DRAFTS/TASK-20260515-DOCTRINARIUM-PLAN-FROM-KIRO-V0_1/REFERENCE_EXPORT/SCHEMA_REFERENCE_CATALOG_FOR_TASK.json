@@ -1,0 +1,175 @@
+{
+  "source": "Kiro advisory extract",
+  "note": "Reference-only catalog for planning package. Not implementation instruction.",
+  "canonical_status": "reference_only",
+  "schemas": [
+    {
+      "schema_name": "law.schema.json",
+      "proposed_path": "schemas/law.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "doctrine.schema.json",
+      "proposed_path": "schemas/doctrine.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "law_registry.schema.json",
+      "proposed_path": "schemas/law_registry.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "law_compliance_report.schema.json",
+      "proposed_path": "schemas/law_compliance_report.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "organ_form.schema.json",
+      "proposed_path": "schemas/organ_form.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "organ_self_report.schema.json",
+      "proposed_path": "schemas/organ_self_report.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "organ_health_verdict.schema.json",
+      "proposed_path": "schemas/organ_health_verdict.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "task_start_gate_request.schema.json",
+      "proposed_path": "schemas/task_start_gate_request.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "task_start_gate_verdict.schema.json",
+      "proposed_path": "schemas/task_start_gate_verdict.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "violation_record.schema.json",
+      "proposed_path": "schemas/violation_record.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "inquisition_hook_packet.schema.json",
+      "proposed_path": "schemas/inquisition_hook_packet.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    },
+    {
+      "schema_name": "law_change_receipt.schema.json",
+      "proposed_path": "schemas/law_change_receipt.schema.json",
+      "purpose": "Advisory candidate schema for Doctrinarium MVP machine contracts.",
+      "required_fields_summary": [
+        "schema_version",
+        "id_or_key",
+        "status_or_verdict",
+        "provenance",
+        "timestamp_utc"
+      ],
+      "promotion_status": "candidate_reference",
+      "canonical_status": "reference_only"
+    }
+  ]
+}

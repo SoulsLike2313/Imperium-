@@ -1,0 +1,407 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "title": "Doctrinarium MVP Build",
+  "planning_source_task_id": "TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1",
+  "source_references": [
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/DOCTRINARIUM_MVP_20260515",
+    "ORGANS/ASTRONOMICON/METHODS/LARGE_PLAN_STAGE_DECOMPOSITION_V0_1",
+    "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1/SOURCE_REFERENCES.json"
+  ],
+  "stages": [
+    {
+      "stage_id": "STAGE-0",
+      "stage_name": "Planning / Registration Package",
+      "goal": "Finalize registration-ready planning package without implementation or registration execution.",
+      "depends_on": [],
+      "inputs": [
+        "Kiro advisory buffer",
+        "Large-plan decomposition method"
+      ],
+      "files_to_create": [
+        "TASK_DRAFTS planning artifacts"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "optional planning validators"
+      ],
+      "scripts_to_run": [
+        "python scripts/validate_task_draft.py --task TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1"
+      ],
+      "schemas_to_validate": [
+        "TASK_MANIFEST.json",
+        "SOURCE_REFERENCES.json",
+        "STAGE_MAP.json",
+        "EVIDENCE_REQUIREMENTS.json"
+      ],
+      "pass_criteria": [
+        "All planning artifacts parse and exist",
+        "No Doctrinarium implementation created",
+        "No registration performed"
+      ],
+      "stop_criteria": [
+        "Missing required planning files",
+        "Invalid JSON",
+        "Unresolved owner decision blockers"
+      ],
+      "evidence_paths": [
+        "ORGANS/ASTRONOMICON/TASK_DRAFTS/TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1/REPORTS/doctrinarium_planning_package_report.json"
+      ],
+      "owner_approval_required": true,
+      "fake_green_checks": [
+        "No PASS without evidence paths",
+        "No canonical claims from advisory"
+      ],
+      "expected_receipts": [
+        "doctrinarium_planning_package_report.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-1",
+      "stage_name": "Foundation",
+      "goal": "Create Doctrinarium foundation boundaries and baseline contracts.",
+      "depends_on": [
+        "STAGE-0"
+      ],
+      "inputs": [
+        "Approved planning package"
+      ],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM foundational docs and contracts"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "doctrinarium_validate_foundation_v0_1.py"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_validate_foundation_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "foundation references"
+      ],
+      "pass_criteria": [
+        "Foundation checker PASS with explicit ownership boundaries"
+      ],
+      "stop_criteria": [
+        "Ownership collision",
+        "Foundation checker FAIL"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/foundation_validation_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No PASS_WITH_WARNINGS with empty warnings"
+      ],
+      "expected_receipts": [
+        "foundation_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-2",
+      "stage_name": "Law Registry",
+      "goal": "Create law format and registry contracts with provenance.",
+      "depends_on": [
+        "STAGE-1"
+      ],
+      "inputs": [
+        "Foundation artifacts",
+        "Approved law decisions"
+      ],
+      "files_to_create": [
+        "law.schema.json",
+        "doctrine.schema.json",
+        "law_registry.schema.json"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "doctrinarium_validate_law_registry_v0_1.py"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_validate_law_registry_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "law.schema.json",
+        "doctrine.schema.json",
+        "law_registry.schema.json"
+      ],
+      "pass_criteria": [
+        "Law registry report PASS with provenance fields"
+      ],
+      "stop_criteria": [
+        "Invalid schema",
+        "Missing provenance"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No compliance claim without registry report"
+      ],
+      "expected_receipts": [
+        "law_registry_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-3",
+      "stage_name": "Law Integrity",
+      "goal": "Implement law integrity guard and contradiction detection.",
+      "depends_on": [
+        "STAGE-2"
+      ],
+      "inputs": [
+        "Law registry artifacts"
+      ],
+      "files_to_create": [
+        "integrity checker outputs"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "doctrinarium_check_law_integrity_v0_1.py"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_check_law_integrity_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "law_compliance_report.schema.json"
+      ],
+      "pass_criteria": [
+        "Integrity report PASS and contradiction handling evidence"
+      ],
+      "stop_criteria": [
+        "Contradiction unresolved",
+        "Integrity checker FAIL"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No PASS if contradiction_count unresolved"
+      ],
+      "expected_receipts": [
+        "law_integrity_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-4",
+      "stage_name": "Organ Health",
+      "goal": "Collect organ self-reports and evaluate health verdicts.",
+      "depends_on": [
+        "STAGE-3"
+      ],
+      "inputs": [
+        "Foundation boundaries",
+        "Health schemas"
+      ],
+      "files_to_create": [
+        "organ self-report and verdict artifacts"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "doctrinarium_collect_organ_self_reports_v0_1.py",
+        "doctrinarium_evaluate_organ_health_v0_1.py"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_collect_organ_self_reports_v0_1.py",
+        "python scripts/doctrinarium_evaluate_organ_health_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "organ_self_report.schema.json",
+        "organ_health_verdict.schema.json"
+      ],
+      "pass_criteria": [
+        "Health verdict PASS with checker_last_run_utc"
+      ],
+      "stop_criteria": [
+        "Missing or stale self-reports",
+        "Invalid health verdict schema"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No HEALTHY verdict without checker_last_run_utc"
+      ],
+      "expected_receipts": [
+        "organ_health_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-5",
+      "stage_name": "Task Start Gate",
+      "goal": "Enforce task admission gate and emit violation records.",
+      "depends_on": [
+        "STAGE-4"
+      ],
+      "inputs": [
+        "Law and health verdict outputs"
+      ],
+      "files_to_create": [
+        "task start gate artifacts",
+        "violation artifacts"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "doctrinarium_task_start_gate_v0_1.py",
+        "doctrinarium_record_violation_v0_1.py"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_task_start_gate_v0_1.py",
+        "python scripts/doctrinarium_record_violation_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "task_start_gate_request.schema.json",
+        "task_start_gate_verdict.schema.json",
+        "violation_record.schema.json"
+      ],
+      "pass_criteria": [
+        "Gate verdict deterministic and evidence-backed"
+      ],
+      "stop_criteria": [
+        "Gate verdict missing",
+        "Inconsistent allow_execution",
+        "Missing violation record when blocked"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No task execution allowed without gate verdict artifact"
+      ],
+      "expected_receipts": [
+        "task_gate_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-6",
+      "stage_name": "Inquisition Hook Disabled",
+      "goal": "Define disabled hook behavior and verify non-active status.",
+      "depends_on": [
+        "STAGE-5"
+      ],
+      "inputs": [
+        "Boundary policies",
+        "Integration contracts"
+      ],
+      "files_to_create": [
+        "inquisition hook packet schema and disabled report"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "disabled hook verifier"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_verify_inquisition_hook_disabled_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "inquisition_hook_packet.schema.json"
+      ],
+      "pass_criteria": [
+        "Disabled hook report PASS and no active-hook claims"
+      ],
+      "stop_criteria": [
+        "Any active-hook implication"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/inquisition_hook_disabled_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No active Inquisition claim while unimplemented"
+      ],
+      "expected_receipts": [
+        "inquisition_disabled_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-7",
+      "stage_name": "Integration / Tests",
+      "goal": "Run integrated checkers, dry-runs, and anti-fake-green tests.",
+      "depends_on": [
+        "STAGE-6"
+      ],
+      "inputs": [
+        "Outputs from STAGE-1 through STAGE-6"
+      ],
+      "files_to_create": [
+        "integration test reports"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "doctrinarium_check_all_v0_1.py"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_check_all_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "all doctrinarium schemas"
+      ],
+      "pass_criteria": [
+        "Integrated checks PASS and warnings explicitly disclosed"
+      ],
+      "stop_criteria": [
+        "Missing report paths",
+        "Failed checkers",
+        "Fake-green pattern detected"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/check_all_report.json"
+      ],
+      "owner_approval_required": false,
+      "fake_green_checks": [
+        "No PASS_WITH_WARNINGS with empty warnings"
+      ],
+      "expected_receipts": [
+        "integration_receipt.json"
+      ]
+    },
+    {
+      "stage_id": "STAGE-8",
+      "stage_name": "Self-Build",
+      "goal": "Prove deterministic self-build and package readiness evidence graph.",
+      "depends_on": [
+        "STAGE-7"
+      ],
+      "inputs": [
+        "Integrated reports and receipts"
+      ],
+      "files_to_create": [
+        "self-build evaluation report"
+      ],
+      "files_to_modify": [],
+      "scripts_to_create": [
+        "self-build evaluator"
+      ],
+      "scripts_to_run": [
+        "python scripts/doctrinarium_self_build_eval_v0_1.py"
+      ],
+      "schemas_to_validate": [
+        "self-build report schema"
+      ],
+      "pass_criteria": [
+        "Self-build report PASS with complete evidence graph"
+      ],
+      "stop_criteria": [
+        "Unresolved blockers",
+        "Empty evidence graph"
+      ],
+      "evidence_paths": [
+        "ORGANS/DOCTRINARIUM/REPORTS/self_build_evaluation_report.json"
+      ],
+      "owner_approval_required": true,
+      "fake_green_checks": [
+        "No PASS without non-empty evidence graph"
+      ],
+      "expected_receipts": [
+        "self_build_receipt.json"
+      ]
+    }
+  ],
+  "total_stages": 9,
+  "created_utc": "2026-05-15T02:32:32Z",
+  "planning_status": "registration_ready_draft",
+  "canonical_status": "not_registered"
+}

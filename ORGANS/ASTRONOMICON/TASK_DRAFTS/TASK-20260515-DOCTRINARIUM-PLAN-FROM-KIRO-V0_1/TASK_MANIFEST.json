@@ -1,0 +1,31 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1",
+  "title": "Prepare Doctrinarium MVP planning package from Kiro advisory",
+  "purpose": "Build a registration-ready planning package using advisory references and decomposition method outputs without implementation or registration.",
+  "source_advisory_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/DOCTRINARIUM_MVP_20260515",
+  "source_method_path": "ORGANS/ASTRONOMICON/METHODS/LARGE_PLAN_STAGE_DECOMPOSITION_V0_1",
+  "target_future_task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "status": "draft_ready_for_owner_review",
+  "created_utc": "2026-05-15T02:28:39Z",
+  "owner": "Owner",
+  "responsible_role": "Logos-Prime / PC Servitor",
+  "canonical_status": "planning_draft_not_registered",
+  "outputs": [
+    "README.md",
+    "TASK_MANIFEST.json",
+    "SOURCE_REFERENCES.json",
+    "OWNER_DECISION_MATRIX.md",
+    "DOCTRINARIUM_MVP_MASTER_PLAN.md",
+    "DOCTRINARIUM_V1_BOUNDARY_DRAFT.md",
+    "DOCTRINARIUM_STAGE_MATRIX.md",
+    "STAGE_MAP.json",
+    "EVIDENCE_REQUIREMENTS.json",
+    "NO_FAKE_GREEN_REQUIREMENTS.md",
+    "REGISTRATION_READINESS_CHECKLIST.md",
+    "STAGE_PROMPTS/*.md",
+    "REFERENCE_EXPORT/*",
+    "REPORTS/doctrinarium_planning_package_report.json"
+  ],
+  "no_implementation": true,
+  "no_registration_performed": true
+}

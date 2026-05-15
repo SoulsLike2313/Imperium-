@@ -1,0 +1,166 @@
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "planning_source_task_id": "TASK-20260515-DOCTRINARIUM-PLAN-FROM-KIRO-V0_1",
+  "requirements": [
+    {
+      "evidence_id": "EVID-001",
+      "stage_id": "STAGE-1",
+      "required_path": "ORGANS/DOCTRINARIUM/README.md",
+      "required_fields": [
+        "non_empty"
+      ],
+      "validation_method": "file_exists_and_non_empty",
+      "fake_green_risk": "PASS without foundational readme evidence",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-002",
+      "stage_id": "STAGE-1",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/foundation_validation_report.json",
+      "required_fields": [
+        "verdict",
+        "evidence_paths"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Foundation PASS without report",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-003",
+      "stage_id": "STAGE-2",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/schema_validation_report.json",
+      "required_fields": [
+        "validated_schemas",
+        "errors"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Schema claim without validation report",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-004",
+      "stage_id": "STAGE-2",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_report.json",
+      "required_fields": [
+        "registry_id",
+        "verdict",
+        "provenance"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Law registry PASS without provenance",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-005",
+      "stage_id": "STAGE-3",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report.json",
+      "required_fields": [
+        "verdict",
+        "contradiction_count"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Integrity PASS without contradiction metrics",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-006",
+      "stage_id": "STAGE-4",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/organ_self_report_collection_report.json",
+      "required_fields": [
+        "organs_collected",
+        "missing_organs"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Health verdict without self-report collection evidence",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-007",
+      "stage_id": "STAGE-4",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/organ_health_verdict_report.json",
+      "required_fields": [
+        "verdict",
+        "checker_last_run_utc"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Healthy claim without checker timestamp",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-008",
+      "stage_id": "STAGE-5",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_report.json",
+      "required_fields": [
+        "verdict",
+        "allow_execution",
+        "reasons"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Task start allowed without gate verdict",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-009",
+      "stage_id": "STAGE-5",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/violation_record_report.json",
+      "required_fields": [
+        "violation_id",
+        "severity",
+        "source"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Blocked verdict without violation record",
+      "stop_if_missing": false
+    },
+    {
+      "evidence_id": "EVID-010",
+      "stage_id": "STAGE-6",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/inquisition_hook_disabled_report.json",
+      "required_fields": [
+        "hook_state",
+        "verdict"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Active hook claim without disabled evidence",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-011",
+      "stage_id": "STAGE-7",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/check_all_report.json",
+      "required_fields": [
+        "verdict",
+        "warnings",
+        "stage_reports"
+      ],
+      "validation_method": "json_parse_and_warning_consistency",
+      "fake_green_risk": "Integrated PASS without linked stage reports",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-012",
+      "stage_id": "STAGE-7",
+      "required_path": "ORGANS/DOCTRINARIUM/TESTS/fake_green_test_report.json",
+      "required_fields": [
+        "scenarios",
+        "verdict"
+      ],
+      "validation_method": "json_parse_and_required_fields",
+      "fake_green_risk": "Fake-green checks missing",
+      "stop_if_missing": true
+    },
+    {
+      "evidence_id": "EVID-013",
+      "stage_id": "STAGE-8",
+      "required_path": "ORGANS/DOCTRINARIUM/REPORTS/self_build_evaluation_report.json",
+      "required_fields": [
+        "verdict",
+        "evidence_graph",
+        "blockers"
+      ],
+      "validation_method": "json_parse_and_non_empty_graph",
+      "fake_green_risk": "Self-build PASS without evidence graph",
+      "stop_if_missing": true
+    }
+  ]
+}
