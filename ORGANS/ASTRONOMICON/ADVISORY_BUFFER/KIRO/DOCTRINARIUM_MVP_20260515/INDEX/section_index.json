@@ -1,0 +1,189 @@
+{
+  "advisory_id": "KIRO-DOCTRINARIUM-MVP-20260515",
+  "sections": [
+    {
+      "section_id": "SEC-001",
+      "title": "Best Conceptual Form",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## A. Best Conceptual Form",
+      "summary": "## A. Best Conceptual Form **Doctrinarium should be the law enforcement and organ health gate of IMPERIUM.**",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-002",
+      "title": "Boundaries and Ownership",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## B. Boundaries and Ownership",
+      "summary": "## B. Boundaries and Ownership ### Doctrinarium Owns",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-003",
+      "title": "Higher and Lower Laws",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## C. Higher and Lower Laws",
+      "summary": "## C. Higher and Lower Laws ### Law Hierarchy",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-004",
+      "title": "Machine-Readable Law Format",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## D. Machine-Readable Law Format",
+      "summary": "## D. Machine-Readable Law Format **Recommendation: JSON as canonical, paired with `.md` for human reading.**",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-005",
+      "title": "Human-Readable Law Format",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## E. Human-Readable Law Format",
+      "summary": "## E. Human-Readable Law Format ### `LAW-001.md` Template",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-006",
+      "title": "Law Compliance Metrics",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## F. Law Compliance Metrics",
+      "summary": "## F. Law Compliance Metrics ### Metrics Schema",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-007",
+      "title": "Organ PASS Form",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## G. Organ PASS Form",
+      "summary": "## G. Organ PASS Form ### Organ Form Checklist",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-008",
+      "title": "Organ Health / Freshness / Port Model",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## H. Organ Health / Freshness / Port Model",
+      "summary": "## H. Organ Health / Freshness / Port Model ### MVP Port Model",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-009",
+      "title": "Task Start Gate",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## I. Task Start Gate",
+      "summary": "## I. Task Start Gate ### Gate Verdict Options",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-010",
+      "title": "Law Integrity Guard",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "| Law Integrity Guard | Protection against law corruption, duplication, contradiction |",
+      "summary": "| Law Integrity Guard | Protection against law corruption, duplication, contradiction | | Violation Records | Evidence of law violations (pending Inquisition) | | Inquisition Hook (disabled) | Prepared escalation path, n",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-011",
+      "title": "Inquisition Hook",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "| Inquisition Hook (disabled) | Prepared escalation path, not active |",
+      "summary": "| Inquisition Hook (disabled) | Prepared escalation path, not active | ### What Doctrinarium Must NOT Own",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-012",
+      "title": "Interaction With Existing Organs",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## L. Interaction With Existing Organs",
+      "summary": "## L. Interaction With Existing Organs ### 1. Astronomicon",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-013",
+      "title": "Folder Structure",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "## M. Folder Structure",
+      "summary": "## M. Folder Structure ```",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-014",
+      "title": "Schemas",
+      "source_file": "Kiro1.txt",
+      "approximate_start_marker": "\u251c\u2500\u2500 SCHEMAS/                 # All Doctrinarium schemas",
+      "summary": "\u251c\u2500\u2500 SCHEMAS/                 # All Doctrinarium schemas \u251c\u2500\u2500 TESTS/                   # Pytest tests for Doctrinarium \u251c\u2500\u2500 DOCS/                    # Human-readable documentation",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-015",
+      "title": "Checkers / Scripts",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## O. Checkers / Scripts",
+      "summary": "## O. Checkers / Scripts ### Script Specifications",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-016",
+      "title": "Verification / Test Plan",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## P. Verification / Test Plan",
+      "summary": "## P. Verification / Test Plan ### Test Matrix",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-017",
+      "title": "MVP Build Plan",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## Q. MVP Build Plan",
+      "summary": "## Q. MVP Build Plan ### Stage Overview",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-018",
+      "title": "CLI Registration Through Astronomicon",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## R. CLI Registration Through Astronomicon",
+      "summary": "## R. CLI Registration Through Astronomicon ### Files Logos-Prime Must Prepare",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-019",
+      "title": "Sanctum / Dashboard Future",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## S. Sanctum / Dashboard Future",
+      "summary": "## S. Sanctum / Dashboard Future ### Personal Doctrinarium Dashboard Should Show",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-020",
+      "title": "Risks and Red-Team Warnings",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## T. Risks and Red-Team Warnings",
+      "summary": "## T. Risks and Red-Team Warnings ### Critical Risks",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-021",
+      "title": "Recommended First Concrete Next Step",
+      "source_file": "Kiro2.txt",
+      "approximate_start_marker": "## U. Recommended First Concrete Next Step",
+      "summary": "## U. Recommended First Concrete Next Step **Create a Doctrinarium MVP task frame for",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-022",
+      "title": "Final Architecture Summary",
+      "source_file": "Kiro21.txt",
+      "approximate_start_marker": "## Final Architecture Summary",
+      "summary": "## Final Architecture Summary **Doctrinarium should be:**",
+      "canonical_status": "advisory_reference_only"
+    },
+    {
+      "section_id": "SEC-023",
+      "title": "First 3 Concrete Implementation Actions",
+      "source_file": "Kiro21.txt",
+      "approximate_start_marker": "## First 3 Concrete Implementation Actions",
+      "summary": "## First 3 Concrete Implementation Actions ### Action 1: Prepare Task Registration Package",
+      "canonical_status": "advisory_reference_only"
+    }
+  ]
+}

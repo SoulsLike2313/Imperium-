@@ -1,0 +1,64 @@
+{
+  "advisory_id": "KIRO-DOCTRINARIUM-MVP-20260515",
+  "started_utc": "2026-05-15T01:56:27.250255+00:00",
+  "completed_utc": "2026-05-15T01:56:59.260197+00:00",
+  "source_folder": "C:/Users/PC/Desktop/NEED/FROM_KIRO",
+  "files_copied": [
+    "Kiro1.txt",
+    "Kiro2.txt",
+    "Kiro21.txt"
+  ],
+  "hashes": {
+    "Kiro1.txt": "99fc268b6b98f5d2855ba5cc09892025d83d56ad5e578c4d78c03a3ac7cf2148",
+    "Kiro2.txt": "fa3495a85935fe18d35c44ddb472b23a24dd8e9a52cc3b82bdb72fafa02defe3",
+    "Kiro21.txt": "7cf2bba4ffd8adf918a0100f373c4dbdaeccd8ba2aba586b4a016fbb676794a1"
+  },
+  "created_files": [
+    "README.md",
+    "DECISIONS_DRAFT/ADR-DOCTRINARIUM-INQUISITION-HOOK-DISABLED.md",
+    "DECISIONS_DRAFT/ADR-DOCTRINARIUM-LAW-FORMAT.md",
+    "DECISIONS_DRAFT/ADR-DOCTRINARIUM-ORGAN-HEALTH-GATE.md",
+    "DECISIONS_DRAFT/ADR-DOCTRINARIUM-OWNERSHIP.md",
+    "DECISIONS_DRAFT/ADR-DOCTRINARIUM-TASK-START-GATE.md",
+    "EXTRACTED/doctrinarium_architecture_extract.md",
+    "EXTRACTED/first_laws_reference.md",
+    "EXTRACTED/implementation_action_reference.md",
+    "EXTRACTED/risks_and_tests_reference.md",
+    "EXTRACTED/schema_reference_catalog.json",
+    "EXTRACTED/script_reference_catalog.json",
+    "INDEX/code_block_index.json",
+    "INDEX/section_index.json",
+    "INDEX/section_index.md",
+    "MANIFEST/raw_file_hashes.sha256",
+    "MANIFEST/raw_file_manifest.json",
+    "RAW/Kiro1.txt",
+    "RAW/Kiro2.txt",
+    "RAW/Kiro21.txt"
+  ],
+  "warnings": [
+    "Source path mismatch resolved: declared 'FROM KIRO' not found, used existing 'FROM_KIRO'."
+  ],
+  "blockers": [],
+  "verdict": "PASS_WITH_WARNINGS",
+  "git_head_before": "b758a3786dc4671eb1d1e0b42fd73d3b4ef16eb2",
+  "git_head_after_before_commit": "b758a3786dc4671eb1d1e0b42fd73d3b4ef16eb2",
+  "commit_sha_after_commit": null,
+  "no_fake_green_evidence": [
+    "manifest hash verification passed",
+    "json parsing checks passed",
+    "raw file byte/hash parity maintained",
+    "diff scope limited to advisory ingest path"
+  ],
+  "validation_details": {
+    "required_files_exist": true,
+    "missing_files": [],
+    "hash_match": true,
+    "hash_failures": [],
+    "json_parse_ok": true,
+    "json_parse_failures": [],
+    "raw_unchanged": true,
+    "raw_diff_failures": [],
+    "diff_scope_ok": true,
+    "outside_scope_paths": []
+  }
+}

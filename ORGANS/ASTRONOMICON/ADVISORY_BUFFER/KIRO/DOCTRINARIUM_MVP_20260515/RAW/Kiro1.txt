@@ -1,0 +1,720 @@
+# Doctrinarium MVP Advisory
+
+This is a substantial architecture advisory request, not a standard spec workflow. You're asking for a detailed design consultation before any implementation begins.
+
+Let me provide the comprehensive advisory you've requested.
+
+---
+
+## A. Best Conceptual Form
+
+**Doctrinarium should be the law enforcement and organ health gate of IMPERIUM.**
+
+### What Doctrinarium Owns
+
+| Ownership | Description |
+|-----------|-------------|
+| Law Registry | Canonical store of all active, retired, and draft laws |
+| Doctrine Registry | Operational doctrines derived from laws |
+| Law Hierarchy | Higher/lower law relationships and conflict resolution |
+| Law Compliance Checks | Scripts that evaluate whether actions/states violate laws |
+| Organ Form Gates | Checkers that evaluate whether organs meet minimum working form |
+| Task-Start Permission Verdict | Binary gate: can execution proceed or not |
+| Law Integrity Guard | Protection against law corruption, duplication, contradiction |
+| Violation Records | Evidence of law violations (pending Inquisition) |
+| Inquisition Hook (disabled) | Prepared escalation path, not active |
+
+### What Doctrinarium Must NOT Own
+
+| Not Owned | Belongs To |
+|-----------|------------|
+| Task decomposition, stage maps, corridor flow | Astronomicon |
+| Address book, chronicle, memory, bundles | Administratum |
+| Role contracts, modes, agent behavior | Officio Agentis |
+| Tool implementation, script machinery | Mechanicus |
+| Audit verdicts, investigation, punishment | Inquisition |
+| UI/dashboard rendering | Sanctum |
+| Execution itself | Servitor |
+
+### Authority Model
+
+Doctrinarium has **advisory authority with blocking power**:
+- It does not execute tasks
+- It does not assign roles
+- It does not manage lifecycle
+- It **can block** task execution by refusing to issue ALLOW_EXECUTION verdict
+- It **can warn** without blocking
+- It **cannot override Owner** — Owner can force-proceed with recorded exception
+
+### What "Law Active" Means
+
+A law is active when:
+1. `status: "active"` in law registry
+2. `effective_date` ≤ current date
+3. `expiry_date` is null or > current date
+4. No `superseded_by` pointing to another active law
+5. Law passes integrity check (valid schema, no contradictions)
+6. Law has at least one enforcement mode defined
+
+### What "Organ Legally/Operationally Alive" Means
+
+An organ is alive when:
+1. Folder exists at `ORGANS/{ORGAN_NAME}/`
+2. `README.md` exists and is non-empty
+3. Registry entry exists in `ORGAN_REGISTRY.json`
+4. Self-report file exists and is fresh (< 24h for active organs, < 7d for deferred)
+5. No BLOCKER-level violations recorded
+6. Required checker script exists and last ran with PASS or PASS_WITH_WARNINGS
+7. Organ does not claim ownership of another organ's domain
+
+### What "Task Execution Allowed" Means
+
+Task execution is allowed when:
+1. All required organs are alive (Astronomicon, Administratum, Officio Agentis, Doctrinarium)
+2. No BLOCKER-level law violations exist for the task scope
+3. Assigned agent role is valid per Officio Agentis
+4. Task is registered in Astronomicon
+5. No unresolved exceptions requiring Owner approval
+6. Law integrity check passes
+7. Organ health check passes with no BLOCKERs
+
+---
+
+## B. Boundaries and Ownership
+
+### Doctrinarium Owns
+
+```
+ORGANS/DOCTRINARIUM/
+├── LAWS/                    # Individual law files
+├── DOCTRINES/               # Operational doctrine files
+├── LAW_REGISTRY/            # law_registry.json + index
+├── GATES/                   # Gate definitions and configs
+├── ORGAN_HEALTH/            # Organ form checklists, self-reports
+├── VIOLATIONS/              # Violation records (pending Inquisition)
+├── INQUISITION_HOOKS/       # Disabled hook definitions
+├── REPORTS/                 # Compliance reports, gate verdicts
+├── SCHEMAS/                 # All Doctrinarium schemas
+├── TESTS/                   # Pytest tests for Doctrinarium
+├── DOCS/                    # Human-readable documentation
+└── README.md
+```
+
+### Doctrinarium Does NOT Own
+
+| Domain | Owner |
+|--------|-------|
+| `ASTRONOMICON/STAGE_MAPS/` | Astronomicon |
+| `ADMINISTRATUM/CHRONICLE/` | Administratum |
+| `OFFICIO_AGENTIS/ROLES/` | Officio Agentis |
+| `scripts/verify_repo.py` | Mechanicus/root |
+| Audit investigation files | Inquisition (future) |
+| Dashboard rendering | Sanctum |
+
+---
+
+## C. Higher and Lower Laws
+
+### Law Hierarchy
+
+| Level | Name | Authority | Override | Example |
+|-------|------|-----------|----------|---------|
+| 0 | **Throne Laws** | Owner only | Cannot be overridden | "No commit from VM2" |
+| 1 | **Constitutional Laws** | Owner + Strategium | Only by Throne | "All artifacts must have provenance" |
+| 2 | **Organ Laws** | Organ owner | Only by Constitutional+ | "Administratum owns chronicle" |
+| 3 | **Operational Doctrines** | Task scope | Only by Organ+ | "Bundle must include hash manifest" |
+| 4 | **Task Rules** | Single task | Expire with task | "This task uses dry-run mode" |
+
+### Conflict Resolution
+
+1. Higher law always wins over lower law
+2. If same level conflicts: newer law wins unless explicitly marked `conflict_resolution: "older_wins"`
+3. Exceptions require Owner approval recorded in `exception_approval.json`
+4. Lower law **cannot** override higher law — this is a BLOCKER violation
+
+### Law Retirement
+
+- Laws are never deleted, only marked `status: "retired"` or `status: "superseded"`
+- Retired laws remain in registry with `retired_utc` timestamp
+- Superseded laws point to replacement via `superseded_by` field
+- Stale law = active law not referenced by any gate/check in 90 days → WARNING
+
+### Exception Approval
+
+```json
+{
+  "exception_id": "EXC-20260515-001",
+  "law_id": "LAW-001",
+  "task_id": "TASK-20260515-...",
+  "reason": "One-time migration requires temporary bypass",
+  "approved_by": "Owner",
+  "approved_utc": "2026-05-15T10:00:00Z",
+  "expires_utc": "2026-05-16T10:00:00Z",
+  "evidence_path": "ARTIFACTS/.../exception_approval.json"
+}
+```
+
+---
+
+## D. Machine-Readable Law Format
+
+**Recommendation: JSON as canonical, paired with `.md` for human reading.**
+
+### `law.schema.json` — Core Fields
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["law_id", "title", "law_level", "authority", "status", "version", "scope", "applies_to", "enforcement_mode", "created_utc"],
+  "properties": {
+    "law_id": { "type": "string", "pattern": "^LAW-[0-9]{3,}$" },
+    "title": { "type": "string", "maxLength": 120 },
+    "law_level": { "type": "integer", "minimum": 0, "maximum": 4 },
+    "authority": { "type": "string", "enum": ["Owner", "Strategium", "Organ", "Task"] },
+    "status": { "type": "string", "enum": ["draft", "active", "retired", "superseded"] },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+$" },
+    "scope": { "type": "string", "enum": ["global", "organ", "task", "artifact"] },
+    "applies_to": { "type": "array", "items": { "type": "string" } },
+    "prohibited_actions": { "type": "array", "items": { "type": "string" } },
+    "required_actions": { "type": "array", "items": { "type": "string" } },
+    "gate_checks": { "type": "array", "items": { "type": "string" } },
+    "metrics": { "type": "array", "items": { "type": "string" } },
+    "violation_conditions": { "type": "array", "items": { "type": "string" } },
+    "exception_policy": { "type": "string", "enum": ["no_exceptions", "owner_approval", "organ_approval"] },
+    "owner_approval_required": { "type": "boolean" },
+    "evidence_required": { "type": "array", "items": { "type": "string" } },
+    "enforcement_mode": { "type": "string", "enum": ["blocker", "warning", "advisory", "disabled"] },
+    "related_laws": { "type": "array", "items": { "type": "string" } },
+    "supersedes": { "type": ["string", "null"] },
+    "superseded_by": { "type": ["string", "null"] },
+    "effective_date": { "type": "string", "format": "date" },
+    "expiry_date": { "type": ["string", "null"], "format": "date" },
+    "created_utc": { "type": "string", "format": "date-time" },
+    "updated_utc": { "type": ["string", "null"], "format": "date-time" },
+    "provenance": { "type": "string" },
+    "human_summary": { "type": "string" },
+    "human_summary_ru": { "type": "string" }
+  }
+}
+```
+
+### Why JSON over YAML
+
+| Factor | JSON | YAML |
+|--------|------|------|
+| Schema validation | Native jsonschema | Requires conversion |
+| Existing IMPERIUM pattern | All registries are JSON | None |
+| Parsing reliability | Strict | Whitespace-sensitive |
+| Tool support | Universal | Variable |
+
+**Verdict: JSON canonical, `.md` paired for human reading.**
+
+---
+
+## E. Human-Readable Law Format
+
+### `LAW-001.md` Template
+
+```markdown
+# LAW-001: No Commit From VM2
+
+**Level:** 0 (Throne Law)  
+**Authority:** Owner  
+**Status:** Active  
+**Version:** 1.0  
+**Effective:** 2026-05-01  
+
+## Summary
+
+VM2 is a read-only workspace. All commits must originate from PC.
+
+## Scope
+
+- Applies to: all agents, all tasks, all organs
+- Enforcement: BLOCKER
+
+## Prohibited Actions
+
+1. `git commit` executed on VM2
+2. `git push` executed on VM2
+3. Any script that commits from VM2
+
+## Required Actions
+
+1. All patches prepared on VM2 must be bundled for PC transfer
+2. PC Owner must review and commit
+
+## Evidence Required
+
+- Git log showing commit origin
+- Bundle transfer receipt
+
+## Gate Checks
+
+- `scripts/verify_repo.py` — checks no VM2 commits in history
+- `TOOLS/run_administratum_git_cli_check.sh` — validates git state
+
+## Machine Definition
+
+See: `ORGANS/DOCTRINARIUM/LAWS/LAW-001.json`
+
+---
+
+*Комментарий для Owner: Это закон уровня Трона. VM2 никогда не коммитит. Все изменения идут через бандл на PC.*
+```
+
+### Language Policy
+
+| Content | Language |
+|---------|----------|
+| `law_id`, `title`, all JSON fields | English only |
+| `human_summary` | English |
+| `human_summary_ru` | Russian (optional) |
+| `.md` body | English |
+| `.md` Owner comment block | Russian allowed |
+
+---
+
+## F. Law Compliance Metrics
+
+### Metrics Schema
+
+```json
+{
+  "task_id": "TASK-20260515-...",
+  "evaluated_utc": "2026-05-15T12:00:00Z",
+  "metrics": {
+    "laws_checked_count": 12,
+    "laws_passed_count": 11,
+    "violations_count": 0,
+    "warnings_count": 1,
+    "unresolved_exceptions_count": 0,
+    "organ_gate_pass_rate": 1.0,
+    "organs_checked_count": 4,
+    "organs_passed_count": 4,
+    "stale_organ_count": 0,
+    "missing_evidence_count": 0,
+    "fake_green_risk_count": 0,
+    "law_conflict_count": 0
+  },
+  "task_start_allowed": true,
+  "verdict": "ALLOW_WITH_WARNINGS",
+  "warnings": ["LAW-007: evidence_freshness approaching threshold"],
+  "blockers": []
+}
+```
+
+### Thresholds
+
+| Metric | PASS | WARNING | BLOCKER |
+|--------|------|---------|---------|
+| `violations_count` | 0 | — | ≥1 |
+| `organ_gate_pass_rate` | 1.0 | <1.0 but >0.75 | ≤0.75 |
+| `stale_organ_count` | 0 | 1-2 | ≥3 |
+| `missing_evidence_count` | 0 | 1-2 | ≥3 |
+| `law_conflict_count` | 0 | — | ≥1 |
+| `fake_green_risk_count` | 0 | 1 | ≥2 |
+
+---
+
+## G. Organ PASS Form
+
+### Organ Form Checklist
+
+| Check | Required | PASS | WARNING | BLOCKER |
+|-------|----------|------|---------|---------|
+| Folder exists | Yes | ✓ | — | Missing |
+| README.md exists | Yes | ✓ | Empty | Missing |
+| Registry entry exists | Yes | ✓ | — | Missing |
+| Self-report exists | Yes | Fresh | Stale <7d | Stale >7d or missing |
+| Checker script exists | Yes | ✓ | — | Missing |
+| Last check PASS | Yes | PASS | PASS_WITH_WARNINGS | FAIL |
+| No BLOCKER violations | Yes | ✓ | — | Has BLOCKER |
+| Ownership boundaries respected | Yes | ✓ | — | Violation |
+| Schemas valid | Yes | ✓ | — | Invalid |
+
+### `organ_form.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["organ_name", "checks", "verdict", "evaluated_utc"],
+  "properties": {
+    "organ_name": { "type": "string" },
+    "checks": {
+      "type": "object",
+      "properties": {
+        "folder_exists": { "type": "boolean" },
+        "readme_exists": { "type": "boolean" },
+        "readme_non_empty": { "type": "boolean" },
+        "registry_entry_exists": { "type": "boolean" },
+        "self_report_exists": { "type": "boolean" },
+        "self_report_fresh": { "type": "boolean" },
+        "checker_script_exists": { "type": "boolean" },
+        "last_check_passed": { "type": "boolean" },
+        "no_blocker_violations": { "type": "boolean" },
+        "ownership_respected": { "type": "boolean" },
+        "schemas_valid": { "type": "boolean" }
+      }
+    },
+    "verdict": { "type": "string", "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL", "BLOCKER"] },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "evaluated_utc": { "type": "string", "format": "date-time" }
+  }
+}
+```
+
+---
+
+## H. Organ Health / Freshness / Port Model
+
+### MVP Port Model
+
+**Simplest MVP: File-based self-report.**
+
+Each organ writes a `SELF_REPORT.json` file that Doctrinarium reads.
+
+No network ports, no CLI commands for MVP. Just files.
+
+### `organ_self_report.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["organ_name", "status", "last_activity_utc", "checker_last_run_utc", "checker_verdict"],
+  "properties": {
+    "organ_name": { "type": "string" },
+    "status": { "type": "string", "enum": ["active", "degraded", "offline", "deferred"] },
+    "last_activity_utc": { "type": "string", "format": "date-time" },
+    "checker_last_run_utc": { "type": "string", "format": "date-time" },
+    "checker_verdict": { "type": "string", "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL"] },
+    "checker_report_path": { "type": "string" },
+    "active_tasks": { "type": "array", "items": { "type": "string" } },
+    "known_issues": { "type": "array", "items": { "type": "string" } },
+    "deferred_reason": { "type": ["string", "null"] },
+    "next_expected_activity_utc": { "type": ["string", "null"], "format": "date-time" }
+  }
+}
+```
+
+### Freshness Rules
+
+| Organ Type | Fresh | Stale WARNING | Stale BLOCKER |
+|------------|-------|---------------|---------------|
+| Active (Astronomicon, Administratum, Officio Agentis, Doctrinarium) | <24h | 24h-72h | >72h |
+| Deferred (VM2-only organs) | <7d | 7d-14d | >14d |
+| Future/Placeholder | N/A | N/A | N/A |
+
+### `organ_health_verdict.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["organ_name", "form_verdict", "freshness_verdict", "combined_verdict", "evaluated_utc"],
+  "properties": {
+    "organ_name": { "type": "string" },
+    "form_verdict": { "type": "string", "enum": ["PASS", "PASS_WITH_WARNINGS", "FAIL", "BLOCKER"] },
+    "freshness_verdict": { "type": "string", "enum": ["FRESH", "STALE_WARNING", "STALE_BLOCKER"] },
+    "combined_verdict": { "type": "string", "enum": ["HEALTHY", "DEGRADED", "UNHEALTHY", "BLOCKER"] },
+    "details": { "type": "object" },
+    "evaluated_utc": { "type": "string", "format": "date-time" }
+  }
+}
+```
+
+---
+
+## I. Task Start Gate
+
+### Gate Verdict Options
+
+| Verdict | Meaning | Execution |
+|---------|---------|-----------|
+| `ALLOW_EXECUTION` | All gates pass | Proceed |
+| `ALLOW_WITH_WARNINGS` | Warnings exist, no blockers | Proceed with caution |
+| `BLOCK_EXECUTION` | Blocker exists | Stop |
+| `STOP_PENDING_OWNER_APPROVAL` | Exception required | Wait for Owner |
+| `INQUISITION_REQUIRED_BUT_DISABLED` | Would escalate, but hook disabled | Record and proceed with warning |
+
+### `task_start_gate_request.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["task_id", "requested_utc", "requesting_agent"],
+  "properties": {
+    "task_id": { "type": "string" },
+    "requested_utc": { "type": "string", "format": "date-time" },
+    "requesting_agent": { "type": "string" },
+    "task_scope": { "type": "string" },
+    "target_organs": { "type": "array", "items": { "type": "string" } },
+    "claimed_role": { "type": "string" },
+    "claimed_mode": { "type": "string" }
+  }
+}
+```
+
+### `task_start_gate_verdict.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["task_id", "verdict", "evaluated_utc", "law_compliance", "organ_health"],
+  "properties": {
+    "task_id": { "type": "string" },
+    "verdict": { "type": "string", "enum": ["ALLOW_EXECUTION", "ALLOW_WITH_WARNINGS", "BLOCK_EXECUTION", "STOP_PENDING_OWNER_APPROVAL", "INQUISITION_REQUIRED_BUT_DISABLED"] },
+    "evaluated_utc": { "type": "string", "format": "date-time" },
+    "law_compliance": { "$ref": "law_compliance_report.schema.json" },
+    "organ_health": { "type": "array", "items": { "$ref": "organ_health_verdict.schema.json" } },
+    "warnings": { "type": "array", "items": { "type": "string" } },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "required_approvals": { "type": "array", "items": { "type": "string" } },
+    "evidence_paths": { "type": "array", "items": { "type": "string" } }
+  }
+}
+```
+
+### Gate Check Order
+
+1. **Law Integrity Check** — Are all laws valid and non-contradictory?
+2. **Organ Health Check** — Are required organs alive?
+3. **Role Validity Check** — Is the assigned role valid per Officio Agentis?
+4. **Task Registration Check** — Is task registered in Astronomicon?
+5. **Law Compliance Check** — Does task scope violate any active laws?
+6. **Exception Check** — Are there unresolved exceptions?
+7. **Verdict Calculation** — Aggregate all checks into final verdict
+
+---
+
+## J. Law Integrity Guard
+
+### Integrity Checks
+
+| Check | Severity | Detection |
+|-------|----------|-----------|
+| Duplicate law_id | BLOCKER | Registry scan |
+| Contradictory laws (same scope, opposite rules) | BLOCKER | Cross-reference analysis |
+| Missing authority field | BLOCKER | Schema validation |
+| Inactive law used in active gate | WARNING | Gate config scan |
+| Stale law (>90d no reference) | WARNING | Usage tracking |
+| Law without enforcement_mode | BLOCKER | Schema validation |
+| Law without evidence_required | WARNING | Schema validation |
+| Vague violation_conditions | WARNING | Pattern matching |
+| Language policy violation | WARNING | Field scan |
+| Wrong organ authority | BLOCKER | Ownership cross-check |
+| Unapproved law edit | BLOCKER | Hash/provenance check |
+
+### Law Change Receipt
+
+```json
+{
+  "receipt_id": "LCR-20260515-001",
+  "law_id": "LAW-001",
+  "change_type": "update",
+  "previous_version": "1.0",
+  "new_version": "1.1",
+  "previous_hash": "sha256:abc...",
+  "new_hash": "sha256:def...",
+  "changed_by": "Owner",
+  "approved_by": "Owner",
+  "changed_utc": "2026-05-15T10:00:00Z",
+  "change_summary": "Added new prohibited action",
+  "evidence_path": "ORGANS/DOCTRINARIUM/LAWS/LAW-001_v1.1.json"
+}
+```
+
+### Law Review Workflow
+
+1. Draft law created with `status: "draft"`
+2. Law reviewed by Owner
+3. Owner approval recorded in `law_change_receipt.json`
+4. Law status changed to `status: "active"`
+5. Previous version (if exists) marked `status: "superseded"`
+6. Registry updated
+7. Integrity check run
+
+---
+
+## K. Inquisition Hook
+
+### When Doctrinarium Would Call Inquisition
+
+1. BLOCKER-level law violation detected
+2. Organ health BLOCKER persists >24h
+3. Unapproved law edit detected
+4. Fake green pattern detected
+5. Ownership boundary violation
+6. Evidence tampering suspected
+
+### `inquisition_hook_packet.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["packet_id", "trigger_type", "severity", "created_utc", "hook_status"],
+  "properties": {
+    "packet_id": { "type": "string", "pattern": "^INQ-[0-9]{8}-[0-9]{3}$" },
+    "trigger_type": { "type": "string", "enum": ["law_violation", "organ_blocker", "unapproved_edit", "fake_green", "ownership_violation", "evidence_tampering"] },
+    "severity": { "type": "string", "enum": ["warning", "blocker", "critical"] },
+    "source_organ": { "type": "string" },
+    "target_organ": { "type": ["string", "null"] },
+    "task_id": { "type": ["string", "null"] },
+    "law_id": { "type": ["string", "null"] },
+    "description": { "type": "string" },
+    "evidence_paths": { "type": "array", "items": { "type": "string" } },
+    "created_utc": { "type": "string", "format": "date-time" },
+    "hook_status": { "type": "string", "enum": ["disabled", "pending", "sent", "acknowledged"] },
+    "disabled_reason": { "type": "string", "default": "Inquisition organ not yet built" }
+  }
+}
+```
+
+### Disabled Hook Behavior
+
+1. Packet is created and saved to `ORGANS/DOCTRINARIUM/INQUISITION_HOOKS/`
+2. `hook_status: "disabled"` is set
+3. `disabled_reason: "Inquisition organ not yet built"` is recorded
+4. Verdict includes `INQUISITION_REQUIRED_BUT_DISABLED`
+5. This is NOT fake green — it's honest about the limitation
+6. When Inquisition is built, hook status changes to `pending` and packets are processed
+
+---
+
+## L. Interaction With Existing Organs
+
+### 1. Astronomicon
+
+| Interaction | Direction | Data |
+|-------------|-----------|------|
+| Task registration check | Doctrinarium → Astronomicon | task_id lookup |
+| Stage map validation | Doctrinarium → Astronomicon | stage_map.json |
+| Task-start gating | Doctrinarium → Servitor | verdict |
+| Stage compliance check | Doctrinarium reads | stage reports |
+
+### 2. Administratum
+
+| Interaction | Direction | Data |
+|-------------|-----------|------|
+| Address book lookup | Doctrinarium → Administratum | organ addresses |
+| Chronicle query | Doctrinarium → Administratum | task history |
+| Lifecycle status | Doctrinarium reads | task status |
+| Bundle/evidence lookup | Doctrinarium → Administratum | evidence paths |
+
+### 3. Officio Agentis
+
+| Interaction | Direction | Data |
+|-------------|-----------|------|
+| Role validity check | Doctrinarium → Officio Agentis | role_id lookup |
+| Mode permissions | Doctrinarium → Officio Agentis | mode validation |
+| Agent assignment check | Doctrinarium reads | role contracts |
+
+### 4. Future Inquisition
+
+| Interaction | Direction | Data |
+|-------------|-----------|------|
+| Violation escalation | Doctrinarium → Inquisition | inquisition_hook_packet |
+| Audit request | Inquisition → Doctrinarium | audit scope |
+| Verdict acknowledgment | Inquisition → Doctrinarium | investigation result |
+
+### 5. Sanctum
+
+| Interaction | Direction | Data |
+|-------------|-----------|------|
+| Gate status display | Sanctum reads | gate verdicts |
+| Law registry display | Sanctum reads | law_registry.json |
+| Organ health display | Sanctum reads | organ_health_verdict.json |
+| Violation display | Sanctum reads | violation records |
+
+---
+
+## M. Folder Structure
+
+```
+ORGANS/DOCTRINARIUM/
+├── README.md
+├── DOCS/
+│   ├── DOCTRINARIUM_OVERVIEW.md
+│   ├── LAW_HIERARCHY.md
+│   ├── ORGAN_FORM_GUIDE.md
+│   └── GATE_WORKFLOW.md
+├── LAWS/
+│   ├── LAW-001.json
+│   ├── LAW-001.md
+│   ├── LAW-002.json
+│   ├── LAW-002.md
+│   └── ...
+├── DOCTRINES/
+│   ├── DOCTRINE-001.json
+│   ├── DOCTRINE-001.md
+│   └── ...
+├── LAW_REGISTRY/
+│   ├── law_registry.json
+│   └── law_registry_index.md
+├── GATES/
+│   ├── task_start_gate_config.json
+│   └── gate_check_order.json
+├── ORGAN_HEALTH/
+│   ├── organ_form_checklist.json
+│   ├── SELF_REPORTS/
+│   │   ├── ASTRONOMICON_SELF_REPORT.json
+│   │   ├── ADMINISTRATUM_SELF_REPORT.json
+│   │   ├── OFFICIO_AGENTIS_SELF_REPORT.json
+│   │   └── DOCTRINARIUM_SELF_REPORT.json
+│   └── VERDICTS/
+│       └── organ_health_verdict_YYYYMMDD.json
+├── VIOLATIONS/
+│   └── violation_YYYYMMDD_NNN.json
+├── INQUISITION_HOOKS/
+│   └── INQ-YYYYMMDD-NNN.json
+├── REPORTS/
+│   ├── law_compliance_report_YYYYMMDD.json
+│   ├── task_start_gate_verdict_TASKID.json
+│   └── law_integrity_report_YYYYMMDD.json
+├── REGISTRY/
+│   └── doctrinarium_registry.json
+├── SCHEMAS/
+│   ├── law.schema.json
+│   ├── doctrine.schema.json
+│   ├── law_registry.schema.json
+│   ├── law_compliance_report.schema.json
+│   ├── organ_form.schema.json
+│   ├── organ_self_report.schema.json
+│   ├── organ_health_verdict.schema.json
+│   ├── task_start_gate_request.schema.json
+│   ├── task_start_gate_verdict.schema.json
+│   ├── violation_record.schema.json
+│   ├── inquisition_hook_packet.schema.json
+│   └── law_change_receipt.schema.json
+├── TESTS/
+│   ├── test_law_registry.py
+│   ├── test_law_integrity.py
+│   ├── test_organ_health.py
+│   ├── test_task_start_gate.py
+│   └── conftest.py
+└── CONTINUITY/
+    └── PACKS/
+        └── (future continuity packs)
+```
+
+### Scripts (under `scripts/`)
+
+```
+scripts/
+├── doctrinarium_validate_law_registry_v0_1.py
+├── doctrinarium_check_law_integrity_v0_1.py
+├── doctrinarium_collect_organ_self_reports_v0_1.py
+├── doctrinarium_evaluate_organ_health_v0_1.py
+├── doctrinarium_task_start_gate_v0_1.py
+├── doctrinarium_record_violation_v0_1.py
+└── doctrinarium_check_all_v0_1.py
+```
+
+---
+
+## N. Schemas
+
+| Schema | Purpose | Required Fields |
+|--------|---------|-----------------|
+| `law.schema.json` | Individual law definition | law_id, title, law_level, authority, status, version, scope, applies_to, enforcement_

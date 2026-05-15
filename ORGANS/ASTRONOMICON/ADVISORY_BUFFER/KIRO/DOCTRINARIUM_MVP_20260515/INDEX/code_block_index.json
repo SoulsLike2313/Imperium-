@@ -1,0 +1,415 @@
+{
+  "advisory_id": "KIRO-DOCTRINARIUM-MVP-20260515",
+  "blocks": [
+    {
+      "block_id": "CB-001",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-002",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-003",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-004",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "markdown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "# LAW-001: No Commit From VM2",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-005",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-006",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-007",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-008",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-009",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-010",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-011",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-012",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-013",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-014",
+      "source_file": "Kiro1.txt",
+      "nearby_section": "SEC-001",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "scripts/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-015",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-016",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "python",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "\"\"\"",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-017",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "python",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "\"\"\"",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-018",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/TESTS/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-019",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "python",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "# test_fake_green_prevention.py",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-020",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-021",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/LAWS/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-022",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/SCHEMAS/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-023",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/SCHEMAS/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-024",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/SCHEMAS/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-025",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/SCHEMAS/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-026",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "scripts/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-027",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ORGANS/DOCTRINARIUM/ORGAN_HEALTH/SELF_REPORTS/DOCTRINARIUM_SELF_REPORT.json (update)",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-028",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "TASK-20260515-DOCTRINARIUM-MVP-V0_1/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-029",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-030",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "powershell",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "# On PC:",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-031",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-032",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "ASTRONOMICON/TASKS/TASK-20260515-DOCTRINARIUM-MVP-V0_1/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-033",
+      "source_file": "Kiro2.txt",
+      "nearby_section": "SEC-015",
+      "language_hint": "unknown",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-034",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "TASK-20260515-DOCTRINARIUM-MVP-V0_1/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-035",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-036",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-037",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "json",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-038",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-039",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "json",
+      "purpose": "advisory_code_reference",
+      "first_line_preview": "{",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-040",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "unknown",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "TASK-20260515-DOCTRINARIUM-MVP-V0_1/",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    },
+    {
+      "block_id": "CB-041",
+      "source_file": "Kiro21.txt",
+      "nearby_section": "SEC-022",
+      "language_hint": "powershell",
+      "purpose": "schema_or_script_reference",
+      "first_line_preview": "py -3 scripts/astronomicon_register_task_v0_1.py `",
+      "risk_level": "reference_only",
+      "promotion_status": "not_promoted"
+    }
+  ]
+}

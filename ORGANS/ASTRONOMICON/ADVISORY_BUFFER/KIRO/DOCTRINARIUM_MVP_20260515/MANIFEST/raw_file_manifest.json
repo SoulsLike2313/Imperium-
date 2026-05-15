@@ -1,0 +1,40 @@
+{
+  "advisory_id": "KIRO-DOCTRINARIUM-MVP-20260515",
+  "source_type": "external_advisory",
+  "source_name": "Kiro",
+  "topic": "Doctrinarium MVP architecture",
+  "raw_files": [
+    {
+      "filename": "Kiro1.txt",
+      "source_path": "C:/Users/PC/Desktop/NEED/FROM_KIRO/Kiro1.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/DOCTRINARIUM_MVP_20260515/RAW/Kiro1.txt",
+      "sha256": "99fc268b6b98f5d2855ba5cc09892025d83d56ad5e578c4d78c03a3ac7cf2148",
+      "size_bytes": 26195,
+      "copied_utc": "2026-05-15T01:56:27.350616+00:00"
+    },
+    {
+      "filename": "Kiro2.txt",
+      "source_path": "C:/Users/PC/Desktop/NEED/FROM_KIRO/Kiro2.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/DOCTRINARIUM_MVP_20260515/RAW/Kiro2.txt",
+      "sha256": "fa3495a85935fe18d35c44ddb472b23a24dd8e9a52cc3b82bdb72fafa02defe3",
+      "size_bytes": 27201,
+      "copied_utc": "2026-05-15T01:56:27.360024+00:00"
+    },
+    {
+      "filename": "Kiro21.txt",
+      "source_path": "C:/Users/PC/Desktop/NEED/FROM_KIRO/Kiro21.txt",
+      "repo_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/KIRO/DOCTRINARIUM_MVP_20260515/RAW/Kiro21.txt",
+      "sha256": "7cf2bba4ffd8adf918a0100f373c4dbdaeccd8ba2aba586b4a016fbb676794a1",
+      "size_bytes": 21258,
+      "copied_utc": "2026-05-15T01:56:27.370072+00:00"
+    }
+  ],
+  "ingestion_policy": {
+    "raw_preserved": true,
+    "advisory_not_canon": true,
+    "code_blocks_reference_only": true,
+    "requires_owner_review_before_canon": true
+  },
+  "current_git_head": "b758a3786dc4671eb1d1e0b42fd73d3b4ef16eb2",
+  "current_commit_count": 91
+}

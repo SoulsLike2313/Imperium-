@@ -1,0 +1,577 @@
+Продолжаю с раздела U и финальных секций.
+
+---
+
+## U. Recommended First Concrete Next Step (продолжение)
+
+**Create a Doctrinarium MVP task frame for Astronomicon CLI registration.**
+
+### Immediate Deliverable
+
+Logos-Prime должен подготовить следующий пакет для скачивания Owner'ом:
+
+```
+TASK-20260515-DOCTRINARIUM-MVP-V0_1/
+├── TASK_MANIFEST.json
+├── STAGE_MAP.json
+├── STAGE_PROMPTS/
+│   ├── STAGE-1_FOUNDATION_PROMPT.md
+│   ├── STAGE-2_LAW_REGISTRY_PROMPT.md
+│   ├── STAGE-3_LAW_INTEGRITY_PROMPT.md
+│   ├── STAGE-4_ORGAN_HEALTH_PROMPT.md
+│   ├── STAGE-5_TASK_START_GATE_PROMPT.md
+│   ├── STAGE-6_INQUISITION_HOOK_PROMPT.md
+│   ├── STAGE-7_INTEGRATION_PROMPT.md
+│   └── STAGE-8_SELF_BUILD_PROMPT.md
+├── SCHEMAS/
+│   ├── law.schema.json
+│   ├── doctrine.schema.json
+│   ├── law_registry.schema.json
+│   ├── organ_form.schema.json
+│   ├── organ_self_report.schema.json
+│   ├── organ_health_verdict.schema.json
+│   ├── task_start_gate_request.schema.json
+│   ├── task_start_gate_verdict.schema.json
+│   ├── law_compliance_report.schema.json
+│   ├── violation_record.schema.json
+│   ├── inquisition_hook_packet.schema.json
+│   └── law_change_receipt.schema.json
+├── FIRST_LAWS/
+│   ├── LAW-001_NO_COMMIT_FROM_VM2.json
+│   ├── LAW-001_NO_COMMIT_FROM_VM2.md
+│   ├── LAW-002_ARTIFACTS_MUST_HAVE_PROVENANCE.json
+│   ├── LAW-002_ARTIFACTS_MUST_HAVE_PROVENANCE.md
+│   ├── LAW-003_ORGANS_MUST_HAVE_README.json
+│   ├── LAW-003_ORGANS_MUST_HAVE_README.md
+│   ├── LAW-004_NO_FAKE_GREEN.json
+│   └── LAW-004_NO_FAKE_GREEN.md
+├── EVIDENCE_REQUIREMENTS.json
+└── README.md
+```
+
+### STAGE_MAP.json Content
+
+```json
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "version": "1.0",
+  "stages": [
+    {
+      "stage_id": "STAGE-1",
+      "stage_name": "Foundation",
+      "goal": "Create folder structure, core schemas, README",
+      "depends_on": [],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/README.md",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/law.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/doctrine.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/law_registry.schema.json",
+        "ORGANS/DOCTRINARIUM/REGISTRY/doctrinarium_registry.json"
+      ],
+      "pass_criteria": [
+        "All folders exist",
+        "README describes purpose and ownership",
+        "Core schemas pass jsonschema validation",
+        "Registry exists with status initializing"
+      ],
+      "stop_criteria": [
+        "Schema validation fails",
+        "Folder structure incomplete"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/REPORTS/stage_1_completion.json"
+    },
+    {
+      "stage_id": "STAGE-2",
+      "stage_name": "Law Registry",
+      "goal": "Create first laws, registry, validation script",
+      "depends_on": ["STAGE-1"],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/LAWS/LAW-001.json",
+        "ORGANS/DOCTRINARIUM/LAWS/LAW-001.md",
+        "ORGANS/DOCTRINARIUM/LAWS/LAW-002.json",
+        "ORGANS/DOCTRINARIUM/LAWS/LAW-002.md",
+        "ORGANS/DOCTRINARIUM/LAWS/LAW-003.json",
+        "ORGANS/DOCTRINARIUM/LAWS/LAW-003.md",
+        "ORGANS/DOCTRINARIUM/LAW_REGISTRY/law_registry.json",
+        "scripts/doctrinarium_validate_law_registry_v0_1.py"
+      ],
+      "pass_criteria": [
+        "At least 3 laws created",
+        "Law registry contains all laws",
+        "Validation script returns PASS",
+        "No duplicate law_ids"
+      ],
+      "stop_criteria": [
+        "Validation script returns FAIL",
+        "Law schema validation fails"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_YYYYMMDD.json"
+    },
+    {
+      "stage_id": "STAGE-3",
+      "stage_name": "Law Integrity",
+      "goal": "Create integrity checker with conflict detection",
+      "depends_on": ["STAGE-2"],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/SCHEMAS/law_change_receipt.schema.json",
+        "scripts/doctrinarium_check_law_integrity_v0_1.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_law_registry.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_law_integrity.py"
+      ],
+      "pass_criteria": [
+        "Integrity checker detects duplicate law_ids",
+        "Integrity checker detects contradictory laws",
+        "Integrity checker detects missing required fields",
+        "All tests pass"
+      ],
+      "stop_criteria": [
+        "Integrity checker fails to detect known bad cases",
+        "Tests fail"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report_YYYYMMDD.json"
+    },
+    {
+      "stage_id": "STAGE-4",
+      "stage_name": "Organ Health",
+      "goal": "Create organ self-report system and health evaluation",
+      "depends_on": ["STAGE-3"],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/SCHEMAS/organ_form.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/organ_self_report.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/organ_health_verdict.schema.json",
+        "ORGANS/DOCTRINARIUM/ORGAN_HEALTH/organ_form_checklist.json",
+        "scripts/doctrinarium_collect_organ_self_reports_v0_1.py",
+        "scripts/doctrinarium_evaluate_organ_health_v0_1.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_organ_health.py"
+      ],
+      "pass_criteria": [
+        "Self-report schema validated",
+        "Collection script finds all 4 organ reports",
+        "Evaluation script produces health verdicts",
+        "Freshness detection works",
+        "Tests pass"
+      ],
+      "stop_criteria": [
+        "Required organ self-report missing",
+        "Evaluation script crashes",
+        "Tests fail"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/ORGAN_HEALTH/VERDICTS/organ_health_verdict_YYYYMMDD.json"
+    },
+    {
+      "stage_id": "STAGE-5",
+      "stage_name": "Task Start Gate",
+      "goal": "Create task start gate combining all checks",
+      "depends_on": ["STAGE-4"],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/SCHEMAS/task_start_gate_request.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/task_start_gate_verdict.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/law_compliance_report.schema.json",
+        "ORGANS/DOCTRINARIUM/GATES/task_start_gate_config.json",
+        "ORGANS/DOCTRINARIUM/GATES/gate_check_order.json",
+        "scripts/doctrinarium_task_start_gate_v0_1.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_task_start_gate.py"
+      ],
+      "pass_criteria": [
+        "Gate script accepts task_id and produces verdict",
+        "ALLOW_EXECUTION when all checks pass",
+        "BLOCK_EXECUTION when blocker exists",
+        "Verdict includes evidence paths",
+        "Tests pass"
+      ],
+      "stop_criteria": [
+        "Gate script crashes",
+        "Verdict missing required fields",
+        "Tests fail"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_TASKID.json"
+    },
+    {
+      "stage_id": "STAGE-6",
+      "stage_name": "Inquisition Hook",
+      "goal": "Create disabled Inquisition hook with packet generation",
+      "depends_on": ["STAGE-5"],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/SCHEMAS/violation_record.schema.json",
+        "ORGANS/DOCTRINARIUM/SCHEMAS/inquisition_hook_packet.schema.json",
+        "scripts/doctrinarium_record_violation_v0_1.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_inquisition_hook.py"
+      ],
+      "pass_criteria": [
+        "Violation recording works",
+        "Inquisition packet generated with hook_status disabled",
+        "Packet contains all required fields",
+        "disabled_reason is explicit",
+        "Tests pass"
+      ],
+      "stop_criteria": [
+        "Packet generation fails",
+        "Hook status not disabled",
+        "Tests fail"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/INQUISITION_HOOKS/INQ-YYYYMMDD-NNN.json"
+    },
+    {
+      "stage_id": "STAGE-7",
+      "stage_name": "Integration",
+      "goal": "Create check_all script and complete test suite",
+      "depends_on": ["STAGE-6"],
+      "files_to_create": [
+        "scripts/doctrinarium_check_all_v0_1.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_language_policy.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_fake_green_prevention.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_law_change_receipt.py",
+        "ORGANS/DOCTRINARIUM/TESTS/test_exception_approval.py"
+      ],
+      "pass_criteria": [
+        "check_all runs all sub-checks in order",
+        "Aggregated verdict correct",
+        "All 18 tests pass",
+        "Fake green scenarios detected",
+        "Language policy enforced"
+      ],
+      "stop_criteria": [
+        "Any test fails",
+        "check_all crashes",
+        "Fake green not detected"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/REPORTS/doctrinarium_check_all_YYYYMMDD.json"
+    },
+    {
+      "stage_id": "STAGE-8",
+      "stage_name": "Self-Build",
+      "goal": "Doctrinarium evaluates itself and proves it works",
+      "depends_on": ["STAGE-7"],
+      "files_to_create": [
+        "ORGANS/DOCTRINARIUM/ORGAN_HEALTH/SELF_REPORTS/DOCTRINARIUM_SELF_REPORT.json",
+        "ORGANS/DOCTRINARIUM/REPORTS/self_evaluation_YYYYMMDD.json"
+      ],
+      "pass_criteria": [
+        "Doctrinarium passes its own organ form checklist",
+        "Doctrinarium self-report is fresh",
+        "Doctrinarium laws pass integrity check",
+        "Task start gate allows Doctrinarium-related tasks",
+        "No fake green in self-evaluation"
+      ],
+      "stop_criteria": [
+        "Doctrinarium fails its own checks",
+        "Self-evaluation shows fake green"
+      ],
+      "evidence_path": "ORGANS/DOCTRINARIUM/REPORTS/self_evaluation_YYYYMMDD.json"
+    }
+  ],
+  "total_stages": 8,
+  "estimated_sessions": 10,
+  "created_utc": "2026-05-15T00:00:00Z"
+}
+```
+
+---
+
+## First 4 Laws (Draft Content)
+
+### LAW-001: No Commit From VM2
+
+```json
+{
+  "law_id": "LAW-001",
+  "title": "No Commit From VM2",
+  "law_level": 0,
+  "authority": "Owner",
+  "status": "active",
+  "version": "1.0",
+  "scope": "global",
+  "applies_to": ["all_agents", "all_tasks", "all_organs"],
+  "prohibited_actions": [
+    "git commit executed on VM2",
+    "git push executed on VM2",
+    "any script that commits from VM2"
+  ],
+  "required_actions": [
+    "all patches prepared on VM2 must be bundled for PC transfer",
+    "PC Owner must review and commit"
+  ],
+  "gate_checks": [
+    "scripts/verify_repo.py",
+    "TOOLS/run_administratum_git_cli_check.sh"
+  ],
+  "metrics": ["vm2_commit_attempts"],
+  "violation_conditions": [
+    "git log shows commit with VM2 origin",
+    "commit author matches VM2 hostname"
+  ],
+  "exception_policy": "no_exceptions",
+  "owner_approval_required": false,
+  "evidence_required": ["git_log", "commit_origin_check"],
+  "enforcement_mode": "blocker",
+  "related_laws": [],
+  "supersedes": null,
+  "superseded_by": null,
+  "effective_date": "2026-05-01",
+  "expiry_date": null,
+  "created_utc": "2026-05-15T00:00:00Z",
+  "updated_utc": null,
+  "provenance": "IMPERIUM founding principle",
+  "human_summary": "VM2 is a read-only workspace. All commits must originate from PC.",
+  "human_summary_ru": "VM2 — рабочее пространство только для чтения. Все коммиты должны идти с PC."
+}
+```
+
+### LAW-002: Artifacts Must Have Provenance
+
+```json
+{
+  "law_id": "LAW-002",
+  "title": "Artifacts Must Have Provenance",
+  "law_level": 1,
+  "authority": "Owner",
+  "status": "active",
+  "version": "1.0",
+  "scope": "artifact",
+  "applies_to": ["all_artifacts", "all_bundles", "all_reports"],
+  "prohibited_actions": [
+    "create artifact without task_id reference",
+    "create artifact without timestamp",
+    "create artifact without creator identification"
+  ],
+  "required_actions": [
+    "every artifact must include provenance block",
+    "provenance must include task_id, created_utc, created_by"
+  ],
+  "gate_checks": [
+    "artifact schema validation"
+  ],
+  "metrics": ["artifacts_with_provenance_rate"],
+  "violation_conditions": [
+    "artifact missing provenance field",
+    "provenance missing required subfields"
+  ],
+  "exception_policy": "owner_approval",
+  "owner_approval_required": true,
+  "evidence_required": ["artifact_file", "provenance_block"],
+  "enforcement_mode": "blocker",
+  "related_laws": [],
+  "supersedes": null,
+  "superseded_by": null,
+  "effective_date": "2026-05-01",
+  "expiry_date": null,
+  "created_utc": "2026-05-15T00:00:00Z",
+  "updated_utc": null,
+  "provenance": "IMPERIUM artifact policy",
+  "human_summary": "Every artifact must have provenance: task_id, timestamp, creator.",
+  "human_summary_ru": "Каждый артефакт должен иметь провенанс: task_id, timestamp, creator."
+}
+```
+
+### LAW-003: Organs Must Have README
+
+```json
+{
+  "law_id": "LAW-003",
+  "title": "Organs Must Have README",
+  "law_level": 2,
+  "authority": "Organ",
+  "status": "active",
+  "version": "1.0",
+  "scope": "organ",
+  "applies_to": ["all_organs"],
+  "prohibited_actions": [
+    "create organ folder without README.md",
+    "delete organ README.md"
+  ],
+  "required_actions": [
+    "every organ must have README.md at root",
+    "README must describe organ purpose and ownership"
+  ],
+  "gate_checks": [
+    "organ_form_checklist"
+  ],
+  "metrics": ["organs_with_readme_rate"],
+  "violation_conditions": [
+    "organ folder exists without README.md",
+    "README.md is empty"
+  ],
+  "exception_policy": "no_exceptions",
+  "owner_approval_required": false,
+  "evidence_required": ["readme_file_exists", "readme_non_empty"],
+  "enforcement_mode": "blocker",
+  "related_laws": [],
+  "supersedes": null,
+  "superseded_by": null,
+  "effective_date": "2026-05-01",
+  "expiry_date": null,
+  "created_utc": "2026-05-15T00:00:00Z",
+  "updated_utc": null,
+  "provenance": "IMPERIUM organ structure policy",
+  "human_summary": "Every organ must have a README.md describing its purpose.",
+  "human_summary_ru": "Каждый орган должен иметь README.md с описанием назначения."
+}
+```
+
+### LAW-004: No Fake Green
+
+```json
+{
+  "law_id": "LAW-004",
+  "title": "No Fake Green",
+  "law_level": 0,
+  "authority": "Owner",
+  "status": "active",
+  "version": "1.0",
+  "scope": "global",
+  "applies_to": ["all_verdicts", "all_reports", "all_gates"],
+  "prohibited_actions": [
+    "report PASS without evidence",
+    "report PASS_WITH_WARNINGS without listing warnings",
+    "report organ HEALTHY without running checker",
+    "skip check and report success",
+    "mock data in production reports"
+  ],
+  "required_actions": [
+    "every PASS verdict must include evidence_paths",
+    "every WARNING must be listed explicitly",
+    "every health check must have checker_last_run_utc",
+    "disabled features must be marked disabled, not skipped silently"
+  ],
+  "gate_checks": [
+    "fake_green_detector"
+  ],
+  "metrics": ["fake_green_risk_count"],
+  "violation_conditions": [
+    "verdict PASS with empty evidence_paths",
+    "verdict PASS_WITH_WARNINGS with empty warnings array",
+    "organ HEALTHY with null checker_last_run_utc",
+    "hook_status sent when target organ does not exist"
+  ],
+  "exception_policy": "no_exceptions",
+  "owner_approval_required": false,
+  "evidence_required": ["verdict_file", "evidence_paths_populated"],
+  "enforcement_mode": "blocker",
+  "related_laws": [],
+  "supersedes": null,
+  "superseded_by": null,
+  "effective_date": "2026-05-01",
+  "expiry_date": null,
+  "created_utc": "2026-05-15T00:00:00Z",
+  "updated_utc": null,
+  "provenance": "IMPERIUM integrity principle",
+  "human_summary": "No fake green. Every PASS must have evidence. Every warning must be listed.",
+  "human_summary_ru": "Никакого fake green. Каждый PASS должен иметь evidence. Каждый warning должен быть указан."
+}
+```
+
+---
+
+## Final Architecture Summary
+
+**Doctrinarium should be:**
+
+> **The law enforcement and organ health gate of IMPERIUM** — a working organ that stores machine-readable laws with explicit enforcement modes, evaluates organ health through file-based self-reports, guards the doctrine base against corruption and contradiction, and issues task-start verdicts that either allow execution, warn with evidence, or block with explicit blockers. It prepares Inquisition escalation packets but keeps the hook disabled until Inquisition is built. It does not own task decomposition (Astronomicon), memory (Administratum), roles (Officio Agentis), or audit verdicts (Inquisition). It is severe about fake green: no PASS without evidence, no HEALTHY without checker run, no disabled hook pretending to be active.
+
+---
+
+## First 3 Concrete Implementation Actions
+
+### Action 1: Prepare Task Registration Package
+
+**Who:** Logos-Prime (VM2)
+
+**What:** Create the complete task registration package:
+```
+TASK-20260515-DOCTRINARIUM-MVP-V0_1/
+├── TASK_MANIFEST.json
+├── STAGE_MAP.json
+├── STAGE_PROMPTS/ (8 files)
+├── SCHEMAS/ (12 files)
+├── FIRST_LAWS/ (8 files: 4 JSON + 4 MD)
+├── EVIDENCE_REQUIREMENTS.json
+└── README.md
+```
+
+**Evidence:** Package ready for download in VM2 OUTBOX
+
+**PASS:** All files exist, schemas validate, manifest complete
+
+**STOP:** Any schema invalid, any required file missing
+
+---
+
+### Action 2: Register Task Through Astronomicon CLI
+
+**Who:** Owner (PC)
+
+**What:** 
+1. Download package from VM2 to PC INBOX
+2. Run registration command:
+```powershell
+py -3 scripts/astronomicon_register_task_v0_1.py `
+  --manifest "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/TASK_MANIFEST.json" `
+  --stage-map "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/STAGE_MAP.json" `
+  --prompts-dir "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/STAGE_PROMPTS/"
+```
+3. Verify registration receipt
+
+**Evidence:** 
+- `ASTRONOMICON/TASKS/TASK-20260515-DOCTRINARIUM-MVP-V0_1/REGISTRATION_RECEIPT.json`
+- `ADMINISTRATUM/CHRONICLE/TASK-20260515-DOCTRINARIUM-MVP-V0_1_registered.json`
+
+**PASS:** Registration receipt exists with status "registered"
+
+**STOP:** Registration script fails, receipt missing
+
+---
+
+### Action 3: Execute STAGE-1 Foundation
+
+**Who:** Logos-Prime (VM2) under Servitor execution
+
+**What:**
+1. Create Doctrinarium folder structure
+2. Create core schemas (law.schema.json, doctrine.schema.json, law_registry.schema.json)
+3. Create README.md with purpose and ownership
+4. Create doctrinarium_registry.json with status "initializing"
+5. Validate all schemas
+6. Generate stage_1_completion.json evidence
+
+**Evidence:** `ORGANS/DOCTRINARIUM/REPORTS/stage_1_completion.json`
+
+**PASS:** 
+- All folders exist
+- README describes purpose
+- Schemas pass jsonschema validation
+- Registry exists
+
+**STOP:**
+- Schema validation fails
+- Folder structure incomplete
+- README missing or empty
+
+---
+
+## Summary Table: Doctrinarium MVP Scope
+
+| Component | MVP Scope | Future Scope |
+|-----------|-----------|--------------|
+| Laws | 4 founding laws | Expand as needed |
+| Law Levels | 0-4 hierarchy | Same |
+| Enforcement Modes | blocker, warning, advisory, disabled | Same |
+| Organ Health | File-based self-reports | CLI/port later |
+| Freshness | 24h active, 7d deferred | Configurable |
+| Task Gate | Single verdict script | Pipeline integration |
+| Inquisition | Disabled hook with packets | Active when built |
+| Dashboard | None | Sanctum integration |
+| Tests | 18 core tests | Expand coverage |
+
+---
+
+## Closing Note
+
+This advisory is designed to become the actual Doctrinarium MVP task plan. The schemas, folder structure, scripts, and stage map are concrete and implementable. The first 4 laws establish the foundational principles that Doctrinarium itself must obey.
+
+The critical success factor is **no fake green**: every check must produce real evidence, every verdict must be backed by actual evaluation, and every disabled feature must be explicitly marked as disabled rather than silently skipped.
+
+Doctrinarium will be the first organ to evaluate itself under its own rules — the ultimate test of whether IMPERIUM's self-governance model works.
+
+---
+
+*Комментарий для Owner: Это полный advisory для Doctrinarium MVP. Следующий шаг — подготовить пакет регистрации задачи и зарегистрировать через Astronomicon CLI. Doctrinarium станет 4-м фундаментальным органом и первым, который будет строить себя под собственным контролем.*

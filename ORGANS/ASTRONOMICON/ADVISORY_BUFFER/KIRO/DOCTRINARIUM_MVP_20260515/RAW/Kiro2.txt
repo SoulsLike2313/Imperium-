@@ -1,0 +1,736 @@
+Продолжаю с раздела N (Schemas).
+
+---
+
+## N. Schemas (продолжение)
+
+| Schema | Purpose | Required Fields |
+|--------|---------|-----------------|
+| `law.schema.json` | Individual law definition | law_id, title, law_level, authority, status, version, scope, applies_to, enforcement_mode, created_utc |
+| `doctrine.schema.json` | Operational doctrine (derived from law) | doctrine_id, title, source_law_id, status, scope, applies_to, operational_rules, created_utc |
+| `law_registry.schema.json` | Index of all laws | laws (array), total_count, active_count, last_updated_utc |
+| `law_compliance_report.schema.json` | Task compliance evaluation | task_id, evaluated_utc, metrics, verdict, warnings, blockers |
+| `organ_form.schema.json` | Organ structure checklist result | organ_name, checks, verdict, warnings, blockers, evaluated_utc |
+| `organ_self_report.schema.json` | Organ's own status report | organ_name, status, last_activity_utc, checker_last_run_utc, checker_verdict |
+| `organ_health_verdict.schema.json` | Combined health evaluation | organ_name, form_verdict, freshness_verdict, combined_verdict, evaluated_utc |
+| `task_start_gate_request.schema.json` | Gate check request | task_id, requested_utc, requesting_agent |
+| `task_start_gate_verdict.schema.json` | Gate check result | task_id, verdict, evaluated_utc, law_compliance, organ_health |
+| `violation_record.schema.json` | Law violation record | violation_id, law_id, task_id, severity, description, detected_utc, status |
+| `inquisition_hook_packet.schema.json` | Escalation packet (disabled) | packet_id, trigger_type, severity, created_utc, hook_status |
+| `law_change_receipt.schema.json` | Law modification audit trail | receipt_id, law_id, change_type, previous_hash, new_hash, changed_utc, approved_by |
+
+### `violation_record.schema.json`
+
+```json
+{
+  "type": "object",
+  "required": ["violation_id", "law_id", "severity", "description", "detected_utc", "status"],
+  "properties": {
+    "violation_id": { "type": "string", "pattern": "^VIOL-[0-9]{8}-[0-9]{3}$" },
+    "law_id": { "type": "string" },
+    "task_id": { "type": ["string", "null"] },
+    "organ_name": { "type": ["string", "null"] },
+    "severity": { "type": "string", "enum": ["warning", "blocker", "critical"] },
+    "description": { "type": "string" },
+    "evidence_paths": { "type": "array", "items": { "type": "string" } },
+    "detected_utc": { "type": "string", "format": "date-time" },
+    "status": { "type": "string", "enum": ["open", "acknowledged", "resolved", "escalated", "exception_granted"] },
+    "resolution_notes": { "type": ["string", "null"] },
+    "resolved_utc": { "type": ["string", "null"], "format": "date-time" },
+    "inquisition_packet_id": { "type": ["string", "null"] }
+  }
+}
+```
+
+---
+
+## O. Checkers / Scripts
+
+### Script Specifications
+
+| Script | Input | Output | PASS/FAIL | Report Path | Stop Behavior |
+|--------|-------|--------|-----------|-------------|---------------|
+| `doctrinarium_validate_law_registry_v0_1.py` | `ORGANS/DOCTRINARIUM/LAW_REGISTRY/law_registry.json` | Validation report | PASS if schema valid, no duplicates | `ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_YYYYMMDD.json` | FAIL stops task registration |
+| `doctrinarium_check_law_integrity_v0_1.py` | Law registry + all law files | Integrity report | PASS if no contradictions, no missing fields | `ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report_YYYYMMDD.json` | FAIL blocks execution |
+| `doctrinarium_collect_organ_self_reports_v0_1.py` | `ORGANS/*/SELF_REPORT.json` | Collected reports | PASS if all required organs report | `ORGANS/DOCTRINARIUM/ORGAN_HEALTH/collected_reports_YYYYMMDD.json` | FAIL if required organ missing |
+| `doctrinarium_evaluate_organ_health_v0_1.py` | Collected self-reports + form checklists | Health verdicts | PASS/WARN/FAIL per organ | `ORGANS/DOCTRINARIUM/ORGAN_HEALTH/VERDICTS/organ_health_verdict_YYYYMMDD.json` | BLOCKER stops execution |
+| `doctrinarium_task_start_gate_v0_1.py` | task_id, gate request | Gate verdict | ALLOW/WARN/BLOCK | `ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_TASKID.json` | BLOCK stops execution |
+| `doctrinarium_record_violation_v0_1.py` | Violation details | Violation record | Always succeeds (recording) | `ORGANS/DOCTRINARIUM/VIOLATIONS/violation_YYYYMMDD_NNN.json` | Creates Inquisition packet if critical |
+| `doctrinarium_check_all_v0_1.py` | None (runs all checks) | Combined report | PASS if all sub-checks pass | `ORGANS/DOCTRINARIUM/REPORTS/doctrinarium_check_all_YYYYMMDD.json` | Aggregates all stop conditions |
+
+### Script Contract: `doctrinarium_task_start_gate_v0_1.py`
+
+```python
+"""
+Doctrinarium Task Start Gate v0.1
+
+Input:
+  --task-id TASK-YYYYMMDD-NNNN-...
+  --requesting-agent <agent_name>
+  --target-organs <comma-separated list>
+  --claimed-role <role_id>
+  --claimed-mode <mode_id>
+
+Output:
+  - task_start_gate_verdict_{task_id}.json in REPORTS/
+  - Exit code 0 = ALLOW_EXECUTION or ALLOW_WITH_WARNINGS
+  - Exit code 1 = BLOCK_EXECUTION or STOP_PENDING_OWNER_APPROVAL
+  - Exit code 2 = INQUISITION_REQUIRED_BUT_DISABLED
+
+Checks performed:
+  1. Law integrity (calls doctrinarium_check_law_integrity_v0_1.py)
+  2. Organ health (calls doctrinarium_evaluate_organ_health_v0_1.py)
+  3. Role validity (reads OFFICIO_AGENTIS/ROLES/)
+  4. Task registration (reads ASTRONOMICON registry)
+  5. Law compliance for task scope
+  6. Exception status
+"""
+```
+
+### Script Contract: `doctrinarium_check_all_v0_1.py`
+
+```python
+"""
+Doctrinarium Check All v0.1
+
+Runs all Doctrinarium checks in sequence:
+  1. doctrinarium_validate_law_registry_v0_1.py
+  2. doctrinarium_check_law_integrity_v0_1.py
+  3. doctrinarium_collect_organ_self_reports_v0_1.py
+  4. doctrinarium_evaluate_organ_health_v0_1.py
+
+Output:
+  - doctrinarium_check_all_YYYYMMDD.json in REPORTS/
+  - Aggregated verdict: PASS / PASS_WITH_WARNINGS / FAIL
+
+Exit codes:
+  0 = PASS or PASS_WITH_WARNINGS
+  1 = FAIL (at least one BLOCKER)
+
+Usage:
+  python scripts/doctrinarium_check_all_v0_1.py [--verbose] [--output-dir PATH]
+"""
+```
+
+---
+
+## P. Verification / Test Plan
+
+### Test Matrix
+
+| Test ID | Test Description | Expected Result | Severity |
+|---------|------------------|-----------------|----------|
+| T-DOC-001 | Valid law registry passes validation | PASS | Critical |
+| T-DOC-002 | Duplicate law_id detected | FAIL | Critical |
+| T-DOC-003 | Lower law contradicts higher law | FAIL (BLOCKER) | Critical |
+| T-DOC-004 | Inactive law used in active gate | WARNING | Medium |
+| T-DOC-005 | Law missing evidence_required field | WARNING | Medium |
+| T-DOC-006 | Law missing enforcement_mode | FAIL | Critical |
+| T-DOC-007 | Organ self-report fresh (<24h) | PASS | Critical |
+| T-DOC-008 | Organ self-report stale (24h-72h) | WARNING | Medium |
+| T-DOC-009 | Organ self-report very stale (>72h) | BLOCKER | Critical |
+| T-DOC-010 | Organ missing required checker | BLOCKER | Critical |
+| T-DOC-011 | Task start allowed when all gates pass | ALLOW_EXECUTION | Critical |
+| T-DOC-012 | Task start blocked when law violation exists | BLOCK_EXECUTION | Critical |
+| T-DOC-013 | Inquisition hook disabled but packet generated | INQUISITION_REQUIRED_BUT_DISABLED + packet exists | Critical |
+| T-DOC-014 | Language policy: JSON fields English only | PASS | Medium |
+| T-DOC-015 | Fake green prevented: PASS without evidence | FAIL | Critical |
+| T-DOC-016 | Law change receipt created on update | Receipt exists with hashes | Critical |
+| T-DOC-017 | Unapproved law edit detected | BLOCKER | Critical |
+| T-DOC-018 | Exception approval recorded correctly | Exception valid, task proceeds | Medium |
+
+### Test File Structure
+
+```
+ORGANS/DOCTRINARIUM/TESTS/
+├── conftest.py                      # Pytest fixtures
+├── test_law_registry.py             # T-DOC-001, T-DOC-002
+├── test_law_integrity.py            # T-DOC-003, T-DOC-004, T-DOC-005, T-DOC-006
+├── test_organ_health.py             # T-DOC-007, T-DOC-008, T-DOC-009, T-DOC-010
+├── test_task_start_gate.py          # T-DOC-011, T-DOC-012
+├── test_inquisition_hook.py         # T-DOC-013
+├── test_language_policy.py          # T-DOC-014
+├── test_fake_green_prevention.py    # T-DOC-015
+├── test_law_change_receipt.py       # T-DOC-016, T-DOC-017
+├── test_exception_approval.py       # T-DOC-018
+└── fixtures/
+    ├── valid_law_registry.json
+    ├── duplicate_law_registry.json
+    ├── contradictory_laws/
+    ├── stale_self_reports/
+    └── fake_green_scenarios/
+```
+
+### Fake Green Prevention Tests
+
+```python
+# test_fake_green_prevention.py
+
+def test_pass_without_evidence_is_rejected():
+    """
+    A gate verdict of PASS without evidence_paths is fake green.
+    Must be rejected.
+    """
+    verdict = {
+        "task_id": "TASK-TEST-001",
+        "verdict": "ALLOW_EXECUTION",
+        "evidence_paths": []  # Empty = fake green
+    }
+    result = validate_verdict(verdict)
+    assert result["valid"] == False
+    assert "fake_green" in result["errors"]
+
+def test_pass_with_warnings_requires_warning_list():
+    """
+    PASS_WITH_WARNINGS without actual warnings is fake green.
+    """
+    verdict = {
+        "verdict": "ALLOW_WITH_WARNINGS",
+        "warnings": []  # Empty = fake green
+    }
+    result = validate_verdict(verdict)
+    assert result["valid"] == False
+
+def test_organ_healthy_without_checker_run_is_fake_green():
+    """
+    Organ cannot be HEALTHY if checker never ran.
+    """
+    health = {
+        "organ_name": "TEST_ORGAN",
+        "combined_verdict": "HEALTHY",
+        "checker_last_run_utc": None  # Never ran
+    }
+    result = validate_organ_health(health)
+    assert result["valid"] == False
+    assert "fake_green" in result["errors"]
+```
+
+---
+
+## Q. MVP Build Plan
+
+### Stage Overview
+
+| Stage | Goal | Duration Est. |
+|-------|------|---------------|
+| STAGE-1 | Foundation: folder structure, schemas, README | 1 session |
+| STAGE-2 | Law Registry: first laws, registry, validation script | 1-2 sessions |
+| STAGE-3 | Law Integrity: integrity checker, conflict detection | 1 session |
+| STAGE-4 | Organ Health: self-report schema, collection, evaluation | 1-2 sessions |
+| STAGE-5 | Task Start Gate: gate script, verdict generation | 1-2 sessions |
+| STAGE-6 | Inquisition Hook: disabled hook, packet generation | 1 session |
+| STAGE-7 | Integration: check_all script, full test suite | 1-2 sessions |
+| STAGE-8 | Self-Build: Doctrinarium evaluates itself | 1 session |
+
+---
+
+### STAGE-1: Foundation
+
+**Goal:** Create Doctrinarium folder structure, core schemas, and README.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/
+├── README.md
+├── DOCS/
+│   └── DOCTRINARIUM_OVERVIEW.md
+├── LAWS/
+│   └── .gitkeep
+├── DOCTRINES/
+│   └── .gitkeep
+├── LAW_REGISTRY/
+│   └── .gitkeep
+├── GATES/
+│   └── .gitkeep
+├── ORGAN_HEALTH/
+│   ├── SELF_REPORTS/
+│   │   └── .gitkeep
+│   └── VERDICTS/
+│       └── .gitkeep
+├── VIOLATIONS/
+│   └── .gitkeep
+├── INQUISITION_HOOKS/
+│   └── .gitkeep
+├── REPORTS/
+│   └── .gitkeep
+├── REGISTRY/
+│   └── doctrinarium_registry.json
+├── SCHEMAS/
+│   ├── law.schema.json
+│   ├── doctrine.schema.json
+│   └── law_registry.schema.json
+├── TESTS/
+│   └── conftest.py
+└── CONTINUITY/
+    └── PACKS/
+        └── .gitkeep
+```
+
+**Schemas:** `law.schema.json`, `doctrine.schema.json`, `law_registry.schema.json`
+
+**Scripts:** None yet
+
+**PASS Criteria:**
+- All folders exist
+- README.md describes Doctrinarium purpose and ownership
+- Core schemas pass jsonschema validation
+- `doctrinarium_registry.json` exists with status "initializing"
+
+**STOP Criteria:**
+- Schema validation fails
+- Folder structure incomplete
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/REPORTS/stage_1_completion.json`
+
+---
+
+### STAGE-2: Law Registry
+
+**Goal:** Create first laws, law registry, and validation script.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/LAWS/
+├── LAW-001.json          # No commit from VM2
+├── LAW-001.md
+├── LAW-002.json          # All artifacts must have provenance
+├── LAW-002.md
+├── LAW-003.json          # Organs must have README
+├── LAW-003.md
+
+ORGANS/DOCTRINARIUM/LAW_REGISTRY/
+├── law_registry.json
+
+scripts/
+├── doctrinarium_validate_law_registry_v0_1.py
+```
+
+**Schemas:** (use existing from Stage 1)
+
+**Scripts:** `doctrinarium_validate_law_registry_v0_1.py`
+
+**PASS Criteria:**
+- At least 3 laws created (LAW-001, LAW-002, LAW-003)
+- Law registry contains all laws
+- Validation script runs and returns PASS
+- No duplicate law_ids
+
+**STOP Criteria:**
+- Validation script returns FAIL
+- Law schema validation fails
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/REPORTS/law_registry_validation_YYYYMMDD.json`
+
+---
+
+### STAGE-3: Law Integrity
+
+**Goal:** Create law integrity checker with conflict detection.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/SCHEMAS/
+├── law_change_receipt.schema.json
+
+scripts/
+├── doctrinarium_check_law_integrity_v0_1.py
+
+ORGANS/DOCTRINARIUM/TESTS/
+├── test_law_registry.py
+├── test_law_integrity.py
+├── fixtures/
+│   ├── valid_law_registry.json
+│   ├── duplicate_law_registry.json
+│   └── contradictory_laws/
+```
+
+**Scripts:** `doctrinarium_check_law_integrity_v0_1.py`
+
+**PASS Criteria:**
+- Integrity checker detects duplicate law_ids
+- Integrity checker detects contradictory laws
+- Integrity checker detects missing required fields
+- All tests pass
+
+**STOP Criteria:**
+- Integrity checker fails to detect known bad cases
+- Tests fail
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/REPORTS/law_integrity_report_YYYYMMDD.json`
+
+---
+
+### STAGE-4: Organ Health
+
+**Goal:** Create organ self-report system and health evaluation.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/SCHEMAS/
+├── organ_form.schema.json
+├── organ_self_report.schema.json
+├── organ_health_verdict.schema.json
+
+ORGANS/DOCTRINARIUM/ORGAN_HEALTH/
+├── organ_form_checklist.json
+
+scripts/
+├── doctrinarium_collect_organ_self_reports_v0_1.py
+├── doctrinarium_evaluate_organ_health_v0_1.py
+
+# Self-reports for existing organs:
+ORGANS/ASTRONOMICON/SELF_REPORT.json
+ORGANS/ADMINISTRATUM/SELF_REPORT.json
+ORGANS/OFFICIO_AGENTIS/SELF_REPORT.json
+ORGANS/DOCTRINARIUM/ORGAN_HEALTH/SELF_REPORTS/DOCTRINARIUM_SELF_REPORT.json
+
+ORGANS/DOCTRINARIUM/TESTS/
+├── test_organ_health.py
+├── fixtures/
+│   └── stale_self_reports/
+```
+
+**Scripts:** `doctrinarium_collect_organ_self_reports_v0_1.py`, `doctrinarium_evaluate_organ_health_v0_1.py`
+
+**PASS Criteria:**
+- Self-report schema validated
+- Collection script finds all 4 organ reports
+- Evaluation script produces health verdicts
+- Freshness detection works (fresh/stale/blocker)
+- Tests pass
+
+**STOP Criteria:**
+- Required organ self-report missing
+- Evaluation script crashes
+- Tests fail
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/ORGAN_HEALTH/VERDICTS/organ_health_verdict_YYYYMMDD.json`
+
+---
+
+### STAGE-5: Task Start Gate
+
+**Goal:** Create task start gate that combines all checks.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/SCHEMAS/
+├── task_start_gate_request.schema.json
+├── task_start_gate_verdict.schema.json
+├── law_compliance_report.schema.json
+
+ORGANS/DOCTRINARIUM/GATES/
+├── task_start_gate_config.json
+├── gate_check_order.json
+
+scripts/
+├── doctrinarium_task_start_gate_v0_1.py
+
+ORGANS/DOCTRINARIUM/TESTS/
+├── test_task_start_gate.py
+```
+
+**Scripts:** `doctrinarium_task_start_gate_v0_1.py`
+
+**PASS Criteria:**
+- Gate script accepts task_id and produces verdict
+- ALLOW_EXECUTION when all checks pass
+- BLOCK_EXECUTION when blocker exists
+- ALLOW_WITH_WARNINGS when warnings exist
+- Verdict includes evidence paths
+- Tests pass
+
+**STOP Criteria:**
+- Gate script crashes
+- Verdict missing required fields
+- Tests fail
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/REPORTS/task_start_gate_verdict_TASKID.json`
+
+---
+
+### STAGE-6: Inquisition Hook
+
+**Goal:** Create disabled Inquisition hook with packet generation.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/SCHEMAS/
+├── violation_record.schema.json
+├── inquisition_hook_packet.schema.json
+
+scripts/
+├── doctrinarium_record_violation_v0_1.py
+
+ORGANS/DOCTRINARIUM/TESTS/
+├── test_inquisition_hook.py
+```
+
+**Scripts:** `doctrinarium_record_violation_v0_1.py`
+
+**PASS Criteria:**
+- Violation recording works
+- Inquisition packet generated with `hook_status: "disabled"`
+- Packet contains all required fields
+- `disabled_reason` is explicit
+- Tests pass
+
+**STOP Criteria:**
+- Packet generation fails
+- Hook status not "disabled"
+- Tests fail
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/INQUISITION_HOOKS/INQ-YYYYMMDD-NNN.json`
+
+---
+
+### STAGE-7: Integration
+
+**Goal:** Create check_all script and complete test suite.
+
+**Files to Create:**
+```
+scripts/
+├── doctrinarium_check_all_v0_1.py
+
+ORGANS/DOCTRINARIUM/TESTS/
+├── test_language_policy.py
+├── test_fake_green_prevention.py
+├── test_law_change_receipt.py
+├── test_exception_approval.py
+```
+
+**Scripts:** `doctrinarium_check_all_v0_1.py`
+
+**PASS Criteria:**
+- check_all runs all sub-checks in order
+- Aggregated verdict correct
+- All 18 tests pass
+- Fake green scenarios detected
+- Language policy enforced
+
+**STOP Criteria:**
+- Any test fails
+- check_all crashes
+- Fake green not detected
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/REPORTS/doctrinarium_check_all_YYYYMMDD.json`
+
+---
+
+### STAGE-8: Self-Build
+
+**Goal:** Doctrinarium evaluates itself and proves it works.
+
+**Files to Create:**
+```
+ORGANS/DOCTRINARIUM/ORGAN_HEALTH/SELF_REPORTS/DOCTRINARIUM_SELF_REPORT.json (update)
+ORGANS/DOCTRINARIUM/REPORTS/self_evaluation_YYYYMMDD.json
+```
+
+**Scripts:** Run existing scripts against Doctrinarium itself
+
+**PASS Criteria:**
+- Doctrinarium passes its own organ form checklist
+- Doctrinarium self-report is fresh
+- Doctrinarium laws pass integrity check
+- Task start gate allows Doctrinarium-related tasks
+- No fake green in self-evaluation
+
+**STOP Criteria:**
+- Doctrinarium fails its own checks
+- Self-evaluation shows fake green
+
+**Evidence Path:** `ORGANS/DOCTRINARIUM/REPORTS/self_evaluation_YYYYMMDD.json`
+
+---
+
+## R. CLI Registration Through Astronomicon
+
+### Files Logos-Prime Must Prepare
+
+```
+TASK-20260515-DOCTRINARIUM-MVP-V0_1/
+├── TASK_MANIFEST.json
+├── STAGE_MAP.json
+├── STAGE_PROMPTS/
+│   ├── STAGE-1_PROMPT.md
+│   ├── STAGE-2_PROMPT.md
+│   ├── STAGE-3_PROMPT.md
+│   ├── STAGE-4_PROMPT.md
+│   ├── STAGE-5_PROMPT.md
+│   ├── STAGE-6_PROMPT.md
+│   ├── STAGE-7_PROMPT.md
+│   └── STAGE-8_PROMPT.md
+├── SCHEMAS/
+│   └── (all schemas listed above)
+└── EVIDENCE_REQUIREMENTS.json
+```
+
+### TASK_MANIFEST.json
+
+```json
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "title": "Doctrinarium MVP Build",
+  "description": "Build the 4th foundational organ: law enforcement and organ health gate",
+  "owner": "Owner",
+  "created_utc": "2026-05-15T...",
+  "target_organs": ["DOCTRINARIUM"],
+  "dependencies": ["ASTRONOMICON", "ADMINISTRATUM", "OFFICIO_AGENTIS"],
+  "stage_count": 8,
+  "estimated_sessions": 10,
+  "priority": "high",
+  "status": "pending_registration"
+}
+```
+
+### CLI Command Owner Runs
+
+```powershell
+# On PC:
+py -3 scripts/astronomicon_register_task_v0_1.py `
+  --manifest "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/TASK_MANIFEST.json" `
+  --stage-map "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/STAGE_MAP.json" `
+  --prompts-dir "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/STAGE_PROMPTS/" `
+  --schemas-dir "INBOX/TASK-20260515-DOCTRINARIUM-MVP-V0_1/SCHEMAS/"
+```
+
+### What Astronomicon Ingests
+
+1. Validates TASK_MANIFEST.json against schema
+2. Validates STAGE_MAP.json against schema
+3. Registers task in Astronomicon task registry
+4. Creates task folder in `ASTRONOMICON/TASKS/TASK-20260515-DOCTRINARIUM-MVP-V0_1/`
+5. Copies stage prompts
+6. Sets task status to "registered"
+
+### What Administratum Records
+
+1. Creates chronicle entry for task registration
+2. Records task in address book
+3. Sets lifecycle status to "registered"
+4. Creates work packet reference
+
+### What Officio Agentis Assigns
+
+```json
+{
+  "task_id": "TASK-20260515-DOCTRINARIUM-MVP-V0_1",
+  "assigned_role": "Logos-Prime",
+  "assigned_mode": "architect",
+  "permissions": ["create_organ", "create_schema", "create_script", "create_test"],
+  "restrictions": ["no_commit", "no_push", "bundle_only"]
+}
+```
+
+### Evidence of Successful Registration
+
+```
+ASTRONOMICON/TASKS/TASK-20260515-DOCTRINARIUM-MVP-V0_1/
+├── TASK_MANIFEST.json
+├── STAGE_MAP.json
+├── REGISTRATION_RECEIPT.json
+└── STATUS.json  # status: "registered"
+
+ADMINISTRATUM/CHRONICLE/
+└── TASK-20260515-DOCTRINARIUM-MVP-V0_1_registered.json
+
+OFFICIO_AGENTIS/ASSIGNMENTS/
+└── TASK-20260515-DOCTRINARIUM-MVP-V0_1_assignment.json
+```
+
+---
+
+## S. Sanctum / Dashboard Future
+
+### Personal Doctrinarium Dashboard Should Show
+
+| Panel | Content |
+|-------|---------|
+| Law Registry Status | Total laws, active/retired/draft counts, last update |
+| Law Integrity | Last check result, conflicts found, warnings |
+| Organ Health Grid | 4 organs with status indicators (green/yellow/red) |
+| Active Violations | Count, severity breakdown, oldest unresolved |
+| Task Gate History | Recent verdicts, block rate, warning rate |
+| Inquisition Queue | Packets pending (disabled indicator) |
+
+### Central Sanctum Should Show
+
+| Panel | Content |
+|-------|---------|
+| Doctrinarium Status | Overall health indicator |
+| Gate Availability | Is task start gate operational? |
+| Law Count | Active laws count |
+| Organ Health Summary | All organs pass/warn/fail |
+| Recent Violations | Last 5 violations |
+
+### Visualization Recommendations
+
+```
+┌─────────────────────────────────────────────────────────┐
+│ DOCTRINARIUM STATUS                              [●] OK │
+├─────────────────────────────────────────────────────────┤
+│ Laws: 12 active │ 3 retired │ 0 draft                   │
+│ Integrity: ✓ PASS (last check: 2h ago)                  │
+├─────────────────────────────────────────────────────────┤
+│ ORGAN HEALTH                                            │
+│ ┌──────────────┬──────────────┬──────────────┬────────┐ │
+│ │ ASTRONOMICON │ADMINISTRATUM │OFFICIO_AGENTIS│DOCTRIN│ │
+│ │     [●]      │     [●]      │     [●]       │  [●]  │ │
+│ │   HEALTHY    │   HEALTHY    │   HEALTHY     │HEALTHY│ │
+│ └──────────────┴──────────────┴──────────────┴────────┘ │
+├─────────────────────────────────────────────────────────┤
+│ TASK GATE: OPERATIONAL                                  │
+│ Last verdict: ALLOW_EXECUTION (TASK-20260515-...)       │
+├─────────────────────────────────────────────────────────┤
+│ VIOLATIONS: 0 open │ INQUISITION: disabled              │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Mega-Hardening Integration
+
+When mega-hardening phase arrives:
+1. Doctrinarium dashboard becomes mandatory pre-flight check
+2. All task starts require visible gate verdict
+3. Violation history becomes audit trail
+4. Inquisition hook becomes active
+5. Law compliance metrics feed into Strategium planning
+
+---
+
+## T. Risks and Red-Team Warnings
+
+### Critical Risks
+
+| Risk | Severity | Mitigation |
+|------|----------|------------|
+| **Ceremonial law with no enforcement** | CRITICAL | Every law MUST have `enforcement_mode` and at least one `gate_check` |
+| **Vague laws** | HIGH | `violation_conditions` must be machine-testable, not prose |
+| **Law contradiction undetected** | CRITICAL | Integrity checker must cross-reference all laws |
+| **Fake green gate** | CRITICAL | Verdict MUST include evidence_paths; empty = invalid |
+| **Stale organ health** | HIGH | Freshness thresholds enforced; stale = WARNING/BLOCKER |
+| **Unbounded authority** | HIGH | Each law must specify `authority` and `scope` |
+| **Doctrinarium stealing roles** | MEDIUM | Ownership boundary checks in integrity checker |
+| **Inquisition hook pretending to run** | HIGH | `hook_status: "disabled"` must be explicit; no silent skip |
+| **Advisory prompt injection** | MEDIUM | Laws stored as JSON, not executable; prompts separate |
+| **Owner approval not recorded** | HIGH | All exceptions require `exception_approval.json` |
+| **Language/encoding pollution** | MEDIUM | Schema enforces English for machine fields |
+| **Dashboard pretending backend works** | CRITICAL | Dashboard must read actual reports, not mock data |
+
+### Red-Team Scenarios to Test
+
+1. **Create law with `enforcement_mode: "advisory"` and claim compliance** → Must show WARNING, not PASS
+2. **Mark organ HEALTHY without running checker** → Must be detected as fake green
+3. **Create two laws with same `law_id`** → Must FAIL integrity check
+4. **Create lower law that contradicts higher law** → Must BLOCKER
+5. **Set `hook_status: "sent"` when Inquisition doesn't exist** → Must be detected as invalid
+6. **Approve exception without Owner signature** → Must be rejected
+7. **Claim PASS with empty `evidence_paths`** → Must be rejected as fake green
+8. **Self-report with future timestamp** → Must be rejected as invalid
+
+---
+
+## U. Recommended First Concrete Next Step
+
+**Create a Doctrinarium MVP task frame for

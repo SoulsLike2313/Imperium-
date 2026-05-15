@@ -1,0 +1,145 @@
+{
+  "advisory_id": "KIRO-DOCTRINARIUM-MVP-20260515",
+  "scripts": [
+    {
+      "script_name": "doctrinarium_validate_law_registry_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_validate_law_registry_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_validate_law_registry_v0_1/",
+      "promotion_status": "candidate_reference"
+    },
+    {
+      "script_name": "doctrinarium_check_law_integrity_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_check_law_integrity_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_check_law_integrity_v0_1/",
+      "promotion_status": "candidate_reference"
+    },
+    {
+      "script_name": "doctrinarium_collect_organ_self_reports_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_collect_organ_self_reports_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_collect_organ_self_reports_v0_1/",
+      "promotion_status": "candidate_reference"
+    },
+    {
+      "script_name": "doctrinarium_evaluate_organ_health_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_evaluate_organ_health_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_evaluate_organ_health_v0_1/",
+      "promotion_status": "candidate_reference"
+    },
+    {
+      "script_name": "doctrinarium_task_start_gate_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_task_start_gate_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_task_start_gate_v0_1/",
+      "promotion_status": "candidate_reference"
+    },
+    {
+      "script_name": "doctrinarium_record_violation_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_record_violation_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_record_violation_v0_1/",
+      "promotion_status": "candidate_reference"
+    },
+    {
+      "script_name": "doctrinarium_check_all_v0_1.py",
+      "proposed_path": "scripts/doctrinarium_check_all_v0_1.py",
+      "purpose": "Advisory candidate checker/gate component for Doctrinarium MVP.",
+      "inputs": [
+        "law registry",
+        "organ reports",
+        "task gate request",
+        "policy contracts"
+      ],
+      "outputs": [
+        "machine-readable report",
+        "verdict",
+        "evidence paths"
+      ],
+      "pass_condition": "Deterministic PASS with evidence and no contradictions.",
+      "fail_or_stop_behavior": "Return FAIL/STOP with explicit reason and required remediation evidence.",
+      "evidence_path": ".imperium_runtime/doctrinarium/doctrinarium_check_all_v0_1/",
+      "promotion_status": "candidate_reference"
+    }
+  ]
+}
