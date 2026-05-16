@@ -1,14 +1,31 @@
-# DELTA WINDOW - RUN DELTA CHECK
-# Main entry point for Delta Window MVP
+# DELTA WINDOW - RUN DELTA CHECK R2
+# Main entry point for Delta Window with metric modes
 #
 # Usage:
 #   cd E:\IMPERIUM\IMPERIUM_TEST_VERSION
-#   .\TESTING_FIELD\DELTA_WINDOW\run_delta_check.ps1
+#   .\TESTING_FIELD\DELTA_WINDOW\run_delta_check.ps1 -Mode QUICK
+#   .\TESTING_FIELD\DELTA_WINDOW\run_delta_check.ps1 -Mode STANDARD
+#   .\TESTING_FIELD\DELTA_WINDOW\run_delta_check.ps1 -Mode FULL
+#   .\TESTING_FIELD\DELTA_WINDOW\run_delta_check.ps1 -Mode CUSTOM -Include "git,files,dashboards"
+#   .\TESTING_FIELD\DELTA_WINDOW\run_delta_check.ps1 -CompareMode historical -OldCommit <sha> -NewCommit <sha>
+#
+# Metric Modes:
+#   QUICK    - git status, file diff, key reports (fastest)
+#   STANDARD - QUICK + dashboard list, link check, truth summary, agent exchange
+#   FULL     - STANDARD + screenshots, repo scan, mojibake scan, generated artifacts
+#   CUSTOM   - select components via -Include flag
 
 param(
-    [string]$Mode = "precommit",
+    [ValidateSet("QUICK", "STANDARD", "FULL", "CUSTOM")]
+    [string]$Mode = "STANDARD",
+    
+    [ValidateSet("precommit", "historical")]
+    [string]$CompareMode = "precommit",
+    
     [string]$OldCommit = "",
-    [string]$NewCommit = ""
+    [string]$NewCommit = "",
+    
+    [string]$Include = "git,files,truth,dashboards,agent_exchange"
 )
 
 # Set encoding
@@ -46,11 +63,74 @@ function Log-Command {
 }
 
 Write-Host "=" * 60
-Write-Host "DELTA WINDOW - RUN DELTA CHECK"
+Write-Host "DELTA WINDOW R2 - RUN DELTA CHECK"
 Write-Host "=" * 60
-Write-Host "Mode: $Mode"
+Write-Host "Metric Mode: $Mode"
+Write-Host "Compare Mode: $CompareMode"
+if ($Mode -eq "CUSTOM") {
+    Write-Host "Include: $Include"
+}
 Write-Host "Test Version: $TestVersionRoot"
 Write-Host "Repo Root: $RepoRoot"
+Write-Host ""
+
+# Parse include components for CUSTOM mode
+$Components = @{
+    git = $true
+    files = $true
+    truth = $true
+    dashboards = $false
+    screenshots = $false
+    agent_exchange = $false
+    mojibake = $false
+    generated_artifacts = $false
+    repo_scan = $false
+}
+
+switch ($Mode) {
+    "QUICK" {
+        # Minimal: git, files, key reports
+        $Components.git = $true
+        $Components.files = $true
+        $Components.truth = $true
+    }
+    "STANDARD" {
+        # QUICK + dashboards, agent exchange
+        $Components.git = $true
+        $Components.files = $true
+        $Components.truth = $true
+        $Components.dashboards = $true
+        $Components.agent_exchange = $true
+    }
+    "FULL" {
+        # Everything
+        $Components.git = $true
+        $Components.files = $true
+        $Components.truth = $true
+        $Components.dashboards = $true
+        $Components.screenshots = $true
+        $Components.agent_exchange = $true
+        $Components.mojibake = $true
+        $Components.generated_artifacts = $true
+        $Components.repo_scan = $true
+    }
+    "CUSTOM" {
+        # Parse -Include flag
+        $IncludeList = $Include -split ","
+        foreach ($key in $Components.Keys) {
+            $Components[$key] = $IncludeList -contains $key
+        }
+    }
+}
+
+Write-Host "Components enabled:"
+foreach ($key in $Components.Keys) {
+    if ($Components[$key]) {
+        Write-Host "  [x] $key"
+    } else {
+        Write-Host "  [ ] $key"
+    }
+}
 Write-Host ""
 
 # STAGE 0: Source Lock
@@ -83,12 +163,12 @@ Write-Host "[STAGE 2] Analyzing delta..."
 
 $DeltaArgs = @(
     "$ScriptDir\delta_analyzer.py",
-    "--mode", $Mode,
+    "--mode", $CompareMode,
     "--test-version", $TestVersionRoot,
     "--repo-root", $RepoRoot
 )
 
-if ($Mode -eq "historical" -and $OldCommit -and $NewCommit) {
+if ($CompareMode -eq "historical" -and $OldCommit -and $NewCommit) {
     $DeltaArgs += "--old-commit", $OldCommit, "--new-commit", $NewCommit
 }
 
@@ -98,14 +178,42 @@ Log-Command "delta_analyzer.py" ($DeltaResult -join "`n") $DeltaExitCode
 
 Write-Host ($DeltaResult | Out-String)
 
-# STAGE 3: Screenshot Collector (optional)
-Write-Host ""
-Write-Host "[STAGE 3] Collecting screenshots..."
-$ScreenshotResult = py -3 "$ScriptDir\dashboard_screenshot_collector.py" --test-version $TestVersionRoot 2>&1
-$ScreenshotExitCode = $LASTEXITCODE
-Log-Command "dashboard_screenshot_collector.py" ($ScreenshotResult -join "`n") $ScreenshotExitCode
+# STAGE 3: Screenshot Collector (conditional)
+$ScreenshotExitCode = 0
+if ($Components.screenshots) {
+    Write-Host ""
+    Write-Host "[STAGE 3] Collecting screenshots..."
+    $ScreenshotResult = py -3 "$ScriptDir\dashboard_screenshot_collector.py" --test-version $TestVersionRoot 2>&1
+    $ScreenshotExitCode = $LASTEXITCODE
+    Log-Command "dashboard_screenshot_collector.py" ($ScreenshotResult -join "`n") $ScreenshotExitCode
+    Write-Host ($ScreenshotResult | Out-String)
+} else {
+    Write-Host ""
+    Write-Host "[STAGE 3] Screenshots SKIPPED (Mode: $Mode)"
+    Log-Command "screenshots" "SKIPPED" 0
+}
 
-Write-Host ($ScreenshotResult | Out-String)
+# STAGE 3b: Mojibake Scan (conditional)
+$MojibakeExitCode = 0
+if ($Components.mojibake) {
+    Write-Host ""
+    Write-Host "[STAGE 3b] Running mojibake scan..."
+    $MojibakeResult = py -3 "$TestVersionRoot\AGENT_EXCHANGE\TOOLS\mojibake_scan.py" --scope IMPERIUM_TEST_VERSION --root $TestVersionRoot 2>&1
+    $MojibakeExitCode = $LASTEXITCODE
+    Log-Command "mojibake_scan.py" ($MojibakeResult -join "`n") $MojibakeExitCode
+    Write-Host ($MojibakeResult | Out-String)
+} else {
+    Write-Host ""
+    Write-Host "[STAGE 3b] Mojibake scan SKIPPED (Mode: $Mode)"
+}
+
+# STAGE 3c: Candidate Model
+Write-Host ""
+Write-Host "[STAGE 3c] Building candidate model..."
+$CandidateResult = py -3 "$ScriptDir\candidate_model.py" --repo-root $RepoRoot --scope $TestVersionRoot 2>&1
+$CandidateExitCode = $LASTEXITCODE
+Log-Command "candidate_model.py" ($CandidateResult -join "`n") $CandidateExitCode
+Write-Host ($CandidateResult | Out-String)
 
 # STAGE 4: Generate HTML
 Write-Host ""
@@ -151,7 +259,9 @@ $RunReceipt = @{
     receipt_id = "RCP-DELTA-$(Get-Date -Format 'yyyyMMdd_HHmmss')"
     started_at = $StartTime
     finished_at = (Get-Date -Format "yyyy-MM-ddTHH:mm:ss")
-    mode = $Mode
+    metric_mode = $Mode
+    compare_mode = $CompareMode
+    components_enabled = $Components
     test_version_root = $TestVersionRoot
     repo_root = $RepoRoot
     git_head = $GitHead
@@ -159,10 +269,12 @@ $RunReceipt = @{
         source_lock = @{ status = "PASS"; git_head = $GitHead }
         snapshot = @{ status = if ($SnapshotExitCode -eq 0) { "PASS" } else { "PARTIAL" }; exit_code = $SnapshotExitCode }
         delta_analyzer = @{ status = if ($DeltaExitCode -eq 0) { "PASS" } else { "PARTIAL" }; exit_code = $DeltaExitCode }
-        screenshots = @{ status = if ($ScreenshotExitCode -eq 0) { "PASS" } else { "PARTIAL" }; exit_code = $ScreenshotExitCode }
+        candidate_model = @{ status = if ($CandidateExitCode -eq 0) { "PASS" } else { "PARTIAL" }; exit_code = $CandidateExitCode }
+        screenshots = @{ status = if (-not $Components.screenshots) { "SKIPPED" } elseif ($ScreenshotExitCode -eq 0) { "PASS" } else { "PARTIAL" }; exit_code = $ScreenshotExitCode }
+        mojibake = @{ status = if (-not $Components.mojibake) { "SKIPPED" } elseif ($MojibakeExitCode -eq 0) { "PASS" } else { "PARTIAL" }; exit_code = $MojibakeExitCode }
         html_generator = @{ status = if ($HtmlExitCode -eq 0) { "PASS" } else { "FAIL" }; exit_code = $HtmlExitCode }
     }
-    overall_verdict = if ($HtmlExitCode -eq 0) { "PASS" } else { "FAIL" }
+    overall_verdict = $Verdict
 }
 
 $RunReceiptPath = Join-Path $ReportsDir "run_receipt.json"
@@ -180,7 +292,8 @@ if (Test-Path $DeltaReportPath) {
 $PrecommitVerdictPath = Join-Path $ReportsDir "latest_precommit_verdict.json"
 @{
     generated_at = (Get-Date -Format "yyyy-MM-ddTHH:mm:ssK")
-    mode = $Mode
+    metric_mode = $Mode
+    compare_mode = $CompareMode
     verdict = $Verdict
     safe_to_commit = ($Verdict -eq "COMMIT_OK")
     delta_report_path = $DeltaReportPath
@@ -192,9 +305,11 @@ $HtmlPath = Join-Path $ScriptDir "delta_window.html"
 
 Write-Host ""
 Write-Host "=" * 60
-Write-Host "DELTA WINDOW COMPLETE"
+Write-Host "DELTA WINDOW R2 COMPLETE"
 Write-Host "=" * 60
 Write-Host ""
+Write-Host "METRIC MODE: $Mode"
+Write-Host "COMPARE MODE: $CompareMode"
 Write-Host "VERDICT: $Verdict"
 Write-Host ""
 Write-Host "Delta Window HTML:"

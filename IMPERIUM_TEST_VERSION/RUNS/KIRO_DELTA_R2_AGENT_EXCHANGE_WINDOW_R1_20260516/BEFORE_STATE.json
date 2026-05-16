@@ -1,0 +1,22 @@
+{
+  "run_id": "KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516",
+  "started_at": "2026-05-16T01:30:00Z",
+  "git_head": "f0be4af4d227e35295a31036a686a494b6801dc2",
+  "git_log": "EXPERIMENT: add Delta Window audit and agent exchange baseline",
+  "worktree_status": "CLEAN",
+  "scope": "IMPERIUM_TEST_VERSION_ONLY",
+  "allowed_write_roots": [
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\AGENT_EXCHANGE\\",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RUNS\\KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516\\",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\AUDITS\\KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516\\"
+  ],
+  "task_goals": [
+    "Delta Window R2 with commit candidate model",
+    "Metric collection modes (QUICK/STANDARD/FULL/CUSTOM)",
+    "Agent Exchange Window R1",
+    "English canonical cleanup",
+    "Mojibake detection",
+    "Owner usage guide"
+  ]
+}
