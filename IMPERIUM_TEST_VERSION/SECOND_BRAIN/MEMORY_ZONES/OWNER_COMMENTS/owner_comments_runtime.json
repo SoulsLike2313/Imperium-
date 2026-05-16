@@ -1,0 +1,44 @@
+{
+  "schema_ref": "comment_runtime_v0.3",
+  "runtime_mode": "PROTOTYPE_INTERACTIVE",
+  "no_llm": true,
+  "no_agent_api": true,
+  "comments": [
+    {
+      "comment_id": "OC-20260516-120000-001",
+      "created_at": "2026-05-16T12:01:00Z",
+      "status": "LINKED",
+      "original_text": "Это seed-комментарий владельца. V0.3 должен захватывать такие комментарии и связывать их с задачами.",
+      "interpreted_meaning": "Owner подтверждает, что система должна захватывать и связывать комментарии с задачами в реальном времени.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "action_required": "LINK_TO_TASK",
+      "needs_owner_confirmation": false,
+      "linked_tasks": [
+        "TI-20260516-120000-001"
+      ],
+      "receipts": [
+        "RCP-20260516-120001-001"
+      ],
+      "seed_demo": true
+    },
+    {
+      "comment_id": "OC-20260516-151625-183",
+      "created_at": "2026-05-16T15:16:25Z",
+      "status": "LINKED",
+      "original_text": "SBV03-LIVE-COMMENT-OWNER-001\nOwner подтверждает: эта задача должна стать первым живым примером task intake, который можно передать агенту вместе с комментарием и receipt.",
+      "interpreted_meaning": null,
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "action_required": null,
+      "needs_owner_confirmation": false,
+      "linked_tasks": [
+        "TI-20260516-151558-364"
+      ],
+      "receipts": [
+        "RCP-20260516-151625-705"
+      ],
+      "seed_demo": false
+    }
+  ]
+}

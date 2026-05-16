@@ -1,0 +1,32 @@
+{
+  "schema_id": "memory_link_runtime_v0.3",
+  "title": "MemoryLinkRuntime",
+  "description": "V0.3 runtime schema for memory links between tasks and comments.",
+  "type": "object",
+  "required": ["link_id", "created_at", "status", "source_type", "source_id", "target_type", "target_id"],
+  "properties": {
+    "link_id": {
+      "type": "string",
+      "pattern": "^ML-[0-9]{8}-[0-9]{6}-[0-9]{3}$",
+      "description": "e.g. ML-20260516-143022-001"
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {
+      "type": "string",
+      "enum": ["LINK_CREATED", "LINK_VERIFIED", "BROKEN_LINK"]
+    },
+    "source_type": {"type": "string", "enum": ["TASK", "COMMENT", "RECEIPT"]},
+    "source_id": {"type": "string"},
+    "target_type": {"type": "string", "enum": ["TASK", "COMMENT", "RECEIPT"]},
+    "target_id": {"type": "string"},
+    "link_reason": {"type": ["string", "null"]},
+    "expected_use": {"type": ["string", "null"]},
+    "verification_status": {
+      "type": "string",
+      "enum": ["UNVERIFIED", "VERIFIED", "BROKEN"],
+      "default": "UNVERIFIED"
+    },
+    "receipt_id": {"type": ["string", "null"]},
+    "seed_demo": {"type": "boolean", "default": false}
+  }
+}

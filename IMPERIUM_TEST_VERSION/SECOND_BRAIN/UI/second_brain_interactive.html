@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Brain V0.3 — Interactive</title>
+  <link rel="stylesheet" href="/second_brain_interactive.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-brand">
+      <span class="brain-icon">🧠</span>
+      <h1>SECOND BRAIN</h1>
+      <span class="version-tag">V0.3 INTERACTIVE</span>
+    </div>
+    <div class="header-status">
+      <span id="server-status-badge" class="status-badge badge-prototype">CONNECTING…</span>
+      <span class="status-badge badge-prototype">PROTOTYPE_INTERACTIVE</span>
+      <span class="status-badge badge-rule-based">RULE_BASED_ONLY</span>
+      <span class="status-badge badge-no-llm">NO_LOCAL_LLM</span>
+      <span class="status-badge badge-no-agent">NO_AGENT_API</span>
+      <span class="live-dot" title="Live connection to server.py"></span>
+    </div>
+  </header>
+
+  <!-- ── Stats bar ── -->
+  <div id="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num" id="stat-tasks">—</span>
+      <span class="stat-label">Задач</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-comments">—</span>
+      <span class="stat-label">Комментариев</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-links">—</span>
+      <span class="stat-label">Связей</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-receipts">—</span>
+      <span class="stat-label">Receipts</span>
+    </div>
+    <div style="margin-left:auto;display:flex;gap:8px">
+      <button id="btn-refresh" class="btn btn-primary btn-sm" onclick="doRefresh()">🔄 Обновить</button>
+      <button id="btn-export"  class="btn btn-amber btn-sm"   onclick="doExport()">📦 Экспорт пакета</button>
+    </div>
+  </div>
+
+  <!-- ── Main grid ── -->
+  <main>
+
+    <!-- ── Panel: Task Intake ── -->
+    <div class="panel" id="panel-tasks">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="zone-icon">📋</span>
+          Task Intake
+        </div>
+        <span class="status-badge badge-rule-based" style="font-size:9px">TASK_INTAKE</span>
+      </div>
+      <div class="panel-body">
+        <form id="form-task" autocomplete="off">
+          <div class="form-group">
+            <label for="task-source-text">Текст задачи *</label>
+            <textarea id="task-source-text" placeholder="Опишите задачу…" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="task-owner-goal">Цель владельца</label>
+            <input id="task-owner-goal" type="text" placeholder="Что должно получиться?">
+          </div>
+          <div class="form-group">
+            <label for="task-priority">Приоритет</label>
+            <select id="task-priority">
+              <option value="LOW">LOW</option>
+              <option value="MEDIUM" selected>MEDIUM</option>
+              <option value="HIGH">HIGH</option>
+              <option value="CRITICAL">CRITICAL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="task-tags">Теги (через запятую)</label>
+            <input id="task-tags" type="text" placeholder="v0.3, interactive, …">
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">⚡ Принять задачу</button>
+        </form>
+
+        <div style="margin-top:16px;border-top:1px solid var(--border-dim);padding-top:14px">
+          <div class="panel-title" style="font-size:11px;margin-bottom:10px">📋 Принятые задачи</div>
+          <div id="tasks-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Panel: Owner Comments ── -->
+    <div class="panel" id="panel-comments">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="zone-icon">💬</span>
+          Owner Comments
+        </div>
+        <span class="status-badge badge-rule-based" style="font-size:9px">OWNER_COMMENTS</span>
+      </div>
+      <div class="panel-body">
+        <form id="form-comment" autocomplete="off">
+          <div class="form-group">
+            <label for="comment-text">Текст комментария *</label>
+            <textarea id="comment-text" placeholder="Введите Owner-комментарий…" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="comment-type">Тип комментария</label>
+            <select id="comment-type">
+              <option value="OBSERVATION" selected>OBSERVATION</option>
+              <option value="INSTRUCTION">INSTRUCTION</option>
+              <option value="QUESTION">QUESTION</option>
+              <option value="FEEDBACK">FEEDBACK</option>
+              <option value="BLOCKER">BLOCKER</option>
+              <option value="APPROVAL">APPROVAL</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="comment-interpreted">Интерпретация (опционально)</label>
+            <input id="comment-interpreted" type="text" placeholder="Что означает этот комментарий?">
+          </div>
+          <button type="submit" class="btn btn-success" style="width:100%">💬 Захватить комментарий</button>
+        </form>
+
+        <div style="margin-top:16px;border-top:1px solid var(--border-dim);padding-top:14px">
+          <div class="panel-title" style="font-size:11px;margin-bottom:10px">💬 Захваченные комментарии</div>
+          <div id="comments-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Panel: Memory Links ── -->
+    <div class="panel" id="panel-links">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="zone-icon">🔗</span>
+          Memory Links
+        </div>
+        <span class="status-badge badge-rule-based" style="font-size:9px">MEMORY_LINKS</span>
+      </div>
+      <div class="panel-body">
+        <form id="form-link" autocomplete="off">
+          <div class="link-row">
+            <div class="form-group">
+              <label for="link-task-select">Задача (source) *</label>
+              <select id="link-task-select">
+                <option value="">— выберите задачу —</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="link-comment-select">Комментарий (target) *</label>
+              <select id="link-comment-select">
+                <option value="">— выберите комментарий —</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="link-reason">Причина связи</label>
+            <input id="link-reason" type="text" placeholder="Почему эти объекты связаны?">
+          </div>
+          <button type="submit" class="btn btn-purple" style="width:100%">🔗 Создать связь</button>
+        </form>
+
+        <div style="margin-top:16px;border-top:1px solid var(--border-dim);padding-top:14px">
+          <div class="panel-title" style="font-size:11px;margin-bottom:10px">🔗 Активные связи</div>
+          <div id="links-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Panel: Memory Thread ── -->
+    <div class="panel" id="panel-thread">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span class="zone-icon">🧵</span>
+          Memory Thread
+        </div>
+        <span class="status-badge badge-prototype" style="font-size:9px">THREAD_VIEW</span>
+      </div>
+      <div class="panel-body">
+        <div style="display:flex;gap:10px;margin-bottom:14px;align-items:flex-end">
+          <div class="form-group" style="flex:1;margin-bottom:0">
+            <label for="thread-task-select">Выберите задачу для просмотра thread</label>
+            <select id="thread-task-select">
+              <option value="">— выберите задачу —</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" onclick="loadThread(null)" style="flex-shrink:0">🧵 Загрузить</button>
+        </div>
+        <div id="thread-content">
+          <div class="empty-state">
+            <div class="empty-icon">🧵</div>
+            Выберите задачу и нажмите «Загрузить» для просмотра memory thread.<br>
+            Или нажмите кнопку «Thread» на карточке задачи.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <span>Second Brain V0.3 — Interactive Prototype</span>
+    <div class="footer-honest">
+      <span>PROTOTYPE_INTERACTIVE</span>
+      <span>·</span>
+      <span>RULE_BASED_ONLY</span>
+      <span>·</span>
+      <span>NO_LOCAL_LLM: NOT_CONFIGURED</span>
+      <span>·</span>
+      <span>NO_AGENT_API: NOT_IMPLEMENTED</span>
+      <span>·</span>
+      <span>NOT PRODUCTION READY</span>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ── Notifications ── -->
+<div id="notifications"></div>
+
+<script src="/second_brain_interactive.js"></script>
+</body>
+</html>

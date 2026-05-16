@@ -1,0 +1,36 @@
+{
+  "schema_ref": "memory_link_runtime_v0.3",
+  "runtime_mode": "PROTOTYPE_INTERACTIVE",
+  "no_llm": true,
+  "no_agent_api": true,
+  "links": [
+    {
+      "link_id": "ML-20260516-120000-001",
+      "created_at": "2026-05-16T12:02:00Z",
+      "status": "LINK_VERIFIED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-120000-001",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-120000-001",
+      "link_reason": "Owner comment directly references this task as its subject",
+      "expected_use": "Memory thread reconstruction, context retrieval",
+      "verification_status": "VERIFIED",
+      "receipt_id": "RCP-20260516-120002-001",
+      "seed_demo": true
+    },
+    {
+      "link_id": "ML-20260516-151649-626",
+      "created_at": "2026-05-16T15:16:49Z",
+      "status": "LINK_CREATED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-151558-364",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-151625-183",
+      "link_reason": null,
+      "expected_use": "Memory thread reconstruction",
+      "verification_status": "UNVERIFIED",
+      "receipt_id": "RCP-20260516-151649-185",
+      "seed_demo": false
+    }
+  ]
+}

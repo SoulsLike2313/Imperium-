@@ -1,0 +1,32 @@
+{
+  "schema_id": "comment_runtime_v0.3",
+  "title": "OwnerCommentRuntime",
+  "description": "V0.3 runtime schema for interactive owner comment capture. Rule-based only.",
+  "type": "object",
+  "required": ["comment_id", "created_at", "status", "original_text"],
+  "properties": {
+    "comment_id": {
+      "type": "string",
+      "pattern": "^OC-[0-9]{8}-[0-9]{6}-[0-9]{3}$",
+      "description": "e.g. OC-20260516-143022-001"
+    },
+    "created_at": {"type": "string", "format": "date-time"},
+    "status": {
+      "type": "string",
+      "enum": ["COMMENT_CAPTURED", "COMMENT_READ", "LINKED", "NEEDS_INTERPRETATION"]
+    },
+    "original_text": {"type": "string"},
+    "interpreted_meaning": {"type": ["string", "null"]},
+    "comment_type": {
+      "type": "string",
+      "enum": ["OBSERVATION", "INSTRUCTION", "QUESTION", "FEEDBACK", "BLOCKER", "APPROVAL"],
+      "default": "OBSERVATION"
+    },
+    "linked_zone": {"type": ["string", "null"]},
+    "action_required": {"type": ["string", "null"]},
+    "needs_owner_confirmation": {"type": "boolean", "default": false},
+    "linked_tasks": {"type": "array", "items": {"type": "string"}},
+    "receipts": {"type": "array", "items": {"type": "string"}},
+    "seed_demo": {"type": "boolean", "default": false}
+  }
+}

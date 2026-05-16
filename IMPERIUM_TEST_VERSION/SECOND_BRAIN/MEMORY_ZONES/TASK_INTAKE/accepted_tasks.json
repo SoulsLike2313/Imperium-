@@ -1,0 +1,64 @@
+{
+  "schema_ref": "task_intake_runtime_v0.3",
+  "runtime_mode": "PROTOTYPE_INTERACTIVE",
+  "no_llm": true,
+  "no_agent_api": true,
+  "tasks": [
+    {
+      "task_id": "TI-20260516-120000-001",
+      "created_at": "2026-05-16T12:00:00Z",
+      "status": "TASK_ACCEPTED",
+      "source_text": "Построить Second Brain V0.3 — интерактивный Task Intake + Owner Comments Mesh",
+      "owner_goal": "Первый реально интерактивный срез: владелец вводит задачу, вводит комментарий, связывает их, получает receipts.",
+      "priority": "HIGH",
+      "tags": [
+        "v0.3",
+        "interactive",
+        "task-intake",
+        "seed_demo"
+      ],
+      "relevant_memory_zones": [
+        "TASK_INTAKE",
+        "OWNER_COMMENTS",
+        "MEMORY_LINKS"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-120000-001"
+      ],
+      "links": [
+        "ML-20260516-120000-001"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": true
+    },
+    {
+      "task_id": "TI-20260516-151558-364",
+      "created_at": "2026-05-16T15:15:58Z",
+      "status": "TASK_ACCEPTED",
+      "source_text": "SBV03-LIVE-TASK-OWNER-001\nПроверить, что Second Brain V0.3 реально принимает задачу через UI, пишет JSON, создаёт receipt и может быть передан агенту как task intake package.",
+      "owner_goal": "Получить доказательство, что задача не просто видна в интерфейсе, а сохранена в памяти и готова к передаче агенту.",
+      "priority": "HIGH",
+      "tags": [
+        "v0.3",
+        "live-test",
+        "task-intake",
+        "owner-check"
+      ],
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-151558-316"
+      ],
+      "links": [
+        "ML-20260516-151649-626"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false
+    }
+  ]
+}
