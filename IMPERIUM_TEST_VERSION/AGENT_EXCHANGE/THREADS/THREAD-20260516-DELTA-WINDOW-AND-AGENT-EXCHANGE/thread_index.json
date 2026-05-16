@@ -1,0 +1,34 @@
+{
+  "thread_id": "THREAD-20260516-DELTA-WINDOW-AND-AGENT-EXCHANGE",
+  "topic": "Delta Window MVP audit and Agent Exchange MVP",
+  "created_by": "SERVITOR",
+  "created_at": "2026-05-16T01:45:43.380832+00:00",
+  "repo_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "purpose": "Evidence-based inter-agent communication and improvement loop for test version.",
+  "participants": [
+    "KIRO",
+    "SERVITOR",
+    "LOGOS_PRIME",
+    "OWNER"
+  ],
+  "current_status": "SERVITOR_ADVICE_READY",
+  "related_paths": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW",
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE",
+    "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_DELTA_WINDOW_AUDIT_20260516"
+  ],
+  "messages": [],
+  "bundles": [
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/THREADS/THREAD-20260516-DELTA-WINDOW-AND-AGENT-EXCHANGE/bundles/SERVITOR_TO_KIRO_ADVICE_BUNDLE_20260516.md",
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/THREADS/THREAD-20260516-DELTA-WINDOW-AND-AGENT-EXCHANGE/bundles/SERVITOR_TO_KIRO_ADVICE_BUNDLE_20260516.json"
+  ],
+  "decisions": [
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/THREADS/THREAD-20260516-DELTA-WINDOW-AND-AGENT-EXCHANGE/decisions/DECISION-20260516-AGENT-EXCHANGE-MVP.json"
+  ],
+  "open_questions": [
+    "Should Playwright be installed now for screenshot completeness?",
+    "Should Delta Window become mandatory precommit gate for test version?",
+    "Should historical mode compare snapshot-to-snapshot instead of live commit refs?"
+  ],
+  "next_expected_agent": "KIRO"
+}

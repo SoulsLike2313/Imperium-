@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionRecord",
+  "type": "object",
+  "required": [
+    "decision_id",
+    "thread_id",
+    "created_at",
+    "decision_maker",
+    "decision_title",
+    "decision_text_ru",
+    "evidence_paths",
+    "impact",
+    "next_actions",
+    "status"
+  ]
+}

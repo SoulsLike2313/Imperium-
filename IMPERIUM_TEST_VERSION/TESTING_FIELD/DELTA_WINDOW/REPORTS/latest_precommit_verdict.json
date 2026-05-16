@@ -1,8 +1,8 @@
-{
-  "mode": "precommit",
-  "generated_at": "2026-05-16T04:32:26+03:00",
-  "delta_report_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\REPORTS\\latest_delta_report.json",
-  "safe_to_commit": false,
-  "verdict": "REPAIR_REQUIRED",
-  "html_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\delta_window.html"
+﻿{
+    "safe_to_commit":  false,
+    "generated_at":  "2026-05-16T04:40:56+03:00",
+    "verdict":  "REPAIR_REQUIRED",
+    "delta_report_path":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\REPORTS\\latest_delta_report.json",
+    "html_path":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\delta_window.html",
+    "mode":  "historical"
 }

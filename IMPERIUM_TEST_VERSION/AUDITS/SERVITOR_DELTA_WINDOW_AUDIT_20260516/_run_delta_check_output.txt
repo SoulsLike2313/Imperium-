@@ -1,0 +1,51 @@
+= * 60
+DELTA WINDOW - RUN DELTA CHECK
+= * 60
+Mode: precommit
+Test Version: E:\IMPERIUM\IMPERIUM_TEST_VERSION
+Repo Root: E:\IMPERIUM
+
+[STAGE 0] Source Lock...
+  HEAD: aea80014ddc8b260a5175ea934c78d0921ea7c3a
+  Status: DIRTY
+
+[STAGE 1] Collecting snapshot...
+  Snapshot collected
+
+[STAGE 2] Analyzing delta...
+Delta report saved: E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\REPORTS\latest_delta_report.json
+Mode: precommit
+Changes: 5
+Verdict: REPAIR_REQUIRED
+
+
+[STAGE 3] Collecting screenshots...
+Found 13 dashboards
+Playwright not available, creating blocker report...
+Screenshot index saved: E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\SCREENSHOTS\current\screenshot_index.json
+Captured: 0
+Failed: 0
+Blocked: 13
+
+
+[STAGE 4] Generating Delta Window HTML...
+Delta Window HTML generated: E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\delta_window.html
+
+
+[STAGE 5] Writing reports...
+
+= * 60
+DELTA WINDOW COMPLETE
+= * 60
+
+VERDICT: REPAIR_REQUIRED
+
+Delta Window HTML:
+  E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\delta_window.html
+
+Reports:
+  E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\REPORTS\latest_delta_report.json
+  E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\REPORTS\command_log.md
+  E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\DELTA_WINDOW\REPORTS\run_receipt.json
+
+RUN_DELTA_EXIT_CODE=1

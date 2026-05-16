@@ -1,0 +1,62 @@
+[
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/README_RU.md",
+    "exists": true,
+    "size": 2094
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1",
+    "exists": true,
+    "size": 6809
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/snapshot_collector.py",
+    "exists": true,
+    "size": 7395
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_analyzer.py",
+    "exists": true,
+    "size": 14163
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/dashboard_screenshot_collector.py",
+    "exists": true,
+    "size": 5175
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/generate_delta_window.py",
+    "exists": true,
+    "size": 19053
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html",
+    "exists": true,
+    "size": 14733
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+    "exists": true,
+    "size": 4389
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report_ru.md",
+    "exists": true,
+    "size": 2234
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json",
+    "exists": true,
+    "size": 368
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/command_log.md",
+    "exists": true,
+    "size": 603
+  },
+  {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json",
+    "exists": true,
+    "size": 791
+  }
+]

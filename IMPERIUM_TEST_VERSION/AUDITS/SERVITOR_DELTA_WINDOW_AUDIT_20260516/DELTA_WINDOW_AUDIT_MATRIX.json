@@ -1,0 +1,92 @@
+[
+  {
+    "question": "Does the script run?",
+    "status": "PASS",
+    "observed": "run_delta_check.ps1 executed in precommit and historical modes; both completed with reports generated; exit code 1 due REPAIR_REQUIRED verdict.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_DELTA_WINDOW_AUDIT_20260516/_run_delta_check_output.txt"
+  },
+  {
+    "question": "Does it only observe IMPERIUM_TEST_VERSION?",
+    "status": "PARTIAL",
+    "observed": "Core delta scope is test-version-only; script reads repo-level git truth (HEAD/status).",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1"
+  },
+  {
+    "question": "Does it avoid git add/commit/push?",
+    "status": "PASS",
+    "observed": "No execution of git add/commit/push in run_delta_check.ps1 and Python helpers.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1"
+  },
+  {
+    "question": "Does it generate valid JSON?",
+    "status": "PASS",
+    "observed": "latest_delta_report.json, latest_precommit_verdict.json, run_receipt.json, screenshot_index.json parse as valid JSON.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_DELTA_WINDOW_AUDIT_20260516/_run_delta_check_output.txt"
+  },
+  {
+    "question": "Does delta_window.html exist after run?",
+    "status": "PASS",
+    "observed": "HTML regenerated successfully in both runs.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+  },
+  {
+    "question": "Does HTML clearly say scope is IMPERIUM_TEST_VERSION_ONLY?",
+    "status": "PASS",
+    "observed": "Contains 'SCOPE: IMPERIUM_TEST_VERSION ONLY' and footer scope warning.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+  },
+  {
+    "question": "Does it show git truth?",
+    "status": "PASS",
+    "observed": "HTML includes baseline/current labels and main canon touched flag.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+  },
+  {
+    "question": "Does it show file delta?",
+    "status": "PASS",
+    "observed": "File delta counters and changed files list are rendered in HTML and JSON report.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json"
+  },
+  {
+    "question": "Does it show precommit verdict?",
+    "status": "PASS",
+    "observed": "Precommit verdict shown in HTML and latest_precommit_verdict.json.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json"
+  },
+  {
+    "question": "Does it show evidence paths?",
+    "status": "PASS",
+    "observed": "Verdict JSON includes delta_report_path and html_path.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json"
+  },
+  {
+    "question": "Does it honestly mark screenshots as blocked/partial if Playwright is missing?",
+    "status": "PASS",
+    "observed": "playwright_available=false, screenshots_blocked=13 with explicit reason.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SCREENSHOTS/current/screenshot_index.json"
+  },
+  {
+    "question": "Does historical mode honestly mark partial state?",
+    "status": "PARTIAL",
+    "observed": "Mode changes to historical, but truth_delta.baseline_status remains 'N/A (precommit mode)' and run_receipt overall_verdict stays PASS despite REPAIR_REQUIRED verdict.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json"
+  },
+  {
+    "question": "Does it create files outside Delta Window path?",
+    "status": "PASS",
+    "observed": "Observed script writes remain under DELTA_WINDOW (REPORTS/SCREENSHOTS/SNAPSHOTS/html).",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1"
+  },
+  {
+    "question": "Does it touch main canon?",
+    "status": "PASS",
+    "observed": "scope.main_canon_touched=false in reports.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json"
+  },
+  {
+    "question": "Does it hide unknown/broken states?",
+    "status": "PARTIAL",
+    "observed": "Core verdict REPAIR_REQUIRED is visible, but receipt-level overall_verdict=PASS causes mixed signal.",
+    "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json"
+  }
+]

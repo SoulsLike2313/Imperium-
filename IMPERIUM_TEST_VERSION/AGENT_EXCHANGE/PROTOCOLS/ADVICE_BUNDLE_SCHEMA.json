@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AdviceBundle",
+  "type": "object",
+  "required": [
+    "bundle_id",
+    "source_agent",
+    "target_agent",
+    "task_context",
+    "repo_head",
+    "relevant_paths",
+    "summary_ru",
+    "what_is_strong",
+    "what_is_weak",
+    "risks",
+    "evidence_paths",
+    "recommended_repairs",
+    "recommended_next_tasks",
+    "questions_for_target_agent",
+    "questions_for_owner",
+    "no_go_list",
+    "pass_criteria_for_next_work",
+    "final_verdict"
+  ],
+  "properties": {
+    "bundle_id": {
+      "type": "string"
+    },
+    "source_agent": {
+      "type": "string"
+    },
+    "target_agent": {
+      "type": "string"
+    },
+    "task_context": {
+      "type": "string"
+    },
+    "repo_head": {
+      "type": "string"
+    },
+    "relevant_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary_ru": {
+      "type": "string"
+    },
+    "what_is_strong": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "what_is_weak": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_repairs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommended_next_tasks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "questions_for_target_agent": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "questions_for_owner": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "no_go_list": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pass_criteria_for_next_work": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "final_verdict": {
+      "type": "string"
+    }
+  }
+}

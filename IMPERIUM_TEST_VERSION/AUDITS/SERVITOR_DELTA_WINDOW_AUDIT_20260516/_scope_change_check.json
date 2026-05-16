@@ -1,0 +1,23 @@
+{
+  "total_changes": 10,
+  "allowed_changes": 6,
+  "outside_allowed": [
+    {
+      "status": "M",
+      "path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SCREENSHOTS/current/screenshot_index.json"
+    },
+    {
+      "status": "M",
+      "path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+    },
+    {
+      "status": "??",
+      "path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SNAPSHOTS/SNAP-20260516_014011/"
+    },
+    {
+      "status": "??",
+      "path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SNAPSHOTS/SNAP-20260516_014054/"
+    }
+  ],
+  "outside_allowed_count": 4
+}

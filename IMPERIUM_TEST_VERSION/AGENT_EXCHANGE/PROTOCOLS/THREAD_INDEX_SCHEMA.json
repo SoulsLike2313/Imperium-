@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ThreadIndex",
+  "type": "object",
+  "required": [
+    "thread_id",
+    "topic",
+    "created_by",
+    "created_at",
+    "repo_head",
+    "purpose",
+    "participants",
+    "current_status",
+    "related_paths",
+    "messages",
+    "bundles",
+    "decisions",
+    "open_questions",
+    "next_expected_agent"
+  ]
+}

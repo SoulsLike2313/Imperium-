@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AgentMessage",
+  "type": "object",
+  "required": [
+    "message_id",
+    "thread_id",
+    "from_agent",
+    "to_agent",
+    "created_at",
+    "subject",
+    "context",
+    "claims",
+    "evidence_paths",
+    "findings",
+    "recommendations",
+    "questions",
+    "do_not_do",
+    "owner_decision_needed",
+    "next_actions",
+    "status"
+  ],
+  "properties": {
+    "message_id": {
+      "type": "string"
+    },
+    "thread_id": {
+      "type": "string"
+    },
+    "from_agent": {
+      "type": "string",
+      "enum": [
+        "KIRO",
+        "SERVITOR",
+        "LOGOS_PRIME",
+        "OWNER",
+        "UNKNOWN"
+      ]
+    },
+    "to_agent": {
+      "type": "string",
+      "enum": [
+        "KIRO",
+        "SERVITOR",
+        "LOGOS_PRIME",
+        "OWNER",
+        "MULTI"
+      ]
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "subject": {
+      "type": "string"
+    },
+    "context": {
+      "type": "object",
+      "required": [
+        "repo_head",
+        "task_id",
+        "related_paths"
+      ],
+      "properties": {
+        "repo_head": {
+          "type": "string"
+        },
+        "task_id": {
+          "type": "string"
+        },
+        "related_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "do_not_do": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "owner_decision_needed": {
+      "type": "boolean"
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "READY",
+        "READ",
+        "ANSWERED",
+        "BLOCKED"
+      ]
+    }
+  }
+}

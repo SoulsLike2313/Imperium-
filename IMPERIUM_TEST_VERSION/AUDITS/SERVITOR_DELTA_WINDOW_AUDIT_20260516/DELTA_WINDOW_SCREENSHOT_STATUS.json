@@ -1,0 +1,12 @@
+{
+  "scope": "IMPERIUM_TEST_VERSION_ONLY",
+  "generated_at": "2026-05-16T01:45:43.380832+00:00",
+  "playwright_available": false,
+  "dashboards_found": 13,
+  "screenshots_captured": 0,
+  "screenshots_failed": 0,
+  "screenshots_blocked": 13,
+  "honesty_verdict": "PASS",
+  "comment_ru": "Блокировка скриншотов зафиксирована честно: Playwright отсутствует, статус blocked выставлен для всех dashboard.",
+  "evidence_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SCREENSHOTS/current/screenshot_index.json"
+}

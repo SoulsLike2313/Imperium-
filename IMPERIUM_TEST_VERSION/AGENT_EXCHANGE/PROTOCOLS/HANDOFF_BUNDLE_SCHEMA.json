@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HandoffBundle",
+  "type": "object",
+  "required": [
+    "handoff_id",
+    "thread_id",
+    "from_agent",
+    "to_agent",
+    "created_at",
+    "repo_head",
+    "summary_ru",
+    "changed_paths",
+    "evidence_paths",
+    "open_issues",
+    "required_next_actions",
+    "status"
+  ],
+  "properties": {
+    "handoff_id": {
+      "type": "string"
+    },
+    "thread_id": {
+      "type": "string"
+    },
+    "from_agent": {
+      "type": "string"
+    },
+    "to_agent": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "repo_head": {
+      "type": "string"
+    },
+    "summary_ru": {
+      "type": "string"
+    },
+    "changed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_next_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DRAFT",
+        "READY",
+        "READ",
+        "ANSWERED",
+        "BLOCKED"
+      ]
+    }
+  }
+}

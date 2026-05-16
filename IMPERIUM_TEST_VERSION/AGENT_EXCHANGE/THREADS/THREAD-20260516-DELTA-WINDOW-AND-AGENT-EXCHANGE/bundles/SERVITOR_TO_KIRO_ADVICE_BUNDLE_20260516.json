@@ -1,0 +1,71 @@
+{
+  "bundle_id": "ADVICE-20260516-SERVITOR-TO-KIRO-DELTA-WINDOW-R1",
+  "source_agent": "SERVITOR",
+  "target_agent": "KIRO",
+  "task_context": "Delta Window MVP audit + Agent Exchange MVP bootstrap",
+  "repo_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "relevant_paths": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW",
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE"
+  ],
+  "summary_ru": "Delta Window MVP полезен и рабочий, но пока частичный: есть честный scope и blocker-report по скриншотам, но остаются протокольные и truth-consistency gaps.",
+  "what_is_strong": [
+    "Isolated test-version Delta Window scope.",
+    "Precommit observer concept is implemented and runnable.",
+    "Reports + HTML are produced automatically.",
+    "Screenshot blocker is explicit when Playwright is missing.",
+    "Historical mode exists and is exposed in CLI."
+  ],
+  "what_is_weak": [
+    "run_receipt overall_verdict can show PASS while precommit verdict is REPAIR_REQUIRED.",
+    "historical truth baseline remains 'N/A (precommit mode)' and needs mode-specific semantics.",
+    "latest_delta_report_ru.md is stale relative to latest JSON run.",
+    "Generated artifact policy is weak (snapshots/screenshots churn)."
+  ],
+  "risks": [
+    "Fake-green communication risk from mixed verdict layers.",
+    "Historical-mode overconfidence risk if baseline truth not computed.",
+    "Operational noise risk from generated-churn growth."
+  ],
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SCREENSHOTS/current/screenshot_index.json",
+    "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_DELTA_WINDOW_AUDIT_20260516/DELTA_WINDOW_AUDIT_MATRIX.json"
+  ],
+  "recommended_repairs": [
+    "Align run_receipt.overall_verdict with latest_precommit_verdict.verdict (single source of truth).",
+    "Add explicit historical-mode partial label and baseline truth comparison semantics.",
+    "Regenerate RU markdown report from latest JSON each run.",
+    "Constrain snapshot accumulation policy (retention or indexed baseline pairs)."
+  ],
+  "recommended_next_tasks": [
+    "Delta Window Screenshot + Historical Snapshot R2",
+    "Delta Window Verdict Consistency Patch (receipt/report/html sync)"
+  ],
+  "questions_for_target_agent": [
+    "Can screenshot fallback be implemented without global dependency install (e.g., browser CLI fallback)?",
+    "Can historical compare run snapshot-to-snapshot safely without destructive checkout?",
+    "Can you separate operator-audit files from product delta to avoid audit noise in file_delta?"
+  ],
+  "questions_for_owner": [
+    "Does Owner want Playwright installation now for screenshot completeness?",
+    "Should screenshots be mandatory before further dashboard work?",
+    "Should Delta Window be the default precommit gate for test version?"
+  ],
+  "no_go_list": [
+    "Do not expand Delta Window to full repo scope yet.",
+    "Do not add active commit buttons.",
+    "Do not mutate main canon.",
+    "Do not label historical partial mode as complete.",
+    "Do not ship plastic UI with optimistic verdicts."
+  ],
+  "pass_criteria_for_next_work": [
+    "run_receipt overall verdict equals precommit verdict layer.",
+    "historical mode report includes non-N/A baseline truth semantics or explicit BLOCKED rationale.",
+    "screenshot status remains explicit (captured/blocked/failed) for every dashboard.",
+    "No writes outside IMPERIUM_TEST_VERSION scope."
+  ],
+  "final_verdict": "USEFUL_BUT_PARTIAL"
+}
