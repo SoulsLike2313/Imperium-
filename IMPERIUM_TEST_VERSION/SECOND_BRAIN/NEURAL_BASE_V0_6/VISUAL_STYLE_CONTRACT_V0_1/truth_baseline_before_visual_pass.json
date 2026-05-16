@@ -1,0 +1,67 @@
+{
+  "generated_at_utc": "2026-05-16T20:39:21Z",
+  "url": "http://localhost:8767/",
+  "api_status": {
+    "counts": {
+      "tasks": 10,
+      "comments": 9,
+      "links": 9,
+      "receipts": 31,
+      "task_packages": 5
+    },
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516203827",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516203827",
+    "partial_count": 3,
+    "blocked_count": 0,
+    "missing_source_count": 0,
+    "warning_count": 3,
+    "stale_count": 0,
+    "snapshot_freshness_state": "FRESH"
+  },
+  "api_snapshot": {
+    "snapshot_id": "NBV06-SNAP-20260516203827",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516203827",
+    "health_score": "9/12",
+    "zone_count": 12,
+    "partial_count": 3,
+    "warning_count": 3,
+    "total_missing_sources": 0
+  },
+  "dom_observed": {
+    "stat_tasks": "10",
+    "stat_task_packages": "5",
+    "stat_comments": "9",
+    "stat_links": "9",
+    "stat_receipts": "31",
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516203827",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516203827",
+    "partial_count": "3",
+    "blocked_count": "0",
+    "missing_count": "0",
+    "warning_count": "3",
+    "stale_count": "0",
+    "snapshot_freshness": "FRESH",
+    "zone_count_dom": 12,
+    "zone_label_count_dom": 12,
+    "task_list_cards": 10,
+    "corridor_entry_present": true,
+    "truth_badges": {
+      "runtime": "PROTOTYPE_INTERACTIVE",
+      "rule": "RULE_BASED_ONLY",
+      "no_llm": "NO_LOCAL_LLM",
+      "no_agent": "NO_AGENT_API",
+      "not_release": "NOT_RELEASE_READY"
+    }
+  },
+  "baseline_requirements": {
+    "top_counters_present": true,
+    "health_present": true,
+    "snapshot_identity_present": true,
+    "truth_counters_present": true,
+    "zones_12_present": true,
+    "task_list_present": true,
+    "corridor_entry_present": true
+  }
+}

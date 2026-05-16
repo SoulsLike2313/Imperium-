@@ -1,0 +1,17 @@
+{
+  "zone_id": "export_bundle_gate",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports"
+  ],
+  "pass_logic": "RUNTIME/exports directory exists; at least one export subdirectory with manifest.json that parses and contains export_id, created_at, exported_files",
+  "failure_logic": "Exports directory missing; no manifest.json; manifest invalid JSON",
+  "health_required_before_working": [
+    "RUNTIME/exports directory exists",
+    "at least one manifest.json present and valid"
+  ],
+  "partial_acceptable_when": [
+    "Exports dir exists but no exports yet created"
+  ],
+  "telemetry_fields": ["export_count", "last_export_age_seconds", "export_size_bytes", "manifest_parse_success"]
+}

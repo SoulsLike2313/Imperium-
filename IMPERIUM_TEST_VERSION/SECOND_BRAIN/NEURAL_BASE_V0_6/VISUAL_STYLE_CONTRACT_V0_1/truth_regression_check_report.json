@@ -1,0 +1,132 @@
+{
+  "generated_at_utc": "2026-05-16T20:49:13Z",
+  "task": "VISUAL_STYLE_CONTRACT_V0_1",
+  "truth_priority": "TRUTH_OVER_BEAUTY",
+  "checks": {
+    "app_starts": true,
+    "page_loads": true,
+    "no_critical_browser_errors": true,
+    "snapshot_loads": true,
+    "top_counters_match_backend": true,
+    "health_matches_backend": true,
+    "zones_12_rendered": true,
+    "partial_zones_honest": true,
+    "corridor_opens": true,
+    "register_task_works": true,
+    "owner_comment_works": true,
+    "memory_link_works": true,
+    "launch_handoff_works": true,
+    "receipts_created": true,
+    "no_fake_agent_execution": true,
+    "honesty_badges_visible": true
+  },
+  "baseline_counts": {
+    "tasks": 10,
+    "comments": 9,
+    "links": 9,
+    "receipts": 31,
+    "task_packages": 5
+  },
+  "after_counts": {
+    "tasks": 11,
+    "comments": 10,
+    "links": 10,
+    "receipts": 35,
+    "task_packages": 6
+  },
+  "before_counts_from_playwright": {
+    "tasks": 10,
+    "comments": 9,
+    "links": 9,
+    "receipts": 31,
+    "task_packages": 5
+  },
+  "after_counts_from_playwright": {
+    "tasks": 11,
+    "comments": 10,
+    "links": 10,
+    "receipts": 35,
+    "task_packages": 6
+  },
+  "truth_regression_flags": {
+    "health_changed": false,
+    "partial_changed": false,
+    "blocked_changed": false,
+    "missing_changed": false,
+    "warning_changed": false,
+    "zones_count_changed": false
+  },
+  "truth_regression_found": false,
+  "latest_style_pass_entities": {
+    "task": {
+      "task_id": "TI-20260516-204747-175",
+      "created_at": "2026-05-16T20:47:47Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_STYLE_PASS_V06_1778964466",
+      "task_description": "Visual style contract pass proof run with strict truth preservation checks.",
+      "source_text": "VISUAL_STYLE_PASS_V06_1778964466",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual-style",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters remain backend-bound\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on api 500\nstop on out of scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-204747-233"
+      ],
+      "links": [
+        "ML-20260516-204747-141"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T20:47:49Z",
+      "launch_receipt_id": "RCP-20260516-204749-117"
+    },
+    "comment": {
+      "comment_id": "OC-20260516-204747-120",
+      "created_at": "2026-05-16T20:47:47Z",
+      "status": "LINKED",
+      "original_text": "Visual style pass executed with Truth priority.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-204747-175"
+      ],
+      "receipts": [
+        "RCP-20260516-204747-261"
+      ],
+      "seed_demo": false
+    },
+    "link": {
+      "link_id": "ML-20260516-204747-141",
+      "created_at": "2026-05-16T20:47:47Z",
+      "status": "LINK_CREATED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-204747-175",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-204747-120",
+      "link_reason": "Owner comment created during task registration",
+      "receipt_id": "RCP-20260516-204747-289",
+      "seed_demo": false
+    }
+  },
+  "browser_health": {
+    "console_errors": 0,
+    "page_errors": 0,
+    "failed_requests": 0
+  },
+  "verdict": "PASS"
+}

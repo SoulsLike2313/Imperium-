@@ -1,0 +1,20 @@
+{
+  "zone_id": "delta_verification",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json"
+  ],
+  "pass_logic": "Both report files parse and contain verdict fields; verdict is not FAIL",
+  "failure_logic": "Either file missing; JSON invalid; verdict == FAIL",
+  "health_required_before_working": [
+    "latest_delta_report.json exists and parses",
+    "latest_precommit_verdict.json exists and parses",
+    "verdict field present in both"
+  ],
+  "partial_acceptable_when": [
+    "Files exist but playwright not available",
+    "Known mojibake crash present but reports still valid"
+  ],
+  "telemetry_fields": ["last_verdict", "last_run_age_seconds", "warning_count", "playwright_available"]
+}

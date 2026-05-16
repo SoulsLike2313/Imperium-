@@ -1,0 +1,92 @@
+{
+  "generated_at_utc": "2026-05-16T21:10:24Z",
+  "api": {
+    "status": {
+      "version": "V0.6",
+      "mode": "PROTOTYPE_INTERACTIVE",
+      "rule_based": true,
+      "no_local_llm": true,
+      "no_agent_api": true,
+      "not_production_ready": true,
+      "server": "localhost:8767",
+      "honest_status": [
+        "PROTOTYPE_INTERACTIVE",
+        "RULE_BASED_ONLY",
+        "NO_LOCAL_LLM",
+        "NO_AGENT_API"
+      ],
+      "counts": {
+        "tasks": 11,
+        "comments": 10,
+        "links": 10,
+        "receipts": 35,
+        "task_packages": 6
+      },
+      "snapshot_age_seconds": 89,
+      "snapshot_freshness_state": "FRESH",
+      "stale_warning_threshold_seconds": 300,
+      "stale_failure_threshold_seconds": 900,
+      "max_snapshot_age_seconds": 900,
+      "health_score": "9/12",
+      "snapshot_id": "NBV06-SNAP-20260516210853",
+      "snapshot_timestamp": "2026-05-16T21:08:53Z",
+      "truth_lock_run_id": "TRUTHLOCK-V06-20260516210853",
+      "partial_count": 3,
+      "blocked_count": 0,
+      "missing_source_count": 0,
+      "warning_count": 3,
+      "stale_count": 0,
+      "telemetry": {
+        "snapshot_age_seconds": 89,
+        "api_latency_ms_by_endpoint": {
+          "/api/status": 2.64
+        },
+        "failed_api_count": 0,
+        "last_snapshot_build_time_ms": "NOT_IMPLEMENTED",
+        "zone_render_count": 12,
+        "page_load_ms": "NOT_IMPLEMENTED",
+        "console_error_count": "NOT_IMPLEMENTED",
+        "network_error_count": "NOT_IMPLEMENTED"
+      }
+    },
+    "snapshot": {
+      "snapshot_id": "NBV06-SNAP-20260516210853",
+      "truth_lock_run_id": "TRUTHLOCK-V06-20260516210853",
+      "health_score": "9/12",
+      "partial_count": 3,
+      "warning_count": 3,
+      "zone_count": 12,
+      "total_missing_sources": 0
+    }
+  },
+  "dom": {
+    "stat_tasks": "11",
+    "stat_task_packages": "6",
+    "stat_comments": "10",
+    "stat_links": "10",
+    "stat_receipts": "35",
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516210853",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516210853",
+    "snapshot_ts": "2026-05-16T21:08:53Z",
+    "partial": "3",
+    "blocked": "0",
+    "missing": "0",
+    "warnings": "3",
+    "stale": "0",
+    "zone_count": 12,
+    "zone_label_count": 12,
+    "right_panel_present": true,
+    "task_list_cards": 11,
+    "corridor_entry_present": true,
+    "honesty_badges": {
+      "runtime": "PROTOTYPE_INTERACTIVE",
+      "rule": "RULE_BASED_ONLY",
+      "no_llm": "NO_LOCAL_LLM",
+      "no_agent": "NO_AGENT_API",
+      "not_release": "NOT_RELEASE_READY"
+    }
+  },
+  "console_errors": [],
+  "page_errors": []
+}

@@ -1,0 +1,48 @@
+{
+  "phase": "PHASE_0_PRECHECK",
+  "generated_at_utc": "2026-05-16T21:08:22Z",
+  "repo_root": "E:\\IMPERIUM",
+  "head": "a299dba6cd58365cce033cc39e2056e68a9c96c6",
+  "expected_head": "a299dba6cd58365cce033cc39e2056e68a9c96c6",
+  "head_matches_expected": true,
+  "git_status_short": [
+    "M IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    " M IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    " M IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_09 (1).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_09 (2).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_10 (3).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_10 (4).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_11 (5).png\"",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_1.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_3.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_4.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_5.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_6.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_7.png",
+    "?? IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/",
+    "?? IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/",
+    "?? IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/NEURAL_BASE_V0_4/"
+  ],
+  "git_diff_name_status": [
+    "M\tIMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    "M\tIMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    "M\tIMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+  ],
+  "allowed_runtime_files": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+  ],
+  "tracked_outside_scope_or_allowed_runtime": [],
+  "scope_gate_pass": true,
+  "decision": "CONTINUE",
+  "notes": [
+    "Untracked ASSETS and V0.4 artifacts are present and untouched.",
+    "Tracked MEMORY_ZONES runtime files are expected side effects from interaction proofs."
+  ],
+  "stderr": [
+    "warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json', CRLF will be replaced by LF the next time Git touches it\nwarning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json', CRLF will be replaced by LF the next time Git touches it"
+  ]
+}

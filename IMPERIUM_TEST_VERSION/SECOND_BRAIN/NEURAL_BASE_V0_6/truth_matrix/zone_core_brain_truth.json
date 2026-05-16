@@ -1,0 +1,17 @@
+{
+  "zone_id": "core_brain",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/second_brain_v0_3_check_report.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json"
+  ],
+  "pass_logic": "snapshot_live.json parses and contains zones array with 12 entries; check_report_v0_5.json verdict == PASS",
+  "failure_logic": "snapshot missing or stale > 300s; check_report verdict == FAIL; any zone has broken_binding_count > 0",
+  "health_required_before_working": [
+    "snapshot_age_seconds < 300",
+    "missing_source_count == 0",
+    "broken_binding_count == 0"
+  ],
+  "telemetry_fields": ["snapshot_age_seconds", "zone_load_success_count", "warning_count", "broken_binding_count"]
+}

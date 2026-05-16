@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "2026-05-16T20:03:23Z",
+  "server_ready": true,
+  "zone_count_dom": 0,
+  "panel_content_len": 0,
+  "console": [],
+  "page_errors": [
+    "zone is not defined"
+  ]
+}

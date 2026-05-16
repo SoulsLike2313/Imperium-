@@ -1,0 +1,19 @@
+{
+  "zone_id": "agent_exchange",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/EXCHANGE_STATE.json",
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS/latest_exchange_status.json"
+  ],
+  "pass_logic": "EXCHANGE_STATE.json parses; latest_exchange_status.json parses and contains status field",
+  "failure_logic": "Either file missing or invalid JSON; known mojibake fault present",
+  "health_required_before_working": [
+    "EXCHANGE_STATE.json exists and parses",
+    "latest_exchange_status.json exists and parses"
+  ],
+  "partial_acceptable_when": [
+    "Files exist but known_fault_count > 0",
+    "Exchange state is PARTIAL or LIMITED"
+  ],
+  "telemetry_fields": ["thread_count", "mojibake_error_count", "last_exchange_age_seconds", "known_fault_count"]
+}

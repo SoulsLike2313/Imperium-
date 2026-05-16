@@ -1,0 +1,138 @@
+{
+  "step": "VISUAL_REPAIR_AND_AAA_PASS_V0_2",
+  "generated_at_utc": "2026-05-16T20:11:43Z",
+  "verdict": "REPAIRED_USABLE_TRUTH_PRESERVED",
+  "regression_fixed": {
+    "js_runtime_error_removed": true,
+    "pre_fix_page_errors": [
+      "zone is not defined"
+    ],
+    "post_fix_page_errors": [],
+    "post_fix_console_errors": []
+  },
+  "visual_acceptance": {
+    "core_brain_visible": true,
+    "all_12_zones_visible": true,
+    "zone_labels_readable": true,
+    "operator_panel_has_content": true,
+    "task_intake_entry_obvious": true
+  },
+  "functional_checks": {
+    "app_http_online": true,
+    "snapshot_loaded": true,
+    "top_counters_backend_bound": true,
+    "zones_rendered_count": 12,
+    "health_score_honest": "9/12",
+    "partial_zones_marked_partial": 3,
+    "task_intake_corridor_open": true,
+    "register_task_flow": true,
+    "owner_comment_flow": true,
+    "memory_link_flow": true,
+    "launch_handoff_flow": true,
+    "receipts_created": true,
+    "fake_agent_execution_implied": false,
+    "honesty_badges_expected": [
+      "PROTOTYPE_INTERACTIVE",
+      "RULE_BASED_ONLY",
+      "NO_LOCAL_LLM",
+      "NO_AGENT_API",
+      "NOT_RELEASE_READY"
+    ]
+  },
+  "interaction_artifacts": {
+    "latest_task": {
+      "task_id": "TI-20260516-200924-235",
+      "created_at": "2026-05-16T20:09:24Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_REPAIR_V06_1778962163",
+      "task_description": "Repair validation task created by Playwright after visual regression fix and readability upgrade.",
+      "source_text": "VISUAL_REPAIR_V06_1778962163",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "repair"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "All 12 zones visible without hover\nCorridor launch produces handoff block",
+      "fail_criteria_raw": "Zone count less than 12\nCorridor cannot register task",
+      "stop_conditions_raw": "Stop on API 500\nStop on forbidden scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-200924-296"
+      ],
+      "links": [
+        "ML-20260516-200924-216"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T20:09:26Z",
+      "launch_receipt_id": "RCP-20260516-200926-106"
+    },
+    "latest_comment": {
+      "comment_id": "OC-20260516-200924-269",
+      "created_at": "2026-05-16T20:09:24Z",
+      "status": "LINKED",
+      "original_text": "Owner context captured during visual repair proof run.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-200924-235"
+      ],
+      "receipts": [
+        "RCP-20260516-200924-333"
+      ],
+      "seed_demo": false
+    },
+    "latest_link": {
+      "link_id": "ML-20260516-200924-216",
+      "created_at": "2026-05-16T20:09:24Z",
+      "status": "LINK_CREATED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-200924-235",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-200924-269",
+      "link_reason": "Owner comment created during task registration",
+      "receipt_id": "RCP-20260516-200924-325",
+      "seed_demo": false
+    },
+    "counts_before": {
+      "tasks": 9,
+      "comments": 8,
+      "links": 8,
+      "receipts": 27,
+      "task_packages": 4
+    },
+    "counts_after": {
+      "tasks": 10,
+      "comments": 9,
+      "links": 9,
+      "receipts": 31,
+      "task_packages": 5
+    }
+  },
+  "api_and_browser_health": {
+    "failed_requests": 0,
+    "page_errors": 0,
+    "console_errors": 0,
+    "api_status_http_before": 200,
+    "api_status_http_after": 200
+  },
+  "available_checks": {
+    "snapshot_builder_v0_6": "PASS",
+    "v0_6_checker": "NOT_FOUND"
+  },
+  "notes": [
+    "Runtime side effects in MEMORY_ZONES are expected from corridor interaction proof.",
+    "No automatic external agent execution was triggered.",
+    "UI remains PROTOTYPE_INTERACTIVE and NOT_RELEASE_READY by design."
+  ]
+}

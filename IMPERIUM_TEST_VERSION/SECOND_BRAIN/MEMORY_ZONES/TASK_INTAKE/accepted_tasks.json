@@ -133,6 +133,391 @@
       ],
       "next_expected_action": "OWNER_REVIEW",
       "seed_demo": false
+    },
+    {
+      "task_id": "TI-20260516-192617-328",
+      "created_at": "2026-05-16T19:26:17Z",
+      "status": "TASK_REGISTERED",
+      "task_title": "Test V0.6 Corridor Task",
+      "task_description": "This is a test task to verify the V0.6 Task Intake Corridor works correctly end to end",
+      "source_text": "Test V0.6 Corridor Task",
+      "priority": "HIGH",
+      "tags": [],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "All 7 package files created\nServer returns 201\nReceipt exists",
+      "fail_criteria_raw": "Any file missing\nServer returns 500",
+      "stop_conditions_raw": "Stop if package directory cannot be created",
+      "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-192617-158"
+      ],
+      "links": [
+        "ML-20260516-192617-829"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false
+    },
+    {
+      "task_id": "TI-20260516-192640-321",
+      "created_at": "2026-05-16T19:26:40Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "Test V0.6 Corridor",
+      "task_description": "This is a test task to verify the V0.6 Task Intake Corridor works correctly end to end",
+      "source_text": "Test V0.6 Corridor",
+      "priority": "HIGH",
+      "tags": [],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "All 7 package files created\nServer returns 201",
+      "fail_criteria_raw": "Any file missing\nServer returns 500",
+      "stop_conditions_raw": "Stop if package directory cannot be created",
+      "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-192640-252"
+      ],
+      "links": [
+        "ML-20260516-192640-102"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T19:27:18Z",
+      "launch_receipt_id": "RCP-20260516-192718-261"
+    },
+    {
+      "task_id": "TI-20260516-194448-171",
+      "created_at": "2026-05-16T19:44:48Z",
+      "status": "TASK_REGISTERED",
+      "task_title": "AAA Visual Pass Test Task",
+      "task_description": "Testing the AAA visual pass V0.1 to verify corridor still works after visual upgrade",
+      "source_text": "AAA Visual Pass Test Task",
+      "priority": "HIGH",
+      "tags": [],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "Page loads\nCorridor opens\nRegister works",
+      "fail_criteria_raw": "Server error\nPackage not created",
+      "stop_conditions_raw": "Stop if server crashes",
+      "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-194448-283"
+      ],
+      "links": [
+        "ML-20260516-194448-231"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false
+    },
+    {
+      "task_id": "TI-20260516-195437-445",
+      "created_at": "2026-05-16T19:54:37Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "Readability Fix Test",
+      "task_description": "Testing that corridor still works after readability fix pass applied to V0.6 visual layer",
+      "source_text": "Readability Fix Test",
+      "priority": "MEDIUM",
+      "tags": [],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "Register returns 201\nPackage created\nHandoff block generated",
+      "fail_criteria_raw": "Server error\nPackage missing",
+      "stop_conditions_raw": "Stop if server returns 500",
+      "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+      "machine_readiness_score": 9,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-195437-282"
+      ],
+      "links": [],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T19:54:58Z",
+      "launch_receipt_id": "RCP-20260516-195458-305"
+    },
+    {
+      "task_id": "TI-20260516-200924-235",
+      "created_at": "2026-05-16T20:09:24Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_REPAIR_V06_1778962163",
+      "task_description": "Repair validation task created by Playwright after visual regression fix and readability upgrade.",
+      "source_text": "VISUAL_REPAIR_V06_1778962163",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "repair"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "All 12 zones visible without hover\nCorridor launch produces handoff block",
+      "fail_criteria_raw": "Zone count less than 12\nCorridor cannot register task",
+      "stop_conditions_raw": "Stop on API 500\nStop on forbidden scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-200924-296"
+      ],
+      "links": [
+        "ML-20260516-200924-216"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T20:09:26Z",
+      "launch_receipt_id": "RCP-20260516-200926-106"
+    },
+    {
+      "task_id": "TI-20260516-204747-175",
+      "created_at": "2026-05-16T20:47:47Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_STYLE_PASS_V06_1778964466",
+      "task_description": "Visual style contract pass proof run with strict truth preservation checks.",
+      "source_text": "VISUAL_STYLE_PASS_V06_1778964466",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual-style",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters remain backend-bound\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on api 500\nstop on out of scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-204747-233"
+      ],
+      "links": [
+        "ML-20260516-204747-141"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T20:47:49Z",
+      "launch_receipt_id": "RCP-20260516-204749-117"
+    },
+    {
+      "task_id": "TI-20260516-214742-304",
+      "created_at": "2026-05-16T21:47:42Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968061",
+      "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+      "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968061",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-214742-160"
+      ],
+      "links": [
+        "ML-20260516-214742-121"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T21:47:44Z",
+      "launch_receipt_id": "RCP-20260516-214744-339"
+    },
+    {
+      "task_id": "TI-20260516-215202-163",
+      "created_at": "2026-05-16T21:52:02Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968321",
+      "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+      "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968321",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-215202-102"
+      ],
+      "links": [
+        "ML-20260516-215202-231"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T21:52:04Z",
+      "launch_receipt_id": "RCP-20260516-215204-379"
+    },
+    {
+      "task_id": "TI-20260516-215510-267",
+      "created_at": "2026-05-16T21:55:10Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968509",
+      "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+      "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968509",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-215510-191"
+      ],
+      "links": [
+        "ML-20260516-215510-602"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T21:55:12Z",
+      "launch_receipt_id": "RCP-20260516-215512-235"
+    },
+    {
+      "task_id": "TI-20260516-215754-100",
+      "created_at": "2026-05-16T21:57:54Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968673",
+      "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+      "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968673",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-215754-731"
+      ],
+      "links": [
+        "ML-20260516-215754-188"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T21:57:56Z",
+      "launch_receipt_id": "RCP-20260516-215756-295"
+    },
+    {
+      "task_id": "TI-20260516-220614-161",
+      "created_at": "2026-05-16T22:06:15Z",
+      "status": "TASK_READY_FOR_SERVITOR",
+      "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778969173",
+      "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+      "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778969173",
+      "priority": "MEDIUM",
+      "tags": [
+        "v0.6",
+        "visual",
+        "truth"
+      ],
+      "scope_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+      ],
+      "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+      "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+      "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+      "machine_readiness_verdict": "READY_FOR_LAUNCH",
+      "machine_readiness_score": 10,
+      "relevant_memory_zones": [
+        "TASK_INTAKE"
+      ],
+      "created_by": "OWNER_INTERACTIVE",
+      "runtime_mode": "PROTOTYPE_INTERACTIVE",
+      "receipts": [
+        "RCP-20260516-220614-147"
+      ],
+      "links": [
+        "ML-20260516-220615-187"
+      ],
+      "next_expected_action": "OWNER_REVIEW",
+      "seed_demo": false,
+      "launched_at": "2026-05-16T22:06:16Z",
+      "launch_receipt_id": "RCP-20260516-220616-725"
     }
   ]
 }

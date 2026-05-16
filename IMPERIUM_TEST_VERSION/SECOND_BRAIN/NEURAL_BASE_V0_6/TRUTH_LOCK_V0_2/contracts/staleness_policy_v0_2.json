@@ -1,0 +1,10 @@
+{
+  "version": "v0.2",
+  "max_snapshot_age_seconds": 900,
+  "stale_warning_threshold_seconds": 300,
+  "stale_failure_threshold_seconds": 900,
+  "behavior_missing_source": "set zone/state to MISSING and increment missing_source_count",
+  "behavior_api_failure": "set status to ERROR and increment failed_api_count",
+  "behavior_old_receipts": "show latest_receipt_age_seconds and keep state WARNING when older than threshold",
+  "behavior_missing_checker_report": "show checker_passed as NOT_IMPLEMENTED"
+}

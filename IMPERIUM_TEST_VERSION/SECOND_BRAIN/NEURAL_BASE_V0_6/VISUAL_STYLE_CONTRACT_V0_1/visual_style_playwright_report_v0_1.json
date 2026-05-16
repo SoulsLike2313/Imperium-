@@ -1,0 +1,147 @@
+{
+  "timestamp": "2026-05-16T20:47:37Z",
+  "url": "http://localhost:8767/",
+  "screenshots": [
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\01_initial_full_view.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\02_brain_zone_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\03_all_12_zones_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\04_hover_task_intake.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\05_right_panel_readable.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\06_task_intake_corridor_open.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\07_register_review_state.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\08_launch_handoff_state.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\09_truth_bar_readable.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_STYLE_CONTRACT_V0_1\\screenshots\\10_1080p_readability_check.png"
+  ],
+  "console_errors": [],
+  "console_warnings": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "api_status_before": {
+    "version": "V0.6",
+    "mode": "PROTOTYPE_INTERACTIVE",
+    "rule_based": true,
+    "no_local_llm": true,
+    "no_agent_api": true,
+    "not_production_ready": true,
+    "server": "localhost:8767",
+    "honest_status": [
+      "PROTOTYPE_INTERACTIVE",
+      "RULE_BASED_ONLY",
+      "NO_LOCAL_LLM",
+      "NO_AGENT_API"
+    ],
+    "counts": {
+      "tasks": 10,
+      "comments": 9,
+      "links": 9,
+      "receipts": 31,
+      "task_packages": 5
+    },
+    "snapshot_age_seconds": 41,
+    "snapshot_freshness_state": "FRESH",
+    "stale_warning_threshold_seconds": 300,
+    "stale_failure_threshold_seconds": 900,
+    "max_snapshot_age_seconds": 900,
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516204700",
+    "snapshot_timestamp": "2026-05-16T20:47:00Z",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516204700",
+    "partial_count": 3,
+    "blocked_count": 0,
+    "missing_source_count": 0,
+    "warning_count": 3,
+    "stale_count": 0,
+    "telemetry": {
+      "snapshot_age_seconds": 41,
+      "api_latency_ms_by_endpoint": {
+        "/api/status": 2.07,
+        "/api/snapshot": 0.75,
+        "/api/tasks": 0.4,
+        "/api/comments": 0.29,
+        "/api/links": 0.27,
+        "/api/receipts": 7.07,
+        "/api/export/status": 1.06,
+        "/api/task_packages": 1.83
+      },
+      "failed_api_count": 0,
+      "last_snapshot_build_time_ms": "NOT_IMPLEMENTED",
+      "zone_render_count": 12,
+      "page_load_ms": "NOT_IMPLEMENTED",
+      "console_error_count": "NOT_IMPLEMENTED",
+      "network_error_count": "NOT_IMPLEMENTED"
+    }
+  },
+  "api_status_after": {
+    "version": "V0.6",
+    "mode": "PROTOTYPE_INTERACTIVE",
+    "rule_based": true,
+    "no_local_llm": true,
+    "no_agent_api": true,
+    "not_production_ready": true,
+    "server": "localhost:8767",
+    "honest_status": [
+      "PROTOTYPE_INTERACTIVE",
+      "RULE_BASED_ONLY",
+      "NO_LOCAL_LLM",
+      "NO_AGENT_API"
+    ],
+    "counts": {
+      "tasks": 11,
+      "comments": 10,
+      "links": 10,
+      "receipts": 35,
+      "task_packages": 6
+    },
+    "snapshot_age_seconds": 54,
+    "snapshot_freshness_state": "FRESH",
+    "stale_warning_threshold_seconds": 300,
+    "stale_failure_threshold_seconds": 900,
+    "max_snapshot_age_seconds": 900,
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516204700",
+    "snapshot_timestamp": "2026-05-16T20:47:00Z",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516204700",
+    "partial_count": 3,
+    "blocked_count": 0,
+    "missing_source_count": 0,
+    "warning_count": 3,
+    "stale_count": 0,
+    "telemetry": {
+      "snapshot_age_seconds": 54,
+      "api_latency_ms_by_endpoint": {
+        "/api/status": 2.05,
+        "/api/snapshot": 0.72,
+        "/api/tasks": 0.37,
+        "/api/comments": 0.3,
+        "/api/links": 0.31,
+        "/api/receipts": 15.14,
+        "/api/export/status": 1.18,
+        "/api/task_packages": 10.64,
+        "/api/tasks/register": 12.88,
+        "/api/tasks/launch": 3.45
+      },
+      "failed_api_count": 0,
+      "last_snapshot_build_time_ms": "NOT_IMPLEMENTED",
+      "zone_render_count": 12,
+      "page_load_ms": "NOT_IMPLEMENTED",
+      "console_error_count": "NOT_IMPLEMENTED",
+      "network_error_count": "NOT_IMPLEMENTED"
+    }
+  },
+  "checks": {
+    "launch_button_enabled": true,
+    "zone_count": 12,
+    "zone_label_count": 12,
+    "corridor_entry_present": true,
+    "task_list_cards": 11,
+    "truth_badges": {
+      "runtime": "PROTOTYPE_INTERACTIVE",
+      "rule": "RULE_BASED_ONLY",
+      "no_llm": "NO_LOCAL_LLM",
+      "no_agent": "NO_AGENT_API",
+      "not_release": "NOT_RELEASE_READY"
+    }
+  },
+  "created_entities": {}
+}

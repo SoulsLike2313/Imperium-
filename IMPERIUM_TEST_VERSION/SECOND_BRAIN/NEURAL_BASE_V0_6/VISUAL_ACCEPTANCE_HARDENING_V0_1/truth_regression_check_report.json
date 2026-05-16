@@ -1,0 +1,2562 @@
+{
+  "task": "VISUAL_ACCEPTANCE_HARDENING_V0_1",
+  "generated_at_utc": "2026-05-16T22:06:03Z",
+  "url": "http://localhost:8767/",
+  "screenshots": [
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\01_full_view_after_pass.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\02_brain_field_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\03_all_zones_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\04_right_panel_readability.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\05_task_intake_corridor_entry.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\06_selected_zone_panel.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\07_truth_bar_readability.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\08_1080p_readability.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_ACCEPTANCE_HARDENING_V0_1\\screenshots\\09_responsive_resize_check.png"
+  ],
+  "console_errors": [],
+  "console_warnings": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "api": {
+    "status_before": {
+      "endpoint": "/api/status",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": {
+        "version": "V0.6",
+        "mode": "PROTOTYPE_INTERACTIVE",
+        "rule_based": true,
+        "no_local_llm": true,
+        "no_agent_api": true,
+        "not_production_ready": true,
+        "server": "localhost:8767",
+        "honest_status": [
+          "PROTOTYPE_INTERACTIVE",
+          "RULE_BASED_ONLY",
+          "NO_LOCAL_LLM",
+          "NO_AGENT_API"
+        ],
+        "counts": {
+          "tasks": 15,
+          "comments": 14,
+          "links": 14,
+          "receipts": 51,
+          "task_packages": 10
+        },
+        "snapshot_age_seconds": 667,
+        "snapshot_freshness_state": "WARNING",
+        "stale_warning_threshold_seconds": 300,
+        "stale_failure_threshold_seconds": 900,
+        "max_snapshot_age_seconds": 900,
+        "health_score": "9/12",
+        "snapshot_id": "NBV06-SNAP-20260516215459",
+        "snapshot_timestamp": "2026-05-16T21:54:59Z",
+        "truth_lock_run_id": "TRUTHLOCK-V06-20260516215459",
+        "partial_count": 3,
+        "blocked_count": 0,
+        "missing_source_count": 0,
+        "warning_count": 3,
+        "stale_count": 0,
+        "telemetry": {
+          "snapshot_age_seconds": 667,
+          "api_latency_ms_by_endpoint": {
+            "/api/status": 2.66,
+            "/api/snapshot": 0.77,
+            "/api/tasks": 0.42,
+            "/api/comments": 0.3,
+            "/api/links": 0.27,
+            "/api/receipts": 8.02,
+            "/api/export/status": 1.12,
+            "/api/task_packages": 3.46,
+            "/api/tasks/register": 13.04,
+            "/api/tasks/launch": 3.85
+          },
+          "failed_api_count": 0,
+          "last_snapshot_build_time_ms": "NOT_IMPLEMENTED",
+          "zone_render_count": 12,
+          "page_load_ms": "NOT_IMPLEMENTED",
+          "console_error_count": "NOT_IMPLEMENTED",
+          "network_error_count": "NOT_IMPLEMENTED"
+        }
+      }
+    },
+    "snapshot_before": {
+      "endpoint": "/api/snapshot",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": {
+        "snapshot_id": "NBV06-SNAP-20260516215459",
+        "truth_lock_run_id": "TRUTHLOCK-V06-20260516215459",
+        "timestamp_utc": "2026-05-16T21:54:59Z",
+        "schema_version": "neural_snapshot.v0.6",
+        "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
+        "runtime_mode": "PROTOTYPE_INTERACTIVE",
+        "no_local_llm": true,
+        "no_agent_api": true,
+        "not_production_ready": true,
+        "zone_count": 12,
+        "working_count": 9,
+        "partial_count": 3,
+        "blocked_count": 0,
+        "total_missing_sources": 0,
+        "missing_source_count": 0,
+        "stale_count": 0,
+        "warning_count": 3,
+        "health_score": "9/12",
+        "task_package_count": 8,
+        "telemetry": {
+          "snapshot_age_seconds": 0,
+          "api_latency_ms_by_endpoint": "NOT_IMPLEMENTED",
+          "failed_api_count": "NOT_IMPLEMENTED",
+          "last_snapshot_build_time_ms": 290.66,
+          "zone_render_count": 12,
+          "missing_source_count": 0,
+          "receipt_count": 43,
+          "task_package_count": 8,
+          "page_load_ms": "NOT_IMPLEMENTED",
+          "console_error_count": "NOT_IMPLEMENTED"
+        },
+        "zones": [
+          {
+            "zone_id": "core_brain",
+            "display_name": "Core Brain / System Health",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_cyan",
+            "source_present_count": 3,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {},
+            "layout": {
+              "x": 50,
+              "y": 50,
+              "r": 52,
+              "size": "large",
+              "group": "center",
+              "label_offset_y": -65
+            },
+            "honest_limitations": [
+              "RULE_BASED_ONLY",
+              "NO_LOCAL_LLM",
+              "NO_AGENT_API"
+            ],
+            "missing_capabilities": [
+              "Real-time health monitoring",
+              "Auto-repair"
+            ],
+            "hover_summary_template": "Health: {health_score}/12 zones OK | Snapshot age: {snapshot_age}s | Warnings: {warning_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "task_intake",
+            "display_name": "Task Intake",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_cyan",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "task_count": 13,
+              "unlinked_task_count": 1,
+              "launched_task_count": 6,
+              "last_task_age_seconds": 177,
+              "task_package_count": 8,
+              "latest_package_verdict": "READY_FOR_LAUNCH"
+            },
+            "layout": {
+              "x": 72,
+              "y": 22,
+              "r": 32,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -42
+            },
+            "honest_limitations": [
+              "RULE_BASED_ONLY",
+              "NO_AUTO_ROUTING",
+              "NO_AUTO_EXECUTION"
+            ],
+            "missing_capabilities": [
+              "Auto-routing",
+              "Priority scoring",
+              "LLM interpretation"
+            ],
+            "hover_summary_template": "Tasks: {task_count} | Packages: {task_package_count} | Last: {last_task_age}s ago",
+            "corridor_mode": "TASK_INTAKE_CORRIDOR",
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "owner_comments",
+            "display_name": "Owner Comments",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_amber",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "comment_count": 12,
+              "linked_count": 12,
+              "unlinked_count": 0,
+              "needs_interpretation_count": 0
+            },
+            "layout": {
+              "x": 88,
+              "y": 42,
+              "r": 30,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -40
+            },
+            "honest_limitations": [
+              "NO_AUTO_INTERPRETATION",
+              "MANUAL_LINKING_ONLY"
+            ],
+            "missing_capabilities": [
+              "LLM interpretation",
+              "Sentiment analysis"
+            ],
+            "hover_summary_template": "Comments: {comment_count} | Linked: {linked_count} | Unlinked: {unlinked_count}",
+            "corridor_mode": "OWNER_COMMENTS_CORRIDOR",
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "memory_threads",
+            "display_name": "Memory Threads",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_magenta",
+            "source_present_count": 3,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "link_count": 12,
+              "orphaned_task_count": 1,
+              "orphaned_comment_count": 0
+            },
+            "layout": {
+              "x": 82,
+              "y": 68,
+              "r": 30,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -40
+            },
+            "honest_limitations": [
+              "MANUAL_LINKING_ONLY"
+            ],
+            "missing_capabilities": [
+              "Auto-linking",
+              "Semantic similarity",
+              "Graph traversal"
+            ],
+            "hover_summary_template": "Links: {link_count} | Orphaned tasks: {orphaned_task_count} | Orphaned comments: {orphaned_comment_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "progress_spine",
+            "display_name": "Progress Spine",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_green",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "receipt_count": 43,
+              "event_count": 43,
+              "no_llm_rate": 100,
+              "last_event_age_seconds": 175,
+              "export_count": 3
+            },
+            "layout": {
+              "x": 58,
+              "y": 82,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "NO_REAL_TIME_STREAM",
+              "FILE_BASED_ONLY"
+            ],
+            "missing_capabilities": [
+              "Real-time event stream",
+              "Event correlation"
+            ],
+            "hover_summary_template": "Events: {event_count} | Last: {last_event_age}s ago | Receipts: {receipt_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "evidence_receipts",
+            "display_name": "Evidence / Receipts",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_green",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "receipt_count": 43,
+              "event_count": 43,
+              "no_llm_rate": 100,
+              "last_event_age_seconds": 175,
+              "export_count": 3
+            },
+            "layout": {
+              "x": 34,
+              "y": 78,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "RECEIPTS_ARE_SELF_REPORTED"
+            ],
+            "missing_capabilities": [
+              "Cryptographic signing",
+              "External audit trail"
+            ],
+            "hover_summary_template": "Receipts: {receipt_count} | Exports: {export_count} | no_llm_used: {no_llm_rate}%",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "action_control",
+            "display_name": "Action / Script Control",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "enabled_action_count": 8,
+              "disabled_action_count": 2
+            },
+            "layout": {
+              "x": 18,
+              "y": 58,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "MUTATING_ACTIONS_DISABLED"
+            ],
+            "missing_capabilities": [
+              "Autonomous action execution",
+              "Action chaining"
+            ],
+            "hover_summary_template": "Enabled: {enabled_count} | Disabled: {disabled_count} | Last run: {last_action_age}s ago",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "agent_exchange",
+            "display_name": "Agent Exchange",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_magenta",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "exchange_state": "MVP_READY",
+              "thread_count": 1
+            },
+            "layout": {
+              "x": 20,
+              "y": 32,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "PARTIAL_BINDING",
+              "NO_REAL_AGENT_API"
+            ],
+            "missing_capabilities": [
+              "Real agent API",
+              "Automated exchange"
+            ],
+            "hover_summary_template": "State: {exchange_state} | Threads: {thread_count} | Last: {last_exchange_age}s ago",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "delta_verification",
+            "display_name": "Delta Verification",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_cyan",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "last_verdict": "UNKNOWN"
+            },
+            "layout": {
+              "x": 40,
+              "y": 18,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "FULL_MODE_REQUIRES_PLAYWRIGHT"
+            ],
+            "missing_capabilities": [
+              "Automated pre-commit gate",
+              "CI integration"
+            ],
+            "hover_summary_template": "Verdict: {last_verdict} | Last run: {last_run_age}s ago | Warnings: {warning_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "testing_field",
+            "display_name": "Testing Field",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {},
+            "layout": {
+              "x": 92,
+              "y": 20,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "SMOKE_NOT_PRODUCTION_QUALITY"
+            ],
+            "missing_capabilities": [
+              "Full test suite",
+              "Property-based testing",
+              "Merge polygon"
+            ],
+            "hover_summary_template": "Smoke: {smoke_status} | Last run: {last_smoke_age}s ago | Coverage: {organ_coverage}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "export_bundle_gate",
+            "display_name": "Export / Bundle Gate",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_amber",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "export_count": 3,
+              "gate_status": "READY",
+              "task_package_count": 8
+            },
+            "layout": {
+              "x": 92,
+              "y": 78,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "OWNER_GATE_REQUIRED",
+              "NO_AUTO_EXPORT"
+            ],
+            "missing_capabilities": [
+              "Automated bundle pipeline",
+              "Artifact signing"
+            ],
+            "hover_summary_template": "Last export: {last_export_age}s ago | Exports: {export_count} | Packages: {task_package_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "feature_module_dock",
+            "display_name": "Feature Module Dock",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "module_count": 4,
+              "working_count": 1,
+              "blocked_count": 0
+            },
+            "layout": {
+              "x": 8,
+              "y": 78,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "MANUAL_REGISTRATION_ONLY",
+              "NO_AUTO_DISCOVERY"
+            ],
+            "missing_capabilities": [
+              "Auto-discovery",
+              "Hot-reload",
+              "Plugin system"
+            ],
+            "hover_summary_template": "Modules: {module_count} | Working: {working_count} | Blocked: {blocked_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          }
+        ],
+        "strands": [
+          {
+            "from": "core_brain",
+            "to": "task_intake",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "owner_comments",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "memory_threads",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "progress_spine",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "evidence_receipts",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "action_control",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "agent_exchange",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "delta_verification",
+            "type": "primary"
+          },
+          {
+            "from": "task_intake",
+            "to": "memory_threads",
+            "type": "data"
+          },
+          {
+            "from": "owner_comments",
+            "to": "memory_threads",
+            "type": "data"
+          },
+          {
+            "from": "memory_threads",
+            "to": "evidence_receipts",
+            "type": "data"
+          },
+          {
+            "from": "task_intake",
+            "to": "progress_spine",
+            "type": "data"
+          },
+          {
+            "from": "action_control",
+            "to": "evidence_receipts",
+            "type": "data"
+          },
+          {
+            "from": "delta_verification",
+            "to": "testing_field",
+            "type": "secondary"
+          },
+          {
+            "from": "evidence_receipts",
+            "to": "export_bundle_gate",
+            "type": "secondary"
+          },
+          {
+            "from": "core_brain",
+            "to": "feature_module_dock",
+            "type": "secondary"
+          }
+        ],
+        "snapshot_age_seconds": 668,
+        "snapshot_freshness_state": "WARNING"
+      }
+    },
+    "status_after": {
+      "endpoint": "/api/status",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": {
+        "version": "V0.6",
+        "mode": "PROTOTYPE_INTERACTIVE",
+        "rule_based": true,
+        "no_local_llm": true,
+        "no_agent_api": true,
+        "not_production_ready": true,
+        "server": "localhost:8767",
+        "honest_status": [
+          "PROTOTYPE_INTERACTIVE",
+          "RULE_BASED_ONLY",
+          "NO_LOCAL_LLM",
+          "NO_AGENT_API"
+        ],
+        "counts": {
+          "tasks": 16,
+          "comments": 15,
+          "links": 15,
+          "receipts": 55,
+          "task_packages": 11
+        },
+        "snapshot_age_seconds": 681,
+        "snapshot_freshness_state": "WARNING",
+        "stale_warning_threshold_seconds": 300,
+        "stale_failure_threshold_seconds": 900,
+        "max_snapshot_age_seconds": 900,
+        "health_score": "9/12",
+        "snapshot_id": "NBV06-SNAP-20260516215459",
+        "snapshot_timestamp": "2026-05-16T21:54:59Z",
+        "truth_lock_run_id": "TRUTHLOCK-V06-20260516215459",
+        "partial_count": 3,
+        "blocked_count": 0,
+        "missing_source_count": 0,
+        "warning_count": 3,
+        "stale_count": 0,
+        "telemetry": {
+          "snapshot_age_seconds": 681,
+          "api_latency_ms_by_endpoint": {
+            "/api/status": 2.43,
+            "/api/snapshot": 0.74,
+            "/api/tasks": 0.42,
+            "/api/comments": 0.32,
+            "/api/links": 0.29,
+            "/api/receipts": 16.0,
+            "/api/export/status": 1.16,
+            "/api/task_packages": 12.06,
+            "/api/tasks/register": 12.78,
+            "/api/tasks/launch": 3.86
+          },
+          "failed_api_count": 0,
+          "last_snapshot_build_time_ms": "NOT_IMPLEMENTED",
+          "zone_render_count": 12,
+          "page_load_ms": "NOT_IMPLEMENTED",
+          "console_error_count": "NOT_IMPLEMENTED",
+          "network_error_count": "NOT_IMPLEMENTED"
+        }
+      }
+    },
+    "snapshot_after": {
+      "endpoint": "/api/snapshot",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": {
+        "snapshot_id": "NBV06-SNAP-20260516215459",
+        "truth_lock_run_id": "TRUTHLOCK-V06-20260516215459",
+        "timestamp_utc": "2026-05-16T21:54:59Z",
+        "schema_version": "neural_snapshot.v0.6",
+        "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
+        "runtime_mode": "PROTOTYPE_INTERACTIVE",
+        "no_local_llm": true,
+        "no_agent_api": true,
+        "not_production_ready": true,
+        "zone_count": 12,
+        "working_count": 9,
+        "partial_count": 3,
+        "blocked_count": 0,
+        "total_missing_sources": 0,
+        "missing_source_count": 0,
+        "stale_count": 0,
+        "warning_count": 3,
+        "health_score": "9/12",
+        "task_package_count": 8,
+        "telemetry": {
+          "snapshot_age_seconds": 0,
+          "api_latency_ms_by_endpoint": "NOT_IMPLEMENTED",
+          "failed_api_count": "NOT_IMPLEMENTED",
+          "last_snapshot_build_time_ms": 290.66,
+          "zone_render_count": 12,
+          "missing_source_count": 0,
+          "receipt_count": 43,
+          "task_package_count": 8,
+          "page_load_ms": "NOT_IMPLEMENTED",
+          "console_error_count": "NOT_IMPLEMENTED"
+        },
+        "zones": [
+          {
+            "zone_id": "core_brain",
+            "display_name": "Core Brain / System Health",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_cyan",
+            "source_present_count": 3,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {},
+            "layout": {
+              "x": 50,
+              "y": 50,
+              "r": 52,
+              "size": "large",
+              "group": "center",
+              "label_offset_y": -65
+            },
+            "honest_limitations": [
+              "RULE_BASED_ONLY",
+              "NO_LOCAL_LLM",
+              "NO_AGENT_API"
+            ],
+            "missing_capabilities": [
+              "Real-time health monitoring",
+              "Auto-repair"
+            ],
+            "hover_summary_template": "Health: {health_score}/12 zones OK | Snapshot age: {snapshot_age}s | Warnings: {warning_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "task_intake",
+            "display_name": "Task Intake",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_cyan",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "task_count": 13,
+              "unlinked_task_count": 1,
+              "launched_task_count": 6,
+              "last_task_age_seconds": 177,
+              "task_package_count": 8,
+              "latest_package_verdict": "READY_FOR_LAUNCH"
+            },
+            "layout": {
+              "x": 72,
+              "y": 22,
+              "r": 32,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -42
+            },
+            "honest_limitations": [
+              "RULE_BASED_ONLY",
+              "NO_AUTO_ROUTING",
+              "NO_AUTO_EXECUTION"
+            ],
+            "missing_capabilities": [
+              "Auto-routing",
+              "Priority scoring",
+              "LLM interpretation"
+            ],
+            "hover_summary_template": "Tasks: {task_count} | Packages: {task_package_count} | Last: {last_task_age}s ago",
+            "corridor_mode": "TASK_INTAKE_CORRIDOR",
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "owner_comments",
+            "display_name": "Owner Comments",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_amber",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "comment_count": 12,
+              "linked_count": 12,
+              "unlinked_count": 0,
+              "needs_interpretation_count": 0
+            },
+            "layout": {
+              "x": 88,
+              "y": 42,
+              "r": 30,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -40
+            },
+            "honest_limitations": [
+              "NO_AUTO_INTERPRETATION",
+              "MANUAL_LINKING_ONLY"
+            ],
+            "missing_capabilities": [
+              "LLM interpretation",
+              "Sentiment analysis"
+            ],
+            "hover_summary_template": "Comments: {comment_count} | Linked: {linked_count} | Unlinked: {unlinked_count}",
+            "corridor_mode": "OWNER_COMMENTS_CORRIDOR",
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "memory_threads",
+            "display_name": "Memory Threads",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_magenta",
+            "source_present_count": 3,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "link_count": 12,
+              "orphaned_task_count": 1,
+              "orphaned_comment_count": 0
+            },
+            "layout": {
+              "x": 82,
+              "y": 68,
+              "r": 30,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -40
+            },
+            "honest_limitations": [
+              "MANUAL_LINKING_ONLY"
+            ],
+            "missing_capabilities": [
+              "Auto-linking",
+              "Semantic similarity",
+              "Graph traversal"
+            ],
+            "hover_summary_template": "Links: {link_count} | Orphaned tasks: {orphaned_task_count} | Orphaned comments: {orphaned_comment_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "progress_spine",
+            "display_name": "Progress Spine",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_green",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "receipt_count": 43,
+              "event_count": 43,
+              "no_llm_rate": 100,
+              "last_event_age_seconds": 175,
+              "export_count": 3
+            },
+            "layout": {
+              "x": 58,
+              "y": 82,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "NO_REAL_TIME_STREAM",
+              "FILE_BASED_ONLY"
+            ],
+            "missing_capabilities": [
+              "Real-time event stream",
+              "Event correlation"
+            ],
+            "hover_summary_template": "Events: {event_count} | Last: {last_event_age}s ago | Receipts: {receipt_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "evidence_receipts",
+            "display_name": "Evidence / Receipts",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_green",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "receipt_count": 43,
+              "event_count": 43,
+              "no_llm_rate": 100,
+              "last_event_age_seconds": 175,
+              "export_count": 3
+            },
+            "layout": {
+              "x": 34,
+              "y": 78,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "RECEIPTS_ARE_SELF_REPORTED"
+            ],
+            "missing_capabilities": [
+              "Cryptographic signing",
+              "External audit trail"
+            ],
+            "hover_summary_template": "Receipts: {receipt_count} | Exports: {export_count} | no_llm_used: {no_llm_rate}%",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "action_control",
+            "display_name": "Action / Script Control",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "enabled_action_count": 8,
+              "disabled_action_count": 2
+            },
+            "layout": {
+              "x": 18,
+              "y": 58,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "MUTATING_ACTIONS_DISABLED"
+            ],
+            "missing_capabilities": [
+              "Autonomous action execution",
+              "Action chaining"
+            ],
+            "hover_summary_template": "Enabled: {enabled_count} | Disabled: {disabled_count} | Last run: {last_action_age}s ago",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "agent_exchange",
+            "display_name": "Agent Exchange",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_magenta",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "exchange_state": "MVP_READY",
+              "thread_count": 1
+            },
+            "layout": {
+              "x": 20,
+              "y": 32,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "PARTIAL_BINDING",
+              "NO_REAL_AGENT_API"
+            ],
+            "missing_capabilities": [
+              "Real agent API",
+              "Automated exchange"
+            ],
+            "hover_summary_template": "State: {exchange_state} | Threads: {thread_count} | Last: {last_exchange_age}s ago",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "delta_verification",
+            "display_name": "Delta Verification",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_cyan",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "last_verdict": "UNKNOWN"
+            },
+            "layout": {
+              "x": 40,
+              "y": 18,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "FULL_MODE_REQUIRES_PLAYWRIGHT"
+            ],
+            "missing_capabilities": [
+              "Automated pre-commit gate",
+              "CI integration"
+            ],
+            "hover_summary_template": "Verdict: {last_verdict} | Last run: {last_run_age}s ago | Warnings: {warning_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "testing_field",
+            "display_name": "Testing Field",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {},
+            "layout": {
+              "x": 92,
+              "y": 20,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "SMOKE_NOT_PRODUCTION_QUALITY"
+            ],
+            "missing_capabilities": [
+              "Full test suite",
+              "Property-based testing",
+              "Merge polygon"
+            ],
+            "hover_summary_template": "Smoke: {smoke_status} | Last run: {last_smoke_age}s ago | Coverage: {organ_coverage}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "export_bundle_gate",
+            "display_name": "Export / Bundle Gate",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_amber",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "export_count": 3,
+              "gate_status": "READY",
+              "task_package_count": 8
+            },
+            "layout": {
+              "x": 92,
+              "y": 78,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "OWNER_GATE_REQUIRED",
+              "NO_AUTO_EXPORT"
+            ],
+            "missing_capabilities": [
+              "Automated bundle pipeline",
+              "Artifact signing"
+            ],
+            "hover_summary_template": "Last export: {last_export_age}s ago | Exports: {export_count} | Packages: {task_package_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          },
+          {
+            "zone_id": "feature_module_dock",
+            "display_name": "Feature Module Dock",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "module_count": 4,
+              "working_count": 1,
+              "blocked_count": 0
+            },
+            "layout": {
+              "x": 8,
+              "y": 78,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "MANUAL_REGISTRATION_ONLY",
+              "NO_AUTO_DISCOVERY"
+            ],
+            "missing_capabilities": [
+              "Auto-discovery",
+              "Hot-reload",
+              "Plugin system"
+            ],
+            "hover_summary_template": "Modules: {module_count} | Working: {working_count} | Blocked: {blocked_count}",
+            "corridor_mode": null,
+            "last_evaluated": "2026-05-16T21:54:59Z"
+          }
+        ],
+        "strands": [
+          {
+            "from": "core_brain",
+            "to": "task_intake",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "owner_comments",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "memory_threads",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "progress_spine",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "evidence_receipts",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "action_control",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "agent_exchange",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "delta_verification",
+            "type": "primary"
+          },
+          {
+            "from": "task_intake",
+            "to": "memory_threads",
+            "type": "data"
+          },
+          {
+            "from": "owner_comments",
+            "to": "memory_threads",
+            "type": "data"
+          },
+          {
+            "from": "memory_threads",
+            "to": "evidence_receipts",
+            "type": "data"
+          },
+          {
+            "from": "task_intake",
+            "to": "progress_spine",
+            "type": "data"
+          },
+          {
+            "from": "action_control",
+            "to": "evidence_receipts",
+            "type": "data"
+          },
+          {
+            "from": "delta_verification",
+            "to": "testing_field",
+            "type": "secondary"
+          },
+          {
+            "from": "evidence_receipts",
+            "to": "export_bundle_gate",
+            "type": "secondary"
+          },
+          {
+            "from": "core_brain",
+            "to": "feature_module_dock",
+            "type": "secondary"
+          }
+        ],
+        "snapshot_age_seconds": 681,
+        "snapshot_freshness_state": "WARNING"
+      }
+    },
+    "receipts_after": {
+      "endpoint": "/api/receipts",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": {
+        "status": "PASS",
+        "read_only": true,
+        "receipts_dir": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+        "receipt_count": 55,
+        "parse_errors": 0,
+        "latest_receipts": [
+          {
+            "file": "RCP-20260516-220616-725.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-220616-725.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-220616-725",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T22:06:16Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-220615-582.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-220615-582.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-220615-582",
+            "event_type": "CORRIDOR_LINK_CREATED",
+            "created_at": "2026-05-16T22:06:15Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-220615-241.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-220615-241.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-220615-241",
+            "event_type": "CORRIDOR_COMMENT_CREATED",
+            "created_at": "2026-05-16T22:06:15Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-220614-147.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-220614-147.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-220614-147",
+            "event_type": "TASK_PACKAGE_CREATED",
+            "created_at": "2026-05-16T22:06:15Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215756-295.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215756-295.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215756-295",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T21:57:56Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215754-150.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215754-150.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215754-150",
+            "event_type": "CORRIDOR_LINK_CREATED",
+            "created_at": "2026-05-16T21:57:54Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215754-153.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215754-153.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215754-153",
+            "event_type": "CORRIDOR_COMMENT_CREATED",
+            "created_at": "2026-05-16T21:57:54Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215754-731.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215754-731.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215754-731",
+            "event_type": "TASK_PACKAGE_CREATED",
+            "created_at": "2026-05-16T21:57:54Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215512-235.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215512-235.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215512-235",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T21:55:12Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215510-174.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215510-174.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215510-174",
+            "event_type": "CORRIDOR_LINK_CREATED",
+            "created_at": "2026-05-16T21:55:10Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215510-224.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215510-224.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215510-224",
+            "event_type": "CORRIDOR_COMMENT_CREATED",
+            "created_at": "2026-05-16T21:55:10Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215510-191.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215510-191.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215510-191",
+            "event_type": "TASK_PACKAGE_CREATED",
+            "created_at": "2026-05-16T21:55:10Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215204-379.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215204-379.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215204-379",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T21:52:04Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215202-241.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215202-241.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215202-241",
+            "event_type": "CORRIDOR_LINK_CREATED",
+            "created_at": "2026-05-16T21:52:02Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215202-256.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215202-256.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215202-256",
+            "event_type": "CORRIDOR_COMMENT_CREATED",
+            "created_at": "2026-05-16T21:52:02Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-215202-102.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-215202-102.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-215202-102",
+            "event_type": "TASK_PACKAGE_CREATED",
+            "created_at": "2026-05-16T21:52:02Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-214744-339.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-214744-339.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-214744-339",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T21:47:44Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-214742-143.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-214742-143.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-214742-143",
+            "event_type": "CORRIDOR_LINK_CREATED",
+            "created_at": "2026-05-16T21:47:42Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-214742-573.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-214742-573.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-214742-573",
+            "event_type": "CORRIDOR_COMMENT_CREATED",
+            "created_at": "2026-05-16T21:47:42Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-214742-160.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-214742-160.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-214742-160",
+            "event_type": "TASK_PACKAGE_CREATED",
+            "created_at": "2026-05-16T21:47:42Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-204749-117.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-204749-117.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-204749-117",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T20:47:49Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-204747-289.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-204747-289.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-204747-289",
+            "event_type": "CORRIDOR_LINK_CREATED",
+            "created_at": "2026-05-16T20:47:47Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-204747-261.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-204747-261.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-204747-261",
+            "event_type": "CORRIDOR_COMMENT_CREATED",
+            "created_at": "2026-05-16T20:47:47Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-204747-233.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-204747-233.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-204747-233",
+            "event_type": "TASK_PACKAGE_CREATED",
+            "created_at": "2026-05-16T20:47:47Z",
+            "no_llm_used": true
+          },
+          {
+            "file": "RCP-20260516-200926-106.json",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-200926-106.json",
+            "parse_status": "JSON_OK",
+            "receipt_id": "RCP-20260516-200926-106",
+            "event_type": "TASK_LAUNCHED",
+            "created_at": "2026-05-16T20:09:26Z",
+            "no_llm_used": true
+          }
+        ],
+        "no_mutation_performed": true
+      }
+    },
+    "export_status_after": {
+      "endpoint": "/api/export/status",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": {
+        "status": "PASS",
+        "read_only": true,
+        "exports_dir": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports",
+        "export_dir_exists": true,
+        "export_count": 3,
+        "latest_exports": [
+          {
+            "export_dir": "export_20260516-201810",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/export_20260516-201810",
+            "manifest_status": "JSON_OK",
+            "export_id": "EXP-20260516-201810",
+            "created_at": "2026-05-16T20:18:10Z"
+          },
+          {
+            "export_dir": "_preview_last_export",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/_preview_last_export",
+            "manifest_status": "NOT_FOUND",
+            "export_id": null,
+            "created_at": null
+          },
+          {
+            "export_dir": "export_20260516-151730",
+            "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/export_20260516-151730",
+            "manifest_status": "JSON_OK",
+            "export_id": "EXP-20260516-151730",
+            "created_at": "2026-05-16T15:17:30Z"
+          }
+        ],
+        "no_mutation_performed": true
+      }
+    },
+    "tasks_after": {
+      "endpoint": "/api/tasks",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": [
+        {
+          "task_id": "TI-20260516-120000-001",
+          "created_at": "2026-05-16T12:00:00Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "Построить Second Brain V0.3 — интерактивный Task Intake + Owner Comments Mesh",
+          "owner_goal": "Первый реально интерактивный срез: владелец вводит задачу, вводит комментарий, связывает их, получает receipts.",
+          "priority": "HIGH",
+          "tags": [
+            "v0.3",
+            "interactive",
+            "task-intake",
+            "seed_demo"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE",
+            "OWNER_COMMENTS",
+            "MEMORY_LINKS"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-120000-001"
+          ],
+          "links": [
+            "ML-20260516-120000-001"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": true
+        },
+        {
+          "task_id": "TI-20260516-151558-364",
+          "created_at": "2026-05-16T15:15:58Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "SBV03-LIVE-TASK-OWNER-001\nПроверить, что Second Brain V0.3 реально принимает задачу через UI, пишет JSON, создаёт receipt и может быть передан агенту как task intake package.",
+          "owner_goal": "Получить доказательство, что задача не просто видна в интерфейсе, а сохранена в памяти и готова к передаче агенту.",
+          "priority": "HIGH",
+          "tags": [
+            "v0.3",
+            "live-test",
+            "task-intake",
+            "owner-check"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-151558-316"
+          ],
+          "links": [
+            "ML-20260516-151649-626"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-174525-962",
+          "created_at": "2026-05-16T17:45:25Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "AUDIT_V05_20260516174509 TASK created via Playwright audit",
+          "owner_goal": "Validate frontback truth parity",
+          "priority": "HIGH",
+          "tags": [
+            "audit",
+            "v0_5",
+            "playwright"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-174525-311"
+          ],
+          "links": [
+            "ML-20260516-174526-284"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-174836-211",
+          "created_at": "2026-05-16T17:48:36Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "AUDIT_V05_20260516174821 TASK created via Playwright audit",
+          "owner_goal": "Validate frontback truth parity",
+          "priority": "HIGH",
+          "tags": [
+            "audit",
+            "v0_5",
+            "playwright"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-174836-166"
+          ],
+          "links": [
+            "ML-20260516-174837-168"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-182635-690",
+          "created_at": "2026-05-16T18:26:35Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "TRUTH_LOCK_TASK_20260516182635",
+          "owner_goal": "Truth lock strict parity evidence",
+          "priority": "HIGH",
+          "tags": [],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-182635-255"
+          ],
+          "links": [
+            "ML-20260516-182638-244"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-192617-328",
+          "created_at": "2026-05-16T19:26:17Z",
+          "status": "TASK_REGISTERED",
+          "task_title": "Test V0.6 Corridor Task",
+          "task_description": "This is a test task to verify the V0.6 Task Intake Corridor works correctly end to end",
+          "source_text": "Test V0.6 Corridor Task",
+          "priority": "HIGH",
+          "tags": [],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "All 7 package files created\nServer returns 201\nReceipt exists",
+          "fail_criteria_raw": "Any file missing\nServer returns 500",
+          "stop_conditions_raw": "Stop if package directory cannot be created",
+          "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-192617-158"
+          ],
+          "links": [
+            "ML-20260516-192617-829"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-192640-321",
+          "created_at": "2026-05-16T19:26:40Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "Test V0.6 Corridor",
+          "task_description": "This is a test task to verify the V0.6 Task Intake Corridor works correctly end to end",
+          "source_text": "Test V0.6 Corridor",
+          "priority": "HIGH",
+          "tags": [],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "All 7 package files created\nServer returns 201",
+          "fail_criteria_raw": "Any file missing\nServer returns 500",
+          "stop_conditions_raw": "Stop if package directory cannot be created",
+          "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-192640-252"
+          ],
+          "links": [
+            "ML-20260516-192640-102"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T19:27:18Z",
+          "launch_receipt_id": "RCP-20260516-192718-261"
+        },
+        {
+          "task_id": "TI-20260516-194448-171",
+          "created_at": "2026-05-16T19:44:48Z",
+          "status": "TASK_REGISTERED",
+          "task_title": "AAA Visual Pass Test Task",
+          "task_description": "Testing the AAA visual pass V0.1 to verify corridor still works after visual upgrade",
+          "source_text": "AAA Visual Pass Test Task",
+          "priority": "HIGH",
+          "tags": [],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "Page loads\nCorridor opens\nRegister works",
+          "fail_criteria_raw": "Server error\nPackage not created",
+          "stop_conditions_raw": "Stop if server crashes",
+          "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-194448-283"
+          ],
+          "links": [
+            "ML-20260516-194448-231"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-195437-445",
+          "created_at": "2026-05-16T19:54:37Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "Readability Fix Test",
+          "task_description": "Testing that corridor still works after readability fix pass applied to V0.6 visual layer",
+          "source_text": "Readability Fix Test",
+          "priority": "MEDIUM",
+          "tags": [],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "Register returns 201\nPackage created\nHandoff block generated",
+          "fail_criteria_raw": "Server error\nPackage missing",
+          "stop_conditions_raw": "Stop if server returns 500",
+          "machine_readiness_verdict": "OWNER_REVIEW_REQUIRED",
+          "machine_readiness_score": 9,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-195437-282"
+          ],
+          "links": [],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T19:54:58Z",
+          "launch_receipt_id": "RCP-20260516-195458-305"
+        },
+        {
+          "task_id": "TI-20260516-200924-235",
+          "created_at": "2026-05-16T20:09:24Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_REPAIR_V06_1778962163",
+          "task_description": "Repair validation task created by Playwright after visual regression fix and readability upgrade.",
+          "source_text": "VISUAL_REPAIR_V06_1778962163",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual",
+            "repair"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "All 12 zones visible without hover\nCorridor launch produces handoff block",
+          "fail_criteria_raw": "Zone count less than 12\nCorridor cannot register task",
+          "stop_conditions_raw": "Stop on API 500\nStop on forbidden scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-200924-296"
+          ],
+          "links": [
+            "ML-20260516-200924-216"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T20:09:26Z",
+          "launch_receipt_id": "RCP-20260516-200926-106"
+        },
+        {
+          "task_id": "TI-20260516-204747-175",
+          "created_at": "2026-05-16T20:47:47Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_STYLE_PASS_V06_1778964466",
+          "task_description": "Visual style contract pass proof run with strict truth preservation checks.",
+          "source_text": "VISUAL_STYLE_PASS_V06_1778964466",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual-style",
+            "truth"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "12 zones visible\ntruth counters remain backend-bound\ncorridor launch succeeds",
+          "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+          "stop_conditions_raw": "stop on api 500\nstop on out of scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-204747-233"
+          ],
+          "links": [
+            "ML-20260516-204747-141"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T20:47:49Z",
+          "launch_receipt_id": "RCP-20260516-204749-117"
+        },
+        {
+          "task_id": "TI-20260516-214742-304",
+          "created_at": "2026-05-16T21:47:42Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968061",
+          "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+          "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968061",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual",
+            "truth"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+          "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+          "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-214742-160"
+          ],
+          "links": [
+            "ML-20260516-214742-121"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T21:47:44Z",
+          "launch_receipt_id": "RCP-20260516-214744-339"
+        },
+        {
+          "task_id": "TI-20260516-215202-163",
+          "created_at": "2026-05-16T21:52:02Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968321",
+          "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+          "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968321",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual",
+            "truth"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+          "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+          "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-215202-102"
+          ],
+          "links": [
+            "ML-20260516-215202-231"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T21:52:04Z",
+          "launch_receipt_id": "RCP-20260516-215204-379"
+        },
+        {
+          "task_id": "TI-20260516-215510-267",
+          "created_at": "2026-05-16T21:55:10Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968509",
+          "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+          "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968509",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual",
+            "truth"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+          "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+          "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-215510-191"
+          ],
+          "links": [
+            "ML-20260516-215510-602"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T21:55:12Z",
+          "launch_receipt_id": "RCP-20260516-215512-235"
+        },
+        {
+          "task_id": "TI-20260516-215754-100",
+          "created_at": "2026-05-16T21:57:54Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968673",
+          "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+          "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778968673",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual",
+            "truth"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+          "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+          "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-215754-731"
+          ],
+          "links": [
+            "ML-20260516-215754-188"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T21:57:56Z",
+          "launch_receipt_id": "RCP-20260516-215756-295"
+        },
+        {
+          "task_id": "TI-20260516-220614-161",
+          "created_at": "2026-05-16T22:06:15Z",
+          "status": "TASK_READY_FOR_SERVITOR",
+          "task_title": "VISUAL_ACCEPTANCE_HARDENING_V06_1778969173",
+          "task_description": "Visual acceptance hardening proof run. Truth bindings must remain intact.",
+          "source_text": "VISUAL_ACCEPTANCE_HARDENING_V06_1778969173",
+          "priority": "MEDIUM",
+          "tags": [
+            "v0.6",
+            "visual",
+            "truth"
+          ],
+          "scope_paths": [
+            "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+          ],
+          "pass_criteria_raw": "12 zones visible\ntruth counters match backend\ncorridor launch succeeds",
+          "fail_criteria_raw": "zone count below 12\nregister or launch fails",
+          "stop_conditions_raw": "stop on API 500\nstop on out-of-scope mutation",
+          "machine_readiness_verdict": "READY_FOR_LAUNCH",
+          "machine_readiness_score": 10,
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-220614-147"
+          ],
+          "links": [
+            "ML-20260516-220615-187"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false,
+          "launched_at": "2026-05-16T22:06:16Z",
+          "launch_receipt_id": "RCP-20260516-220616-725"
+        }
+      ]
+    },
+    "comments_after": {
+      "endpoint": "/api/comments",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": [
+        {
+          "comment_id": "OC-20260516-120000-001",
+          "created_at": "2026-05-16T12:01:00Z",
+          "status": "LINKED",
+          "original_text": "Это seed-комментарий владельца. V0.3 должен захватывать такие комментарии и связывать их с задачами.",
+          "interpreted_meaning": "Owner подтверждает, что система должна захватывать и связывать комментарии с задачами в реальном времени.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": "LINK_TO_TASK",
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-120000-001"
+          ],
+          "receipts": [
+            "RCP-20260516-120001-001"
+          ],
+          "seed_demo": true
+        },
+        {
+          "comment_id": "OC-20260516-151625-183",
+          "created_at": "2026-05-16T15:16:25Z",
+          "status": "LINKED",
+          "original_text": "SBV03-LIVE-COMMENT-OWNER-001\nOwner подтверждает: эта задача должна стать первым живым примером task intake, который можно передать агенту вместе с комментарием и receipt.",
+          "interpreted_meaning": null,
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-151558-364"
+          ],
+          "receipts": [
+            "RCP-20260516-151625-705"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-174525-179",
+          "created_at": "2026-05-16T17:45:25Z",
+          "status": "LINKED",
+          "original_text": "AUDIT_V05_20260516174509 COMMENT captured via Playwright audit",
+          "interpreted_meaning": "Audit proof comment",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-174525-962"
+          ],
+          "receipts": [
+            "RCP-20260516-174525-403"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-174836-102",
+          "created_at": "2026-05-16T17:48:36Z",
+          "status": "LINKED",
+          "original_text": "AUDIT_V05_20260516174821 COMMENT captured via Playwright audit",
+          "interpreted_meaning": "Audit proof comment",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-174836-211"
+          ],
+          "receipts": [
+            "RCP-20260516-174836-695"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-182637-222",
+          "created_at": "2026-05-16T18:26:37Z",
+          "status": "LINKED",
+          "original_text": "TRUTH_LOCK_COMMENT_20260516182635",
+          "interpreted_meaning": "Truth-lock audit comment",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-182635-690"
+          ],
+          "receipts": [
+            "RCP-20260516-182637-168"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-192617-114",
+          "created_at": "2026-05-16T19:26:17Z",
+          "status": "LINKED",
+          "original_text": "Test comment linked to corridor task",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-192617-328"
+          ],
+          "receipts": [
+            "RCP-20260516-192617-746"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-192640-379",
+          "created_at": "2026-05-16T19:26:40Z",
+          "status": "LINKED",
+          "original_text": "Test comment for corridor",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-192640-321"
+          ],
+          "receipts": [
+            "RCP-20260516-192640-483"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-194448-162",
+          "created_at": "2026-05-16T19:44:48Z",
+          "status": "LINKED",
+          "original_text": "Visual upgrade test comment",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-194448-171"
+          ],
+          "receipts": [
+            "RCP-20260516-194448-167"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-200924-269",
+          "created_at": "2026-05-16T20:09:24Z",
+          "status": "LINKED",
+          "original_text": "Owner context captured during visual repair proof run.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-200924-235"
+          ],
+          "receipts": [
+            "RCP-20260516-200924-333"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-204747-120",
+          "created_at": "2026-05-16T20:47:47Z",
+          "status": "LINKED",
+          "original_text": "Visual style pass executed with Truth priority.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-204747-175"
+          ],
+          "receipts": [
+            "RCP-20260516-204747-261"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-214742-216",
+          "created_at": "2026-05-16T21:47:42Z",
+          "status": "LINKED",
+          "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-214742-304"
+          ],
+          "receipts": [
+            "RCP-20260516-214742-573"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-215202-683",
+          "created_at": "2026-05-16T21:52:02Z",
+          "status": "LINKED",
+          "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-215202-163"
+          ],
+          "receipts": [
+            "RCP-20260516-215202-256"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-215510-235",
+          "created_at": "2026-05-16T21:55:10Z",
+          "status": "LINKED",
+          "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-215510-267"
+          ],
+          "receipts": [
+            "RCP-20260516-215510-224"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-215754-833",
+          "created_at": "2026-05-16T21:57:54Z",
+          "status": "LINKED",
+          "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-215754-100"
+          ],
+          "receipts": [
+            "RCP-20260516-215754-153"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-220615-897",
+          "created_at": "2026-05-16T22:06:15Z",
+          "status": "LINKED",
+          "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "linked_tasks": [
+            "TI-20260516-220614-161"
+          ],
+          "receipts": [
+            "RCP-20260516-220615-241"
+          ],
+          "seed_demo": false
+        }
+      ]
+    },
+    "links_after": {
+      "endpoint": "/api/links",
+      "http_status": 200,
+      "ok": true,
+      "json_parse_ok": true,
+      "parse_error": null,
+      "payload": [
+        {
+          "link_id": "ML-20260516-120000-001",
+          "created_at": "2026-05-16T12:02:00Z",
+          "status": "LINK_VERIFIED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-120000-001",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-120000-001",
+          "link_reason": "Owner comment directly references this task as its subject",
+          "expected_use": "Memory thread reconstruction, context retrieval",
+          "verification_status": "VERIFIED",
+          "receipt_id": "RCP-20260516-120002-001",
+          "seed_demo": true
+        },
+        {
+          "link_id": "ML-20260516-151649-626",
+          "created_at": "2026-05-16T15:16:49Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-151558-364",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-151625-183",
+          "link_reason": null,
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-151649-185",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-174526-284",
+          "created_at": "2026-05-16T17:45:26Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-174525-962",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-174525-179",
+          "link_reason": "AUDIT_V05_20260516174509 link parity proof",
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-174526-473",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-174837-168",
+          "created_at": "2026-05-16T17:48:37Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-174836-211",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-174836-102",
+          "link_reason": "AUDIT_V05_20260516174821 link parity proof",
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-174837-104",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-182638-244",
+          "created_at": "2026-05-16T18:26:38Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-182635-690",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-182637-222",
+          "link_reason": "Truth-lock audit relation",
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-182638-172",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-192617-829",
+          "created_at": "2026-05-16T19:26:17Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-192617-328",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-192617-114",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-192617-782",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-192640-102",
+          "created_at": "2026-05-16T19:26:40Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-192640-321",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-192640-379",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-192640-768",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-194448-231",
+          "created_at": "2026-05-16T19:44:48Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-194448-171",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-194448-162",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-194448-851",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-200924-216",
+          "created_at": "2026-05-16T20:09:24Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-200924-235",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-200924-269",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-200924-325",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-204747-141",
+          "created_at": "2026-05-16T20:47:47Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-204747-175",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-204747-120",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-204747-289",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-214742-121",
+          "created_at": "2026-05-16T21:47:42Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-214742-304",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-214742-216",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-214742-143",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-215202-231",
+          "created_at": "2026-05-16T21:52:02Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-215202-163",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-215202-683",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-215202-241",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-215510-602",
+          "created_at": "2026-05-16T21:55:10Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-215510-267",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-215510-235",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-215510-174",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-215754-188",
+          "created_at": "2026-05-16T21:57:54Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-215754-100",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-215754-833",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-215754-150",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-220615-187",
+          "created_at": "2026-05-16T22:06:15Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-220614-161",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-220615-897",
+          "link_reason": "Owner comment created during task registration",
+          "receipt_id": "RCP-20260516-220615-582",
+          "seed_demo": false
+        }
+      ]
+    }
+  },
+  "dom_before": {
+    "stat_tasks": "15",
+    "stat_task_packages": "10",
+    "stat_comments": "14",
+    "stat_links": "14",
+    "stat_receipts": "51",
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516215459",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516215459",
+    "snapshot_ts": "2026-05-16T21:54:59Z",
+    "partial": "3",
+    "blocked": "0",
+    "missing": "0",
+    "warnings": "3",
+    "stale": "0",
+    "zone_count": 12,
+    "zone_label_count": 12,
+    "right_panel_present": true,
+    "task_list_cards": 15,
+    "corridor_entry_present": true,
+    "honesty_badges": {
+      "runtime": "PROTOTYPE_INTERACTIVE",
+      "rule": "RULE_BASED_ONLY",
+      "no_llm": "NO_LOCAL_LLM",
+      "no_agent": "NO_AGENT_API",
+      "not_release": "NOT_RELEASE_READY"
+    }
+  },
+  "dom_after": {
+    "stat_tasks": "16",
+    "stat_task_packages": "11",
+    "stat_comments": "15",
+    "stat_links": "15",
+    "stat_receipts": "55",
+    "health_score": "9/12",
+    "snapshot_id": "NBV06-SNAP-20260516215459",
+    "truth_lock_run_id": "TRUTHLOCK-V06-20260516215459",
+    "snapshot_ts": "2026-05-16T21:54:59Z",
+    "partial": "3",
+    "blocked": "0",
+    "missing": "0",
+    "warnings": "3",
+    "stale": "0",
+    "zone_count": 12,
+    "zone_label_count": 12,
+    "right_panel_present": true,
+    "task_list_cards": 16,
+    "corridor_entry_present": true,
+    "honesty_badges": {
+      "runtime": "PROTOTYPE_INTERACTIVE",
+      "rule": "RULE_BASED_ONLY",
+      "no_llm": "NO_LOCAL_LLM",
+      "no_agent": "NO_AGENT_API",
+      "not_release": "NOT_RELEASE_READY"
+    }
+  },
+  "interaction": {
+    "corridor_opened": true,
+    "task_id_from_review": "TI-20260516-220614-161",
+    "comment_id_from_review": "OC-20260516-220615-897",
+    "handoff_visible": true
+  },
+  "checks": {
+    "app_starts": true,
+    "page_loads": true,
+    "console_no_critical_errors": true,
+    "snapshot_loads": true,
+    "top_counters_match_backend": true,
+    "health_matches_backend": true,
+    "zones_visible_12": true,
+    "selected_zone_panel_opens": true,
+    "task_intake_corridor_opens": true,
+    "register_task_works": true,
+    "owner_comment_works": true,
+    "memory_link_works": true,
+    "launch_handoff_works": true,
+    "receipts_created": true,
+    "no_fake_agent_execution_implied": true,
+    "responsive_resize_stable": true
+  },
+  "warnings": [],
+  "failures": [],
+  "summary": {
+    "zone_count_before": 12,
+    "zone_count_after": 12,
+    "label_count_after": 12,
+    "receipts_before": 51,
+    "receipts_after": 55,
+    "tasks_before": 15,
+    "tasks_after": 16,
+    "comments_before": 14,
+    "comments_after": 15,
+    "links_before": 14,
+    "links_after": 15,
+    "console_errors": 0,
+    "page_errors": 0,
+    "failed_requests": 0
+  }
+}

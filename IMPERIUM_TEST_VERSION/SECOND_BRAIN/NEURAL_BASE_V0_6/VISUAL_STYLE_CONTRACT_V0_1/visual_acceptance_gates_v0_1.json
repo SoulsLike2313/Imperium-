@@ -1,0 +1,69 @@
+{
+  "gate_id": "visual_acceptance_gates_v0_1",
+  "must_pass": [
+    {
+      "id": "zones_12_visible",
+      "description": "All 12 zones visible without hover",
+      "source": "DOM snapshot",
+      "pass_condition": "zone_count == 12"
+    },
+    {
+      "id": "labels_readable",
+      "description": "Zone labels readable at 1080p",
+      "source": "Screenshot and DOM",
+      "pass_condition": "label_count >= 12 and visual readability confirmed"
+    },
+    {
+      "id": "core_visible",
+      "description": "Core brain visible on initial load",
+      "source": "Screenshot",
+      "pass_condition": "core node visually prominent"
+    },
+    {
+      "id": "right_panel_readable",
+      "description": "Right operator panel readable and populated",
+      "source": "Screenshot and DOM",
+      "pass_condition": "panel text/cards visible and task list present"
+    },
+    {
+      "id": "truth_bar_readable",
+      "description": "Truth counters and snapshot identity readable",
+      "source": "Screenshot and DOM",
+      "pass_condition": "partial/blocked/missing/warnings/stale/snapshot_id visible"
+    },
+    {
+      "id": "no_console_errors",
+      "description": "No critical console/page errors in normal flow",
+      "source": "Playwright logs",
+      "pass_condition": "console_errors == 0 and page_errors == 0"
+    },
+    {
+      "id": "corridor_e2e",
+      "description": "Task Intake Corridor full flow still works",
+      "source": "Playwright interaction + runtime artifacts",
+      "pass_condition": "register + comment + link + launch + handoff all succeed"
+    },
+    {
+      "id": "receipts_created",
+      "description": "Real receipts still generated",
+      "source": "Counts/API/runtime files",
+      "pass_condition": "receipts_after > receipts_before"
+    },
+    {
+      "id": "truth_no_regression",
+      "description": "No truth regression vs baseline",
+      "source": "Before/after baseline comparison",
+      "pass_condition": "core counters and health remain backend-consistent"
+    }
+  ],
+  "fail_fast_rules": [
+    "Any fake non-decorative state -> FAIL",
+    "Any broken backend binding for counters/status -> FAIL",
+    "Any corridor launch failure caused by visual pass -> FAIL"
+  ],
+  "verdicts": [
+    "PASS",
+    "PASS_WITH_LIMITATIONS",
+    "FAIL"
+  ]
+}

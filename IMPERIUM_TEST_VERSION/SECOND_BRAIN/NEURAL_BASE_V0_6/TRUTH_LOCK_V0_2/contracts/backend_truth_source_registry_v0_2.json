@@ -1,0 +1,71 @@
+{
+  "version": "v0.2",
+  "generated_at_utc": "2026-05-17T00:00:00Z",
+  "scope": "IMPERIUM_TEST_VERSION_ONLY",
+  "sources": [
+    {
+      "source_id": "accepted_tasks",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+      "parser_type": "json",
+      "mutation_policy": "append_only",
+      "receipt_required": true,
+      "consumers": ["task_intake_zone", "memory_threads_zone", "progress_spine_zone"],
+      "freshness_policy": "snapshot_bound"
+    },
+    {
+      "source_id": "owner_comments",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+      "parser_type": "json",
+      "mutation_policy": "append_only",
+      "receipt_required": true,
+      "consumers": ["owner_comments_zone", "memory_threads_zone"],
+      "freshness_policy": "snapshot_bound"
+    },
+    {
+      "source_id": "memory_links",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+      "parser_type": "json",
+      "mutation_policy": "append_only",
+      "receipt_required": true,
+      "consumers": ["memory_threads_zone"],
+      "freshness_policy": "snapshot_bound"
+    },
+    {
+      "source_id": "receipts_dir",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+      "parser_type": "directory_json_count",
+      "mutation_policy": "append_only",
+      "receipt_required": false,
+      "consumers": ["evidence_receipts_zone", "progress_spine_zone", "stats_bar"],
+      "freshness_policy": "read_time"
+    },
+    {
+      "source_id": "exports_dir",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports",
+      "parser_type": "directory_manifest_count",
+      "mutation_policy": "append_only",
+      "receipt_required": false,
+      "consumers": ["export_bundle_gate_zone"],
+      "freshness_policy": "read_time"
+    },
+    {
+      "source_id": "task_packages_dir",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/task_packages",
+      "parser_type": "directory_manifest_count",
+      "mutation_policy": "append_only",
+      "receipt_required": true,
+      "consumers": ["task_intake_zone", "export_bundle_gate_zone", "stats_bar"],
+      "freshness_policy": "read_time",
+      "v0_6_new": true
+    },
+    {
+      "source_id": "neural_snapshot_live",
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/reports/neural_snapshot_live.json",
+      "parser_type": "json",
+      "mutation_policy": "rebuild_only",
+      "receipt_required": false,
+      "consumers": ["core_brain_zone", "all_zones_health", "stats_bar", "truth_lock_bar"],
+      "freshness_policy": "staleness_policy_bound"
+    }
+  ]
+}

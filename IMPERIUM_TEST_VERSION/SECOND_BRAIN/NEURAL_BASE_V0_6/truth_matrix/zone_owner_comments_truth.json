@@ -1,0 +1,15 @@
+{
+  "zone_id": "owner_comments",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+  ],
+  "pass_logic": "owner_comments_runtime.json parses and comments array has >= 1 entry with comment_id, status, original_text",
+  "failure_logic": "File missing or invalid JSON or comments array empty",
+  "health_required_before_working": [
+    "owner_comments_runtime.json exists",
+    "comments array length >= 1",
+    "first comment has comment_id and status"
+  ],
+  "telemetry_fields": ["comment_count", "linked_count", "unlinked_count", "needs_interpretation_count"]
+}

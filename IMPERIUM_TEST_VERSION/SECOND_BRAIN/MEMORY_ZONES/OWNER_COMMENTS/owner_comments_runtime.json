@@ -93,6 +93,156 @@
         "RCP-20260516-182637-168"
       ],
       "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-192617-114",
+      "created_at": "2026-05-16T19:26:17Z",
+      "status": "LINKED",
+      "original_text": "Test comment linked to corridor task",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-192617-328"
+      ],
+      "receipts": [
+        "RCP-20260516-192617-746"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-192640-379",
+      "created_at": "2026-05-16T19:26:40Z",
+      "status": "LINKED",
+      "original_text": "Test comment for corridor",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-192640-321"
+      ],
+      "receipts": [
+        "RCP-20260516-192640-483"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-194448-162",
+      "created_at": "2026-05-16T19:44:48Z",
+      "status": "LINKED",
+      "original_text": "Visual upgrade test comment",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-194448-171"
+      ],
+      "receipts": [
+        "RCP-20260516-194448-167"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-200924-269",
+      "created_at": "2026-05-16T20:09:24Z",
+      "status": "LINKED",
+      "original_text": "Owner context captured during visual repair proof run.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-200924-235"
+      ],
+      "receipts": [
+        "RCP-20260516-200924-333"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-204747-120",
+      "created_at": "2026-05-16T20:47:47Z",
+      "status": "LINKED",
+      "original_text": "Visual style pass executed with Truth priority.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-204747-175"
+      ],
+      "receipts": [
+        "RCP-20260516-204747-261"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-214742-216",
+      "created_at": "2026-05-16T21:47:42Z",
+      "status": "LINKED",
+      "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-214742-304"
+      ],
+      "receipts": [
+        "RCP-20260516-214742-573"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-215202-683",
+      "created_at": "2026-05-16T21:52:02Z",
+      "status": "LINKED",
+      "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-215202-163"
+      ],
+      "receipts": [
+        "RCP-20260516-215202-256"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-215510-235",
+      "created_at": "2026-05-16T21:55:10Z",
+      "status": "LINKED",
+      "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-215510-267"
+      ],
+      "receipts": [
+        "RCP-20260516-215510-224"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-215754-833",
+      "created_at": "2026-05-16T21:57:54Z",
+      "status": "LINKED",
+      "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-215754-100"
+      ],
+      "receipts": [
+        "RCP-20260516-215754-153"
+      ],
+      "seed_demo": false
+    },
+    {
+      "comment_id": "OC-20260516-220615-897",
+      "created_at": "2026-05-16T22:06:15Z",
+      "status": "LINKED",
+      "original_text": "Automated truth-preserving visual acceptance interaction proof.",
+      "comment_type": "OBSERVATION",
+      "linked_zone": "TASK_INTAKE",
+      "linked_tasks": [
+        "TI-20260516-220614-161"
+      ],
+      "receipts": [
+        "RCP-20260516-220615-241"
+      ],
+      "seed_demo": false
     }
   ]
 }

@@ -1,0 +1,15 @@
+{
+  "zone_id": "feature_module_dock",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/registry/neural_feature_registry.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/registry/zone_registry_v0_5.json"
+  ],
+  "pass_logic": "neural_feature_registry.json parses and features array has >= 1 entry; zone_registry_v0_5.json parses and zones array has 12 entries",
+  "failure_logic": "Either registry missing; features array empty; zones count != 12",
+  "health_required_before_working": [
+    "neural_feature_registry.json exists and parses",
+    "zone_registry_v0_5.json exists with 12 zones"
+  ],
+  "telemetry_fields": ["module_count", "working_count", "partial_count", "blocked_count", "spec_only_count"]
+}

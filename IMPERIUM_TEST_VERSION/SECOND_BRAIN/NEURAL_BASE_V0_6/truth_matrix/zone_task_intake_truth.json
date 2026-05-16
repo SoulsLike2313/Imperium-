@@ -1,0 +1,47 @@
+{
+  "zone_id": "task_intake",
+  "schema_version": "truth_matrix.v0.6",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/task_packages"
+  ],
+  "pass_logic": "accepted_tasks.json parses and tasks array has >= 1 entry with task_id, status, created_at; task_packages dir exists",
+  "failure_logic": "File missing or invalid JSON or tasks array empty or required keys absent",
+  "health_required_before_working": [
+    "accepted_tasks.json exists",
+    "tasks array length >= 1",
+    "first task has task_id and status",
+    "task_packages directory exists"
+  ],
+  "telemetry_fields": [
+    "task_count",
+    "task_package_count",
+    "last_task_age_seconds",
+    "unlinked_task_count",
+    "receipt_freshness",
+    "latest_package_verdict",
+    "launched_task_count"
+  ],
+  "corridor_fields_required": [
+    "task_title",
+    "task_description",
+    "pass_criteria",
+    "fail_criteria",
+    "stop_conditions",
+    "scope_paths"
+  ],
+  "package_files_required": [
+    "task_manifest.json",
+    "pass_fail_criteria.json",
+    "scope_policy.json",
+    "allowed_forbidden_actions.json",
+    "validation_report.json",
+    "servitor_handoff_block.md"
+  ],
+  "machine_readiness_verdicts": [
+    "READY_FOR_LAUNCH",
+    "OWNER_REVIEW_REQUIRED",
+    "BLOCKED_INCOMPLETE",
+    "NOT_MACHINE_READABLE"
+  ]
+}

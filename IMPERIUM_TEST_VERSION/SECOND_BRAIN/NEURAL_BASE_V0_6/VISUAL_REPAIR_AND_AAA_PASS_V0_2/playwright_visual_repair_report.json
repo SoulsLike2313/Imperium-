@@ -1,0 +1,173 @@
+{
+  "timestamp": "2026-05-16T20:09:16Z",
+  "url": "http://localhost:8767/",
+  "screenshots": [
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\02_all_12_zones_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\03_core_brain_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\04_task_intake_zone_hover.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\05_operator_panel_tasks_visible.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\06_task_intake_corridor_open.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\07_register_review_step.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\08_launch_handoff_block.png",
+    "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6\\VISUAL_REPAIR_AND_AAA_PASS_V0_2\\screenshots\\09_truth_counters_visible.png"
+  ],
+  "console_errors": [],
+  "console_warnings": [],
+  "page_errors": [],
+  "failed_requests": [],
+  "api_responses": [
+    {
+      "url": "http://localhost:8767/api/snapshot",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/status",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/tasks",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/comments",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/links",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/receipts",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/export/status",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/task_packages",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/tasks/register",
+      "status": 201,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/snapshot",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/status",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/tasks",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/comments",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/links",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/receipts",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/export/status",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/task_packages",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/tasks/launch",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/snapshot",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/status",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/tasks",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/comments",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/links",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/receipts",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/export/status",
+      "status": 200,
+      "ok": true
+    },
+    {
+      "url": "http://localhost:8767/api/task_packages",
+      "status": 200,
+      "ok": true
+    }
+  ],
+  "checks": {
+    "api_status_http": 200,
+    "api_status_http_after": 200,
+    "zone_count": 12,
+    "zone_label_count": 12,
+    "task_intake_open_button_visible": true
+  },
+  "counts_before": {
+    "tasks": 9,
+    "comments": 8,
+    "links": 8,
+    "receipts": 27,
+    "task_packages": 4
+  },
+  "counts_after": {
+    "tasks": 10,
+    "comments": 9,
+    "links": 9,
+    "receipts": 31,
+    "task_packages": 5
+  },
+  "corridor_result": null,
+  "launch_result": null
+}
