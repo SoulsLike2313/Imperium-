@@ -1,0 +1,17 @@
+{
+  "schema_id": "blocker_v0.2",
+  "title": "Blocker",
+  "description": "Schema for recording a blocker during execution",
+  "type": "object",
+  "required": ["blocker_id", "task_id", "description", "severity"],
+  "properties": {
+    "blocker_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "stage_id": {"type": ["string", "null"]},
+    "description": {"type": "string"},
+    "severity": {"type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW"]},
+    "status": {"type": "string", "enum": ["ACTIVE", "RESOLVED", "DEFERRED", "ACCEPTED"]},
+    "resolution": {"type": ["string", "null"]},
+    "requires_owner": {"type": "boolean"}
+  }
+}

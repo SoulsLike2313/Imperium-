@@ -1,0 +1,17 @@
+{
+  "schema_id": "agent_group_protocol_v0.2",
+  "title": "AgentGroupProtocol",
+  "description": "Schema for coordinating multiple agents on a shared task",
+  "type": "object",
+  "required": ["protocol_id", "task_id", "participants", "coordination_mode"],
+  "properties": {
+    "protocol_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "participants": {"type": "array", "items": {"type": "string"}},
+    "coordination_mode": {"type": "string", "enum": ["sequential", "parallel", "review_chain", "consensus", "owner_arbitrated"]},
+    "conflict_resolution": {"type": "string", "enum": ["owner_decides", "first_wins", "vote", "merge"]},
+    "shared_memory_zones": {"type": "array", "items": {"type": "string"}},
+    "communication_channel": {"type": "string", "enum": ["file_exchange", "message_queue", "shared_registry", "owner_relay"]},
+    "status": {"type": "string", "enum": ["ACTIVE", "COMPLETED", "STALLED"]}
+  }
+}

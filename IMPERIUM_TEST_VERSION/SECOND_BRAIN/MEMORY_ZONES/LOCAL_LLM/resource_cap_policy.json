@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.2.0",
+  "description": "Resource caps for local LLM execution to prevent overheating and uncontrolled resource use",
+  "caps": {
+    "max_vram_mb": 6000,
+    "max_ram_mb": 8000,
+    "max_cpu_percent": 70,
+    "max_gpu_temp_celsius": 80,
+    "max_concurrent_models": 1,
+    "max_context_tokens": 4096,
+    "max_generation_tokens": 2048,
+    "timeout_seconds": 300,
+    "allow_background_inference": false,
+    "allow_continuous_running": false
+  },
+  "rules": [
+    "Slow is acceptable — no overheating",
+    "No uncontrolled background work",
+    "Kill model if GPU temp exceeds cap",
+    "One model at a time",
+    "Owner must approve model activation"
+  ],
+  "status": "NOT_CONFIGURED"
+}

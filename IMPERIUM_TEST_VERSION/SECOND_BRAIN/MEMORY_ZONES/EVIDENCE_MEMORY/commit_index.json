@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.2.0",
+  "commits": [
+    {
+      "hash": "5c65c5b0bafbf80e0027a6181ba5a01032d234e3",
+      "message": "EXPERIMENT: record manual repair narrative and second brain directive",
+      "date": "2026-05-16",
+      "linked_run": "OWNER_LOGOS_MANUAL_REPAIR_20260516"
+    }
+  ]
+}
+

@@ -1,0 +1,20 @@
+{
+  "schema_version": "0.2.0",
+  "commits": [
+    {
+      "hash": "bfc2c3287a370fc2a6ce6663976ef8a14bd6482d",
+      "message": "EXPERIMENT: repair test version candidate gates and delta verification",
+      "date": "2026-05-16",
+      "significance": "Fixed candidate gate logic and delta verification",
+      "linked_run": "OWNER_LOGOS_MANUAL_REPAIR_20260516"
+    },
+    {
+      "hash": "5c65c5b0bafbf80e0027a6181ba5a01032d234e3",
+      "message": "EXPERIMENT: record manual repair narrative and second brain directive",
+      "date": "2026-05-16",
+      "significance": "Added repair narrative and Second Brain fixation directive",
+      "linked_run": "OWNER_LOGOS_MANUAL_REPAIR_20260516"
+    }
+  ]
+}
+

@@ -1,0 +1,12 @@
+{
+  "schema_version": "0.2.0",
+  "total_comments": 1,
+  "comments": [
+    {
+      "comment_id": "OC-20260516-0001",
+      "summary": "Owner comments are first-class memory — lesson from manual repair",
+      "linked_zone": "rules_and_forbidden",
+      "linked_run": "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/"
+    }
+  ]
+}

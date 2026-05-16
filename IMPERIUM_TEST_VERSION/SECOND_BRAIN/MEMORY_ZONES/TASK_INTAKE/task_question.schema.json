@@ -1,0 +1,17 @@
+{
+  "schema_id": "task_question_v0.2",
+  "title": "TaskQuestion",
+  "description": "Schema for a question raised during task intake",
+  "type": "object",
+  "required": ["question_id", "task_id", "question_text", "status"],
+  "properties": {
+    "question_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "question_text": {"type": "string"},
+    "context": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["OPEN", "ANSWERED", "DEFERRED", "IRRELEVANT"]},
+    "answer": {"type": ["string", "null"]},
+    "answered_by": {"type": ["string", "null"]},
+    "answered_at": {"type": ["string", "null"]}
+  }
+}

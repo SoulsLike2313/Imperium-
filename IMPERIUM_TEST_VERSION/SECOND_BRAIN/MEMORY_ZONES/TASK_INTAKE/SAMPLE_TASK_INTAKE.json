@@ -1,0 +1,23 @@
+{
+  "task_id": "TI-20260516-0001",
+  "created": "2026-05-16T14:00:00Z",
+  "source_text": "Build Second Brain V0.2 as universal memory-zone scaffold and operator prototype inside IMPERIUM_TEST_VERSION",
+  "understood_as": "Create folder structure, JSON schemas, sample data, operator HTML, and checker script for all 13 memory zones of Second Brain architecture",
+  "status": "IN_PROGRESS",
+  "relevant_memory_zones": [
+    "owner_memory",
+    "past_memory",
+    "future_memory",
+    "rules_and_forbidden"
+  ],
+  "questions_for_owner": [],
+  "proposed_route": "Direct execution by Kiro agent on PC, all output inside IMPERIUM_TEST_VERSION/SECOND_BRAIN/",
+  "assigned_agent": "Kiro-A",
+  "assigned_contour": "PC",
+  "evidence_links": [
+    "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/SECOND_BRAIN_FIXATION_DIRECTIVE_RU.md",
+    "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/FOLLOWUP_DEBT.md"
+  ],
+  "blockers": []
+}
+

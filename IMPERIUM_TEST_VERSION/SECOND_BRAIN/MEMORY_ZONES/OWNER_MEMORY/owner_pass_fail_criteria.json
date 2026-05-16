@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.2.0",
+  "criteria": [
+    {
+      "id": "no_fake_green",
+      "rule": "Never claim PASS when real checks have not run or have failed",
+      "severity": "CRITICAL",
+      "auto_fail": true
+    },
+    {
+      "id": "no_production_claim",
+      "rule": "Never claim production readiness from prototype/scaffold",
+      "severity": "CRITICAL",
+      "auto_fail": true
+    },
+    {
+      "id": "scope_containment",
+      "rule": "Test/experimental work stays inside IMPERIUM_TEST_VERSION",
+      "severity": "HIGH",
+      "auto_fail": true
+    },
+    {
+      "id": "no_auto_commit",
+      "rule": "Agents do not commit or push without Owner approval",
+      "severity": "CRITICAL",
+      "auto_fail": true
+    },
+    {
+      "id": "honest_status",
+      "rule": "All statuses must reflect reality: SCAFFOLD, MOCK, NOT_CONFIGURED, FAIL are acceptable",
+      "severity": "HIGH",
+      "auto_fail": false
+    },
+    {
+      "id": "evidence_required",
+      "rule": "Claims of completion must have evidence (checker output, file existence, test results)",
+      "severity": "MEDIUM",
+      "auto_fail": false
+    },
+    {
+      "id": "russian_owner_guides",
+      "rule": "Owner-facing documentation must be in Russian",
+      "severity": "MEDIUM",
+      "auto_fail": false
+    }
+  ]
+}

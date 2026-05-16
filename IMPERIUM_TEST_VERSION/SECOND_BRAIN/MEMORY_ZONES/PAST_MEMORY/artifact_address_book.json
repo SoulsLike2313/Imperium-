@@ -1,0 +1,21 @@
+{
+  "schema_version": "0.2.0",
+  "description": "Address book for locating past artifacts by type and date",
+  "addresses": [
+    {
+      "type": "run",
+      "id": "OWNER_LOGOS_MANUAL_REPAIR_20260516",
+      "path": "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/",
+      "date": "2026-05-16",
+      "files": [
+        "README.md",
+        "MANUAL_REPAIR_REPORT_RU.md",
+        "REPAIR_TIMELINE.md",
+        "LESSONS_LEARNED.md",
+        "FOLLOWUP_DEBT.md",
+        "SECOND_BRAIN_FIXATION_DIRECTIVE_RU.md"
+      ]
+    }
+  ]
+}
+

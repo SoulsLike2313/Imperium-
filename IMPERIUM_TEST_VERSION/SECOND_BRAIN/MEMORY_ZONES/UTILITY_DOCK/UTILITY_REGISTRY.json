@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.2.0",
+  "status": "SCAFFOLD",
+  "utilities": [
+    {
+      "utility_id": "U-001",
+      "name": "check_second_brain_v0_2",
+      "type": "script",
+      "status": "ACTIVE",
+      "entry_point": "../../TOOLS/check_second_brain_v0_2.py",
+      "language": "python"
+    },
+    {
+      "utility_id": "U-002",
+      "name": "build_second_brain_operator_data",
+      "type": "script",
+      "status": "SCAFFOLD",
+      "entry_point": "../../TOOLS/build_second_brain_operator_data.py",
+      "language": "python"
+    },
+    {
+      "utility_id": "U-003",
+      "name": "second_brain_operator",
+      "type": "web_ui",
+      "status": "PROTOTYPE",
+      "entry_point": "../../UI/second_brain_operator.html",
+      "language": "html_js"
+    }
+  ]
+}

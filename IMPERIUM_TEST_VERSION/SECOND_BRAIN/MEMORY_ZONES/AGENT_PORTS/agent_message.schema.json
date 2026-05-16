@@ -1,0 +1,17 @@
+{
+  "schema_id": "agent_message_v0.2",
+  "title": "AgentMessage",
+  "description": "Schema for messages exchanged between agents or agent-to-owner",
+  "type": "object",
+  "required": ["message_id", "from_port", "to_port", "type", "timestamp"],
+  "properties": {
+    "message_id": {"type": "string"},
+    "from_port": {"type": "string"},
+    "to_port": {"type": "string"},
+    "type": {"type": "string", "enum": ["task_assignment", "status_update", "question", "answer", "receipt", "handoff", "conflict_report", "group_coordination"]},
+    "timestamp": {"type": "string"},
+    "payload": {"type": "object"},
+    "requires_response": {"type": "boolean"},
+    "priority": {"type": "string", "enum": ["HIGH", "MEDIUM", "LOW"]}
+  }
+}

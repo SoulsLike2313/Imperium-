@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.2.0",
+  "criteria": [
+    {"id": "PF-001", "rule": "No fake green", "auto_fail": true},
+    {"id": "PF-002", "rule": "No production claim from prototype", "auto_fail": true},
+    {"id": "PF-003", "rule": "Scope containment (IMPERIUM_TEST_VERSION only)", "auto_fail": true},
+    {"id": "PF-004", "rule": "No auto commit/push", "auto_fail": true},
+    {"id": "PF-005", "rule": "Honest statuses required", "auto_fail": false},
+    {"id": "PF-006", "rule": "Evidence for completion claims", "auto_fail": false},
+    {"id": "PF-007", "rule": "Russian for Owner-facing docs", "auto_fail": false},
+    {"id": "PF-008", "rule": "English for machine artifacts", "auto_fail": false}
+  ]
+}

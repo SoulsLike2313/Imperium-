@@ -1,0 +1,20 @@
+{
+  "schema_id": "stage_memory_v0.2",
+  "title": "StageMemory",
+  "description": "Schema for recording a stage of task execution",
+  "type": "object",
+  "required": ["stage_id", "task_id", "stage_name", "status"],
+  "properties": {
+    "stage_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "stage_name": {"type": "string"},
+    "status": {"type": "string", "enum": ["PENDING", "IN_PROGRESS", "COMPLETED", "BLOCKED", "SKIPPED"]},
+    "started_at": {"type": ["string", "null"]},
+    "completed_at": {"type": ["string", "null"]},
+    "agent": {"type": ["string", "null"]},
+    "tools_used": {"type": "array", "items": {"type": "string"}},
+    "decisions": {"type": "array", "items": {"type": "string"}},
+    "blockers": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "items": {"type": "string"}}
+  }
+}

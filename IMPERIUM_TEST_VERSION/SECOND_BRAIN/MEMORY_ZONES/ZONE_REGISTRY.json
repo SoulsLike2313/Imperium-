@@ -1,0 +1,112 @@
+{
+  "schema_version": "0.2.0",
+  "status": "SCAFFOLD",
+  "created": "2026-05-16",
+  "zones": [
+    {
+      "id": "owner_memory",
+      "name": "Owner Memory",
+      "path": "OWNER_MEMORY/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "owner_comments",
+      "name": "Owner Comments Mesh",
+      "path": "OWNER_COMMENTS/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "past_memory",
+      "name": "Past Memory",
+      "path": "PAST_MEMORY/",
+      "status": "SCAFFOLD",
+      "has_schema": false,
+      "has_samples": true
+    },
+    {
+      "id": "future_memory",
+      "name": "Future Memory",
+      "path": "FUTURE_MEMORY/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "task_intake",
+      "name": "Task Intake",
+      "path": "TASK_INTAKE/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "execution_memory",
+      "name": "Execution Memory",
+      "path": "EXECUTION_MEMORY/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "agent_ports",
+      "name": "Agent Ports",
+      "path": "AGENT_PORTS/",
+      "status": "MOCK",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "local_llm",
+      "name": "Local LLM Zone",
+      "path": "LOCAL_LLM/",
+      "status": "NOT_CONFIGURED",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "distributed_contours",
+      "name": "Distributed Contours",
+      "path": "DISTRIBUTED_CONTOURS/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": false
+    },
+    {
+      "id": "product_distribution",
+      "name": "Product / Distribution",
+      "path": "PRODUCT_DISTRIBUTION/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "rules_and_forbidden",
+      "name": "Rules / Forbidden / PASS-FAIL",
+      "path": "RULES_AND_FORBIDDEN/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    },
+    {
+      "id": "evidence_memory",
+      "name": "Evidence Memory",
+      "path": "EVIDENCE_MEMORY/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": false
+    },
+    {
+      "id": "utility_dock",
+      "name": "Utility / Application Dock",
+      "path": "UTILITY_DOCK/",
+      "status": "SCAFFOLD",
+      "has_schema": true,
+      "has_samples": true
+    }
+  ]
+}
+

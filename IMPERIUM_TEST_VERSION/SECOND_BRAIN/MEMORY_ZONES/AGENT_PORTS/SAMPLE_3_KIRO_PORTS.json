@@ -1,0 +1,29 @@
+{
+  "description": "Sample configuration for 3 Kiro agent ports demonstrating multi-agent coordination",
+  "sample_task_flow": {
+    "task": "Build and verify a new utility",
+    "steps": [
+      {
+        "step": 1,
+        "agent": "KIRO-A",
+        "action": "Accept task, read context, build implementation",
+        "output": "Source files + execution trace"
+      },
+      {
+        "step": 2,
+        "agent": "KIRO-B",
+        "action": "Review implementation, run checks, report findings",
+        "output": "Review report + pass/fail verdict"
+      },
+      {
+        "step": 3,
+        "agent": "KIRO-C",
+        "action": "Run integration tests on VM2, verify isolation",
+        "output": "Test results + VM2 receipt"
+      }
+    ],
+    "conflict_resolution": "owner_decides",
+    "handoff_format": "file_exchange via SECOND_BRAIN/MEMORY_ZONES/AGENT_PORTS/"
+  },
+  "note": "This is a MOCK sample. Real multi-agent coordination is NOT_IMPLEMENTED."
+}

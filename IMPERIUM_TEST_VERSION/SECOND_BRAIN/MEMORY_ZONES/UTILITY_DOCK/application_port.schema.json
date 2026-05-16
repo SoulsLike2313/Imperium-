@@ -1,0 +1,18 @@
+{
+  "schema_id": "application_port_v0.2",
+  "title": "ApplicationPort",
+  "description": "Schema for a utility that has evolved into an operator button/port",
+  "type": "object",
+  "required": ["port_id", "utility_id", "name", "action"],
+  "properties": {
+    "port_id": {"type": "string"},
+    "utility_id": {"type": "string"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "action": {"type": "string", "enum": ["run_script", "open_ui", "launch_app", "api_call", "agent_task"]},
+    "trigger": {"type": "string", "enum": ["button_click", "schedule", "event", "manual"]},
+    "visible_in_ui": {"type": "boolean"},
+    "icon": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["ACTIVE", "SCAFFOLD", "MOCK"]}
+  }
+}

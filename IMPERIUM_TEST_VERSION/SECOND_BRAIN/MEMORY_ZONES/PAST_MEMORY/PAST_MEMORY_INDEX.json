@@ -1,0 +1,16 @@
+{
+  "schema_version": "0.2.0",
+  "entries": [
+    {
+      "id": "PM-20260516-001",
+      "date": "2026-05-16",
+      "title": "Manual Repair Run — Owner Logos",
+      "summary": "Owner manually repaired test version candidate gates and delta verification",
+      "artifact_path": "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/",
+      "commit": "5c65c5b0bafbf80e0027a6181ba5a01032d234e3",
+      "evidence": ["MANUAL_REPAIR_REPORT_RU.md", "REPAIR_TIMELINE.md", "LESSONS_LEARNED.md"],
+      "tags": ["repair", "manual", "test_version", "gates"]
+    }
+  ]
+}
+

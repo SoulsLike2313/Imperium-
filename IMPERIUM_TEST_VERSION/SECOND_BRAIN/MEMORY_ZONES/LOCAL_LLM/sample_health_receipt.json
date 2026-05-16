@@ -1,0 +1,18 @@
+{
+  "receipt_id": "LLM-HEALTH-SAMPLE-001",
+  "timestamp": "2026-05-16T00:00:00Z",
+  "model_id": null,
+  "status": "NOT_CONFIGURED",
+  "checks": {
+    "model_loaded": false,
+    "gpu_available": null,
+    "vram_free_mb": null,
+    "ram_free_mb": null,
+    "gpu_temp_celsius": null,
+    "inference_test_passed": false,
+    "response_time_ms": null
+  },
+  "verdict": "NOT_CONFIGURED",
+  "note": "No local LLM model is configured. This is a sample receipt template."
+}
+

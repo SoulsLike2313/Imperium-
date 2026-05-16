@@ -1,0 +1,13 @@
+{
+  "schema_version": "0.2.0",
+  "tasks": [
+    {
+      "task_id": "TI-20260516-0001",
+      "title": "Second Brain V0.2 Scaffold",
+      "status": "IN_PROGRESS",
+      "created": "2026-05-16",
+      "agent": "Kiro-A"
+    }
+  ]
+}
+

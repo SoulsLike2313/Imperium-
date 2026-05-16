@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.2.0",
+  "description": "Sample graph representation of Second Brain zone connections",
+  "nodes": [
+    {"id": "owner_memory", "label": "Owner Memory", "type": "zone"},
+    {"id": "owner_comments", "label": "Owner Comments", "type": "zone"},
+    {"id": "past_memory", "label": "Past Memory", "type": "zone"},
+    {"id": "future_memory", "label": "Future Memory", "type": "zone"},
+    {"id": "task_intake", "label": "Task Intake", "type": "zone"},
+    {"id": "execution_memory", "label": "Execution Memory", "type": "zone"},
+    {"id": "agent_ports", "label": "Agent Ports", "type": "zone"},
+    {"id": "local_llm", "label": "Local LLM", "type": "zone"},
+    {"id": "distributed_contours", "label": "Distributed Contours", "type": "zone"},
+    {"id": "product_distribution", "label": "Product/Distribution", "type": "zone"},
+    {"id": "rules_forbidden", "label": "Rules/Forbidden", "type": "zone"},
+    {"id": "evidence_memory", "label": "Evidence Memory", "type": "zone"},
+    {"id": "utility_dock", "label": "Utility Dock", "type": "zone"},
+    {"id": "manual_repair_run", "label": "Manual Repair 20260516", "type": "event"}
+  ],
+  "edges": [
+    {"from": "owner_comments", "to": "owner_memory", "relation": "references"},
+    {"from": "owner_comments", "to": "past_memory", "relation": "links_to"},
+    {"from": "owner_comments", "to": "evidence_memory", "relation": "links_to"},
+    {"from": "task_intake", "to": "owner_memory", "relation": "checks_rules"},
+    {"from": "task_intake", "to": "future_memory", "relation": "sources_from"},
+    {"from": "execution_memory", "to": "task_intake", "relation": "executes"},
+    {"from": "execution_memory", "to": "evidence_memory", "relation": "produces"},
+    {"from": "execution_memory", "to": "agent_ports", "relation": "uses"},
+    {"from": "execution_memory", "to": "utility_dock", "relation": "uses"},
+    {"from": "agent_ports", "to": "distributed_contours", "relation": "routes_via"},
+    {"from": "local_llm", "to": "distributed_contours", "relation": "runs_on"},
+    {"from": "past_memory", "to": "evidence_memory", "relation": "stores_in"},
+    {"from": "manual_repair_run", "to": "past_memory", "relation": "recorded_in"},
+    {"from": "manual_repair_run", "to": "owner_comments", "relation": "has_comments"},
+    {"from": "rules_forbidden", "to": "owner_memory", "relation": "derived_from"},
+    {"from": "product_distribution", "to": "past_memory", "relation": "uses_evidence"}
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schema_id": "agent_port_v0.2",
+  "title": "AgentPort",
+  "description": "Schema for an agent integration port",
+  "type": "object",
+  "required": ["port_id", "agent_name", "type", "status"],
+  "properties": {
+    "port_id": {"type": "string"},
+    "agent_name": {"type": "string"},
+    "type": {"type": "string", "enum": ["cloud_api", "cli", "local_llm", "ide_extension", "ssh_remote", "mcp"]},
+    "status": {"type": "string", "enum": ["ACTIVE", "MOCK", "NOT_CONFIGURED", "DISABLED"]},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "contour": {"type": ["string", "null"]},
+    "endpoint": {"type": ["string", "null"]},
+    "auth_method": {"type": ["string", "null"]},
+    "max_context_tokens": {"type": ["integer", "null"]},
+    "rate_limit": {"type": ["string", "null"]},
+    "protocols": {"type": "array", "items": {"type": "string"}}
+  }
+}

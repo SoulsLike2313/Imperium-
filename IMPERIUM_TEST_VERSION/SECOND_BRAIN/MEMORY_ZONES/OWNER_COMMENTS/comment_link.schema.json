@@ -1,0 +1,21 @@
+{
+  "schema_id": "comment_link_v0.2",
+  "title": "CommentLink",
+  "description": "Schema for linking an Owner comment to any addressable entity",
+  "type": "object",
+  "required": ["link_id", "comment_id", "target_type", "target_ref"],
+  "properties": {
+    "link_id": {"type": "string"},
+    "comment_id": {"type": "string", "pattern": "^OC-[0-9]{8}-[0-9]{4}$"},
+    "target_type": {
+      "type": "string",
+      "enum": ["memory_node", "file", "receipt", "commit", "screenshot", "task", "stage", "plan", "question", "decision", "future_action", "report"]
+    },
+    "target_ref": {"type": "string"},
+    "relation": {
+      "type": "string",
+      "enum": ["about", "caused_by", "resulted_in", "blocks", "enables", "references", "corrects"]
+    },
+    "created": {"type": "string", "format": "date-time"}
+  }
+}

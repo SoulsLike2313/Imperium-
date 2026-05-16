@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPERIUM Second Brain V0.2 — Operator</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #0d1117; color: #c9d1d9; padding: 20px; }
+h1 { color: #58a6ff; margin-bottom: 5px; font-size: 1.6em; }
+h2 { color: #8b949e; font-size: 1.1em; margin-bottom: 20px; font-weight: normal; }
+.status-bar { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px 20px; margin-bottom: 20px; display: flex; gap: 20px; flex-wrap: wrap; }
+.status-item { display: flex; align-items: center; gap: 6px; font-size: 0.85em; }
+.badge { padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: 600; text-transform: uppercase; }
+.badge-scaffold { background: #1f2937; color: #9ca3af; border: 1px solid #374151; }
+.badge-mock { background: #1c1917; color: #fb923c; border: 1px solid #92400e; }
+.badge-not-configured { background: #1a1a2e; color: #a78bfa; border: 1px solid #4c1d95; }
+.badge-prototype { background: #0c2d48; color: #38bdf8; border: 1px solid #0369a1; }
+.badge-active { background: #052e16; color: #4ade80; border: 1px solid #166534; }
+.badge-not-verified { background: #2d1b00; color: #fbbf24; border: 1px solid #92400e; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; margin-bottom: 30px; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; transition: border-color 0.2s; }
+.card:hover { border-color: #58a6ff; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+.card-title { font-size: 0.95em; font-weight: 600; color: #e6edf3; }
+.card-desc { font-size: 0.82em; color: #8b949e; line-height: 1.4; }
+.card-meta { margin-top: 10px; font-size: 0.75em; color: #6e7681; }
+.section-title { color: #58a6ff; font-size: 1.1em; margin: 25px 0 12px 0; border-bottom: 1px solid #21262d; padding-bottom: 6px; }
+.task-card { background: #0d2818; border: 1px solid #166534; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.task-title { color: #4ade80; font-weight: 600; margin-bottom: 6px; }
+.comment-card { background: #1a1625; border: 1px solid #4c1d95; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+.comment-text { color: #e2e8f0; font-style: italic; margin-bottom: 8px; font-size: 0.9em; }
+.comment-meta { color: #8b949e; font-size: 0.75em; }
+.agent-ports { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.agent-port { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 12px; min-width: 200px; flex: 1; }
+.agent-name { color: #58a6ff; font-weight: 600; font-size: 0.9em; }
+.agent-role { color: #8b949e; font-size: 0.8em; margin-top: 4px; }
+.footer { margin-top: 30px; padding-top: 16px; border-top: 1px solid #21262d; color: #6e7681; font-size: 0.8em; text-align: center; }
+.two-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.mode-card { background: #161b22; border: 1px solid #30363d; border-radius: 8px; padding: 16px; }
+.mode-title { font-weight: 600; margin-bottom: 6px; }
+.mode-internal .mode-title { color: #f87171; }
+.mode-external .mode-title { color: #4ade80; }
+</style>
+</head>
+<body>
+
+<h1>IMPERIUM Second Brain V0.2</h1>
+<h2>Universal Scaffold &amp; Operator Prototype</h2>
+
+<div class="status-bar">
+  <div class="status-item">Общий статус: <span class="badge badge-prototype">PROTOTYPE</span></div>
+  <div class="status-item">Зон: <strong>13</strong></div>
+  <div class="status-item">Схем: <strong>20+</strong></div>
+  <div class="status-item">Агент-портов: <strong>3</strong></div>
+  <div class="status-item">Local LLM: <span class="badge badge-not-configured">NOT_CONFIGURED</span></div>
+  <div class="status-item">Дата: 2026-05-16</div>
+</div>
+
+<div class="section-title">Зоны памяти</div>
+<div class="grid">
+  <div class="card">
+    <div class="card-header"><span class="card-title">Owner Memory</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Кто Owner, предпочтения, pass/fail критерии, правила автономии</div>
+    <div class="card-meta">5 файлов: profile, preferences, forbidden, pass_fail, autonomy, style</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Owner Comments Mesh</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Комментарии Owner как первоклассные объекты с привязками к файлам, коммитам, задачам</div>
+    <div class="card-meta">Схемы: comment, link | 1 sample comment привязан к manual repair</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Past Memory</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Архив: что было, когда, где файлы, коммиты, доказательства</div>
+    <div class="card-meta">Индексы: runs, commits, artifacts | 1 summary card</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Future Memory</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Желания Owner, цели, будущие задачи, кандидаты в планы</div>
+    <div class="card-meta">5 целей в индексе | Inbox для сырых желаний</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Task Intake</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Приём задач: понимание, вопросы, маршрутизация</div>
+    <div class="card-meta">Протокол приёма | 1 sample task (текущий)</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Execution Memory</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Этапы, скрипты, утилиты, рецепты, блокеры, решения</div>
+    <div class="card-meta">Схемы: stage, trace, tool_use, blocker, receipt | 1 sample trace</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Agent Ports</span><span class="badge badge-mock">MOCK</span></div>
+    <div class="card-desc">Порты внешних/облачных/API/CLI агентов — масштабируется до сотен</div>
+    <div class="card-meta">3 sample порта Kiro | Протоколы: task, handoff, group, message</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Local LLM</span><span class="badge badge-not-configured">NOT_CONFIGURED</span></div>
+    <div class="card-desc">Локальные модели, лимиты ресурсов, проверки здоровья</div>
+    <div class="card-meta">Resource caps: 6GB VRAM, 80C max | Нет реальной модели</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Distributed Contours</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">PC, VM, Ubuntu ноутбук — маршрутизация, возможности, health</div>
+    <div class="card-meta">3 контура | Только PC-MAIN верифицирован</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Product / Distribution</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">IMPERIUM как продукт — внутренний анализ и внешняя презентация</div>
+    <div class="card-meta">2 режима | Capability map | Pain points | Storyboard</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Rules / Forbidden</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Запрещённые действия, PASS/FAIL, no-fake-green, автономия</div>
+    <div class="card-meta">8 forbidden actions | 8 pass/fail criteria</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Evidence Memory</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Рецепты, скриншоты, отчёты, коммиты, хеши</div>
+    <div class="card-meta">Индексы: receipts, screenshots, reports, commits</div>
+  </div>
+  <div class="card">
+    <div class="card-header"><span class="card-title">Utility Dock</span><span class="badge badge-scaffold">SCAFFOLD</span></div>
+    <div class="card-desc">Скрипты → утилиты → приложения → кнопки оператора</div>
+    <div class="card-meta">3 утилиты | Evolution path: script → cli → ui → app</div>
+  </div>
+</div>
+
+<div class="section-title">Sample: Принятая задача</div>
+<div class="task-card">
+  <div class="task-title">TI-20260516-0001: Second Brain V0.2 Scaffold</div>
+  <div class="card-desc">
+    <strong>Статус:</strong> IN_PROGRESS<br>
+    <strong>Агент:</strong> Kiro-A (PC-MAIN)<br>
+    <strong>Понимание:</strong> Создать структуру папок, JSON-схемы, sample данные, operator HTML и checker для всех 13 зон памяти<br>
+    <strong>Контекст:</strong> Owner Memory, Past Memory, Future Memory, Rules<br>
+    <strong>Блокеры:</strong> нет
+  </div>
+</div>
+
+<div class="section-title">Sample: Комментарий Owner</div>
+<div class="comment-card">
+  <div class="comment-text">"Комментарии Owner — это первоклассная память. Когда Owner объясняет почему ремонт важен, это должно сохраняться как привязанный к памяти контекст, а не теряться в чате."</div>
+  <div class="comment-meta">
+    OC-20260516-0001 | Привязка: LESSONS_LEARNED.md, коммит 5c65c5b0 | Зона: rules_and_forbidden | Действие: Implement Owner Comments Mesh
+  </div>
+</div>
+
+<div class="section-title">Agent Ports (3 sample)</div>
+<div class="agent-ports">
+  <div class="agent-port">
+    <div class="agent-name">KIRO-A</div>
+    <div class="agent-role">Primary — file_edit, code_gen, shell, web, analysis</div>
+    <div class="card-meta">Контур: PC | <span class="badge badge-mock">MOCK</span></div>
+  </div>
+  <div class="agent-port">
+    <div class="agent-name">KIRO-B</div>
+    <div class="agent-role">Review — code_review, verification, testing, docs</div>
+    <div class="card-meta">Контур: PC | <span class="badge badge-mock">MOCK</span></div>
+  </div>
+  <div class="agent-port">
+    <div class="agent-name">KIRO-C</div>
+    <div class="agent-role">VM2 Worker — file_edit, shell, git, testing</div>
+    <div class="card-meta">Контур: VM2 | <span class="badge badge-mock">MOCK</span></div>
+  </div>
+</div>
+
+<div class="section-title">Product / Distribution — Два режима</div>
+<div class="two-modes">
+  <div class="mode-card mode-internal">
+    <div class="mode-title">OWNER_FULL_ANALYSIS</div>
+    <div class="card-desc">Честный внутренний анализ: все слабости, долги, риски видны. Никакого маркетинга.</div>
+  </div>
+  <div class="mode-card mode-external">
+    <div class="mode-title">CLIENT_STRONG_PRESENTATION</div>
+    <div class="card-desc">Сильная внешняя презентация без вранья. Пробелы = roadmap. Профессиональный тон.</div>
+  </div>
+</div>
+
+<div class="section-title">Distributed Contours</div>
+<div class="agent-ports">
+  <div class="agent-port">
+    <div class="agent-name">PC-MAIN</div>
+    <div class="agent-role">Windows | git, python3.12, powershell, kiro, sanctum</div>
+    <div class="card-meta"><span class="badge badge-active">ACTIVE</span></div>
+  </div>
+  <div class="agent-port">
+    <div class="agent-name">VM2</div>
+    <div class="agent-role">Ubuntu | git, python3, bash, ssh</div>
+    <div class="card-meta"><span class="badge badge-scaffold">SCAFFOLD</span></div>
+  </div>
+  <div class="agent-port">
+    <div class="agent-name">LAPTOP-UBUNTU</div>
+    <div class="agent-role">Ubuntu | git, python3, bash, ssh, local_llm_candidate</div>
+    <div class="card-meta"><span class="badge badge-not-verified">NOT_VERIFIED</span></div>
+  </div>
+</div>
+
+<div class="footer">
+  IMPERIUM Second Brain V0.2 | Status: PROTOTYPE / SCAFFOLD | No production claims | 2026-05-16
+</div>
+
+</body>
+</html>
+

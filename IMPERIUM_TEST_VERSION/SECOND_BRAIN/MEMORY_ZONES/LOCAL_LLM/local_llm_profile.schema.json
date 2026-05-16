@@ -1,0 +1,23 @@
+{
+  "schema_id": "local_llm_profile_v0.2",
+  "title": "LocalLLMProfile",
+  "description": "Schema for a local LLM model profile",
+  "type": "object",
+  "required": ["model_id", "name", "status"],
+  "properties": {
+    "model_id": {"type": "string"},
+    "name": {"type": "string"},
+    "status": {"type": "string", "enum": ["ACTIVE", "NOT_CONFIGURED", "DISABLED", "ERROR"]},
+    "model_path": {"type": ["string", "null"]},
+    "model_type": {"type": "string", "enum": ["gguf", "onnx", "pytorch", "other"]},
+    "context_window": {"type": ["integer", "null"]},
+    "vram_required_mb": {"type": ["integer", "null"]},
+    "ram_required_mb": {"type": ["integer", "null"]},
+    "gpu_required": {"type": "boolean"},
+    "contour": {"type": "string"},
+    "allowed_tasks": {"type": "array", "items": {"type": "string"}},
+    "forbidden_tasks": {"type": "array", "items": {"type": "string"}},
+    "health_check_interval": {"type": ["string", "null"]},
+    "last_health_check": {"type": ["string", "null"]}
+  }
+}

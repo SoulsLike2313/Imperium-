@@ -1,0 +1,19 @@
+{
+  "schema_id": "utility_v0.2",
+  "title": "Utility",
+  "description": "Schema for a utility that can evolve into an application",
+  "type": "object",
+  "required": ["utility_id", "name", "type", "status"],
+  "properties": {
+    "utility_id": {"type": "string"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "type": {"type": "string", "enum": ["script", "cli_tool", "web_ui", "qt_app", "api_endpoint", "operator_button"]},
+    "status": {"type": "string", "enum": ["ACTIVE", "SCAFFOLD", "MOCK", "DEPRECATED"]},
+    "entry_point": {"type": "string"},
+    "language": {"type": "string"},
+    "dependencies": {"type": "array", "items": {"type": "string"}},
+    "evolution_path": {"type": "string", "enum": ["script_to_cli", "cli_to_ui", "ui_to_app", "app_to_port"]},
+    "linked_zone": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "schema_version": "0.2.0",
+  "status": "NOT_CONFIGURED",
+  "note": "No local LLM models are currently configured. This zone is a scaffold for future integration.",
+  "models": []
+}

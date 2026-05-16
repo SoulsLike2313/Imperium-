@@ -1,0 +1,45 @@
+{
+  "schema_version": "0.2.0",
+  "forbidden_actions": [
+    {
+      "id": "no_main_canon_pollution",
+      "action": "Modifying files outside IMPERIUM_TEST_VERSION during experimental tasks",
+      "reason": "Main canon must remain stable"
+    },
+    {
+      "id": "no_uncontrolled_commit",
+      "action": "Committing or pushing without Owner explicit approval",
+      "reason": "Owner controls all git operations"
+    },
+    {
+      "id": "no_fake_green",
+      "action": "Reporting PASS when checks have not actually passed",
+      "reason": "Destroys trust in the verification system"
+    },
+    {
+      "id": "no_mass_deletion",
+      "action": "Mass deletion of files or folders without Owner approval",
+      "reason": "Irreversible damage risk"
+    },
+    {
+      "id": "no_hidden_blockers",
+      "action": "Hiding errors or blockers in reports",
+      "reason": "Owner must see real state"
+    },
+    {
+      "id": "no_old_terminal_paste",
+      "action": "Pasting old terminal output as if it were current commands",
+      "reason": "Creates false evidence"
+    },
+    {
+      "id": "no_auto_open_windows",
+      "action": "Auto-opening dashboards or browsers without Owner request",
+      "reason": "Owner controls what opens on their machine"
+    },
+    {
+      "id": "no_production_declaration",
+      "action": "Declaring system production-ready or fully implemented",
+      "reason": "Only Owner can make this determination"
+    }
+  ]
+}

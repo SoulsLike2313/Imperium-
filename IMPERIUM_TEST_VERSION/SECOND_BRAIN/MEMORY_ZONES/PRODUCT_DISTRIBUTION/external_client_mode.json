@@ -1,0 +1,21 @@
+{
+  "mode": "CLIENT_STRONG_PRESENTATION",
+  "description": "Strong external presentation without lying — emphasize strengths, frame weaknesses as roadmap",
+  "rules": [
+    "Emphasize working capabilities",
+    "Frame gaps as planned roadmap items",
+    "Never claim features that do not exist",
+    "Never hide critical limitations",
+    "Use professional language",
+    "Show vision and architecture strength",
+    "Include real evidence of working features"
+  ],
+  "audience": "External clients, partners, investors",
+  "tone": "Professional, confident, honest",
+  "forbidden": [
+    "Claiming production readiness when scaffold",
+    "Hiding critical bugs",
+    "Inventing features",
+    "Fake screenshots or demos"
+  ]
+}

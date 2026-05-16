@@ -1,0 +1,19 @@
+{
+  "schema_id": "agent_task_contract_v0.2",
+  "title": "AgentTaskContract",
+  "description": "Schema for a task contract between Owner/system and an agent",
+  "type": "object",
+  "required": ["contract_id", "task_id", "agent_port", "scope", "constraints"],
+  "properties": {
+    "contract_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "agent_port": {"type": "string"},
+    "scope": {"type": "string"},
+    "constraints": {"type": "array", "items": {"type": "string"}},
+    "deliverables": {"type": "array", "items": {"type": "string"}},
+    "pass_criteria": {"type": "array", "items": {"type": "string"}},
+    "fail_criteria": {"type": "array", "items": {"type": "string"}},
+    "timeout": {"type": ["string", "null"]},
+    "escalation_rules": {"type": "array", "items": {"type": "string"}}
+  }
+}

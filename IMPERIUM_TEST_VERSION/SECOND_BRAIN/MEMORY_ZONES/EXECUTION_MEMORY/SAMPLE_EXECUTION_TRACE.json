@@ -1,0 +1,37 @@
+{
+  "trace_id": "ET-20260516-0001",
+  "task_id": "TI-20260516-0001",
+  "started_at": "2026-05-16T14:00:00Z",
+  "completed_at": null,
+  "overall_status": "IN_PROGRESS",
+  "stages": [
+    {
+      "stage_id": "S1",
+      "stage_name": "Preflight checks",
+      "status": "COMPLETED",
+      "tools_used": ["git status", "git rev-parse HEAD"],
+      "decisions": ["Working tree clean, HEAD matches expected"],
+      "blockers": []
+    },
+    {
+      "stage_id": "S2",
+      "stage_name": "Read context from manual repair run",
+      "status": "COMPLETED",
+      "tools_used": ["read_files"],
+      "decisions": ["Context loaded from SECOND_BRAIN_FIXATION_DIRECTIVE_RU.md, LESSONS_LEARNED.md, FOLLOWUP_DEBT.md"],
+      "blockers": []
+    },
+    {
+      "stage_id": "S3",
+      "stage_name": "Build scaffold structure",
+      "status": "IN_PROGRESS",
+      "tools_used": ["fs_write"],
+      "decisions": ["Creating all 13 zones with schemas and samples"],
+      "blockers": []
+    }
+  ],
+  "total_tools_used": 3,
+  "total_decisions": 3,
+  "total_blockers": 0
+}
+

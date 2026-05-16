@@ -1,0 +1,28 @@
+{
+  "schema_id": "contour_profile_v0.2",
+  "title": "ContourProfile",
+  "description": "Schema for a distributed contour (machine/environment) profile",
+  "type": "object",
+  "required": ["contour_id", "name", "type", "status"],
+  "properties": {
+    "contour_id": {"type": "string"},
+    "name": {"type": "string"},
+    "type": {"type": "string", "enum": ["physical_pc", "virtual_machine", "laptop", "cloud_instance", "container"]},
+    "status": {"type": "string", "enum": ["ACTIVE", "SCAFFOLD", "NOT_VERIFIED", "OFFLINE", "DECOMMISSIONED"]},
+    "os": {"type": "string"},
+    "hostname": {"type": ["string", "null"]},
+    "ssh_config": {"type": ["string", "null"]},
+    "capabilities": {"type": "array", "items": {"type": "string"}},
+    "resource_profile": {
+      "type": "object",
+      "properties": {
+        "cpu_cores": {"type": ["integer", "null"]},
+        "ram_gb": {"type": ["integer", "null"]},
+        "gpu": {"type": ["string", "null"]},
+        "disk_gb": {"type": ["integer", "null"]}
+      }
+    },
+    "allowed_tasks": {"type": "array", "items": {"type": "string"}},
+    "last_health_check": {"type": ["string", "null"]}
+  }
+}

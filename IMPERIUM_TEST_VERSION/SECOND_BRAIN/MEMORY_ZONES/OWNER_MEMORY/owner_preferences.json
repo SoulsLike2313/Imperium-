@@ -1,0 +1,27 @@
+{
+  "language": {
+    "machine_artifacts": "en",
+    "owner_facing_guides": "ru",
+    "comments": "ru"
+  },
+  "output_style": {
+    "compact_tables": true,
+    "full_paths": true,
+    "honest_statuses": true,
+    "no_marketing_language": true
+  },
+  "workflow": {
+    "iterative": true,
+    "scaffold_first": true,
+    "owner_approval_before_commit": true,
+    "no_auto_push": true
+  },
+  "technology": {
+    "primary_os": "Windows",
+    "secondary_os": "Ubuntu (laptop)",
+    "vm": "VM2",
+    "editors": ["VS Code", "Kiro"],
+    "python": "3.12",
+    "shell": ["PowerShell", "bash"]
+  }
+}

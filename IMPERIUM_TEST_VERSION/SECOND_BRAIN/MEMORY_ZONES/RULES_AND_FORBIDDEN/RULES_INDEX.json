@@ -1,0 +1,11 @@
+{
+  "schema_version": "0.2.0",
+  "rules": [
+    {"id": "R-001", "source": "PASS_FAIL_CRITERIA.json", "type": "pass_fail"},
+    {"id": "R-002", "source": "NO_FAKE_GREEN_POLICY.md", "type": "policy"},
+    {"id": "R-003", "source": "ASK_OR_CONTINUE_POLICY_RU.md", "type": "autonomy"},
+    {"id": "R-004", "source": "../OWNER_MEMORY/owner_forbidden_actions.json", "type": "forbidden"},
+    {"id": "R-005", "source": "../OWNER_MEMORY/owner_autonomy_rules.json", "type": "autonomy"},
+    {"id": "R-006", "source": "../OWNER_MEMORY/owner_pass_fail_criteria.json", "type": "pass_fail"}
+  ]
+}

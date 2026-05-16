@@ -1,0 +1,15 @@
+{
+  "schema_id": "receipt_link_v0.2",
+  "title": "ReceiptLink",
+  "description": "Schema for linking execution evidence to a receipt",
+  "type": "object",
+  "required": ["link_id", "task_id", "receipt_type", "path"],
+  "properties": {
+    "link_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "receipt_type": {"type": "string", "enum": ["checker_output", "test_result", "screenshot", "git_status", "build_report", "manual_confirmation"]},
+    "path": {"type": "string"},
+    "timestamp": {"type": "string"},
+    "verdict": {"type": "string", "enum": ["PASS", "FAIL", "PASS_WITH_WARNINGS", "BLOCKED"]}
+  }
+}

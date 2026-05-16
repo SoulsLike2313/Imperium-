@@ -1,0 +1,21 @@
+{
+  "schema_id": "task_intake_v0.2",
+  "title": "TaskIntake",
+  "description": "Schema for a task accepted into the Second Brain",
+  "type": "object",
+  "required": ["task_id", "created", "source_text", "status"],
+  "properties": {
+    "task_id": {"type": "string", "pattern": "^TI-[0-9]{8}-[0-9]{4}$"},
+    "created": {"type": "string", "format": "date-time"},
+    "source_text": {"type": "string"},
+    "understood_as": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["ACCEPTED", "UNDERSTOOD", "QUESTIONS_PENDING", "ROUTED", "IN_PROGRESS", "COMPLETED", "BLOCKED", "REJECTED"]},
+    "relevant_memory_zones": {"type": "array", "items": {"type": "string"}},
+    "questions_for_owner": {"type": "array", "items": {"type": "string"}},
+    "proposed_route": {"type": ["string", "null"]},
+    "assigned_agent": {"type": ["string", "null"]},
+    "assigned_contour": {"type": ["string", "null"]},
+    "evidence_links": {"type": "array", "items": {"type": "string"}},
+    "blockers": {"type": "array", "items": {"type": "string"}}
+  }
+}

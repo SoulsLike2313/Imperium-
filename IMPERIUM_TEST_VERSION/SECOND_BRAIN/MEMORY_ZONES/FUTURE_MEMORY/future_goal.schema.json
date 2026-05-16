@@ -1,0 +1,19 @@
+{
+  "schema_id": "future_goal_v0.2",
+  "title": "FutureGoal",
+  "description": "Schema for a future goal or wish from Owner",
+  "type": "object",
+  "required": ["goal_id", "created", "raw_text", "status"],
+  "properties": {
+    "goal_id": {"type": "string", "pattern": "^FG-[0-9]{8}-[0-9]{4}$"},
+    "created": {"type": "string", "format": "date"},
+    "raw_text": {"type": "string"},
+    "interpreted_goal": {"type": ["string", "null"]},
+    "priority": {"type": "string", "enum": ["HIGH", "MEDIUM", "LOW", "UNSET"]},
+    "status": {"type": "string", "enum": ["RAW", "ANALYZED", "PLANNED", "IN_PROGRESS", "DONE", "DEFERRED"]},
+    "linked_plan": {"type": ["string", "null"]},
+    "linked_task": {"type": ["string", "null"]},
+    "questions_for_owner": {"type": "array", "items": {"type": "string"}},
+    "tags": {"type": "array", "items": {"type": "string"}}
+  }
+}

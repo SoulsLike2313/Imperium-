@@ -1,0 +1,17 @@
+{
+  "schema_id": "product_capability_v0.2",
+  "title": "ProductCapability",
+  "description": "Schema for describing a product capability",
+  "type": "object",
+  "required": ["id", "name", "maturity"],
+  "properties": {
+    "id": {"type": "string"},
+    "name": {"type": "string"},
+    "description": {"type": "string"},
+    "maturity": {"type": "string", "enum": ["WORKING", "PARTIAL", "SCAFFOLD", "MOCK", "NOT_IMPLEMENTED", "DEPRECATED"]},
+    "strengths": {"type": "array", "items": {"type": "string"}},
+    "weaknesses": {"type": "array", "items": {"type": "string"}},
+    "evidence": {"type": "array", "items": {"type": "string"}},
+    "roadmap_items": {"type": "array", "items": {"type": "string"}}
+  }
+}

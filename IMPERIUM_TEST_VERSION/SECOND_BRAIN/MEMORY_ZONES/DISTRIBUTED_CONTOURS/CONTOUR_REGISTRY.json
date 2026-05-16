@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.2.0",
+  "status": "SCAFFOLD",
+  "contours": [
+    {
+      "contour_id": "PC-MAIN",
+      "name": "Main PC (Windows)",
+      "type": "physical_pc",
+      "status": "ACTIVE",
+      "os": "Windows",
+      "capabilities": ["git", "python3.12", "powershell", "kiro", "vscode", "sanctum"],
+      "is_primary": true,
+      "last_health_check": "2026-05-16"
+    },
+    {
+      "contour_id": "VM2",
+      "name": "Virtual Machine 2 (Ubuntu)",
+      "type": "virtual_machine",
+      "status": "SCAFFOLD",
+      "os": "Ubuntu",
+      "capabilities": ["git", "python3", "bash", "ssh"],
+      "is_primary": false,
+      "last_health_check": null
+    },
+    {
+      "contour_id": "LAPTOP-UBUNTU",
+      "name": "Ubuntu Laptop",
+      "type": "laptop",
+      "status": "NOT_VERIFIED",
+      "os": "Ubuntu",
+      "capabilities": ["git", "python3", "bash", "ssh", "local_llm_candidate"],
+      "is_primary": false,
+      "last_health_check": null,
+      "note": "SSH not verified — do not claim connectivity"
+    }
+  ]
+}
+

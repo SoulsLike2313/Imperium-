@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.2.0",
+  "product_name": "IMPERIUM",
+  "capabilities": [
+    {
+      "id": "verification_spine",
+      "name": "Verification Spine",
+      "description": "Multi-layer verification system with receipts, verdicts, and evidence",
+      "maturity": "WORKING",
+      "strengths": ["Honest verdicts", "Evidence-based", "No fake green"],
+      "weaknesses": ["Warning flood from legacy packs", "Some hardcoded PASS findings"]
+    },
+    {
+      "id": "organ_system",
+      "name": "Organ System",
+      "description": "Modular organizational structure with specialized organs",
+      "maturity": "PARTIAL",
+      "strengths": ["Clear separation of concerns", "Registry-based"],
+      "weaknesses": ["4 organs missing", "Registry drift"]
+    },
+    {
+      "id": "sanctum_ui",
+      "name": "Sanctum UI",
+      "description": "Qt-based operator dashboard",
+      "maturity": "WORKING",
+      "strengths": ["Visual overview", "Git CLI check integration"],
+      "weaknesses": ["Raw subprocess usage", "Not yet on command gateway"]
+    },
+    {
+      "id": "second_brain",
+      "name": "Second Brain",
+      "description": "Structured memory and operation system",
+      "maturity": "SCAFFOLD",
+      "strengths": ["Universal architecture", "Technology-agnostic"],
+      "weaknesses": ["No real persistence", "No real agent execution"]
+    },
+    {
+      "id": "agent_integration",
+      "name": "Agent Integration",
+      "description": "Multi-agent coordination via ports",
+      "maturity": "MOCK",
+      "strengths": ["Scalable design", "Protocol-based"],
+      "weaknesses": ["No real routing", "No real message exchange"]
+    }
+  ]
+}

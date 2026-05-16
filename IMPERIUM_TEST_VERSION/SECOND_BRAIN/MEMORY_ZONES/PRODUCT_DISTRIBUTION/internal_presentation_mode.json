@@ -1,0 +1,14 @@
+{
+  "mode": "OWNER_FULL_ANALYSIS",
+  "description": "Honest internal analysis for Owner — includes strengths, weaknesses, risks, debt",
+  "rules": [
+    "Show all weaknesses and debt",
+    "Show real maturity levels",
+    "Show blockers and risks",
+    "No marketing language",
+    "Include evidence for claims",
+    "Highlight what is MOCK/SCAFFOLD/NOT_IMPLEMENTED"
+  ],
+  "audience": "Owner only",
+  "tone": "Honest, technical, compact"
+}

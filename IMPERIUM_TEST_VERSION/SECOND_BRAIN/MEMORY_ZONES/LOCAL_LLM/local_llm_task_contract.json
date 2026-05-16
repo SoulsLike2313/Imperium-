@@ -1,0 +1,15 @@
+{
+  "schema_version": "0.2.0",
+  "description": "Template for task contracts with local LLM models",
+  "template": {
+    "task_type": "text_generation | summarization | classification | code_review",
+    "max_input_tokens": 2048,
+    "max_output_tokens": 1024,
+    "timeout_seconds": 120,
+    "retry_on_failure": false,
+    "fallback_to_cloud": false,
+    "quality_threshold": "best_effort",
+    "privacy_level": "local_only"
+  },
+  "status": "NOT_CONFIGURED"
+}

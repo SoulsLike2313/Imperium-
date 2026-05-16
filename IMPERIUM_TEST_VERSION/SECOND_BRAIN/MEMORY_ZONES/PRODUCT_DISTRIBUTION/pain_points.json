@@ -1,0 +1,40 @@
+{
+  "schema_version": "0.2.0",
+  "pain_points": [
+    {
+      "id": "PP-001",
+      "area": "Verification",
+      "description": "Warning flood from legacy/continuity packs creates noisy PASS_WITH_WARNINGS",
+      "severity": "MEDIUM",
+      "status": "KNOWN_DEBT"
+    },
+    {
+      "id": "PP-002",
+      "area": "Organs",
+      "description": "4 organs missing: Custodes, Strategium, Schola Imperialis, Throne",
+      "severity": "MEDIUM",
+      "status": "KNOWN_DEBT"
+    },
+    {
+      "id": "PP-003",
+      "area": "Registry",
+      "description": "Registry drift between declared state and real active files",
+      "severity": "LOW",
+      "status": "KNOWN_DEBT"
+    },
+    {
+      "id": "PP-004",
+      "area": "Sanctum",
+      "description": "Raw subprocess usage not yet migrated to command gateway",
+      "severity": "MEDIUM",
+      "status": "KNOWN_DEBT"
+    },
+    {
+      "id": "PP-005",
+      "area": "Memory",
+      "description": "No real persistent memory — chat history is ephemeral",
+      "severity": "HIGH",
+      "status": "BEING_ADDRESSED"
+    }
+  ]
+}

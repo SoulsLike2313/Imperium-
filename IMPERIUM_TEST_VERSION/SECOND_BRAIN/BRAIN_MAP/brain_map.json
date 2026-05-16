@@ -1,0 +1,105 @@
+{
+  "schema_version": "0.2.0",
+  "status": "SCAFFOLD",
+  "created": "2026-05-16",
+  "description": "Second Brain V0.2 zone map — universal scaffold",
+  "zones": [
+    {
+      "id": "owner_memory",
+      "name": "Owner Memory",
+      "path": "MEMORY_ZONES/OWNER_MEMORY/",
+      "purpose": "Who Owner is, preferences, pass/fail criteria, autonomy rules",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "owner_comments",
+      "name": "Owner Comments Mesh",
+      "path": "MEMORY_ZONES/OWNER_COMMENTS/",
+      "purpose": "Owner comments as first-class linked objects",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "past_memory",
+      "name": "Past Memory",
+      "path": "MEMORY_ZONES/PAST_MEMORY/",
+      "purpose": "Archive of what happened — dates, files, commits, evidence",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "future_memory",
+      "name": "Future Memory",
+      "path": "MEMORY_ZONES/FUTURE_MEMORY/",
+      "purpose": "Owner wishes, goals, future tasks, plan candidates",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "task_intake",
+      "name": "Task Intake",
+      "path": "MEMORY_ZONES/TASK_INTAKE/",
+      "purpose": "Task acceptance, understanding, questions, routing",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "execution_memory",
+      "name": "Execution Memory",
+      "path": "MEMORY_ZONES/EXECUTION_MEMORY/",
+      "purpose": "Stages, scripts, receipts, blockers, decisions, tools",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "agent_ports",
+      "name": "Agent Ports",
+      "path": "MEMORY_ZONES/AGENT_PORTS/",
+      "purpose": "External/cloud/API/CLI agent integration points",
+      "status": "MOCK"
+    },
+    {
+      "id": "local_llm",
+      "name": "Local LLM Zone",
+      "path": "MEMORY_ZONES/LOCAL_LLM/",
+      "purpose": "Local model profiles, resource caps, health checks",
+      "status": "NOT_CONFIGURED"
+    },
+    {
+      "id": "distributed_contours",
+      "name": "Distributed Contours",
+      "path": "MEMORY_ZONES/DISTRIBUTED_CONTOURS/",
+      "purpose": "PC, VM, Ubuntu laptop — routing, capabilities, health",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "product_distribution",
+      "name": "Product / Distribution",
+      "path": "MEMORY_ZONES/PRODUCT_DISTRIBUTION/",
+      "purpose": "IMPERIUM as product — internal analysis and external presentation",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "rules_and_forbidden",
+      "name": "Rules / Forbidden / PASS-FAIL",
+      "path": "MEMORY_ZONES/RULES_AND_FORBIDDEN/",
+      "purpose": "Forbidden actions, pass/fail criteria, no-fake-green policy",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "evidence_memory",
+      "name": "Evidence Memory",
+      "path": "MEMORY_ZONES/EVIDENCE_MEMORY/",
+      "purpose": "Receipts, screenshots, reports, commits, hashes",
+      "status": "SCAFFOLD"
+    },
+    {
+      "id": "utility_dock",
+      "name": "Utility / Application Dock",
+      "path": "MEMORY_ZONES/UTILITY_DOCK/",
+      "purpose": "Scripts → utilities → applications → operator buttons",
+      "status": "SCAFFOLD"
+    }
+  ],
+  "links": {
+    "manual_repair_run": "../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/",
+    "operator_ui": "UI/second_brain_operator.html",
+    "checker": "TOOLS/check_second_brain_v0_2.py"
+  }
+}
+

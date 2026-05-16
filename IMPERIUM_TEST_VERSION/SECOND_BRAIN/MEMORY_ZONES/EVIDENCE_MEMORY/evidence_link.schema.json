@@ -1,0 +1,18 @@
+{
+  "schema_id": "evidence_link_v0.2",
+  "title": "EvidenceLink",
+  "description": "Schema for linking evidence to tasks, runs, or decisions",
+  "type": "object",
+  "required": ["evidence_id", "type", "path"],
+  "properties": {
+    "evidence_id": {"type": "string"},
+    "type": {"type": "string", "enum": ["receipt", "screenshot", "report", "commit", "hash", "manual_confirmation", "checker_output", "test_result"]},
+    "path": {"type": "string"},
+    "linked_task": {"type": ["string", "null"]},
+    "linked_run": {"type": ["string", "null"]},
+    "linked_decision": {"type": ["string", "null"]},
+    "timestamp": {"type": ["string", "null"]},
+    "verdict": {"type": ["string", "null"]},
+    "notes": {"type": ["string", "null"]}
+  }
+}

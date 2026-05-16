@@ -1,0 +1,26 @@
+{
+  "description": "Sample utilities showing the evolution path: script -> cli -> ui -> app -> port",
+  "samples": [
+    {
+      "utility_id": "U-001",
+      "name": "check_second_brain_v0_2",
+      "current_stage": "script",
+      "evolution_path": "script -> cli_tool -> operator_button",
+      "note": "Currently a Python script. Future: CLI with flags, then button in Sanctum/Operator UI"
+    },
+    {
+      "utility_id": "U-002",
+      "name": "build_second_brain_operator_data",
+      "current_stage": "script",
+      "evolution_path": "script -> automated_build -> live_data_feed",
+      "note": "Builds JSON data for operator HTML. Future: auto-rebuild on zone changes"
+    },
+    {
+      "utility_id": "U-003",
+      "name": "second_brain_operator",
+      "current_stage": "web_ui",
+      "evolution_path": "static_html -> dynamic_spa -> qt_integration",
+      "note": "Static HTML prototype. Future: dynamic with live data, then Qt/Sanctum integration"
+    }
+  ]
+}

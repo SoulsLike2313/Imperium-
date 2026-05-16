@@ -1,0 +1,19 @@
+{
+  "schema_id": "tool_use_log_v0.2",
+  "title": "ToolUseLog",
+  "description": "Schema for logging tool usage during execution",
+  "type": "object",
+  "required": ["log_id", "task_id", "tool_name", "timestamp"],
+  "properties": {
+    "log_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "stage_id": {"type": ["string", "null"]},
+    "tool_name": {"type": "string"},
+    "tool_type": {"type": "string", "enum": ["script", "command", "utility", "agent_call", "api_call", "manual"]},
+    "timestamp": {"type": "string"},
+    "input_summary": {"type": ["string", "null"]},
+    "output_summary": {"type": ["string", "null"]},
+    "success": {"type": "boolean"},
+    "error": {"type": ["string", "null"]}
+  }
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "comment_id": "OC-20260516-0001",
+    "timestamp": "2026-05-16T12:00:00Z",
+    "original_text": "Комментарии Owner — это первоклассная память. Когда Owner объясняет почему ремонт важен, это должно сохраняться как привязанный к памяти контекст, а не теряться в чате.",
+    "interpreted_meaning": "Owner comments must be stored as durable linked memory objects, not lost in ephemeral chat",
+    "linked_memory_zone": "rules_and_forbidden",
+    "linked_artifact_path": "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/LESSONS_LEARNED.md",
+    "linked_commit": "5c65c5b0bafbf80e0027a6181ba5a01032d234e3",
+    "linked_task_or_stage": "MANUAL_REPAIR_20260516",
+    "linked_receipt": null,
+    "linked_screenshot": null,
+    "linked_file": "../../../RUNS/OWNER_LOGOS_MANUAL_REPAIR_20260516/SECOND_BRAIN_FIXATION_DIRECTIVE_RU.md",
+    "action_required": "Implement Owner Comments Mesh in Second Brain V0.2",
+    "confidence": 1.0,
+    "needs_owner_confirmation": false,
+    "tags": ["lesson", "memory_architecture", "manual_repair", "first_class_comments"]
+  }
+]
+

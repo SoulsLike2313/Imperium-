@@ -1,0 +1,18 @@
+{
+  "schema_id": "agent_handoff_v0.2",
+  "title": "AgentHandoff",
+  "description": "Schema for handing off a task between agents",
+  "type": "object",
+  "required": ["handoff_id", "from_port", "to_port", "task_id", "reason"],
+  "properties": {
+    "handoff_id": {"type": "string"},
+    "from_port": {"type": "string"},
+    "to_port": {"type": "string"},
+    "task_id": {"type": "string"},
+    "reason": {"type": "string", "enum": ["capability_mismatch", "resource_limit", "owner_redirect", "completion", "escalation", "timeout"]},
+    "context_summary": {"type": "string"},
+    "files_involved": {"type": "array", "items": {"type": "string"}},
+    "open_questions": {"type": "array", "items": {"type": "string"}},
+    "timestamp": {"type": "string"}
+  }
+}

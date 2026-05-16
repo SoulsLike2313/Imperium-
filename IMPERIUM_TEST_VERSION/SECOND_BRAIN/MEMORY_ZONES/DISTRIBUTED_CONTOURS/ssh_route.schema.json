@@ -1,0 +1,18 @@
+{
+  "schema_id": "ssh_route_v0.2",
+  "title": "SSHRoute",
+  "description": "Schema for SSH routing configuration to a contour",
+  "type": "object",
+  "required": ["route_id", "contour_id", "status"],
+  "properties": {
+    "route_id": {"type": "string"},
+    "contour_id": {"type": "string"},
+    "host": {"type": ["string", "null"]},
+    "port": {"type": "integer", "default": 22},
+    "user": {"type": ["string", "null"]},
+    "key_path": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["VERIFIED", "NOT_VERIFIED", "PLACEHOLDER", "BROKEN"]},
+    "last_verified": {"type": ["string", "null"]},
+    "notes": {"type": ["string", "null"]}
+  }
+}

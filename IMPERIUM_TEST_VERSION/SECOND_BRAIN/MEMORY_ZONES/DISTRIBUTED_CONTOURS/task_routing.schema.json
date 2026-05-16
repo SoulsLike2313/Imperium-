@@ -1,0 +1,16 @@
+{
+  "schema_id": "task_routing_v0.2",
+  "title": "TaskRouting",
+  "description": "Schema for routing a task to a specific contour",
+  "type": "object",
+  "required": ["routing_id", "task_id", "target_contour", "reason"],
+  "properties": {
+    "routing_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "target_contour": {"type": "string"},
+    "reason": {"type": "string", "enum": ["capability_match", "resource_requirement", "isolation_needed", "owner_directed", "load_balancing"]},
+    "requirements": {"type": "array", "items": {"type": "string"}},
+    "fallback_contour": {"type": ["string", "null"]},
+    "status": {"type": "string", "enum": ["PENDING", "ROUTED", "EXECUTING", "COMPLETED", "FAILED"]}
+  }
+}

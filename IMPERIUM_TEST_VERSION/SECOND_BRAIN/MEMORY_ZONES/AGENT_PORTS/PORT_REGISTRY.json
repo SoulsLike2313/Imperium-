@@ -1,0 +1,39 @@
+{
+  "schema_version": "0.2.0",
+  "status": "MOCK",
+  "ports": [
+    {
+      "port_id": "KIRO-A",
+      "agent_name": "Kiro Agent A (Primary)",
+      "type": "ide_extension",
+      "status": "MOCK",
+      "capabilities": ["file_edit", "code_generation", "shell_commands", "web_search", "project_analysis"],
+      "contour": "PC",
+      "endpoint": "local_ide",
+      "max_context_tokens": 200000,
+      "protocols": ["task_assignment", "status_update", "receipt", "handoff"]
+    },
+    {
+      "port_id": "KIRO-B",
+      "agent_name": "Kiro Agent B (Review)",
+      "type": "ide_extension",
+      "status": "MOCK",
+      "capabilities": ["code_review", "verification", "testing", "documentation"],
+      "contour": "PC",
+      "endpoint": "local_ide",
+      "max_context_tokens": 200000,
+      "protocols": ["task_assignment", "status_update", "receipt", "question"]
+    },
+    {
+      "port_id": "KIRO-C",
+      "agent_name": "Kiro Agent C (VM2 Worker)",
+      "type": "ide_extension",
+      "status": "MOCK",
+      "capabilities": ["file_edit", "shell_commands", "git_operations", "testing"],
+      "contour": "VM2",
+      "endpoint": "vm2_ide",
+      "max_context_tokens": 200000,
+      "protocols": ["task_assignment", "status_update", "receipt", "handoff", "group_coordination"]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_id": "execution_trace_v0.2",
+  "title": "ExecutionTrace",
+  "description": "Schema for a complete execution trace of a task",
+  "type": "object",
+  "required": ["trace_id", "task_id", "stages"],
+  "properties": {
+    "trace_id": {"type": "string"},
+    "task_id": {"type": "string"},
+    "started_at": {"type": "string"},
+    "completed_at": {"type": ["string", "null"]},
+    "overall_status": {"type": "string", "enum": ["IN_PROGRESS", "COMPLETED", "BLOCKED", "FAILED"]},
+    "stages": {"type": "array", "items": {"type": "object"}},
+    "total_tools_used": {"type": "integer"},
+    "total_decisions": {"type": "integer"},
+    "total_blockers": {"type": "integer"}
+  }
+}

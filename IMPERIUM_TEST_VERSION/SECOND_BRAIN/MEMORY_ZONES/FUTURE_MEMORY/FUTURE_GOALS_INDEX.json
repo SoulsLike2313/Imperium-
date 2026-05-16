@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.2.0",
+  "goals": [
+    {
+      "goal_id": "FG-20260516-0001",
+      "created": "2026-05-16",
+      "raw_text": "Second Brain должен стать реальной рабочей памятью",
+      "status": "IN_PROGRESS",
+      "priority": "HIGH",
+      "linked_task": "SECOND_BRAIN_V0_2_PROTOTYPE"
+    },
+    {
+      "goal_id": "FG-20260516-0002",
+      "created": "2026-05-16",
+      "raw_text": "Агенты должны уметь шерстить 2й мозг и находить контекст",
+      "status": "RAW",
+      "priority": "HIGH",
+      "linked_task": null
+    },
+    {
+      "goal_id": "FG-20260516-0003",
+      "created": "2026-05-16",
+      "raw_text": "Реальная интеграция с локальными LLM",
+      "status": "DEFERRED",
+      "priority": "MEDIUM",
+      "linked_task": null
+    },
+    {
+      "goal_id": "FG-20260516-0004",
+      "created": "2026-05-16",
+      "raw_text": "Маршрутизация задач между PC, VM, ноутбуком",
+      "status": "RAW",
+      "priority": "MEDIUM",
+      "linked_task": null
+    },
+    {
+      "goal_id": "FG-20260516-0005",
+      "created": "2026-05-16",
+      "raw_text": "IMPERIUM как продукт — внутренний анализ и внешняя презентация",
+      "status": "RAW",
+      "priority": "MEDIUM",
+      "linked_task": null
+    }
+  ]
+}
+

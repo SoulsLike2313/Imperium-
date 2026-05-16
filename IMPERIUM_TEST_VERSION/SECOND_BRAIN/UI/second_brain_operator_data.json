@@ -1,0 +1,25 @@
+{
+  "generated": "2026-05-16",
+  "status": "PROTOTYPE",
+  "total_zones": 13,
+  "zones_summary": [
+    {"id": "owner_memory", "name": "Owner Memory", "status": "SCAFFOLD", "files": 6},
+    {"id": "owner_comments", "name": "Owner Comments Mesh", "status": "SCAFFOLD", "files": 5},
+    {"id": "past_memory", "name": "Past Memory", "status": "SCAFFOLD", "files": 5},
+    {"id": "future_memory", "name": "Future Memory", "status": "SCAFFOLD", "files": 3},
+    {"id": "task_intake", "name": "Task Intake", "status": "SCAFFOLD", "files": 6},
+    {"id": "execution_memory", "name": "Execution Memory", "status": "SCAFFOLD", "files": 6},
+    {"id": "agent_ports", "name": "Agent Ports", "status": "MOCK", "files": 8},
+    {"id": "local_llm", "name": "Local LLM", "status": "NOT_CONFIGURED", "files": 6},
+    {"id": "distributed_contours", "name": "Distributed Contours", "status": "SCAFFOLD", "files": 5},
+    {"id": "product_distribution", "name": "Product/Distribution", "status": "SCAFFOLD", "files": 7},
+    {"id": "rules_and_forbidden", "name": "Rules/Forbidden", "status": "SCAFFOLD", "files": 5},
+    {"id": "evidence_memory", "name": "Evidence Memory", "status": "SCAFFOLD", "files": 5},
+    {"id": "utility_dock", "name": "Utility Dock", "status": "SCAFFOLD", "files": 5}
+  ],
+  "agent_ports_count": 3,
+  "local_llm_configured": false,
+  "contours_count": 3,
+  "product_modes": ["OWNER_FULL_ANALYSIS", "CLIENT_STRONG_PRESENTATION"]
+}
+

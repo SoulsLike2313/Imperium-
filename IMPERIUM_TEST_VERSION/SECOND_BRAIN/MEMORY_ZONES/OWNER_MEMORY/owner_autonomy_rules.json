@@ -1,0 +1,32 @@
+{
+  "schema_version": "0.2.0",
+  "description": "Rules defining when agents may continue independently vs when they must ask Owner",
+  "may_continue_independently": [
+    "Creating files inside assigned scope (IMPERIUM_TEST_VERSION)",
+    "Running read-only checks (git status, verify_repo, checker scripts)",
+    "Generating scaffold/mock data within task scope",
+    "Writing documentation and guides",
+    "Running py_compile on created files",
+    "Fixing syntax errors in own output",
+    "Reading existing files for context"
+  ],
+  "must_ask_owner": [
+    "Committing to git",
+    "Pushing to remote",
+    "Modifying files outside IMPERIUM_TEST_VERSION",
+    "Deleting existing files",
+    "Changing architecture decisions",
+    "Declaring completion or readiness",
+    "Opening applications or browsers",
+    "Installing packages or dependencies",
+    "Changing system configuration",
+    "Moving or renaming legacy/caution zone files"
+  ],
+  "escalation_triggers": [
+    "Checker reports FAIL",
+    "Unexpected git state (dirty outside scope)",
+    "Conflicting requirements discovered",
+    "Task scope unclear",
+    "Previous task evidence missing"
+  ]
+}
