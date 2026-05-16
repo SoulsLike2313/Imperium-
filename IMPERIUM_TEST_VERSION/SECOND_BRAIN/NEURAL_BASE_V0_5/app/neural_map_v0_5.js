@@ -8,9 +8,12 @@
 // ── State ──────────────────────────────────────────────────────────────────────
 const STATE = {
   snapshot: null,
+  status: null,
   tasks: [],
   comments: [],
   links: [],
+  receiptsStatus: null,
+  exportStatus: null,
   activeTab: "tasks",
   activeZone: null,
   serverOnline: false,
@@ -84,10 +87,12 @@ async function loadSnapshot() {
 async function loadStatus() {
   try {
     const s = await apiFetch("/api/status");
+    STATE.status = s;
     STATE.serverOnline = true;
     updateStatsBar(s);
     return s;
   } catch (e) {
+    STATE.status = null;
     STATE.serverOnline = false;
     setServerBadge(false);
     return null;
@@ -118,6 +123,22 @@ async function loadLinks() {
   }
 }
 
+async function loadReceiptsStatus() {
+  try {
+    STATE.receiptsStatus = await apiFetch("/api/receipts");
+  } catch (e) {
+    STATE.receiptsStatus = null;
+  }
+}
+
+async function loadExportStatus() {
+  try {
+    STATE.exportStatus = await apiFetch("/api/export/status");
+  } catch (e) {
+    STATE.exportStatus = null;
+  }
+}
+
 async function rebuildSnapshot() {
   notify("Пересборка snapshot…", "info");
   try {
@@ -144,7 +165,7 @@ async function doExport() {
 }
 
 async function fullRefresh() {
-  await Promise.all([loadSnapshot(), loadStatus(), loadTasks(), loadComments(), loadLinks()]);
+  await Promise.all([loadSnapshot(), loadStatus(), loadTasks(), loadComments(), loadLinks(), loadReceiptsStatus(), loadExportStatus()]);
   renderNeuralCanvas();
   renderActiveTab();
 }
@@ -158,6 +179,8 @@ function updateStatsBar(status) {
   setText("stat-receipts", c.receipts ?? "—");
   setText("health-score",  status.health_score || (STATE.snapshot ? STATE.snapshot.health_score : "—"));
   setServerBadge(true);
+  updateTruthLockBar(status);
+  updateHonestyBadges(status);
 
   // Receipt spark if new receipts
   const newCount = c.receipts || 0;
@@ -165,6 +188,43 @@ function updateStatsBar(status) {
     triggerReceiptSpark();
   }
   STATE.lastReceiptCount = newCount;
+}
+
+function updateTruthLockBar(status) {
+  const snap = STATE.snapshot || {};
+  const partial = status.partial_count ?? snap.partial_count ?? "—";
+  const blocked = status.blocked_count ?? snap.blocked_count ?? "—";
+  const missing = status.missing_source_count ?? snap.total_missing_sources ?? "—";
+  const warnings = status.warning_count ?? snap.warning_count ?? "—";
+  const stale = status.stale_count ?? snap.stale_count ?? "—";
+  const freshness = status.snapshot_freshness_state ?? snap.snapshot_freshness_state ?? "—";
+  const snapshotId = status.snapshot_id ?? snap.snapshot_id ?? "—";
+  const runId = status.truth_lock_run_id ?? snap.truth_lock_run_id ?? "—";
+  const snapshotTs = status.snapshot_timestamp ?? snap.timestamp_utc ?? "—";
+  const age = status.snapshot_age_seconds ?? snap.snapshot_age_seconds ?? "—";
+
+  setText("stat-partial", partial);
+  setText("stat-blocked", blocked);
+  setText("stat-missing", missing);
+  setText("stat-warnings", warnings);
+  setText("stat-stale", stale);
+  setText("snapshot-freshness", freshness);
+  setText("snapshot-id", snapshotId);
+  setText("truth-lock-run-id", runId);
+  setText("snapshot-ts", snapshotTs);
+  setText("snapshot-age-sec", age === null ? "—" : age);
+}
+
+function updateHonestyBadges(status) {
+  const setBadge = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value;
+  };
+  setBadge("badge-runtime-mode", status.mode || "PROTOTYPE_INTERACTIVE");
+  setBadge("badge-rule-based", status.rule_based ? "RULE_BASED_ONLY" : "RULE_BASED_FALSE");
+  setBadge("badge-no-llm", status.no_local_llm ? "NO_LOCAL_LLM" : "LOCAL_LLM_UNKNOWN");
+  setBadge("badge-no-agent", status.no_agent_api ? "NO_AGENT_API" : "AGENT_API_UNKNOWN");
+  setBadge("badge-not-production", status.not_production_ready ? "NOT_RELEASE_READY" : "RELEASE_STATE_UNKNOWN");
 }
 
 function setServerBadge(online) {
@@ -189,6 +249,10 @@ function setText(id, val) {
 
 function esc(s) {
   return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function sanitizeTemplatePlaceholders(text) {
+  return String(text || "").replace(/\{[a-zA-Z0-9_]+\}/g, "UNAVAILABLE");
 }
 
 function notify(msg, type = "info") {
@@ -555,6 +619,7 @@ function showTooltip(e, zone) {
     .replace("{unlinked_count}",     tel.unlinked_count ?? "—")
     .replace("{orphaned_task_count}",tel.orphaned_task_count ?? "—")
     .replace("{orphaned_comment_count}", tel.orphaned_comment_count ?? "—")
+    .replace("{event_count}",         tel.event_count ?? tel.receipt_count ?? "—")
     .replace("{last_event_age}",     tel.last_event_age_seconds ?? "—")
     .replace("{export_count}",       tel.export_count ?? "—")
     .replace("{no_llm_rate}",        tel.no_llm_rate ?? "—")
@@ -574,6 +639,7 @@ function showTooltip(e, zone) {
     .replace("{module_count}",       tel.module_count ?? "—")
     .replace("{working_count}",      tel.working_count ?? "—")
     .replace("{blocked_count}",      tel.blocked_count ?? "—");
+  summaryText = sanitizeTemplatePlaceholders(summaryText);
 
   summary.textContent = summaryText || `Status: ${zone.health}`;
 
@@ -1009,9 +1075,14 @@ function renderEvidenceTab() {
     html += `<div class="card">
       <div class="card-title">📊 Snapshot</div>
       <div class="card-row"><span>ID</span><span class="val" style="font-size:0.7rem">${esc(snap.snapshot_id || "—")}</span></div>
+      <div class="card-row"><span>Truth lock run id</span><span class="val" style="font-size:0.7rem">${esc(snap.truth_lock_run_id || "—")}</span></div>
       <div class="card-row"><span>Timestamp</span><span class="val">${esc(snap.timestamp_utc || "—")}</span></div>
+      <div class="card-row"><span>Freshness</span><span class="val">${esc(snap.snapshot_freshness_state || STATE.status?.snapshot_freshness_state || "—")}</span></div>
+      <div class="card-row"><span>Snapshot age sec</span><span class="val">${esc(String(snap.snapshot_age_seconds ?? STATE.status?.snapshot_age_seconds ?? "—"))}</span></div>
       <div class="card-row"><span>Health</span><span class="val" style="color:var(--green)">${esc(snap.health_score || "—")}</span></div>
       <div class="card-row"><span>Warnings</span><span class="val" style="color:var(--amber)">${snap.warning_count ?? "—"}</span></div>
+      <div class="card-row"><span>Partial</span><span class="val">${snap.partial_count ?? "—"}</span></div>
+      <div class="card-row"><span>Blocked</span><span class="val">${snap.blocked_count ?? "—"}</span></div>
       <div class="card-row"><span>Missing sources</span><span class="val">${snap.total_missing_sources ?? "—"}</span></div>
       <div class="card-row"><span>Runtime mode</span><span class="val">${esc(snap.runtime_mode || "—")}</span></div>
       <div class="card-row"><span>no_local_llm</span><span class="val" style="color:var(--green)">${snap.no_local_llm}</span></div>
@@ -1028,6 +1099,27 @@ function renderEvidenceTab() {
       </div>`;
     }
     html += `</div>`;
+  }
+
+  if (STATE.receiptsStatus) {
+    html += `<div class="card">
+      <div class="card-title">🧾 Receipts Endpoint</div>
+      <div class="card-row"><span>Status</span><span class="val">${esc(STATE.receiptsStatus.status ?? "—")}</span></div>
+      <div class="card-row"><span>Count</span><span class="val">${esc(String(STATE.receiptsStatus.receipt_count ?? "—"))}</span></div>
+      <div class="card-row"><span>Parse errors</span><span class="val">${esc(String(STATE.receiptsStatus.parse_errors ?? "—"))}</span></div>
+      <div class="card-row"><span>Read only</span><span class="val">${esc(String(STATE.receiptsStatus.read_only ?? "—"))}</span></div>
+    </div>`;
+  }
+
+  if (STATE.exportStatus) {
+    html += `<div class="card">
+      <div class="card-title">📦 Export Status Endpoint</div>
+      <div class="card-row"><span>Status</span><span class="val">${esc(STATE.exportStatus.status ?? "—")}</span></div>
+      <div class="card-row"><span>Export count</span><span class="val">${esc(String(STATE.exportStatus.export_count ?? "—"))}</span></div>
+      <div class="card-row"><span>Latest export id</span><span class="val">${esc(STATE.exportStatus.latest_export_id ?? "—")}</span></div>
+      <div class="card-row"><span>Manifest parse</span><span class="val">${esc(STATE.exportStatus.latest_manifest_parse_status ?? "—")}</span></div>
+      <div class="card-row"><span>Read only</span><span class="val">${esc(String(STATE.exportStatus.read_only ?? "—"))}</span></div>
+    </div>`;
   }
 
   html += `<div class="card">
@@ -1125,13 +1217,17 @@ async function init() {
     await loadTasks();
     await loadComments();
     await loadLinks();
+    await loadReceiptsStatus();
+    await loadExportStatus();
     renderActiveTab();
   }, 15000);
 
   // Snapshot refresh every 60 seconds
   setInterval(async () => {
     await loadSnapshot();
+    await loadStatus();
     renderNeuralCanvas();
+    renderActiveTab();
   }, 60000);
 }
 

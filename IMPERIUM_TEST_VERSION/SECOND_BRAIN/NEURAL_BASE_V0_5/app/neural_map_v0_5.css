@@ -296,6 +296,55 @@ header::after {
   margin-left: 16px;
 }
 
+#truth-lock-bar {
+  position: relative;
+  z-index: 85;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  padding: 6px 20px;
+  min-height: 34px;
+  background: rgba(6, 12, 20, 0.92);
+  border-bottom: 1px solid var(--border);
+}
+
+.truth-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(10, 18, 32, 0.85);
+}
+
+.truth-chip.truth-wide {
+  max-width: 360px;
+}
+
+.truth-key {
+  font-size: 0.62rem;
+  color: var(--text-dim);
+  letter-spacing: 0.05em;
+}
+
+.truth-val {
+  font-size: 0.68rem;
+  color: var(--cyan);
+  font-weight: 600;
+}
+
+.truth-val.mono {
+  font-family: "Consolas", "Courier New", monospace;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 230px;
+  display: inline-block;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    CSS Part 3: Neural Canvas, Zone Nodes, Strands, Animations
    ═══════════════════════════════════════════════════════════════ */

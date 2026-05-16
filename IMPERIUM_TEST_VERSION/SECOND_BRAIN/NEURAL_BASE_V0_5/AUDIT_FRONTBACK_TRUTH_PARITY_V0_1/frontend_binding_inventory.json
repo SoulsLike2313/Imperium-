@@ -1,0 +1,109 @@
+{
+  "audit": "frontend_binding_inventory_v0_1",
+  "timestamp_utc": "2026-05-16T17:55:25Z",
+  "files": {
+    "html": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html",
+    "css": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css",
+    "js": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js"
+  },
+  "api_fetch_calls": [
+    "/api/comments",
+    "/api/export",
+    "/api/links",
+    "/api/rebuild_snapshot",
+    "/api/snapshot",
+    "/api/status",
+    "/api/tasks"
+  ],
+  "hardcoded_claim_strings_found": [
+    "PROTOTYPE_INTERACTIVE",
+    "RULE_BASED_ONLY",
+    "NO_LOCAL_LLM",
+    "NO_AGENT_API",
+    "NOT PRODUCTION READY"
+  ],
+  "fallback_patterns": [
+    "tasks_fetch_error_sets_empty_array",
+    "comments_fetch_error_sets_empty_array",
+    "links_fetch_error_sets_empty_array",
+    "status_fetch_error_sets_offline_badge"
+  ],
+  "fields": [
+    {
+      "field": "stat-tasks",
+      "selector": "#stat-tasks",
+      "source": "/api/status.counts.tasks",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "stat-comments",
+      "selector": "#stat-comments",
+      "source": "/api/status.counts.comments",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "stat-links",
+      "selector": "#stat-links",
+      "source": "/api/status.counts.links",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "stat-receipts",
+      "selector": "#stat-receipts",
+      "source": "/api/status.counts.receipts",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "health-score",
+      "selector": "#health-score",
+      "source": "/api/status.health_score or /api/snapshot.health_score",
+      "classification": "BACKEND_BOUND",
+      "notes": "Status-first, snapshot fallback."
+    },
+    {
+      "field": "zone-labels",
+      "selector": "g.zone-node .zone-label",
+      "source": "/api/snapshot.zones[].display_name",
+      "classification": "BACKEND_BOUND",
+      "notes": "Rendered in renderNeuralCanvas()."
+    },
+    {
+      "field": "zone-status",
+      "selector": "#zdp-body Health row",
+      "source": "/api/snapshot.zones[].health",
+      "classification": "BACKEND_BOUND",
+      "notes": "Rendered in buildZoneDetailHtml(zone)."
+    },
+    {
+      "field": "tooltip-summary-template",
+      "selector": "#tt-summary",
+      "source": "/api/snapshot.zones[].hover_summary_template + telemetry",
+      "classification": "FALLBACK_RISK",
+      "notes": "Some placeholders remain unresolved (example: {event_count})."
+    },
+    {
+      "field": "evidence-path-labels",
+      "selector": "Evidence tab path section",
+      "source": "Static strings in JS",
+      "classification": "STATIC_LABEL_ONLY",
+      "notes": "Static path labels are informative but not validated live."
+    },
+    {
+      "field": "honesty badges",
+      "selector": "header/footer badges",
+      "source": "Static labels + /api/status honest_status",
+      "classification": "PARTIAL",
+      "notes": "Claims are static labels but consistent with backend status payload."
+    }
+  ],
+  "zone_rendering_model": {
+    "zone_source": "STATE.snapshot.zones",
+    "zone_count_rendered_last_run": 12,
+    "uses_static_html_for_zones": false,
+    "notes": "Zones are rendered dynamically in SVG by JS."
+  }
+}

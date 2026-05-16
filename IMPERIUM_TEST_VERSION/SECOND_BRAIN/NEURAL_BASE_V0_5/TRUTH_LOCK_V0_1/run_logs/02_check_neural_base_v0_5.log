@@ -1,0 +1,43 @@
+=== check_neural_base_v0_5.py ===
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\tools\check_neural_base_v0_5.py:326: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "date": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+=================================================================
+Second Brain Neural Base V0.5 � Checker
+=================================================================
+
+[1] Required V0.5 directories
+
+[2] Zone registry
+
+[3] Layout config
+
+[4] Truth matrix files
+
+[5] Snapshot live
+
+[6] App files
+
+[7] Server
+
+[8] UI references API
+
+[9] No fake green
+
+[10] Scope safety
+
+[11] Gate checker
+
+[12] Snapshot builder
+
+[13] Honest status
+
+=================================================================
+PASSES:   58
+WARNINGS: 0
+FAILS:    0
+
+VERDICT:  PASS
+OVERALL:  READY_FOR_OWNER_REVIEW
+
+Report written: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\reports\check_report_v0_5.json
+exit_code=0

@@ -1,0 +1,264 @@
+{
+  "audit": "truth_parity_matrix_v0_1",
+  "timestamp_utc": "2026-05-16T17:55:25Z",
+  "rows": [
+    {
+      "claim_id": 1,
+      "visible_ui_claim": "total task count",
+      "dom_selector_or_observed_text": "#stat-tasks=4",
+      "api_endpoint": "/api/status",
+      "api_value": 4,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+      "backend_source_value": 4,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 2,
+      "visible_ui_claim": "total comment count",
+      "dom_selector_or_observed_text": "#stat-comments=4",
+      "api_endpoint": "/api/status",
+      "api_value": 4,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+      "backend_source_value": 4,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 3,
+      "visible_ui_claim": "total link count",
+      "dom_selector_or_observed_text": "#stat-links=4",
+      "api_endpoint": "/api/status",
+      "api_value": 4,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+      "backend_source_value": 4,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 4,
+      "visible_ui_claim": "total receipt count",
+      "dom_selector_or_observed_text": "#stat-receipts=12",
+      "api_endpoint": "/api/status",
+      "api_value": 12,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+      "backend_source_value": 12,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 5,
+      "visible_ui_claim": "health score",
+      "dom_selector_or_observed_text": "#health-score=9/12",
+      "api_endpoint": "/api/status + /api/snapshot",
+      "api_value": "9/12",
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": "9/12",
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 6,
+      "visible_ui_claim": "12 zone labels",
+      "dom_selector_or_observed_text": "zone_labels_count=12",
+      "api_endpoint": "/api/snapshot.zones[].display_name",
+      "api_value": 12,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": 12,
+      "parity_status": "TRUE",
+      "notes": "DOM labels are uppercase/transformed, compared by zone_id coverage."
+    },
+    {
+      "claim_id": 7,
+      "visible_ui_claim": "12 zone status states",
+      "dom_selector_or_observed_text": "zone_detail_panel Health row text",
+      "api_endpoint": "/api/snapshot.zones[].health",
+      "api_value": "from zone detail panel",
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": "health values per zone",
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 8,
+      "visible_ui_claim": "12 zone tooltip telemetry",
+      "dom_selector_or_observed_text": "zone tooltip summary/telemetry text",
+      "api_endpoint": "/api/snapshot.zones[].hover_summary_template + telemetry",
+      "api_value": "tooltips=12",
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": "telemetry + summary templates",
+      "parity_status": "PARTIAL",
+      "notes": "Placeholder tokens remain unresolved for at least one zone."
+    },
+    {
+      "claim_id": 9,
+      "visible_ui_claim": "operator panel values for each zone",
+      "dom_selector_or_observed_text": "zone detail panel body text for 12 zones",
+      "api_endpoint": "/api/snapshot.zones[*]",
+      "api_value": 12,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": 12,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 10,
+      "visible_ui_claim": "active links list",
+      "dom_selector_or_observed_text": "operator panel links tab text",
+      "api_endpoint": "/api/links",
+      "api_value": 4,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+      "backend_source_value": 4,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 11,
+      "visible_ui_claim": "memory thread data",
+      "dom_selector_or_observed_text": "thread panel content",
+      "api_endpoint": "/api/thread/TI-20260516-174836-211",
+      "api_value": "thread payload includes task/comments/receipts",
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+      "backend_source_value": "thread references created task/comment/link",
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 12,
+      "visible_ui_claim": "evidence panel data",
+      "dom_selector_or_observed_text": "evidence panel text block",
+      "api_endpoint": "/api/snapshot",
+      "api_value": {
+        "health_score": "9/12",
+        "warning_count": 3
+      },
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": {
+        "health_score": "9/12",
+        "warning_count": 3
+      },
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 13,
+      "visible_ui_claim": "snapshot timestamp",
+      "dom_selector_or_observed_text": "Evidence panel Timestamp row",
+      "api_endpoint": "/api/snapshot.timestamp_utc",
+      "api_value": "2026-05-16T17:48:39Z",
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": "2026-05-16T17:54:56Z",
+      "parity_status": "PARTIAL",
+      "notes": ""
+    },
+    {
+      "claim_id": 14,
+      "visible_ui_claim": "partial zone count",
+      "dom_selector_or_observed_text": "Inferred from map health badges",
+      "api_endpoint": "/api/snapshot.partial_count",
+      "api_value": 3,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": 3,
+      "parity_status": "PARTIAL",
+      "notes": "No dedicated numeric DOM counter; inferred from zone statuses."
+    },
+    {
+      "claim_id": 15,
+      "visible_ui_claim": "blocked/missing zone count",
+      "dom_selector_or_observed_text": "Inferred from map health badges",
+      "api_endpoint": "/api/snapshot.blocked_count + total_missing_sources",
+      "api_value": {
+        "blocked_count": 0,
+        "missing_sources": 0
+      },
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": {
+        "blocked_count": 0,
+        "missing_sources": 0
+      },
+      "parity_status": "PARTIAL",
+      "notes": "No dedicated DOM counter; values only in snapshot/evidence panel."
+    },
+    {
+      "claim_id": 16,
+      "visible_ui_claim": "warnings count",
+      "dom_selector_or_observed_text": "Core tooltip and evidence panel",
+      "api_endpoint": "/api/snapshot.warning_count",
+      "api_value": 3,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": 3,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 17,
+      "visible_ui_claim": "export readiness",
+      "dom_selector_or_observed_text": "export_bundle_gate tooltip/detail",
+      "api_endpoint": "/api/snapshot.zones[export_bundle_gate].telemetry.gate_status",
+      "api_value": "READY",
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": "READY",
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 18,
+      "visible_ui_claim": "NO_LOCAL_LLM",
+      "dom_selector_or_observed_text": "header/footer badge text",
+      "api_endpoint": "/api/status.no_local_llm",
+      "api_value": true,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": true,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 19,
+      "visible_ui_claim": "NO_AGENT_API",
+      "dom_selector_or_observed_text": "header/footer badge text",
+      "api_endpoint": "/api/status.no_agent_api",
+      "api_value": true,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": true,
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 20,
+      "visible_ui_claim": "RULE_BASED_ONLY",
+      "dom_selector_or_observed_text": "header badge + runtime status",
+      "api_endpoint": "/api/status.rule_based",
+      "api_value": true,
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": "PROTOTYPE_INTERACTIVE",
+      "parity_status": "TRUE",
+      "notes": ""
+    },
+    {
+      "claim_id": 21,
+      "visible_ui_claim": "PROTOTYPE_INTERACTIVE / NOT_PROD_READY",
+      "dom_selector_or_observed_text": "header/footer honesty labels",
+      "api_endpoint": "/api/status.mode + /api/status.not_production_ready",
+      "api_value": {
+        "mode": "PROTOTYPE_INTERACTIVE",
+        "not_production_ready": true
+      },
+      "backend_source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "backend_source_value": {
+        "runtime_mode": "PROTOTYPE_INTERACTIVE",
+        "not_production_ready": true
+      },
+      "parity_status": "TRUE",
+      "notes": ""
+    }
+  ],
+  "counts": {
+    "TRUE": 17,
+    "PARTIAL": 4,
+    "FALSE": 0,
+    "STALE": 0,
+    "UNPROVEN": 0,
+    "STATIC_LABEL_ONLY": 0,
+    "NOT_APPLICABLE": 0
+  }
+}

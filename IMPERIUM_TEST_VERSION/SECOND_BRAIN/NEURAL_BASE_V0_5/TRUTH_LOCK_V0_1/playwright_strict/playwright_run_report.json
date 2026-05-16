@@ -1,0 +1,124 @@
+{
+  "tool": "playwright_v0_5_truth_lock.py",
+  "timestamp_utc": "2026-05-16T18:26:46Z",
+  "base_url": "http://localhost:8766",
+  "used_fallback_url": false,
+  "result": "PASS",
+  "mandatory_checks": {
+    "page_loaded": true,
+    "top_counters_visible": true,
+    "strict_counters_visible": true,
+    "snapshot_identity_visible": true,
+    "twelve_zones_visible": true,
+    "hover_all_zones": true,
+    "click_all_zones": true,
+    "no_visible_placeholders": true,
+    "create_task_ok": true,
+    "create_comment_ok": true,
+    "create_link_ok": true,
+    "receipts_endpoint_ok": true,
+    "export_status_endpoint_ok": true
+  },
+  "failed_mandatory_checks": [],
+  "console_error_count": 0,
+  "network_error_count": 0,
+  "run_errors": [],
+  "run_warnings": [],
+  "created_task_id": "TI-20260516-182635-690",
+  "created_comment_id": "OC-20260516-182637-222",
+  "created_link_id": "ML-20260516-182638-244",
+  "screenshots": {
+    "00_initial_load.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\00_initial_load.png",
+      "ok": true
+    },
+    "01_counters_truth_bar.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\01_counters_truth_bar.png",
+      "ok": true
+    },
+    "zone_hover_01_core_brain.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_hover_01_core_brain.png",
+      "ok": true
+    },
+    "zone_click_01_core_brain.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_01_core_brain.png",
+      "ok": true
+    },
+    "zone_hover_02_task_intake.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_hover_02_task_intake.png",
+      "ok": true
+    },
+    "zone_click_02_task_intake.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_02_task_intake.png",
+      "ok": true
+    },
+    "zone_hover_03_owner_comments.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_hover_03_owner_comments.png",
+      "ok": true
+    },
+    "zone_click_03_owner_comments.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_03_owner_comments.png",
+      "ok": true
+    },
+    "zone_click_04_memory_threads.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_04_memory_threads.png",
+      "ok": true
+    },
+    "zone_click_05_progress_spine.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_05_progress_spine.png",
+      "ok": true
+    },
+    "zone_click_06_evidence_receipts.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_06_evidence_receipts.png",
+      "ok": true
+    },
+    "zone_click_07_action_control.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_07_action_control.png",
+      "ok": true
+    },
+    "zone_click_08_agent_exchange.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_08_agent_exchange.png",
+      "ok": true
+    },
+    "zone_click_09_delta_verification.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_09_delta_verification.png",
+      "ok": true
+    },
+    "zone_click_10_testing_field.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_10_testing_field.png",
+      "ok": true
+    },
+    "zone_click_11_export_bundle_gate.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_11_export_bundle_gate.png",
+      "ok": true
+    },
+    "zone_click_12_feature_module_dock.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\zone_click_12_feature_module_dock.png",
+      "ok": true
+    },
+    "10_after_create_task.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\10_after_create_task.png",
+      "ok": true
+    },
+    "11_after_create_comment.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\11_after_create_comment.png",
+      "ok": true
+    },
+    "12_after_create_link.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\12_after_create_link.png",
+      "ok": true
+    },
+    "13_thread_view.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\13_thread_view.png",
+      "ok": true
+    },
+    "14_evidence_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\14_evidence_panel.png",
+      "ok": true
+    },
+    "15_after_rebuild_snapshot.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\TRUTH_LOCK_V0_1\\playwright_strict\\screenshots\\15_after_rebuild_snapshot.png",
+      "ok": true
+    }
+  }
+}

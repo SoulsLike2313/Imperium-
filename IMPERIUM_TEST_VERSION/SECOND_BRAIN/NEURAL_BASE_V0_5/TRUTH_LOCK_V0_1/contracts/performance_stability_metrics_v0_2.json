@@ -1,0 +1,21 @@
+{
+  "version": "v0.2",
+  "metrics": [
+    "snapshot_age_seconds",
+    "api_latency_ms_by_endpoint",
+    "page_load_ms",
+    "zone_render_count",
+    "failed_api_count",
+    "missing_source_count",
+    "stale_source_count",
+    "receipt_count",
+    "latest_receipt_age_seconds",
+    "action_failure_count",
+    "console_error_count",
+    "network_error_count",
+    "browser_test_passed",
+    "checker_passed",
+    "parity_verdict"
+  ],
+  "not_implemented_policy": "Use literal string NOT_IMPLEMENTED when metric is unavailable; never fake zero."
+}

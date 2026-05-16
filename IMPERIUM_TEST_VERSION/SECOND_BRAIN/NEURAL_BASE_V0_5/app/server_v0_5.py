@@ -9,6 +9,8 @@ Serves the Neural Map UI and provides REST API:
   GET  /api/tasks               → Task list (from V0.3 runtime)
   GET  /api/comments            → Comment list
   GET  /api/links               → Link list
+  GET  /api/receipts            → Receipts status (read-only)
+  GET  /api/export/status       → Export status (read-only)
   POST /api/tasks               → Create task
   POST /api/comments            → Create comment
   POST /api/links               → Create link
@@ -26,6 +28,7 @@ import subprocess
 import datetime
 import uuid
 import shutil
+import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse
 
@@ -39,9 +42,11 @@ REPO_ROOT       = os.path.dirname(TEST_VERSION)
 REGISTRY_DIR    = os.path.join(V05_ROOT, "registry")
 REPORTS_DIR     = os.path.join(V05_ROOT, "reports")
 TOOLS_DIR       = os.path.join(V05_ROOT, "tools")
+TRUTH_LOCK_DIR  = os.path.join(V05_ROOT, "TRUTH_LOCK_V0_1")
 
 SNAPSHOT_FILE   = os.path.join(REPORTS_DIR, "neural_snapshot_live.json")
 SNAPSHOT_BUILDER= os.path.join(TOOLS_DIR, "snapshot_builder_v0_5.py")
+STALENESS_POLICY_FILE = os.path.join(TRUTH_LOCK_DIR, "contracts", "staleness_policy_v0_2.json")
 
 # V0.3 runtime files (reuse existing backend)
 TASKS_FILE      = os.path.join(SECOND_BRAIN, "MEMORY_ZONES", "TASK_INTAKE", "accepted_tasks.json")
@@ -51,6 +56,11 @@ RECEIPTS_DIR    = os.path.join(SECOND_BRAIN, "RUNTIME", "receipts")
 EXPORTS_DIR     = os.path.join(SECOND_BRAIN, "RUNTIME", "exports")
 
 PORT = 8766
+DEFAULT_STALENESS_POLICY = {
+    "max_snapshot_age_seconds": 900,
+    "stale_warning_threshold_seconds": 300,
+    "stale_failure_threshold_seconds": 900,
+}
 
 RUNTIME_STATUS = {
     "version": "V0.5",
@@ -62,6 +72,9 @@ RUNTIME_STATUS = {
     "server": f"localhost:{PORT}",
     "honest_status": ["PROTOTYPE_INTERACTIVE", "RULE_BASED_ONLY", "NO_LOCAL_LLM", "NO_AGENT_API"]
 }
+API_LATENCY_MS_BY_ENDPOINT = {}
+API_FAIL_COUNT_BY_ENDPOINT = {}
+LAST_SNAPSHOT_BUILD_TIME_MS = None
 
 
 def now_iso():
@@ -94,6 +107,66 @@ def save_json(path, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
+def safe_relative(path):
+    try:
+        return os.path.relpath(path, REPO_ROOT).replace("\\", "/")
+    except Exception:
+        return path.replace("\\", "/")
+
+
+def parse_utc_iso(iso_text):
+    if not iso_text:
+        return None
+    try:
+        return datetime.datetime.strptime(iso_text, "%Y-%m-%dT%H:%M:%SZ")
+    except Exception:
+        return None
+
+
+def load_staleness_policy():
+    policy = dict(DEFAULT_STALENESS_POLICY)
+    data = load_json(STALENESS_POLICY_FILE)
+    if isinstance(data, dict):
+        for key in DEFAULT_STALENESS_POLICY:
+            value = data.get(key)
+            if isinstance(value, int) and value > 0:
+                policy[key] = value
+    return policy
+
+
+def compute_snapshot_freshness(snapshot):
+    policy = load_staleness_policy()
+    result = {
+        "snapshot_age_seconds": None,
+        "snapshot_freshness_state": "MISSING",
+        "stale_warning_threshold_seconds": policy["stale_warning_threshold_seconds"],
+        "stale_failure_threshold_seconds": policy["stale_failure_threshold_seconds"],
+        "max_snapshot_age_seconds": policy["max_snapshot_age_seconds"],
+    }
+    if not snapshot:
+        return result
+    dt = parse_utc_iso(snapshot.get("timestamp_utc"))
+    if not dt:
+        result["snapshot_freshness_state"] = "ERROR"
+        return result
+    age = int((datetime.datetime.utcnow() - dt).total_seconds())
+    result["snapshot_age_seconds"] = max(age, 0)
+    if age > policy["stale_failure_threshold_seconds"]:
+        result["snapshot_freshness_state"] = "STALE"
+    elif age > policy["stale_warning_threshold_seconds"]:
+        result["snapshot_freshness_state"] = "WARNING"
+    else:
+        result["snapshot_freshness_state"] = "FRESH"
+    return result
+
+
+def update_api_metrics(endpoint, started_at, success=True):
+    latency_ms = round((time.perf_counter() - started_at) * 1000.0, 2)
+    API_LATENCY_MS_BY_ENDPOINT[endpoint] = latency_ms
+    if not success:
+        API_FAIL_COUNT_BY_ENDPOINT[endpoint] = API_FAIL_COUNT_BY_ENDPOINT.get(endpoint, 0) + 1
+
+
 def write_receipt(receipt_id, event_type, status, object_type, object_id, paths_written):
     receipt = {
         "receipt_id": receipt_id,
@@ -118,6 +191,11 @@ def write_receipt(receipt_id, event_type, status, object_type, object_id, paths_
 def api_snapshot():
     snap = load_json(SNAPSHOT_FILE)
     if snap:
+        freshness = compute_snapshot_freshness(snap)
+        snap["snapshot_age_seconds"] = freshness["snapshot_age_seconds"]
+        snap["snapshot_freshness_state"] = freshness["snapshot_freshness_state"]
+        if "truth_lock_run_id" not in snap:
+            snap["truth_lock_run_id"] = snap.get("snapshot_id", "UNKNOWN")
         return snap
     return {"error": "Snapshot not found. Run snapshot_builder_v0_5.py first.", "status": "MISSING"}
 
@@ -136,10 +214,41 @@ def api_status():
         counts["links"] = len(ld.get("links", []))
     if os.path.isdir(RECEIPTS_DIR):
         counts["receipts"] = len([f for f in os.listdir(RECEIPTS_DIR) if f.endswith(".json")])
+
     result = {**RUNTIME_STATUS, "counts": counts}
+    freshness = compute_snapshot_freshness(snap)
+    result.update(freshness)
     if snap:
         result["health_score"] = snap.get("health_score", "?/12")
+        result["snapshot_id"] = snap.get("snapshot_id", "UNKNOWN")
         result["snapshot_timestamp"] = snap.get("timestamp_utc", "UNKNOWN")
+        result["truth_lock_run_id"] = snap.get("truth_lock_run_id", snap.get("snapshot_id", "UNKNOWN"))
+        result["partial_count"] = snap.get("partial_count", 0)
+        result["blocked_count"] = snap.get("blocked_count", 0)
+        result["missing_source_count"] = snap.get("total_missing_sources", 0)
+        result["warning_count"] = snap.get("warning_count", 0)
+        result["stale_count"] = 1 if freshness.get("snapshot_freshness_state") == "STALE" else 0
+    else:
+        result["health_score"] = "?/12"
+        result["snapshot_id"] = "MISSING"
+        result["snapshot_timestamp"] = "MISSING"
+        result["truth_lock_run_id"] = "MISSING"
+        result["partial_count"] = "NOT_IMPLEMENTED"
+        result["blocked_count"] = "NOT_IMPLEMENTED"
+        result["missing_source_count"] = "NOT_IMPLEMENTED"
+        result["warning_count"] = "NOT_IMPLEMENTED"
+        result["stale_count"] = "NOT_IMPLEMENTED"
+
+    result["telemetry"] = {
+        "snapshot_age_seconds": freshness.get("snapshot_age_seconds", "NOT_IMPLEMENTED"),
+        "api_latency_ms_by_endpoint": API_LATENCY_MS_BY_ENDPOINT if API_LATENCY_MS_BY_ENDPOINT else "NOT_IMPLEMENTED",
+        "failed_api_count": sum(API_FAIL_COUNT_BY_ENDPOINT.values()),
+        "last_snapshot_build_time_ms": LAST_SNAPSHOT_BUILD_TIME_MS if LAST_SNAPSHOT_BUILD_TIME_MS is not None else "NOT_IMPLEMENTED",
+        "zone_render_count": snap.get("zone_count") if snap else "NOT_IMPLEMENTED",
+        "page_load_ms": "NOT_IMPLEMENTED",
+        "console_error_count": "NOT_IMPLEMENTED",
+        "network_error_count": "NOT_IMPLEMENTED",
+    }
     return result
 
 
@@ -282,6 +391,94 @@ def api_get_thread(task_id):
     return {"task": task, "links": task_links, "comments": linked_comments, "receipts": receipts, "thread_status": "PROTOTYPE_INTERACTIVE"}, None
 
 
+def api_receipts(limit=25):
+    rows = []
+    parse_errors = 0
+    if os.path.isdir(RECEIPTS_DIR):
+        files = [f for f in os.listdir(RECEIPTS_DIR) if f.endswith(".json")]
+        files.sort(key=lambda fn: os.path.getmtime(os.path.join(RECEIPTS_DIR, fn)), reverse=True)
+        for rf in files[:limit]:
+            full = os.path.join(RECEIPTS_DIR, rf)
+            payload = load_json(full)
+            if payload is None:
+                parse_errors += 1
+                rows.append({"file": rf, "path": safe_relative(full), "parse_status": "ERROR"})
+                continue
+            rows.append({
+                "file": rf,
+                "path": safe_relative(full),
+                "parse_status": "JSON_OK",
+                "receipt_id": payload.get("receipt_id"),
+                "event_type": payload.get("event_type"),
+                "created_at": payload.get("created_at"),
+                "no_llm_used": payload.get("no_llm_used"),
+                "no_external_agent_used": payload.get("no_external_agent_used"),
+            })
+
+    return {
+        "status": "PASS" if os.path.isdir(RECEIPTS_DIR) else "MISSING",
+        "read_only": True,
+        "receipts_dir": safe_relative(RECEIPTS_DIR),
+        "receipt_count": len([f for f in os.listdir(RECEIPTS_DIR) if f.endswith(".json")]) if os.path.isdir(RECEIPTS_DIR) else 0,
+        "parse_errors": parse_errors,
+        "latest_receipts": rows,
+        "no_mutation_performed": True,
+    }
+
+
+def api_export_status(limit=10):
+    response = {
+        "status": "MISSING",
+        "read_only": True,
+        "exports_dir": safe_relative(EXPORTS_DIR),
+        "export_dir_exists": os.path.isdir(EXPORTS_DIR),
+        "export_count": 0,
+        "latest_export_id": None,
+        "latest_export_path": None,
+        "latest_manifest_parse_status": "NOT_FOUND",
+        "latest_exports": [],
+        "no_mutation_performed": True,
+    }
+    if not os.path.isdir(EXPORTS_DIR):
+        return response
+
+    export_dirs = [d for d in os.listdir(EXPORTS_DIR) if os.path.isdir(os.path.join(EXPORTS_DIR, d))]
+    export_dirs.sort(key=lambda d: os.path.getmtime(os.path.join(EXPORTS_DIR, d)), reverse=True)
+    response["export_count"] = len(export_dirs)
+    response["status"] = "PASS"
+
+    if export_dirs:
+        latest = export_dirs[0]
+        latest_path = os.path.join(EXPORTS_DIR, latest)
+        response["latest_export_path"] = safe_relative(latest_path)
+        manifest_path = os.path.join(latest_path, "manifest.json")
+        manifest = load_json(manifest_path)
+        if isinstance(manifest, dict):
+            response["latest_manifest_parse_status"] = "JSON_OK"
+            response["latest_export_id"] = manifest.get("export_id", latest)
+        elif os.path.isfile(manifest_path):
+            response["latest_manifest_parse_status"] = "JSON_ERROR"
+            response["latest_export_id"] = latest
+        else:
+            response["latest_manifest_parse_status"] = "NOT_FOUND"
+            response["latest_export_id"] = latest
+
+    rows = []
+    for name in export_dirs[:limit]:
+        item_path = os.path.join(EXPORTS_DIR, name)
+        manifest_path = os.path.join(item_path, "manifest.json")
+        manifest = load_json(manifest_path)
+        rows.append({
+            "export_dir": name,
+            "path": safe_relative(item_path),
+            "manifest_status": "JSON_OK" if isinstance(manifest, dict) else ("JSON_ERROR" if os.path.isfile(manifest_path) else "NOT_FOUND"),
+            "export_id": manifest.get("export_id") if isinstance(manifest, dict) else None,
+            "created_at": manifest.get("created_at") if isinstance(manifest, dict) else None,
+        })
+    response["latest_exports"] = rows
+    return response
+
+
 def api_export():
     stamp = now_stamp()
     export_dir = os.path.join(EXPORTS_DIR, f"export_{stamp}")
@@ -300,19 +497,24 @@ def api_export():
 
 
 def api_rebuild_snapshot():
+    global LAST_SNAPSHOT_BUILD_TIME_MS
+    started = time.perf_counter()
     try:
         result = subprocess.run(
             [sys.executable, SNAPSHOT_BUILDER],
             capture_output=True, text=True, timeout=30
         )
+        LAST_SNAPSHOT_BUILD_TIME_MS = round((time.perf_counter() - started) * 1000.0, 2)
         snap = load_json(SNAPSHOT_FILE)
         return {
             "status": "REBUILT" if result.returncode == 0 else "REBUILD_FAILED",
             "returncode": result.returncode,
             "stdout": result.stdout[-500:] if result.stdout else "",
+            "build_time_ms": LAST_SNAPSHOT_BUILD_TIME_MS,
             "snapshot": snap
         }, None
     except Exception as e:
+        LAST_SNAPSHOT_BUILD_TIME_MS = None
         return None, str(e)
 
 
@@ -334,6 +536,14 @@ class NeuralMapHandler(BaseHTTPRequestHandler):
 
     def send_error_json(self, message, status=400):
         self.send_json({"error": message, "status": "ERROR"}, status)
+
+    def send_api_json(self, endpoint, started_at, data, status=200):
+        update_api_metrics(endpoint, started_at, success=(status < 400))
+        self.send_json(data, status)
+
+    def send_api_error(self, endpoint, started_at, message, status=400):
+        update_api_metrics(endpoint, started_at, success=False)
+        self.send_error_json(message, status)
 
     def send_file(self, path, content_type):
         if not os.path.isfile(path):
@@ -366,6 +576,7 @@ class NeuralMapHandler(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        started = time.perf_counter()
         parsed = urlparse(self.path)
         path = parsed.path.rstrip("/") or "/"
 
@@ -376,26 +587,31 @@ class NeuralMapHandler(BaseHTTPRequestHandler):
         elif path == "/neural_map_v0_5.js":
             self.send_file(os.path.join(APP_DIR, "neural_map_v0_5.js"), "application/javascript; charset=utf-8")
         elif path == "/api/snapshot":
-            self.send_json(api_snapshot())
+            self.send_api_json("/api/snapshot", started, api_snapshot())
         elif path == "/api/status":
-            self.send_json(api_status())
+            self.send_api_json("/api/status", started, api_status())
         elif path == "/api/tasks":
-            self.send_json(api_get_tasks())
+            self.send_api_json("/api/tasks", started, api_get_tasks())
         elif path == "/api/comments":
-            self.send_json(api_get_comments())
+            self.send_api_json("/api/comments", started, api_get_comments())
         elif path == "/api/links":
-            self.send_json(api_get_links())
+            self.send_api_json("/api/links", started, api_get_links())
+        elif path == "/api/receipts":
+            self.send_api_json("/api/receipts", started, api_receipts())
+        elif path == "/api/export/status":
+            self.send_api_json("/api/export/status", started, api_export_status())
         elif path.startswith("/api/thread/"):
             task_id = path[len("/api/thread/"):]
             result, err = api_get_thread(task_id)
             if err:
-                self.send_error_json(err, 404)
+                self.send_api_error("/api/thread", started, err, 404)
             else:
-                self.send_json(result)
+                self.send_api_json("/api/thread", started, result)
         else:
-            self.send_error_json("Not found", 404)
+            self.send_api_error(path, started, "Not found", 404)
 
     def do_POST(self):
+        started = time.perf_counter()
         parsed = urlparse(self.path)
         path = parsed.path.rstrip("/")
         body = self.read_body()
@@ -403,35 +619,35 @@ class NeuralMapHandler(BaseHTTPRequestHandler):
         if path == "/api/tasks":
             result, err = api_create_task(body)
             if err:
-                self.send_error_json(err)
+                self.send_api_error("/api/tasks", started, err)
             else:
-                self.send_json(result, 201)
+                self.send_api_json("/api/tasks", started, result, 201)
         elif path == "/api/comments":
             result, err = api_create_comment(body)
             if err:
-                self.send_error_json(err)
+                self.send_api_error("/api/comments", started, err)
             else:
-                self.send_json(result, 201)
+                self.send_api_json("/api/comments", started, result, 201)
         elif path == "/api/links":
             result, err = api_create_link(body)
             if err:
-                self.send_error_json(err)
+                self.send_api_error("/api/links", started, err)
             else:
-                self.send_json(result, 201)
+                self.send_api_json("/api/links", started, result, 201)
         elif path == "/api/export":
             result, err = api_export()
             if err:
-                self.send_error_json(err)
+                self.send_api_error("/api/export", started, err)
             else:
-                self.send_json(result, 201)
+                self.send_api_json("/api/export", started, result, 201)
         elif path == "/api/rebuild_snapshot":
             result, err = api_rebuild_snapshot()
             if err:
-                self.send_error_json(err)
+                self.send_api_error("/api/rebuild_snapshot", started, err)
             else:
-                self.send_json(result, 200)
+                self.send_api_json("/api/rebuild_snapshot", started, result, 200)
         else:
-            self.send_error_json("Not found", 404)
+            self.send_api_error(path, started, "Not found", 404)
 
 
 def main():

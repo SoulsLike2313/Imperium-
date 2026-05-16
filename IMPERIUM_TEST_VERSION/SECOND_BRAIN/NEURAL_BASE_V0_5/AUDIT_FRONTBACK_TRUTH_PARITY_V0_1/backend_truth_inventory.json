@@ -1,0 +1,358 @@
+{
+  "audit": "backend_truth_inventory_v0_1",
+  "timestamp_utc": "2026-05-16T17:55:25Z",
+  "root": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5",
+  "entries": [
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/registry/zone_registry_v0_5.json",
+      "exists": true,
+      "size_bytes": 23883,
+      "last_modified_utc": "2026-05-16T17:01:05Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone topology and metadata",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "server_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/registry/layout_config.json",
+      "exists": true,
+      "size_bytes": 3215,
+      "last_modified_utc": "2026-05-16T17:01:40Z",
+      "parse_status": "JSON_OK",
+      "role": "Visual layout coordinates",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_action_control_truth.json",
+      "exists": true,
+      "size_bytes": 944,
+      "last_modified_utc": "2026-05-16T17:02:31Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_agent_exchange_truth.json",
+      "exists": true,
+      "size_bytes": 839,
+      "last_modified_utc": "2026-05-16T17:02:38Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_core_brain_truth.json",
+      "exists": true,
+      "size_bytes": 892,
+      "last_modified_utc": "2026-05-16T17:01:51Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_delta_verification_truth.json",
+      "exists": true,
+      "size_bytes": 905,
+      "last_modified_utc": "2026-05-16T17:02:48Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_evidence_receipts_truth.json",
+      "exists": true,
+      "size_bytes": 750,
+      "last_modified_utc": "2026-05-16T17:02:23Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_export_bundle_gate_truth.json",
+      "exists": true,
+      "size_bytes": 774,
+      "last_modified_utc": "2026-05-16T17:03:02Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_feature_module_dock_truth.json",
+      "exists": true,
+      "size_bytes": 808,
+      "last_modified_utc": "2026-05-16T17:03:09Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_memory_threads_truth.json",
+      "exists": true,
+      "size_bytes": 1018,
+      "last_modified_utc": "2026-05-16T17:02:10Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_owner_comments_truth.json",
+      "exists": true,
+      "size_bytes": 687,
+      "last_modified_utc": "2026-05-16T17:02:03Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_progress_spine_truth.json",
+      "exists": true,
+      "size_bytes": 702,
+      "last_modified_utc": "2026-05-16T17:02:17Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_task_intake_truth.json",
+      "exists": true,
+      "size_bytes": 675,
+      "last_modified_utc": "2026-05-16T17:01:57Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/truth_matrix/zone_testing_field_truth.json",
+      "exists": true,
+      "size_bytes": 839,
+      "last_modified_utc": "2026-05-16T17:02:54Z",
+      "parse_status": "JSON_OK",
+      "role": "Zone truth matrix definition",
+      "known_consumers": [
+        "snapshot_builder_v0_5.py",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "exists": true,
+      "size_bytes": 13738,
+      "last_modified_utc": "2026-05-16T17:54:56Z",
+      "parse_status": "JSON_OK",
+      "role": "Live UI/API snapshot payload",
+      "known_consumers": [
+        "server_v0_5.py",
+        "neural_map_v0_5.js",
+        "check_neural_base_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json",
+      "exists": true,
+      "size_bytes": 3006,
+      "last_modified_utc": "2026-05-16T17:55:25Z",
+      "parse_status": "JSON_OK",
+      "role": "Checker report evidence",
+      "known_consumers": [
+        "neural_map_v0_5.js",
+        "manual operator review"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+      "exists": true,
+      "size_bytes": 3832,
+      "last_modified_utc": "2026-05-16T17:48:37Z",
+      "parse_status": "JSON_OK",
+      "role": "Task runtime source",
+      "known_consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+      "exists": true,
+      "size_bytes": 2986,
+      "last_modified_utc": "2026-05-16T17:48:37Z",
+      "parse_status": "JSON_OK",
+      "role": "Comment runtime source",
+      "known_consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+      "exists": true,
+      "size_bytes": 2280,
+      "last_modified_utc": "2026-05-16T17:48:37Z",
+      "parse_status": "JSON_OK",
+      "role": "Memory links runtime source",
+      "known_consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+      "exists": true,
+      "size_bytes": 4096,
+      "last_modified_utc": "2026-05-16T17:48:37Z",
+      "parse_status": "DIRECTORY",
+      "role": "Receipts evidence directory",
+      "known_consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "ui_claim_dependency": true,
+      "json_files_count": 12
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports",
+      "exists": true,
+      "size_bytes": 0,
+      "last_modified_utc": "2026-05-16T15:22:45Z",
+      "parse_status": "DIRECTORY",
+      "role": "Export bundles",
+      "known_consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "ui_claim_dependency": true,
+      "json_files_count": 0
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/gate/gate_check_module.py",
+      "exists": true,
+      "size_bytes": 12437,
+      "last_modified_utc": "2026-05-16T17:04:59Z",
+      "parse_status": "NOT_JSON",
+      "role": "Gate checker implementation",
+      "known_consumers": [
+        "manual gate runs"
+      ],
+      "ui_claim_dependency": false
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/gate/gate_report_self_test.json",
+      "exists": true,
+      "size_bytes": 2064,
+      "last_modified_utc": "2026-05-16T17:05:04Z",
+      "parse_status": "JSON_OK",
+      "role": "Gate self-test report",
+      "known_consumers": [
+        "manual review"
+      ],
+      "ui_claim_dependency": false
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/merge_polygon/READINESS_GATES/gate_adaptability.json",
+      "exists": true,
+      "size_bytes": 939,
+      "last_modified_utc": "2026-05-16T17:14:01Z",
+      "parse_status": "JSON_OK",
+      "role": "Merge polygon readiness gate data",
+      "known_consumers": [
+        "manual review",
+        "future gate orchestrator"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/merge_polygon/READINESS_GATES/gate_beauty.json",
+      "exists": true,
+      "size_bytes": 902,
+      "last_modified_utc": "2026-05-16T17:13:45Z",
+      "parse_status": "JSON_OK",
+      "role": "Merge polygon readiness gate data",
+      "known_consumers": [
+        "manual review",
+        "future gate orchestrator"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/merge_polygon/READINESS_GATES/gate_execution.json",
+      "exists": true,
+      "size_bytes": 912,
+      "last_modified_utc": "2026-05-16T17:14:07Z",
+      "parse_status": "JSON_OK",
+      "role": "Merge polygon readiness gate data",
+      "known_consumers": [
+        "manual review",
+        "future gate orchestrator"
+      ],
+      "ui_claim_dependency": true
+    },
+    {
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/merge_polygon/READINESS_GATES/gate_truth_discipline.json",
+      "exists": true,
+      "size_bytes": 898,
+      "last_modified_utc": "2026-05-16T17:13:52Z",
+      "parse_status": "JSON_OK",
+      "role": "Merge polygon readiness gate data",
+      "known_consumers": [
+        "manual review",
+        "future gate orchestrator"
+      ],
+      "ui_claim_dependency": true
+    }
+  ]
+}

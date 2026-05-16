@@ -11,6 +11,7 @@ import os
 import sys
 import datetime
 import glob
+import time
 
 # ── Paths ──────────────────────────────────────────────────────────────────────
 TOOLS_DIR       = os.path.dirname(os.path.abspath(__file__))
@@ -109,6 +110,7 @@ def collect_telemetry_for_zone(zone_id, zone_def):
         if os.path.isdir(receipts_dir):
             rfiles = [f for f in os.listdir(receipts_dir) if f.endswith(".json")]
             tel["receipt_count"] = len(rfiles)
+            tel["event_count"] = len(rfiles)
             no_llm_count = 0
             last_ts = None
             for rf in rfiles:
@@ -219,6 +221,7 @@ def evaluate_zone_health(zone_id, zone_def, truth_contract):
 
 
 def build_snapshot():
+    build_started = time.perf_counter()
     print("=" * 60)
     print("Second Brain V0.5 — Snapshot Builder")
     print("=" * 60)
@@ -285,19 +288,22 @@ def build_snapshot():
         }
         snapshot_zones.append(zone_snapshot)
 
-        status_icon = "✓" if health_result["health"] == "WORKING" else ("~" if health_result["health"] == "PARTIAL" else "✗")
+        status_icon = "OK" if health_result["health"] == "WORKING" else ("PARTIAL" if health_result["health"] == "PARTIAL" else "FAIL")
         print(f"  [{status_icon}] {zone_id:30s} {health_result['health']}")
 
     # Overall health score
     working_count = sum(1 for z in snapshot_zones if z["health"] == "WORKING")
     partial_count = sum(1 for z in snapshot_zones if z["health"] == "PARTIAL")
     blocked_count = sum(1 for z in snapshot_zones if z["health"] in ("BLOCKED", "MISSING"))
+    receipts_dir = resolve_path("IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts")
+    receipt_count = len([f for f in os.listdir(receipts_dir) if f.endswith(".json")]) if os.path.isdir(receipts_dir) else 0
 
     # Load strands from layout
     strands = layout.get("strands", []) if layout else []
 
     snapshot = {
         "snapshot_id": f"NBV05-SNAP-{datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')}",
+        "truth_lock_run_id": f"TRUTHLOCK-{datetime.datetime.utcnow().strftime('%Y%m%d%H%M%S')}",
         "timestamp_utc": now_iso(),
         "schema_version": "neural_snapshot.v0.5",
         "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
@@ -310,12 +316,38 @@ def build_snapshot():
         "partial_count": partial_count,
         "blocked_count": blocked_count,
         "total_missing_sources": total_missing,
+        "missing_source_count": total_missing,
+        "stale_count": 0,
         "total_broken_zones": total_broken,
         "warning_count": warning_count,
         "health_score": f"{working_count}/{len(snapshot_zones)}",
+        "staleness_policy": {
+            "max_snapshot_age_seconds": 900,
+            "stale_warning_threshold_seconds": 300,
+            "stale_failure_threshold_seconds": 900,
+        },
+        "telemetry": {
+            "snapshot_age_seconds": 0,
+            "api_latency_ms_by_endpoint": "NOT_IMPLEMENTED",
+            "failed_api_count": "NOT_IMPLEMENTED",
+            "last_snapshot_build_time_ms": None,
+            "zone_render_count": len(snapshot_zones),
+            "missing_source_count": total_missing,
+            "stale_source_count": 0,
+            "receipt_count": receipt_count,
+            "latest_receipt_age_seconds": "NOT_IMPLEMENTED",
+            "action_failure_count": "NOT_IMPLEMENTED",
+            "console_error_count": "NOT_IMPLEMENTED",
+            "network_error_count": "NOT_IMPLEMENTED",
+            "browser_test_passed": "NOT_IMPLEMENTED",
+            "checker_passed": "NOT_IMPLEMENTED",
+            "parity_verdict": "NOT_IMPLEMENTED",
+            "page_load_ms": "NOT_IMPLEMENTED",
+        },
         "zones": snapshot_zones,
         "strands": strands
     }
+    snapshot["telemetry"]["last_snapshot_build_time_ms"] = round((time.perf_counter() - build_started) * 1000.0, 2)
 
     with open(SNAPSHOT_OUT, "w", encoding="utf-8") as f:
         json.dump(snapshot, f, indent=2, ensure_ascii=False)

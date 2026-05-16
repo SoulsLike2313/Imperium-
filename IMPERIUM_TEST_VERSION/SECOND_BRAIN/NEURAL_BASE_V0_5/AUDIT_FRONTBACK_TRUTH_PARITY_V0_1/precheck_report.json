@@ -1,0 +1,61 @@
+{
+  "audit": "frontback_truth_parity_v0_1",
+  "timestamp_utc": "2026-05-16T17:27:07Z",
+  "required_head": "4cc7473835bf0da64273d6017cb54a80b4b2da68",
+  "expected_commit_count": 114,
+  "precheck_commands": [
+    {
+      "command": "git rev-parse --show-toplevel",
+      "exit_code": 0,
+      "stdout": "E:/IMPERIUM",
+      "stderr": ""
+    },
+    {
+      "command": "git rev-parse HEAD",
+      "exit_code": 0,
+      "stdout": "4cc7473835bf0da64273d6017cb54a80b4b2da68",
+      "stderr": ""
+    },
+    {
+      "command": "git rev-list --count HEAD",
+      "exit_code": 0,
+      "stdout": "114",
+      "stderr": ""
+    },
+    {
+      "command": "git log -1 --oneline",
+      "exit_code": 0,
+      "stdout": "4cc7473 EXPERIMENT: add Second Brain Neural Map V0.5",
+      "stderr": ""
+    },
+    {
+      "command": "git status --short",
+      "exit_code": 0,
+      "stdout": "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip\n?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_09 (1).png\"\n?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_09 (2).png\"\n?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_10 (3).png\"\n?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_10 (4).png\"\n?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_11 (5).png\"\n?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_1.png\n?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_3.png\n?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_4.png\n?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_5.png\n?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_6.png\n?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_7.png\n?? IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/\n?? IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/NEURAL_BASE_V0_4/",
+      "stderr": ""
+    }
+  ],
+  "observed_head": "4cc7473835bf0da64273d6017cb54a80b4b2da68",
+  "observed_commit_count": 114,
+  "head_matches_required": true,
+  "tracked_changes_outside_imperium_test_version": [],
+  "untracked_outside_imperium_test_version": [
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_09 (1).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_09 (2).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_10 (3).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_10 (4).png\"",
+    "?? \"ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 \\320\\274\\320\\260\\321\\217 2026 \\320\\263., 18_43_11 (5).png\"",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_1.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_3.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_4.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_5.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_6.png",
+    "?? ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/Screenshot_7.png"
+  ],
+  "scope_blocker": false,
+  "scope_blocker_reason": "",
+  "notes": [
+    "Untracked external assets may be expected and are not an automatic blocker for this audit."
+  ]
+}

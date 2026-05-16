@@ -1,0 +1,227 @@
+{
+  "checker": "check_frontback_truth_parity_v0_2.py",
+  "timestamp_utc": "2026-05-16T18:47:06Z",
+  "total_claims_audited": 29,
+  "true_count": 29,
+  "partial_count": 0,
+  "false_count": 0,
+  "stale_count": 0,
+  "unproven_count": 0,
+  "verdict": "PASS_STRICT",
+  "scope_accounting": {
+    "tracked_changes": [
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json"
+      },
+      {
+        "status": " M",
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py"
+      }
+    ],
+    "code_changes_inside_neural_base_v0_5": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py"
+    ],
+    "runtime_data_side_effects": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+    ],
+    "forbidden_out_of_scope_changes": [],
+    "interaction_created_ids": [
+      "TI-20260516-182635-690",
+      "OC-20260516-182637-222",
+      "ML-20260516-182638-244"
+    ],
+    "receipts_for_created_ids": [
+      "ML-20260516-182638-244",
+      "OC-20260516-182637-222",
+      "TI-20260516-182635-690"
+    ]
+  },
+  "claims": [
+    {
+      "claim": "contracts_present",
+      "status": "TRUE",
+      "detail": "all required contracts exist"
+    },
+    {
+      "claim": "ui_binding_manifest_parses",
+      "status": "TRUE",
+      "detail": "ui binding manifest parsed"
+    },
+    {
+      "claim": "required_ui_bindings_declared",
+      "status": "TRUE",
+      "detail": "required ui bindings declared"
+    },
+    {
+      "claim": "every_binding_has_api_and_backend",
+      "status": "TRUE",
+      "detail": "all bindings include selector/api/backend"
+    },
+    {
+      "claim": "api_server_reachable",
+      "status": "TRUE",
+      "detail": "server reachable"
+    },
+    {
+      "claim": "required_api_endpoints_respond",
+      "status": "TRUE",
+      "detail": "all required endpoints responded with JSON"
+    },
+    {
+      "claim": "snapshot_file_parses",
+      "status": "TRUE",
+      "detail": "snapshot file parsed"
+    },
+    {
+      "claim": "snapshot_identity_lock",
+      "status": "TRUE",
+      "detail": "snapshot_id/timestamp/truth_lock_run_id match api+backend"
+    },
+    {
+      "claim": "top_counters_match_backend",
+      "status": "TRUE",
+      "detail": "api counts={'tasks': 5, 'comments': 5, 'links': 5, 'receipts': 15}, backend=[5, 5, 5, 15]"
+    },
+    {
+      "claim": "zone_count_is_12",
+      "status": "TRUE",
+      "detail": "zone_count=12"
+    },
+    {
+      "claim": "zone_statuses_match_backend",
+      "status": "TRUE",
+      "detail": "zone health compared between api snapshot and backend file"
+    },
+    {
+      "claim": "health_score_matches_backend",
+      "status": "TRUE",
+      "detail": "health_score parity check"
+    },
+    {
+      "claim": "partial_count_matches_backend",
+      "status": "TRUE",
+      "detail": "partial_count parity check"
+    },
+    {
+      "claim": "blocked_missing_counts_match_backend",
+      "status": "TRUE",
+      "detail": "blocked/missing parity check"
+    },
+    {
+      "claim": "warning_count_matches_backend",
+      "status": "TRUE",
+      "detail": "warning count parity check"
+    },
+    {
+      "claim": "receipts_endpoint_matches_backend",
+      "status": "TRUE",
+      "detail": "api=15 backend=15"
+    },
+    {
+      "claim": "receipts_endpoint_exists",
+      "status": "TRUE",
+      "detail": "GET /api/receipts available"
+    },
+    {
+      "claim": "export_status_matches_backend",
+      "status": "TRUE",
+      "detail": "api=2 backend=2"
+    },
+    {
+      "claim": "export_status_endpoint_exists",
+      "status": "TRUE",
+      "detail": "GET /api/export/status available"
+    },
+    {
+      "claim": "honesty_badges_source_backed",
+      "status": "TRUE",
+      "detail": "status booleans for NO_LOCAL_LLM/NO_AGENT_API/RULE_BASED_ONLY"
+    },
+    {
+      "claim": "no_unresolved_placeholder_tokens_visible",
+      "status": "TRUE",
+      "detail": "placeholder sanitizer present and Playwright saw no placeholder tokens"
+    },
+    {
+      "claim": "no_hardcoded_non_decorative_counts",
+      "status": "TRUE",
+      "detail": "no hardcoded numeric defaults found"
+    },
+    {
+      "claim": "staleness_policy_implemented",
+      "status": "TRUE",
+      "detail": "policy file exists and status exposes freshness fields"
+    },
+    {
+      "claim": "performance_stability_telemetry_exposed",
+      "status": "TRUE",
+      "detail": "telemetry fields exposed"
+    },
+    {
+      "claim": "no_unsafe_mutating_action_enabled_without_owner_gate",
+      "status": "TRUE",
+      "detail": "no unsafe unscoped mutating actions detected"
+    },
+    {
+      "claim": "playwright_strict_browser_proof",
+      "status": "TRUE",
+      "detail": "playwright result=PASS"
+    },
+    {
+      "claim": "code_changes_inside_neural_base_v0_5",
+      "status": "TRUE",
+      "detail": "tracked code/config changes in V0.5: ['IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py']"
+    },
+    {
+      "claim": "runtime_data_side_effects_declared",
+      "status": "TRUE",
+      "detail": "runtime side effects: ['IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json', 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json']; created_ids=['TI-20260516-182635-690', 'OC-20260516-182637-222', 'ML-20260516-182638-244']; receipts_for_created_ids=['ML-20260516-182638-244', 'OC-20260516-182637-222', 'TI-20260516-182635-690']; named_in_final_report=True"
+    },
+    {
+      "claim": "no_forbidden_out_of_scope_changes",
+      "status": "TRUE",
+      "detail": "no forbidden tracked changes outside allowed zones"
+    }
+  ]
+}

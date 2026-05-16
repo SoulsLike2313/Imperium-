@@ -1,0 +1,19 @@
+{
+  "version": "v0_1",
+  "generated_utc": "2026-05-16T17:55:26Z",
+  "snapshot_max_age_seconds": 300,
+  "missing_source_behavior": {
+    "ui_state": "PARTIAL_OR_BLOCKED",
+    "show_warning_badge": true,
+    "show_missing_source_list": true
+  },
+  "stale_source_behavior": {
+    "ui_state": "STALE",
+    "show_stale_age_seconds": true
+  },
+  "checker_requirements": {
+    "must_fail_on_missing_snapshot": true,
+    "must_fail_on_missing_truth_matrix": true,
+    "must_warn_or_fail_on_stale_snapshot": true
+  }
+}

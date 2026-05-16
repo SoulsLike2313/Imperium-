@@ -1,0 +1,38 @@
+{
+  "hover_all_zones": {
+    "ok": true,
+    "count": 12
+  },
+  "click_all_zones": {
+    "ok": true,
+    "count": 12
+  },
+  "create_task": {
+    "executed": true,
+    "ok": true,
+    "task_id": "TI-20260516-182635-690"
+  },
+  "create_comment": {
+    "executed": true,
+    "ok": true,
+    "comment_id": "OC-20260516-182637-222"
+  },
+  "create_link": {
+    "executed": true,
+    "ok": true,
+    "link_id": "ML-20260516-182638-244"
+  },
+  "open_thread": {
+    "executed": true,
+    "ok": true
+  },
+  "open_evidence": {
+    "executed": true,
+    "ok": true
+  },
+  "rebuild_snapshot": {
+    "executed": true,
+    "ok": true
+  },
+  "selector_issues": []
+}

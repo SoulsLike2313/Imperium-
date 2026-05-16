@@ -1,0 +1,335 @@
+[
+  {
+    "timestamp_utc": "2026-05-16T17:48:22Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/",
+    "status": 200,
+    "ok": true,
+    "resource_type": "document"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:22Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/neural_map_v0_5.css",
+    "status": 200,
+    "ok": true,
+    "resource_type": "stylesheet"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:22Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/neural_map_v0_5.js",
+    "status": 200,
+    "ok": true,
+    "resource_type": "script"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:22Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/snapshot",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:23Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/status",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:23Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:23Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/comments",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:23Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/links",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "POST",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 201,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/snapshot",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/status",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/comments",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/links",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:36Z",
+    "event": "response",
+    "method": "POST",
+    "url": "http://localhost:8766/api/comments",
+    "status": 201,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/snapshot",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/status",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/comments",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/links",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "POST",
+    "url": "http://localhost:8766/api/links",
+    "status": 201,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/snapshot",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/status",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/comments",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:37Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/links",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:38Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/thread/TI-20260516-174836-211",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:38Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/status",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/comments",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/links",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "POST",
+    "url": "http://localhost:8766/api/rebuild_snapshot",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/snapshot",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/status",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/tasks",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/comments",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  },
+  {
+    "timestamp_utc": "2026-05-16T17:48:39Z",
+    "event": "response",
+    "method": "GET",
+    "url": "http://localhost:8766/api/links",
+    "status": 200,
+    "ok": true,
+    "resource_type": "fetch"
+  }
+]

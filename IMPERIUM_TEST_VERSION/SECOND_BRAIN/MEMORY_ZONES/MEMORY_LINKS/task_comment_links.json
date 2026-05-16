@@ -31,6 +31,48 @@
       "verification_status": "UNVERIFIED",
       "receipt_id": "RCP-20260516-151649-185",
       "seed_demo": false
+    },
+    {
+      "link_id": "ML-20260516-174526-284",
+      "created_at": "2026-05-16T17:45:26Z",
+      "status": "LINK_CREATED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-174525-962",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-174525-179",
+      "link_reason": "AUDIT_V05_20260516174509 link parity proof",
+      "expected_use": "Memory thread reconstruction",
+      "verification_status": "UNVERIFIED",
+      "receipt_id": "RCP-20260516-174526-473",
+      "seed_demo": false
+    },
+    {
+      "link_id": "ML-20260516-174837-168",
+      "created_at": "2026-05-16T17:48:37Z",
+      "status": "LINK_CREATED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-174836-211",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-174836-102",
+      "link_reason": "AUDIT_V05_20260516174821 link parity proof",
+      "expected_use": "Memory thread reconstruction",
+      "verification_status": "UNVERIFIED",
+      "receipt_id": "RCP-20260516-174837-104",
+      "seed_demo": false
+    },
+    {
+      "link_id": "ML-20260516-182638-244",
+      "created_at": "2026-05-16T18:26:38Z",
+      "status": "LINK_CREATED",
+      "source_type": "TASK",
+      "source_id": "TI-20260516-182635-690",
+      "target_type": "COMMENT",
+      "target_id": "OC-20260516-182637-222",
+      "link_reason": "Truth-lock audit relation",
+      "expected_use": "Memory thread reconstruction",
+      "verification_status": "UNVERIFIED",
+      "receipt_id": "RCP-20260516-182638-172",
+      "seed_demo": false
     }
   ]
 }

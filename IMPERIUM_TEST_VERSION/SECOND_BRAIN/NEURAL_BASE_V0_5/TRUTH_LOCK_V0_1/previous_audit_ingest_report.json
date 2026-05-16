@@ -1,0 +1,69 @@
+{
+  "timestamp_utc": "2026-05-16T18:17:57Z",
+  "previous_audit_root": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/AUDIT_FRONTBACK_TRUTH_PARITY_V0_1",
+  "existing_previous_audit_files": [
+    {
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/AUDIT_FRONTBACK_TRUTH_PARITY_V0_1/frontback_truth_parity_check_report_v0_1.json",
+      "exists": true
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/AUDIT_FRONTBACK_TRUTH_PARITY_V0_1/truth_parity_matrix_v0_1.json",
+      "exists": true
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/AUDIT_FRONTBACK_TRUTH_PARITY_V0_1/api_contract_observed_v0_1.json",
+      "exists": true
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/AUDIT_FRONTBACK_TRUTH_PARITY_V0_1/frontend_binding_inventory.json",
+      "exists": true
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/AUDIT_FRONTBACK_TRUTH_PARITY_V0_1/FINAL_FRONTBACK_TRUTH_PARITY_AUDIT_V0_1.md",
+      "exists": true
+    }
+  ],
+  "previous_verdict": "PASS_WITH_LIMITATIONS",
+  "counts": {
+    "TRUE": 17,
+    "PARTIAL": 4,
+    "FALSE": 0,
+    "STALE": 0,
+    "UNPROVEN": 0
+  },
+  "known_partial_claims": [
+    "12 zone tooltip telemetry",
+    "snapshot timestamp",
+    "partial zone count",
+    "blocked/missing zone count"
+  ],
+  "known_endpoint_gaps": [
+    "POST /api/tasks: NOT_OBSERVED",
+    "POST /api/comments: NOT_OBSERVED",
+    "POST /api/links: NOT_OBSERVED",
+    "GET /api/thread: HTTP 404",
+    "GET /api/receipts: HTTP 404",
+    "GET /api/export: HTTP 404",
+    "POST /api/export: NOT_EXECUTED",
+    "GET /api/rebuild_snapshot: HTTP 404",
+    "POST /api/rebuild_snapshot: NOT_OBSERVED"
+  ],
+  "known_staleness_gaps": [
+    "snapshot freshness state was not strictly enforced end-to-end",
+    "snapshot identity was not atomically tied via visible truth_lock_run_id"
+  ],
+  "known_hardcoded_or_fallback_risks": [
+    {
+      "field": "tooltip-summary-template",
+      "classification": "FALLBACK_RISK",
+      "notes": "Some placeholders remain unresolved (example: {event_count})."
+    }
+  ],
+  "recommended_fix_focus": [
+    "Replace unresolved tooltip placeholders with backend value or UNAVAILABLE marker",
+    "Expose strict counters: partial/blocked/missing/warning/stale",
+    "Expose snapshot_id + timestamp + truth_lock_run_id in UI/API/backend",
+    "Implement GET /api/receipts and GET /api/export/status",
+    "Implement staleness policy and visible freshness state"
+  ]
+}

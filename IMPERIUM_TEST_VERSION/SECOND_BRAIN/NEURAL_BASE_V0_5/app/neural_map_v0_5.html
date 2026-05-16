@@ -18,10 +18,11 @@
     </div>
     <div class="header-status">
       <span id="server-badge" class="badge badge-prototype">CONNECTING…</span>
-      <span class="badge badge-prototype">PROTOTYPE_INTERACTIVE</span>
-      <span class="badge badge-rule">RULE_BASED_ONLY</span>
-      <span class="badge badge-no-llm">NO_LOCAL_LLM</span>
-      <span class="badge badge-no-agent">NO_AGENT_API</span>
+      <span id="badge-runtime-mode" class="badge badge-prototype">PROTOTYPE_INTERACTIVE</span>
+      <span id="badge-rule-based" class="badge badge-rule">RULE_BASED_ONLY</span>
+      <span id="badge-no-llm" class="badge badge-no-llm">NO_LOCAL_LLM</span>
+      <span id="badge-no-agent" class="badge badge-no-agent">NO_AGENT_API</span>
+      <span id="badge-not-production" class="badge badge-no-agent">NOT_RELEASE_READY</span>
       <span id="live-dot" class="live-dot offline" title="Server connection"></span>
     </div>
   </header>
@@ -52,6 +53,19 @@
       <button class="btn btn-primary btn-sm" onclick="rebuildSnapshot()">⚡ Обновить</button>
       <button class="btn btn-amber btn-sm" onclick="doExport()">📦 Экспорт</button>
     </div>
+  </div>
+
+  <div id="truth-lock-bar">
+    <div class="truth-chip"><span class="truth-key">PARTIAL</span><span class="truth-val" id="stat-partial">—</span></div>
+    <div class="truth-chip"><span class="truth-key">BLOCKED</span><span class="truth-val" id="stat-blocked">—</span></div>
+    <div class="truth-chip"><span class="truth-key">MISSING</span><span class="truth-val" id="stat-missing">—</span></div>
+    <div class="truth-chip"><span class="truth-key">WARNINGS</span><span class="truth-val" id="stat-warnings">—</span></div>
+    <div class="truth-chip"><span class="truth-key">STALE</span><span class="truth-val" id="stat-stale">—</span></div>
+    <div class="truth-chip"><span class="truth-key">FRESHNESS</span><span class="truth-val" id="snapshot-freshness">—</span></div>
+    <div class="truth-chip truth-wide"><span class="truth-key">SNAPSHOT_ID</span><span class="truth-val mono" id="snapshot-id">—</span></div>
+    <div class="truth-chip truth-wide"><span class="truth-key">TRUTH_LOCK_RUN_ID</span><span class="truth-val mono" id="truth-lock-run-id">—</span></div>
+    <div class="truth-chip truth-wide"><span class="truth-key">SNAPSHOT_TS</span><span class="truth-val mono" id="snapshot-ts">—</span></div>
+    <div class="truth-chip"><span class="truth-key">AGE_SEC</span><span class="truth-val" id="snapshot-age-sec">—</span></div>
   </div>
 
   <!-- ── Main layout ── -->

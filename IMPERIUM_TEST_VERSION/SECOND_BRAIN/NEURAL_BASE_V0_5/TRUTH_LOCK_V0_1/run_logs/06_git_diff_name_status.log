@@ -1,0 +1,21 @@
+=== git diff --name-status ===
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py', CRLF will be replaced by LF the next time Git touches it
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json
+M	IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py

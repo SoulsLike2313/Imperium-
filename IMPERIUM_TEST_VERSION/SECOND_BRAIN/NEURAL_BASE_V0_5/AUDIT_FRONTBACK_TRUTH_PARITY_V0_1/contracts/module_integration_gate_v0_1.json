@@ -1,0 +1,24 @@
+{
+  "version": "v0_1",
+  "generated_utc": "2026-05-16T17:55:26Z",
+  "required_manifest_fields": [
+    "feature_id",
+    "display_name",
+    "visual_zone",
+    "data_sources",
+    "ui_components",
+    "actions",
+    "checker",
+    "receipts",
+    "allowed_scope",
+    "backend_truth_source",
+    "integration_status"
+  ],
+  "must_have_truth_source": true,
+  "must_have_evidence": true,
+  "must_have_action_safety": true,
+  "must_write_receipts_for_mutations": true,
+  "must_report_performance_telemetry": true,
+  "must_define_visual_placement": true,
+  "no_fake_healthy_state_allowed": true
+}

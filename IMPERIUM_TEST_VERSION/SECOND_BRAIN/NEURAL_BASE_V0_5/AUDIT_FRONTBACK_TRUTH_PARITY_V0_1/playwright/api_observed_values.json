@@ -1,0 +1,1787 @@
+{
+  "base_url": "http://localhost:8766",
+  "endpoint_probes": [
+    {
+      "path": "/",
+      "url": "http://localhost:8766/",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "TEXT_ONLY",
+      "response_fields": [],
+      "error": "",
+      "response_text_sample": "<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n  <title>Second Brain Neural Map V0.5</title>\r\n  <link rel=\"stylesheet\" href=\"/neural_map_v0_5.css\">\r\n</head>\r\n<body>\r\n<div id=\"app\">\r\n\r\n  <!-- ── Header ── -->\r\n  <header>\r\n    <div class=\"header-brand\">\r\n      <div class=\"brand-icon\">🧠</div>\r\n      <span class=\"brand-title\">SECOND BRAIN</span>\r\n      <span class=\"brand-version\">NEURAL MAP V0.5</span>\r\n "
+    },
+    {
+      "path": "/api/status",
+      "url": "http://localhost:8766/api/status",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "counts",
+        "health_score",
+        "honest_status",
+        "mode",
+        "no_agent_api",
+        "no_local_llm",
+        "not_production_ready",
+        "rule_based",
+        "server",
+        "snapshot_timestamp",
+        "version"
+      ],
+      "error": "",
+      "response_sample": {
+        "version": "V0.5",
+        "mode": "PROTOTYPE_INTERACTIVE",
+        "rule_based": true,
+        "no_local_llm": true,
+        "no_agent_api": true,
+        "not_production_ready": true,
+        "server": "localhost:8766",
+        "honest_status": [
+          "PROTOTYPE_INTERACTIVE",
+          "RULE_BASED_ONLY",
+          "NO_LOCAL_LLM",
+          "NO_AGENT_API"
+        ],
+        "counts": {
+          "tasks": 4,
+          "comments": 4,
+          "links": 4,
+          "receipts": 12
+        },
+        "health_score": "9/12",
+        "snapshot_timestamp": "2026-05-16T17:48:39Z"
+      }
+    },
+    {
+      "path": "/api/snapshot",
+      "url": "http://localhost:8766/api/snapshot",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "blocked_count",
+        "health_score",
+        "no_agent_api",
+        "no_local_llm",
+        "not_production_ready",
+        "partial_count",
+        "runtime_mode",
+        "schema_version",
+        "scope_policy",
+        "snapshot_id",
+        "strands",
+        "timestamp_utc",
+        "total_broken_zones",
+        "total_missing_sources",
+        "warning_count",
+        "working_count",
+        "zone_count",
+        "zones"
+      ],
+      "error": "",
+      "response_sample": {
+        "snapshot_id": "NBV05-SNAP-20260516174839",
+        "timestamp_utc": "2026-05-16T17:48:39Z",
+        "schema_version": "neural_snapshot.v0.5",
+        "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
+        "runtime_mode": "PROTOTYPE_INTERACTIVE",
+        "no_local_llm": true,
+        "no_agent_api": true,
+        "not_production_ready": true,
+        "zone_count": 12,
+        "working_count": 9,
+        "partial_count": 3,
+        "blocked_count": 0,
+        "total_missing_sources": 0,
+        "total_broken_zones": 0,
+        "warning_count": 3,
+        "health_score": "9/12",
+        "zones": [
+          {
+            "zone_id": "core_brain",
+            "display_name": "Core Brain / System Health",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_cyan",
+            "source_present_count": 3,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {},
+            "layout": {
+              "x": 50,
+              "y": 50,
+              "r": 52,
+              "size": "large",
+              "group": "center",
+              "label_offset_y": -65
+            },
+            "honest_limitations": [
+              "RULE_BASED_ONLY",
+              "NO_LOCAL_LLM",
+              "NO_AGENT_API"
+            ],
+            "missing_capabilities": [
+              "Real-time health monitoring",
+              "Auto-repair"
+            ],
+            "hover_summary_template": "Health: {health_score}/12 zones OK | Snapshot age: {snapshot_age}s | Warnings: {warning_count}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "task_intake",
+            "display_name": "Task Intake",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_cyan",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "task_count": 4,
+              "unlinked_task_count": 0,
+              "last_task_age_seconds": 3
+            },
+            "layout": {
+              "x": 72,
+              "y": 22,
+              "r": 32,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -42
+            },
+            "honest_limitations": [
+              "RULE_BASED_ONLY",
+              "NO_AUTO_ROUTING"
+            ],
+            "missing_capabilities": [
+              "Auto-routing",
+              "Priority scoring",
+              "LLM interpretation"
+            ],
+            "hover_summary_template": "Tasks: {task_count} | Last: {last_task_age}s ago | Status: {last_task_status}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "owner_comments",
+            "display_name": "Owner Comments",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_amber",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "comment_count": 4,
+              "linked_count": 4,
+              "unlinked_count": 0,
+              "needs_interpretation_count": 0
+            },
+            "layout": {
+              "x": 88,
+              "y": 42,
+              "r": 30,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -40
+            },
+            "honest_limitations": [
+              "NO_AUTO_INTERPRETATION",
+              "MANUAL_LINKING_ONLY"
+            ],
+            "missing_capabilities": [
+              "LLM interpretation",
+              "Sentiment analysis"
+            ],
+            "hover_summary_template": "Comments: {comment_count} | Linked: {linked_count} | Unlinked: {unlinked_count}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "memory_threads",
+            "display_name": "Memory Threads",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_magenta",
+            "source_present_count": 3,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "link_count": 4,
+              "broken_link_count": 0,
+              "orphaned_task_count": 0,
+              "orphaned_comment_count": 0
+            },
+            "layout": {
+              "x": 82,
+              "y": 68,
+              "r": 30,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -40
+            },
+            "honest_limitations": [
+              "MANUAL_LINKING_ONLY"
+            ],
+            "missing_capabilities": [
+              "Auto-linking",
+              "Semantic similarity",
+              "Graph traversal"
+            ],
+            "hover_summary_template": "Links: {link_count} | Orphaned tasks: {orphaned_task_count} | Orphaned comments: {orphaned_comment_count}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "progress_spine",
+            "display_name": "Progress Spine",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_green",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "receipt_count": 12,
+              "no_llm_rate": 100,
+              "last_event_age_seconds": 2,
+              "export_count": 2
+            },
+            "layout": {
+              "x": 58,
+              "y": 82,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "NO_REAL_TIME_STREAM",
+              "FILE_BASED_ONLY"
+            ],
+            "missing_capabilities": [
+              "Real-time event stream",
+              "Event correlation"
+            ],
+            "hover_summary_template": "Events: {event_count} | Last: {last_event_age}s ago | Receipts: {receipt_count}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "evidence_receipts",
+            "display_name": "Evidence / Receipts",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_green",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "receipt_count": 12,
+              "no_llm_rate": 100,
+              "last_event_age_seconds": 2,
+              "export_count": 2
+            },
+            "layout": {
+              "x": 34,
+              "y": 78,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "RECEIPTS_ARE_SELF_REPORTED"
+            ],
+            "missing_capabilities": [
+              "Cryptographic signing",
+              "External audit trail"
+            ],
+            "hover_summary_template": "Receipts: {receipt_count} | Exports: {export_count} | no_llm_used: {no_llm_rate}%",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "action_control",
+            "display_name": "Action / Script Control",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "enabled_action_count": 8,
+              "disabled_action_count": 2
+            },
+            "layout": {
+              "x": 18,
+              "y": 58,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "MUTATING_ACTIONS_DISABLED"
+            ],
+            "missing_capabilities": [
+              "Autonomous action execution",
+              "Action chaining"
+            ],
+            "hover_summary_template": "Enabled: {enabled_count} | Disabled: {disabled_count} | Last run: {last_action_age}s ago",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "agent_exchange",
+            "display_name": "Agent Exchange",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_magenta",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "exchange_state": "MVP_READY",
+              "thread_count": 1
+            },
+            "layout": {
+              "x": 20,
+              "y": 32,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "PARTIAL_BINDING",
+              "KNOWN_MOJIBAKE_FAULT",
+              "NO_REAL_AGENT_API"
+            ],
+            "missing_capabilities": [
+              "Real agent API",
+              "Automated exchange"
+            ],
+            "hover_summary_template": "State: {exchange_state} | Threads: {thread_count} | Last: {last_exchange_age}s ago",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "delta_verification",
+            "display_name": "Delta Verification",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_cyan",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "last_verdict": "UNKNOWN"
+            },
+            "layout": {
+              "x": 40,
+              "y": 18,
+              "r": 28,
+              "size": "medium",
+              "group": "ring_1",
+              "label_offset_y": -38
+            },
+            "honest_limitations": [
+              "FULL_MODE_REQUIRES_PLAYWRIGHT",
+              "KNOWN_MOJIBAKE_CRASH"
+            ],
+            "missing_capabilities": [
+              "Automated pre-commit gate",
+              "CI integration"
+            ],
+            "hover_summary_template": "Verdict: {last_verdict} | Last run: {last_run_age}s ago | Warnings: {warning_count}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "testing_field",
+            "display_name": "Testing Field",
+            "health": "PARTIAL",
+            "capability_state": "PARTIAL",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {},
+            "layout": {
+              "x": 92,
+              "y": 20,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "SMOKE_NOT_PRODUCTION_QUALITY",
+              "UI_INTEGRATION_INCOMPLETE"
+            ],
+            "missing_capabilities": [
+              "Full test suite",
+              "Property-based testing",
+              "Merge polygon"
+            ],
+            "hover_summary_template": "Smoke: {smoke_status} | Last run: {last_smoke_age}s ago | Coverage: {organ_coverage}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "export_bundle_gate",
+            "display_name": "Export / Bundle Gate",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_amber",
+            "source_present_count": 1,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "export_count": 2,
+              "gate_status": "READY"
+            },
+            "layout": {
+              "x": 92,
+              "y": 78,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "OWNER_GATE_REQUIRED",
+              "NO_AUTO_EXPORT"
+            ],
+            "missing_capabilities": [
+              "Automated bundle pipeline",
+              "Artifact signing"
+            ],
+            "hover_summary_template": "Last export: {last_export_age}s ago | Exports: {export_count} | Gate: {gate_status}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          },
+          {
+            "zone_id": "feature_module_dock",
+            "display_name": "Feature Module Dock",
+            "health": "WORKING",
+            "capability_state": "WORKING",
+            "visual_token": "accent_violet",
+            "source_present_count": 2,
+            "source_missing_count": 0,
+            "missing_sources": [],
+            "telemetry": {
+              "module_count": 4,
+              "working_count": 1,
+              "partial_count": 3,
+              "blocked_count": 0
+            },
+            "layout": {
+              "x": 8,
+              "y": 78,
+              "r": 22,
+              "size": "small",
+              "group": "ring_2",
+              "label_offset_y": -30
+            },
+            "honest_limitations": [
+              "MANUAL_REGISTRATION_ONLY",
+              "NO_AUTO_DISCOVERY"
+            ],
+            "missing_capabilities": [
+              "Auto-discovery",
+              "Hot-reload",
+              "Plugin system"
+            ],
+            "hover_summary_template": "Modules: {module_count} | Working: {working_count} | Blocked: {blocked_count}",
+            "last_evaluated": "2026-05-16T17:48:39Z"
+          }
+        ],
+        "strands": [
+          {
+            "from": "core_brain",
+            "to": "task_intake",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "owner_comments",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "memory_threads",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "progress_spine",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "evidence_receipts",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "action_control",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "agent_exchange",
+            "type": "primary"
+          },
+          {
+            "from": "core_brain",
+            "to": "delta_verification",
+            "type": "primary"
+          },
+          {
+            "from": "task_intake",
+            "to": "memory_threads",
+            "type": "data"
+          },
+          {
+            "from": "owner_comments",
+            "to": "memory_threads",
+            "type": "data"
+          },
+          {
+            "from": "memory_threads",
+            "to": "evidence_receipts",
+            "type": "data"
+          },
+          {
+            "from": "task_intake",
+            "to": "progress_spine",
+            "type": "data"
+          },
+          {
+            "from": "action_control",
+            "to": "evidence_receipts",
+            "type": "data"
+          },
+          {
+            "from": "delta_verification",
+            "to": "testing_field",
+            "type": "secondary"
+          },
+          {
+            "from": "evidence_receipts",
+            "to": "export_bundle_gate",
+            "type": "secondary"
+          },
+          {
+            "from": "core_brain",
+            "to": "feature_module_dock",
+            "type": "secondary"
+          }
+        ]
+      }
+    },
+    {
+      "path": "/api/tasks",
+      "url": "http://localhost:8766/api/tasks",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "<list>"
+      ],
+      "error": "",
+      "response_sample": [
+        {
+          "task_id": "TI-20260516-120000-001",
+          "created_at": "2026-05-16T12:00:00Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "Построить Second Brain V0.3 — интерактивный Task Intake + Owner Comments Mesh",
+          "owner_goal": "Первый реально интерактивный срез: владелец вводит задачу, вводит комментарий, связывает их, получает receipts.",
+          "priority": "HIGH",
+          "tags": [
+            "v0.3",
+            "interactive",
+            "task-intake",
+            "seed_demo"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE",
+            "OWNER_COMMENTS",
+            "MEMORY_LINKS"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-120000-001"
+          ],
+          "links": [
+            "ML-20260516-120000-001"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": true
+        },
+        {
+          "task_id": "TI-20260516-151558-364",
+          "created_at": "2026-05-16T15:15:58Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "SBV03-LIVE-TASK-OWNER-001\nПроверить, что Second Brain V0.3 реально принимает задачу через UI, пишет JSON, создаёт receipt и может быть передан агенту как task intake package.",
+          "owner_goal": "Получить доказательство, что задача не просто видна в интерфейсе, а сохранена в памяти и готова к передаче агенту.",
+          "priority": "HIGH",
+          "tags": [
+            "v0.3",
+            "live-test",
+            "task-intake",
+            "owner-check"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-151558-316"
+          ],
+          "links": [
+            "ML-20260516-151649-626"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-174525-962",
+          "created_at": "2026-05-16T17:45:25Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "AUDIT_V05_20260516174509 TASK created via Playwright audit",
+          "owner_goal": "Validate frontback truth parity",
+          "priority": "HIGH",
+          "tags": [
+            "audit",
+            "v0_5",
+            "playwright"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-174525-311"
+          ],
+          "links": [
+            "ML-20260516-174526-284"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        {
+          "task_id": "TI-20260516-174836-211",
+          "created_at": "2026-05-16T17:48:36Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "AUDIT_V05_20260516174821 TASK created via Playwright audit",
+          "owner_goal": "Validate frontback truth parity",
+          "priority": "HIGH",
+          "tags": [
+            "audit",
+            "v0_5",
+            "playwright"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-174836-166"
+          ],
+          "links": [
+            "ML-20260516-174837-168"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        }
+      ]
+    },
+    {
+      "path": "/api/comments",
+      "url": "http://localhost:8766/api/comments",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "<list>"
+      ],
+      "error": "",
+      "response_sample": [
+        {
+          "comment_id": "OC-20260516-120000-001",
+          "created_at": "2026-05-16T12:01:00Z",
+          "status": "LINKED",
+          "original_text": "Это seed-комментарий владельца. V0.3 должен захватывать такие комментарии и связывать их с задачами.",
+          "interpreted_meaning": "Owner подтверждает, что система должна захватывать и связывать комментарии с задачами в реальном времени.",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": "LINK_TO_TASK",
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-120000-001"
+          ],
+          "receipts": [
+            "RCP-20260516-120001-001"
+          ],
+          "seed_demo": true
+        },
+        {
+          "comment_id": "OC-20260516-151625-183",
+          "created_at": "2026-05-16T15:16:25Z",
+          "status": "LINKED",
+          "original_text": "SBV03-LIVE-COMMENT-OWNER-001\nOwner подтверждает: эта задача должна стать первым живым примером task intake, который можно передать агенту вместе с комментарием и receipt.",
+          "interpreted_meaning": null,
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-151558-364"
+          ],
+          "receipts": [
+            "RCP-20260516-151625-705"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-174525-179",
+          "created_at": "2026-05-16T17:45:25Z",
+          "status": "LINKED",
+          "original_text": "AUDIT_V05_20260516174509 COMMENT captured via Playwright audit",
+          "interpreted_meaning": "Audit proof comment",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-174525-962"
+          ],
+          "receipts": [
+            "RCP-20260516-174525-403"
+          ],
+          "seed_demo": false
+        },
+        {
+          "comment_id": "OC-20260516-174836-102",
+          "created_at": "2026-05-16T17:48:36Z",
+          "status": "LINKED",
+          "original_text": "AUDIT_V05_20260516174821 COMMENT captured via Playwright audit",
+          "interpreted_meaning": "Audit proof comment",
+          "comment_type": "OBSERVATION",
+          "linked_zone": "TASK_INTAKE",
+          "action_required": null,
+          "needs_owner_confirmation": false,
+          "linked_tasks": [
+            "TI-20260516-174836-211"
+          ],
+          "receipts": [
+            "RCP-20260516-174836-695"
+          ],
+          "seed_demo": false
+        }
+      ]
+    },
+    {
+      "path": "/api/links",
+      "url": "http://localhost:8766/api/links",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "<list>"
+      ],
+      "error": "",
+      "response_sample": [
+        {
+          "link_id": "ML-20260516-120000-001",
+          "created_at": "2026-05-16T12:02:00Z",
+          "status": "LINK_VERIFIED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-120000-001",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-120000-001",
+          "link_reason": "Owner comment directly references this task as its subject",
+          "expected_use": "Memory thread reconstruction, context retrieval",
+          "verification_status": "VERIFIED",
+          "receipt_id": "RCP-20260516-120002-001",
+          "seed_demo": true
+        },
+        {
+          "link_id": "ML-20260516-151649-626",
+          "created_at": "2026-05-16T15:16:49Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-151558-364",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-151625-183",
+          "link_reason": null,
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-151649-185",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-174526-284",
+          "created_at": "2026-05-16T17:45:26Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-174525-962",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-174525-179",
+          "link_reason": "AUDIT_V05_20260516174509 link parity proof",
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-174526-473",
+          "seed_demo": false
+        },
+        {
+          "link_id": "ML-20260516-174837-168",
+          "created_at": "2026-05-16T17:48:37Z",
+          "status": "LINK_CREATED",
+          "source_type": "TASK",
+          "source_id": "TI-20260516-174836-211",
+          "target_type": "COMMENT",
+          "target_id": "OC-20260516-174836-102",
+          "link_reason": "AUDIT_V05_20260516174821 link parity proof",
+          "expected_use": "Memory thread reconstruction",
+          "verification_status": "UNVERIFIED",
+          "receipt_id": "RCP-20260516-174837-104",
+          "seed_demo": false
+        }
+      ]
+    },
+    {
+      "path": "/api/thread",
+      "url": "http://localhost:8766/api/thread",
+      "method": "GET",
+      "executed": true,
+      "status": 404,
+      "ok": false,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "error",
+        "status"
+      ],
+      "error": "",
+      "response_sample": {
+        "error": "Not found",
+        "status": "ERROR"
+      }
+    },
+    {
+      "path": "/api/receipts",
+      "url": "http://localhost:8766/api/receipts",
+      "method": "GET",
+      "executed": true,
+      "status": 404,
+      "ok": false,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "error",
+        "status"
+      ],
+      "error": "",
+      "response_sample": {
+        "error": "Not found",
+        "status": "ERROR"
+      }
+    },
+    {
+      "path": "/api/export",
+      "url": "http://localhost:8766/api/export",
+      "method": "GET",
+      "executed": true,
+      "status": 404,
+      "ok": false,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "error",
+        "status"
+      ],
+      "error": "",
+      "response_sample": {
+        "error": "Not found",
+        "status": "ERROR"
+      }
+    },
+    {
+      "path": "/api/rebuild_snapshot",
+      "url": "http://localhost:8766/api/rebuild_snapshot",
+      "method": "GET",
+      "executed": true,
+      "status": 404,
+      "ok": false,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "error",
+        "status"
+      ],
+      "error": "",
+      "response_sample": {
+        "error": "Not found",
+        "status": "ERROR"
+      }
+    },
+    {
+      "path": "/api/export",
+      "url": "http://localhost:8766/api/export",
+      "method": "OPTIONS",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "EMPTY",
+      "response_fields": [],
+      "error": ""
+    },
+    {
+      "path": "/api/tasks",
+      "url": "http://localhost:8766/api/tasks",
+      "method": "OPTIONS",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "EMPTY",
+      "response_fields": [],
+      "error": ""
+    },
+    {
+      "path": "/api/comments",
+      "url": "http://localhost:8766/api/comments",
+      "method": "OPTIONS",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "EMPTY",
+      "response_fields": [],
+      "error": ""
+    },
+    {
+      "path": "/api/links",
+      "url": "http://localhost:8766/api/links",
+      "method": "OPTIONS",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "EMPTY",
+      "response_fields": [],
+      "error": ""
+    },
+    {
+      "path": "/api/thread/TI-20260516-174836-211",
+      "url": "http://localhost:8766/api/thread/TI-20260516-174836-211",
+      "method": "GET",
+      "executed": true,
+      "status": 200,
+      "ok": true,
+      "response_parse": "JSON_OK",
+      "response_fields": [
+        "comments",
+        "links",
+        "receipts",
+        "task",
+        "thread_status"
+      ],
+      "error": "",
+      "response_sample": {
+        "task": {
+          "task_id": "TI-20260516-174836-211",
+          "created_at": "2026-05-16T17:48:36Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "AUDIT_V05_20260516174821 TASK created via Playwright audit",
+          "owner_goal": "Validate frontback truth parity",
+          "priority": "HIGH",
+          "tags": [
+            "audit",
+            "v0_5",
+            "playwright"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-174836-166"
+          ],
+          "links": [
+            "ML-20260516-174837-168"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        "links": [
+          {
+            "link_id": "ML-20260516-174837-168",
+            "created_at": "2026-05-16T17:48:37Z",
+            "status": "LINK_CREATED",
+            "source_type": "TASK",
+            "source_id": "TI-20260516-174836-211",
+            "target_type": "COMMENT",
+            "target_id": "OC-20260516-174836-102",
+            "link_reason": "AUDIT_V05_20260516174821 link parity proof",
+            "expected_use": "Memory thread reconstruction",
+            "verification_status": "UNVERIFIED",
+            "receipt_id": "RCP-20260516-174837-104",
+            "seed_demo": false
+          }
+        ],
+        "comments": [
+          {
+            "comment_id": "OC-20260516-174836-102",
+            "created_at": "2026-05-16T17:48:36Z",
+            "status": "LINKED",
+            "original_text": "AUDIT_V05_20260516174821 COMMENT captured via Playwright audit",
+            "interpreted_meaning": "Audit proof comment",
+            "comment_type": "OBSERVATION",
+            "linked_zone": "TASK_INTAKE",
+            "action_required": null,
+            "needs_owner_confirmation": false,
+            "linked_tasks": [
+              "TI-20260516-174836-211"
+            ],
+            "receipts": [
+              "RCP-20260516-174836-695"
+            ],
+            "seed_demo": false
+          }
+        ],
+        "receipts": [
+          {
+            "receipt_id": "RCP-20260516-174836-166",
+            "created_at": "2026-05-16T17:48:36Z",
+            "event_type": "TASK_CREATED",
+            "status": "TASK_ACCEPTED",
+            "object_type": "TASK",
+            "object_id": "TI-20260516-174836-211",
+            "paths_written": [
+              "SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+            ],
+            "checker_relevant": true,
+            "no_llm_used": true,
+            "no_external_agent_used": true,
+            "seed_demo": false
+          },
+          {
+            "receipt_id": "RCP-20260516-174836-695",
+            "created_at": "2026-05-16T17:48:36Z",
+            "event_type": "COMMENT_CREATED",
+            "status": "COMMENT_CAPTURED",
+            "object_type": "COMMENT",
+            "object_id": "OC-20260516-174836-102",
+            "paths_written": [
+              "SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+            ],
+            "checker_relevant": true,
+            "no_llm_used": true,
+            "no_external_agent_used": true,
+            "seed_demo": false
+          }
+        ],
+        "thread_status": "PROTOTYPE_INTERACTIVE"
+      }
+    },
+    {
+      "path": "/api/export",
+      "url": "http://localhost:8766/api/export",
+      "method": "POST",
+      "executed": false,
+      "status": null,
+      "ok": false,
+      "response_parse": "NOT_EXECUTED",
+      "error": "Skipped by audit policy: owner gate for export not explicit."
+    }
+  ],
+  "ui_mutation_results": {
+    "create_task": {
+      "executed": true,
+      "ok": true,
+      "status": 201,
+      "task_id": "TI-20260516-174836-211",
+      "response": {
+        "task_id": "TI-20260516-174836-211",
+        "created_at": "2026-05-16T17:48:36Z",
+        "status": "TASK_ACCEPTED",
+        "source_text": "AUDIT_V05_20260516174821 TASK created via Playwright audit",
+        "owner_goal": "Validate frontback truth parity",
+        "priority": "HIGH",
+        "tags": [
+          "audit",
+          "v0_5",
+          "playwright"
+        ],
+        "relevant_memory_zones": [
+          "TASK_INTAKE"
+        ],
+        "created_by": "OWNER_INTERACTIVE",
+        "runtime_mode": "PROTOTYPE_INTERACTIVE",
+        "receipts": [
+          "RCP-20260516-174836-166"
+        ],
+        "links": [],
+        "next_expected_action": "OWNER_REVIEW",
+        "seed_demo": false
+      }
+    },
+    "create_comment": {
+      "executed": true,
+      "ok": true,
+      "status": 201,
+      "comment_id": "OC-20260516-174836-102",
+      "response": {
+        "comment_id": "OC-20260516-174836-102",
+        "created_at": "2026-05-16T17:48:36Z",
+        "status": "COMMENT_CAPTURED",
+        "original_text": "AUDIT_V05_20260516174821 COMMENT captured via Playwright audit",
+        "interpreted_meaning": "Audit proof comment",
+        "comment_type": "OBSERVATION",
+        "linked_zone": "TASK_INTAKE",
+        "action_required": null,
+        "needs_owner_confirmation": false,
+        "linked_tasks": [],
+        "receipts": [
+          "RCP-20260516-174836-695"
+        ],
+        "seed_demo": false
+      }
+    },
+    "create_link": {
+      "executed": true,
+      "ok": true,
+      "status": 201,
+      "link_id": "ML-20260516-174837-168",
+      "response": {
+        "link_id": "ML-20260516-174837-168",
+        "created_at": "2026-05-16T17:48:37Z",
+        "status": "LINK_CREATED",
+        "source_type": "TASK",
+        "source_id": "TI-20260516-174836-211",
+        "target_type": "COMMENT",
+        "target_id": "OC-20260516-174836-102",
+        "link_reason": "AUDIT_V05_20260516174821 link parity proof",
+        "expected_use": "Memory thread reconstruction",
+        "verification_status": "UNVERIFIED",
+        "receipt_id": "RCP-20260516-174837-104",
+        "seed_demo": false
+      }
+    },
+    "thread_view": {
+      "executed": true,
+      "ok": true,
+      "status": 200,
+      "task_id": "TI-20260516-174836-211",
+      "response": {
+        "task": {
+          "task_id": "TI-20260516-174836-211",
+          "created_at": "2026-05-16T17:48:36Z",
+          "status": "TASK_ACCEPTED",
+          "source_text": "AUDIT_V05_20260516174821 TASK created via Playwright audit",
+          "owner_goal": "Validate frontback truth parity",
+          "priority": "HIGH",
+          "tags": [
+            "audit",
+            "v0_5",
+            "playwright"
+          ],
+          "relevant_memory_zones": [
+            "TASK_INTAKE"
+          ],
+          "created_by": "OWNER_INTERACTIVE",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "receipts": [
+            "RCP-20260516-174836-166"
+          ],
+          "links": [
+            "ML-20260516-174837-168"
+          ],
+          "next_expected_action": "OWNER_REVIEW",
+          "seed_demo": false
+        },
+        "links": [
+          {
+            "link_id": "ML-20260516-174837-168",
+            "created_at": "2026-05-16T17:48:37Z",
+            "status": "LINK_CREATED",
+            "source_type": "TASK",
+            "source_id": "TI-20260516-174836-211",
+            "target_type": "COMMENT",
+            "target_id": "OC-20260516-174836-102",
+            "link_reason": "AUDIT_V05_20260516174821 link parity proof",
+            "expected_use": "Memory thread reconstruction",
+            "verification_status": "UNVERIFIED",
+            "receipt_id": "RCP-20260516-174837-104",
+            "seed_demo": false
+          }
+        ],
+        "comments": [
+          {
+            "comment_id": "OC-20260516-174836-102",
+            "created_at": "2026-05-16T17:48:36Z",
+            "status": "LINKED",
+            "original_text": "AUDIT_V05_20260516174821 COMMENT captured via Playwright audit",
+            "interpreted_meaning": "Audit proof comment",
+            "comment_type": "OBSERVATION",
+            "linked_zone": "TASK_INTAKE",
+            "action_required": null,
+            "needs_owner_confirmation": false,
+            "linked_tasks": [
+              "TI-20260516-174836-211"
+            ],
+            "receipts": [
+              "RCP-20260516-174836-695"
+            ],
+            "seed_demo": false
+          }
+        ],
+        "receipts": [
+          {
+            "receipt_id": "RCP-20260516-174836-166",
+            "created_at": "2026-05-16T17:48:36Z",
+            "event_type": "TASK_CREATED",
+            "status": "TASK_ACCEPTED",
+            "object_type": "TASK",
+            "object_id": "TI-20260516-174836-211",
+            "paths_written": [
+              "SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+            ],
+            "checker_relevant": true,
+            "no_llm_used": true,
+            "no_external_agent_used": true,
+            "seed_demo": false
+          },
+          {
+            "receipt_id": "RCP-20260516-174836-695",
+            "created_at": "2026-05-16T17:48:36Z",
+            "event_type": "COMMENT_CREATED",
+            "status": "COMMENT_CAPTURED",
+            "object_type": "COMMENT",
+            "object_id": "OC-20260516-174836-102",
+            "paths_written": [
+              "SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+            ],
+            "checker_relevant": true,
+            "no_llm_used": true,
+            "no_external_agent_used": true,
+            "seed_demo": false
+          }
+        ],
+        "thread_status": "PROTOTYPE_INTERACTIVE"
+      }
+    },
+    "rebuild_snapshot": {
+      "executed": true,
+      "ok": true,
+      "status": 200,
+      "response": {
+        "status": "REBUILT",
+        "returncode": 0,
+        "stdout": "~] agent_exchange                 PARTIAL\n  [~] delta_verification             PARTIAL\n  [~] testing_field                  PARTIAL\n  [вњ“] export_bundle_gate             WORKING\n  [вњ“] feature_module_dock            WORKING\n\nHealth score:    9/12 zones WORKING\nPartial:         3\nBlocked/Missing: 0\nWarnings:        3\nSnapshot written: E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\reports\\neural_snapshot_live.json\n\nNOT PRODUCTION READY | PROTOTYPE_INTERACTIVE | RULE_BASED_ONLY\n",
+        "snapshot": {
+          "snapshot_id": "NBV05-SNAP-20260516174839",
+          "timestamp_utc": "2026-05-16T17:48:39Z",
+          "schema_version": "neural_snapshot.v0.5",
+          "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
+          "runtime_mode": "PROTOTYPE_INTERACTIVE",
+          "no_local_llm": true,
+          "no_agent_api": true,
+          "not_production_ready": true,
+          "zone_count": 12,
+          "working_count": 9,
+          "partial_count": 3,
+          "blocked_count": 0,
+          "total_missing_sources": 0,
+          "total_broken_zones": 0,
+          "warning_count": 3,
+          "health_score": "9/12",
+          "zones": [
+            {
+              "zone_id": "core_brain",
+              "display_name": "Core Brain / System Health",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_cyan",
+              "source_present_count": 3,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {},
+              "layout": {
+                "x": 50,
+                "y": 50,
+                "r": 52,
+                "size": "large",
+                "group": "center",
+                "label_offset_y": -65
+              },
+              "honest_limitations": [
+                "RULE_BASED_ONLY",
+                "NO_LOCAL_LLM",
+                "NO_AGENT_API"
+              ],
+              "missing_capabilities": [
+                "Real-time health monitoring",
+                "Auto-repair"
+              ],
+              "hover_summary_template": "Health: {health_score}/12 zones OK | Snapshot age: {snapshot_age}s | Warnings: {warning_count}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "task_intake",
+              "display_name": "Task Intake",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_cyan",
+              "source_present_count": 1,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "task_count": 4,
+                "unlinked_task_count": 0,
+                "last_task_age_seconds": 3
+              },
+              "layout": {
+                "x": 72,
+                "y": 22,
+                "r": 32,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -42
+              },
+              "honest_limitations": [
+                "RULE_BASED_ONLY",
+                "NO_AUTO_ROUTING"
+              ],
+              "missing_capabilities": [
+                "Auto-routing",
+                "Priority scoring",
+                "LLM interpretation"
+              ],
+              "hover_summary_template": "Tasks: {task_count} | Last: {last_task_age}s ago | Status: {last_task_status}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "owner_comments",
+              "display_name": "Owner Comments",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_amber",
+              "source_present_count": 1,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "comment_count": 4,
+                "linked_count": 4,
+                "unlinked_count": 0,
+                "needs_interpretation_count": 0
+              },
+              "layout": {
+                "x": 88,
+                "y": 42,
+                "r": 30,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -40
+              },
+              "honest_limitations": [
+                "NO_AUTO_INTERPRETATION",
+                "MANUAL_LINKING_ONLY"
+              ],
+              "missing_capabilities": [
+                "LLM interpretation",
+                "Sentiment analysis"
+              ],
+              "hover_summary_template": "Comments: {comment_count} | Linked: {linked_count} | Unlinked: {unlinked_count}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "memory_threads",
+              "display_name": "Memory Threads",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_magenta",
+              "source_present_count": 3,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "link_count": 4,
+                "broken_link_count": 0,
+                "orphaned_task_count": 0,
+                "orphaned_comment_count": 0
+              },
+              "layout": {
+                "x": 82,
+                "y": 68,
+                "r": 30,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -40
+              },
+              "honest_limitations": [
+                "MANUAL_LINKING_ONLY"
+              ],
+              "missing_capabilities": [
+                "Auto-linking",
+                "Semantic similarity",
+                "Graph traversal"
+              ],
+              "hover_summary_template": "Links: {link_count} | Orphaned tasks: {orphaned_task_count} | Orphaned comments: {orphaned_comment_count}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "progress_spine",
+              "display_name": "Progress Spine",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_green",
+              "source_present_count": 1,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "receipt_count": 12,
+                "no_llm_rate": 100,
+                "last_event_age_seconds": 2,
+                "export_count": 2
+              },
+              "layout": {
+                "x": 58,
+                "y": 82,
+                "r": 28,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -38
+              },
+              "honest_limitations": [
+                "NO_REAL_TIME_STREAM",
+                "FILE_BASED_ONLY"
+              ],
+              "missing_capabilities": [
+                "Real-time event stream",
+                "Event correlation"
+              ],
+              "hover_summary_template": "Events: {event_count} | Last: {last_event_age}s ago | Receipts: {receipt_count}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "evidence_receipts",
+              "display_name": "Evidence / Receipts",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_green",
+              "source_present_count": 2,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "receipt_count": 12,
+                "no_llm_rate": 100,
+                "last_event_age_seconds": 2,
+                "export_count": 2
+              },
+              "layout": {
+                "x": 34,
+                "y": 78,
+                "r": 28,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -38
+              },
+              "honest_limitations": [
+                "RECEIPTS_ARE_SELF_REPORTED"
+              ],
+              "missing_capabilities": [
+                "Cryptographic signing",
+                "External audit trail"
+              ],
+              "hover_summary_template": "Receipts: {receipt_count} | Exports: {export_count} | no_llm_used: {no_llm_rate}%",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "action_control",
+              "display_name": "Action / Script Control",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_violet",
+              "source_present_count": 2,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "enabled_action_count": 8,
+                "disabled_action_count": 2
+              },
+              "layout": {
+                "x": 18,
+                "y": 58,
+                "r": 28,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -38
+              },
+              "honest_limitations": [
+                "MUTATING_ACTIONS_DISABLED"
+              ],
+              "missing_capabilities": [
+                "Autonomous action execution",
+                "Action chaining"
+              ],
+              "hover_summary_template": "Enabled: {enabled_count} | Disabled: {disabled_count} | Last run: {last_action_age}s ago",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "agent_exchange",
+              "display_name": "Agent Exchange",
+              "health": "PARTIAL",
+              "capability_state": "PARTIAL",
+              "visual_token": "accent_magenta",
+              "source_present_count": 2,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "exchange_state": "MVP_READY",
+                "thread_count": 1
+              },
+              "layout": {
+                "x": 20,
+                "y": 32,
+                "r": 28,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -38
+              },
+              "honest_limitations": [
+                "PARTIAL_BINDING",
+                "KNOWN_MOJIBAKE_FAULT",
+                "NO_REAL_AGENT_API"
+              ],
+              "missing_capabilities": [
+                "Real agent API",
+                "Automated exchange"
+              ],
+              "hover_summary_template": "State: {exchange_state} | Threads: {thread_count} | Last: {last_exchange_age}s ago",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "delta_verification",
+              "display_name": "Delta Verification",
+              "health": "PARTIAL",
+              "capability_state": "PARTIAL",
+              "visual_token": "accent_cyan",
+              "source_present_count": 2,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "last_verdict": "UNKNOWN"
+              },
+              "layout": {
+                "x": 40,
+                "y": 18,
+                "r": 28,
+                "size": "medium",
+                "group": "ring_1",
+                "label_offset_y": -38
+              },
+              "honest_limitations": [
+                "FULL_MODE_REQUIRES_PLAYWRIGHT",
+                "KNOWN_MOJIBAKE_CRASH"
+              ],
+              "missing_capabilities": [
+                "Automated pre-commit gate",
+                "CI integration"
+              ],
+              "hover_summary_template": "Verdict: {last_verdict} | Last run: {last_run_age}s ago | Warnings: {warning_count}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "testing_field",
+              "display_name": "Testing Field",
+              "health": "PARTIAL",
+              "capability_state": "PARTIAL",
+              "visual_token": "accent_violet",
+              "source_present_count": 2,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {},
+              "layout": {
+                "x": 92,
+                "y": 20,
+                "r": 22,
+                "size": "small",
+                "group": "ring_2",
+                "label_offset_y": -30
+              },
+              "honest_limitations": [
+                "SMOKE_NOT_PRODUCTION_QUALITY",
+                "UI_INTEGRATION_INCOMPLETE"
+              ],
+              "missing_capabilities": [
+                "Full test suite",
+                "Property-based testing",
+                "Merge polygon"
+              ],
+              "hover_summary_template": "Smoke: {smoke_status} | Last run: {last_smoke_age}s ago | Coverage: {organ_coverage}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "export_bundle_gate",
+              "display_name": "Export / Bundle Gate",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_amber",
+              "source_present_count": 1,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "export_count": 2,
+                "gate_status": "READY"
+              },
+              "layout": {
+                "x": 92,
+                "y": 78,
+                "r": 22,
+                "size": "small",
+                "group": "ring_2",
+                "label_offset_y": -30
+              },
+              "honest_limitations": [
+                "OWNER_GATE_REQUIRED",
+                "NO_AUTO_EXPORT"
+              ],
+              "missing_capabilities": [
+                "Automated bundle pipeline",
+                "Artifact signing"
+              ],
+              "hover_summary_template": "Last export: {last_export_age}s ago | Exports: {export_count} | Gate: {gate_status}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            },
+            {
+              "zone_id": "feature_module_dock",
+              "display_name": "Feature Module Dock",
+              "health": "WORKING",
+              "capability_state": "WORKING",
+              "visual_token": "accent_violet",
+              "source_present_count": 2,
+              "source_missing_count": 0,
+              "missing_sources": [],
+              "telemetry": {
+                "module_count": 4,
+                "working_count": 1,
+                "partial_count": 3,
+                "blocked_count": 0
+              },
+              "layout": {
+                "x": 8,
+                "y": 78,
+                "r": 22,
+                "size": "small",
+                "group": "ring_2",
+                "label_offset_y": -30
+              },
+              "honest_limitations": [
+                "MANUAL_REGISTRATION_ONLY",
+                "NO_AUTO_DISCOVERY"
+              ],
+              "missing_capabilities": [
+                "Auto-discovery",
+                "Hot-reload",
+                "Plugin system"
+              ],
+              "hover_summary_template": "Modules: {module_count} | Working: {working_count} | Blocked: {blocked_count}",
+              "last_evaluated": "2026-05-16T17:48:39Z"
+            }
+          ],
+          "strands": [
+            {
+              "from": "core_brain",
+              "to": "task_intake",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "owner_comments",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "memory_threads",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "progress_spine",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "evidence_receipts",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "action_control",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "agent_exchange",
+              "type": "primary"
+            },
+            {
+              "from": "core_brain",
+              "to": "delta_verification",
+              "type": "primary"
+            },
+            {
+              "from": "task_intake",
+              "to": "memory_threads",
+              "type": "data"
+            },
+            {
+              "from": "owner_comments",
+              "to": "memory_threads",
+              "type": "data"
+            },
+            {
+              "from": "memory_threads",
+              "to": "evidence_receipts",
+              "type": "data"
+            },
+            {
+              "from": "task_intake",
+              "to": "progress_spine",
+              "type": "data"
+            },
+            {
+              "from": "action_control",
+              "to": "evidence_receipts",
+              "type": "data"
+            },
+            {
+              "from": "delta_verification",
+              "to": "testing_field",
+              "type": "secondary"
+            },
+            {
+              "from": "evidence_receipts",
+              "to": "export_bundle_gate",
+              "type": "secondary"
+            },
+            {
+              "from": "core_brain",
+              "to": "feature_module_dock",
+              "type": "secondary"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

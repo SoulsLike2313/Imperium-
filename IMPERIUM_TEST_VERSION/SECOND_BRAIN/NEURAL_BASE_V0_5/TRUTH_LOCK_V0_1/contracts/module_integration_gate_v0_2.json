@@ -1,0 +1,36 @@
+{
+  "version": "v0.2",
+  "gate_verdict_values": [
+    "ACCEPT_STRICT",
+    "ACCEPT_WITH_LIMITATIONS",
+    "TEST_ONLY",
+    "OWNER_REVIEW_REQUIRED",
+    "BLOCK"
+  ],
+  "required_checks": [
+    "module_id_unique_and_stable",
+    "manifest_schema_valid",
+    "source_paths_within_allowed_scope",
+    "code_changes_inside_neural_base_v0_5",
+    "runtime_data_side_effects_declared",
+    "no_forbidden_out_of_scope_changes",
+    "truth_sources_declared_or_explicitly_missing",
+    "ui_bindings_declared",
+    "action_safety_declared",
+    "mutating_actions_owner_gated",
+    "receipts_declared_for_mutations",
+    "telemetry_fields_declared",
+    "stale_behavior_declared",
+    "no_fake_healthy_state",
+    "no_hardcoded_non_decorative_values",
+    "visual_placement_separate_from_truth_binding",
+    "checker_coverage_included"
+  ],
+  "blocking_conditions": [
+    "unresolved_placeholder_visible",
+    "missing_backend_binding_for_non_decorative_value",
+    "unsafe_mutating_action_without_owner_gate",
+    "staleness_policy_missing",
+    "mandatory_endpoint_missing"
+  ]
+}

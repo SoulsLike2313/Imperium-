@@ -1,0 +1,18 @@
+{
+  "version": "v0_1",
+  "generated_utc": "2026-05-16T17:55:26Z",
+  "snapshot_age_seconds": null,
+  "api_latency_ms": null,
+  "page_load_ms": null,
+  "zone_render_count": 12,
+  "failed_api_count": 0,
+  "missing_source_count": 0,
+  "stale_source_count": null,
+  "receipt_freshness": "UNMEASURED",
+  "action_failure_count": 0,
+  "console_error_count": 0,
+  "network_error_count": 0,
+  "browser_test_passed": true,
+  "checker_passed": false,
+  "notes": "Latency and age metrics are not yet instrumented in V0.5 audit tooling."
+}

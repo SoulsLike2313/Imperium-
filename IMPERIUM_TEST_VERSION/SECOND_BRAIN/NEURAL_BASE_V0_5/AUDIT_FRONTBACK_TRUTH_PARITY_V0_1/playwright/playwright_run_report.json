@@ -1,0 +1,119 @@
+{
+  "audit": "playwright_v0_5_full_audit",
+  "timestamp_utc": "2026-05-16T17:48:45Z",
+  "required_localhost_url": "http://localhost:8766",
+  "localhost_accessible": true,
+  "used_fallback_ipv4": false,
+  "fallback_ipv4_url": "",
+  "base_url": "http://localhost:8766",
+  "page_url": "http://localhost:8766/",
+  "required_screenshots": [
+    "00_initial_load.png",
+    "01_full_neural_map.png",
+    "02_hover_core_brain.png",
+    "03_hover_task_intake.png",
+    "04_click_task_intake_panel.png",
+    "05_click_owner_comments_panel.png",
+    "06_click_memory_threads_panel.png",
+    "07_click_evidence_receipts_panel.png",
+    "08_click_action_control_panel.png",
+    "09_click_export_bundle_gate_panel.png",
+    "10_after_create_test_task.png",
+    "11_after_create_owner_comment.png",
+    "12_after_create_memory_link.png",
+    "13_memory_thread_view.png",
+    "14_evidence_panel_after_interactions.png",
+    "15_snapshot_rebuild_after_interactions.png"
+  ],
+  "screenshots_result": {
+    "00_initial_load.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\00_initial_load.png",
+      "ok": true
+    },
+    "01_full_neural_map.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\01_full_neural_map.png",
+      "ok": true
+    },
+    "02_hover_core_brain.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\02_hover_core_brain.png",
+      "ok": true
+    },
+    "03_hover_task_intake.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\03_hover_task_intake.png",
+      "ok": true
+    },
+    "04_click_task_intake_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\04_click_task_intake_panel.png",
+      "ok": true
+    },
+    "05_click_owner_comments_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\05_click_owner_comments_panel.png",
+      "ok": true
+    },
+    "06_click_memory_threads_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\06_click_memory_threads_panel.png",
+      "ok": true
+    },
+    "07_click_evidence_receipts_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\07_click_evidence_receipts_panel.png",
+      "ok": true
+    },
+    "08_click_action_control_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\08_click_action_control_panel.png",
+      "ok": true
+    },
+    "09_click_export_bundle_gate_panel.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\09_click_export_bundle_gate_panel.png",
+      "ok": true
+    },
+    "10_after_create_test_task.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\10_after_create_test_task.png",
+      "ok": true
+    },
+    "11_after_create_owner_comment.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\11_after_create_owner_comment.png",
+      "ok": true
+    },
+    "12_after_create_memory_link.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\12_after_create_memory_link.png",
+      "ok": true
+    },
+    "13_memory_thread_view.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\13_memory_thread_view.png",
+      "ok": true
+    },
+    "14_evidence_panel_after_interactions.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\14_evidence_panel_after_interactions.png",
+      "ok": true
+    },
+    "15_snapshot_rebuild_after_interactions.png": {
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_5\\AUDIT_FRONTBACK_TRUTH_PARITY_V0_1\\playwright\\screenshots\\15_snapshot_rebuild_after_interactions.png",
+      "ok": true
+    }
+  },
+  "missing_screenshots": [],
+  "zone_count_observed": 12,
+  "zone_ids_observed": [
+    "core_brain",
+    "task_intake",
+    "owner_comments",
+    "memory_threads",
+    "progress_spine",
+    "evidence_receipts",
+    "action_control",
+    "agent_exchange",
+    "delta_verification",
+    "testing_field",
+    "export_bundle_gate",
+    "feature_module_dock"
+  ],
+  "console_event_count": 0,
+  "page_error_count": 0,
+  "failed_request_count": 0,
+  "created_task_id": "TI-20260516-174836-211",
+  "created_comment_id": "OC-20260516-174836-102",
+  "created_link_id": "ML-20260516-174837-168",
+  "run_warnings": [],
+  "run_errors": [],
+  "result": "PASS"
+}

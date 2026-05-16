@@ -1,0 +1,137 @@
+{
+  "version": "v0.1",
+  "generated_at_utc": "2026-05-16T18:17:57Z",
+  "sources": [
+    {
+      "id": "snapshot_live",
+      "path_or_endpoint": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+      "owner": "snapshot_builder_v0_5.py",
+      "freshness_policy": "staleness_policy_v0_2",
+      "parser": "json",
+      "consumers": [
+        "server_v0_5.py",
+        "neural_map_v0_5.js",
+        "check_frontback_truth_parity_v0_2.py"
+      ],
+      "mutation_policy": "write_by_builder_only",
+      "receipt_policy": "none"
+    },
+    {
+      "id": "runtime_tasks",
+      "path_or_endpoint": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "read_time",
+      "parser": "json",
+      "consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "mutation_policy": "owner_ui_actions_only",
+      "receipt_policy": "required_on_write"
+    },
+    {
+      "id": "runtime_comments",
+      "path_or_endpoint": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "read_time",
+      "parser": "json",
+      "consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "mutation_policy": "owner_ui_actions_only",
+      "receipt_policy": "required_on_write"
+    },
+    {
+      "id": "runtime_links",
+      "path_or_endpoint": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "read_time",
+      "parser": "json",
+      "consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "mutation_policy": "owner_ui_actions_only",
+      "receipt_policy": "required_on_write"
+    },
+    {
+      "id": "runtime_receipts",
+      "path_or_endpoint": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "read_time",
+      "parser": "json_files",
+      "consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "mutation_policy": "append_only",
+      "receipt_policy": "n/a"
+    },
+    {
+      "id": "runtime_exports",
+      "path_or_endpoint": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "read_time",
+      "parser": "manifest_json",
+      "consumers": [
+        "server_v0_5.py",
+        "snapshot_builder_v0_5.py"
+      ],
+      "mutation_policy": "export_action_only",
+      "receipt_policy": "manifest_required"
+    },
+    {
+      "id": "api_status",
+      "path_or_endpoint": "GET /api/status",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "per_request",
+      "parser": "json",
+      "consumers": [
+        "neural_map_v0_5.js",
+        "playwright_v0_5_truth_lock.py"
+      ],
+      "mutation_policy": "read_only",
+      "receipt_policy": "none"
+    },
+    {
+      "id": "api_snapshot",
+      "path_or_endpoint": "GET /api/snapshot",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "per_request",
+      "parser": "json",
+      "consumers": [
+        "neural_map_v0_5.js",
+        "playwright_v0_5_truth_lock.py"
+      ],
+      "mutation_policy": "read_only",
+      "receipt_policy": "none"
+    },
+    {
+      "id": "api_receipts",
+      "path_or_endpoint": "GET /api/receipts",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "per_request",
+      "parser": "json",
+      "consumers": [
+        "neural_map_v0_5.js",
+        "playwright_v0_5_truth_lock.py"
+      ],
+      "mutation_policy": "read_only",
+      "receipt_policy": "none"
+    },
+    {
+      "id": "api_export_status",
+      "path_or_endpoint": "GET /api/export/status",
+      "owner": "server_v0_5.py",
+      "freshness_policy": "per_request",
+      "parser": "json",
+      "consumers": [
+        "neural_map_v0_5.js",
+        "playwright_v0_5_truth_lock.py"
+      ],
+      "mutation_policy": "read_only",
+      "receipt_policy": "none"
+    }
+  ]
+}

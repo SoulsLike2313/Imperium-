@@ -1,0 +1,69 @@
+{
+  "audit": "interaction_receipt_proof_v0_1",
+  "timestamp_utc": "2026-05-16T17:55:25Z",
+  "created_ids": {
+    "task_id": "TI-20260516-174836-211",
+    "comment_id": "OC-20260516-174836-102",
+    "link_id": "ML-20260516-174837-168"
+  },
+  "created_objects_exist_in_backend": {
+    "task_exists": true,
+    "comment_exists": true,
+    "link_exists": true
+  },
+  "ui_count_changed": {
+    "tasks": {
+      "initial": "3",
+      "after": "4"
+    },
+    "comments": {
+      "initial": "3",
+      "after": "4"
+    },
+    "links": {
+      "initial": "3",
+      "after": "4"
+    },
+    "receipts": {
+      "initial": "9",
+      "after": "12"
+    }
+  },
+  "api_count_after": {
+    "tasks": 4,
+    "comments": 4,
+    "links": 4,
+    "receipts": 12
+  },
+  "receipt_checks": [
+    {
+      "receipt_id": "RCP-20260516-174836-166",
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-174836-166.json",
+      "exists": true,
+      "parse_status": "JSON_OK",
+      "no_llm_used": true
+    },
+    {
+      "receipt_id": "RCP-20260516-174836-695",
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-174836-695.json",
+      "exists": true,
+      "parse_status": "JSON_OK",
+      "no_llm_used": true
+    },
+    {
+      "receipt_id": "RCP-20260516-174837-104",
+      "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-174837-104.json",
+      "exists": true,
+      "parse_status": "JSON_OK",
+      "no_llm_used": true
+    }
+  ],
+  "thread_contains_created_relation": true,
+  "statuses": {
+    "create_task": "OK",
+    "create_comment": "OK",
+    "create_link": "OK",
+    "thread_view": "OK",
+    "export_button_run": "ACTION_DISABLED"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "version": "v0_1",
+  "generated_utc": "2026-05-16T17:55:26Z",
+  "bindings": [
+    {
+      "field": "stat-tasks",
+      "selector": "#stat-tasks",
+      "source": "/api/status.counts.tasks",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "stat-comments",
+      "selector": "#stat-comments",
+      "source": "/api/status.counts.comments",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "stat-links",
+      "selector": "#stat-links",
+      "source": "/api/status.counts.links",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "stat-receipts",
+      "selector": "#stat-receipts",
+      "source": "/api/status.counts.receipts",
+      "classification": "BACKEND_BOUND",
+      "notes": "Updated by updateStatsBar(status)."
+    },
+    {
+      "field": "health-score",
+      "selector": "#health-score",
+      "source": "/api/status.health_score or /api/snapshot.health_score",
+      "classification": "BACKEND_BOUND",
+      "notes": "Status-first, snapshot fallback."
+    },
+    {
+      "field": "zone-labels",
+      "selector": "g.zone-node .zone-label",
+      "source": "/api/snapshot.zones[].display_name",
+      "classification": "BACKEND_BOUND",
+      "notes": "Rendered in renderNeuralCanvas()."
+    },
+    {
+      "field": "zone-status",
+      "selector": "#zdp-body Health row",
+      "source": "/api/snapshot.zones[].health",
+      "classification": "BACKEND_BOUND",
+      "notes": "Rendered in buildZoneDetailHtml(zone)."
+    },
+    {
+      "field": "tooltip-summary-template",
+      "selector": "#tt-summary",
+      "source": "/api/snapshot.zones[].hover_summary_template + telemetry",
+      "classification": "FALLBACK_RISK",
+      "notes": "Some placeholders remain unresolved (example: {event_count})."
+    },
+    {
+      "field": "evidence-path-labels",
+      "selector": "Evidence tab path section",
+      "source": "Static strings in JS",
+      "classification": "STATIC_LABEL_ONLY",
+      "notes": "Static path labels are informative but not validated live."
+    },
+    {
+      "field": "honesty badges",
+      "selector": "header/footer badges",
+      "source": "Static labels + /api/status honest_status",
+      "classification": "PARTIAL",
+      "notes": "Claims are static labels but consistent with backend status payload."
+    }
+  ],
+  "zones": [
+    "core_brain",
+    "task_intake",
+    "owner_comments",
+    "memory_threads",
+    "progress_spine",
+    "evidence_receipts",
+    "action_control",
+    "agent_exchange",
+    "delta_verification",
+    "testing_field",
+    "export_bundle_gate",
+    "feature_module_dock"
+  ],
+  "panels": [
+    "tasks",
+    "comments",
+    "links",
+    "thread",
+    "evidence"
+  ],
+  "action_buttons": [
+    {
+      "id": "rebuild_snapshot",
+      "selector": "#stats-bar button[onclick='rebuildSnapshot()']",
+      "type": "CHECK"
+    },
+    {
+      "id": "export_bundle",
+      "selector": "#stats-bar button[onclick='doExport()']",
+      "type": "EXPORT_OWNER_GATED"
+    }
+  ]
+}

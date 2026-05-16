@@ -1,0 +1,12 @@
+{
+  "checker": "check_frontback_truth_parity_v0_1.py",
+  "timestamp_utc": "2026-05-16T17:56:12Z",
+  "total_claims_audited": 21,
+  "true_count": 17,
+  "partial_count": 4,
+  "false_count": 0,
+  "stale_count": 0,
+  "unproven_count": 0,
+  "hardcoded_risk_count": 1,
+  "verdict": "PASS_WITH_LIMITATIONS"
+}

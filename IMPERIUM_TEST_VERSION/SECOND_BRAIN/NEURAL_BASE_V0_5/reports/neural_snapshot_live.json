@@ -1,6 +1,7 @@
 {
-  "snapshot_id": "NBV05-SNAP-20260516171759",
-  "timestamp_utc": "2026-05-16T17:17:59Z",
+  "snapshot_id": "NBV05-SNAP-20260516184649",
+  "truth_lock_run_id": "TRUTHLOCK-20260516184649",
+  "timestamp_utc": "2026-05-16T18:46:49Z",
   "schema_version": "neural_snapshot.v0.5",
   "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
   "runtime_mode": "PROTOTYPE_INTERACTIVE",
@@ -12,9 +13,34 @@
   "partial_count": 3,
   "blocked_count": 0,
   "total_missing_sources": 0,
+  "missing_source_count": 0,
+  "stale_count": 0,
   "total_broken_zones": 0,
   "warning_count": 3,
   "health_score": "9/12",
+  "staleness_policy": {
+    "max_snapshot_age_seconds": 900,
+    "stale_warning_threshold_seconds": 300,
+    "stale_failure_threshold_seconds": 900
+  },
+  "telemetry": {
+    "snapshot_age_seconds": 0,
+    "api_latency_ms_by_endpoint": "NOT_IMPLEMENTED",
+    "failed_api_count": "NOT_IMPLEMENTED",
+    "last_snapshot_build_time_ms": 28.32,
+    "zone_render_count": 12,
+    "missing_source_count": 0,
+    "stale_source_count": 0,
+    "receipt_count": 15,
+    "latest_receipt_age_seconds": "NOT_IMPLEMENTED",
+    "action_failure_count": "NOT_IMPLEMENTED",
+    "console_error_count": "NOT_IMPLEMENTED",
+    "network_error_count": "NOT_IMPLEMENTED",
+    "browser_test_passed": "NOT_IMPLEMENTED",
+    "checker_passed": "NOT_IMPLEMENTED",
+    "parity_verdict": "NOT_IMPLEMENTED",
+    "page_load_ms": "NOT_IMPLEMENTED"
+  },
   "zones": [
     {
       "zone_id": "core_brain",
@@ -44,7 +70,7 @@
         "Auto-repair"
       ],
       "hover_summary_template": "Health: {health_score}/12 zones OK | Snapshot age: {snapshot_age}s | Warnings: {warning_count}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "task_intake",
@@ -56,9 +82,9 @@
       "source_missing_count": 0,
       "missing_sources": [],
       "telemetry": {
-        "task_count": 2,
+        "task_count": 5,
         "unlinked_task_count": 0,
-        "last_task_age_seconds": 7321
+        "last_task_age_seconds": 1214
       },
       "layout": {
         "x": 72,
@@ -78,7 +104,7 @@
         "LLM interpretation"
       ],
       "hover_summary_template": "Tasks: {task_count} | Last: {last_task_age}s ago | Status: {last_task_status}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "owner_comments",
@@ -90,8 +116,8 @@
       "source_missing_count": 0,
       "missing_sources": [],
       "telemetry": {
-        "comment_count": 2,
-        "linked_count": 2,
+        "comment_count": 5,
+        "linked_count": 5,
         "unlinked_count": 0,
         "needs_interpretation_count": 0
       },
@@ -112,7 +138,7 @@
         "Sentiment analysis"
       ],
       "hover_summary_template": "Comments: {comment_count} | Linked: {linked_count} | Unlinked: {unlinked_count}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "memory_threads",
@@ -124,7 +150,7 @@
       "source_missing_count": 0,
       "missing_sources": [],
       "telemetry": {
-        "link_count": 2,
+        "link_count": 5,
         "broken_link_count": 0,
         "orphaned_task_count": 0,
         "orphaned_comment_count": 0
@@ -146,7 +172,7 @@
         "Graph traversal"
       ],
       "hover_summary_template": "Links: {link_count} | Orphaned tasks: {orphaned_task_count} | Orphaned comments: {orphaned_comment_count}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "progress_spine",
@@ -158,9 +184,10 @@
       "source_missing_count": 0,
       "missing_sources": [],
       "telemetry": {
-        "receipt_count": 6,
+        "receipt_count": 15,
+        "event_count": 15,
         "no_llm_rate": 100,
-        "last_event_age_seconds": 7270,
+        "last_event_age_seconds": 1211,
         "export_count": 2
       },
       "layout": {
@@ -180,7 +207,7 @@
         "Event correlation"
       ],
       "hover_summary_template": "Events: {event_count} | Last: {last_event_age}s ago | Receipts: {receipt_count}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "evidence_receipts",
@@ -192,9 +219,10 @@
       "source_missing_count": 0,
       "missing_sources": [],
       "telemetry": {
-        "receipt_count": 6,
+        "receipt_count": 15,
+        "event_count": 15,
         "no_llm_rate": 100,
-        "last_event_age_seconds": 7270,
+        "last_event_age_seconds": 1211,
         "export_count": 2
       },
       "layout": {
@@ -213,7 +241,7 @@
         "External audit trail"
       ],
       "hover_summary_template": "Receipts: {receipt_count} | Exports: {export_count} | no_llm_used: {no_llm_rate}%",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "action_control",
@@ -244,7 +272,7 @@
         "Action chaining"
       ],
       "hover_summary_template": "Enabled: {enabled_count} | Disabled: {disabled_count} | Last run: {last_action_age}s ago",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "agent_exchange",
@@ -277,7 +305,7 @@
         "Automated exchange"
       ],
       "hover_summary_template": "State: {exchange_state} | Threads: {thread_count} | Last: {last_exchange_age}s ago",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "delta_verification",
@@ -308,7 +336,7 @@
         "CI integration"
       ],
       "hover_summary_template": "Verdict: {last_verdict} | Last run: {last_run_age}s ago | Warnings: {warning_count}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "testing_field",
@@ -338,7 +366,7 @@
         "Merge polygon"
       ],
       "hover_summary_template": "Smoke: {smoke_status} | Last run: {last_smoke_age}s ago | Coverage: {organ_coverage}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "export_bundle_gate",
@@ -370,7 +398,7 @@
         "Artifact signing"
       ],
       "hover_summary_template": "Last export: {last_export_age}s ago | Exports: {export_count} | Gate: {gate_status}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     },
     {
       "zone_id": "feature_module_dock",
@@ -405,7 +433,7 @@
         "Plugin system"
       ],
       "hover_summary_template": "Modules: {module_count} | Working: {working_count} | Blocked: {blocked_count}",
-      "last_evaluated": "2026-05-16T17:17:59Z"
+      "last_evaluated": "2026-05-16T18:46:49Z"
     }
   ],
   "strands": [

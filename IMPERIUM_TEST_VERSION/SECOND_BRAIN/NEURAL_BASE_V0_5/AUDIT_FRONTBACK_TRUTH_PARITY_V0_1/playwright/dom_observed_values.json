@@ -1,0 +1,216 @@
+{
+  "page_url": "http://localhost:8766/",
+  "top_counters_initial": {
+    "tasks": "3",
+    "comments": "3",
+    "links": "3",
+    "receipts": "9",
+    "health_score": "9/12",
+    "server_badge": "ONLINE"
+  },
+  "top_counters_after_mutations": {
+    "tasks": "4",
+    "comments": "4",
+    "links": "4",
+    "receipts": "12",
+    "health_score": "9/12",
+    "server_badge": "ONLINE"
+  },
+  "zone_labels": [
+    {
+      "zone_id": "core_brain",
+      "label": "CORE BRAIN/SYSTEM HEALTH"
+    },
+    {
+      "zone_id": "task_intake",
+      "label": "TASK INTAKE"
+    },
+    {
+      "zone_id": "owner_comments",
+      "label": "OWNER COMMENTS"
+    },
+    {
+      "zone_id": "memory_threads",
+      "label": "MEMORY THREADS"
+    },
+    {
+      "zone_id": "progress_spine",
+      "label": "PROGRESS SPINE"
+    },
+    {
+      "zone_id": "evidence_receipts",
+      "label": "EVIDENCE/RECEIPTS"
+    },
+    {
+      "zone_id": "action_control",
+      "label": "ACTION/SCRIPT CONTROL"
+    },
+    {
+      "zone_id": "agent_exchange",
+      "label": "AGENT EXCHANGE"
+    },
+    {
+      "zone_id": "delta_verification",
+      "label": "DELTA VERIFICATION"
+    },
+    {
+      "zone_id": "testing_field",
+      "label": "TESTING FIELD"
+    },
+    {
+      "zone_id": "export_bundle_gate",
+      "label": "EXPORT/BUNDLE GATE"
+    },
+    {
+      "zone_id": "feature_module_dock",
+      "label": "FEATURE MODULE DOCK"
+    }
+  ],
+  "zone_status_rows_from_detail": {
+    "core_brain": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n3\nSources missing\n0\n⚠️ ОГРАНИЧЕНИЯ\nRULE_BASED_ONLY\nNO_LOCAL_LLM\nNO_AGENT_API\n🔮 НЕ РЕАЛИЗОВАНО\nReal-time health monitoring\nAuto-repair\n⚡ ДЕЙСТВИЯ\n⚡ ПЕРЕСОБРАТЬ SNAPSHOT",
+    "task_intake": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\ntask_count\n3\nunlinked_task_count\n0\nlast_task_age_seconds\n3\n⚠️ ОГРАНИЧЕНИЯ\nRULE_BASED_ONLY\nNO_AUTO_ROUTING\n🔮 НЕ РЕАЛИЗОВАНО\nAuto-routing\nPriority scoring\nLLM interpretation\n⚡ ДЕЙСТВИЯ\n📋 ОТКРЫТЬ TASK INTAKE",
+    "owner_comments": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\ncomment_count\n3\nlinked_count\n3\nunlinked_count\n0\nneeds_interpretation_count\n0\n⚠️ ОГРАНИЧЕНИЯ\nNO_AUTO_INTERPRETATION\nMANUAL_LINKING_ONLY\n🔮 НЕ РЕАЛИЗОВАНО\nLLM interpretation\nSentiment analysis\n⚡ ДЕЙСТВИЯ\n💬 ОТКРЫТЬ COMMENTS",
+    "memory_threads": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n3\nSources missing\n0\n📡 TELEMETRY\nlink_count\n3\nbroken_link_count\n0\norphaned_task_count\n0\norphaned_comment_count\n0\n⚠️ ОГРАНИЧЕНИЯ\nMANUAL_LINKING_ONLY\n🔮 НЕ РЕАЛИЗОВАНО\nAuto-linking\nSemantic similarity\nGraph traversal\n⚡ ДЕЙСТВИЯ\n🔗 ОТКРЫТЬ LINKS🧵 ОТКРЫТЬ THREAD VIEW",
+    "progress_spine": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\nreceipt_count\n9\nno_llm_rate\n100\nlast_event_age_seconds\n2\nexport_count\n2\n⚠️ ОГРАНИЧЕНИЯ\nNO_REAL_TIME_STREAM\nFILE_BASED_ONLY\n🔮 НЕ РЕАЛИЗОВАНО\nReal-time event stream\nEvent correlation\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY",
+    "evidence_receipts": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nreceipt_count\n9\nno_llm_rate\n100\nlast_event_age_seconds\n2\nexport_count\n2\n⚠️ ОГРАНИЧЕНИЯ\nRECEIPTS_ARE_SELF_REPORTED\n🔮 НЕ РЕАЛИЗОВАНО\nCryptographic signing\nExternal audit trail\n⚡ ДЕЙСТВИЯ\n🔬 ОТКРЫТЬ EVIDENCE📦 ЭКСПОРТ ПАКЕТА",
+    "action_control": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nenabled_action_count\n8\ndisabled_action_count\n2\n⚠️ ОГРАНИЧЕНИЯ\nMUTATING_ACTIONS_DISABLED\n🔮 НЕ РЕАЛИЗОВАНО\nAutonomous action execution\nAction chaining\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY",
+    "agent_exchange": "📊 СТАТУС ЗОНЫ\nHealth\nPARTIAL\nCapability\nPARTIAL\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nexchange_state\nMVP_READY\nthread_count\n1\n⚠️ ОГРАНИЧЕНИЯ\nPARTIAL_BINDING\nKNOWN_MOJIBAKE_FAULT\nNO_REAL_AGENT_API\n🔮 НЕ РЕАЛИЗОВАНО\nReal agent API\nAutomated exchange\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY",
+    "delta_verification": "📊 СТАТУС ЗОНЫ\nHealth\nPARTIAL\nCapability\nPARTIAL\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nlast_verdict\nUNKNOWN\n⚠️ ОГРАНИЧЕНИЯ\nFULL_MODE_REQUIRES_PLAYWRIGHT\nKNOWN_MOJIBAKE_CRASH\n🔮 НЕ РЕАЛИЗОВАНО\nAutomated pre-commit gate\nCI integration\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY",
+    "testing_field": "📊 СТАТУС ЗОНЫ\nHealth\nPARTIAL\nCapability\nPARTIAL\nSources present\n2\nSources missing\n0\n⚠️ ОГРАНИЧЕНИЯ\nSMOKE_NOT_PRODUCTION_QUALITY\nUI_INTEGRATION_INCOMPLETE\n🔮 НЕ РЕАЛИЗОВАНО\nFull test suite\nProperty-based testing\nMerge polygon\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY",
+    "export_bundle_gate": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\nexport_count\n2\ngate_status\nREADY\n⚠️ ОГРАНИЧЕНИЯ\nOWNER_GATE_REQUIRED\nNO_AUTO_EXPORT\n🔮 НЕ РЕАЛИЗОВАНО\nAutomated bundle pipeline\nArtifact signing\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY",
+    "feature_module_dock": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nmodule_count\n4\nworking_count\n1\npartial_count\n3\nblocked_count\n0\n⚠️ ОГРАНИЧЕНИЯ\nMANUAL_REGISTRATION_ONLY\nNO_AUTO_DISCOVERY\n🔮 НЕ РЕАЛИЗОВАНО\nAuto-discovery\nHot-reload\nPlugin system\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+  },
+  "zone_tooltips": {
+    "core_brain": {
+      "title": "🧠 CORE BRAIN / SYSTEM HEALTH",
+      "summary": "Health: 9/12/12 zones OK | Snapshot age: —s | Warnings: 3",
+      "telemetry": "Health: WORKING\nSources: 3/3"
+    },
+    "task_intake": {
+      "title": "📋 TASK INTAKE",
+      "summary": "Tasks: 3 | Last: 3s ago | Status: —",
+      "telemetry": "Health: WORKING\nSources: 1/1\nTasks: 3"
+    },
+    "owner_comments": {
+      "title": "💬 OWNER COMMENTS",
+      "summary": "Comments: 3 | Linked: 3 | Unlinked: 0",
+      "telemetry": "Health: WORKING\nSources: 1/1\nComments: 3"
+    },
+    "memory_threads": {
+      "title": "🧵 MEMORY THREADS",
+      "summary": "Links: 3 | Orphaned tasks: 0 | Orphaned comments: 0",
+      "telemetry": "Health: WORKING\nSources: 3/3\nLinks: 3"
+    },
+    "progress_spine": {
+      "title": "📈 PROGRESS SPINE",
+      "summary": "Events: {event_count} | Last: 2s ago | Receipts: 9",
+      "telemetry": "Health: WORKING\nSources: 1/1\nReceipts: 9"
+    },
+    "evidence_receipts": {
+      "title": "🔬 EVIDENCE / RECEIPTS",
+      "summary": "Receipts: 9 | Exports: 2 | no_llm_used: 100%",
+      "telemetry": "Health: WORKING\nSources: 2/2\nReceipts: 9"
+    },
+    "action_control": {
+      "title": "⚡ ACTION / SCRIPT CONTROL",
+      "summary": "Enabled: 8 | Disabled: 2 | Last run: —s ago",
+      "telemetry": "Health: WORKING\nSources: 2/2"
+    },
+    "agent_exchange": {
+      "title": "🤖 AGENT EXCHANGE",
+      "summary": "State: MVP_READY | Threads: 1 | Last: —s ago",
+      "telemetry": "Health: PARTIAL\nSources: 2/2"
+    },
+    "delta_verification": {
+      "title": "🔍 DELTA VERIFICATION",
+      "summary": "Verdict: UNKNOWN | Last run: —s ago | Warnings: 3",
+      "telemetry": "Health: PARTIAL\nSources: 2/2"
+    },
+    "testing_field": {
+      "title": "🧪 TESTING FIELD",
+      "summary": "Smoke: — | Last run: —s ago | Coverage: —",
+      "telemetry": "Health: PARTIAL\nSources: 2/2"
+    },
+    "export_bundle_gate": {
+      "title": "📦 EXPORT / BUNDLE GATE",
+      "summary": "Last export: —s ago | Exports: 2 | Gate: READY",
+      "telemetry": "Health: WORKING\nSources: 1/1"
+    },
+    "feature_module_dock": {
+      "title": "🔌 FEATURE MODULE DOCK",
+      "summary": "Modules: 4 | Working: 1 | Blocked: 0",
+      "telemetry": "Health: WORKING\nSources: 2/2"
+    }
+  },
+  "zone_detail_panel_text": {
+    "core_brain": {
+      "name": "CORE BRAIN / SYSTEM HEALTH",
+      "purpose": "RULE_BASED_ONLY | NO_LOCAL_LLM | NO_AGENT_API",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n3\nSources missing\n0\n⚠️ ОГРАНИЧЕНИЯ\nRULE_BASED_ONLY\nNO_LOCAL_LLM\nNO_AGENT_API\n🔮 НЕ РЕАЛИЗОВАНО\nReal-time health monitoring\nAuto-repair\n⚡ ДЕЙСТВИЯ\n⚡ ПЕРЕСОБРАТЬ SNAPSHOT"
+    },
+    "task_intake": {
+      "name": "TASK INTAKE",
+      "purpose": "RULE_BASED_ONLY | NO_AUTO_ROUTING",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\ntask_count\n3\nunlinked_task_count\n0\nlast_task_age_seconds\n3\n⚠️ ОГРАНИЧЕНИЯ\nRULE_BASED_ONLY\nNO_AUTO_ROUTING\n🔮 НЕ РЕАЛИЗОВАНО\nAuto-routing\nPriority scoring\nLLM interpretation\n⚡ ДЕЙСТВИЯ\n📋 ОТКРЫТЬ TASK INTAKE"
+    },
+    "owner_comments": {
+      "name": "OWNER COMMENTS",
+      "purpose": "NO_AUTO_INTERPRETATION | MANUAL_LINKING_ONLY",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\ncomment_count\n3\nlinked_count\n3\nunlinked_count\n0\nneeds_interpretation_count\n0\n⚠️ ОГРАНИЧЕНИЯ\nNO_AUTO_INTERPRETATION\nMANUAL_LINKING_ONLY\n🔮 НЕ РЕАЛИЗОВАНО\nLLM interpretation\nSentiment analysis\n⚡ ДЕЙСТВИЯ\n💬 ОТКРЫТЬ COMMENTS"
+    },
+    "memory_threads": {
+      "name": "MEMORY THREADS",
+      "purpose": "MANUAL_LINKING_ONLY",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n3\nSources missing\n0\n📡 TELEMETRY\nlink_count\n3\nbroken_link_count\n0\norphaned_task_count\n0\norphaned_comment_count\n0\n⚠️ ОГРАНИЧЕНИЯ\nMANUAL_LINKING_ONLY\n🔮 НЕ РЕАЛИЗОВАНО\nAuto-linking\nSemantic similarity\nGraph traversal\n⚡ ДЕЙСТВИЯ\n🔗 ОТКРЫТЬ LINKS🧵 ОТКРЫТЬ THREAD VIEW"
+    },
+    "progress_spine": {
+      "name": "PROGRESS SPINE",
+      "purpose": "NO_REAL_TIME_STREAM | FILE_BASED_ONLY",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\nreceipt_count\n9\nno_llm_rate\n100\nlast_event_age_seconds\n2\nexport_count\n2\n⚠️ ОГРАНИЧЕНИЯ\nNO_REAL_TIME_STREAM\nFILE_BASED_ONLY\n🔮 НЕ РЕАЛИЗОВАНО\nReal-time event stream\nEvent correlation\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    },
+    "evidence_receipts": {
+      "name": "EVIDENCE / RECEIPTS",
+      "purpose": "RECEIPTS_ARE_SELF_REPORTED",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nreceipt_count\n9\nno_llm_rate\n100\nlast_event_age_seconds\n2\nexport_count\n2\n⚠️ ОГРАНИЧЕНИЯ\nRECEIPTS_ARE_SELF_REPORTED\n🔮 НЕ РЕАЛИЗОВАНО\nCryptographic signing\nExternal audit trail\n⚡ ДЕЙСТВИЯ\n🔬 ОТКРЫТЬ EVIDENCE📦 ЭКСПОРТ ПАКЕТА"
+    },
+    "action_control": {
+      "name": "ACTION / SCRIPT CONTROL",
+      "purpose": "MUTATING_ACTIONS_DISABLED",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nenabled_action_count\n8\ndisabled_action_count\n2\n⚠️ ОГРАНИЧЕНИЯ\nMUTATING_ACTIONS_DISABLED\n🔮 НЕ РЕАЛИЗОВАНО\nAutonomous action execution\nAction chaining\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    },
+    "agent_exchange": {
+      "name": "AGENT EXCHANGE",
+      "purpose": "PARTIAL_BINDING | KNOWN_MOJIBAKE_FAULT | NO_REAL_AGENT_API",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nPARTIAL\nCapability\nPARTIAL\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nexchange_state\nMVP_READY\nthread_count\n1\n⚠️ ОГРАНИЧЕНИЯ\nPARTIAL_BINDING\nKNOWN_MOJIBAKE_FAULT\nNO_REAL_AGENT_API\n🔮 НЕ РЕАЛИЗОВАНО\nReal agent API\nAutomated exchange\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    },
+    "delta_verification": {
+      "name": "DELTA VERIFICATION",
+      "purpose": "FULL_MODE_REQUIRES_PLAYWRIGHT | KNOWN_MOJIBAKE_CRASH",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nPARTIAL\nCapability\nPARTIAL\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nlast_verdict\nUNKNOWN\n⚠️ ОГРАНИЧЕНИЯ\nFULL_MODE_REQUIRES_PLAYWRIGHT\nKNOWN_MOJIBAKE_CRASH\n🔮 НЕ РЕАЛИЗОВАНО\nAutomated pre-commit gate\nCI integration\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    },
+    "testing_field": {
+      "name": "TESTING FIELD",
+      "purpose": "SMOKE_NOT_PRODUCTION_QUALITY | UI_INTEGRATION_INCOMPLETE",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nPARTIAL\nCapability\nPARTIAL\nSources present\n2\nSources missing\n0\n⚠️ ОГРАНИЧЕНИЯ\nSMOKE_NOT_PRODUCTION_QUALITY\nUI_INTEGRATION_INCOMPLETE\n🔮 НЕ РЕАЛИЗОВАНО\nFull test suite\nProperty-based testing\nMerge polygon\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    },
+    "export_bundle_gate": {
+      "name": "EXPORT / BUNDLE GATE",
+      "purpose": "OWNER_GATE_REQUIRED | NO_AUTO_EXPORT",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n1\nSources missing\n0\n📡 TELEMETRY\nexport_count\n2\ngate_status\nREADY\n⚠️ ОГРАНИЧЕНИЯ\nOWNER_GATE_REQUIRED\nNO_AUTO_EXPORT\n🔮 НЕ РЕАЛИЗОВАНО\nAutomated bundle pipeline\nArtifact signing\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    },
+    "feature_module_dock": {
+      "name": "FEATURE MODULE DOCK",
+      "purpose": "MANUAL_REGISTRATION_ONLY | NO_AUTO_DISCOVERY",
+      "body": "📊 СТАТУС ЗОНЫ\nHealth\nWORKING\nCapability\nWORKING\nSources present\n2\nSources missing\n0\n📡 TELEMETRY\nmodule_count\n4\nworking_count\n1\npartial_count\n3\nblocked_count\n0\n⚠️ ОГРАНИЧЕНИЯ\nMANUAL_REGISTRATION_ONLY\nNO_AUTO_DISCOVERY\n🔮 НЕ РЕАЛИЗОВАНО\nAuto-discovery\nHot-reload\nPlugin system\n⚡ ДЕЙСТВИЯ\nДействия для этой зоны: READ_ONLY"
+    }
+  },
+  "operator_panel_text_samples": {
+    "tasks": "📋 НОВАЯ ЗАДАЧА\nТЕКСТ ЗАДАЧИ *\nЦЕЛЬ ВЛАДЕЛЬЦА\nПРИОРИТЕТ\nLOW\nMEDIUM\nHIGH\nCRITICAL\nТЕГИ (ЧЕРЕЗ ЗАПЯТУЮ)\n⚡ ПРИНЯТЬ ЗАДАЧУ\n📋 ПРИНЯТЫЕ ЗАДАЧИ (3)\nTI-20260516-174525-962\nAUDIT_V05_20260516174509 TASK created via Playwright audit\nTASK_ACCEPTED\nHIGH\n3m ago\n🧵 THREAD\nTI-20260516-151558-364\nSBV03-LIVE-TASK-OWNER-001 Проверить, что Second Brain V0.3 реально принимает задачу через UI, пишет JSON, создаёт receipt и может быть передан агенту как task intake package.\nTASK_ACCEPTED\nHIGH\n2h ago\n🧵 THREAD\nTI-20260516-120000-001\nПостроить Second Brain V0.3 — интерактивный Task Intake + Owner Comments Mesh\nTASK_ACCEPTED\nHIGH\nSEED\n5h ago\n🧵 THREAD",
+    "comments": "💬 НОВЫЙ КОММЕНТАРИЙ\nТЕКСТ КОММЕНТАРИЯ *\nТИП КОММЕНТАРИЯ\nOBSERVATION\nINSTRUCTION\nQUESTION\nFEEDBACK\nBLOCKER\nAPPROVAL\nИНТЕРПРЕТАЦИЯ (ОПЦИОНАЛЬНО)\n💬 ЗАХВАТИТЬ КОММЕНТАРИЙ\n💬 ЗАХВАЧЕННЫЕ КОММЕНТАРИИ (3)\nOC-20260516-174525-179\nAUDIT_V05_20260516174509 COMMENT captured via Playwright audit\nLINKED\nOBSERVATION\n3m ago\nOC-20260516-151625-183\nSBV03-LIVE-COMMENT-OWNER-001 Owner подтверждает: эта задача должна стать первым живым примером task intake, который можно передать агенту вместе с комментарием и receipt.\nLINKED\nOBSERVATION\n2h ago\nOC-20260516-120000-001\nЭто seed-комментарий владельца. V0.3 должен захватывать такие комментарии и связывать их с задачами.\nLINKED\nOBSERVATION\nSEED\n5h ago",
+    "links": "🔗 СОЗДАТЬ СВЯЗЬ\nЗАДАЧА (SOURCE) *\n— выберите задачу —\nTI-20260516-120000-0 — Построить Second Brain V0.3 —\nTI-20260516-151558-3 — SBV03-LIVE-TASK-OWNER-001 Пров\nTI-20260516-174525-9 — AUDIT_V05_20260516174509 TASK\nКОММЕНТАРИЙ (TARGET) *\n— выберите комментарий —\nOC-20260516-120000-0 — Это seed-комментарий владельца\nOC-20260516-151625-1 — SBV03-LIVE-COMMENT-OWNER-001 O\nOC-20260516-174525-1 — AUDIT_V05_20260516174509 COMME\nПРИЧИНА СВЯЗИ\n🔗 СОЗДАТЬ СВЯЗЬ\n🔗 АКТИВНЫЕ СВЯЗИ (3)\nML-20260516-174526-284\nTI-20260516-174525-962 → OC-20260516-174525-179\nLINK_CREATED\n3m ago\nAUDIT_V05_20260516174509 link parity proof\nML-20260516-151649-626\nTI-20260516-151558-364 → OC-20260516-151625-183\nLINK_CREATED\n2h ago\nML-20260516-120000-001\nTI-20260516-120000-001 → OC-20260516-120000-001\nLINK_VERIFIED\nSEED\n5h ago\nOwner comment directly references this task as its subject",
+    "thread": "🧵 MEMORY THREAD VIEW\nВЫБЕРИТЕ ЗАДАЧУ\n— выберите задачу —\nTI-20260516-120000-0 — Построить Second Brain V0.3 — интер\nTI-20260516-151558-3 — SBV03-LIVE-TASK-OWNER-001 Проверить\nTI-20260516-174525-9 — AUDIT_V05_20260516174509 TASK creat\n🧵 ЗАГРУЗИТЬ\n🧵\nВыберите задачу для просмотра memory thread",
+    "evidence": "🔬 EVIDENCE PANEL\n📊 SNAPSHOT\nID\nNBV05-SNAP-20260516174528\nTimestamp\n2026-05-16T17:45:28Z\nHealth\n9/12\nWarnings\n3\nMissing sources\n0\nRuntime mode\nPROTOTYPE_INTERACTIVE\nno_local_llm\ntrue\nno_agent_api\ntrue\n🧠 ЗОНЫ\n🧠 Core Brain / System Health\nWORKING\n📋 Task Intake\nWORKING\n💬 Owner Comments\nWORKING\n🧵 Memory Threads\nWORKING\n📈 Progress Spine\nWORKING\n🔬 Evidence / Receipts\nWORKING\n⚡ Action / Script Control\nWORKING\n🤖 Agent Exchange\nPARTIAL\n🔍 Delta Verification\nPARTIAL\n🧪 Testing Field\nPARTIAL\n📦 Export / Bundle Gate\nWORKING\n🔌 Feature Module Dock\nWORKING\n📁 ПУТИ\nTasks\nMEMORY_ZONES/TASK_INTAKE/accepted_tasks.json\nComments\nMEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json\nLinks\nMEMORY_ZONES/MEMORY_LINKS/task_comment_links.json\nReceipts\nRUNTIME/receipts/\nExports\nRUNTIME/exports/\nChecker report\nNEURAL_BASE_V0_5/reports/check_report_v0_5.json\n📦 СОЗДАТЬ ЭКСПОРТ ПАКЕТА⚡ ПЕРЕСОБРАТЬ SNAPSHOT"
+  },
+  "thread_panel_text": "TI-20260516-174836-211\nAUDIT_V05_20260516174821 TASK created via Playwright audit\nTASK_ACCEPTED\nHIGH\n2s ago\nЦель: Validate frontback truth parity\nLINKED COMMENTS (1)\nOC-20260516-174836-102\nAUDIT_V05_20260516174821 COMMENT captured via Playwright audit\nLINKED\nOBSERVATION\nRECEIPTS (2)\nRCP-20260516-174836-166 · TASK_CREATED\nno_llm_used: true\nRCP-20260516-174836-695 · COMMENT_CREATED\nno_llm_used: true",
+  "evidence_panel_text": "🔬 EVIDENCE PANEL\n📊 SNAPSHOT\nID\nNBV05-SNAP-20260516174528\nTimestamp\n2026-05-16T17:45:28Z\nHealth\n9/12\nWarnings\n3\nMissing sources\n0\nRuntime mode\nPROTOTYPE_INTERACTIVE\nno_local_llm\ntrue\nno_agent_api\ntrue\n🧠 ЗОНЫ\n🧠 Core Brain / System Health\nWORKING\n📋 Task Intake\nWORKING\n💬 Owner Comments\nWORKING\n🧵 Memory Threads\nWORKING\n📈 Progress Spine\nWORKING\n🔬 Evidence / Receipts\nWORKING\n⚡ Action / Script Control\nWORKING\n🤖 Agent Exchange\nPARTIAL\n🔍 Delta Verification\nPARTIAL\n🧪 Testing Field\nPARTIAL\n📦 Export / Bundle Gate\nWORKING\n🔌 Feature Module Dock\nWORKING\n📁 ПУТИ\nTasks\nMEMORY_ZONES/TASK_INTAKE/accepted_tasks.json\nComments\nMEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json\nLinks\nMEMORY_ZONES/MEMORY_LINKS/task_comment_links.json\nReceipts\nRUNTIME/receipts/\nExports\nRUNTIME/exports/\nChecker report\nNEURAL_BASE_V0_5/reports/check_report_v0_5.json\n📦 СОЗДАТЬ ЭКСПОРТ ПАКЕТА⚡ ПЕРЕСОБРАТЬ SNAPSHOT"
+}

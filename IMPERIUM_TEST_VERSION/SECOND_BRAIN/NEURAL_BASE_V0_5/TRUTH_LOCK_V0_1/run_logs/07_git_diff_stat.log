@@ -1,0 +1,22 @@
+=== git diff --stat ===
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/neural_map_v0_5.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json', CRLF will be replaced by LF the next time Git touches it
+warning: in the working copy of 'IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py', CRLF will be replaced by LF the next time Git touches it
+ .../MEMORY_LINKS/task_comment_links.json           |  42 ++++
+ .../OWNER_COMMENTS/owner_comments_runtime.json     |  54 +++++
+ .../MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json   |  74 ++++++
+ .../NEURAL_BASE_V0_5/app/neural_map_v0_5.css       |  49 ++++
+ .../NEURAL_BASE_V0_5/app/neural_map_v0_5.html      |  22 +-
+ .../NEURAL_BASE_V0_5/app/neural_map_v0_5.js        |  98 +++++++-
+ .../NEURAL_BASE_V0_5/app/server_v0_5.py            | 254 +++++++++++++++++++--
+ .../reports/check_report_v0_5.json                 |   2 +-
+ .../reports/neural_snapshot_live.json              |  74 ++++--
+ .../tools/snapshot_builder_v0_5.py                 |  34 ++-
+ 10 files changed, 654 insertions(+), 49 deletions(-)
