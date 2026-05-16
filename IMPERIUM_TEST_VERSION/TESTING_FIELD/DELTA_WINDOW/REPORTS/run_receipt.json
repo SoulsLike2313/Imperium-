@@ -1,0 +1,32 @@
+{
+  "receipt_id": "RCP-DELTA-20260516_043226",
+  "started_at": "2026-05-16T04:32:25",
+  "repo_root": "E:\\IMPERIUM",
+  "finished_at": "2026-05-16T04:32:26",
+  "mode": "precommit",
+  "test_version_root": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+  "git_head": "ff9457d2e5d5d4da9d5b39d039dc1622cbf34810",
+  "stages": {
+    "html_generator": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "snapshot": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "screenshots": {
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    "delta_analyzer": {
+      "exit_code": 1,
+      "status": "PARTIAL"
+    },
+    "source_lock": {
+      "git_head": "ff9457d2e5d5d4da9d5b39d039dc1622cbf34810",
+      "status": "PASS"
+    }
+  },
+  "overall_verdict": "PASS"
+}

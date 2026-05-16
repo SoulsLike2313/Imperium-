@@ -1,0 +1,88 @@
+{
+  "generated_at": "2026-05-16T01:32:26.477281+00:00",
+  "playwright_available": false,
+  "dashboards_found": 13,
+  "screenshots_captured": 0,
+  "screenshots_failed": 0,
+  "screenshots_blocked": 13,
+  "results": [
+    {
+      "dashboard": "SANCTUM_MIRROR\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "SANCTUM_MIRROR\\master_dashboard.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\ADMINISTRATUM\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\ASTRONOMICON\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\CUSTODES\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\DOCTRINARIUM\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\INQUISITION\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\MECHANICUS\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\OFFICIO_AGENTIS\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\SCHOLA_IMPERIALIS\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\STRATEGIUM\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "ORGANS\\THRONE\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    },
+    {
+      "dashboard": "LIVE_WORKBENCH\\DASHBOARD\\index.html",
+      "screenshot": null,
+      "status": "blocked",
+      "reason": "Playwright not installed"
+    }
+  ]
+}

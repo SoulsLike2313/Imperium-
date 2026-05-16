@@ -1,0 +1,122 @@
+{
+  "delta_id": "DELTA-20260516_013226",
+  "generated_at": "2026-05-16T01:32:26.333876+00:00",
+  "repo_root": "E:\\IMPERIUM",
+  "scope_root": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+  "mode": "precommit",
+  "baseline": {
+    "type": "git_head",
+    "commit": "ff9457d2e5d5d4da9d5b39d039dc1622cbf34810",
+    "label": "HEAD (ff9457d2)"
+  },
+  "current": {
+    "type": "worktree",
+    "commit": null,
+    "label": "Current worktree"
+  },
+  "scope": {
+    "test_version_only": true,
+    "main_canon_touched": false,
+    "main_canon_file": null
+  },
+  "file_delta": {
+    "added": [
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/README_RU.md",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/DELTA_WINDOW_MVP_OWNER_REPORT_RU.md",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/command_log.md",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report_ru.md",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SCREENSHOTS/current/screenshot_index.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SNAPSHOTS/SNAP-20260516_012527/snapshot.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/SNAPSHOTS/SNAP-20260516_013225/snapshot.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/dashboard_screenshot_collector.py",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_analyzer.py",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/generate_delta_window.py",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/snapshot_collector.py"
+    ],
+    "modified": [],
+    "deleted": [],
+    "renamed": [],
+    "diff_stat": [],
+    "total_changes": 16
+  },
+  "truth_delta": {
+    "baseline_status": "N/A (precommit mode)",
+    "current_status": "FAIL",
+    "pass_count": 2,
+    "fail_count": 1,
+    "components": [
+      {
+        "name": "Smoke Test",
+        "status": "PARTIAL"
+      },
+      {
+        "name": "Mechanicus Health",
+        "status": "PASS"
+      },
+      {
+        "name": "Inquisition Audit",
+        "status": "PASS"
+      },
+      {
+        "name": "Master Verification",
+        "status": "FAIL"
+      }
+    ],
+    "improved": [],
+    "worsened": [],
+    "unchanged": [],
+    "unknown": []
+  },
+  "dashboard_delta": {
+    "dashboards_found": [
+      "SANCTUM_MIRROR\\index.html",
+      "SANCTUM_MIRROR\\master_dashboard.html",
+      "ORGANS\\ADMINISTRATUM\\DASHBOARD\\index.html",
+      "ORGANS\\ASTRONOMICON\\DASHBOARD\\index.html",
+      "ORGANS\\CUSTODES\\DASHBOARD\\index.html",
+      "ORGANS\\DOCTRINARIUM\\DASHBOARD\\index.html",
+      "ORGANS\\INQUISITION\\DASHBOARD\\index.html",
+      "ORGANS\\MECHANICUS\\DASHBOARD\\index.html",
+      "ORGANS\\OFFICIO_AGENTIS\\DASHBOARD\\index.html",
+      "ORGANS\\SCHOLA_IMPERIALIS\\DASHBOARD\\index.html",
+      "ORGANS\\STRATEGIUM\\DASHBOARD\\index.html",
+      "ORGANS\\THRONE\\DASHBOARD\\index.html",
+      "LIVE_WORKBENCH\\DASHBOARD\\index.html"
+    ],
+    "baseline_screenshots": [],
+    "current_screenshots": [],
+    "broken_links": [],
+    "plastic_risks": []
+  },
+  "evidence_delta": {
+    "new_reports": [
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json",
+      "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json"
+    ],
+    "new_receipts": [],
+    "new_audits": [],
+    "new_runs": []
+  },
+  "risk_delta": {
+    "fake_green_risk": "low",
+    "stale_truth_risk": "low",
+    "generated_churn_risk": "low",
+    "main_scope_risk": "low"
+  },
+  "precommit_verdict": {
+    "safe_to_commit": false,
+    "verdict": "REPAIR_REQUIRED",
+    "reasons": [
+      "Truth state is FAIL (pass: 2, fail: 1)"
+    ],
+    "required_next_actions": [
+      "Fix failing components before commit"
+    ]
+  }
+}
