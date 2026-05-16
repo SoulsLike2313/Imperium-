@@ -1,10 +1,16 @@
 {
-  "timestamp": "2026-05-15T23:31:34.294849+00:00",
+  "timestamp": "2026-05-16T01:06:07.907747+00:00",
   "success_patterns": [
     {
       "action": "smoke_test",
-      "success_count": 8,
+      "success_count": 9,
       "pattern": "Reliable smoke_test workflow",
+      "reusable": true
+    },
+    {
+      "action": "script_health_check",
+      "success_count": 3,
+      "pattern": "Reliable script_health_check workflow",
       "reusable": true
     }
   ]

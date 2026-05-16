@@ -11,6 +11,11 @@ param(
 
 $ErrorActionPreference = "Continue"
 
+# Fix Unicode/emoji output for Windows console
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$env:PYTHONIOENCODING = "utf-8"
+$env:PYTHONUTF8 = "1"
+
 $TestVersionRoot = "E:\IMPERIUM\IMPERIUM_TEST_VERSION"
 $RepoRoot = "E:\IMPERIUM"
 

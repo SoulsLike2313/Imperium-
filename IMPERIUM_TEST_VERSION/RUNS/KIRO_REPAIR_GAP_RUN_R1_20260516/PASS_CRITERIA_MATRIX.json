@@ -1,0 +1,68 @@
+{
+  "matrix_id": "PASS_CRITERIA_20260516",
+  "criteria": [
+    {
+      "id": "PC001",
+      "name": "RUN_ALL exit 0",
+      "description": "Master script exits with code 0",
+      "status": "FAIL",
+      "actual": "exit 1",
+      "blocker": true
+    },
+    {
+      "id": "PC002",
+      "name": "No Unicode errors",
+      "description": "No UnicodeEncodeError in console output",
+      "status": "PASS",
+      "actual": "0 errors",
+      "blocker": false
+    },
+    {
+      "id": "PC003",
+      "name": "Dashboard links valid",
+      "description": "All dashboard links resolve correctly",
+      "status": "PASS",
+      "actual": "63 links fixed",
+      "blocker": false
+    },
+    {
+      "id": "PC004",
+      "name": "No fake green in docs",
+      "description": "No overclaims in README/roadmap",
+      "status": "PASS",
+      "actual": "Claims updated to IN_PROGRESS",
+      "blocker": false
+    },
+    {
+      "id": "PC005",
+      "name": "Inquisition PASS",
+      "description": "Audit finds 0 fake green",
+      "status": "FAIL",
+      "actual": "2 fake green (hardcoded PASS in code)",
+      "blocker": false
+    },
+    {
+      "id": "PC006",
+      "name": "Truth aggregate PASS",
+      "description": "Overall truth status is PASS",
+      "status": "FAIL",
+      "actual": "FAIL (2 fail, 2 partial)",
+      "blocker": true
+    },
+    {
+      "id": "PC007",
+      "name": "Script health 100%",
+      "description": "All scripts healthy",
+      "status": "FAIL",
+      "actual": "99.9% (1 broken)",
+      "blocker": false
+    }
+  ],
+  "summary": {
+    "total": 7,
+    "pass": 3,
+    "fail": 4,
+    "blockers_remaining": 2
+  },
+  "verdict": "PARTIAL"
+}

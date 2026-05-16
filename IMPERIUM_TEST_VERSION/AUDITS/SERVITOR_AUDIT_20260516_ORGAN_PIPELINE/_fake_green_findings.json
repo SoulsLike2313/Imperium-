@@ -1,0 +1,44 @@
+[
+  {
+    "file_path": "IMPERIUM_TEST_VERSION/KIRO_FORENSIC_SYNTHESIS/K10_KIRO_LAB_ROADMAP.json",
+    "claim": "No fake green possible; dashboard reflects truth 100%; ALL_PHASES_COMPLETE",
+    "evidence": "latest_audit shows fake_green_count=2 and stale_truth_count=98; dashboards are static (no fetch) and include overclaims.",
+    "severity": "BLOCKER",
+    "recommended_repair_task": "Bind roadmap/dash claims to live truth aggregate + block COMPLETE labels when audit/truth != PASS."
+  },
+  {
+    "file_path": "IMPERIUM_TEST_VERSION/README_RU.md",
+    "claim": "Все 7 фаз roadmap: COMPLETE",
+    "evidence": "RUN_ALL exit=1, multiple FAIL components (audit, truth spine, registry sync, dashboard generator, learning scripts).",
+    "severity": "HIGH",
+    "recommended_repair_task": "Replace static completion statement with derived state from latest receipts."
+  },
+  {
+    "file_path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/master_dashboard.html",
+    "claim": "7/7 phases complete, 10/10 smoke tests in main hero section",
+    "evidence": "latest_smoke_report summary is PARTIAL (4/5) in current run; master dashboard is static snapshot.",
+    "severity": "HIGH",
+    "recommended_repair_task": "Regenerate dashboard from current receipts and show explicit source timestamp + mismatch warning."
+  },
+  {
+    "file_path": "IMPERIUM_TEST_VERSION/ORGANS/*/DASHBOARD/index.html",
+    "claim": "Evidence-linked organ dashboards",
+    "evidence": "8/10 organ dashboards have broken relative links to contracts/scripts/reports/master dashboard.",
+    "severity": "HIGH",
+    "recommended_repair_task": "Fix dashboard_generator relative-link template and add link-validation gate in RUN_ALL."
+  },
+  {
+    "file_path": "IMPERIUM_TEST_VERSION/REPORTS/truth_aggregate.json",
+    "claim": "Aggregated truth reflects latest run receipts",
+    "evidence": "Master component points to RCP-MASTER-20260516_024512 while current run created RCP-MASTER-20260516_025418.",
+    "severity": "MEDIUM",
+    "recommended_repair_task": "Use deterministic latest receipt selection and include receipt-id trace in aggregate output."
+  },
+  {
+    "file_path": "IMPERIUM_TEST_VERSION/RUN_ALL.ps1 and multiple scripts",
+    "claim": "Full pipeline automation",
+    "evidence": "Multiple UnicodeEncodeError exceptions in steps 5,6,7b,9,10,12 break run consistency.",
+    "severity": "MEDIUM",
+    "recommended_repair_task": "Normalize console encoding / strip emoji in CLI output paths to avoid false FAIL due terminal codec."
+  }
+]

@@ -1,0 +1,604 @@
+[
+  {
+    "organ": "ADMINISTRATUM",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+    "status": "PARTIAL",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "provides",
+      "invariants",
+      "implementation_status"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Address book, history, lifecycle, bundles",
+      "contracts": [
+        {
+          "contract_id": "address_entry",
+          "description": "Entry in the address book",
+          "fields": [
+            "entry_id",
+            "path",
+            "type",
+            "owner",
+            "status"
+          ]
+        },
+        {
+          "contract_id": "history_record",
+          "description": "Historical record of actions",
+          "fields": [
+            "record_id",
+            "timestamp",
+            "action",
+            "actor",
+            "target",
+            "result"
+          ]
+        },
+        {
+          "contract_id": "bundle_manifest",
+          "description": "Manifest for a bundle",
+          "fields": [
+            "bundle_id",
+            "files",
+            "hash",
+            "created_at",
+            "purpose"
+          ]
+        }
+      ],
+      "storage": "ORGANS/ADMINISTRATUM/"
+    },
+    "frontend_face": {
+      "responsibility": "History/address/task state panels",
+      "ui_components": [
+        "history_timeline",
+        "address_book",
+        "task_board"
+      ],
+      "dashboard": "ORGANS/ADMINISTRATUM/DASHBOARD/"
+    },
+    "support_face": {
+      "responsibility": "Bundle/ledger consistency checks",
+      "test_types": [
+        "bundle_integrity_test",
+        "ledger_consistency_test",
+        "self_inventory",
+        "self_diagnosis"
+      ],
+      "scripts": "ORGANS/ADMINISTRATUM/SCRIPTS/"
+    }
+  },
+  {
+    "organ": "ASTRONOMICON",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "ports",
+      "invariants",
+      "implementation_status"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Task formation, decomposition, stage maps",
+      "contracts": [
+        {
+          "contract_id": "task_definition",
+          "description": "Definition of a task",
+          "fields": [
+            "task_id",
+            "title",
+            "description",
+            "owner",
+            "status",
+            "priority",
+            "dependencies",
+            "deliverables"
+          ]
+        },
+        {
+          "contract_id": "stage_map",
+          "description": "Map of stages for a task",
+          "fields": [
+            "task_id",
+            "stages",
+            "current_stage",
+            "gates",
+            "blockers"
+          ]
+        },
+        {
+          "contract_id": "decomposition_tree",
+          "description": "Hierarchical decomposition of task",
+          "fields": [
+            "task_id",
+            "parent_id",
+            "children",
+            "depth",
+            "completion_status"
+          ]
+        }
+      ],
+      "storage": "ORGANS/ASTRONOMICON/TASKS/"
+    },
+    "frontend_face": {
+      "responsibility": "Planning workbench, task map view",
+      "ui_components": [
+        "task_map",
+        "stage_progress",
+        "decomposition_tree",
+        "dependency_graph"
+      ],
+      "dashboard": "ORGANS/ASTRONOMICON/DASHBOARD/"
+    },
+    "support_face": {
+      "responsibility": "Stage gate/decomposition validators",
+      "test_types": [
+        "stage_gate_test",
+        "decomposition_completeness_test",
+        "dependency_cycle_test"
+      ],
+      "scripts": "ORGANS/ASTRONOMICON/SCRIPTS/"
+    }
+  },
+  {
+    "organ": "CUSTODES",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/CUSTODES/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "ports",
+      "invariants",
+      "boundaries",
+      "implementation_status"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Boundaries, safety, access policy, private/public split",
+      "contracts": [
+        {
+          "contract_id": "access_policy",
+          "description": "Access control policy",
+          "fields": [
+            "policy_id",
+            "resource",
+            "allowed_actors",
+            "denied_actors",
+            "conditions"
+          ]
+        },
+        {
+          "contract_id": "boundary_definition",
+          "description": "Definition of system boundaries",
+          "fields": [
+            "boundary_id",
+            "type",
+            "inside",
+            "outside",
+            "crossing_rules"
+          ]
+        },
+        {
+          "contract_id": "risk_assessment",
+          "description": "Risk assessment record",
+          "fields": [
+            "assessment_id",
+            "action",
+            "risk_level",
+            "mitigations",
+            "approval_required"
+          ]
+        }
+      ],
+      "storage": "ORGANS/CUSTODES/POLICIES/"
+    },
+    "frontend_face": {
+      "responsibility": "Access/risk boundary indicators",
+      "ui_components": [
+        "boundary_map",
+        "risk_indicator",
+        "access_log",
+        "violation_alerts"
+      ],
+      "dashboard": "ORGANS/CUSTODES/DASHBOARD/"
+    },
+    "support_face": {
+      "responsibility": "Leak, permission, path boundary checks",
+      "test_types": [
+        "leak_detector",
+        "permission_test",
+        "boundary_violation_test",
+        "private_public_split_test"
+      ],
+      "scripts": "ORGANS/CUSTODES/SCRIPTS/"
+    }
+  },
+  {
+    "organ": "DOCTRINARIUM",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "dependencies",
+      "created_at",
+      "updated_at"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Schema definitions, validation rules, truth contracts",
+      "outputs": [
+        "schemas/*.json",
+        "validation reports"
+      ]
+    },
+    "frontend_face": {
+      "responsibility": "Schema browser, validation status display",
+      "outputs": [
+        "DASHBOARD/index.html"
+      ]
+    },
+    "support_face": {
+      "responsibility": "Schema validation scripts, contract generators",
+      "outputs": [
+        "SCRIPTS/*.py"
+      ]
+    }
+  },
+  {
+    "organ": "INQUISITION",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/ORGAN_CONTRACT.json",
+    "status": "TESTED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "owns",
+      "provides",
+      "requires",
+      "forbidden",
+      "kpis",
+      "entry_points"
+    ],
+    "has_backend_face": false,
+    "has_frontend_face": false,
+    "has_support_face": false
+  },
+  {
+    "organ": "MECHANICUS",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/MECHANICUS/ORGAN_CONTRACT.json",
+    "status": "TESTED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "owns",
+      "provides",
+      "requires",
+      "forbidden",
+      "kpis",
+      "entry_points"
+    ],
+    "has_backend_face": false,
+    "has_frontend_face": false,
+    "has_support_face": false
+  },
+  {
+    "organ": "OFFICIO_AGENTIS",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "provides",
+      "invariants",
+      "implementation_status"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Role contracts, output forms, agent settings",
+      "contracts": [
+        {
+          "contract_id": "role_definition",
+          "description": "Definition of an agent role",
+          "fields": [
+            "role_id",
+            "name",
+            "responsibilities",
+            "constraints",
+            "output_format"
+          ]
+        },
+        {
+          "contract_id": "prompt_template",
+          "description": "Template for agent prompts",
+          "fields": [
+            "template_id",
+            "type",
+            "sections",
+            "required_fields"
+          ]
+        },
+        {
+          "contract_id": "output_form",
+          "description": "Required output format",
+          "fields": [
+            "form_id",
+            "fields",
+            "validation_rules"
+          ]
+        }
+      ],
+      "storage": "ORGANS/OFFICIO_AGENTIS/"
+    },
+    "frontend_face": {
+      "responsibility": "Role/mode selector and response contract view",
+      "ui_components": [
+        "role_selector",
+        "prompt_preview",
+        "output_form_view"
+      ],
+      "dashboard": "ORGANS/OFFICIO_AGENTIS/DASHBOARD/"
+    },
+    "support_face": {
+      "responsibility": "Prompt/role compliance tests",
+      "test_types": [
+        "prompt_validation_test",
+        "role_contract_test",
+        "output_form_test"
+      ],
+      "scripts": "PROMPT_STANDARD/UF99/SCRIPTS/"
+    }
+  },
+  {
+    "organ": "SCHOLA_IMPERIALIS",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "dependencies",
+      "created_at",
+      "updated_at"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Memory storage, lesson extraction, pattern library",
+      "outputs": [
+        "MEMORY/*.json",
+        "PATTERNS/*.json"
+      ]
+    },
+    "frontend_face": {
+      "responsibility": "Learning dashboard, pattern browser",
+      "outputs": [
+        "DASHBOARD/index.html"
+      ]
+    },
+    "support_face": {
+      "responsibility": "Memory query scripts, lesson extractors",
+      "outputs": [
+        "SCRIPTS/*.py"
+      ]
+    }
+  },
+  {
+    "organ": "STRATEGIUM",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/STRATEGIUM/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "ports",
+      "invariants",
+      "implementation_status"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Roadmap, priority, resource allocation",
+      "contracts": [
+        {
+          "contract_id": "roadmap_entry",
+          "description": "Entry in the roadmap",
+          "fields": [
+            "entry_id",
+            "title",
+            "phase",
+            "priority",
+            "status",
+            "target_date",
+            "dependencies"
+          ]
+        },
+        {
+          "contract_id": "priority_matrix",
+          "description": "Priority matrix for decisions",
+          "fields": [
+            "matrix_id",
+            "criteria",
+            "weights",
+            "items",
+            "scores"
+          ]
+        },
+        {
+          "contract_id": "resource_allocation",
+          "description": "Resource allocation record",
+          "fields": [
+            "allocation_id",
+            "resource_type",
+            "allocated_to",
+            "amount",
+            "period"
+          ]
+        }
+      ],
+      "storage": "ORGANS/STRATEGIUM/ROADMAP/"
+    },
+    "frontend_face": {
+      "responsibility": "Campaign board, current focus, stop/go matrix",
+      "ui_components": [
+        "roadmap_view",
+        "priority_matrix",
+        "focus_indicator",
+        "stop_go_matrix"
+      ],
+      "dashboard": "ORGANS/STRATEGIUM/DASHBOARD/"
+    },
+    "support_face": {
+      "responsibility": "Plan coherence and scope checks",
+      "test_types": [
+        "plan_coherence_test",
+        "scope_boundary_test",
+        "priority_consistency_test"
+      ],
+      "scripts": "ORGANS/STRATEGIUM/SCRIPTS/"
+    }
+  },
+  {
+    "organ": "THRONE",
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/THRONE/ORGAN_CONTRACT.json",
+    "status": "SEED",
+    "keys": [
+      "organ_id",
+      "organ_name",
+      "version",
+      "status",
+      "purpose",
+      "backend_face",
+      "frontend_face",
+      "support_face",
+      "ports",
+      "invariants",
+      "implementation_status"
+    ],
+    "has_backend_face": true,
+    "has_frontend_face": true,
+    "has_support_face": true,
+    "backend_face": {
+      "responsibility": "Owner authority, approval gates, final decisions",
+      "contracts": [
+        {
+          "contract_id": "approval_request",
+          "description": "Request for Owner approval",
+          "fields": [
+            "request_id",
+            "requester",
+            "action",
+            "scope",
+            "risk_level",
+            "evidence"
+          ]
+        },
+        {
+          "contract_id": "approval_response",
+          "description": "Owner approval decision",
+          "fields": [
+            "request_id",
+            "decision",
+            "approver",
+            "timestamp",
+            "conditions",
+            "notes"
+          ]
+        },
+        {
+          "contract_id": "veto_record",
+          "description": "Record of Owner veto",
+          "fields": [
+            "veto_id",
+            "request_id",
+            "reason",
+            "timestamp",
+            "alternative"
+          ]
+        }
+      ],
+      "storage": "ORGANS/THRONE/APPROVALS/"
+    },
+    "frontend_face": {
+      "responsibility": "Decision panel, UAT gates, approval log",
+      "ui_components": [
+        "approval_panel",
+        "decision_log",
+        "uat_gate_view",
+        "pending_queue"
+      ],
+      "dashboard": "ORGANS/THRONE/DASHBOARD/"
+    },
+    "support_face": {
+      "responsibility": "Approval integrity tests; no silent auto-approval",
+      "test_types": [
+        "approval_gate_test",
+        "veto_enforcement_test",
+        "no_auto_approval_test"
+      ],
+      "scripts": "ORGANS/THRONE/SCRIPTS/"
+    }
+  }
+]

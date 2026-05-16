@@ -1,0 +1,29 @@
+{
+  "run_id": "KIRO_REPAIR_GAP_RUN_R1_20260516",
+  "started_at_utc": "2026-05-16T00:44:13Z",
+  "git_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "source_audit": "SERVITOR_AUDIT_20260516_ORGAN_PIPELINE",
+  "truth_aggregate_status": "FAIL",
+  "truth_aggregate_components": {
+    "total": 4,
+    "pass": 0,
+    "fail": 2,
+    "partial": 2
+  },
+  "fake_green_findings": 6,
+  "broken_dashboard_links": 63,
+  "organs_with_broken_links": 10,
+  "unicode_errors_in_run_all": true,
+  "blockers_from_audit": [
+    "RUN_ALL has multiple UnicodeEncodeError failures",
+    "8 organ dashboards contain broken links",
+    "Inquisition reports fake_green_count=2 and stale_truth_count=98"
+  ],
+  "repair_targets": [
+    "RUN_ALL.ps1 Unicode/emoji crashes",
+    "Dashboard broken links (../../ORGANS/ORGANS/ double path)",
+    "Fake green claims in README_RU.md and K10_KIRO_LAB_ROADMAP.json",
+    "Truth aggregate staleness",
+    "Static PASS/COMPLETE labels"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "expected_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "actual_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "head_match": true,
+  "latest_commit": {
+    "hash": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+    "subject": "EXPERIMENT: advance Imperium test version lab to organ pipeline",
+    "files_changed_total": 181,
+    "name_status_counts": {
+      "A": 159,
+      "M": 20,
+      "D": 2,
+      "R": 0,
+      "other": 0
+    }
+  },
+  "scope_verdicts": {
+    "MAIN_CANON_DIRECTLY_MODIFIED": false,
+    "TEST_VERSION_ONLY": true,
+    "GENERATED_EVIDENCE_COMMITTED": true,
+    "RUNTIME_JUNK_PRESENT": true
+  },
+  "scope_notes": [
+    ".gitignore modified to track IMPERIUM_TEST_VERSION",
+    "All other changed files in latest commit are under IMPERIUM_TEST_VERSION/",
+    "Kiro_task.zip was deleted in this commit",
+    "At audit time .pyc files are present under IMPERIUM_TEST_VERSION (one tracked)."
+  ],
+  "added_deleted_summary": {
+    "added": 159,
+    "modified": 20,
+    "deleted": 2
+  },
+  "generated_artifact_examples": [
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_013850.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_014541.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_015509.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_015756.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_020619.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_021453.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_022227.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/handshake_Kiro_general_20260516_023133.json",
+    "IMPERIUM_TEST_VERSION/AGENT_MEMORY_PROTOCOL/REPORTS/latest_handshake.json",
+    "IMPERIUM_TEST_VERSION/EXPERIMENT_LEDGER.jsonl",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/latest_test_report.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/latest_workbench_status.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_013849.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_014541.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_015509.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_015756.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_020619.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_021452.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_022227.json",
+    "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/test_report_20260516_023132.json"
+  ]
+}

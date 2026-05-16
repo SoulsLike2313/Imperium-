@@ -1,0 +1,171 @@
+{
+  "truth_aggregate": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/REPORTS/truth_aggregate.json",
+    "exists": true,
+    "top_keys": [
+      "schema_version",
+      "timestamp",
+      "receipts_dir",
+      "threshold_hours",
+      "overall_status",
+      "status_counts",
+      "total_components",
+      "pass_count",
+      "fail_count",
+      "stale_count",
+      "unknown_count",
+      "blockers",
+      "components",
+      "source"
+    ],
+    "overall_status": "FAIL",
+    "timestamp": "2026-05-15T23:55:54.266932+00:00",
+    "truth_counts": {
+      "total_components": 4,
+      "pass_count": 0,
+      "fail_count": 2,
+      "stale_count": 0,
+      "unknown_count": 0,
+      "overall_status": "FAIL"
+    },
+    "truth_component_statuses": [
+      {
+        "component_name": "Smoke Test",
+        "status": "PARTIAL",
+        "freshness": "UNKNOWN",
+        "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-SMOKE-20260516_025418.json"
+      },
+      {
+        "component_name": "Mechanicus Health",
+        "status": "PARTIAL",
+        "freshness": "UNKNOWN",
+        "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-MECH-20260516_025419.json"
+      },
+      {
+        "component_name": "Inquisition Audit",
+        "status": "FAIL",
+        "freshness": "UNKNOWN",
+        "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-INQ-20260516_025550.json"
+      },
+      {
+        "component_name": "Master Verification",
+        "status": "FAIL",
+        "freshness": "UNKNOWN",
+        "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-MASTER-20260516_024512.json"
+      }
+    ]
+  },
+  "drift_report": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/REPORTS/drift_report.json",
+    "exists": true,
+    "top_keys": [
+      "timestamp",
+      "checks",
+      "verdict"
+    ],
+    "verdict": "PASS",
+    "timestamp": "2026-05-15T23:01:59.832106+00:00",
+    "checks": [
+      {
+        "check": "script_syntax",
+        "status": "PASS"
+      },
+      {
+        "check": "json_validity",
+        "status": "PASS"
+      },
+      {
+        "check": "receipt_freshness",
+        "status": "PASS"
+      },
+      {
+        "check": "required_files",
+        "status": "PASS"
+      }
+    ]
+  },
+  "latest_smoke_report": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json",
+    "exists": true,
+    "top_keys": [
+      "schema_version",
+      "checks",
+      "summary",
+      "repo_root",
+      "generated_at"
+    ],
+    "generated_at": "2026-05-16T02:54:19.2205574+03:00",
+    "smoke_counts": {
+      "total_checks": null,
+      "passed_checks": null,
+      "failed_checks": null,
+      "pass_rate": null,
+      "verdict": null
+    }
+  },
+  "latest_audit": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/REPORTS/latest_audit.json",
+    "exists": true,
+    "top_keys": [
+      "schema_version",
+      "issues",
+      "summary",
+      "repo_root",
+      "generated_at"
+    ],
+    "generated_at": "2026-05-16T02:55:52.9823166+03:00",
+    "audit_counts": {
+      "total_scanned": null,
+      "fake_green_count": null,
+      "stale_truth_count": null,
+      "missing_evidence_count": null,
+      "issues_found": null,
+      "verdict": null
+    }
+  },
+  "latest_script_health": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/ORGANS/MECHANICUS/REPORTS/latest_script_health.json",
+    "exists": true,
+    "top_keys": [
+      "repo_root",
+      "generated_at",
+      "broken_scripts",
+      "schema_version",
+      "summary",
+      "by_type"
+    ],
+    "generated_at": "2026-05-16T02:55:50.3176770+03:00",
+    "script_health_summary": {
+      "total_scripts": 824,
+      "healthy_scripts": null,
+      "broken_scripts": null,
+      "health_percent": 99.9,
+      "verdict": "PARTIAL"
+    }
+  },
+  "latest_memory_summary": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/latest_memory_summary.json",
+    "exists": true,
+    "top_keys": [
+      "schema_version",
+      "generated_at",
+      "memory_root",
+      "files_status",
+      "statistics",
+      "key_items"
+    ],
+    "generated_at": "2026-05-16T02:55:53.116545"
+  },
+  "latest_workbench_status": {
+    "path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/REPORTS/latest_workbench_status.json",
+    "exists": true,
+    "top_keys": [
+      "schema_version",
+      "generated_at",
+      "workbench_root",
+      "sandbox",
+      "latest_test"
+    ],
+    "generated_at": "2026-05-16T02:55:53.408355"
+  }
+}

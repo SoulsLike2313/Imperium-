@@ -157,10 +157,18 @@ py -3 .\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.
 
 ## Статус
 
-- **Все 7 фаз roadmap:** ✅ COMPLETE
-- **Готовность к promotion:** Требуется исправление fake green и stale truth в main
+- **Фазы roadmap:** 7/8 (Phase 7 Repair в процессе)
+- **Текущий статус:** IN_PROGRESS
+- **Известные проблемы:**
+  - Broken links в organ dashboards (исправляется)
+  - Unicode/emoji ошибки в консоли (исправляется)
+  - truth_aggregate.overall_status = FAIL
+- **Готовность к promotion:** После завершения Phase 7
 - **Owner UAT:** Ожидает
+
+> **Примечание:** Статус выводится из `REPORTS/truth_aggregate.json`. Не доверяйте статическим меткам — проверяйте `RUN_ALL.ps1` exit code.
 
 ---
 
 *Документ создан: 2026-05-16*
+*Обновлён: 2026-05-16 (repair run)*

@@ -1,0 +1,267 @@
+[
+  {
+    "path": "LIVE_WORKBENCH/DASHBOARD/index.html",
+    "url": "http://localhost:8765/LIVE_WORKBENCH/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/live_workbench.png",
+    "http_status": 200,
+    "title": "Live Workbench",
+    "linked_backend_files": [],
+    "freshness_visible": "yes",
+    "evidence_links": "no",
+    "fail_partial_visibility": "no",
+    "buttons": "none",
+    "bad_link_count": 0,
+    "verdict": "USEFUL",
+    "comment_ru": "Статический, но честно показывает sandbox test snapshot и не маскирует FAIL статусы других систем."
+  },
+  {
+    "path": "ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_administratum.png",
+    "http_status": 200,
+    "title": "ADMINISTRATUM Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "yes",
+    "buttons": "fake",
+    "bad_link_count": 5,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но все ключевые ссылки битые (неверные относительные пути)."
+  },
+  {
+    "path": "ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_astronomicon.png",
+    "http_status": 200,
+    "title": "ASTRONOMICON Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+      "../../ORGANS/ASTRONOMICON/SCRIPTS/smoke_astronomicon.py"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 5,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но evidence/navigation ссылки ведут в несуществующие пути."
+  },
+  {
+    "path": "ORGANS/CUSTODES/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/CUSTODES/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_custodes.png",
+    "http_status": 200,
+    "title": "CUSTODES Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/CUSTODES/ORGAN_CONTRACT.json",
+      "../../ORGANS/CUSTODES/SCRIPTS/smoke_custodes.py"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 5,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но ссылки на контракт/скрипты/возврат в master битые."
+  },
+  {
+    "path": "ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_doctrinarium.png",
+    "http_status": 200,
+    "title": "DOCTRINARIUM Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+      "../../ORGANS/DOCTRINARIUM/SCRIPTS/smoke_doctrinarium.py"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 3,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но ссылки на контракт/smoke/master невалидны."
+  },
+  {
+    "path": "ORGANS/INQUISITION/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/INQUISITION/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_inquisition.png",
+    "http_status": 200,
+    "title": "INQUISITION Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/INQUISITION/ORGAN_CONTRACT.json",
+      "../../ORGANS/INQUISITION/REPORTS/latest_audit.json",
+      "../../RECEIPTS\\RCP-INQ-20260516_024646.json",
+      "../../ORGANS/INQUISITION/SCRIPTS/stale_truth_detector.py",
+      "../../ORGANS/INQUISITION/REPORTS/latest_audit.json",
+      "../../RECEIPTS\\RCP-INQ-20260516_024646.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "none",
+    "bad_link_count": 0,
+    "verdict": "USEFUL",
+    "comment_ru": "Показывает FAIL/100 issues; статично, но owner-полезно для triage."
+  },
+  {
+    "path": "ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_mechanicus.png",
+    "http_status": 200,
+    "title": "MECHANICUS Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/MECHANICUS/ORGAN_CONTRACT.json",
+      "../../ORGANS/MECHANICUS/REPORTS/latest_script_health.json",
+      "../../RECEIPTS\\RCP-MECH-20260516_024513.json",
+      "../../ORGANS/MECHANICUS/REPORTS/latest_script_health.json",
+      "../../RECEIPTS\\RCP-MECH-20260516_024513.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "none",
+    "bad_link_count": 0,
+    "verdict": "USEFUL",
+    "comment_ru": "Показывает PARTIAL и broken script count; статично, но информативно."
+  },
+  {
+    "path": "ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_officio_agentis.png",
+    "http_status": 200,
+    "title": "OFFICIO_AGENTIS Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 3,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но ссылки на контракт/скрипты/master битые."
+  },
+  {
+    "path": "ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_schola_imperialis.png",
+    "http_status": 200,
+    "title": "SCHOLA_IMPERIALIS Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/smoke_schola.py",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 10,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но множество broken evidence links (10)."
+  },
+  {
+    "path": "ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_strategium.png",
+    "http_status": 200,
+    "title": "STRATEGIUM Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/STRATEGIUM/ORGAN_CONTRACT.json",
+      "../../ORGANS/STRATEGIUM/SCRIPTS/smoke_strategium.py"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 5,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но контракт/скрипты/master links битые."
+  },
+  {
+    "path": "ORGANS/THRONE/DASHBOARD/index.html",
+    "url": "http://localhost:8765/ORGANS/THRONE/DASHBOARD/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/organ_throne.png",
+    "http_status": 200,
+    "title": "THRONE Dashboard",
+    "linked_backend_files": [
+      "../../ORGANS/THRONE/ORGAN_CONTRACT.json",
+      "../../ORGANS/THRONE/REPORTS/latest_smoke.json",
+      "../../ORGANS/THRONE/SCRIPTS/smoke_throne.py",
+      "../../ORGANS/THRONE/REPORTS/latest_smoke.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "no",
+    "buttons": "fake",
+    "bad_link_count": 8,
+    "verdict": "BROKEN",
+    "comment_ru": "Открывается, но все основные ссылки битые, включая report link."
+  },
+  {
+    "path": "SANCTUM_MIRROR/dashboard.html",
+    "url": "http://localhost:8765/SANCTUM_MIRROR/dashboard.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/02_sanctum_mirror_legacy_dashboard.png",
+    "http_status": 200,
+    "title": "IMPERIUM Test Version - Sanctum Mirror",
+    "linked_backend_files": [],
+    "freshness_visible": "yes",
+    "evidence_links": "no",
+    "fail_partial_visibility": "no",
+    "buttons": "none",
+    "bad_link_count": 0,
+    "verdict": "STATIC",
+    "comment_ru": "Legacy статическая витрина, полезна как исторический контекст, не как truth-surface."
+  },
+  {
+    "path": "SANCTUM_MIRROR/index.html",
+    "url": "http://localhost:8765/SANCTUM_MIRROR/index.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/00_sanctum_mirror_index.png",
+    "http_status": 200,
+    "title": "IMPERIUM Test Version - Sanctum Mirror",
+    "linked_backend_files": [],
+    "freshness_visible": "yes",
+    "evidence_links": "no",
+    "fail_partial_visibility": "yes",
+    "buttons": "fake",
+    "bad_link_count": 0,
+    "verdict": "PLASTIC",
+    "comment_ru": "Статический status-board без live-source; есть пустые поля и encoding artefacts."
+  },
+  {
+    "path": "SANCTUM_MIRROR/master_dashboard.html",
+    "url": "http://localhost:8765/SANCTUM_MIRROR/master_dashboard.html",
+    "screenshot_path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/SCREENSHOTS/01_master_dashboard.png",
+    "http_status": 200,
+    "title": "IMPERIUM Master Dashboard",
+    "linked_backend_files": [
+      "../TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json",
+      "../REPORTS/drift_report.json",
+      "../REPORTS/truth_aggregate.json",
+      "../REGISTRY/ORGAN_REGISTRY.json",
+      "../RECEIPTS\\RCP-MASTER-20260516_022956.json",
+      "../TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json",
+      "../REPORTS/drift_report.json",
+      "../REPORTS/truth_aggregate.json",
+      "../RECEIPTS\\RCP-MASTER-20260516_022956.json"
+    ],
+    "freshness_visible": "yes",
+    "evidence_links": "yes",
+    "fail_partial_visibility": "yes",
+    "buttons": "real",
+    "bad_link_count": 0,
+    "verdict": "PLASTIC",
+    "comment_ru": "Есть evidence links, но статический snapshot с overclaim 7/7 COMPLETE и устаревающими значениями."
+  }
+]

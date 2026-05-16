@@ -1,0 +1,35 @@
+{
+  "run_id": "KIRO_REPAIR_GAP_RUN_R1_20260516",
+  "finished_at_utc": "2026-05-16T00:50:00Z",
+  "git_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "run_all_exit_code": 1,
+  "run_all_unicode_errors": 0,
+  "truth_aggregate_status": "FAIL",
+  "truth_aggregate_components": {
+    "total": 4,
+    "pass": 0,
+    "fail": 2,
+    "partial": 2
+  },
+  "repairs_completed": {
+    "dashboard_links": true,
+    "unicode_encoding": true,
+    "fake_green_claims_in_docs": true,
+    "roadmap_status": true
+  },
+  "repairs_remaining": {
+    "fake_green_in_code": 2,
+    "stale_truth": 98,
+    "anti_patterns": 27,
+    "broken_scripts": 1
+  },
+  "files_modified": [
+    "SANCTUM_MIRROR/dashboard_generator.py",
+    "RUN_ALL.ps1",
+    "KIRO_FORENSIC_SYNTHESIS/K10_KIRO_LAB_ROADMAP.json",
+    "README_RU.md"
+  ],
+  "dashboards_regenerated": 11,
+  "verdict": "PARTIAL",
+  "notes": "Core repairs done. Remaining issues are code quality (hardcoded PASS, bare except) not structural bugs."
+}

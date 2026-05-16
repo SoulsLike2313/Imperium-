@@ -1,0 +1,70 @@
+{
+  "gap_map_id": "GAP_MAP_20260516",
+  "generated_at": "2026-05-16T00:50:00Z",
+  "gaps": [
+    {
+      "gap_id": "G001",
+      "category": "CODE_QUALITY",
+      "severity": "MEDIUM",
+      "title": "Hardcoded PASS verdicts",
+      "description": "5 files have hardcoded 'PASS' strings that Inquisition flags as fake green",
+      "files": [
+        "ORGANS/THRONE/SCRIPTS/canon_import.py:195",
+        "ORGANS/THRONE/SCRIPTS/uat_gate.py:116",
+        "ORGANS/INQUISITION/SCRIPTS/fake_green_detector.py:91",
+        "ORGANS/CUSTODES/SCRIPTS/boundary_checker.py:158",
+        "ORGANS/INQUISITION/RUN_AUDIT.ps1:130"
+      ],
+      "fix": "Use constants or derive from actual checks",
+      "effort": "LOW",
+      "blocker": false
+    },
+    {
+      "gap_id": "G002",
+      "category": "CODE_QUALITY",
+      "severity": "LOW",
+      "title": "Bare except clauses",
+      "description": "21 files have bare 'except:' without specific exception types",
+      "fix": "Replace with 'except Exception as e:' or specific types",
+      "effort": "LOW",
+      "blocker": false
+    },
+    {
+      "gap_id": "G003",
+      "category": "DATA_HYGIENE",
+      "severity": "LOW",
+      "title": "Stale receipts",
+      "description": "98 old receipts flagged as stale truth",
+      "fix": "Archive old receipts or adjust freshness threshold",
+      "effort": "LOW",
+      "blocker": false
+    },
+    {
+      "gap_id": "G004",
+      "category": "SCRIPT_HEALTH",
+      "severity": "MEDIUM",
+      "title": "1 broken script",
+      "description": "Mechanicus reports 1/824 scripts broken",
+      "fix": "Identify and fix the broken script",
+      "effort": "LOW",
+      "blocker": false
+    },
+    {
+      "gap_id": "G005",
+      "category": "TESTING",
+      "severity": "LOW",
+      "title": "Git dirty state",
+      "description": "Smoke test fails on git clean check due to uncommitted changes",
+      "fix": "Expected during development, will pass after commit",
+      "effort": "NONE",
+      "blocker": false
+    }
+  ],
+  "summary": {
+    "total_gaps": 5,
+    "blockers": 0,
+    "high_severity": 0,
+    "medium_severity": 2,
+    "low_severity": 3
+  }
+}

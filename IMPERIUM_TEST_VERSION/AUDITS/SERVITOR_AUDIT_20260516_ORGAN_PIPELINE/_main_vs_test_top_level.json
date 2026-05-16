@@ -1,0 +1,43 @@
+{
+  "main_top_count": 19,
+  "test_top_count": 17,
+  "intersection": [
+    "ORGANS",
+    "REGISTRY",
+    "schemas"
+  ],
+  "only_test": [
+    "AGENT_MEMORY_PROTOCOL",
+    "AUDITS",
+    "COMMUNICATION_PROTOCOL",
+    "KIRO_FORENSIC_SYNTHESIS",
+    "LIVE_WORKBENCH",
+    "MONITORING",
+    "PROMPT_STANDARD",
+    "RECEIPTS",
+    "REPORTS",
+    "RESEARCH",
+    "SANCTUM_MIRROR",
+    "SECOND_BRAIN",
+    "TESTING_FIELD",
+    "TRUTH_SPINE"
+  ],
+  "only_main_sample": [
+    ".git",
+    ".imperium_runtime",
+    ".vscode",
+    "ARTIFACTS",
+    "ASSETS",
+    "ASTRONOMICON",
+    "CURRENT_STATE",
+    "DOCS",
+    "EXPLORER",
+    "KIRO_PLAN_ADVISOR",
+    "PC_ENGINEERING_ROOM",
+    "SANCTUM",
+    "TOOLS",
+    "scripts",
+    "src",
+    "tests"
+  ]
+}

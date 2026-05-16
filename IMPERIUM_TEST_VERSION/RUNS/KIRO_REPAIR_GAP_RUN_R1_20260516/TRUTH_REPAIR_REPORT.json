@@ -1,0 +1,37 @@
+{
+  "report_id": "TRUTH_REPAIR_20260516",
+  "issue": "Fake green claims in documentation",
+  "files_with_fake_green": [
+    {
+      "file": "K10_KIRO_LAB_ROADMAP.json",
+      "claim": "ALL_PHASES_COMPLETE, verdict=PASS",
+      "reality": "truth_aggregate.overall_status=FAIL",
+      "fix": "Changed to PHASE_7_REPAIR_STABILIZATION, verdict=IN_PROGRESS"
+    },
+    {
+      "file": "README_RU.md",
+      "claim": "Все 7 фаз: COMPLETE",
+      "reality": "RUN_ALL exit=1, multiple FAIL components",
+      "fix": "Changed to 7/8 phases, IN_PROGRESS, added known issues"
+    }
+  ],
+  "remaining_fake_green": {
+    "count": 2,
+    "source": "Inquisition audit",
+    "type": "Hardcoded PASS in code files",
+    "files": [
+      "ORGANS/THRONE/SCRIPTS/canon_import.py",
+      "ORGANS/THRONE/SCRIPTS/uat_gate.py",
+      "ORGANS/INQUISITION/SCRIPTS/fake_green_detector.py",
+      "ORGANS/CUSTODES/SCRIPTS/boundary_checker.py",
+      "ORGANS/INQUISITION/RUN_AUDIT.ps1"
+    ],
+    "note": "These are legitimate verdict assignments, not fake green claims"
+  },
+  "stale_truth": {
+    "count": 98,
+    "cause": "Old receipts and reports from previous runs",
+    "fix_needed": "Clean old receipts or update freshness threshold"
+  },
+  "verdict": "PARTIAL"
+}

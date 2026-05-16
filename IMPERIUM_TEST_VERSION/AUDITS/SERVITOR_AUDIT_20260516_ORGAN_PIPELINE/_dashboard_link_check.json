@@ -1,0 +1,328 @@
+[
+  {
+    "path": "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/DASHBOARD/index.html",
+    "local_link_count": 0,
+    "broken_link_count": 0,
+    "broken_links": []
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "local_link_count": 5,
+    "broken_link_count": 5,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ADMINISTRATUM\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/SCRIPTS/error_precheck.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\error_precheck.py"
+      },
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/SCRIPTS/self_diagnosis.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_diagnosis.py"
+      },
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_inventory.py"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "local_link_count": 5,
+    "broken_link_count": 5,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ASTRONOMICON\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/ASTRONOMICON/SCRIPTS/smoke_astronomicon.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ASTRONOMICON\\SCRIPTS\\smoke_astronomicon.py"
+      },
+      {
+        "link": "../../ORGANS/ASTRONOMICON/SCRIPTS/task_manager.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ASTRONOMICON\\SCRIPTS\\task_manager.py"
+      },
+      {
+        "link": "../../ORGANS/ASTRONOMICON/SCRIPTS/__init__.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\ASTRONOMICON\\SCRIPTS\\__init__.py"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/CUSTODES/DASHBOARD/index.html",
+    "local_link_count": 5,
+    "broken_link_count": 5,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/CUSTODES/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\CUSTODES\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/CUSTODES/SCRIPTS/boundary_checker.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\CUSTODES\\SCRIPTS\\boundary_checker.py"
+      },
+      {
+        "link": "../../ORGANS/CUSTODES/SCRIPTS/smoke_custodes.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\CUSTODES\\SCRIPTS\\smoke_custodes.py"
+      },
+      {
+        "link": "../../ORGANS/CUSTODES/SCRIPTS/__init__.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\CUSTODES\\SCRIPTS\\__init__.py"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "local_link_count": 3,
+    "broken_link_count": 3,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\DOCTRINARIUM\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/DOCTRINARIUM/SCRIPTS/smoke_doctrinarium.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\smoke_doctrinarium.py"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/DASHBOARD/index.html",
+    "local_link_count": 7,
+    "broken_link_count": 7,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/INQUISITION/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\INQUISITION\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/INQUISITION/SCRIPTS/fake_green_detector.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\INQUISITION\\SCRIPTS\\fake_green_detector.py"
+      },
+      {
+        "link": "../../ORGANS/INQUISITION/SCRIPTS/full_audit.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\INQUISITION\\SCRIPTS\\full_audit.py"
+      },
+      {
+        "link": "../../ORGANS/INQUISITION/SCRIPTS/stale_truth_detector.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\INQUISITION\\SCRIPTS\\stale_truth_detector.py"
+      },
+      {
+        "link": "../../ORGANS/INQUISITION/REPORTS/latest_audit.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\INQUISITION\\REPORTS\\latest_audit.json"
+      },
+      {
+        "link": "../../RECEIPTS\\RCP-INQ-20260516_024646.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\RECEIPTS\\RCP-INQ-20260516_024646.json"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "local_link_count": 7,
+    "broken_link_count": 7,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/MECHANICUS/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\MECHANICUS\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/MECHANICUS/SCRIPTS/command_gateway.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\MECHANICUS\\SCRIPTS\\command_gateway.py"
+      },
+      {
+        "link": "../../ORGANS/MECHANICUS/SCRIPTS/script_health_check.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\MECHANICUS\\SCRIPTS\\script_health_check.py"
+      },
+      {
+        "link": "../../ORGANS/MECHANICUS/SCRIPTS/script_scanner.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\MECHANICUS\\SCRIPTS\\script_scanner.py"
+      },
+      {
+        "link": "../../ORGANS/MECHANICUS/REPORTS/latest_script_health.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\MECHANICUS\\REPORTS\\latest_script_health.json"
+      },
+      {
+        "link": "../../RECEIPTS\\RCP-MECH-20260516_024513.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\RECEIPTS\\RCP-MECH-20260516_024513.json"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "local_link_count": 3,
+    "broken_link_count": 3,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\OFFICIO_AGENTIS\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/OFFICIO_AGENTIS/SCRIPTS/__init__.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\OFFICIO_AGENTIS\\SCRIPTS\\__init__.py"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "local_link_count": 10,
+    "broken_link_count": 10,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/anti_pattern_scanner.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\anti_pattern_scanner.py"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/lesson_extractor.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\lesson_extractor.py"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/rule_extractor.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\rule_extractor.py"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/smoke_schola.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\smoke_schola.py"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\REPORTS\\latest_anti_pattern_scan.json"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\REPORTS\\anti_pattern_scan_20260516_023134.json"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\REPORTS\\anti_pattern_scan_20260516_022228.json"
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\SCHOLA_IMPERIALIS\\REPORTS\\anti_pattern_scan_20260516_021908.json"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "local_link_count": 5,
+    "broken_link_count": 5,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/STRATEGIUM/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\STRATEGIUM\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/STRATEGIUM/SCRIPTS/roadmap_manager.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\STRATEGIUM\\SCRIPTS\\roadmap_manager.py"
+      },
+      {
+        "link": "../../ORGANS/STRATEGIUM/SCRIPTS/smoke_strategium.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\STRATEGIUM\\SCRIPTS\\smoke_strategium.py"
+      },
+      {
+        "link": "../../ORGANS/STRATEGIUM/SCRIPTS/__init__.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\STRATEGIUM\\SCRIPTS\\__init__.py"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/THRONE/DASHBOARD/index.html",
+    "local_link_count": 8,
+    "broken_link_count": 8,
+    "broken_links": [
+      {
+        "link": "../../ORGANS/THRONE/ORGAN_CONTRACT.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\ORGAN_CONTRACT.json"
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/approval_gate.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\SCRIPTS\\approval_gate.py"
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/canon_import.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\SCRIPTS\\canon_import.py"
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/promotion_workflow.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\SCRIPTS\\promotion_workflow.py"
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/smoke_throne.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\SCRIPTS\\smoke_throne.py"
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/uat_gate.py",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\SCRIPTS\\uat_gate.py"
+      },
+      {
+        "link": "../../ORGANS/THRONE/REPORTS/latest_smoke.json",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ORGANS\\THRONE\\REPORTS\\latest_smoke.json"
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "resolved": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SANCTUM_MIRROR\\master_dashboard.html"
+      }
+    ]
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/dashboard.html",
+    "local_link_count": 0,
+    "broken_link_count": 0,
+    "broken_links": []
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/index.html",
+    "local_link_count": 0,
+    "broken_link_count": 0,
+    "broken_links": []
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/master_dashboard.html",
+    "local_link_count": 15,
+    "broken_link_count": 0,
+    "broken_links": []
+  }
+]

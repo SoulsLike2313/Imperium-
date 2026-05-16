@@ -1,0 +1,328 @@
+[
+  {
+    "path": "LIVE_WORKBENCH/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/LIVE_WORKBENCH/DASHBOARD/index.html",
+    "checked_links": 0,
+    "bad_links": [],
+    "bad_link_count": 0
+  },
+  {
+    "path": "ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "checked_links": 5,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/SCRIPTS/error_precheck.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ADMINISTRATUM/SCRIPTS/error_precheck.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/SCRIPTS/self_diagnosis.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ADMINISTRATUM/SCRIPTS/self_diagnosis.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ADMINISTRATUM/SCRIPTS/self_inventory.py",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 5
+  },
+  {
+    "path": "ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "checked_links": 5,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/ASTRONOMICON/SCRIPTS/smoke_astronomicon.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ASTRONOMICON/SCRIPTS/smoke_astronomicon.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/ASTRONOMICON/SCRIPTS/task_manager.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ASTRONOMICON/SCRIPTS/task_manager.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/ASTRONOMICON/SCRIPTS/__init__.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/ASTRONOMICON/SCRIPTS/__init__.py",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 5
+  },
+  {
+    "path": "ORGANS/CUSTODES/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/CUSTODES/DASHBOARD/index.html",
+    "checked_links": 5,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/CUSTODES/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/CUSTODES/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/CUSTODES/SCRIPTS/boundary_checker.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/CUSTODES/SCRIPTS/boundary_checker.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/CUSTODES/SCRIPTS/smoke_custodes.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/CUSTODES/SCRIPTS/smoke_custodes.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/CUSTODES/SCRIPTS/__init__.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/CUSTODES/SCRIPTS/__init__.py",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 5
+  },
+  {
+    "path": "ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "checked_links": 3,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/DOCTRINARIUM/SCRIPTS/smoke_doctrinarium.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/DOCTRINARIUM/SCRIPTS/smoke_doctrinarium.py",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 3
+  },
+  {
+    "path": "ORGANS/INQUISITION/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/INQUISITION/DASHBOARD/index.html",
+    "checked_links": 0,
+    "bad_links": [],
+    "bad_link_count": 0
+  },
+  {
+    "path": "ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "checked_links": 0,
+    "bad_links": [],
+    "bad_link_count": 0
+  },
+  {
+    "path": "ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "checked_links": 3,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/OFFICIO_AGENTIS/SCRIPTS/__init__.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/OFFICIO_AGENTIS/SCRIPTS/__init__.py",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 3
+  },
+  {
+    "path": "ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "checked_links": 10,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/anti_pattern_scanner.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/anti_pattern_scanner.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/lesson_extractor.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/lesson_extractor.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/rule_extractor.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/rule_extractor.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/smoke_schola.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/smoke_schola.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 10
+  },
+  {
+    "path": "ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "checked_links": 5,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/STRATEGIUM/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/STRATEGIUM/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/STRATEGIUM/SCRIPTS/roadmap_manager.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/STRATEGIUM/SCRIPTS/roadmap_manager.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/STRATEGIUM/SCRIPTS/smoke_strategium.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/STRATEGIUM/SCRIPTS/smoke_strategium.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/STRATEGIUM/SCRIPTS/__init__.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/STRATEGIUM/SCRIPTS/__init__.py",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 5
+  },
+  {
+    "path": "ORGANS/THRONE/DASHBOARD/index.html",
+    "page_url": "http://localhost:8765/ORGANS/THRONE/DASHBOARD/index.html",
+    "checked_links": 8,
+    "bad_links": [
+      {
+        "link": "../../ORGANS/THRONE/ORGAN_CONTRACT.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/ORGAN_CONTRACT.json",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/approval_gate.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/SCRIPTS/approval_gate.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/canon_import.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/SCRIPTS/canon_import.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/promotion_workflow.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/SCRIPTS/promotion_workflow.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/smoke_throne.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/SCRIPTS/smoke_throne.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/THRONE/SCRIPTS/uat_gate.py",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/SCRIPTS/uat_gate.py",
+        "status": 404
+      },
+      {
+        "link": "../../ORGANS/THRONE/REPORTS/latest_smoke.json",
+        "target": "http://localhost:8765/ORGANS/ORGANS/THRONE/REPORTS/latest_smoke.json",
+        "status": 404
+      },
+      {
+        "link": "../../SANCTUM_MIRROR/master_dashboard.html",
+        "target": "http://localhost:8765/ORGANS/SANCTUM_MIRROR/master_dashboard.html",
+        "status": 404
+      }
+    ],
+    "bad_link_count": 8
+  },
+  {
+    "path": "SANCTUM_MIRROR/dashboard.html",
+    "page_url": "http://localhost:8765/SANCTUM_MIRROR/dashboard.html",
+    "checked_links": 0,
+    "bad_links": [],
+    "bad_link_count": 0
+  },
+  {
+    "path": "SANCTUM_MIRROR/index.html",
+    "page_url": "http://localhost:8765/SANCTUM_MIRROR/index.html",
+    "checked_links": 0,
+    "bad_links": [],
+    "bad_link_count": 0
+  },
+  {
+    "path": "SANCTUM_MIRROR/master_dashboard.html",
+    "page_url": "http://localhost:8765/SANCTUM_MIRROR/master_dashboard.html",
+    "checked_links": 15,
+    "bad_links": [],
+    "bad_link_count": 0
+  }
+]

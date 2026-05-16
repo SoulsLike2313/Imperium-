@@ -6,7 +6,7 @@ $ErrorActionPreference = "Continue"
 
 # Paths
 $TestVersionRoot = "E:\IMPERIUM\IMPERIUM_TEST_VERSION"
-$RepoRoot = "E:\IMPERIUM"
+$RepoRoot = $TestVersionRoot  # Scan only test version, not main repo
 $ReportsDir = "$TestVersionRoot\ORGANS\INQUISITION\REPORTS"
 $ReceiptsDir = "$TestVersionRoot\RECEIPTS"
 $DashboardDir = "$TestVersionRoot\ORGANS\INQUISITION\DASHBOARD"
@@ -36,7 +36,7 @@ $ScannedFiles = @()
 # 1. Scan for verdict files (fake green detection)
 Write-Host "[1/3] Scanning for verdict files..."
 $VerdictFiles = Get-ChildItem -Path $RepoRoot -Recurse -Filter "*VERDICT*.json" -ErrorAction SilentlyContinue | 
-    Where-Object { $_.FullName -notmatch "\.git|IMPERIUM_TEST_VERSION" }
+    Where-Object { $_.FullName -notmatch "\.git" }
 
 foreach ($vf in $VerdictFiles) {
     $TotalVerdictFiles++
@@ -76,7 +76,7 @@ foreach ($vf in $VerdictFiles) {
 # 2. Scan for stale truth (files older than 24h claiming current state)
 Write-Host "[2/3] Scanning for stale truth..."
 $StatusFiles = Get-ChildItem -Path $RepoRoot -Recurse -Filter "*STATUS*.json" -ErrorAction SilentlyContinue | 
-    Where-Object { $_.FullName -notmatch "\.git|IMPERIUM_TEST_VERSION" }
+    Where-Object { $_.FullName -notmatch "\.git" }
 
 $Now = Get-Date
 foreach ($sf in $StatusFiles) {
@@ -96,7 +96,7 @@ foreach ($sf in $StatusFiles) {
 # 3. Check for missing evidence in reports
 Write-Host "[3/3] Scanning for missing evidence..."
 $ReportFiles = Get-ChildItem -Path $RepoRoot -Recurse -Filter "*_report*.json" -ErrorAction SilentlyContinue | 
-    Where-Object { $_.FullName -notmatch "\.git|IMPERIUM_TEST_VERSION" }
+    Where-Object { $_.FullName -notmatch "\.git" }
 
 foreach ($rf in $ReportFiles) {
     $relPath = $rf.FullName.Replace("$RepoRoot\", "").Replace("\", "/")

@@ -1,0 +1,318 @@
+[
+  {
+    "path": "IMPERIUM_TEST_VERSION/LIVE_WORKBENCH/DASHBOARD/index.html",
+    "title": "Live Workbench",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 0,
+    "json_links_sample": [],
+    "report_links_count": 0,
+    "report_links_sample": [],
+    "has_pass_text": true,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": false,
+    "line_count": 70,
+    "size_bytes": 2850
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "title": "ADMINISTRATUM Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 1,
+    "json_links_sample": [
+      "../../ORGANS/ADMINISTRATUM/ORGAN_CONTRACT.json"
+    ],
+    "report_links_count": 0,
+    "report_links_sample": [],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": true,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 89,
+    "size_bytes": 3816
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "title": "ASTRONOMICON Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 1,
+    "json_links_sample": [
+      "../../ORGANS/ASTRONOMICON/ORGAN_CONTRACT.json"
+    ],
+    "report_links_count": 1,
+    "report_links_sample": [
+      "../../ORGANS/ASTRONOMICON/SCRIPTS/smoke_astronomicon.py"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 89,
+    "size_bytes": 3797
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/CUSTODES/DASHBOARD/index.html",
+    "title": "CUSTODES Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 1,
+    "json_links_sample": [
+      "../../ORGANS/CUSTODES/ORGAN_CONTRACT.json"
+    ],
+    "report_links_count": 1,
+    "report_links_sample": [
+      "../../ORGANS/CUSTODES/SCRIPTS/smoke_custodes.py"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 89,
+    "size_bytes": 3816
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "title": "DOCTRINARIUM Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 1,
+    "json_links_sample": [
+      "../../ORGANS/DOCTRINARIUM/ORGAN_CONTRACT.json"
+    ],
+    "report_links_count": 1,
+    "report_links_sample": [
+      "../../ORGANS/DOCTRINARIUM/SCRIPTS/smoke_doctrinarium.py"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 87,
+    "size_bytes": 3638
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/DASHBOARD/index.html",
+    "title": "INQUISITION Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 3,
+    "json_links_sample": [
+      "../../ORGANS/INQUISITION/ORGAN_CONTRACT.json",
+      "../../ORGANS/INQUISITION/REPORTS/latest_audit.json",
+      "../../RECEIPTS\\RCP-INQ-20260516_024646.json"
+    ],
+    "report_links_count": 3,
+    "report_links_sample": [
+      "../../ORGANS/INQUISITION/SCRIPTS/stale_truth_detector.py",
+      "../../ORGANS/INQUISITION/REPORTS/latest_audit.json",
+      "../../RECEIPTS\\RCP-INQ-20260516_024646.json"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 97,
+    "size_bytes": 4248
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "title": "MECHANICUS Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 3,
+    "json_links_sample": [
+      "../../ORGANS/MECHANICUS/ORGAN_CONTRACT.json",
+      "../../ORGANS/MECHANICUS/REPORTS/latest_script_health.json",
+      "../../RECEIPTS\\RCP-MECH-20260516_024513.json"
+    ],
+    "report_links_count": 2,
+    "report_links_sample": [
+      "../../ORGANS/MECHANICUS/REPORTS/latest_script_health.json",
+      "../../RECEIPTS\\RCP-MECH-20260516_024513.json"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 97,
+    "size_bytes": 4227
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "title": "OFFICIO_AGENTIS Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 1,
+    "json_links_sample": [
+      "../../ORGANS/OFFICIO_AGENTIS/ORGAN_CONTRACT.json"
+    ],
+    "report_links_count": 0,
+    "report_links_sample": [],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 87,
+    "size_bytes": 3589
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "title": "SCHOLA_IMPERIALIS Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 5,
+    "json_links_sample": [
+      "../../ORGANS/SCHOLA_IMPERIALIS/ORGAN_CONTRACT.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json"
+    ],
+    "report_links_count": 5,
+    "report_links_sample": [
+      "../../ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/smoke_schola.py",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_023134.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_022228.json",
+      "../../ORGANS/SCHOLA_IMPERIALIS/REPORTS/anti_pattern_scan_20260516_021908.json"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 93,
+    "size_bytes": 4816
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "title": "STRATEGIUM Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 1,
+    "json_links_sample": [
+      "../../ORGANS/STRATEGIUM/ORGAN_CONTRACT.json"
+    ],
+    "report_links_count": 1,
+    "report_links_sample": [
+      "../../ORGANS/STRATEGIUM/SCRIPTS/smoke_strategium.py"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 89,
+    "size_bytes": 3786
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/ORGANS/THRONE/DASHBOARD/index.html",
+    "title": "THRONE Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 2,
+    "json_links_sample": [
+      "../../ORGANS/THRONE/ORGAN_CONTRACT.json",
+      "../../ORGANS/THRONE/REPORTS/latest_smoke.json"
+    ],
+    "report_links_count": 2,
+    "report_links_sample": [
+      "../../ORGANS/THRONE/SCRIPTS/smoke_throne.py",
+      "../../ORGANS/THRONE/REPORTS/latest_smoke.json"
+    ],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 91,
+    "size_bytes": 4126
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/dashboard.html",
+    "title": "IMPERIUM Test Version - Sanctum Mirror",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 0,
+    "json_links_sample": [],
+    "report_links_count": 0,
+    "report_links_sample": [],
+    "has_pass_text": false,
+    "has_fail_text": false,
+    "has_partial_text": false,
+    "has_greenish_claim": false,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 302,
+    "size_bytes": 9785
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/index.html",
+    "title": "IMPERIUM Test Version - Sanctum Mirror",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 0,
+    "json_links_sample": [],
+    "report_links_count": 0,
+    "report_links_sample": [],
+    "has_pass_text": true,
+    "has_fail_text": true,
+    "has_partial_text": true,
+    "has_greenish_claim": false,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 303,
+    "size_bytes": 12868
+  },
+  {
+    "path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/master_dashboard.html",
+    "title": "IMPERIUM Master Dashboard",
+    "has_fetch": false,
+    "has_xhr": false,
+    "json_links_count": 5,
+    "json_links_sample": [
+      "../TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json",
+      "../REPORTS/drift_report.json",
+      "../REPORTS/truth_aggregate.json",
+      "../REGISTRY/ORGAN_REGISTRY.json",
+      "../RECEIPTS\\RCP-MASTER-20260516_022956.json"
+    ],
+    "report_links_count": 4,
+    "report_links_sample": [
+      "../TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json",
+      "../REPORTS/drift_report.json",
+      "../REPORTS/truth_aggregate.json",
+      "../RECEIPTS\\RCP-MASTER-20260516_022956.json"
+    ],
+    "has_pass_text": true,
+    "has_fail_text": true,
+    "has_partial_text": true,
+    "has_greenish_claim": true,
+    "has_freshness_terms": true,
+    "has_evidence_terms": true,
+    "line_count": 238,
+    "size_bytes": 11658
+  }
+]

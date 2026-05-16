@@ -1,0 +1,157 @@
+[
+  {
+    "organ": "ADMINISTRATUM",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 3,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "error_precheck.py"
+    ],
+    "latest_report_count": 0,
+    "latest_reports": [],
+    "repair_path_candidates": [
+      "ORGANS/ADMINISTRATUM/KNOWN_ERRORS"
+    ],
+    "has_repair_path_candidate": true
+  },
+  {
+    "organ": "ASTRONOMICON",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 3,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "smoke_astronomicon.py"
+    ],
+    "latest_report_count": 0,
+    "latest_reports": [],
+    "repair_path_candidates": [
+      "ORGANS/ASTRONOMICON/TASKS"
+    ],
+    "has_repair_path_candidate": true
+  },
+  {
+    "organ": "CUSTODES",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 3,
+    "smoke_or_check_script_count": 2,
+    "smoke_or_check_scripts": [
+      "boundary_checker.py",
+      "smoke_custodes.py"
+    ],
+    "latest_report_count": 0,
+    "latest_reports": [],
+    "repair_path_candidates": [],
+    "has_repair_path_candidate": false
+  },
+  {
+    "organ": "DOCTRINARIUM",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 1,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "smoke_doctrinarium.py"
+    ],
+    "latest_report_count": 0,
+    "latest_reports": [],
+    "repair_path_candidates": [],
+    "has_repair_path_candidate": false
+  },
+  {
+    "organ": "INQUISITION",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 3,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "full_audit.py"
+    ],
+    "latest_report_count": 1,
+    "latest_reports": [
+      "ORGANS/INQUISITION/REPORTS/latest_audit.json"
+    ],
+    "repair_path_candidates": [],
+    "has_repair_path_candidate": false
+  },
+  {
+    "organ": "MECHANICUS",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 3,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "script_health_check.py"
+    ],
+    "latest_report_count": 1,
+    "latest_reports": [
+      "ORGANS/MECHANICUS/REPORTS/latest_script_health.json"
+    ],
+    "repair_path_candidates": [
+      "ORGANS/MECHANICUS/REPAIR_QUEUE"
+    ],
+    "has_repair_path_candidate": true
+  },
+  {
+    "organ": "OFFICIO_AGENTIS",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 1,
+    "smoke_or_check_script_count": 0,
+    "smoke_or_check_scripts": [],
+    "latest_report_count": 0,
+    "latest_reports": [],
+    "repair_path_candidates": [],
+    "has_repair_path_candidate": false
+  },
+  {
+    "organ": "SCHOLA_IMPERIALIS",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 4,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "smoke_schola.py"
+    ],
+    "latest_report_count": 1,
+    "latest_reports": [
+      "ORGANS/SCHOLA_IMPERIALIS/REPORTS/latest_anti_pattern_scan.json"
+    ],
+    "repair_path_candidates": [],
+    "has_repair_path_candidate": false
+  },
+  {
+    "organ": "STRATEGIUM",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 3,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "smoke_strategium.py"
+    ],
+    "latest_report_count": 0,
+    "latest_reports": [],
+    "repair_path_candidates": [],
+    "has_repair_path_candidate": false
+  },
+  {
+    "organ": "THRONE",
+    "contract_exists": true,
+    "dashboard_exists": true,
+    "script_count": 5,
+    "smoke_or_check_script_count": 1,
+    "smoke_or_check_scripts": [
+      "smoke_throne.py"
+    ],
+    "latest_report_count": 1,
+    "latest_reports": [
+      "ORGANS/THRONE/REPORTS/latest_smoke.json"
+    ],
+    "repair_path_candidates": [
+      "ORGANS/THRONE/APPROVALS"
+    ],
+    "has_repair_path_candidate": true
+  }
+]

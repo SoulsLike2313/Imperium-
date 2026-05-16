@@ -1,0 +1,412 @@
+
+= * 70
+  IMPERIUM TEST VERSION - FULL RUN v2.2
+= * 70
+Started: 2026-05-16T02:54:18.4481676+03:00
+
+>>> CORE SYSTEMS
+
+[1/7] Running Smoke Test...
+- * 50
+= * 60
+TESTING FIELD SMOKE TEST
+= * 60
+Repo: E:\IMPERIUM
+Started: 2026-05-16T02:54:18.7437086+03:00
+
+[1/5] Checking Sanctum script exists...
+  PASS: Sanctum script
+[2/5] Checking Sanctum syntax...
+  PASS: Sanctum syntax
+[3/5] Checking PyQt6 import...
+  PASS: PyQt6 import
+[4/5] Checking AGENTS.md exists...
+  PASS: AGENTS.md
+[5/5] Checking git status...
+  FAIL: Git clean (HEAD: 3274087)
+
+RESULTS:
+  Total checks: 5
+  Passed: 4
+  Failed: 1
+  Pass rate: 80%
+
+VERDICT: PARTIAL
+
+Report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\TESTING_FIELD\SMOKE_RESULTS\latest_smoke_report.json
+Receipt: E:\IMPERIUM\IMPERIUM_TEST_VERSION\RECEIPTS\RCP-SMOKE-20260516_025418.json
+
+[2/7] Running Script Health Check...
+- * 50
+= * 60
+MECHANICUS SCRIPT HEALTH CHECK
+= * 60
+Repo: E:\IMPERIUM
+Started: 2026-05-16T02:54:19.5348968+03:00
+
+
+RESULTS:
+  Total scripts: 824
+  Healthy: 823
+  Broken: 1
+  Health: 99.9%
+
+VERDICT: PARTIAL
+
+Report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\MECHANICUS\REPORTS\latest_script_health.json
+Receipt: E:\IMPERIUM\IMPERIUM_TEST_VERSION\RECEIPTS\RCP-MECH-20260516_025419.json
+Dashboard: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\MECHANICUS\DASHBOARD\index.html
+
+Open dashboard: start E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\MECHANICUS\DASHBOARD\index.html
+
+[3/7] Running Inquisition Audit...
+- * 50
+= * 60
+INQUISITION FULL AUDIT
+= * 60
+Repo: E:\IMPERIUM
+Started: 2026-05-16T02:55:50.7144960+03:00
+
+[1/3] Scanning for verdict files...
+[2/3] Scanning for stale truth...
+[3/3] Scanning for missing evidence...
+
+RESULTS:
+  Total scanned: 569
+  Fake green: 2
+  Stale truth: 98
+  Missing evidence: 0
+  Total issues: 100
+
+VERDICT: FAIL
+
+Report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\INQUISITION\REPORTS\latest_audit.json
+Receipt: E:\IMPERIUM\IMPERIUM_TEST_VERSION\RECEIPTS\RCP-INQ-20260516_025550.json
+Dashboard: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\INQUISITION\DASHBOARD\index.html
+
+Open dashboard: start E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\INQUISITION\DASHBOARD\index.html
+
+>>> NEW COMPONENTS (v2.0)
+
+[4/7] Building Second Brain Memory Summary...
+- * 50
+Building Second Brain memory summary...
+JSON report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\REPORTS\memory_summary_20260516_025553.json
+Latest JSON: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\REPORTS\latest_memory_summary.json
+Markdown report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\REPORTS\memory_summary_20260516_025553.md
+Latest markdown: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\REPORTS\latest_memory_summary.md
+
+==================================================
+MEMORY SUMMARY
+==================================================
+Goals: 6
+Rules: 10
+Forbidden actions: 8
+Known errors: 5
+Predefined queries: 8
+
+[5/7] Running Live Workbench Sandbox Tests...
+- * 50
+Running sandbox tests...
+Sandbox: E:\IMPERIUM\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SANDBOX_PROJECT
+
+==================================================
+TEST RESULTS
+==================================================
+Status: PASS
+Exit code: 0
+
+Total: 6
+Passed: 6
+Failed: 0
+
+Tests:
+Traceback (most recent call last):
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SCRIPTS\run_sandbox_tests.py", line 173, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\SCRIPTS\run_sandbox_tests.py", line 152, in main
+    print(f"  {status} {t['name']}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+[5b/7] Generating Workbench Status...
+- * 50
+Generating Live Workbench status...
+Status JSON: E:\IMPERIUM\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\REPORTS\latest_workbench_status.json
+Dashboard: E:\IMPERIUM\IMPERIUM_TEST_VERSION\LIVE_WORKBENCH\DASHBOARD\index.html
+
+==================================================
+WORKBENCH STATUS
+==================================================
+Sandbox files: 2
+Latest test: PASS
+Test results: 6/6 passed
+
+[6/7] Running Agent Context Handshake...
+- * 50
+Executing handshake for agent 'Kiro' with task type 'general'...
+
+============================================================
+AGENT CONTEXT HANDSHAKE REPORT
+============================================================
+Agent: Kiro
+Task Type: general
+Time: 2026-05-16T02:55:53.555554
+
+QUERY RESULTS:
+Traceback (most recent call last):
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\AGENT_MEMORY_PROTOCOL\SCRIPTS\agent_context_handshake.py", line 257, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\AGENT_MEMORY_PROTOCOL\SCRIPTS\agent_context_handshake.py", line 229, in main
+    print(f"  {status} {qr['query_id']} {critical}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+>>> DASHBOARD
+
+[7/12] Generating Sanctum Mirror Dashboard (Legacy)...
+- * 50
+Generating Sanctum Mirror index...
+  Loaded smoke report
+  Loaded mechanicus report
+  Loaded audit report
+  Loaded memory summary
+  Loaded workbench status
+  Loaded handshake report
+
+Dashboard generated: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\index.html
+Open: start E:\IMPERIUM\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\index.html
+
+[7b/12] Generating Master Dashboard + Organ Dashboards...
+- * 50
+============================================================
+DASHBOARD GENERATOR
+============================================================
+
+Traceback (most recent call last):
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\dashboard_generator.py", line 580, in <module>
+    main()
+    ~~~~^^
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\dashboard_generator.py", line 562, in main
+    print(f"\u2705 Master: {path}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 0: character maps to <undefined>
+
+[8/12] Running Truth Spine Aggregation...
+- * 50
+Output saved: E:\IMPERIUM\IMPERIUM_TEST_VERSION\REPORTS\truth_aggregate.json
+============================================================
+TRUTH STATE AGGREGATE
+============================================================
+Timestamp: 2026-05-15T23:55:54.266932+00:00
+Threshold: 24 hours
+
+COMPONENT STATUS:
+  [XX] Smoke Test: PARTIAL (UNKNOWN)
+  [XX] Mechanicus Health: PARTIAL (UNKNOWN)
+  [XX] Inquisition Audit: FAIL (UNKNOWN)
+  [XX] Master Verification: FAIL (UNKNOWN)
+
+SUMMARY:
+  Total: 4
+  Pass: 0
+  Fail: 2
+  Stale: 0
+  Unknown: 0
+
+OVERALL STATUS: FAIL
+
+[9/12] Running Registry Auto-Sync...
+- * 50
+============================================================
+AUTO SYNC - REGISTRY CHECK
+============================================================
+
+
+SUMMARY:
+----------------------------------------
+Traceback (most recent call last):
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\REGISTRY\auto_sync.py", line 196, in <module>
+    main()
+    ~~~~^^
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\REGISTRY\auto_sync.py", line 162, in main
+    print(f"  {icon} {check['check']}: {check['status']}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705' in position 2: character maps to <undefined>
+
+>>> LEARNING LOOP
+
+[10/12] Extracting Lessons...
+- * 50
+============================================================
+LESSON EXTRACTOR
+============================================================
+
+Time window: all time
+
+Scanning receipts...
+  Found 61 lessons from receipts
+Scanning reports...
+  Found 0 lessons from reports
+Extracting patterns...
+  Found 4 anti-patterns
+  Found 1 success patterns
+
+SUMMARY:
+  Total lessons: 61
+  Failures: 34
+  Partials: 27
+  Anti-patterns: 4
+  Success patterns: 1
+
+TOP ANTI-PATTERNS:
+Traceback (most recent call last):
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.py", line 369, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.py", line 315, in main
+    print(f"  \u26a0\ufe0f {ap['pattern']}: {ap['occurrences']} occurrences ({ap['severity']})")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode characters in position 2-3: character maps to <undefined>
+
+[11/12] Scanning for Anti-Patterns...
+- * 50
+============================================================
+ANTI-PATTERN SCANNER
+============================================================
+
+Scanning: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS
+
+Built-in patterns: 7
+Custom patterns: 4
+
+Scanning files...
+Files scanned: 73
+Violations found: 27
+
+VIOLATIONS:
+
+  HIGH (5):
+    [AP001] ORGANS\THRONE\SCRIPTS\canon_import.py:195
+        Hardcoded PASS
+    [AP001] ORGANS\THRONE\SCRIPTS\uat_gate.py:116
+        Hardcoded PASS
+    [AP001] ORGANS\INQUISITION\SCRIPTS\fake_green_detector.py:91
+        Hardcoded PASS
+    [AP001] ORGANS\CUSTODES\SCRIPTS\boundary_checker.py:158
+        Hardcoded PASS
+    [AP001] ORGANS\INQUISITION\RUN_AUDIT.ps1:130
+        Hardcoded PASS
+
+  MEDIUM (1):
+    [AP007] ORGANS\ADMINISTRATUM\SCRIPTS\self_inventory.py
+        sys.exit(0) unconditional
+
+  LOW (21):
+    [AP003] ORGANS\THRONE\SCRIPTS\canon_import.py:36
+        Bare except
+    [AP003] ORGANS\THRONE\SCRIPTS\canon_import.py:48
+        Bare except
+    [AP003] ORGANS\THRONE\SCRIPTS\promotion_workflow.py:36
+        Bare except
+    [AP003] ORGANS\THRONE\SCRIPTS\uat_gate.py:35
+        Bare except
+    [AP003] ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\anti_pattern_scanner.py:32
+        Bare except
+    [AP003] ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\anti_pattern_scanner.py:128
+        Bare except
+    [AP003] ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.py:41
+        Bare except
+    [AP003] ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.py:91
+        Bare except
+    [AP003] ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.py:163
+        Bare except
+    [AP003] ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\rule_extractor.py:38
+        Bare except
+        ... and 11 more
+
+Report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\REPORTS\anti_pattern_scan_20260516_025555.json
+Latest: E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\REPORTS\latest_anti_pattern_scan.json
+
+VERDICT: FAIL
+
+[12/12] Extracting Rules...
+- * 50
+============================================================
+RULE EXTRACTOR
+============================================================
+
+Extracting from chronology...
+  Found 2 rules
+Extracting from memory...
+  Found 0 rules
+Extracting from forbidden actions...
+  Found 0 rules
+
+Total unique rules: 2
+
+BY CATEGORY:
+  FORBIDDEN: 1
+  CORRECTION: 1
+
+TOP FORBIDDEN RULES:
+Traceback (most recent call last):
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\rule_extractor.py", line 282, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "E:\IMPERIUM\IMPERIUM_TEST_VERSION\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\rule_extractor.py", line 247, in main
+    print(f"  \u274c {text[:60]}...")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\PC\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1251.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 2: character maps to <undefined>
+
+= * 70
+  SUMMARY
+= * 70
+
+  CORE SYSTEMS:
+    [XX] Smoke Test
+    [XX] Script Health
+    [XX] Audit
+
+  NEW COMPONENTS (v2.0):
+    [OK] Second Brain
+    [XX] Live Workbench
+    [XX] Agent Handshake
+
+  LEARNING LOOP (v2.2):
+    [XX] Lesson Extractor
+    [~~] Anti-Pattern Scanner
+    [XX] Rule Extractor
+
+  Passed: 2
+  Failed: 10
+  Skipped: 0
+
+  OVERALL: FAIL
+
+Finished: 2026-05-16T02:55:55.1713225+03:00
+
+Master receipt: E:\IMPERIUM\IMPERIUM_TEST_VERSION\RECEIPTS\RCP-MASTER-20260516_025418.json
+
+Open dashboard: start E:\IMPERIUM\IMPERIUM_TEST_VERSION\SANCTUM_MIRROR\index.html
+RUN_ALL_EXIT_CODE=1

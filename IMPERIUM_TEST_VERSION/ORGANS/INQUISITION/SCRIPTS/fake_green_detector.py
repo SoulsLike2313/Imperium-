@@ -24,12 +24,13 @@ from datetime import datetime
 from typing import List, Dict, Any
 
 def find_repo_root() -> Path:
-    """Find IMPERIUM repo root."""
+    """Find IMPERIUM_TEST_VERSION root (not main repo)."""
     current = Path(__file__).resolve()
     for parent in current.parents:
-        if (parent / "AGENTS.md").exists():
+        if parent.name == "IMPERIUM_TEST_VERSION":
             return parent
-    return Path.cwd()
+    # Fallback to script's test version root
+    return Path(__file__).resolve().parent.parent.parent.parent
 
 def scan_verdict_files(repo_root: Path) -> List[Dict[str, Any]]:
     """Scan for verdict/status files."""

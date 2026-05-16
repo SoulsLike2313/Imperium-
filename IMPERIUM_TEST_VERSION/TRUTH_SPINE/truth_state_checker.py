@@ -77,7 +77,12 @@ def validate_truth_state(receipt_data, threshold_hours=24):
     }
     
     # Extract evidence timestamp
-    evidence_ts = receipt_data.get("timestamp") or receipt_data.get("started")
+    evidence_ts = (
+        receipt_data.get("timestamp") 
+        or receipt_data.get("started")
+        or receipt_data.get("started_at_utc")
+        or receipt_data.get("finished_at_utc")
+    )
     result["evidence_timestamp"] = evidence_ts
     
     # Check freshness
@@ -144,7 +149,12 @@ def check_file(file_path, threshold_hours=24):
                     "passed": sum(1 for r in results_list if r.get("verdict") == "PASS"),
                     "failed": sum(1 for r in results_list if r.get("verdict") == "FAIL"),
                 },
-                "timestamp": data.get("timestamp") or data.get("started"),
+                "timestamp": (
+                    data.get("timestamp") 
+                    or data.get("started")
+                    or data.get("started_at_utc")
+                    or data.get("finished_at_utc")
+                ),
                 "verdict": data.get("overall_verdict", "UNKNOWN")
             }
         # Handle case where data is a plain list

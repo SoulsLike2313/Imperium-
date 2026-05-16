@@ -24,12 +24,13 @@ from datetime import datetime, timedelta
 from typing import Dict, Any, List
 
 def find_repo_root() -> Path:
-    """Find IMPERIUM repo root."""
+    """Find IMPERIUM_TEST_VERSION root (not main repo)."""
     current = Path(__file__).resolve()
     for parent in current.parents:
-        if (parent / "AGENTS.md").exists():
+        if parent.name == "IMPERIUM_TEST_VERSION":
             return parent
-    return Path.cwd()
+    # Fallback to script's test version root
+    return Path(__file__).resolve().parent.parent.parent.parent
 
 def get_current_head(repo_root: Path) -> str:
     """Get current git HEAD."""

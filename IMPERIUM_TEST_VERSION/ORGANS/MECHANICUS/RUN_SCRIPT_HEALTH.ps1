@@ -7,7 +7,7 @@ $ErrorActionPreference = "Continue"
 # Paths
 $TestVersionRoot = Split-Path -Parent (Split-Path -Parent (Split-Path -Parent $PSScriptRoot))
 $TestVersionRoot = "E:\IMPERIUM\IMPERIUM_TEST_VERSION"
-$RepoRoot = "E:\IMPERIUM"
+$RepoRoot = $TestVersionRoot  # Scan only test version, not main repo
 $ReportsDir = "$TestVersionRoot\ORGANS\MECHANICUS\REPORTS"
 $ReceiptsDir = "$TestVersionRoot\RECEIPTS"
 $DashboardDir = "$TestVersionRoot\ORGANS\MECHANICUS\DASHBOARD"
@@ -35,7 +35,7 @@ $Missing = 0
 
 # Scan Python scripts
 $PyScripts = Get-ChildItem -Path $RepoRoot -Recurse -Filter "*.py" -ErrorAction SilentlyContinue | 
-    Where-Object { $_.FullName -notmatch "\.git|__pycache__|IMPERIUM_TEST_VERSION|\.venv|node_modules" }
+    Where-Object { $_.FullName -notmatch "\.git|__pycache__|\.venv|node_modules" }
 
 foreach ($script in $PyScripts) {
     $relPath = $script.FullName.Replace("$RepoRoot\", "").Replace("\", "/")

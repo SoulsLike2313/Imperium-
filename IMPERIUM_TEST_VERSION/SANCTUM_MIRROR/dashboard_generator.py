@@ -222,7 +222,7 @@ def generate_organ_dashboard(organ_id):
                 <li><strong>Support:</strong> {contract.get('support_face', {}).get('responsibility', 'N/A') if contract else 'N/A'}</li>
             </ul>
             <div class="evidence-link">
-                📎 Evidence: <a href="../../ORGANS/{organ_id}/ORGAN_CONTRACT.json">ORGAN_CONTRACT.json</a>
+                📎 Evidence: <a href="../ORGAN_CONTRACT.json">ORGAN_CONTRACT.json</a>
             </div>
         </div>
         
@@ -232,7 +232,7 @@ def generate_organ_dashboard(organ_id):
 """
     
     for script in scripts:
-        html += f'                <li>📄 <a href="../../ORGANS/{organ_id}/SCRIPTS/{script.name}">{script.name}</a></li>\n'
+        html += f'                <li>📄 <a href="../SCRIPTS/{script.name}">{script.name}</a></li>\n'
     
     if not scripts:
         html += "                <li class='meta'>No scripts found</li>\n"
@@ -249,7 +249,7 @@ def generate_organ_dashboard(organ_id):
         freshness_class = "fresh" if report["freshness"]["fresh"] else "stale"
         freshness_icon = "✅" if report["freshness"]["fresh"] else "⚠️"
         age = report["freshness"].get("age_hours", "?")
-        html += f'                <li><span class="{freshness_class}">{freshness_icon}</span> <a href="../../ORGANS/{organ_id}/REPORTS/{report["name"]}">{report["name"]}</a> <span class="meta">({age}h)</span></li>\n'
+        html += f'                <li><span class="{freshness_class}">{freshness_icon}</span> <a href="../REPORTS/{report["name"]}">{report["name"]}</a> <span class="meta">({age}h)</span></li>\n'
     
     if not reports:
         html += "                <li class='meta'>No reports found</li>\n"
@@ -264,7 +264,7 @@ def generate_organ_dashboard(organ_id):
         <div class="card">
             <h2>🧾 Latest Evidence</h2>
             <ul>
-                <li><strong>Receipt:</strong> <a href="../../{receipt['path']}">{receipt['name']}</a></li>
+                <li><strong>Receipt:</strong> <a href="../../RECEIPTS/{receipt['name']}">{receipt['name']}</a></li>
                 <li><strong>Freshness:</strong> <span class="{freshness_class}">{freshness_icon} {receipt_freshness['status']} ({receipt_freshness.get('age_hours', '?')}h)</span></li>
             </ul>
         </div>

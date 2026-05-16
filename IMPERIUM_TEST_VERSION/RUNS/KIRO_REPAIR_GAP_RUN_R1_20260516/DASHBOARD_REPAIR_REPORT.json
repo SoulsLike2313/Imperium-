@@ -1,0 +1,31 @@
+{
+  "report_id": "DASHBOARD_REPAIR_20260516",
+  "issue": "Broken relative links in organ dashboards",
+  "root_cause": "dashboard_generator.py used ../../ORGANS/{organ_id}/ path from ORGANS/{organ_id}/DASHBOARD/, resolving to ORGANS/ORGANS/{organ_id}/",
+  "fix_applied": "Changed to ../ for same-organ files, kept ../../SANCTUM_MIRROR/ for master dashboard link",
+  "files_modified": [
+    "SANCTUM_MIRROR/dashboard_generator.py"
+  ],
+  "links_fixed": {
+    "before": {
+      "contract": "../../ORGANS/{organ_id}/ORGAN_CONTRACT.json",
+      "scripts": "../../ORGANS/{organ_id}/SCRIPTS/{name}",
+      "reports": "../../ORGANS/{organ_id}/REPORTS/{name}",
+      "receipts": "../../{path}",
+      "master": "../../SANCTUM_MIRROR/master_dashboard.html"
+    },
+    "after": {
+      "contract": "../ORGAN_CONTRACT.json",
+      "scripts": "../SCRIPTS/{name}",
+      "reports": "../REPORTS/{name}",
+      "receipts": "../../RECEIPTS/{name}",
+      "master": "../../SANCTUM_MIRROR/master_dashboard.html"
+    }
+  },
+  "dashboards_regenerated": 11,
+  "verification": {
+    "method": "Select-String href pattern check",
+    "result": "PASS"
+  },
+  "verdict": "FIXED"
+}

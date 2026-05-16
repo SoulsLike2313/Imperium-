@@ -1,0 +1,114 @@
+{
+  "dashboard_path": "IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/master_dashboard.html",
+  "overall_verdict": "FAIL",
+  "receipt_id": "RCP-MASTER-20260516_040557",
+  "results": [
+    {
+      "category": "core",
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "name": "Smoke Test"
+    },
+    {
+      "category": "core",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Script Health"
+    },
+    {
+      "category": "core",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Audit"
+    },
+    {
+      "category": "new",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Second Brain"
+    },
+    {
+      "category": "new",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Live Workbench"
+    },
+    {
+      "category": "new",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Agent Handshake"
+    },
+    {
+      "category": "dashboard",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Dashboard (Legacy)"
+    },
+    {
+      "category": "dashboard",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Dashboard Generator"
+    },
+    {
+      "category": "truth",
+      "verdict": "FAIL",
+      "exit_code": 1,
+      "name": "Truth Spine"
+    },
+    {
+      "category": "registry",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Registry Sync"
+    },
+    {
+      "category": "learning",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Lesson Extractor"
+    },
+    {
+      "category": "learning",
+      "verdict": "PARTIAL",
+      "exit_code": 1,
+      "name": "Anti-Pattern Scanner"
+    },
+    {
+      "category": "learning",
+      "verdict": "PASS",
+      "exit_code": 0,
+      "name": "Rule Extractor"
+    }
+  ],
+  "components": {
+    "core": [
+      "smoke_test",
+      "script_health",
+      "audit"
+    ],
+    "new": [
+      "second_brain",
+      "live_workbench",
+      "agent_handshake"
+    ],
+    "learning": [
+      "lesson_extractor",
+      "anti_pattern_scanner",
+      "rule_extractor"
+    ],
+    "dashboard": [
+      "legacy_index",
+      "master_dashboard",
+      "organ_dashboards"
+    ],
+    "registry": [
+      "auto_sync"
+    ]
+  },
+  "action": "full_run",
+  "version": "2.2",
+  "started_at_utc": "2026-05-16T04:05:57.6203744+03:00",
+  "finished_at_utc": "2026-05-16T04:06:08.3138571+03:00"
+}

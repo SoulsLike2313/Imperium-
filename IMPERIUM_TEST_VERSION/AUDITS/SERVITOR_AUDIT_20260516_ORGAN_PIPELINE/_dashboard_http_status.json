@@ -1,0 +1,72 @@
+[
+  {
+    "url": "http://localhost:8765/SANCTUM_MIRROR/index.html",
+    "status": 200,
+    "length": 12819
+  },
+  {
+    "url": "http://localhost:8765/SANCTUM_MIRROR/master_dashboard.html",
+    "status": 200,
+    "length": 11570
+  },
+  {
+    "url": "http://localhost:8765/SANCTUM_MIRROR/dashboard.html",
+    "status": 200,
+    "length": 9609
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/ADMINISTRATUM/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3794
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/ASTRONOMICON/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3777
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/CUSTODES/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3796
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/DOCTRINARIUM/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3622
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/INQUISITION/DASHBOARD/index.html",
+    "status": 200,
+    "length": 7817
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/MECHANICUS/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3009
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/OFFICIO_AGENTIS/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3573
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/SCHOLA_IMPERIALIS/DASHBOARD/index.html",
+    "status": 200,
+    "length": 4786
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/STRATEGIUM/DASHBOARD/index.html",
+    "status": 200,
+    "length": 3766
+  },
+  {
+    "url": "http://localhost:8765/ORGANS/THRONE/DASHBOARD/index.html",
+    "status": 200,
+    "length": 4100
+  },
+  {
+    "url": "http://localhost:8765/LIVE_WORKBENCH/DASHBOARD/index.html",
+    "status": 200,
+    "length": 2850
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "audit_id": "SERVITOR_AUDIT_20260516_ORGAN_PIPELINE",
+  "repo_root": "E:/IMPERIUM",
+  "expected_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "actual_head": "3274087e1f597a43ced3252c7edefcb3fda310f1",
+  "status": "PARTIAL",
+  "files_created": [
+    "AUDIT_REPORT_RU.md",
+    "CLAIM_VERIFICATION_MATRIX.json",
+    "DASHBOARD_AUDIT_MATRIX.json",
+    "COMMAND_LOG.md",
+    "SCREENSHOT_INDEX.md",
+    "REPO_SCOPE_AUDIT.json",
+    "SERVITOR_FINAL_VERDICT_RU.md",
+    "AUDIT_RECEIPT.json"
+  ],
+  "screenshots_created": [
+    "00_sanctum_mirror_index.png",
+    "01_master_dashboard.png",
+    "02_sanctum_mirror_legacy_dashboard.png",
+    "organ_administratum.png",
+    "organ_astronomicon.png",
+    "organ_custodes.png",
+    "organ_doctrinarium.png",
+    "organ_inquisition.png",
+    "organ_mechanicus.png",
+    "organ_officio_agentis.png",
+    "organ_schola_imperialis.png",
+    "organ_strategium.png",
+    "organ_throne.png",
+    "live_workbench.png"
+  ],
+  "blockers": [
+    "No Playwright in environment (fallback used: headless Chrome screenshots).",
+    "RUN_ALL has multiple UnicodeEncodeError failures.",
+    "8 organ dashboards contain broken links (evidence trace broken).",
+    "Inquisition reports fake_green_count=2 and stale_truth_count=98."
+  ],
+  "recommended_next_task": "Kiro repair sprint: enforce truth-driven dashboard data + fix link templates + stabilize console encoding; rerun RUN_ALL and re-audit."
+}

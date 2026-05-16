@@ -1,29 +1,41 @@
 {
-  "timestamp": "2026-05-15T23:31:34.294321+00:00",
+  "timestamp": "2026-05-16T01:06:07.907203+00:00",
   "anti_patterns": [
     {
       "pattern": "Script Health",
-      "occurrences": 14,
+      "occurrences": 19,
       "severity": "HIGH",
       "recommendation": "Investigate recurring Script Health failures"
     },
     {
       "pattern": "Audit",
-      "occurrences": 14,
+      "occurrences": 19,
       "severity": "HIGH",
       "recommendation": "Investigate recurring Audit failures"
     },
     {
       "pattern": "Smoke Test",
-      "occurrences": 8,
+      "occurrences": 13,
       "severity": "HIGH",
       "recommendation": "Investigate recurring Smoke Test failures"
     },
     {
       "pattern": "Truth Spine",
-      "occurrences": 6,
+      "occurrences": 12,
       "severity": "HIGH",
       "recommendation": "Investigate recurring Truth Spine failures"
+    },
+    {
+      "pattern": "Agent Handshake",
+      "occurrences": 2,
+      "severity": "LOW",
+      "recommendation": "Investigate recurring Agent Handshake failures"
+    },
+    {
+      "pattern": "Registry Sync",
+      "occurrences": 2,
+      "severity": "LOW",
+      "recommendation": "Investigate recurring Registry Sync failures"
     }
   ]
 }

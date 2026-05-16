@@ -1,0 +1,21 @@
+﻿{
+    "exit_code":  0,
+    "errors":  [
+
+               ],
+    "repo_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+    "action":  "full_audit",
+    "command":  "RUN_AUDIT.ps1",
+    "warnings":  [
+
+                 ],
+    "evidence_paths":  [
+                           "IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/REPORTS/latest_audit.json"
+                       ],
+    "finished_at_utc":  "2026-05-16T03:56:20.2025963+03:00",
+    "verdict":  "PASS",
+    "receipt_id":  "RCP-INQ-20260516_035619",
+    "report_path":  "IMPERIUM_TEST_VERSION/ORGANS/INQUISITION/REPORTS/latest_audit.json",
+    "test_version_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+    "started_at_utc":  "2026-05-16T03:56:19.9800925+03:00"
+}

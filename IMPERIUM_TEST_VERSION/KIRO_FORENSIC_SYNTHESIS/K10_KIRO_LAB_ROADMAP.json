@@ -1,10 +1,12 @@
 {
   "schema_version": "IMPERIUM_ROADMAP_V0_1",
   "generated_at": "2026-05-16T01:45:00Z",
+  "updated_at": "2026-05-16T00:50:00Z",
   "task_id": "K-10",
   "task_name": "Kiro lab evolution roadmap",
   
-  "current_phase": "ALL_PHASES_COMPLETE",
+  "current_phase": "PHASE_7_REPAIR_STABILIZATION",
+  "current_phase_note": "Repair run in progress. Status derived from truth_aggregate.json",
   
   "phases": [
     {
@@ -180,6 +182,30 @@
       "started_at": "2026-05-16T02:22:00Z",
       "completed_at": "2026-05-16T02:28:00Z",
       "notes": "All scripts created: promotion_workflow.py (pre-flight, bundle), uat_gate.py (approval), canon_import.py (validation, import). Full promotion pipeline ready."
+    },
+    {
+      "phase_id": "PHASE_7_REPAIR_STABILIZATION",
+      "name": "Repair & Stabilization",
+      "status": "IN_PROGRESS",
+      "goals": [
+        "Fix broken dashboard links",
+        "Fix Unicode/emoji console errors",
+        "Remove fake green claims",
+        "Stabilize RUN_ALL pipeline"
+      ],
+      "deliverables": [
+        "Fixed dashboard_generator.py",
+        "Fixed RUN_ALL.ps1 encoding",
+        "Repaired truth aggregate",
+        "KIRO_REPAIR_GAP_RUN_R1 report"
+      ],
+      "exit_criteria": [
+        "RUN_ALL exits 0",
+        "No broken links in dashboards",
+        "truth_aggregate.overall_status == PASS"
+      ],
+      "depends_on": ["PHASE_6_PROMOTION_GATES"],
+      "started_at": "2026-05-16T00:44:00Z"
     }
   ],
   
@@ -188,43 +214,59 @@
       "milestone": "M1_FORENSIC_COMPLETE",
       "phase": "PHASE_0_FOUNDATION",
       "criteria": "K00-K12 complete, Owner review PASS",
-      "target": "2026-05-16"
+      "target": "2026-05-16",
+      "status": "ACHIEVED"
     },
     {
       "milestone": "M2_NO_FAKE_GREEN",
       "phase": "PHASE_1_TRUTH_SPINE",
       "criteria": "Truth spine operational, fake green impossible",
-      "target": "TBD"
+      "target": "TBD",
+      "status": "PARTIAL",
+      "note": "Truth spine exists but fake green claims found in docs"
     },
     {
       "milestone": "M3_ALL_ORGANS",
       "phase": "PHASE_2_MISSING_ORGANS",
       "criteria": "All 10 organs scaffolded with contracts",
-      "target": "TBD"
+      "target": "TBD",
+      "status": "ACHIEVED"
     },
     {
       "milestone": "M4_REGISTRIES_CLEAN",
       "phase": "PHASE_3_REGISTRY_SYNC",
       "criteria": "Registries synced, drift detected",
-      "target": "TBD"
+      "target": "TBD",
+      "status": "PARTIAL"
     },
     {
       "milestone": "M5_DASHBOARD_LIVE",
       "phase": "PHASE_4_FRONTEND_PROJECTION",
       "criteria": "Dashboard reflects truth 100%",
-      "target": "TBD"
+      "target": "TBD",
+      "status": "PARTIAL",
+      "note": "Dashboards exist but have broken links"
     },
     {
       "milestone": "M6_LEARNING_ACTIVE",
       "phase": "PHASE_5_LEARNING_LOOP",
       "criteria": "Lessons extracted, patterns reusable",
-      "target": "TBD"
+      "target": "TBD",
+      "status": "ACHIEVED"
     },
     {
       "milestone": "M7_PROMOTION_READY",
       "phase": "PHASE_6_PROMOTION_GATES",
       "criteria": "Canon import with full gates",
-      "target": "TBD"
+      "target": "TBD",
+      "status": "ACHIEVED"
+    },
+    {
+      "milestone": "M8_STABLE_GREEN",
+      "phase": "PHASE_7_REPAIR_STABILIZATION",
+      "criteria": "RUN_ALL PASS, no fake green, no broken links",
+      "target": "TBD",
+      "status": "IN_PROGRESS"
     }
   ],
   
@@ -247,6 +289,7 @@
     }
   ],
   
-  "verdict": "PASS",
-  "notes": "Roadmap defined. 7 phases from foundation to promotion gates. Currently in Phase 0."
+  "verdict": "IN_PROGRESS",
+  "verdict_source": "Derived from truth_aggregate.json and Servitor audit",
+  "notes": "Phase 7 repair in progress. Previous phases complete but with known issues being fixed."
 }

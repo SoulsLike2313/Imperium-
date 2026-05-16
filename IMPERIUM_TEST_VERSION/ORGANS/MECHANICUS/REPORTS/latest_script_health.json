@@ -1,23 +1,19 @@
 ﻿{
-    "repo_root":  "E:\\IMPERIUM",
-    "generated_at":  "2026-05-16T02:31:29.7994311+03:00",
+    "repo_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+    "generated_at":  "2026-05-16T04:06:05.4622360+03:00",
     "broken_scripts":  {
-                           "path":  "ORGANS/DOCTRINARIUM/UTILITY/WEB_DASHBOARD_V0_6/dashboard_server.py",
-                           "error":  "  File \"E:\\IMPERIUM\\ORGANS\\DOCTRINARIUM\\UTILITY\\WEB_DASHBOARD_V0_6\\dashboard_server.py\", line 161     \"paths\": PATHS,`n        \"useful\": useful,                    ^ SyntaxError: invalid syntax",
-                           "syntax_ok":  false,
-                           "type":  "python",
-                           "exists":  true
+
                        },
     "schema_version":  "IMPERIUM_SCRIPT_HEALTH_V0_1",
     "summary":  {
-                    "healthy":  823,
-                    "verdict":  "PARTIAL",
-                    "health_percent":  99.9,
-                    "broken":  1,
-                    "total_scripts":  824
+                    "healthy":  50,
+                    "verdict":  "PASS",
+                    "health_percent":  100,
+                    "broken":  0,
+                    "total_scripts":  50
                 },
     "by_type":  {
-                    "python":  677,
-                    "powershell":  147
+                    "python":  50,
+                    "powershell":  0
                 }
 }

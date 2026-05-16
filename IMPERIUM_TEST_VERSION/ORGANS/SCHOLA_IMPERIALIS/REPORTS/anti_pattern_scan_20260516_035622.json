@@ -1,0 +1,256 @@
+{
+  "timestamp": "2026-05-16T00:56:22.337788+00:00",
+  "scan_path": "ORGANS",
+  "files_scanned": 81,
+  "summary": {
+    "total_violations": 27,
+    "high": 5,
+    "medium": 1,
+    "low": 21
+  },
+  "violations": [
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\SCRIPTS\\canon_import.py",
+      "anti_pattern": "AP001",
+      "name": "Hardcoded PASS",
+      "severity": "HIGH",
+      "line": 195,
+      "content": "\"verdict\": \"PASS\"",
+      "description": "Verdict hardcoded to PASS without evidence"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\SCRIPTS\\canon_import.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 36,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\SCRIPTS\\canon_import.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 48,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\SCRIPTS\\promotion_workflow.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 36,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\SCRIPTS\\uat_gate.py",
+      "anti_pattern": "AP001",
+      "name": "Hardcoded PASS",
+      "severity": "HIGH",
+      "line": 116,
+      "content": "\"verdict\": \"PASS\"",
+      "description": "Verdict hardcoded to PASS without evidence"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\THRONE\\SCRIPTS\\uat_gate.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 35,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\anti_pattern_scanner.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 32,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\anti_pattern_scanner.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 128,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\lesson_extractor.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 41,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\lesson_extractor.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 91,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\lesson_extractor.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 163,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\rule_extractor.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 38,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\SCHOLA_IMPERIALIS\\SCRIPTS\\rule_extractor.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 55,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\INQUISITION\\SCRIPTS\\fake_green_detector.py",
+      "anti_pattern": "AP001",
+      "name": "Hardcoded PASS",
+      "severity": "HIGH",
+      "line": 92,
+      "content": "is_pass = verdict.upper() in [\"PASS\", \"SUCCESS\", \"OK\", \"GREEN\"]",
+      "description": "Verdict hardcoded to PASS without evidence"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\INQUISITION\\SCRIPTS\\stale_truth_detector.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 45,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\INQUISITION\\SCRIPTS\\stale_truth_detector.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 122,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\DOCTRINARIUM\\SCRIPTS\\smoke_doctrinarium.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 60,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\CUSTODES\\SCRIPTS\\boundary_checker.py",
+      "anti_pattern": "AP001",
+      "name": "Hardcoded PASS",
+      "severity": "HIGH",
+      "line": 158,
+      "content": "\"verdict\": \"PASS\"",
+      "description": "Verdict hardcoded to PASS without evidence"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ASTRONOMICON\\SCRIPTS\\smoke_astronomicon.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 93,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\error_precheck.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 46,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\error_precheck.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 63,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_diagnosis.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 72,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_inventory.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 70,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_inventory.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 152,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_inventory.py",
+      "anti_pattern": "AP003",
+      "name": "Bare except",
+      "severity": "LOW",
+      "line": 183,
+      "content": "except:",
+      "description": "Catching all exceptions without specificity"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\ADMINISTRATUM\\SCRIPTS\\self_inventory.py",
+      "anti_pattern": "AP007",
+      "name": "sys.exit(0) unconditional",
+      "severity": "MEDIUM",
+      "line": null,
+      "description": "Python script always exits with success"
+    },
+    {
+      "file": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\ORGANS\\INQUISITION\\RUN_AUDIT.ps1",
+      "anti_pattern": "AP001",
+      "name": "Hardcoded PASS",
+      "severity": "HIGH",
+      "line": 130,
+      "content": "$Verdict = \"PASS\"",
+      "description": "Verdict hardcoded to PASS without evidence"
+    }
+  ],
+  "verdict": "FAIL"
+}

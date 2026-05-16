@@ -1,0 +1,56 @@
+{
+  "backlog_id": "NEXT_BACKLOG_20260516",
+  "generated_at": "2026-05-16T00:50:00Z",
+  "items": [
+    {
+      "item_id": "B001",
+      "priority": 1,
+      "title": "Fix hardcoded PASS verdicts",
+      "description": "Replace hardcoded 'PASS' strings with derived verdicts",
+      "effort": "30min",
+      "gap_ref": "G001"
+    },
+    {
+      "item_id": "B002",
+      "priority": 2,
+      "title": "Fix bare except clauses",
+      "description": "Replace bare except with specific exception handling",
+      "effort": "1h",
+      "gap_ref": "G002"
+    },
+    {
+      "item_id": "B003",
+      "priority": 3,
+      "title": "Identify broken script",
+      "description": "Find and fix the 1 broken script in Mechanicus report",
+      "effort": "15min",
+      "gap_ref": "G004"
+    },
+    {
+      "item_id": "B004",
+      "priority": 4,
+      "title": "Archive stale receipts",
+      "description": "Move old receipts to archive or adjust freshness threshold",
+      "effort": "15min",
+      "gap_ref": "G003"
+    },
+    {
+      "item_id": "B005",
+      "priority": 5,
+      "title": "Run synthetic freelance corridor",
+      "description": "Create fake client task and run full pipeline end-to-end",
+      "effort": "1h",
+      "gap_ref": null
+    },
+    {
+      "item_id": "B006",
+      "priority": 6,
+      "title": "Owner commit",
+      "description": "Owner commits all changes to main repo",
+      "effort": "5min",
+      "gap_ref": null
+    }
+  ],
+  "total_effort": "~3h",
+  "next_action": "B001 - Fix hardcoded PASS verdicts"
+}

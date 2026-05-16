@@ -1,0 +1,7 @@
+{"action_id": "R001", "stage": 2, "target": "SANCTUM_MIRROR/dashboard_generator.py", "action": "fix_relative_links", "description": "Fix ../../ORGANS/X -> ../X for organ dashboards", "severity": "HIGH", "status": "PENDING"}
+{"action_id": "R002", "stage": 2, "target": "Python scripts with emoji output", "action": "add_encoding_safety", "description": "Wrap print() with encoding-safe output for Windows console", "severity": "MEDIUM", "status": "PENDING"}
+{"action_id": "R003", "stage": 3, "target": "README_RU.md", "action": "remove_static_complete_claims", "description": "Replace static 'COMPLETE' with derived state reference", "severity": "HIGH", "status": "PENDING"}
+{"action_id": "R004", "stage": 3, "target": "K10_KIRO_LAB_ROADMAP.json", "action": "remove_fake_green_claims", "description": "Remove overclaims about 100% truth and ALL_PHASES_COMPLETE", "severity": "BLOCKER", "status": "PENDING"}
+{"action_id": "R005", "stage": 4, "target": "TRUTH_SPINE/truth_aggregator.py", "action": "fix_receipt_selection", "description": "Use deterministic latest receipt selection", "severity": "MEDIUM", "status": "PENDING"}
+{"action_id": "R006", "stage": 5, "target": "REGISTRY/auto_sync.py", "action": "verify_encoding", "description": "Ensure UTF-8 output without emoji crashes", "severity": "MEDIUM", "status": "PENDING"}
+{"action_id": "R007", "stage": 6, "target": "SYNTHETIC_FREELANCE_CORRIDOR", "action": "run_full_pipeline", "description": "Create fake client task and run full pipeline", "severity": "HIGH", "status": "PENDING"}
