@@ -1,0 +1,81 @@
+{
+  "zones_part4": [
+    {
+      "zone_id": "testing_field",
+      "display_name": "Testing Field",
+      "purpose": "Polygon for smoke tests, experiments, and future merge polygon.",
+      "capability_state": "PARTIAL",
+      "visual_token": "accent_violet",
+      "placement_hint": "ring_2",
+      "animation_budget": "low",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Smoke: {smoke_status} | Last run: {last_smoke_age}s ago | Coverage: {organ_coverage}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json",
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS"],
+      "action_sources": ["action_run_testing_field_smoke", "action_read_testing_field_smoke_reports"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/TESTING_FIELD/RUN_SMOKE.ps1"],
+      "performance_sources": ["smoke_pass_rate", "smoke_duration_ms", "organ_coverage_count"],
+      "stability_sources": ["smoke_parse_success", "organ_count_consistency"],
+      "honest_limitations_display": ["SMOKE_NOT_PRODUCTION_QUALITY", "UI_INTEGRATION_INCOMPLETE"],
+      "missing_capabilities_display": ["Full test suite", "Property-based testing", "Merge polygon"],
+      "future_extension_points": ["Merge polygon", "Full test coverage", "Automated regression"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "placeholder", "reason": "Smoke results missing", "recovery_action": "Run smoke tests"},
+      "owner_gate_policy": "review_required"
+    },
+    {
+      "zone_id": "export_bundle_gate",
+      "display_name": "Export / Bundle Gate",
+      "purpose": "Controlled data exit. Runtime pack export, bundle creation, gate for outgoing artifacts.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_amber",
+      "placement_hint": "ring_2",
+      "animation_budget": "low",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Last export: {last_export_age}s ago | Exports: {export_count} | Gate: {gate_status}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports"],
+      "action_sources": ["action_export_second_brain_runtime"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/export_second_brain_runtime_pack.py"],
+      "performance_sources": ["export_size_bytes", "export_duration_ms", "last_export_age_seconds"],
+      "stability_sources": ["manifest_parse_success"],
+      "honest_limitations_display": ["OWNER_GATE_REQUIRED", "NO_AUTO_EXPORT"],
+      "missing_capabilities_display": ["Automated bundle pipeline", "Artifact signing"],
+      "future_extension_points": ["Artifact registry", "Signed bundles", "Distribution pipeline"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "dimmed", "reason": "No exports yet", "recovery_action": "Run export"},
+      "owner_gate_policy": "review_required"
+    },
+    {
+      "zone_id": "feature_module_dock",
+      "display_name": "Feature Module Dock",
+      "purpose": "Connection point for new modules. Shows registered modules, their status, and gate for new ones.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_violet",
+      "placement_hint": "ring_2",
+      "animation_budget": "low",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Modules: {module_count} | Working: {working_count} | Blocked: {blocked_count}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/registry/neural_feature_registry.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/registry/zone_registry_v0_5.json"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json"],
+      "action_sources": [],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_neural_base_v0_5.py"],
+      "performance_sources": ["module_count", "truth_bound_count", "spec_only_count"],
+      "stability_sources": ["registry_parse_success", "contract_compliance_rate"],
+      "honest_limitations_display": ["MANUAL_REGISTRATION_ONLY", "NO_AUTO_DISCOVERY"],
+      "missing_capabilities_display": ["Auto-discovery", "Hot-reload", "Plugin system"],
+      "future_extension_points": ["Plugin manifest system", "Hot-reload", "Auto-registration"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "dimmed", "reason": "Registry missing", "recovery_action": "Check registry"},
+      "owner_gate_policy": "review_required"
+    }
+  ]
+}

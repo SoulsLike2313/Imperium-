@@ -1,0 +1,16 @@
+{
+  "zone_id": "evidence_receipts",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports"
+  ],
+  "pass_logic": "receipts dir has >= 1 valid receipt; all receipts have no_llm_used=true and no_external_agent_used=true; exports dir exists",
+  "failure_logic": "No receipts; receipt missing no_llm_used field; no_llm_used=false found",
+  "health_required_before_working": [
+    "RUNTIME/receipts exists and non-empty",
+    "all receipts: no_llm_used == true",
+    "all receipts: no_external_agent_used == true"
+  ],
+  "telemetry_fields": ["receipt_count", "export_count", "no_llm_rate", "receipt_age_seconds"]
+}

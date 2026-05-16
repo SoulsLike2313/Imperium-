@@ -1,0 +1,15 @@
+{
+  "gate_id": "gate_truth_discipline",
+  "version": "v0.5",
+  "description": "Truth discipline gate: no fake green, all WORKING zones have evidence, scope safety",
+  "status": "NOT_EVALUATED",
+  "checks": [
+    { "id": "no_production_ready",    "description": "No PRODUCTION_READY in any file",         "status": "PENDING" },
+    { "id": "no_fully_implemented",   "description": "No FULLY_IMPLEMENTED in any file",         "status": "PENDING" },
+    { "id": "working_zones_have_receipts", "description": "All WORKING zones have receipts",     "status": "PENDING" },
+    { "id": "scope_safety",           "description": "No files outside IMPERIUM_TEST_VERSION",   "status": "PENDING" },
+    { "id": "checker_pass",           "description": "check_neural_base_v0_5.py exits 0",        "status": "PENDING" }
+  ],
+  "pass_condition": "All checks PASS",
+  "not_production_ready": true
+}

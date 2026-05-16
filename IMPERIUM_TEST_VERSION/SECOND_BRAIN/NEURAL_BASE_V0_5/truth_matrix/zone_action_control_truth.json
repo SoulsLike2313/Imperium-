@@ -1,0 +1,16 @@
+{
+  "zone_id": "action_control",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/registry/neural_action_registry.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json"
+  ],
+  "pass_logic": "neural_action_registry.json parses; all actions have action_id, type, status; no forbidden commands (git push, rm -rf); mutating actions have owner_gate_required=true",
+  "failure_logic": "Registry missing; action missing required fields; forbidden command found; mutating action without owner gate",
+  "health_required_before_working": [
+    "neural_action_registry.json exists and parses",
+    "no forbidden commands in any action",
+    "all MUTATING actions have owner_gate_required=true"
+  ],
+  "telemetry_fields": ["enabled_action_count", "disabled_action_count", "last_action_age_seconds", "failed_action_count"]
+}

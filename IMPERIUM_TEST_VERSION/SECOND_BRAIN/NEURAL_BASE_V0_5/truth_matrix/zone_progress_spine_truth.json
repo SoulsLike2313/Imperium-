@@ -1,0 +1,15 @@
+{
+  "zone_id": "progress_spine",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"
+  ],
+  "pass_logic": "RUNTIME/receipts directory exists and contains >= 1 valid JSON receipt with receipt_id, event_type, created_at, no_llm_used=true",
+  "failure_logic": "Receipts directory missing or empty; receipt JSON invalid; no_llm_used != true",
+  "health_required_before_working": [
+    "RUNTIME/receipts directory exists",
+    "at least 1 receipt file",
+    "first receipt has receipt_id and event_type"
+  ],
+  "telemetry_fields": ["receipt_count", "last_event_age_seconds", "events_per_day", "receipt_chain_integrity"]
+}

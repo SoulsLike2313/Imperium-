@@ -1,0 +1,60 @@
+
+FullName                                                                                                                 Length
+--------                                                                                                                 ------
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app                                                      
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\gate                                                     
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon                                            
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry                                                 
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\reports                                                  
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\telemetry                                                
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\tools                                                    
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix                                             
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\README_RU.md                                             3415
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\compile_css.py                                       555
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\compile_js.py                                        548
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\launch_neural_map_v0_5.ps1                           1649
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part1.css                            4279
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part1.js                             7638
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part2.css                            4961
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part2.js                             10904
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part3.css                            5638
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part3.js                             11397
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part4.css                            11252
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5_part4.js                             19736
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5.css                                  26138
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5.html                                 7481
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\neural_map_v0_5.js                                   49683
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\app\server_v0_5.py                                       17795
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\gate\gate_check_module.py                                12437
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\gate\gate_report_self_test.json                          2064
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon\COMPATIBILITY_REPORTS                      
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon\READINESS_GATES                            
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon\READINESS_GATES\gate_adaptability.json     939
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon\READINESS_GATES\gate_beauty.json           902
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon\READINESS_GATES\gate_execution.json        912
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\merge_polygon\READINESS_GATES\gate_truth_discipline.json 898
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\compile_registry.py                             1190
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\layout_config.json                              3215
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\zone_registry_part1.json                        5237
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\zone_registry_part2.json                        4981
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\zone_registry_part3.json                        5376
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\zone_registry_part4.json                        5105
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\registry\zone_registry_v0_5.json                         23883
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\reports\check_report_v0_5.json                           2851
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\reports\neural_snapshot_live.json                        13739
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\tools\check_neural_base_v0_5.py                          14504
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\tools\snapshot_builder_v0_5.py                           14331
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_action_control_truth.json              944
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_agent_exchange_truth.json              839
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_core_brain_truth.json                  892
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_delta_verification_truth.json          905
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_evidence_receipts_truth.json           750
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_export_bundle_gate_truth.json          774
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_feature_module_dock_truth.json         808
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_memory_threads_truth.json              1018
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_owner_comments_truth.json              687
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_progress_spine_truth.json              702
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_task_intake_truth.json                 675
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_5\truth_matrix\zone_testing_field_truth.json               839
+
+

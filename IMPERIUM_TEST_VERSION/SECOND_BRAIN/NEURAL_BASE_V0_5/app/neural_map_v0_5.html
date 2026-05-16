@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Brain Neural Map V0.5</title>
+  <link rel="stylesheet" href="/neural_map_v0_5.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-brand">
+      <div class="brand-icon">🧠</div>
+      <span class="brand-title">SECOND BRAIN</span>
+      <span class="brand-version">NEURAL MAP V0.5</span>
+    </div>
+    <div class="header-status">
+      <span id="server-badge" class="badge badge-prototype">CONNECTING…</span>
+      <span class="badge badge-prototype">PROTOTYPE_INTERACTIVE</span>
+      <span class="badge badge-rule">RULE_BASED_ONLY</span>
+      <span class="badge badge-no-llm">NO_LOCAL_LLM</span>
+      <span class="badge badge-no-agent">NO_AGENT_API</span>
+      <span id="live-dot" class="live-dot offline" title="Server connection"></span>
+    </div>
+  </header>
+
+  <!-- ── Stats bar ── -->
+  <div id="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num" id="stat-tasks">—</span>
+      <span class="stat-label">Задач</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-comments">—</span>
+      <span class="stat-label">Комментариев</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-links">—</span>
+      <span class="stat-label">Связей</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num" id="stat-receipts">—</span>
+      <span class="stat-label">Receipts</span>
+    </div>
+    <div class="stat-health">
+      <span class="stat-label">Health:</span>
+      <span class="health-score" id="health-score">—/12</span>
+    </div>
+    <div class="stats-actions">
+      <button class="btn btn-primary btn-sm" onclick="rebuildSnapshot()">⚡ Обновить</button>
+      <button class="btn btn-amber btn-sm" onclick="doExport()">📦 Экспорт</button>
+    </div>
+  </div>
+
+  <!-- ── Main layout ── -->
+  <div id="main-layout">
+
+    <!-- ── Neural Canvas ── -->
+    <div id="neural-canvas-wrap">
+      <svg id="neural-canvas" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Radial gradients for zones -->
+          <radialGradient id="grad-cyan"    cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00d7ff" stop-opacity="0.6"/><stop offset="100%" stop-color="#00d7ff" stop-opacity="0.05"/></radialGradient>
+          <radialGradient id="grad-amber"   cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ffb347" stop-opacity="0.6"/><stop offset="100%" stop-color="#ffb347" stop-opacity="0.05"/></radialGradient>
+          <radialGradient id="grad-magenta" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff4fd8" stop-opacity="0.6"/><stop offset="100%" stop-color="#ff4fd8" stop-opacity="0.05"/></radialGradient>
+          <radialGradient id="grad-green"   cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#29c272" stop-opacity="0.6"/><stop offset="100%" stop-color="#29c272" stop-opacity="0.05"/></radialGradient>
+          <radialGradient id="grad-violet"  cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#7a84ff" stop-opacity="0.6"/><stop offset="100%" stop-color="#7a84ff" stop-opacity="0.05"/></radialGradient>
+          <radialGradient id="grad-red"     cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#ff5d66" stop-opacity="0.6"/><stop offset="100%" stop-color="#ff5d66" stop-opacity="0.05"/></radialGradient>
+          <radialGradient id="grad-core"    cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#00d7ff" stop-opacity="0.35"/>
+            <stop offset="40%"  stop-color="#ff4fd8" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#04080f" stop-opacity="0.0"/>
+          </radialGradient>
+          <!-- Glow filter -->
+          <filter id="glow-cyan"    x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="glow-amber"   x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="glow-magenta" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          <filter id="glow-strong"  x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- Strands layer (rendered by JS) -->
+        <g id="strands-layer"></g>
+
+        <!-- Zones layer (rendered by JS) -->
+        <g id="zones-layer"></g>
+
+        <!-- Sparks layer -->
+        <g id="sparks-layer"></g>
+      </svg>
+    </div>
+
+    <!-- ── Operator Panel ── -->
+    <div id="operator-panel">
+      <div class="panel-tabs">
+        <button class="panel-tab active" data-tab="tasks"    onclick="switchTab('tasks')">📋 Задачи</button>
+        <button class="panel-tab"        data-tab="comments" onclick="switchTab('comments')">💬 Комментарии</button>
+        <button class="panel-tab"        data-tab="links"    onclick="switchTab('links')">🔗 Связи</button>
+        <button class="panel-tab"        data-tab="thread"   onclick="switchTab('thread')">🧵 Thread</button>
+        <button class="panel-tab"        data-tab="evidence" onclick="switchTab('evidence')">🔬 Evidence</button>
+      </div>
+
+      <div class="panel-content" id="panel-content">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── Zone Detail Panel (overlay) ── -->
+    <div id="zone-detail-panel">
+      <div class="zone-detail-header">
+        <div class="zone-detail-icon" id="zdp-icon">🧠</div>
+        <div class="zone-detail-title">
+          <div class="zone-detail-name" id="zdp-name">Zone Name</div>
+          <div class="zone-detail-purpose" id="zdp-purpose">Purpose</div>
+        </div>
+        <button class="zone-detail-close" onclick="closeZoneDetail()">✕</button>
+      </div>
+      <div class="zone-detail-body" id="zdp-body">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+
+  </div><!-- /#main-layout -->
+
+  <!-- ── Footer ── -->
+  <footer>
+    <span>Second Brain Neural Map V0.5 — Interactive Prototype</span>
+    <div class="footer-honest">
+      <span>PROTOTYPE_INTERACTIVE</span>
+      <span>·</span>
+      <span>RULE_BASED_ONLY</span>
+      <span>·</span>
+      <span>NO_LOCAL_LLM: NOT_CONFIGURED</span>
+      <span>·</span>
+      <span>NO_AGENT_API: NOT_IMPLEMENTED</span>
+      <span>·</span>
+      <span>NOT PRODUCTION READY</span>
+    </div>
+  </footer>
+
+</div><!-- /#app -->
+
+<!-- ── Tooltip ── -->
+<div id="zone-tooltip">
+  <div class="tooltip-title" id="tt-title"></div>
+  <div class="tooltip-summary" id="tt-summary"></div>
+  <div class="tooltip-telemetry" id="tt-telemetry"></div>
+</div>
+
+<!-- ── Notifications ── -->
+<div id="notifications"></div>
+
+<script src="/neural_map_v0_5.js"></script>
+</body>
+</html>

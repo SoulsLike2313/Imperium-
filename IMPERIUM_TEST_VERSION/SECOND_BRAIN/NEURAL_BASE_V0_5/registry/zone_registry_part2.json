@@ -1,0 +1,82 @@
+{
+  "zones_part2": [
+    {
+      "zone_id": "memory_threads",
+      "display_name": "Memory Threads",
+      "purpose": "Visualize links between tasks and comments. First neural filaments.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_magenta",
+      "placement_hint": "ring_1",
+      "animation_budget": "high",
+      "render_cost_estimate": "medium",
+      "hover_summary_template": "Links: {link_count} | Orphaned tasks: {orphaned_task_count} | Orphaned comments: {orphaned_comment_count}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"],
+      "action_sources": ["action_create_link_v03"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"],
+      "performance_sources": ["link_count", "orphaned_task_count", "orphaned_comment_count"],
+      "stability_sources": ["referential_integrity", "json_parse_success"],
+      "honest_limitations_display": ["MANUAL_LINKING_ONLY"],
+      "missing_capabilities_display": ["Auto-linking", "Semantic similarity", "Graph traversal"],
+      "future_extension_points": ["Graph database", "Semantic memory", "LLM-assisted linking"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "placeholder", "reason": "No links file", "recovery_action": "Run V0.3 server"},
+      "owner_gate_policy": "auto"
+    },
+    {
+      "zone_id": "progress_spine",
+      "display_name": "Progress Spine",
+      "purpose": "Chronological axis of progress. Shows what happened, when, with what result.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_green",
+      "placement_hint": "ring_1",
+      "animation_budget": "low",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Events: {event_count} | Last: {last_event_age}s ago | Receipts: {receipt_count}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"],
+      "action_sources": [],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"],
+      "performance_sources": ["events_per_day", "receipt_freshness", "last_event_age_seconds"],
+      "stability_sources": ["receipt_chain_integrity"],
+      "honest_limitations_display": ["NO_REAL_TIME_STREAM", "FILE_BASED_ONLY"],
+      "missing_capabilities_display": ["Real-time event stream", "Event correlation"],
+      "future_extension_points": ["Event bus", "Real-time WebSocket feed"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "dimmed", "reason": "No receipts", "recovery_action": "Create tasks/comments"},
+      "owner_gate_policy": "auto"
+    },
+    {
+      "zone_id": "evidence_receipts",
+      "display_name": "Evidence / Receipts",
+      "purpose": "Evidence vault. Every receipt is proof that something happened without LLM and without fake green.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_green",
+      "placement_hint": "ring_1",
+      "animation_budget": "medium",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Receipts: {receipt_count} | Exports: {export_count} | no_llm_used: {no_llm_rate}%",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"],
+      "action_sources": ["action_export_second_brain_runtime"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"],
+      "performance_sources": ["receipt_count", "export_count", "receipt_age_seconds"],
+      "stability_sources": ["receipt_parse_success_rate", "no_llm_used_consistency"],
+      "honest_limitations_display": ["RECEIPTS_ARE_SELF_REPORTED"],
+      "missing_capabilities_display": ["Cryptographic signing", "External audit trail"],
+      "future_extension_points": ["Hash-signed receipts", "Blockchain-style chain"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "dimmed", "reason": "No receipts", "recovery_action": "Create tasks/comments"},
+      "owner_gate_policy": "auto"
+    }
+  ]
+}

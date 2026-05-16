@@ -1,0 +1,16 @@
+{
+  "gate_id": "gate_beauty",
+  "version": "v0.5",
+  "description": "UI quality gate: all 12 zones render, animations work, no broken layout",
+  "status": "NOT_EVALUATED",
+  "checks": [
+    { "id": "html_exists",     "description": "neural_map_v0_5.html exists",     "status": "PENDING" },
+    { "id": "css_exists",      "description": "neural_map_v0_5.css exists",      "status": "PENDING" },
+    { "id": "js_exists",       "description": "neural_map_v0_5.js exists",       "status": "PENDING" },
+    { "id": "server_exists",   "description": "server_v0_5.py exists",           "status": "PENDING" },
+    { "id": "12_zones_render", "description": "Snapshot has 12 zone entries",    "status": "PENDING" },
+    { "id": "no_fake_green",   "description": "No PRODUCTION_READY claims",      "status": "PENDING" }
+  ],
+  "pass_condition": "All checks PASS",
+  "not_production_ready": true
+}

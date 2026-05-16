@@ -1,0 +1,15 @@
+{
+  "gate_id": "gate_adaptability",
+  "version": "v0.5",
+  "description": "Adaptability gate: zone rearrange safety, layout_config separation, module intake gate",
+  "status": "NOT_EVALUATED",
+  "checks": [
+    { "id": "layout_config_exists",       "description": "layout_config.json exists",                    "status": "PENDING" },
+    { "id": "layout_no_truth_bindings",   "description": "layout_config has no truth_sources field",     "status": "PENDING" },
+    { "id": "truth_matrix_12_files",      "description": "12 truth_matrix files exist",                  "status": "PENDING" },
+    { "id": "gate_checker_exists",        "description": "gate_check_module.py exists",                  "status": "PENDING" },
+    { "id": "zone_ids_immutable",         "description": "All zone_ids match between registry and layout","status": "PENDING" }
+  ],
+  "pass_condition": "All checks PASS",
+  "not_production_ready": true
+}

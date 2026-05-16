@@ -1,0 +1,19 @@
+{
+  "zone_id": "testing_field",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json"
+  ],
+  "pass_logic": "Both smoke report files parse; overall field present; pass_rate > 0",
+  "failure_logic": "Files missing; JSON invalid; overall == FAIL; pass_rate == 0",
+  "health_required_before_working": [
+    "latest_smoke_report.json exists and parses",
+    "organ_smoke_report.json exists and parses"
+  ],
+  "partial_acceptable_when": [
+    "Files exist but UI integration incomplete",
+    "Some organs missing from smoke coverage"
+  ],
+  "telemetry_fields": ["smoke_pass_rate", "organ_coverage_count", "last_smoke_age_seconds", "smoke_duration_ms"]
+}

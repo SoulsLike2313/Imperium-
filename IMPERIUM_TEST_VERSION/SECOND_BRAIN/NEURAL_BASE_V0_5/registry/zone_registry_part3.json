@@ -1,0 +1,82 @@
+{
+  "zones_part3": [
+    {
+      "zone_id": "action_control",
+      "display_name": "Action / Script Control",
+      "purpose": "Control panel for registered actions. Only registered, only safe, owner-gated where required.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_violet",
+      "placement_hint": "ring_1",
+      "animation_budget": "low",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Enabled: {enabled_count} | Disabled: {disabled_count} | Last run: {last_action_age}s ago",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/registry/neural_action_registry.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"],
+      "action_sources": ["action_check_second_brain_v03", "action_export_second_brain_runtime", "action_build_snapshot_v05", "action_check_v05"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_neural_base_v0_5.py"],
+      "performance_sources": ["action_execution_latency_ms", "last_action_time", "failed_action_count"],
+      "stability_sources": ["action_registry_parse_success", "owner_gate_compliance"],
+      "honest_limitations_display": ["MUTATING_ACTIONS_DISABLED"],
+      "missing_capabilities_display": ["Autonomous action execution", "Action chaining"],
+      "future_extension_points": ["Action pipeline", "Agent-triggered actions"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "dimmed", "reason": "Action registry missing", "recovery_action": "Check registry"},
+      "owner_gate_policy": "review_required"
+    },
+    {
+      "zone_id": "agent_exchange",
+      "display_name": "Agent Exchange",
+      "purpose": "Exchange point with external agents. Honestly shows what is connected, what is not, what is partial.",
+      "capability_state": "PARTIAL",
+      "visual_token": "accent_magenta",
+      "placement_hint": "ring_1",
+      "animation_budget": "medium",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "State: {exchange_state} | Threads: {thread_count} | Last: {last_exchange_age}s ago",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/EXCHANGE_STATE.json",
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS/latest_exchange_status.json"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/THREADS"],
+      "action_sources": ["action_scan_agent_exchange_mojibake", "action_refresh_agent_exchange_window"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/TOOLS/mojibake_scan.py"],
+      "performance_sources": ["thread_count", "exchange_latency_ms", "mojibake_error_count"],
+      "stability_sources": ["exchange_state_parse_success", "known_fault_count"],
+      "honest_limitations_display": ["PARTIAL_BINDING", "KNOWN_MOJIBAKE_FAULT", "NO_REAL_AGENT_API"],
+      "missing_capabilities_display": ["Real agent API", "Automated exchange"],
+      "future_extension_points": ["Claude API", "Kiro API", "Local agent protocol"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "placeholder", "reason": "Exchange state missing", "recovery_action": "Check AGENT_EXCHANGE"},
+      "owner_gate_policy": "review_required"
+    },
+    {
+      "zone_id": "delta_verification",
+      "display_name": "Delta Verification",
+      "purpose": "Verification mesh. Checks what changed, what passed, what broke.",
+      "capability_state": "PARTIAL",
+      "visual_token": "accent_cyan",
+      "placement_hint": "ring_1",
+      "animation_budget": "medium",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Verdict: {last_verdict} | Last run: {last_run_age}s ago | Warnings: {warning_count}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json"
+      ],
+      "evidence_sources": ["IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json"],
+      "action_sources": ["action_run_delta_standard", "action_run_delta_full"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1"],
+      "performance_sources": ["delta_run_duration_ms", "last_run_age_seconds", "verdict_freshness"],
+      "stability_sources": ["report_parse_success", "playwright_availability"],
+      "honest_limitations_display": ["FULL_MODE_REQUIRES_PLAYWRIGHT", "KNOWN_MOJIBAKE_CRASH"],
+      "missing_capabilities_display": ["Automated pre-commit gate", "CI integration"],
+      "future_extension_points": ["Git hook integration", "Automated verification pipeline"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "placeholder", "reason": "Delta reports missing", "recovery_action": "Run delta check"},
+      "owner_gate_policy": "auto"
+    }
+  ]
+}

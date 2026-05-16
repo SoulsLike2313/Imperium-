@@ -1,0 +1,91 @@
+{
+  "schema_version": "second_brain.zone_registry.v0.5",
+  "created": "2026-05-16",
+  "scope": "IMPERIUM_TEST_VERSION_ONLY",
+  "total_zones": 12,
+  "zones": [
+    {
+      "zone_id": "core_brain",
+      "display_name": "Core Brain / System Health",
+      "purpose": "Central neural node. Aggregates health of all 12 zones. Visual center of gravity.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_cyan",
+      "placement_hint": "center",
+      "animation_budget": "high",
+      "render_cost_estimate": "medium",
+      "hover_summary_template": "Health: {health_score}/12 zones OK | Snapshot age: {snapshot_age}s | Warnings: {warning_count}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/neural_snapshot_live.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/second_brain_v0_3_check_report.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json"
+      ],
+      "evidence_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/reports/check_report_v0_5.json"
+      ],
+      "action_sources": ["action_build_snapshot_v05", "action_check_v05"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_neural_base_v0_5.py"],
+      "performance_sources": ["snapshot_age_seconds", "zone_load_success_count", "render_fps"],
+      "stability_sources": ["broken_binding_count", "missing_source_count", "warning_count"],
+      "honest_limitations_display": ["RULE_BASED_ONLY", "NO_LOCAL_LLM", "NO_AGENT_API"],
+      "missing_capabilities_display": ["Real-time health monitoring", "Auto-repair"],
+      "future_extension_points": ["LLM health integration", "Multi-machine aggregation"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "dimmed", "reason": "Core always active", "recovery_action": null},
+      "owner_gate_policy": "auto"
+    },
+    {
+      "zone_id": "task_intake",
+      "display_name": "Task Intake",
+      "purpose": "Accept, store and display Owner tasks. First living nerve point.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_cyan",
+      "placement_hint": "ring_1",
+      "animation_budget": "medium",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Tasks: {task_count} | Last: {last_task_age}s ago | Status: {last_task_status}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+      ],
+      "evidence_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"
+      ],
+      "action_sources": ["action_create_task_v03", "action_check_second_brain_v03"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"],
+      "performance_sources": ["task_count", "last_task_age_seconds", "receipt_freshness"],
+      "stability_sources": ["json_parse_success", "schema_validation"],
+      "honest_limitations_display": ["RULE_BASED_ONLY", "NO_AUTO_ROUTING"],
+      "missing_capabilities_display": ["Auto-routing", "Priority scoring", "LLM interpretation"],
+      "future_extension_points": ["Agent task routing", "LLM task parsing"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "placeholder", "reason": "No tasks file", "recovery_action": "Run V0.3 server"},
+      "owner_gate_policy": "auto"
+    },
+    {
+      "zone_id": "owner_comments",
+      "display_name": "Owner Comments",
+      "purpose": "Capture, store and display Owner comments as first-class objects.",
+      "capability_state": "WORKING",
+      "visual_token": "accent_amber",
+      "placement_hint": "ring_1",
+      "animation_budget": "medium",
+      "render_cost_estimate": "low",
+      "hover_summary_template": "Comments: {comment_count} | Linked: {linked_count} | Unlinked: {unlinked_count}",
+      "truth_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+      ],
+      "evidence_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"
+      ],
+      "action_sources": ["action_create_comment_v03"],
+      "checker_sources": ["IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"],
+      "performance_sources": ["comment_count", "linked_count", "unlinked_count"],
+      "stability_sources": ["json_parse_success"],
+      "honest_limitations_display": ["NO_AUTO_INTERPRETATION", "MANUAL_LINKING_ONLY"],
+      "missing_capabilities_display": ["LLM interpretation", "Sentiment analysis"],
+      "future_extension_points": ["LLM comment interpretation", "Auto-linking"],
+      "drag_invariants": {"zone_id_immutable": true, "truth_binding_immutable": true, "action_binding_immutable": true},
+      "disabled_state_semantics": {"show_as": "placeholder", "reason": "No comments file", "recovery_action": "Run V0.3 server"},
+      "owner_gate_policy": "auto"
+    }
+  ]
+}

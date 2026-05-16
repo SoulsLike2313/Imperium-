@@ -1,0 +1,18 @@
+{
+  "zone_id": "memory_threads",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+  ],
+  "pass_logic": "task_comment_links.json parses and links array has >= 1 entry with link_id, source_id, target_id, status; referential integrity: source_id exists in tasks, target_id exists in comments",
+  "failure_logic": "Links file missing; links array empty; referential integrity broken (orphaned link)",
+  "health_required_before_working": [
+    "task_comment_links.json exists",
+    "links array length >= 1",
+    "all source_ids exist in accepted_tasks",
+    "all target_ids exist in owner_comments"
+  ],
+  "telemetry_fields": ["link_count", "orphaned_task_count", "orphaned_comment_count", "broken_link_count"]
+}

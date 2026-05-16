@@ -1,0 +1,15 @@
+{
+  "gate_id": "gate_execution",
+  "version": "v0.5",
+  "description": "Execution capability gate: actions work, checkers pass, export pipeline works",
+  "status": "NOT_EVALUATED",
+  "checks": [
+    { "id": "v03_checker_pass",      "description": "check_second_brain_v0_3_interactive.py exits 0", "status": "PENDING" },
+    { "id": "v05_checker_pass",      "description": "check_neural_base_v0_5.py exits 0",              "status": "PENDING" },
+    { "id": "snapshot_builder_pass", "description": "snapshot_builder_v0_5.py exits 0",               "status": "PENDING" },
+    { "id": "export_creates_manifest","description": "Export creates valid manifest.json",             "status": "PENDING" },
+    { "id": "receipts_exist",        "description": "At least 3 receipts exist",                      "status": "PENDING" }
+  ],
+  "pass_condition": "All checks PASS",
+  "not_production_ready": true
+}

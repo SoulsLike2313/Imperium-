@@ -1,0 +1,40 @@
+{
+  "schema_version": "second_brain.layout_config.v0.5",
+  "layout_preset": "orbital_12",
+  "description": "Orbital layout: core_brain at center, 8 zones in ring_1, 3 zones in ring_2. Coordinates in percent of SVG canvas (0-100).",
+  "canvas_width": 1200,
+  "canvas_height": 700,
+  "note": "Only x/y/size/group may change during drag. zone_id and truth bindings are IMMUTABLE.",
+  "zones": {
+    "core_brain":          { "x": 50,  "y": 50,  "r": 52, "size": "large",  "group": "center", "label_offset_y": -65 },
+    "task_intake":         { "x": 72,  "y": 22,  "r": 32, "size": "medium", "group": "ring_1", "label_offset_y": -42 },
+    "owner_comments":      { "x": 88,  "y": 42,  "r": 30, "size": "medium", "group": "ring_1", "label_offset_y": -40 },
+    "memory_threads":      { "x": 82,  "y": 68,  "r": 30, "size": "medium", "group": "ring_1", "label_offset_y": -40 },
+    "progress_spine":      { "x": 58,  "y": 82,  "r": 28, "size": "medium", "group": "ring_1", "label_offset_y": -38 },
+    "evidence_receipts":   { "x": 34,  "y": 78,  "r": 28, "size": "medium", "group": "ring_1", "label_offset_y": -38 },
+    "action_control":      { "x": 18,  "y": 58,  "r": 28, "size": "medium", "group": "ring_1", "label_offset_y": -38 },
+    "agent_exchange":      { "x": 20,  "y": 32,  "r": 28, "size": "medium", "group": "ring_1", "label_offset_y": -38 },
+    "delta_verification":  { "x": 40,  "y": 18,  "r": 28, "size": "medium", "group": "ring_1", "label_offset_y": -38 },
+    "testing_field":       { "x": 92,  "y": 20,  "r": 22, "size": "small",  "group": "ring_2", "label_offset_y": -30 },
+    "export_bundle_gate":  { "x": 92,  "y": 78,  "r": 22, "size": "small",  "group": "ring_2", "label_offset_y": -30 },
+    "feature_module_dock": { "x": 8,   "y": 78,  "r": 22, "size": "small",  "group": "ring_2", "label_offset_y": -30 }
+  },
+  "strands": [
+    { "from": "core_brain",       "to": "task_intake",        "type": "primary" },
+    { "from": "core_brain",       "to": "owner_comments",     "type": "primary" },
+    { "from": "core_brain",       "to": "memory_threads",     "type": "primary" },
+    { "from": "core_brain",       "to": "progress_spine",     "type": "primary" },
+    { "from": "core_brain",       "to": "evidence_receipts",  "type": "primary" },
+    { "from": "core_brain",       "to": "action_control",     "type": "primary" },
+    { "from": "core_brain",       "to": "agent_exchange",     "type": "primary" },
+    { "from": "core_brain",       "to": "delta_verification", "type": "primary" },
+    { "from": "task_intake",      "to": "memory_threads",     "type": "data" },
+    { "from": "owner_comments",   "to": "memory_threads",     "type": "data" },
+    { "from": "memory_threads",   "to": "evidence_receipts",  "type": "data" },
+    { "from": "task_intake",      "to": "progress_spine",     "type": "data" },
+    { "from": "action_control",   "to": "evidence_receipts",  "type": "data" },
+    { "from": "delta_verification","to": "testing_field",     "type": "secondary" },
+    { "from": "evidence_receipts","to": "export_bundle_gate", "type": "secondary" },
+    { "from": "core_brain",       "to": "feature_module_dock","type": "secondary" }
+  ]
+}

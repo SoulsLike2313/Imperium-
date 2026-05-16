@@ -1,0 +1,228 @@
+/* ═══════════════════════════════════════════════════════════════
+   CSS Part 3: Neural Canvas, Zone Nodes, Strands, Animations
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Main layout ── */
+#main-layout {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ── Neural canvas ── */
+#neural-canvas-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+#neural-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── SVG zone nodes ── */
+.zone-node {
+  cursor: pointer;
+  transition: filter 0.3s ease;
+}
+
+.zone-node:hover .zone-circle {
+  filter: brightness(1.4);
+}
+
+.zone-node:hover .zone-label {
+  opacity: 1;
+}
+
+.zone-circle {
+  transition: r 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+}
+
+.zone-label {
+  font-family: "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-anchor: middle;
+  pointer-events: none;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+  text-transform: uppercase;
+}
+
+.zone-status-dot {
+  transition: fill 0.5s ease;
+}
+
+/* ── Core brain ── */
+.core-glow-ring {
+  animation: core-breathe 4s ease-in-out infinite;
+}
+
+@keyframes core-breathe {
+  0%, 100% { opacity: 0.3; r: 58px; }
+  50%       { opacity: 0.7; r: 64px; }
+}
+
+.core-inner-ring {
+  animation: core-inner-spin 12s linear infinite;
+  transform-origin: center;
+}
+
+.core-outer-ring {
+  animation: core-outer-spin 20s linear infinite reverse;
+  transform-origin: center;
+}
+
+/* SVG animations via CSS transform-box */
+.ring-spin-cw {
+  animation: ring-cw 15s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.ring-spin-ccw {
+  animation: ring-ccw 20s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes ring-cw  { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+@keyframes ring-ccw { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
+
+/* ── Zone pulse animations ── */
+.pulse-working {
+  animation: pulse-w 2.5s ease-in-out infinite;
+}
+.pulse-partial {
+  animation: pulse-p 3.5s ease-in-out infinite;
+}
+.pulse-blocked {
+  animation: pulse-b 1s ease-in-out infinite;
+}
+.pulse-missing {
+  animation: pulse-m 6s ease-in-out infinite;
+}
+.pulse-experimental {
+  animation: pulse-e 4s ease-in-out infinite;
+}
+
+@keyframes pulse-w {
+  0%, 100% { opacity: 0.15; r: 0; }
+  50%       { opacity: 0.45; r: 8px; }
+}
+@keyframes pulse-p {
+  0%, 100% { opacity: 0.1; r: 0; }
+  50%       { opacity: 0.35; r: 6px; }
+}
+@keyframes pulse-b {
+  0%, 100% { opacity: 0.4; r: 0; }
+  50%       { opacity: 0.8; r: 10px; }
+}
+@keyframes pulse-m {
+  0%, 100% { opacity: 0.05; r: 0; }
+  50%       { opacity: 0.2; r: 4px; }
+}
+@keyframes pulse-e {
+  0%, 100% { opacity: 0.1; r: 0; }
+  40%       { opacity: 0.5; r: 7px; }
+  60%       { opacity: 0.2; r: 3px; }
+}
+
+/* ── Strand animations ── */
+.strand-primary {
+  stroke-dasharray: 6 4;
+  animation: strand-flow-primary 3s linear infinite;
+}
+.strand-data {
+  stroke-dasharray: 4 6;
+  animation: strand-flow-data 4s linear infinite;
+}
+.strand-secondary {
+  stroke-dasharray: 3 8;
+  animation: strand-flow-secondary 6s linear infinite;
+}
+
+@keyframes strand-flow-primary {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -40; }
+}
+@keyframes strand-flow-data {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -40; }
+}
+@keyframes strand-flow-secondary {
+  from { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: -40; }
+}
+
+/* ── Receipt spark ── */
+.receipt-spark {
+  animation: spark-burst 0.6s ease-out forwards;
+}
+@keyframes spark-burst {
+  0%   { r: 0; opacity: 1; }
+  100% { r: 20px; opacity: 0; }
+}
+
+/* ── Zone hover tooltip ── */
+#zone-tooltip {
+  position: fixed;
+  z-index: 500;
+  pointer-events: none;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  min-width: 220px;
+  max-width: 320px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6), 0 0 16px rgba(0,215,255,0.1);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#zone-tooltip.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.tooltip-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.tooltip-summary {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.tooltip-telemetry {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.tel-chip {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.06);
+  color: var(--text-dim);
+  border: 1px solid var(--border);
+}
+
+.tel-chip.good  { color: var(--green);  background: var(--green-dim);  border-color: rgba(41,194,114,0.3); }
+.tel-chip.warn  { color: var(--amber);  background: var(--amber-dim);  border-color: rgba(255,179,71,0.3); }
+.tel-chip.bad   { color: var(--red);    background: var(--red-dim);    border-color: rgba(255,93,102,0.3); }

@@ -1,0 +1,15 @@
+{
+  "zone_id": "task_intake",
+  "schema_version": "truth_matrix.v0.5",
+  "source_patterns": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+  ],
+  "pass_logic": "accepted_tasks.json parses and tasks array has >= 1 entry with task_id, status, source_text, created_at",
+  "failure_logic": "File missing or invalid JSON or tasks array empty or required keys absent",
+  "health_required_before_working": [
+    "accepted_tasks.json exists",
+    "tasks array length >= 1",
+    "first task has task_id and status"
+  ],
+  "telemetry_fields": ["task_count", "last_task_age_seconds", "unlinked_task_count", "receipt_freshness"]
+}
