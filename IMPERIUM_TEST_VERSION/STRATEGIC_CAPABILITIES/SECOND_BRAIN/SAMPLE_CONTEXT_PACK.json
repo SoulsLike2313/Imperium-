@@ -1,0 +1,18 @@
+{
+  "pack_id": "PACK_IMPERIUM_OVERVIEW",
+  "name": "IMPERIUM Overview Pack",
+  "purpose": "Provide context about IMPERIUM for agent understanding",
+  "zones": [
+    "ZONE_PROJECT_IMPERIUM",
+    "ZONE_TECH_PYTHON"
+  ],
+  "items": [
+    "ITEM_003",
+    "ITEM_004",
+    "ITEM_001"
+  ],
+  "max_tokens": 4000,
+  "created_at": "2026-05-16T13:00:00Z",
+  "created_by": "KIRO",
+  "_note": "This is a synthetic sample context pack for testing."
+}

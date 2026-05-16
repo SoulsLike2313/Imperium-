@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cli_agent_response.schema.json",
+  "title": "CLI Agent Response",
+  "type": "object",
+  "required": ["request_id", "status", "timestamp"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "status": { "type": "string", "enum": ["SUCCESS", "FAIL", "NOT_IMPLEMENTED"] },
+    "result": { "type": "object" },
+    "errors": { "type": "array", "items": { "type": "string" } },
+    "timestamp": { "type": "string", "format": "date-time" }
+  }
+}

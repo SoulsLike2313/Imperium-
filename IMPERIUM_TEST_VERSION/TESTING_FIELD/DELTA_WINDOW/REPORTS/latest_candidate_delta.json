@@ -1,0 +1,45 @@
+{
+  "model_id": "CANDIDATE-20260516_131956",
+  "generated_at": "2026-05-16T13:19:56.991756+00:00",
+  "repo_root": "E:\\IMPERIUM",
+  "scope_root": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
+  "baseline": {
+    "label": "LAST_STRONG_COMMIT",
+    "info": {
+      "type": "commit",
+      "ref": "HEAD",
+      "sha": "9a7f4dabe9fff71c6722df0293855f18306c4106",
+      "label": "9a7f4dab - EXPERIMENT: upgrade Delta Window and agent exchang",
+      "message": "EXPERIMENT: upgrade Delta Window and agent exchange operator view",
+      "timestamp": "2026-05-16T05:08:44+03:00"
+    }
+  },
+  "candidate": {
+    "label": "COMMIT_CANDIDATE",
+    "info": {
+      "type": "worktree",
+      "ref": "worktree",
+      "sha": null,
+      "label": "Current worktree (uncommitted)",
+      "message": null,
+      "timestamp": "2026-05-16T13:19:56.541015+00:00"
+    }
+  },
+  "worktree": {
+    "is_clean": false,
+    "staged_count": 0,
+    "unstaged_count": 42,
+    "untracked_count": 115,
+    "main_canon_touched": false,
+    "main_canon_files": [],
+    "status_label": "DIRTY"
+  },
+  "comparison": {
+    "baseline_ref": "HEAD",
+    "candidate_ref": "worktree",
+    "scope": "IMPERIUM_TEST_VERSION_ONLY",
+    "main_canon_touched": false,
+    "can_commit": true,
+    "blockers": []
+  }
+}

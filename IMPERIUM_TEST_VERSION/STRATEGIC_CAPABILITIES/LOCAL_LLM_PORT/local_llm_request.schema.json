@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "local_llm_request.schema.json",
+  "title": "Local LLM Request",
+  "type": "object",
+  "required": ["request_id", "model_id", "prompt"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "model_id": { "type": "string" },
+    "prompt": { "type": "string", "minLength": 1 },
+    "context": { "type": "string" },
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "max_tokens": { "type": "integer", "minimum": 1 },
+        "temperature": { "type": "number", "minimum": 0, "maximum": 2 }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

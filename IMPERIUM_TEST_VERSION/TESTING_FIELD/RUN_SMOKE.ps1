@@ -1,3 +1,7 @@
+param(
+    [switch]$CandidateMode
+)
+
 # RUN_SMOKE.ps1
 # Testing Field Smoke Test - Creates report and receipt
 # Usage: .\IMPERIUM_TEST_VERSION\TESTING_FIELD\RUN_SMOKE.ps1
@@ -109,19 +113,41 @@ $GitClean = $false
 $GitHead = "unknown"
 try {
     Push-Location $RepoRoot
-    $status = git status --short 2>&1
-    $GitClean = [string]::IsNullOrWhiteSpace($status) -or ($status -match "^\s*M\s+\.gitignore\s*$") -or ($status -match "^\?\?\s+\.vscode")
+    $status = @(git status --short 2>&1)
     $GitHead = (git rev-parse --short HEAD 2>&1)
+
+    $NonTestVersionChanges = @()
+    foreach ($line in $status) {
+        if ([string]::IsNullOrWhiteSpace($line)) { continue }
+
+        $isTestVersionChange = ($line -match "IMPERIUM_TEST_VERSION[\\/]")
+        $isAllowedRootChange = ($line -match "^\\s*M\\s+\\.gitignore\\s*$") -or ($line -match "^\\?\\?\\s+\\.vscode")
+
+        if ((-not $isTestVersionChange) -and (-not $isAllowedRootChange)) {
+            $NonTestVersionChanges += $line
+        }
+    }
+
+    if ($CandidateMode) {
+        $GitClean = ($NonTestVersionChanges.Count -eq 0)
+    } else {
+        $joinedStatus = ($status -join "`n")
+        $GitClean = [string]::IsNullOrWhiteSpace($joinedStatus) -or ($joinedStatus -match "^\\s*M\\s+\\.gitignore\\s*$") -or ($joinedStatus -match "^\\?\\?\\s+\\.vscode")
+    }
+
     Pop-Location
 } catch {
     Pop-Location
 }
 $Checks += @{
     name = "git_status"
-    description = "Git working directory is clean (or only .gitignore/.vscode modified)"
+    description = if ($CandidateMode) { "Git scope is safe for candidate mode: dirty allowed only inside IMPERIUM_TEST_VERSION" } else { "Git working directory is clean (or only .gitignore/.vscode modified)" }
     passed = $GitClean
     git_head = $GitHead
-    error = if (-not $GitClean) { "Uncommitted changes" } else { $null }
+    candidate_mode = [bool]$CandidateMode
+    dirty_count = @($status).Count
+    non_test_version_changes = $NonTestVersionChanges
+    error = if (-not $GitClean) { "Uncommitted changes outside IMPERIUM_TEST_VERSION or disallowed root changes" } elseif ($CandidateMode -and @($status).Count -gt 0) { "Candidate dirty state is scoped to IMPERIUM_TEST_VERSION" } else { $null }
 }
 if ($GitClean) { $PassCount++ } else { $FailCount++ }
 Write-Host "  $(if ($GitClean) {'PASS'} else {'FAIL'}): Git clean (HEAD: $GitHead)"
@@ -141,6 +167,7 @@ $Report = @{
     generated_at = $EndTime
     repo_root = $RepoRoot
     summary = @{
+        candidate_mode = [bool]$CandidateMode
         total_checks = $TotalChecks
         passed = $PassCount
         failed = $FailCount
@@ -163,7 +190,7 @@ $Receipt = @{
     finished_at_utc = $EndTime
     exit_code = if ($Verdict -eq "PASS") { 0 } else { 1 }
     verdict = $Verdict
-    command = "RUN_SMOKE.ps1"
+    command = if ($CandidateMode) { "RUN_SMOKE.ps1 -CandidateMode" } else { "RUN_SMOKE.ps1" }
     repo_root = $RepoRoot
     test_version_root = $TestVersionRoot
     report_path = "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json"

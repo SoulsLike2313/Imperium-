@@ -1,0 +1,132 @@
+{
+  "schema_version": "CAPABILITY_MAP_V1",
+  "created_at": "2026-05-16T12:50:00Z",
+  "status": "FOUNDATION",
+  "capabilities": [
+    {
+      "id": "freelance_execution",
+      "name": "Freelance Task Execution",
+      "purpose": "Accept external tasks/TZ and deliver working results",
+      "status": "SPEC_ONLY",
+      "maturity": "FOUNDATION",
+      "files": [
+        "FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md",
+        "FREELANCE_EXECUTION/freelance_task_corridor.schema.json",
+        "FREELANCE_EXECUTION/SAMPLE_SYNTHETIC_TZ.md",
+        "FREELANCE_EXECUTION/SAMPLE_TASK_INTAKE.json",
+        "FREELANCE_EXECUTION/README.md"
+      ],
+      "manual_confirmation_required": false,
+      "working": false,
+      "next_steps": ["Build executable pipeline", "Test with synthetic task"]
+    },
+    {
+      "id": "presentation_system",
+      "name": "Presentation System",
+      "purpose": "Present IMPERIUM and its products to people/clients",
+      "status": "SPEC_ONLY",
+      "maturity": "FOUNDATION",
+      "files": [
+        "PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md",
+        "PRESENTATION_SYSTEM/product_summary.schema.json",
+        "PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY_RU.md",
+        "PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY.json",
+        "PRESENTATION_SYSTEM/README.md"
+      ],
+      "manual_confirmation_required": false,
+      "working": false,
+      "next_steps": ["Generate real presentations", "Add slide-deck output"]
+    },
+    {
+      "id": "distributed_contours",
+      "name": "Distributed Contours",
+      "purpose": "Distribute tasks between PC and Ubuntu laptop via SSH",
+      "status": "SPEC_ONLY",
+      "maturity": "FOUNDATION",
+      "files": [
+        "DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md",
+        "DISTRIBUTED_CONTOURS/contour_profile.schema.json",
+        "DISTRIBUTED_CONTOURS/pc_contour_profile.template.json",
+        "DISTRIBUTED_CONTOURS/ubuntu_laptop_contour_profile.template.json",
+        "DISTRIBUTED_CONTOURS/ssh_capability_check.ps1",
+        "DISTRIBUTED_CONTOURS/README.md"
+      ],
+      "manual_confirmation_required": true,
+      "manual_confirmation_items": ["SSH connection", "Laptop environment", "Task routing"],
+      "working": false,
+      "next_steps": ["Test SSH connection", "Discover laptop environment"]
+    },
+    {
+      "id": "second_brain",
+      "name": "Second Brain Memory Zones",
+      "purpose": "Selectable memory zones like Obsidian-style blocks",
+      "status": "SPEC_ONLY",
+      "maturity": "FOUNDATION",
+      "files": [
+        "SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md",
+        "SECOND_BRAIN/memory_zone.schema.json",
+        "SECOND_BRAIN/context_pack.schema.json",
+        "SECOND_BRAIN/SAMPLE_MEMORY_ZONES.json",
+        "SECOND_BRAIN/SAMPLE_CONTEXT_PACK.json",
+        "SECOND_BRAIN/README.md"
+      ],
+      "manual_confirmation_required": true,
+      "manual_confirmation_items": ["Real data ingestion", "Private data handling"],
+      "working": false,
+      "next_steps": ["Ingest real memory data", "Build zone selector UI"]
+    },
+    {
+      "id": "cli_agent_port",
+      "name": "CLI Agent Port",
+      "purpose": "CLI entry point for Servitor/Codex agent",
+      "status": "WORKING",
+      "maturity": "MVP",
+      "files": [
+        "CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md",
+        "CLI_AGENT_PORT/cli_agent_request.schema.json",
+        "CLI_AGENT_PORT/cli_agent_response.schema.json",
+        "CLI_AGENT_PORT/imperium_cli_agent_port.py",
+        "CLI_AGENT_PORT/sample_request.json",
+        "CLI_AGENT_PORT/README.md"
+      ],
+      "manual_confirmation_required": false,
+      "working": true,
+      "commands": ["--mode health", "--mode summarize --input <file>", "--mode inspect-capabilities"],
+      "next_steps": ["Connect to real agent"]
+    },
+    {
+      "id": "local_llm_port",
+      "name": "Local LLM Port",
+      "purpose": "Connect local LLMs for inference",
+      "status": "HEALTH_CHECK_ONLY",
+      "maturity": "FOUNDATION",
+      "files": [
+        "LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md",
+        "LOCAL_LLM_PORT/local_llm_profile.schema.json",
+        "LOCAL_LLM_PORT/local_llm_request.schema.json",
+        "LOCAL_LLM_PORT/local_llm_response.schema.json",
+        "LOCAL_LLM_PORT/local_llm_config.template.json",
+        "LOCAL_LLM_PORT/local_llm_health_check.py",
+        "LOCAL_LLM_PORT/README.md"
+      ],
+      "manual_confirmation_required": true,
+      "manual_confirmation_items": ["Model installation", "Model configuration", "Inference testing"],
+      "working": false,
+      "next_steps": ["Install local model", "Configure inference"]
+    }
+  ],
+  "maturity_levels": {
+    "FOUNDATION": "Spec and schemas only",
+    "HEALTH_CHECK_ONLY": "Can report status, no real function",
+    "MVP": "Minimal working implementation",
+    "WORKING": "Functional for intended purpose",
+    "PRODUCTION": "Ready for real use"
+  },
+  "summary": {
+    "total_capabilities": 6,
+    "working": 1,
+    "spec_only": 4,
+    "health_check_only": 1,
+    "manual_confirmation_required": 3
+  }
+}

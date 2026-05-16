@@ -148,7 +148,7 @@ Write-Host "  Status: $(if ($GitStatus) { 'DIRTY' } else { 'CLEAN' })"
 # STAGE 1: Snapshot Collector
 Write-Host ""
 Write-Host "[STAGE 1] Collecting snapshot..."
-$SnapshotResult = py -3 "$ScriptDir\snapshot_collector.py" --test-version $TestVersionRoot --repo-root $RepoRoot 2>&1
+$SnapshotResult = py -3.12 "$ScriptDir\snapshot_collector.py" --test-version $TestVersionRoot --repo-root $RepoRoot 2>&1
 $SnapshotExitCode = $LASTEXITCODE
 Log-Command "snapshot_collector.py" ($SnapshotResult -join "`n") $SnapshotExitCode
 
@@ -172,7 +172,7 @@ if ($CompareMode -eq "historical" -and $OldCommit -and $NewCommit) {
     $DeltaArgs += "--old-commit", $OldCommit, "--new-commit", $NewCommit
 }
 
-$DeltaResult = py -3 @DeltaArgs 2>&1
+$DeltaResult = py -3.12 @DeltaArgs 2>&1
 $DeltaExitCode = $LASTEXITCODE
 Log-Command "delta_analyzer.py" ($DeltaResult -join "`n") $DeltaExitCode
 
@@ -183,7 +183,7 @@ $ScreenshotExitCode = 0
 if ($Components.screenshots) {
     Write-Host ""
     Write-Host "[STAGE 3] Collecting screenshots..."
-    $ScreenshotResult = py -3 "$ScriptDir\dashboard_screenshot_collector.py" --test-version $TestVersionRoot 2>&1
+    $ScreenshotResult = py -3.12 "$ScriptDir\dashboard_screenshot_collector.py" --test-version $TestVersionRoot 2>&1
     $ScreenshotExitCode = $LASTEXITCODE
     Log-Command "dashboard_screenshot_collector.py" ($ScreenshotResult -join "`n") $ScreenshotExitCode
     Write-Host ($ScreenshotResult | Out-String)
@@ -198,7 +198,7 @@ $MojibakeExitCode = 0
 if ($Components.mojibake) {
     Write-Host ""
     Write-Host "[STAGE 3b] Running mojibake scan..."
-    $MojibakeResult = py -3 "$TestVersionRoot\AGENT_EXCHANGE\TOOLS\mojibake_scan.py" --scope IMPERIUM_TEST_VERSION --root $TestVersionRoot 2>&1
+    $MojibakeResult = py -3.12 "$TestVersionRoot\AGENT_EXCHANGE\TOOLS\mojibake_scan.py" --scope IMPERIUM_TEST_VERSION --root $TestVersionRoot 2>&1
     $MojibakeExitCode = $LASTEXITCODE
     Log-Command "mojibake_scan.py" ($MojibakeResult -join "`n") $MojibakeExitCode
     Write-Host ($MojibakeResult | Out-String)
@@ -210,7 +210,7 @@ if ($Components.mojibake) {
 # STAGE 3c: Candidate Model
 Write-Host ""
 Write-Host "[STAGE 3c] Building candidate model..."
-$CandidateResult = py -3 "$ScriptDir\candidate_model.py" --repo-root $RepoRoot --scope $TestVersionRoot 2>&1
+$CandidateResult = py -3.12 "$ScriptDir\candidate_model.py" --repo-root $RepoRoot --scope $TestVersionRoot 2>&1
 $CandidateExitCode = $LASTEXITCODE
 Log-Command "candidate_model.py" ($CandidateResult -join "`n") $CandidateExitCode
 Write-Host ($CandidateResult | Out-String)
@@ -218,7 +218,7 @@ Write-Host ($CandidateResult | Out-String)
 # STAGE 4: Generate HTML
 Write-Host ""
 Write-Host "[STAGE 4] Generating Delta Window HTML..."
-$HtmlResult = py -3 "$ScriptDir\generate_delta_window.py" --test-version $TestVersionRoot 2>&1
+$HtmlResult = py -3.12 "$ScriptDir\generate_delta_window.py" --test-version $TestVersionRoot 2>&1
 $HtmlExitCode = $LASTEXITCODE
 Log-Command "generate_delta_window.py" ($HtmlResult -join "`n") $HtmlExitCode
 

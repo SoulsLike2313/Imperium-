@@ -1,0 +1,14 @@
+{
+  "request_id": "REQ-SAMPLE-001",
+  "type": "SUMMARIZE",
+  "payload": {
+    "target": "IMPERIUM_TEST_VERSION",
+    "scope": "strategic_capabilities",
+    "detail_level": "overview"
+  },
+  "context": {
+    "requester": "OWNER",
+    "purpose": "Smoke test for CLI agent port"
+  },
+  "_note": "This is a sample request for testing the CLI agent port."
+}

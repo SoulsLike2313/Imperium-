@@ -28,21 +28,27 @@
                        "passed":  true
                    },
                    {
-                       "error":  "Uncommitted changes",
-                       "description":  "Git working directory is clean (or only .gitignore/.vscode modified)",
+                       "git_head":  "9a7f4da",
+                       "non_test_version_changes":  [
+
+                                                    ],
+                       "passed":  true,
                        "name":  "git_status",
-                       "git_head":  "3274087",
-                       "passed":  false
+                       "candidate_mode":  true,
+                       "description":  "Git scope is safe for candidate mode: dirty allowed only inside IMPERIUM_TEST_VERSION",
+                       "error":  "Candidate dirty state is scoped to IMPERIUM_TEST_VERSION",
+                       "dirty_count":  90
                    }
                ],
     "summary":  {
-                    "passed":  4,
-                    "verdict":  "PARTIAL",
-                    "failed":  1,
+                    "passed":  5,
+                    "verdict":  "PASS",
+                    "pass_percent":  100,
+                    "failed":  0,
                     "total_checks":  5,
-                    "pass_percent":  80,
-                    "git_head":  "3274087"
+                    "candidate_mode":  true,
+                    "git_head":  "9a7f4da"
                 },
     "repo_root":  "E:\\IMPERIUM",
-    "generated_at":  "2026-05-16T04:05:58.3475244+03:00"
+    "generated_at":  "2026-05-16T16:18:01.2709665+03:00"
 }

@@ -1,0 +1,39 @@
+{
+  "check_id": "SSH_CAPABILITY_CHECK_20260516_141320",
+  "timestamp": "2026-05-16T11:13:20Z",
+  "status": "MANUAL_CONFIRMATION_REQUIRED",
+  "parameters": {
+    "host_name": "",
+    "port": 22,
+    "user": "",
+    "key_path": "",
+    "dry_run": true
+  },
+  "checks": [
+    {
+      "name": "ssh_client",
+      "status": "PASS",
+      "message": "ssh command found: C:\\Windows\\System32\\OpenSSH\\ssh.exe"
+    },
+    {
+      "name": "connection_profile",
+      "status": "MANUAL_CONFIRMATION_REQUIRED",
+      "message": "HostName and User are required for real probe"
+    },
+    {
+      "name": "key_path",
+      "status": "MANUAL_CONFIRMATION_REQUIRED",
+      "message": "KeyPath not provided"
+    },
+    {
+      "name": "ssh_probe",
+      "status": "SKIP",
+      "message": "DryRun active; no SSH call attempted"
+    }
+  ],
+  "manual_confirmation_required": [
+    "Provide -HostName and -User",
+    "Provide -KeyPath for key-based auth"
+  ],
+  "notes": []
+}

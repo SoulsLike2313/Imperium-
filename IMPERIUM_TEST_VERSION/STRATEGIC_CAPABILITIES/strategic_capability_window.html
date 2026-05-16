@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IMPERIUM Strategic Capability Window</title>
+  <style>
+    :root {
+      --bg: #0c131d;
+      --panel: #132033;
+      --ink: #eef3f9;
+      --muted: #a7b8cc;
+      --line: #28415d;
+      --pass: #18c08f;
+      --partial: #f5b840;
+      --not-impl: #8fa7bf;
+      --manual: #ff8f57;
+      --blocked: #d44857;
+      --repair: #f06f6f;
+      --accent: #7ad3ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 20% 0%, #17314e 0%, transparent 50%),
+        radial-gradient(circle at 80% 100%, #2a1f46 0%, transparent 45%),
+        var(--bg);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      gap: 16px;
+    }
+    .hero, .panel {
+      background: linear-gradient(160deg, rgba(19,32,51,0.96), rgba(14,24,39,0.96));
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px;
+      backdrop-filter: blur(3px);
+    }
+    h1 { margin: 0 0 8px 0; color: var(--accent); }
+    h2 { margin: 0 0 10px 0; color: var(--accent); font-size: 1.1rem; }
+    p, li { line-height: 1.45; color: var(--ink); }
+    .meta { color: var(--muted); font-size: 0.95rem; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      border: 1px solid rgba(255,255,255,0.14);
+      font-weight: 600;
+    }
+    .PASS { background: rgba(24,192,143,0.2); color: var(--pass); }
+    .PARTIAL { background: rgba(245,184,64,0.16); color: var(--partial); }
+    .NOT_IMPLEMENTED { background: rgba(143,167,191,0.16); color: var(--not-impl); }
+    .MANUAL_CONFIRMATION_REQUIRED { background: rgba(255,143,87,0.16); color: var(--manual); }
+    .BLOCKED { background: rgba(212,72,87,0.18); color: var(--blocked); }
+    .REPAIR_REQUIRED { background: rgba(240,111,111,0.18); color: var(--repair); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 8px;
+      margin: 6px 0;
+      font-size: 0.93rem;
+    }
+    .label { color: var(--muted); }
+    ul { margin: 6px 0 0 20px; }
+    code { color: #a9e3ff; }
+    .warn {
+      border-left: 4px solid var(--manual);
+      padding-left: 12px;
+      margin-top: 8px;
+      color: #ffd9c7;
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <h1>Strategic Capability Window</h1>
+      <p class="meta">Scope: IMPERIUM_TEST_VERSION only | Date: 2026-05-16 | Purpose: truthful operational status, no fake green</p>
+      <p class="warn">
+        scope_safe_to_commit is not quality_green. Local LLM is not verified without health check PASS. Ubuntu contour is not verified without SSH PASS.
+        Freelance corridor is foundation/sample unless executable path is proven. Second Brain uses synthetic data unless real integration is confirmed.
+      </p>
+      <div class="legend" aria-label="status legend">
+        <span class="tag PASS">PASS</span>
+        <span class="tag PARTIAL">PARTIAL</span>
+        <span class="tag NOT_IMPLEMENTED">NOT_IMPLEMENTED</span>
+        <span class="tag MANUAL_CONFIRMATION_REQUIRED">MANUAL_CONFIRMATION_REQUIRED</span>
+        <span class="tag BLOCKED">BLOCKED</span>
+        <span class="tag REPAIR_REQUIRED">REPAIR_REQUIRED</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="panel">
+        <h2>Freelance Execution <span class="tag PARTIAL">PARTIAL</span></h2>
+        <div class="row"><div class="label">Current status</div><div>Foundation docs and schema available.</div></div>
+        <div class="row"><div class="label">Exists now</div><div>Spec + schema + synthetic TZ + synthetic intake.</div></div>
+        <div class="row"><div class="label">Implemented</div><div>Document contract only.</div></div>
+        <div class="row"><div class="label">Specified only</div><div>Executable corridor path and delivery automation.</div></div>
+        <div class="row"><div class="label">Blocked</div><div>Not blocked technically; blocked by missing executable implementation.</div></div>
+        <div class="row"><div class="label">Manual confirm</div><div>Owner confirms corridor stages for real external tasks.</div></div>
+        <div class="row"><div class="label">Key files</div><div><code>STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/*</code></div></div>
+        <div class="row"><div class="label">Next action</div><div>Implement intake-to-plan runner with evidence receipts.</div></div>
+      </article>
+
+      <article class="panel">
+        <h2>Presentation System <span class="tag PARTIAL">PARTIAL</span></h2>
+        <div class="row"><div class="label">Current status</div><div>Foundation summaries exist.</div></div>
+        <div class="row"><div class="label">Exists now</div><div>Spec + summary schema + RU summary + machine-readable summary JSON.</div></div>
+        <div class="row"><div class="label">Implemented</div><div>Static summary artifacts.</div></div>
+        <div class="row"><div class="label">Specified only</div><div>Automated presentation generation pipeline.</div></div>
+        <div class="row"><div class="label">Blocked</div><div>No hard blocker; capability is not production-ready.</div></div>
+        <div class="row"><div class="label">Manual confirm</div><div>Owner validates narrative before external usage.</div></div>
+        <div class="row"><div class="label">Key files</div><div><code>STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/*</code></div></div>
+        <div class="row"><div class="label">Next action</div><div>Generate summaries automatically from verified reports.</div></div>
+      </article>
+
+      <article class="panel">
+        <h2>Distributed Contours <span class="tag MANUAL_CONFIRMATION_REQUIRED">MANUAL_CONFIRMATION_REQUIRED</span></h2>
+        <div class="row"><div class="label">Current status</div><div>SSH check script and templates are ready.</div></div>
+        <div class="row"><div class="label">Exists now</div><div>Spec + schema + PC/Laptop templates + SSH checker.</div></div>
+        <div class="row"><div class="label">Implemented</div><div>Dry-run and real probe script behavior with honest result codes.</div></div>
+        <div class="row"><div class="label">Specified only</div><div>Production task routing and receipt transfer automation.</div></div>
+        <div class="row"><div class="label">Blocked</div><div>Verification blocked until real host credentials are provided.</div></div>
+        <div class="row"><div class="label">Manual confirm</div><div>Ubuntu laptop contour valid only after successful non-dry SSH probe.</div></div>
+        <div class="row"><div class="label">Key files</div><div><code>STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/*</code></div></div>
+        <div class="row"><div class="label">Next action</div><div>Run `ssh_capability_check.ps1` with real host/user/key and archive JSON receipt.</div></div>
+      </article>
+
+      <article class="panel">
+        <h2>Second Brain / Memory Zones <span class="tag MANUAL_CONFIRMATION_REQUIRED">MANUAL_CONFIRMATION_REQUIRED</span></h2>
+        <div class="row"><div class="label">Current status</div><div>Schemas and synthetic samples are present.</div></div>
+        <div class="row"><div class="label">Exists now</div><div>Spec + 2 schemas + sample memory zones + sample context pack.</div></div>
+        <div class="row"><div class="label">Implemented</div><div>Data contracts and sample data only.</div></div>
+        <div class="row"><div class="label">Specified only</div><div>Real memory integration and agent memory walk.</div></div>
+        <div class="row"><div class="label">Blocked</div><div>Real integration intentionally absent at this stage.</div></div>
+        <div class="row"><div class="label">Manual confirm</div><div>Second brain remains synthetic until real source integration is explicitly confirmed.</div></div>
+        <div class="row"><div class="label">Key files</div><div><code>STRATEGIC_CAPABILITIES/SECOND_BRAIN/*</code></div></div>
+        <div class="row"><div class="label">Next action</div><div>Define source boundaries and implement real ingestion.</div></div>
+      </article>
+
+      <article class="panel">
+        <h2>CLI Agent Port <span class="tag PASS">PASS</span></h2>
+        <div class="row"><div class="label">Current status</div><div>Required CLI commands execute and return JSON.</div></div>
+        <div class="row"><div class="label">Exists now</div><div>Spec + request/response schemas + CLI script + sample request.</div></div>
+        <div class="row"><div class="label">Implemented</div><div>health, inspect-capabilities, summarize with input validation.</div></div>
+        <div class="row"><div class="label">Specified only</div><div>Real external agent execution is not wired.</div></div>
+        <div class="row"><div class="label">Blocked</div><div>External agent execution path intentionally returns NOT_IMPLEMENTED.</div></div>
+        <div class="row"><div class="label">Manual confirm</div><div>Contract acceptance for future real integration.</div></div>
+        <div class="row"><div class="label">Key files</div><div><code>STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/*</code></div></div>
+        <div class="row"><div class="label">Next action</div><div>Bind request contract to real Servitor/Codex adapter.</div></div>
+      </article>
+
+      <article class="panel">
+        <h2>Local LLM Port <span class="tag MANUAL_CONFIRMATION_REQUIRED">MANUAL_CONFIRMATION_REQUIRED</span></h2>
+        <div class="row"><div class="label">Current status</div><div>Health check foundation implemented.</div></div>
+        <div class="row"><div class="label">Exists now</div><div>Spec + schemas + config template + health check script.</div></div>
+        <div class="row"><div class="label">Implemented</div><div>Honest NOT_CONFIGURED / NOT_INSTALLED / PASS logic.</div></div>
+        <div class="row"><div class="label">Specified only</div><div>Real local inference routing.</div></div>
+        <div class="row"><div class="label">Blocked</div><div>No verified model runtime configured yet.</div></div>
+        <div class="row"><div class="label">Manual confirm</div><div>Local LLM is not verified unless health check proves PASS with a real command.</div></div>
+        <div class="row"><div class="label">Key files</div><div><code>STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/*</code></div></div>
+        <div class="row"><div class="label">Next action</div><div>Configure local model command and run health check receipt.</div></div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

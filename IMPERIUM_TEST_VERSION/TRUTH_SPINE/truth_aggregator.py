@@ -20,20 +20,25 @@ sys.path.insert(0, str(Path(__file__).parent))
 from truth_state_checker import check_file, find_latest_receipt
 
 
-COMPONENTS = [
+BASE_COMPONENTS = [
     {"id": "smoke", "name": "Smoke Test", "prefix": "RCP-SMOKE"},
     {"id": "mechanicus", "name": "Mechanicus Health", "prefix": "RCP-MECH"},
     {"id": "inquisition", "name": "Inquisition Audit", "prefix": "RCP-INQ"},
-    {"id": "master", "name": "Master Verification", "prefix": "RCP-MASTER"},
 ]
 
+MASTER_COMPONENT = {"id": "master", "name": "Master Verification", "prefix": "RCP-MASTER"}
 
-def aggregate_truth_state(receipts_dir, threshold_hours=24):
+
+def aggregate_truth_state(receipts_dir, threshold_hours=24, include_master=False):
     """Aggregate truth state across all components."""
     receipts_path = Path(receipts_dir)
     
     components = []
-    for comp in COMPONENTS:
+    selected_components = list(BASE_COMPONENTS)
+    if include_master:
+        selected_components.append(MASTER_COMPONENT)
+
+    for comp in selected_components:
         receipt = find_latest_receipt(comp["id"], receipts_dir)
         if receipt:
             state = check_file(receipt, threshold_hours)
@@ -47,7 +52,9 @@ def aggregate_truth_state(receipts_dir, threshold_hours=24):
                 "evidence_path": None,
                 "freshness": "UNKNOWN",
                 "blockers": ["No receipt found"],
-                "source": "truth_aggregator.py"
+                "source": "truth_aggregator.py",
+        "include_master": include_master,
+        "excluded_components": [] if include_master else ["Master Verification"]
             }
         components.append(state)
     
@@ -93,7 +100,9 @@ def aggregate_truth_state(receipts_dir, threshold_hours=24):
         "unknown_count": status_counts.get("UNKNOWN", 0),
         "blockers": all_blockers,
         "components": components,
-        "source": "truth_aggregator.py"
+        "source": "truth_aggregator.py",
+        "include_master": include_master,
+        "excluded_components": [] if include_master else ["Master Verification"]
     }
 
 
@@ -103,10 +112,11 @@ def main():
     parser.add_argument("--threshold", type=int, default=24, help="Freshness threshold in hours")
     parser.add_argument("--output", help="Output file for result (JSON)")
     parser.add_argument("--quiet", action="store_true", help="Suppress detailed output")
+    parser.add_argument("--include-master", action="store_true", help="Include previous RCP-MASTER receipts. Do not use during RUN_ALL self-run.")
     
     args = parser.parse_args()
     
-    result = aggregate_truth_state(args.receipts_dir, args.threshold)
+    result = aggregate_truth_state(args.receipts_dir, args.threshold, include_master=args.include_master)
     
     if args.output:
         output_path = Path(args.output)

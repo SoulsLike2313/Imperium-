@@ -1,0 +1,128 @@
+{
+  "task_id": "KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516",
+  "baseline_head": "9a7f4dabe9fff71c6722df0293855f18306c4106",
+  "scope": "IMPERIUM_TEST_VERSION only",
+  "required_outputs": {
+    "r2_repair": [
+      "AGENT_EXCHANGE/agent_exchange_window.html",
+      "RUNS/KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516/OWNER_USAGE_GUIDE_RU.md",
+      "AGENT_EXCHANGE/OUTBOX/KIRO/KIRO_RESPONSE_BUNDLE_DELTA_R2_AGENT_EXCHANGE_R1_20260516.md",
+      "AUDITS/KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516/SELF_AUDIT_REPORT.md",
+      "AUDITS/KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516/SELF_AUDIT_REPORT.json"
+    ],
+    "strategic_capabilities": [
+      "STRATEGIC_CAPABILITIES/CAPABILITY_MAP.md",
+      "STRATEGIC_CAPABILITIES/CAPABILITY_MAP.json",
+      "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md",
+      "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/freelance_task_corridor.schema.json",
+      "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md",
+      "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/product_summary.schema.json",
+      "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY_RU.md",
+      "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md",
+      "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/contour_profile.schema.json",
+      "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ssh_capability_check.ps1",
+      "STRATEGIC_CAPABILITIES/SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md",
+      "STRATEGIC_CAPABILITIES/SECOND_BRAIN/memory_zone.schema.json",
+      "STRATEGIC_CAPABILITIES/SECOND_BRAIN/context_pack.schema.json",
+      "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md",
+      "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_request.schema.json",
+      "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_response.schema.json",
+      "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/imperium_cli_agent_port.py",
+      "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md",
+      "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_profile.schema.json",
+      "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_health_check.py",
+      "STRATEGIC_CAPABILITIES/strategic_capability_window.html"
+    ],
+    "verification": [
+      "TOOLS/check_strategic_capability_foundation.py",
+      "RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/STRATEGIC_CAPABILITY_CHECK_REPORT.json"
+    ],
+    "owner_facing": [
+      "RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/OWNER_FINAL_REPORT_RU.md",
+      "RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/MANUAL_VERIFICATION_CHECKLIST_RU.md"
+    ],
+    "final_audit": [
+      "AUDITS/KIRO_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/SELF_AUDIT_REPORT.md",
+      "AUDITS/KIRO_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/SELF_AUDIT_REPORT.json",
+      "AUDITS/KIRO_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/REQUIRED_OUTPUTS_CHECKLIST.md",
+      "AUDITS/KIRO_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/FAKE_GREEN_RISK_CHECKLIST.md",
+      "AUDITS/KIRO_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/MANUAL_CONFIRMATION_REQUIRED.md",
+      "AUDITS/KIRO_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/EVIDENCE_INDEX.md"
+    ]
+  },
+  "forbidden_touches": [
+    "src/",
+    "scripts/",
+    "tests/",
+    "schemas/",
+    "REGISTRY/",
+    "TOOLS/",
+    "SANCTUM/",
+    "ORGANS/",
+    "Any file outside IMPERIUM_TEST_VERSION except reading"
+  ],
+  "pass_criteria": [
+    "All required_outputs files exist and are non-empty",
+    "imperium_cli_agent_port.py --mode health returns valid JSON with exit code 0",
+    "imperium_cli_agent_port.py --mode summarize --input sample_request.json returns valid JSON",
+    "local_llm_health_check.py returns honest NOT_CONFIGURED or NOT_INSTALLED status",
+    "ssh_capability_check.ps1 returns MANUAL_CONFIRMATION_REQUIRED when no credentials",
+    "check_strategic_capability_foundation.py passes all checks",
+    "All canonical/internal JSON files are valid JSON",
+    "All canonical/internal files contain no Cyrillic characters",
+    "No main canon files modified (git status shows only IMPERIUM_TEST_VERSION)",
+    "Delta Window STANDARD mode completes",
+    "Owner guides exist in Russian"
+  ],
+  "fail_criteria": [
+    "Any required output missing",
+    "CLI agent port crashes or returns invalid JSON",
+    "Local LLM health check claims PASS without real model",
+    "SSH check claims success without verification",
+    "Cyrillic characters in canonical JSON/schema files",
+    "Main canon files modified",
+    "Any PASS claim without evidence file",
+    "Fake green verdict"
+  ],
+  "manual_confirmation_required": [
+    {
+      "item": "SSH connection to Ubuntu laptop",
+      "reason": "No credentials provided, cannot test automatically"
+    },
+    {
+      "item": "Local LLM availability",
+      "reason": "No model installed/configured on this system"
+    },
+    {
+      "item": "Real Codex/Servitor integration",
+      "reason": "Only contract defined, not wired"
+    },
+    {
+      "item": "Real freelance task execution",
+      "reason": "Only spec and samples, not executable pipeline"
+    },
+    {
+      "item": "Real memory zone data ingestion",
+      "reason": "Only synthetic samples, no private data"
+    }
+  ],
+  "verdict_law": {
+    "scope_safe_to_commit": "No main canon touched, only IMPERIUM_TEST_VERSION modified",
+    "quality_green": "All checks pass, all outputs exist, no fake green",
+    "owner_ready_for_manual_review": "Owner can inspect and verify all outputs",
+    "ready_for_promotion_to_main_canon": "Quality green + Owner approved + Servitor audited"
+  },
+  "evidence_requirements": [
+    "INTAKE_REPORT.md",
+    "KIRO_SELF_SPEC.md",
+    "PASS_FAIL_GATES.json",
+    "CLI_HEALTH_OUTPUT.json",
+    "CLI_SUMMARIZE_OUTPUT.json",
+    "LLM_HEALTH_OUTPUT.json",
+    "SSH_CHECK_OUTPUT.txt",
+    "STRATEGIC_CAPABILITY_CHECK_REPORT.json",
+    "Delta Window reports in TESTING_FIELD/DELTA_WINDOW/REPORTS/"
+  ],
+  "final_verdict": "REPAIR_REQUIRED",
+  "final_verdict_reason": "Implementation not yet started. Required outputs do not exist yet."
+}

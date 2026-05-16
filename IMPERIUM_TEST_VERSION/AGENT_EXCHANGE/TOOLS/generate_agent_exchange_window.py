@@ -407,7 +407,7 @@ def generate_window(exchange_root, repo_root):
             <span class="agent-name agent-kiro">KIRO</span>
             <span class="flow-arrow"> → </span>
             <span>?</span>
-            : RESPONSE_BUNDLE (PENDING)
+            : RESPONSE_BUNDLE (DELIVERED)
         </div>
         '''
     

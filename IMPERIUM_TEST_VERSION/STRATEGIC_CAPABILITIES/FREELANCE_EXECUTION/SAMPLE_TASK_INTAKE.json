@@ -1,0 +1,36 @@
+{
+  "task_id": "TASK-20260516-0001",
+  "source": {
+    "type": "CLIENT",
+    "client_id": "EXAMPLE_CLIENT_001",
+    "received_at": "2026-05-16T10:00:00Z",
+    "original_document": "SAMPLE_SYNTHETIC_TZ.md"
+  },
+  "type": "CODE",
+  "title": "Create REST API for User Management",
+  "description": "Create a REST API for user management with registration, authentication, profile CRUD, and password reset using Python FastAPI and PostgreSQL.",
+  "requirements": [
+    { "id": "REQ-001", "text": "Use Python with FastAPI framework", "priority": "MUST", "verified": false },
+    { "id": "REQ-002", "text": "Use PostgreSQL database", "priority": "MUST", "verified": false },
+    { "id": "REQ-003", "text": "Include input validation", "priority": "MUST", "verified": false },
+    { "id": "REQ-004", "text": "Include error handling", "priority": "MUST", "verified": false },
+    { "id": "REQ-005", "text": "Include rate limiting", "priority": "SHOULD", "verified": false },
+    { "id": "REQ-006", "text": "Include logging", "priority": "SHOULD", "verified": false },
+    { "id": "REQ-007", "text": "Include email notifications", "priority": "COULD", "verified": false }
+  ],
+  "constraints": {
+    "deadline": "2026-05-30T23:59:59Z",
+    "budget_hours": 40,
+    "technologies": ["Python", "FastAPI", "PostgreSQL", "JWT"],
+    "restrictions": ["No external paid services"]
+  },
+  "status": "INTAKE",
+  "created_at": "2026-05-16T10:05:00Z",
+  "updated_at": "2026-05-16T10:05:00Z",
+  "stages": [],
+  "questions": [],
+  "artifacts": [],
+  "evidence": null,
+  "delivery": null,
+  "_note": "This is a synthetic example for testing. No real task exists."
+}

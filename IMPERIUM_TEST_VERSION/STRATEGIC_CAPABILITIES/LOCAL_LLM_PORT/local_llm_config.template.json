@@ -1,0 +1,12 @@
+{
+  "profile_id": "LOCAL_LLM_TEMPLATE",
+  "status": "NOT_CONFIGURED",
+  "model_id": "local-template-model",
+  "model_command": "",
+  "model_args": [],
+  "health_probe_args": ["--version"],
+  "working_directory": "",
+  "timeout_seconds": 10,
+  "safe_probe_enabled": true,
+  "notes": "Set model_command to an installed local model executable. Keep safe_probe_enabled true for non-destructive health checks."
+}

@@ -1,19 +1,19 @@
 ﻿{
     "repo_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
-    "generated_at":  "2026-05-16T04:06:05.4622360+03:00",
+    "generated_at":  "2026-05-16T16:18:10.2278042+03:00",
     "broken_scripts":  {
 
                        },
     "schema_version":  "IMPERIUM_SCRIPT_HEALTH_V0_1",
     "summary":  {
-                    "healthy":  50,
+                    "healthy":  64,
                     "verdict":  "PASS",
                     "health_percent":  100,
                     "broken":  0,
-                    "total_scripts":  50
+                    "total_scripts":  64
                 },
     "by_type":  {
-                    "python":  50,
+                    "python":  64,
                     "powershell":  0
                 }
 }

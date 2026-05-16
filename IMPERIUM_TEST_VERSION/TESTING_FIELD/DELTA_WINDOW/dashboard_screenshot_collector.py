@@ -13,6 +13,7 @@ Fallback: Creates blocker report if Playwright unavailable
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -49,6 +50,17 @@ def find_dashboards(test_version_path):
     return dashboards
 
 
+def safe_screenshot_name(relative_path):
+    """Build a unique screenshot filename from dashboard relative path."""
+    raw = str(relative_path).replace("\\", "__").replace("/", "__")
+    raw = raw.replace("index.html", "index").replace("master_dashboard.html", "master_dashboard")
+    raw = re.sub(r"[^A-Za-z0-9_.-]+", "_", raw).strip("._")
+    if not raw:
+        raw = "dashboard"
+    if not raw.lower().endswith(".png"):
+        raw = raw + ".png"
+    return raw
+
 def capture_screenshots_playwright(dashboards, output_dir):
     """Capture screenshots using Playwright."""
     results = []
@@ -64,7 +76,7 @@ def capture_screenshots_playwright(dashboards, output_dir):
                 file_url = f"file:///{dash['path'].replace(os.sep, '/')}"
                 page.goto(file_url, wait_until="networkidle", timeout=10000)
                 
-                screenshot_name = f"{dash['name']}.png"
+                screenshot_name = safe_screenshot_name(dash["relative"])
                 screenshot_path = output_path / screenshot_name
                 page.screenshot(path=str(screenshot_path), full_page=True)
                 

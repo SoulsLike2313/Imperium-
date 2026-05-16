@@ -6,7 +6,8 @@
 param(
     [switch]$SkipNewComponents,
     [switch]$OnlyCore,
-    [switch]$Verbose
+    [switch]$Verbose,
+    [switch]$CandidateMode
 )
 
 $ErrorActionPreference = "Continue"
@@ -42,9 +43,13 @@ Write-Host "[1/7] Running Smoke Test..."
 Write-Host "-" * 50
 $smokeScript = "$TestVersionRoot\TESTING_FIELD\RUN_SMOKE.ps1"
 if (Test-Path $smokeScript) {
-    & powershell -ExecutionPolicy Bypass -File $smokeScript
+    if ($CandidateMode) {
+        & powershell -ExecutionPolicy Bypass -File $smokeScript -CandidateMode
+    } else {
+        & powershell -ExecutionPolicy Bypass -File $smokeScript
+    }
     $smokeExit = $LASTEXITCODE
-    $Results += @{ name = "Smoke Test"; exit_code = $smokeExit; verdict = if ($smokeExit -eq 0) { "PASS" } else { "FAIL" }; category = "core" }
+    $Results += @{ name = "Smoke Test"; exit_code = $smokeExit; verdict = if ($smokeExit -eq 0) { "PASS" } else { "FAIL" }; category = "core"; candidate_mode = [bool]$CandidateMode }
 } else {
     Write-Host "  SKIP: Script not found"
     $Results += @{ name = "Smoke Test"; exit_code = -1; verdict = "SKIP"; category = "core" }
@@ -91,7 +96,7 @@ if (-not $OnlyCore) {
     Write-Host "-" * 50
     $memoryScript = "$TestVersionRoot\SECOND_BRAIN\SCRIPTS\build_memory_summary.py"
     if (Test-Path $memoryScript) {
-        py -3 $memoryScript
+        py -3.12 $memoryScript
         $memoryExit = $LASTEXITCODE
         $Results += @{ name = "Second Brain"; exit_code = $memoryExit; verdict = if ($memoryExit -eq 0) { "PASS" } else { "FAIL" }; category = "new" }
     } else {
@@ -105,7 +110,7 @@ if (-not $OnlyCore) {
     Write-Host "-" * 50
     $workbenchScript = "$TestVersionRoot\LIVE_WORKBENCH\SCRIPTS\run_sandbox_tests.py"
     if (Test-Path $workbenchScript) {
-        py -3 $workbenchScript
+        py -3.12 $workbenchScript
         $workbenchExit = $LASTEXITCODE
         $Results += @{ name = "Live Workbench"; exit_code = $workbenchExit; verdict = if ($workbenchExit -eq 0) { "PASS" } else { "FAIL" }; category = "new" }
     } else {
@@ -119,7 +124,7 @@ if (-not $OnlyCore) {
     Write-Host "-" * 50
     $statusScript = "$TestVersionRoot\LIVE_WORKBENCH\SCRIPTS\generate_workbench_status.py"
     if (Test-Path $statusScript) {
-        py -3 $statusScript
+        py -3.12 $statusScript
         $statusExit = $LASTEXITCODE
         # Don't add to results, just informational
     }
@@ -130,7 +135,7 @@ if (-not $OnlyCore) {
     Write-Host "-" * 50
     $handshakeScript = "$TestVersionRoot\AGENT_MEMORY_PROTOCOL\SCRIPTS\agent_context_handshake.py"
     if (Test-Path $handshakeScript) {
-        py -3 $handshakeScript
+        py -3.12 $handshakeScript
         $handshakeExit = $LASTEXITCODE
         $Results += @{ name = "Agent Handshake"; exit_code = $handshakeExit; verdict = if ($handshakeExit -eq 0) { "PASS" } else { "FAIL" }; category = "new" }
     } else {
@@ -165,7 +170,7 @@ Write-Host "[7b/12] Generating Master Dashboard + Organ Dashboards..."
 Write-Host "-" * 50
 $dashGenScript = "$TestVersionRoot\SANCTUM_MIRROR\dashboard_generator.py"
 if (Test-Path $dashGenScript) {
-    py -3 $dashGenScript --all
+    py -3.12 $dashGenScript --all
     $dashGenExit = $LASTEXITCODE
     $Results += @{ name = "Dashboard Generator"; exit_code = $dashGenExit; verdict = if ($dashGenExit -eq 0) { "PASS" } else { "FAIL" }; category = "dashboard" }
 } else {
@@ -179,7 +184,7 @@ Write-Host "[8/12] Running Truth Spine Aggregation..."
 Write-Host "-" * 50
 $truthScript = "$TestVersionRoot\TRUTH_SPINE\truth_aggregator.py"
 if (Test-Path $truthScript) {
-    py -3 $truthScript --receipts-dir "$TestVersionRoot\RECEIPTS" --output "$TestVersionRoot\REPORTS\truth_aggregate.json"
+    py -3.12 $truthScript --receipts-dir "$TestVersionRoot\RECEIPTS" --output "$TestVersionRoot\REPORTS\truth_aggregate.json"
     $truthExit = $LASTEXITCODE
     $Results += @{ name = "Truth Spine"; exit_code = $truthExit; verdict = if ($truthExit -eq 0) { "PASS" } else { "FAIL" }; category = "truth" }
 } else {
@@ -193,7 +198,7 @@ Write-Host "[9/12] Running Registry Auto-Sync..."
 Write-Host "-" * 50
 $registryScript = "$TestVersionRoot\REGISTRY\auto_sync.py"
 if (Test-Path $registryScript) {
-    py -3 $registryScript
+    py -3.12 $registryScript
     $registryExit = $LASTEXITCODE
     $Results += @{ name = "Registry Sync"; exit_code = $registryExit; verdict = if ($registryExit -eq 0) { "PASS" } else { "FAIL" }; category = "registry" }
 } else {
@@ -213,7 +218,7 @@ Write-Host "[10/12] Extracting Lessons..."
 Write-Host "-" * 50
 $lessonScript = "$TestVersionRoot\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\lesson_extractor.py"
 if (Test-Path $lessonScript) {
-    py -3 $lessonScript
+    py -3.12 $lessonScript
     $lessonExit = $LASTEXITCODE
     $Results += @{ name = "Lesson Extractor"; exit_code = $lessonExit; verdict = if ($lessonExit -eq 0) { "PASS" } else { "FAIL" }; category = "learning" }
 } else {
@@ -227,7 +232,7 @@ Write-Host "[11/12] Scanning for Anti-Patterns..."
 Write-Host "-" * 50
 $antiPatternScript = "$TestVersionRoot\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\anti_pattern_scanner.py"
 if (Test-Path $antiPatternScript) {
-    py -3 $antiPatternScript --path ORGANS
+    py -3.12 $antiPatternScript --path ORGANS
     $antiPatternExit = $LASTEXITCODE
     # Anti-pattern scanner returns 1 if violations found, but that's informational
     $Results += @{ name = "Anti-Pattern Scanner"; exit_code = $antiPatternExit; verdict = if ($antiPatternExit -eq 0) { "PASS" } else { "PARTIAL" }; category = "learning" }
@@ -242,7 +247,7 @@ Write-Host "[12/12] Extracting Rules..."
 Write-Host "-" * 50
 $ruleScript = "$TestVersionRoot\ORGANS\SCHOLA_IMPERIALIS\SCRIPTS\rule_extractor.py"
 if (Test-Path $ruleScript) {
-    py -3 $ruleScript
+    py -3.12 $ruleScript
     $ruleExit = $LASTEXITCODE
     $Results += @{ name = "Rule Extractor"; exit_code = $ruleExit; verdict = if ($ruleExit -eq 0) { "PASS" } else { "FAIL" }; category = "learning" }
 } else {

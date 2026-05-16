@@ -4,16 +4,16 @@
 
                ],
     "summary":  {
-                    "total_scanned":  33,
+                    "total_scanned":  42,
                     "stale_truth_count":  0,
                     "missing_evidence_count":  0,
                     "fake_green_count":  0,
                     "verdict":  "PASS",
-                    "report_files":  28,
-                    "verdict_files":  0,
-                    "status_files":  5,
+                    "report_files":  34,
+                    "verdict_files":  1,
+                    "status_files":  7,
                     "total_issues":  0
                 },
     "repo_root":  "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION",
-    "generated_at":  "2026-05-16T04:06:06.0106958+03:00"
+    "generated_at":  "2026-05-16T16:18:10.8653924+03:00"
 }

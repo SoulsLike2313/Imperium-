@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "local_llm_profile.schema.json",
+  "title": "Local LLM Profile",
+  "type": "object",
+  "required": ["model_id", "name", "type", "status"],
+  "properties": {
+    "model_id": { "type": "string" },
+    "name": { "type": "string" },
+    "type": { "type": "string", "enum": ["llama.cpp", "ollama", "transformers", "other"] },
+    "command": { "type": "string" },
+    "args": { "type": "array", "items": { "type": "string" } },
+    "context_size": { "type": "integer" },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "string", "enum": ["CONFIGURED", "NOT_INSTALLED", "ACTIVE", "DISABLED"] }
+  }
+}

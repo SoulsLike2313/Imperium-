@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "contour_profile.schema.json",
+  "title": "Contour Profile",
+  "description": "Schema for IMPERIUM execution contour profile",
+  "type": "object",
+  "required": ["contour_id", "name", "os", "role", "trust_level", "status"],
+  "properties": {
+    "contour_id": { "type": "string" },
+    "name": { "type": "string" },
+    "os": { "type": "string", "enum": ["WINDOWS", "LINUX", "MACOS"] },
+    "role": { "type": "string", "enum": ["PRIMARY", "SECONDARY"] },
+    "trust_level": { "type": "string", "enum": ["HIGH", "MEDIUM", "LOW"] },
+    "status": { "type": "string", "enum": ["ACTIVE", "INACTIVE", "UNKNOWN", "MANUAL_CONFIRMATION_REQUIRED"] },
+    "connection": {
+      "type": "object",
+      "properties": {
+        "type": { "type": "string", "enum": ["LOCAL", "SSH", "RDP"] },
+        "host": { "type": "string" },
+        "port": { "type": "integer" },
+        "user": { "type": "string" },
+        "auth_method": { "type": "string", "enum": ["KEY", "PASSWORD", "NONE"] },
+        "key_path": { "type": "string" }
+      }
+    },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "restrictions": { "type": "array", "items": { "type": "string" } },
+    "last_verified": { "type": "string", "format": "date-time" }
+  }
+}

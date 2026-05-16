@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "local_llm_response.schema.json",
+  "title": "Local LLM Response",
+  "type": "object",
+  "required": ["request_id", "status", "timestamp"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["PASS", "FAIL", "NOT_CONFIGURED", "NOT_INSTALLED", "NOT_IMPLEMENTED"]
+    },
+    "output": { "type": "string" },
+    "tokens_used": { "type": "integer", "minimum": 0 },
+    "timing_ms": { "type": "integer", "minimum": 0 },
+    "model_id": { "type": "string" },
+    "errors": { "type": "array", "items": { "type": "string" } },
+    "timestamp": { "type": "string", "format": "date-time" }
+  },
+  "additionalProperties": true
+}

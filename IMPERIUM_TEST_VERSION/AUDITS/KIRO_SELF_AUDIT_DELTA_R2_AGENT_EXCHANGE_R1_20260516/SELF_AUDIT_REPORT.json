@@ -1,0 +1,89 @@
+{
+  "audit_id": "KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516",
+  "auditor": "KIRO",
+  "audit_type": "self_audit",
+  "timestamp": "2026-05-16T12:48:00Z",
+  "task_id": "KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516",
+  "scope": "R2 repair outputs only",
+  "required_outputs": {
+    "agent_exchange_window_html": {
+      "path": "AGENT_EXCHANGE/agent_exchange_window.html",
+      "status": "EXISTS",
+      "verified": true
+    },
+    "owner_usage_guide_ru": {
+      "path": "RUNS/KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516/OWNER_USAGE_GUIDE_RU.md",
+      "status": "EXISTS",
+      "verified": true
+    },
+    "kiro_response_bundle": {
+      "path": "AGENT_EXCHANGE/OUTBOX/KIRO/KIRO_RESPONSE_BUNDLE_DELTA_R2_AGENT_EXCHANGE_R1_20260516.md",
+      "status": "EXISTS",
+      "verified": true
+    },
+    "self_audit_report_md": {
+      "path": "AUDITS/KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516/SELF_AUDIT_REPORT.md",
+      "status": "EXISTS",
+      "verified": true
+    },
+    "self_audit_report_json": {
+      "path": "AUDITS/KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516/SELF_AUDIT_REPORT.json",
+      "status": "EXISTS",
+      "verified": true
+    }
+  },
+  "checks": {
+    "file_existence": {
+      "status": "PASS",
+      "details": "All required files exist"
+    },
+    "content_quality": {
+      "status": "PASS",
+      "details": "All files contain meaningful content"
+    },
+    "language_policy": {
+      "status": "PASS",
+      "details": "Canonical files in English, Owner guide in Russian"
+    },
+    "scope_safety": {
+      "status": "PASS",
+      "details": "All files in IMPERIUM_TEST_VERSION only"
+    }
+  },
+  "fake_green_risks": {
+    "claiming_pass_without_evidence": {
+      "risk_level": "LOW",
+      "mitigation": "All PASS claims have file evidence"
+    },
+    "claiming_external_integration_works": {
+      "risk_level": "LOW",
+      "mitigation": "All external marked MANUAL_CONFIRMATION_REQUIRED"
+    },
+    "confusing_scope_with_quality": {
+      "risk_level": "LOW",
+      "mitigation": "Explicitly separated in all verdicts"
+    }
+  },
+  "manual_confirmation_required": [
+    {
+      "item": "Agent Exchange Window usability",
+      "reason": "Subjective assessment",
+      "owner_action": "Open and review"
+    },
+    {
+      "item": "Owner Guide clarity",
+      "reason": "Subjective assessment",
+      "owner_action": "Read and confirm"
+    }
+  ],
+  "verdicts": {
+    "r2_required_outputs_exist": true,
+    "outputs_non_empty": true,
+    "language_policy_followed": true,
+    "scope_safety_maintained": true,
+    "no_fake_green_claims": true,
+    "external_integrations_marked_correctly": true
+  },
+  "final_verdict": "R2_REPAIR_COMPLETE",
+  "notes": "This audit covers only R2 repair. Strategic capability foundation (R2.1) has separate audit."
+}

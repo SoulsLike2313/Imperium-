@@ -1,0 +1,28 @@
+{
+  "contour_id": "PC_CONTOUR_001",
+  "name": "Primary PC Contour",
+  "os": "WINDOWS",
+  "role": "PRIMARY",
+  "trust_level": "HIGH",
+  "status": "ACTIVE",
+  "connection": {
+    "type": "LOCAL",
+    "host": "localhost",
+    "port": null,
+    "user": null,
+    "auth_method": "NONE",
+    "key_path": null
+  },
+  "capabilities": [
+    "COMMIT",
+    "PUSH",
+    "GUI",
+    "FULL_TOOLSET",
+    "OWNER_INTERACTION",
+    "HEAVY_COMPUTE",
+    "SENSITIVE_DATA"
+  ],
+  "restrictions": [],
+  "last_verified": "2026-05-16T12:00:00Z",
+  "_note": "This is a template. Adjust values for your environment."
+}

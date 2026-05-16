@@ -1,0 +1,89 @@
+{
+  "zones": [
+    {
+      "zone_id": "ZONE_TECH_PYTHON",
+      "name": "Python Knowledge",
+      "topic": "Python programming",
+      "scope": "Python language, libraries, best practices",
+      "source": "Documentation, tutorials, experience",
+      "sensitivity": "PUBLIC",
+      "freshness": "CURRENT",
+      "trust_level": "HIGH",
+      "items": [
+        {
+          "item_id": "ITEM_001",
+          "title": "Python Virtual Environments",
+          "content": "Use venv or virtualenv to isolate project dependencies. Create with: python -m venv .venv",
+          "type": "NOTE",
+          "tags": ["python", "venv", "dependencies"],
+          "created_at": "2026-05-01T10:00:00Z",
+          "source": "Python docs"
+        },
+        {
+          "item_id": "ITEM_002",
+          "title": "Type Hints in Python",
+          "content": "Use type hints for better code clarity: def greet(name: str) -> str: return f'Hello, {name}'",
+          "type": "SNIPPET",
+          "tags": ["python", "typing", "hints"],
+          "created_at": "2026-05-02T10:00:00Z",
+          "source": "PEP 484"
+        }
+      ],
+      "created_at": "2026-05-01T10:00:00Z"
+    },
+    {
+      "zone_id": "ZONE_PROJECT_IMPERIUM",
+      "name": "IMPERIUM Project",
+      "topic": "IMPERIUM system knowledge",
+      "scope": "Architecture, organs, tools, workflows",
+      "source": "Project documentation, code",
+      "sensitivity": "INTERNAL",
+      "freshness": "CURRENT",
+      "trust_level": "HIGH",
+      "items": [
+        {
+          "item_id": "ITEM_003",
+          "title": "IMPERIUM Architecture",
+          "content": "IMPERIUM uses organ-based architecture. Each organ has a contract, dashboard, and tools.",
+          "type": "NOTE",
+          "tags": ["imperium", "architecture", "organs"],
+          "created_at": "2026-05-10T10:00:00Z",
+          "source": "AGENTS.md"
+        },
+        {
+          "item_id": "ITEM_004",
+          "title": "Delta Window Purpose",
+          "content": "Delta Window shows changes before commit, verifies truth state, and provides precommit verdict.",
+          "type": "NOTE",
+          "tags": ["imperium", "delta-window", "verification"],
+          "created_at": "2026-05-15T10:00:00Z",
+          "source": "Delta Window spec"
+        }
+      ],
+      "created_at": "2026-05-10T10:00:00Z"
+    },
+    {
+      "zone_id": "ZONE_PERSONAL_IDEAS",
+      "name": "Personal Ideas",
+      "topic": "Owner ideas and notes",
+      "scope": "Ideas, goals, thoughts",
+      "source": "Owner input",
+      "sensitivity": "PRIVATE",
+      "freshness": "RECENT",
+      "trust_level": "MEDIUM",
+      "items": [
+        {
+          "item_id": "ITEM_005",
+          "title": "Freelance Goal",
+          "content": "IMPERIUM should be able to take freelance tasks and deliver working results.",
+          "type": "NOTE",
+          "tags": ["goal", "freelance", "vision"],
+          "created_at": "2026-05-16T10:00:00Z",
+          "source": "Owner"
+        }
+      ],
+      "created_at": "2026-05-16T10:00:00Z"
+    }
+  ],
+  "_note": "This is synthetic sample data for testing. No real private data included."
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cli_agent_request.schema.json",
+  "title": "CLI Agent Request",
+  "type": "object",
+  "required": ["request_id", "type"],
+  "properties": {
+    "request_id": { "type": "string" },
+    "type": { "type": "string", "enum": ["SUMMARIZE", "INSPECT", "EXECUTE", "HEALTH"] },
+    "payload": { "type": "object" },
+    "context": { "type": "object" }
+  }
+}

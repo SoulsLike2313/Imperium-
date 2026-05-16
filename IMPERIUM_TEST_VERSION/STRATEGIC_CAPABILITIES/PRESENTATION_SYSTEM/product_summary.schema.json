@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "product_summary.schema.json",
+  "title": "Product Summary",
+  "description": "Schema for IMPERIUM product/capability summary",
+  "type": "object",
+  "required": ["product_id", "name", "version", "status", "created_at"],
+  "properties": {
+    "product_id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "status": { "type": "string", "enum": ["FOUNDATION", "MVP", "WORKING", "PRODUCTION"] },
+    "created_at": { "type": "string", "format": "date-time" },
+    "overview": { "type": "string" },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "status": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "strengths": { "type": "array", "items": { "type": "string" } },
+    "weaknesses": { "type": "array", "items": { "type": "string" } },
+    "risks": { "type": "array", "items": { "type": "string" } },
+    "attention_points": { "type": "array", "items": { "type": "string" } },
+    "evidence_links": { "type": "array", "items": { "type": "string" } }
+  }
+}

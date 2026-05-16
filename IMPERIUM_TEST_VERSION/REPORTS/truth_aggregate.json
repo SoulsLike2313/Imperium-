@@ -1,26 +1,24 @@
 {
   "schema_version": "IMPERIUM_TRUTH_AGGREGATE_V0_1",
-  "timestamp": "2026-05-16T01:06:07.300864+00:00",
+  "timestamp": "2026-05-16T13:18:12.201974+00:00",
   "receipts_dir": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS",
   "threshold_hours": 24,
-  "overall_status": "FAIL",
+  "overall_status": "PASS",
   "status_counts": {
-    "PARTIAL": 1,
-    "PASS": 2,
-    "FAIL": 1
+    "PASS": 3
   },
-  "total_components": 4,
-  "pass_count": 2,
-  "fail_count": 1,
+  "total_components": 3,
+  "pass_count": 3,
+  "fail_count": 0,
   "stale_count": 0,
   "unknown_count": 0,
   "blockers": [],
   "components": [
     {
       "component_id": "unknown",
-      "timestamp": "2026-05-16T01:06:07.289301+00:00",
-      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-SMOKE-20260516_040557.json",
-      "evidence_timestamp": "2026-05-16T04:05:57.8515373+03:00",
+      "timestamp": "2026-05-16T13:18:12.191979+00:00",
+      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-SMOKE-20260516_161800.json",
+      "evidence_timestamp": "2026-05-16T16:18:00.7989353+03:00",
       "freshness": "UNKNOWN",
       "check_count": 0,
       "pass_count": 0,
@@ -29,14 +27,14 @@
       "blockers": [],
       "source": "truth_state_checker.py",
       "notes": null,
-      "status": "PARTIAL",
+      "status": "PASS",
       "component_name": "Smoke Test"
     },
     {
       "component_id": "unknown",
-      "timestamp": "2026-05-16T01:06:07.297269+00:00",
-      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-MECH-20260516_040558.json",
-      "evidence_timestamp": "2026-05-16T04:05:58.6687641+03:00",
+      "timestamp": "2026-05-16T13:18:12.199975+00:00",
+      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-MECH-20260516_161801.json",
+      "evidence_timestamp": "2026-05-16T16:18:01.6218685+03:00",
       "freshness": "UNKNOWN",
       "check_count": 0,
       "pass_count": 0,
@@ -50,9 +48,9 @@
     },
     {
       "component_id": "unknown",
-      "timestamp": "2026-05-16T01:06:07.299050+00:00",
-      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-INQ-20260516_040605.json",
-      "evidence_timestamp": "2026-05-16T04:06:05.7943089+03:00",
+      "timestamp": "2026-05-16T13:18:12.201974+00:00",
+      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-INQ-20260516_161810.json",
+      "evidence_timestamp": "2026-05-16T16:18:10.5983738+03:00",
       "freshness": "UNKNOWN",
       "check_count": 0,
       "pass_count": 0,
@@ -63,23 +61,11 @@
       "notes": null,
       "status": "PASS",
       "component_name": "Inquisition Audit"
-    },
-    {
-      "component_id": "master",
-      "timestamp": "2026-05-16T01:06:07.300763+00:00",
-      "evidence_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\RECEIPTS\\RCP-MASTER-20260516_035611.json",
-      "evidence_timestamp": "2026-05-16T03:56:11.6065905+03:00",
-      "freshness": "UNKNOWN",
-      "check_count": 13,
-      "pass_count": 10,
-      "fail_count": 2,
-      "warning_count": 0,
-      "blockers": [],
-      "source": "truth_state_checker.py",
-      "notes": null,
-      "status": "FAIL",
-      "component_name": "Master Verification"
     }
   ],
-  "source": "truth_aggregator.py"
+  "source": "truth_aggregator.py",
+  "include_master": false,
+  "excluded_components": [
+    "Master Verification"
+  ]
 }

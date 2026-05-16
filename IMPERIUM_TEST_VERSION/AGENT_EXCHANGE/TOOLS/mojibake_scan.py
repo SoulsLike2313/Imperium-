@@ -194,13 +194,14 @@ def main():
                         help='Read-only mode for full repo scan')
     
     args = parser.parse_args()
+
+    script_dir = Path(__file__).resolve().parent
     
     # Determine root path
     if args.root:
         root_path = Path(args.root)
     else:
         # Auto-detect based on script location
-        script_dir = Path(__file__).parent
         if args.scope == 'IMPERIUM_TEST_VERSION':
             root_path = script_dir.parent.parent  # AGENT_EXCHANGE -> IMPERIUM_TEST_VERSION
         else:

@@ -1,0 +1,55 @@
+{
+  "product_id": "IMPERIUM_TEST_VERSION",
+  "name": "IMPERIUM",
+  "version": "test_version",
+  "status": "FOUNDATION",
+  "created_at": "2026-05-16T12:55:00Z",
+  "overview": "Local engineering OS for task execution, verification, and agent coordination",
+  "capabilities": [
+    { "name": "Delta Window", "status": "WORKING", "description": "Pre-commit change verification" },
+    { "name": "Agent Exchange", "status": "MVP", "description": "Inter-agent message exchange" },
+    { "name": "Truth Spine", "status": "WORKING", "description": "Repository state verification" },
+    { "name": "CLI Agent Port", "status": "MVP", "description": "CLI interface for agent" },
+    { "name": "Self-Audit", "status": "WORKING", "description": "Self-verification of results" },
+    { "name": "Freelance Execution", "status": "SPEC_ONLY", "description": "Task intake and delivery pipeline" },
+    { "name": "Presentation System", "status": "SPEC_ONLY", "description": "Self-presentation and summaries" },
+    { "name": "Distributed Contours", "status": "SPEC_ONLY", "description": "PC + laptop task distribution" },
+    { "name": "Second Brain", "status": "SPEC_ONLY", "description": "Memory zones and context packs" },
+    { "name": "Local LLM Port", "status": "HEALTH_CHECK_ONLY", "description": "Local model connection" }
+  ],
+  "strengths": [
+    "Evidence-based operation",
+    "Strict verification with no fake green",
+    "Modular architecture with organs",
+    "Transparent state via JSON/MD files",
+    "Human-in-the-loop control"
+  ],
+  "weaknesses": [
+    "Not fully automated",
+    "Limited external integrations",
+    "Test version only",
+    "No real clients or tasks",
+    "Technical debt accumulated"
+  ],
+  "risks": [
+    "Fake green potential",
+    "Scope creep",
+    "Technical debt growth",
+    "Integration failures",
+    "Data loss"
+  ],
+  "attention_points": [
+    "Verify verdicts with evidence",
+    "Read self-audit reports",
+    "Run Delta Window and Truth Spine checks",
+    "Check MANUAL_CONFIRMATION_REQUIRED items",
+    "Distinguish scope-safe from quality-green"
+  ],
+  "evidence_links": [
+    "STRATEGIC_CAPABILITIES/CAPABILITY_MAP.json",
+    "TESTING_FIELD/DELTA_WINDOW/delta_window.html",
+    "AGENT_EXCHANGE/agent_exchange_window.html",
+    "AUDITS/",
+    "RUNS/"
+  ]
+}

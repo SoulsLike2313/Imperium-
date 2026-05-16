@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-16T01:06:07.907203+00:00",
+  "timestamp": "2026-05-16T13:18:12.891377+00:00",
   "anti_patterns": [
     {
       "pattern": "Script Health",
@@ -15,13 +15,13 @@
     },
     {
       "pattern": "Smoke Test",
-      "occurrences": 13,
+      "occurrences": 14,
       "severity": "HIGH",
       "recommendation": "Investigate recurring Smoke Test failures"
     },
     {
       "pattern": "Truth Spine",
-      "occurrences": 12,
+      "occurrences": 14,
       "severity": "HIGH",
       "recommendation": "Investigate recurring Truth Spine failures"
     },

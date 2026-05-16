@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "freelance_task_corridor.schema.json",
+  "title": "Freelance Task Intake",
+  "description": "Schema for freelance task intake record",
+  "type": "object",
+  "required": ["task_id", "source", "type", "title", "description", "status", "created_at"],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "description": "Unique task identifier",
+      "pattern": "^TASK-[0-9]{8}-[0-9]{4}$"
+    },
+    "source": {
+      "type": "object",
+      "description": "Task source information",
+      "required": ["type", "received_at"],
+      "properties": {
+        "type": { "type": "string", "enum": ["OWNER", "CLIENT", "INTERNAL", "EXTERNAL"] },
+        "client_id": { "type": "string" },
+        "received_at": { "type": "string", "format": "date-time" },
+        "original_document": { "type": "string" }
+      }
+    },
+    "type": { "type": "string", "enum": ["CODE", "DOCS", "ANALYSIS", "DESIGN", "FIX", "REVIEW", "OTHER"] },
+    "title": { "type": "string", "maxLength": 200 },
+    "description": { "type": "string" },
+    "status": { "type": "string", "enum": ["INTAKE", "DECOMPOSED", "QUESTIONS_PENDING", "PLANNED", "EXECUTING", "TESTING", "EVIDENCE", "DELIVERED", "CLOSED", "BLOCKED"] },
+    "created_at": { "type": "string", "format": "date-time" }
+  }
+}

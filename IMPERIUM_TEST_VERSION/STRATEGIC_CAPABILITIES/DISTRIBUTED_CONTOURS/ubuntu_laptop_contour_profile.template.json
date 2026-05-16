@@ -1,0 +1,32 @@
+{
+  "contour_id": "LAPTOP_CONTOUR_001",
+  "name": "Ubuntu Laptop Contour",
+  "os": "LINUX",
+  "role": "SECONDARY",
+  "trust_level": "MEDIUM",
+  "status": "MANUAL_CONFIRMATION_REQUIRED",
+  "connection": {
+    "type": "SSH",
+    "host": "<LAPTOP_IP_OR_HOSTNAME>",
+    "port": 22,
+    "user": "<USERNAME>",
+    "auth_method": "KEY",
+    "key_path": "<PATH_TO_PRIVATE_KEY>"
+  },
+  "capabilities": [
+    "CLI_TOOLS",
+    "PYTHON",
+    "LINUX_NATIVE",
+    "LONG_RUNNING",
+    "UNATTENDED"
+  ],
+  "restrictions": [
+    "NO_COMMIT",
+    "NO_PUSH",
+    "NO_GUI",
+    "NO_SENSITIVE_DATA",
+    "READ_ONLY_REPO"
+  ],
+  "last_verified": null,
+  "_note": "This is a template. Replace placeholders with real values. Status will remain MANUAL_CONFIRMATION_REQUIRED until SSH is verified."
+}

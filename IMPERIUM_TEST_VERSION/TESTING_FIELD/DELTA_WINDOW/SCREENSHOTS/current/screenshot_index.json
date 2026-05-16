@@ -1,88 +1,88 @@
 {
-  "generated_at": "2026-05-16T01:40:55.794932+00:00",
-  "playwright_available": false,
+  "generated_at": "2026-05-16T13:19:55.224902+00:00",
+  "playwright_available": true,
   "dashboards_found": 13,
-  "screenshots_captured": 0,
+  "screenshots_captured": 13,
   "screenshots_failed": 0,
-  "screenshots_blocked": 13,
+  "screenshots_blocked": 0,
   "results": [
     {
       "dashboard": "SANCTUM_MIRROR\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "SANCTUM_MIRROR__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\SANCTUM_MIRROR__index.png"
     },
     {
       "dashboard": "SANCTUM_MIRROR\\master_dashboard.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "SANCTUM_MIRROR__master_dashboard.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\SANCTUM_MIRROR__master_dashboard.png"
     },
     {
       "dashboard": "ORGANS\\ADMINISTRATUM\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__ADMINISTRATUM__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__ADMINISTRATUM__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\ASTRONOMICON\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__ASTRONOMICON__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__ASTRONOMICON__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\CUSTODES\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__CUSTODES__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__CUSTODES__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\DOCTRINARIUM\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__DOCTRINARIUM__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__DOCTRINARIUM__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\INQUISITION\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__INQUISITION__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__INQUISITION__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\MECHANICUS\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__MECHANICUS__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__MECHANICUS__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\OFFICIO_AGENTIS\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__OFFICIO_AGENTIS__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__OFFICIO_AGENTIS__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\SCHOLA_IMPERIALIS\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__SCHOLA_IMPERIALIS__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__SCHOLA_IMPERIALIS__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\STRATEGIUM\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__STRATEGIUM__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__STRATEGIUM__DASHBOARD__index.png"
     },
     {
       "dashboard": "ORGANS\\THRONE\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "ORGANS__THRONE__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\ORGANS__THRONE__DASHBOARD__index.png"
     },
     {
       "dashboard": "LIVE_WORKBENCH\\DASHBOARD\\index.html",
-      "screenshot": null,
-      "status": "blocked",
-      "reason": "Playwright not installed"
+      "screenshot": "LIVE_WORKBENCH__DASHBOARD__index.png",
+      "status": "captured",
+      "path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW\\SCREENSHOTS\\current\\LIVE_WORKBENCH__DASHBOARD__index.png"
     }
   ]
 }

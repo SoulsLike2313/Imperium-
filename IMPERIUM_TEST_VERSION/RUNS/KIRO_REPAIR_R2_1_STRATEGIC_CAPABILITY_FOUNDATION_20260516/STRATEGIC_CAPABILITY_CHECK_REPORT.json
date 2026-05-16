@@ -1,0 +1,868 @@
+{
+  "task_id": "SERVITOR_PC_FINISH_KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516",
+  "timestamp": "2026-05-16T11:27:17Z",
+  "required_outputs": [
+    "AGENT_EXCHANGE/agent_exchange_window.html",
+    "RUNS/KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516/OWNER_USAGE_GUIDE_RU.md",
+    "AGENT_EXCHANGE/OUTBOX/KIRO/KIRO_RESPONSE_BUNDLE_DELTA_R2_AGENT_EXCHANGE_R1_20260516.md",
+    "AUDITS/KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516",
+    "RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/OWNER_FINAL_REPORT_RU.md",
+    "RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/MANUAL_VERIFICATION_CHECKLIST_RU.md",
+    "AUDITS/SERVITOR_PC_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516",
+    "STRATEGIC_CAPABILITIES/CAPABILITY_MAP.md",
+    "STRATEGIC_CAPABILITIES/CAPABILITY_MAP.json",
+    "STRATEGIC_CAPABILITIES/strategic_capability_window.html",
+    "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md",
+    "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/freelance_task_corridor.schema.json",
+    "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_SYNTHETIC_TZ.md",
+    "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_TASK_INTAKE.json",
+    "STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/README.md",
+    "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md",
+    "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/product_summary.schema.json",
+    "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY_RU.md",
+    "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY.json",
+    "STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/README.md",
+    "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md",
+    "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/contour_profile.schema.json",
+    "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/pc_contour_profile.template.json",
+    "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ubuntu_laptop_contour_profile.template.json",
+    "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ssh_capability_check.ps1",
+    "STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/README.md",
+    "STRATEGIC_CAPABILITIES/SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md",
+    "STRATEGIC_CAPABILITIES/SECOND_BRAIN/memory_zone.schema.json",
+    "STRATEGIC_CAPABILITIES/SECOND_BRAIN/context_pack.schema.json",
+    "STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_MEMORY_ZONES.json",
+    "STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_CONTEXT_PACK.json",
+    "STRATEGIC_CAPABILITIES/SECOND_BRAIN/README.md",
+    "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md",
+    "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_request.schema.json",
+    "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_response.schema.json",
+    "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/imperium_cli_agent_port.py",
+    "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/sample_request.json",
+    "STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/README.md",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_profile.schema.json",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_request.schema.json",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_response.schema.json",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_config.template.json",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_health_check.py",
+    "STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/README.md",
+    "TOOLS/check_strategic_capability_foundation.py"
+  ],
+  "checks": [
+    {
+      "name": "exists:AGENT_EXCHANGE/agent_exchange_window.html",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:AGENT_EXCHANGE/agent_exchange_window.html",
+      "passed": true,
+      "details": "size=22925"
+    },
+    {
+      "name": "exists:RUNS/KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516/OWNER_USAGE_GUIDE_RU.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:RUNS/KIRO_DELTA_R2_AGENT_EXCHANGE_WINDOW_R1_20260516/OWNER_USAGE_GUIDE_RU.md",
+      "passed": true,
+      "details": "size=8333"
+    },
+    {
+      "name": "exists:AGENT_EXCHANGE/OUTBOX/KIRO/KIRO_RESPONSE_BUNDLE_DELTA_R2_AGENT_EXCHANGE_R1_20260516.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:AGENT_EXCHANGE/OUTBOX/KIRO/KIRO_RESPONSE_BUNDLE_DELTA_R2_AGENT_EXCHANGE_R1_20260516.md",
+      "passed": true,
+      "details": "size=5009"
+    },
+    {
+      "name": "exists:AUDITS/KIRO_SELF_AUDIT_DELTA_R2_AGENT_EXCHANGE_R1_20260516",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "exists:RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/OWNER_FINAL_REPORT_RU.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/OWNER_FINAL_REPORT_RU.md",
+      "passed": true,
+      "details": "size=6726"
+    },
+    {
+      "name": "exists:RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/MANUAL_VERIFICATION_CHECKLIST_RU.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:RUNS/KIRO_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516/MANUAL_VERIFICATION_CHECKLIST_RU.md",
+      "passed": true,
+      "details": "size=1690"
+    },
+    {
+      "name": "exists:AUDITS/SERVITOR_PC_SELF_AUDIT_REPAIR_R2_1_STRATEGIC_CAPABILITY_FOUNDATION_20260516",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CAPABILITY_MAP.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CAPABILITY_MAP.md",
+      "passed": true,
+      "details": "size=6117"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CAPABILITY_MAP.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CAPABILITY_MAP.json",
+      "passed": true,
+      "details": "size=5178"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/strategic_capability_window.html",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/strategic_capability_window.html",
+      "passed": true,
+      "details": "size=11007"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md",
+      "passed": true,
+      "details": "size=1261"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/freelance_task_corridor.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/freelance_task_corridor.schema.json",
+      "passed": true,
+      "details": "size=1335"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_SYNTHETIC_TZ.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_SYNTHETIC_TZ.md",
+      "passed": true,
+      "details": "size=1214"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_TASK_INTAKE.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_TASK_INTAKE.json",
+      "passed": true,
+      "details": "size=1678"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/README.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/README.md",
+      "passed": true,
+      "details": "size=563"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md",
+      "passed": true,
+      "details": "size=1094"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/product_summary.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/product_summary.schema.json",
+      "passed": true,
+      "details": "size=1235"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY_RU.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY_RU.md",
+      "passed": true,
+      "details": "size=4685"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY.json",
+      "passed": true,
+      "details": "size=2348"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/README.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/README.md",
+      "passed": true,
+      "details": "size=514"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md",
+      "passed": true,
+      "details": "size=1232"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/contour_profile.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/contour_profile.schema.json",
+      "passed": true,
+      "details": "size=1315"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/pc_contour_profile.template.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/pc_contour_profile.template.json",
+      "passed": true,
+      "details": "size=621"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ubuntu_laptop_contour_profile.template.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ubuntu_laptop_contour_profile.template.json",
+      "passed": true,
+      "details": "size=807"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ssh_capability_check.ps1",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ssh_capability_check.ps1",
+      "passed": true,
+      "details": "size=5150"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/README.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/README.md",
+      "passed": true,
+      "details": "size=733"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md",
+      "passed": true,
+      "details": "size=1171"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/SECOND_BRAIN/memory_zone.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/SECOND_BRAIN/memory_zone.schema.json",
+      "passed": true,
+      "details": "size=1534"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/SECOND_BRAIN/context_pack.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/SECOND_BRAIN/context_pack.schema.json",
+      "passed": true,
+      "details": "size=669"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_MEMORY_ZONES.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_MEMORY_ZONES.json",
+      "passed": true,
+      "details": "size=3212"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_CONTEXT_PACK.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_CONTEXT_PACK.json",
+      "passed": true,
+      "details": "size=455"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/SECOND_BRAIN/README.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/SECOND_BRAIN/README.md",
+      "passed": true,
+      "details": "size=522"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md",
+      "passed": true,
+      "details": "size=1371"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_request.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_request.schema.json",
+      "passed": true,
+      "details": "size=417"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_response.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_response.schema.json",
+      "passed": true,
+      "details": "size=519"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/imperium_cli_agent_port.py",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/imperium_cli_agent_port.py",
+      "passed": true,
+      "details": "size=6028"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/sample_request.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/sample_request.json",
+      "passed": true,
+      "details": "size=367"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/README.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/README.md",
+      "passed": true,
+      "details": "size=1065"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md",
+      "passed": true,
+      "details": "size=1453"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_profile.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_profile.schema.json",
+      "passed": true,
+      "details": "size=709"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_request.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_request.schema.json",
+      "passed": true,
+      "details": "size=675"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_response.schema.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_response.schema.json",
+      "passed": true,
+      "details": "size=747"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_config.template.json",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_config.template.json",
+      "passed": true,
+      "details": "size=409"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_health_check.py",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_health_check.py",
+      "passed": true,
+      "details": "size=5054"
+    },
+    {
+      "name": "exists:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/README.md",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/README.md",
+      "passed": true,
+      "details": "size=1265"
+    },
+    {
+      "name": "exists:TOOLS/check_strategic_capability_foundation.py",
+      "passed": true,
+      "details": "exists"
+    },
+    {
+      "name": "nonempty:TOOLS/check_strategic_capability_foundation.py",
+      "passed": true,
+      "details": "size=12217"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\CAPABILITY_MAP.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\FREELANCE_EXECUTION\\freelance_task_corridor.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\FREELANCE_EXECUTION\\SAMPLE_TASK_INTAKE.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\PRESENTATION_SYSTEM\\product_summary.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\PRESENTATION_SYSTEM\\IMPERIUM_SELF_SUMMARY.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\DISTRIBUTED_CONTOURS\\contour_profile.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\DISTRIBUTED_CONTOURS\\pc_contour_profile.template.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\DISTRIBUTED_CONTOURS\\ubuntu_laptop_contour_profile.template.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\SECOND_BRAIN\\memory_zone.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\SECOND_BRAIN\\context_pack.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\SECOND_BRAIN\\SAMPLE_MEMORY_ZONES.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\SECOND_BRAIN\\SAMPLE_CONTEXT_PACK.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\cli_agent_request.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\cli_agent_response.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\sample_request.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\LOCAL_LLM_PORT\\local_llm_profile.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\LOCAL_LLM_PORT\\local_llm_request.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\LOCAL_LLM_PORT\\local_llm_response.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "json_parse:STRATEGIC_CAPABILITIES\\LOCAL_LLM_PORT\\local_llm_config.template.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:AGENT_EXCHANGE/agent_exchange_window.html",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:AGENT_EXCHANGE/OUTBOX/KIRO/KIRO_RESPONSE_BUNDLE_DELTA_R2_AGENT_EXCHANGE_R1_20260516.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CAPABILITY_MAP.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CAPABILITY_MAP.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/strategic_capability_window.html",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/freelance_task_corridor.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_SYNTHETIC_TZ.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/SAMPLE_TASK_INTAKE.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/FREELANCE_EXECUTION/README.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/product_summary.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/PRESENTATION_SYSTEM/README.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/contour_profile.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/pc_contour_profile.template.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ubuntu_laptop_contour_profile.template.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/ssh_capability_check.ps1",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/DISTRIBUTED_CONTOURS/README.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/SECOND_BRAIN/memory_zone.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/SECOND_BRAIN/context_pack.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_MEMORY_ZONES.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/SECOND_BRAIN/SAMPLE_CONTEXT_PACK.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/SECOND_BRAIN/README.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_request.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/cli_agent_response.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/imperium_cli_agent_port.py",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/sample_request.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/CLI_AGENT_PORT/README.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_profile.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_request.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_response.schema.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_config.template.json",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/local_llm_health_check.py",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:STRATEGIC_CAPABILITIES/LOCAL_LLM_PORT/README.md",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "english_only:TOOLS/check_strategic_capability_foundation.py",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "strategic_window_useful",
+      "passed": true,
+      "details": "ok"
+    },
+    {
+      "name": "cli_command:--mode health",
+      "passed": true,
+      "details": "exit=0; stderr="
+    },
+    {
+      "name": "cli_command:--mode inspect-capabilities",
+      "passed": true,
+      "details": "exit=0; stderr="
+    },
+    {
+      "name": "cli_command:--mode summarize",
+      "passed": true,
+      "details": "exit=0; stderr="
+    },
+    {
+      "name": "local_llm_health_command",
+      "passed": true,
+      "details": "exit=0 status=NOT_CONFIGURED"
+    },
+    {
+      "name": "distributed_contour_script_exists",
+      "passed": true,
+      "details": "present"
+    },
+    {
+      "name": "scope_only_test_version",
+      "passed": true,
+      "details": "ok"
+    }
+  ],
+  "failures": [],
+  "warnings": [],
+  "scope_safe_to_commit": true,
+  "quality_green": true,
+  "owner_ready_for_manual_review": true,
+  "ready_for_promotion_to_main_canon": false,
+  "local_llm_status": "NOT_CONFIGURED",
+  "cli_results": [
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python312\\python.exe E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\imperium_cli_agent_port.py --mode health",
+      "exit_code": 0,
+      "stdout": "{\"mode\": \"health\", \"status\": \"PASS\", \"checks\": {\"python_runtime\": \"PASS\", \"capability_map_exists\": \"PASS\", \"external_agent_integration\": \"NOT_IMPLEMENTED\"}, \"evidence\": {\"capability_map\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\CAPABILITY_MAP.json\", \"script_path\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\CLI_AGENT_PORT\\\\imperium_cli_agent_port.py\"}, \"note\": \"Real external agent execution is NOT_IMPLEMENTED by design.\", \"timestamp\": \"2026-05-16T11:27:17Z\"}",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python312\\python.exe E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\imperium_cli_agent_port.py --mode inspect-capabilities",
+      "exit_code": 0,
+      "stdout": "{\"mode\": \"inspect-capabilities\", \"status\": \"PASS\", \"summary\": {\"total_capabilities\": 6, \"working\": 1, \"spec_only\": 4, \"health_check_only\": 1, \"manual_confirmation_required\": 3}, \"capabilities\": [{\"id\": \"freelance_execution\", \"name\": \"Freelance Task Execution\", \"purpose\": \"Accept external tasks/TZ and deliver working results\", \"status\": \"SPEC_ONLY\", \"maturity\": \"FOUNDATION\", \"files\": [\"FREELANCE_EXECUTION/FREELANCE_TASK_CORRIDOR_SPEC.md\", \"FREELANCE_EXECUTION/freelance_task_corridor.schema.json\", \"FREELANCE_EXECUTION/SAMPLE_SYNTHETIC_TZ.md\", \"FREELANCE_EXECUTION/SAMPLE_TASK_INTAKE.json\", \"FREELANCE_EXECUTION/README.md\"], \"manual_confirmation_required\": false, \"working\": false, \"next_steps\": [\"Build executable pipeline\", \"Test with synthetic task\"]}, {\"id\": \"presentation_system\", \"name\": \"Presentation System\", \"purpose\": \"Present IMPERIUM and its products to people/clients\", \"status\": \"SPEC_ONLY\", \"maturity\": \"FOUNDATION\", \"files\": [\"PRESENTATION_SYSTEM/PRESENTATION_SYSTEM_SPEC.md\", \"PRESENTATION_SYSTEM/product_summary.schema.json\", \"PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY_RU.md\", \"PRESENTATION_SYSTEM/IMPERIUM_SELF_SUMMARY.json\", \"PRESENTATION_SYSTEM/README.md\"], \"manual_confirmation_required\": false, \"working\": false, \"next_steps\": [\"Generate real presentations\", \"Add slide-deck output\"]}, {\"id\": \"distributed_contours\", \"name\": \"Distributed Contours\", \"purpose\": \"Distribute tasks between PC and Ubuntu laptop via SSH\", \"status\": \"SPEC_ONLY\", \"maturity\": \"FOUNDATION\", \"files\": [\"DISTRIBUTED_CONTOURS/DISTRIBUTED_CONTOURS_SPEC.md\", \"DISTRIBUTED_CONTOURS/contour_profile.schema.json\", \"DISTRIBUTED_CONTOURS/pc_contour_profile.template.json\", \"DISTRIBUTED_CONTOURS/ubuntu_laptop_contour_profile.template.json\", \"DISTRIBUTED_CONTOURS/ssh_capability_check.ps1\", \"DISTRIBUTED_CONTOURS/README.md\"], \"manual_confirmation_required\": true, \"manual_confirmation_items\": [\"SSH connection\", \"Laptop environment\", \"Task routing\"], \"working\": false, \"next_steps\": [\"Test SSH connection\", \"Discover laptop environment\"]}, {\"id\": \"second_brain\", \"name\": \"Second Brain Memory Zones\", \"purpose\": \"Selectable memory zones like Obsidian-style blocks\", \"status\": \"SPEC_ONLY\", \"maturity\": \"FOUNDATION\", \"files\": [\"SECOND_BRAIN/SECOND_BRAIN_MEMORY_ZONES_SPEC.md\", \"SECOND_BRAIN/memory_zone.schema.json\", \"SECOND_BRAIN/context_pack.schema.json\", \"SECOND_BRAIN/SAMPLE_MEMORY_ZONES.json\", \"SECOND_BRAIN/SAMPLE_CONTEXT_PACK.json\", \"SECOND_BRAIN/README.md\"], \"manual_confirmation_required\": true, \"manual_confirmation_items\": [\"Real data ingestion\", \"Private data handling\"], \"working\": false, \"next_steps\": [\"Ingest real memory data\", \"Build zone selector UI\"]}, {\"id\": \"cli_agent_port\", \"name\": \"CLI Agent Port\", \"purpose\": \"CLI entry point for Servitor/Codex agent\", \"status\": \"WORKING\", \"maturity\": \"MVP\", \"files\": [\"CLI_AGENT_PORT/CLI_AGENT_PORT_SPEC.md\", \"CLI_AGENT_PORT/cli_agent_request.schema.json\", \"CLI_AGENT_PORT/cli_agent_response.schema.json\", \"CLI_AGENT_PORT/imperium_cli_agent_port.py\", \"CLI_AGENT_PORT/sample_request.json\", \"CLI_AGENT_PORT/README.md\"], \"manual_confirmation_required\": false, \"working\": true, \"commands\": [\"--mode health\", \"--mode summarize --input <file>\", \"--mode inspect-capabilities\"], \"next_steps\": [\"Connect to real agent\"]}, {\"id\": \"local_llm_port\", \"name\": \"Local LLM Port\", \"purpose\": \"Connect local LLMs for inference\", \"status\": \"HEALTH_CHECK_ONLY\", \"maturity\": \"FOUNDATION\", \"files\": [\"LOCAL_LLM_PORT/LOCAL_LLM_PORT_SPEC.md\", \"LOCAL_LLM_PORT/local_llm_profile.schema.json\", \"LOCAL_LLM_PORT/local_llm_request.schema.json\", \"LOCAL_LLM_PORT/local_llm_response.schema.json\", \"LOCAL_LLM_PORT/local_llm_config.template.json\", \"LOCAL_LLM_PORT/local_llm_health_check.py\", \"LOCAL_LLM_PORT/README.md\"], \"manual_confirmation_required\": true, \"manual_confirmation_items\": [\"Model installation\", \"Model configuration\", \"Inference testing\"], \"working\": false, \"next_steps\": [\"Install local model\", \"Configure inference\"]}], \"evidence\": {\"capability_map\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\CAPABILITY_MAP.json\"}, \"timestamp\": \"2026-05-16T11:27:17Z\"}",
+      "stderr": ""
+    },
+    {
+      "command": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python312\\python.exe E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\imperium_cli_agent_port.py --mode summarize --input E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\STRATEGIC_CAPABILITIES\\CLI_AGENT_PORT\\sample_request.json",
+      "exit_code": 0,
+      "stdout": "{\"request_id\": \"REQ-SAMPLE-001\", \"status\": \"SUCCESS\", \"result\": {\"request_type\": \"SUMMARIZE\", \"payload_keys\": [\"detail_level\", \"scope\", \"target\"], \"input_size_bytes\": 367, \"note\": \"External agent execution is NOT_IMPLEMENTED unless explicitly wired.\", \"evidence_paths\": {\"input\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\CLI_AGENT_PORT\\\\sample_request.json\", \"capability_map\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\CAPABILITY_MAP.json\"}}, \"errors\": [], \"timestamp\": \"2026-05-16T11:27:17Z\", \"mode\": \"summarize\"}",
+      "stderr": ""
+    }
+  ],
+  "local_llm_command_result": {
+    "command": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python312\\python.exe E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\STRATEGIC_CAPABILITIES\\LOCAL_LLM_PORT\\local_llm_health_check.py",
+    "exit_code": 0,
+    "stdout": "{\"check_id\": \"LOCAL_LLM_HEALTH_20260516_112717\", \"timestamp\": \"2026-05-16T11:27:17Z\", \"config_path\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\LOCAL_LLM_PORT\\\\local_llm_config.template.json\", \"status\": \"NOT_CONFIGURED\", \"evidence\": {\"default_config\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\LOCAL_LLM_PORT\\\\local_llm_config.template.json\", \"script_path\": \"E:\\\\IMPERIUM\\\\IMPERIUM_TEST_VERSION\\\\STRATEGIC_CAPABILITIES\\\\LOCAL_LLM_PORT\\\\local_llm_health_check.py\"}, \"details\": {\"reason\": \"model_command is empty or template\", \"expected_action\": \"configure local_llm_config.template.json or pass --config\"}}",
+    "stderr": ""
+  },
+  "final_verdict": "VERIFIED_TEST_VERSION_REPAIR_COMPLETE"
+}
