@@ -1,0 +1,56 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION",
+  "generated_at": "2026-05-17T14:42:36Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what_done": "Выполнен truth-check, подтверждены HEAD/branch/clean status и прочитан bootloader/gate набор.",
+      "why": "Исключить работу в грязном или неверном контексте.",
+      "how_to_use_verify": "Проверять GATE_ACK и preflight команды.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+      "limitation": "На фазе нет интерпретации метрик, только допуск к задаче."
+    },
+    {
+      "phase": "Phase 2",
+      "what_done": "Прочитаны runtime baseline receipt, route-fix evidence и performance budget.",
+      "why": "Зафиксировать входную истину и исключить fake inference.",
+      "how_to_use_verify": "Сверить route/API/asset/FPS поля в receipt с budget thresholds.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+      "limitation": "Без запуска раннера; используется только уже зафиксированное evidence."
+    },
+    {
+      "phase": "Phase 3",
+      "what_done": "Созданы interpretation, blocker map, acceptance decision и next-step map.",
+      "why": "Перевести валидное измерение в управляемое решение и порядок следующих задач.",
+      "how_to_use_verify": "Использовать interpretation verdict + blocker map как вход в follow-up tasks.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+      "limitation": "Корневой performance-cause не утверждается без доп. измерений."
+    },
+    {
+      "phase": "Phase 4",
+      "what_done": "Собран административный пакет: task report, chronology, self-assessment, KPD, gate receipt, action card.",
+      "why": "Сохранить audit trail и owner-readable decision layer.",
+      "how_to_use_verify": "Проверять consistency между report/receipt/action-card.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_REPORT_V0_1.json",
+      "limitation": "Не выполняется optimization, только interpretation governance."
+    },
+    {
+      "phase": "Phase 5",
+      "what_done": "Запускаются JSON/JSONL/budget/scope validation checks.",
+      "why": "Подтвердить соответствие GATE-U12 и scope boundary before commit.",
+      "how_to_use_verify": "Проверять JSON_OK, JSONL_OK, report size и path filters.",
+      "evidence_path": "validation_commands_output_in_terminal",
+      "limitation": "Проверки не улучшают FPS, они подтверждают достоверность отчета."
+    },
+    {
+      "phase": "Phase 6",
+      "what_done": "Review diff/status, commit, push, local/remote sync verification.",
+      "why": "Закрыть задачу auditable deliverable commit-ом.",
+      "how_to_use_verify": "Сверять commit hash и remote sync.",
+      "evidence_path": "git_commit_and_remote_sync",
+      "limitation": "Фаза выполняется после успешных проверок предыдущей фазы."
+    }
+  ],
+  "status": "CHRONOLOGY_RECORDED"
+}

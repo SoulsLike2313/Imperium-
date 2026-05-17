@@ -1,0 +1,42 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION",
+    "agent_role": "PC Servitor (bounded interpretation mode)",
+    "useful_outputs": [
+      "Evidence-grounded baseline interpretation.",
+      "Performance budget blocker map with unknown-safe categories.",
+      "Acceptance decision with explicit non-admission for visual construction.",
+      "Next-step map linked to roadmap priorities."
+    ],
+    "waste_points": [
+      "Some prior reports were generated before route truth was valid, requiring interpretation loops in separate tasks."
+    ],
+    "missing_tools": [
+      "Reusable performance-baseline interpreter that auto-normalizes receipt fields into blocker map and acceptance decision."
+    ],
+    "generated_tools_to_preserve": [
+      {
+        "path": "No new script created in this task.",
+        "classification": "N/A",
+        "note": "Interpretation-only outputs; reusable logic should be considered for future tooling task."
+      }
+    ],
+    "recommended_script_absorption": [
+      "Create a reusable receipt-to-blocker interpreter tool in future Scriptorium task.",
+      "Add machine-check gate for consistency between route-fix report and baseline interpretation."
+    ],
+    "recommended_narrow_agent_profiles": [
+      "performance-baseline-interpreter-agent",
+      "receipt-consistency-auditor-agent"
+    ],
+    "future_prompt_improvements": [
+      "Require canonical keys for performance acceptance and blocker categories in all runtime receipts.",
+      "Require explicit unknown-handling section to reduce over-claim risk."
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Add a gate check: no visual-construction admission if any FPS blocker metric is BLOCKED.",
+      "Add cross-report consistency check between baseline interpretation and acceptance decision."
+    ],
+    "kpd_verdict": "GOOD"
+  }
+}

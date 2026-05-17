@@ -1,0 +1,152 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION",
+  "generated_at": "2026-05-17T14:40:13Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "source_receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "source_route_fix_report_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_REPORT_V0_1.json",
+  "source_side_effect_manifest_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_SIDE_EFFECT_MANIFEST_V0_1.json",
+  "source_performance_budget_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+  "route_truth_summary": {
+    "route_strategy": "NATIVE_ROUTE_DISCOVERY",
+    "full_runtime_mode": "FULL_RUNTIME_NATIVE_ROUTE",
+    "browser_target_url": "http://127.0.0.1:8767/",
+    "browser_target_http_status": 200,
+    "route_static_asset_blocker_status": "RESOLVED"
+  },
+  "asset_load_summary": {
+    "html_loaded": true,
+    "css_loaded": true,
+    "js_loaded": true,
+    "failed_required_requests": 0,
+    "required_assets_status": "REQUIRED_ASSETS_LOADED"
+  },
+  "api_truth_summary": {
+    "api_status": "API_CHECKS_PASS",
+    "api_all_required_pass": true,
+    "api_checks": [
+      {
+        "endpoint": "/api/status",
+        "url": "http://127.0.0.1:8767/api/status",
+        "status_code": 200,
+        "elapsed_ms": 3.36,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/snapshot",
+        "url": "http://127.0.0.1:8767/api/snapshot",
+        "status_code": 200,
+        "elapsed_ms": 1.97,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/tasks",
+        "url": "http://127.0.0.1:8767/api/tasks",
+        "status_code": 200,
+        "elapsed_ms": 1.74,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/task_packages",
+        "url": "http://127.0.0.1:8767/api/task_packages",
+        "status_code": 200,
+        "elapsed_ms": 81.71,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/export/status",
+        "url": "http://127.0.0.1:8767/api/export/status",
+        "status_code": 200,
+        "elapsed_ms": 14.71,
+        "ok": true,
+        "error_sample": null
+      }
+    ]
+  },
+  "console_failure_summary": {
+    "console_errors_count": 0,
+    "failed_requests_count": 0,
+    "repo_pollution_status": "NO_REPO_POLLUTION_FROM_RUNTIME",
+    "raw_trace_committed": false
+  },
+  "fps_metrics": {
+    "fps_measured": true,
+    "fps_acceptance_status": "FULL_RUNTIME_FPS_VALID",
+    "average_fps": 33.085,
+    "fps_1pct_low": 11.976
+  },
+  "performance_budget_comparison": {
+    "average_fps": {
+      "metric": "average_fps",
+      "value": 33.085,
+      "target": 55.0,
+      "blocker": 50.0,
+      "status": "BLOCKED"
+    },
+    "fps_1pct_low": {
+      "metric": "fps_1pct_low",
+      "value": 11.976,
+      "target": 45.0,
+      "blocker": 35.0,
+      "status": "BLOCKED"
+    },
+    "long_tasks_over_50ms": {
+      "metric": "long_tasks_over_50ms",
+      "value": 0.0,
+      "target": 3.0,
+      "blocker": 3.0,
+      "status": "PASS"
+    },
+    "dom_nodes": {
+      "metric": "dom_nodes",
+      "value": 240.0,
+      "target": 2200.0,
+      "blocker": 3200.0,
+      "status": "PASS"
+    },
+    "svg_elements": {
+      "metric": "svg_elements",
+      "value": 107.0,
+      "target": 900.0,
+      "blocker": 1500.0,
+      "status": "PASS"
+    },
+    "blockers": [
+      {
+        "metric": "average_fps",
+        "value": 33.085,
+        "target": 55.0,
+        "blocker": 50.0,
+        "status": "BLOCKED"
+      },
+      {
+        "metric": "fps_1pct_low",
+        "value": 11.976,
+        "target": 45.0,
+        "blocker": 35.0,
+        "status": "BLOCKED"
+      }
+    ],
+    "warnings": []
+  },
+  "valid_evidence": [
+    "Runtime native route returns HTTP 200.",
+    "HTML, CSS, and JS are loaded.",
+    "Failed required requests equals 0.",
+    "API checks passed for required endpoints.",
+    "Console errors count equals 0.",
+    "Full runtime mode is FULL_RUNTIME_NATIVE_ROUTE and audit proxy is not used.",
+    "FPS acceptance status is FULL_RUNTIME_FPS_VALID because route/assets/API truth is complete."
+  ],
+  "blocked_evidence": [
+    "average_fps is below budget blocker threshold.",
+    "fps_1pct_low is below budget blocker threshold."
+  ],
+  "no_fake_green_statement": "The full-runtime measurement route is now valid, but the valid measurement shows real performance blockers: average FPS and 1% low FPS are below budget.",
+  "interpretation_verdict": "PERFORMANCE_BASELINE_VALID_BUT_BLOCKED",
+  "performance_acceptance": "BLOCKED_BY_FPS_BUDGET",
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP"
+}

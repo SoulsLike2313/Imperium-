@@ -1,0 +1,113 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION",
+  "generated_at": "2026-05-17T14:40:13Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "source_receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "average_fps_status": {
+    "metric": "average_fps",
+    "value": 33.085,
+    "target": 55.0,
+    "blocker": 50.0,
+    "status": "BLOCKED"
+  },
+  "fps_1pct_low_status": {
+    "metric": "fps_1pct_low",
+    "value": 11.976,
+    "target": 45.0,
+    "blocker": 35.0,
+    "status": "BLOCKED"
+  },
+  "long_task_status": {
+    "metric": "long_tasks_over_50ms",
+    "value": 0.0,
+    "target": 3.0,
+    "blocker": 3.0,
+    "status": "PASS"
+  },
+  "dom_svg_status": {
+    "dom_nodes": {
+      "metric": "dom_nodes",
+      "value": 240.0,
+      "target": 2200.0,
+      "blocker": 3200.0,
+      "status": "PASS"
+    },
+    "svg_elements": {
+      "metric": "svg_elements",
+      "value": 107.0,
+      "target": 900.0,
+      "blocker": 1500.0,
+      "status": "PASS"
+    }
+  },
+  "asset_request_status": {
+    "required_assets_status": "REQUIRED_ASSETS_LOADED",
+    "css_loaded": true,
+    "js_loaded": true,
+    "failed_required_requests": 0,
+    "failed_requests_count": 0
+  },
+  "api_status": {
+    "status": "API_CHECKS_PASS",
+    "all_required_pass": true
+  },
+  "console_status": {
+    "console_errors_count": 0,
+    "status": "PASS"
+  },
+  "possible_blocker_categories": {
+    "A_heavy_visual_effects": {
+      "state": "UNKNOWN",
+      "evidence": "No effect-level profiler evidence in current receipt."
+    },
+    "B_excessive_dom_svg": {
+      "state": "NOT_SUPPORTED_BY_CURRENT_DATA",
+      "evidence": "DOM and SVG metrics are PASS versus budget."
+    },
+    "C_animation_frame_pressure": {
+      "state": "LIKELY",
+      "evidence": "Both average_fps and fps_1pct_low are BLOCKED with valid route/assets/API context."
+    },
+    "D_asset_weight": {
+      "state": "UNKNOWN",
+      "evidence": "Asset request success is PASS; payload-weight breakdown not present in current receipt."
+    },
+    "E_js_main_thread_work": {
+      "state": "UNKNOWN",
+      "evidence": "Long task count is PASS but does not exclude medium-cost JS frame work."
+    },
+    "F_layout_reflow_pressure": {
+      "state": "UNKNOWN",
+      "evidence": "No explicit layout/reflow traces available in compact receipt."
+    },
+    "G_measurement_environment_limitation": {
+      "state": "POSSIBLE_SECONDARY",
+      "evidence": "Environment may influence absolute FPS, but route/assets/API truth is valid and blocker remains real for this baseline."
+    }
+  },
+  "known_evidence": [
+    "Route/static asset blocker resolved with HTTP 200 target and required CSS/JS loaded.",
+    "API and required network requests passed.",
+    "FPS metrics are now valid full-runtime evidence and both FPS budget metrics are BLOCKED."
+  ],
+  "unknowns": [
+    "Exact split between animation, JS frame work, and rendering pipeline pressure.",
+    "Asset weight contribution per file for frame stability.",
+    "Hardware/environment variance impact across reproducible runs."
+  ],
+  "required_next_measurements": [
+    "Performance blocker source map with frame-time/animation contribution slices.",
+    "Asset budget classification with per-asset size and loading cost context.",
+    "Controlled repeat baseline runs to estimate environment variance bands."
+  ],
+  "priority_order": [
+    "C_animation_frame_pressure",
+    "E_js_main_thread_work",
+    "D_asset_weight",
+    "F_layout_reflow_pressure",
+    "G_measurement_environment_limitation",
+    "A_heavy_visual_effects",
+    "B_excessive_dom_svg"
+  ],
+  "verdict": "PERFORMANCE_BLOCKERS_CONFIRMED_AFTER_VALID_ROUTE_FIX"
+}

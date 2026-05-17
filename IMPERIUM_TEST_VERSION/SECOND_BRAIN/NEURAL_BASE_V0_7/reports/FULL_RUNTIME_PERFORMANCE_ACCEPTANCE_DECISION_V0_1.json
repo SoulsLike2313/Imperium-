@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION",
+  "generated_at": "2026-05-17T14:40:13Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "route_static_asset_blocker": "RESOLVED",
+  "full_runtime_baseline": "VALID_MEASUREMENT_AVAILABLE",
+  "performance_acceptance": "BLOCKED_BY_FPS_BUDGET",
+  "visual_construction_admission": "NOT_ADMITTED_YET",
+  "optimization_admission": "ADMITTED_ONLY_AFTER_BLOCKER_SOURCE_MAP_AND_ASSET_CLASSIFICATION",
+  "no_fake_green_statement": "The full-runtime measurement route is now valid, but the valid measurement shows real performance blockers: average FPS and 1% low FPS are below budget.",
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "verdict": "PERFORMANCE_ACCEPTANCE_BLOCKED_WITH_VALID_BASELINE"
+}
