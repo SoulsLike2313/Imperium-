@@ -1,0 +1,61 @@
+{
+  "schema_version": "second_brain.v07.visual_tokens_draft.v0_1",
+  "status": "DRAFT",
+  "color_roles": {
+    "bg_primary": "#0B1020",
+    "bg_secondary": "#111A2F",
+    "surface_primary": "#17233D",
+    "surface_secondary": "#1D2C4B",
+    "text_primary": "#E7EEFF",
+    "text_secondary": "#A8B9DE",
+    "accent_signal": "#4BC2FF",
+    "accent_bridge": "#7A8CFF",
+    "warning": "#F4B943",
+    "blocked": "#F25F5C",
+    "missing": "#B58DF5",
+    "success_evidence_only": "#33C26B"
+  },
+  "typography_roles": {
+    "font_display": "Rajdhani",
+    "font_ui": "Exo 2",
+    "font_mono": "JetBrains Mono",
+    "size_title": 28,
+    "size_h2": 20,
+    "size_body": 14,
+    "size_caption": 12
+  },
+  "spacing_roles": {
+    "space_xs": 4,
+    "space_sm": 8,
+    "space_md": 12,
+    "space_lg": 16,
+    "space_xl": 24,
+    "space_2xl": 32
+  },
+  "glow_material_levels": {
+    "glow_none": 0,
+    "glow_soft": 1,
+    "glow_medium": 2,
+    "glow_high": 3,
+    "material_flat": "no-translucent-effects",
+    "material_glass": "restricted-and-budget-checked"
+  },
+  "status_color_rules": {
+    "green_rule": "Green is evidence-backed success only.",
+    "green_forbidden_uses": [
+      "general decoration",
+      "ambient non-semantic glow",
+      "default ready state without receipt"
+    ],
+    "blocked_priority_over_warning": true,
+    "text_plus_icon_required_for_critical_states": true
+  },
+  "z_index_layer_names": {
+    "L0_background_plate": 0,
+    "L1_core_brain_art_plate": 10,
+    "L2_semantic_topology": 20,
+    "L3_ambient_particles": 30,
+    "L4_operator_surface": 40,
+    "L5_gate_receipt_overlays": 50
+  }
+}

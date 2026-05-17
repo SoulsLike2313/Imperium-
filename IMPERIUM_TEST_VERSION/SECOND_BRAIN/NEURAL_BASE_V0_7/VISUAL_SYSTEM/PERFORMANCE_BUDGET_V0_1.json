@@ -1,0 +1,22 @@
+{
+  "schema_version": "second_brain.v07.visual.performance_budget.v0_1",
+  "profile": "local_first_lightweight_dashboard",
+  "initial_load_to_usable_ms_target": 1800,
+  "initial_load_to_usable_ms_blocker": 3000,
+  "average_fps_target": 55,
+  "average_fps_blocker": 50,
+  "fps_1pct_low_target": 45,
+  "fps_1pct_low_blocker": 35,
+  "long_tasks_over_50ms_allowed": 3,
+  "dom_nodes_target": 2200,
+  "dom_nodes_blocker": 3200,
+  "svg_elements_target": 900,
+  "svg_elements_blocker": 1500,
+  "canvas_particles_target": 120,
+  "canvas_particles_blocker": 260,
+  "compressed_visual_assets_target_mb": 4.0,
+  "compressed_visual_assets_blocker_mb": 8.0,
+  "console_errors_allowed": 0,
+  "failed_requests_allowed": 0,
+  "verdict_rule": "PASS only when all blocker thresholds are respected and no required request fails."
+}

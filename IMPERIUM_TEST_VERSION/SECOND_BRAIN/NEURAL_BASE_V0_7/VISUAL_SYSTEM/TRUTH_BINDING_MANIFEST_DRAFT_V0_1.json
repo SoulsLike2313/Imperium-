@@ -1,0 +1,149 @@
+{
+  "schema_version": "second_brain.v07.truth_binding_manifest_draft.v0_1",
+  "status": "DRAFT",
+  "claims": [
+    {
+      "claim_id": "CLAIM-HEALTH-STATUS",
+      "visible_label": "Health / Status",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: sanctum_orchestrator.health_status",
+      "allowed_placeholder": "ALLOWED_ONLY_IF_EXPLICITLY_MARKED_UNVERIFIED",
+      "stale_behavior": "show STALE badge and timestamp",
+      "required_receipt": "health_status_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-TASK-COUNT",
+      "visible_label": "Task Count",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: task_registry.count_total",
+      "allowed_placeholder": "zero-with-unverified-label-only",
+      "stale_behavior": "freeze value + mark stale",
+      "required_receipt": "task_count_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-PACKAGE-COUNT",
+      "visible_label": "Package Count",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: package_registry.count",
+      "allowed_placeholder": "none-with-missing-data-label",
+      "stale_behavior": "display unknown package count",
+      "required_receipt": "package_count_receipt",
+      "fake_green_risk": "MEDIUM",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-COMMENTS-COUNT",
+      "visible_label": "Comments Count",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: comments_registry.count",
+      "allowed_placeholder": "blank-with-unverified-tag",
+      "stale_behavior": "show stale + last_checked_at",
+      "required_receipt": "comments_count_receipt",
+      "fake_green_risk": "MEDIUM",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-LINKS-COUNT",
+      "visible_label": "Links Count",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: links_registry.count",
+      "allowed_placeholder": "none-with-data-missing-indicator",
+      "stale_behavior": "show stale badge",
+      "required_receipt": "links_count_receipt",
+      "fake_green_risk": "MEDIUM",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-RECEIPTS-COUNT",
+      "visible_label": "Receipts Count",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: receipt_ledger.count",
+      "allowed_placeholder": "0 only with unverified flag",
+      "stale_behavior": "display stale marker",
+      "required_receipt": "receipt_count_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-SNAPSHOT-ID",
+      "visible_label": "Snapshot ID",
+      "semantic_level": "SEMANTIC",
+      "required_backend_source": "DRAFT: snapshot_registry.current_snapshot_id",
+      "allowed_placeholder": "UNKNOWN",
+      "stale_behavior": "display stale snapshot warning",
+      "required_receipt": "snapshot_id_receipt",
+      "fake_green_risk": "MEDIUM",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-AUDIT-RUN-ID",
+      "visible_label": "Audit Run ID",
+      "semantic_level": "SEMANTIC",
+      "required_backend_source": "DRAFT: audit_runner.current_run_id",
+      "allowed_placeholder": "N/A with explicit no-run marker",
+      "stale_behavior": "show audit run stale marker",
+      "required_receipt": "audit_run_id_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-STALE-FRESH-STATE",
+      "visible_label": "Stale/Fresh State",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: freshness_evaluator.state",
+      "allowed_placeholder": "STALE_ONLY",
+      "stale_behavior": "default to stale when uncertain",
+      "required_receipt": "freshness_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-BLOCKED-WARNING-MISSING-COUNTERS",
+      "visible_label": "Blocked / Warning / Missing Counters",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: issue_counters.aggregate",
+      "allowed_placeholder": "all_unknown",
+      "stale_behavior": "mark counters stale and keep previous value dimmed",
+      "required_receipt": "issue_counter_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-ZONE-STATE",
+      "visible_label": "Zone State",
+      "semantic_level": "LIVE_TRUTH",
+      "required_backend_source": "DRAFT: zone_state_registry",
+      "allowed_placeholder": "UNBOUND_ZONE",
+      "stale_behavior": "lock zone to unknown state",
+      "required_receipt": "zone_state_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-TASK-READINESS-HANDOFF-LABELS",
+      "visible_label": "Task Readiness / Handoff Labels",
+      "semantic_level": "SEMANTIC",
+      "required_backend_source": "DRAFT: task_state_machine.labels",
+      "allowed_placeholder": "HANDOFF_ONLY",
+      "stale_behavior": "append stale suffix",
+      "required_receipt": "task_readiness_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    },
+    {
+      "claim_id": "CLAIM-PERFORMANCE",
+      "visible_label": "Performance Claims",
+      "semantic_level": "DERIVED",
+      "required_backend_source": "DRAFT: performance_probe.metrics",
+      "allowed_placeholder": "NO_CLAIM",
+      "stale_behavior": "hide performance badge and show no recent receipt",
+      "required_receipt": "performance_receipt",
+      "fake_green_risk": "HIGH",
+      "status": "DRAFT"
+    }
+  ]
+}

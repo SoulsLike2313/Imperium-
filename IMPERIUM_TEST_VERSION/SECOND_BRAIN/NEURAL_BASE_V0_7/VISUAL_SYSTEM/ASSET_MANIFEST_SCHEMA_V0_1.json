@@ -1,0 +1,46 @@
+{
+  "schema_version": "second_brain.v07.visual.asset_manifest_schema.v0_1",
+  "entry_type": "visual_asset_registration_entry",
+  "required_fields": [
+    "asset_id",
+    "path",
+    "role",
+    "layer",
+    "format",
+    "semantic_data_allowed",
+    "contains_live_truth",
+    "size_bytes",
+    "sha256",
+    "variants",
+    "fallback",
+    "owner_review_required",
+    "performance_budget_group",
+    "status"
+  ],
+  "field_types": {
+    "asset_id": "string",
+    "path": "string",
+    "role": "string",
+    "layer": "string",
+    "format": "string",
+    "semantic_data_allowed": "boolean",
+    "contains_live_truth": "boolean",
+    "size_bytes": "integer",
+    "sha256": "string",
+    "variants": "array",
+    "fallback": "object_or_string",
+    "owner_review_required": "boolean",
+    "performance_budget_group": "string",
+    "status": "string"
+  },
+  "status_values": [
+    "DRAFT",
+    "REVIEW_REQUIRED",
+    "APPROVED",
+    "BLOCKED"
+  ],
+  "hard_rules": [
+    "Any image containing semantic state, status, counters, PASS/FAIL, health, readiness, or task truth is forbidden.",
+    "Decorative assets must keep semantic_data_allowed=false and contains_live_truth=false."
+  ]
+}

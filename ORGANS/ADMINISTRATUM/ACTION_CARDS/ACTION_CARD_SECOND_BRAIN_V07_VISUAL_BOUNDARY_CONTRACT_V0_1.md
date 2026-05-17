@@ -1,0 +1,39 @@
+# ACTION CARD: SECOND BRAIN V0.7 VISUAL BOUNDARY CONTRACT
+
+| Поле | Значение |
+|---|---|
+| Task Name | Second Brain V0.7 Visual Boundary Contract |
+| Current HEAD | `cc58cfea5d696c5510c3ae5f6c48688295c814c5` |
+| Вердикт | PASS_FOR_OWNER_REVIEW |
+| Next Allowed Task | TASK-SECOND-BRAIN-V07-VISUAL-PERFORMANCE-RECEIPT-RUNNER |
+
+## Что создано
+- GATE_ACK (MD + JSON) для task admission.
+- VISUAL_SYSTEM contract set: layer contract, target matrix, budget, asset schema, tokens, motion policy, truth binding draft, fake-green rules.
+- Task report (MD + JSON).
+- Gate receipt (MD + JSON).
+
+## Что намеренно не тронуто
+- Любые runtime/UI файлы (`app`, `assets`, `runtime`, `server`, `tools`, root `*.html/*.css/*.js/*.py`).
+- Любые файлы `NEURAL_BASE_V0_6`.
+- Любые `KILO_TEST`, `.kilo`, `SANCTUM`, `RUNTIME`, `MEMORY_ZONES`.
+- Любые visual assets/screenshots/zip.
+
+## Key Outputs
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/VISUAL_LAYER_CONTRACT_V0_1.md`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/TRUTH_BINDING_MANIFEST_DRAFT_V0_1.json`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_BOUNDARY_CONTRACT_REPORT_V0_1.json`
+- `ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_VISUAL_BOUNDARY_CONTRACT_V0_1.json`
+
+## Exact Paths
+- `E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_7\reports\GATE_ACK_TASK_SECOND_BRAIN_V07_VISUAL_BOUNDARY_CONTRACT_V0_1.json`
+- `E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_7\reports\VISUAL_BOUNDARY_CONTRACT_REPORT_V0_1.json`
+- `E:\IMPERIUM\ORGANS\ADMINISTRATUM\GATE_RECEIPTS\GATE_RECEIPT_TASK_SECOND_BRAIN_V07_VISUAL_BOUNDARY_CONTRACT_V0_1.json`
+- `E:\IMPERIUM\ORGANS\ADMINISTRATUM\ACTION_CARDS\ACTION_CARD_SECOND_BRAIN_V07_VISUAL_BOUNDARY_CONTRACT_V0_1.md`
+
+## Stop Warnings
+- STOP при HEAD mismatch.
+- STOP при касании forbidden paths.
+- STOP при runtime/HTML/CSS/JS implementation drift.
+- STOP при PASS без receipt/evidence.
