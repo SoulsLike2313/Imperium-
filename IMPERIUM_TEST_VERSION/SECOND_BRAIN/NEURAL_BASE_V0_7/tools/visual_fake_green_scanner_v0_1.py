@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Second Brain V0.7 visual fake-green scanner (read-only scanner + report writer)."""
+"""Second Brain V0.7 visual fake-green scanner (compact report budget hardened)."""
 
 from __future__ import annotations
 
@@ -7,10 +7,11 @@ import argparse
 import json
 import re
 import subprocess
+from collections import Counter, defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Dict, Iterable, List, Tuple
 
 TASK_ID = "TASK-SECOND-BRAIN-V07-VISUAL-FAKE-GREEN-SCANNER"
 SCANNER_VERSION = "visual_fake_green_scanner_v0_1"
@@ -29,7 +30,26 @@ SCAN_TARGETS = [
     Path("IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports"),
 ]
 
-MAX_FILE_SIZE_BYTES = 2_000_000
+REPORT_BUDGET = {
+    "max_report_json_lines": 2000,
+    "max_report_md_lines": 800,
+    "max_report_json_kb": 500,
+    "max_report_md_kb": 300,
+    "max_findings_stored": 100,
+    "max_samples_per_rule": 10,
+    "max_samples_per_path": 10,
+    "max_excerpt_chars": 240,
+    "full_raw_dump_allowed_by_default": False,
+    "full_raw_dump_requires_owner_gate": True,
+}
+TOP_FINDINGS_LIMIT_DEFAULT = 30
+SEVERITY_BUCKET_LIMIT_DEFAULT = 15
+MAX_RULE_SAMPLE_KEYS = 10
+MAX_PATH_SAMPLE_KEYS = 10
+MAX_PATH_COUNT_KEYS = 30
+SAMPLE_STORE_PER_RULE_DEFAULT = 3
+SAMPLE_STORE_PER_PATH_DEFAULT = 3
+
 TEXT_EXTENSIONS = {
     ".md",
     ".json",
@@ -42,6 +62,18 @@ TEXT_EXTENSIONS = {
     ".yml",
 }
 SKIP_DIRS = {".git", "__pycache__", "node_modules", "venv", ".venv", "dist", "build"}
+MAX_SCAN_FILE_BYTES = 2_000_000
+MAX_REPORT_SCAN_FILE_BYTES = 250_000
+SKIP_REPORT_FILES = {
+    "VISUAL_FAKE_GREEN_SCAN_V0_1.json",
+    "VISUAL_FAKE_GREEN_SCAN_V0_1.md",
+    "VISUAL_FAKE_GREEN_SCANNER_REPORT_V0_1.json",
+    "VISUAL_FAKE_GREEN_SCANNER_REPORT_V0_1.md",
+    "SCANNER_OUTPUT_BLOAT_DIAGNOSIS_V0_1.json",
+    "SCANNER_OUTPUT_BLOAT_DIAGNOSIS_V0_1.md",
+    "SCANNER_OUTPUT_BUDGET_HARDENING_REPORT_V0_1.json",
+    "SCANNER_OUTPUT_BUDGET_HARDENING_REPORT_V0_1.md",
+}
 
 EVIDENCE_HINT_RE = re.compile(
     r"\b(evidence|receipt|receipts|backend|source|audit|measured|measurement|report|binding|gate|proof|not_measured|blocked)\b",
@@ -132,15 +164,6 @@ def is_text_candidate(path: Path) -> bool:
     return path.name.lower() in {"readme", "license"}
 
 
-def read_text(path: Path) -> Optional[str]:
-    try:
-        if path.stat().st_size > MAX_FILE_SIZE_BYTES:
-            return None
-        return path.read_text(encoding="utf-8", errors="replace")
-    except Exception:
-        return None
-
-
 def path_is_policy(path: str) -> bool:
     p = path.lower()
     return any(
@@ -162,8 +185,13 @@ def classify_context(line: str, prev_line: str, next_line: str, path: str) -> st
     return "plain"
 
 
-def scan_line_rules(
-    path: str, line_num: int, line: str, prev_line: str, next_line: str, state: Dict[str, object]
+def parse_rule_findings(
+    path: str,
+    line_num: int,
+    line: str,
+    prev_line: str,
+    next_line: str,
+    state: Dict[str, object],
 ) -> List[Finding]:
     findings: List[Finding] = []
     context = classify_context(line, prev_line, next_line, path)
@@ -172,17 +200,18 @@ def scan_line_rules(
         return findings
 
     def make(rule_id: str, severity: str, category: str, confidence: float, rationale: str) -> Finding:
-        idx = state.setdefault("idx", 0)  # type: ignore[assignment]
+        idx = state.setdefault("idx", 0)
         state["idx"] = int(idx) + 1
+        excerpt_limit = int(REPORT_BUDGET["max_excerpt_chars"])
         return Finding(
-            finding_id=f"FG-{int(state['idx']):04d}",
+            finding_id=f"FG-{int(state['idx']):06d}",
             rule_id=rule_id,
             severity=severity,
             category=category,
             path=path.replace("\\", "/"),
             line=line_num,
             confidence=confidence,
-            snippet=l[:220],
+            snippet=l[:excerpt_limit],
             rationale=rationale,
         )
 
@@ -380,12 +409,10 @@ def load_baseline_state() -> Dict[str, object]:
     try:
         if perf_receipt.exists():
             data = json.loads(perf_receipt.read_text(encoding="utf-8"))
-            status = (
-                data.get("optional_browser_audit", {}) or {}
-            ).get("status", "")
-            fps_available = (
-                data.get("optional_browser_audit", {}) or {}
-            ).get("fps_measurement_available", False)
+            status = (data.get("optional_browser_audit", {}) or {}).get("status", "")
+            fps_available = (data.get("optional_browser_audit", {}) or {}).get(
+                "fps_measurement_available", False
+            )
             state["fps_missing"] = (status == "NOT_MEASURED") or (not bool(fps_available))
     except Exception:
         state["fps_missing"] = True
@@ -411,91 +438,268 @@ def iter_text_files(root: Path) -> Iterable[Path]:
             yield path
 
 
+def severity_rank(severity: str) -> int:
+    return {
+        "HARD_BLOCKER": 4,
+        "WARNING": 3,
+        "REVIEW_REQUIRED": 2,
+        "ALLOWED_CONTEXT": 1,
+        "NOT_APPLICABLE": 0,
+    }.get(severity, 1)
+
+
+def finding_sort_key(finding: Dict[str, object]) -> Tuple[int, float, str]:
+    return (
+        severity_rank(str(finding.get("severity", "REVIEW_REQUIRED"))),
+        float(finding.get("confidence", 0.0)),
+        str(finding.get("rule_id", "")),
+    )
+
+
+class FindingAccumulator:
+    def __init__(self) -> None:
+        self.total_findings = 0
+        self.severity_counts: Counter[str] = Counter()
+        self.rule_counts: Counter[str] = Counter()
+        self.path_counts: Counter[str] = Counter()
+        self._top_findings: List[Dict[str, object]] = []
+        self._hard_blockers: List[Dict[str, object]] = []
+        self._warnings: List[Dict[str, object]] = []
+        self._review_required: List[Dict[str, object]] = []
+        self.allowed_context_count = 0
+        self.samples_by_rule: Dict[str, List[Dict[str, object]]] = defaultdict(list)
+        self.samples_by_path: Dict[str, List[Dict[str, object]]] = defaultdict(list)
+
+    def _trim_top(self) -> None:
+        limit = min(int(REPORT_BUDGET["max_findings_stored"]), TOP_FINDINGS_LIMIT_DEFAULT)
+        self._top_findings.sort(key=finding_sort_key, reverse=True)
+        if len(self._top_findings) > limit:
+            self._top_findings = self._top_findings[:limit]
+
+    @staticmethod
+    def _compact_finding(f: Dict[str, object]) -> Dict[str, object]:
+        keep = {
+            "finding_id",
+            "rule_id",
+            "severity",
+            "category",
+            "path",
+            "line",
+            "confidence",
+            "snippet",
+        }
+        return {k: f[k] for k in keep if k in f}
+
+    @staticmethod
+    def _append_limited(target: List[Dict[str, object]], item: Dict[str, object], limit: int) -> None:
+        if len(target) < limit:
+            target.append(item)
+            return
+        worst_idx = min(range(len(target)), key=lambda i: finding_sort_key(target[i]))
+        if finding_sort_key(item) > finding_sort_key(target[worst_idx]):
+            target[worst_idx] = item
+
+    def add(self, finding: Finding) -> None:
+        fd = self._compact_finding(finding.to_dict())
+        self.total_findings += 1
+        sev = str(fd.get("severity", "REVIEW_REQUIRED"))
+        rule = str(fd.get("rule_id", "UNKNOWN"))
+        path = str(fd.get("path", "UNKNOWN"))
+
+        self.severity_counts[sev] += 1
+        self.rule_counts[rule] += 1
+        self.path_counts[path] += 1
+
+        if sev == "ALLOWED_CONTEXT":
+            self.allowed_context_count += 1
+
+        self._top_findings.append(fd)
+        self._trim_top()
+
+        sample_rule_limit = min(
+            int(REPORT_BUDGET["max_samples_per_rule"]),
+            SAMPLE_STORE_PER_RULE_DEFAULT,
+        )
+        sample_path_limit = min(
+            int(REPORT_BUDGET["max_samples_per_path"]),
+            SAMPLE_STORE_PER_PATH_DEFAULT,
+        )
+
+        if len(self.samples_by_rule[rule]) < sample_rule_limit:
+            self.samples_by_rule[rule].append(fd)
+        if len(self.samples_by_path[path]) < sample_path_limit:
+            self.samples_by_path[path].append(fd)
+
+        bucket_limit = min(
+            int(REPORT_BUDGET["max_findings_stored"]),
+            SEVERITY_BUCKET_LIMIT_DEFAULT,
+        )
+        if sev == "HARD_BLOCKER":
+            self._append_limited(self._hard_blockers, fd, bucket_limit)
+        elif sev == "WARNING":
+            self._append_limited(self._warnings, fd, bucket_limit)
+        elif sev == "REVIEW_REQUIRED":
+            self._append_limited(self._review_required, fd, bucket_limit)
+
+    def summary(self) -> Dict[str, object]:
+        path_limit = min(int(REPORT_BUDGET["max_findings_stored"]), MAX_PATH_COUNT_KEYS)
+        top_paths = self.path_counts.most_common(path_limit)
+        omitted_paths_count = max(0, len(self.path_counts) - len(top_paths))
+
+        rule_items = sorted(self.rule_counts.items(), key=lambda x: (-x[1], x[0]))
+        severity_items = sorted(self.severity_counts.items(), key=lambda x: (-x[1], x[0]))
+
+        top_findings = sorted(self._top_findings, key=finding_sort_key, reverse=True)
+        hard_blockers = sorted(self._hard_blockers, key=finding_sort_key, reverse=True)
+        warnings = sorted(self._warnings, key=finding_sort_key, reverse=True)
+        review_required = sorted(self._review_required, key=finding_sort_key, reverse=True)
+
+        top_rule_ids = [item["rule_id"] for item in [{"rule_id": r} for r, _ in rule_items[:MAX_RULE_SAMPLE_KEYS]]]
+        top_path_keys = [p for p, _ in top_paths[:MAX_PATH_SAMPLE_KEYS]]
+
+        sample_by_rule_compact = {
+            rule: self.samples_by_rule[rule] for rule in top_rule_ids if rule in self.samples_by_rule
+        }
+        sample_by_path_compact = {
+            path: self.samples_by_path[path] for path in top_path_keys if path in self.samples_by_path
+        }
+
+        return {
+            "total_findings": self.total_findings,
+            "finding_counts": {
+                "HARD_BLOCKER": self.severity_counts.get("HARD_BLOCKER", 0),
+                "WARNING": self.severity_counts.get("WARNING", 0),
+                "REVIEW_REQUIRED": self.severity_counts.get("REVIEW_REQUIRED", 0),
+                "ALLOWED_CONTEXT": self.severity_counts.get("ALLOWED_CONTEXT", 0),
+                "NOT_APPLICABLE": self.severity_counts.get("NOT_APPLICABLE", 0),
+            },
+            "finding_counts_by_rule": [
+                {"rule_id": rule, "count": count} for rule, count in rule_items
+            ],
+            "finding_counts_by_path": {
+                "top_paths": [{"path": p, "count": c} for p, c in top_paths],
+                "omitted_paths_count": omitted_paths_count,
+            },
+            "severity_counts": [
+                {"severity": severity, "count": count} for severity, count in severity_items
+            ],
+            "top_findings": top_findings,
+            "samples": {
+                "by_rule": sample_by_rule_compact,
+                "by_path": sample_by_path_compact,
+                "omitted_rule_keys_count": max(0, len(self.samples_by_rule) - len(sample_by_rule_compact)),
+                "omitted_path_keys_count": max(0, len(self.samples_by_path) - len(sample_by_path_compact)),
+            },
+            "omitted_findings_count": max(0, self.total_findings - len(top_findings)),
+            "hard_blockers": hard_blockers,
+            "warnings": warnings,
+            "review_required": review_required,
+            "allowed_context_count": self.allowed_context_count,
+        }
+
+
 def scan_targets(targets: List[Path]) -> Dict[str, object]:
-    findings: List[Finding] = []
     scanned_paths: List[str] = []
     missing_expected_paths: List[str] = []
+    skipped_paths_by_budget: List[str] = []
+    skipped_generated_reports: List[str] = []
     scanned_files = 0
     inspected_lines = 0
+
     state = load_baseline_state()
     state["idx"] = 0
+    accumulator = FindingAccumulator()
 
     for root in targets:
         if not root.exists():
             missing_expected_paths.append(str(root).replace("\\", "/"))
             continue
+
         scanned_paths.append(str(root).replace("\\", "/"))
+
         for file_path in iter_text_files(root):
-            text = read_text(file_path)
-            if text is None:
-                continue
-            scanned_files += 1
             rel = str(file_path).replace("\\", "/")
+
+            if file_path.name in SKIP_REPORT_FILES:
+                skipped_generated_reports.append(rel)
+                continue
+
+            try:
+                size = file_path.stat().st_size
+            except Exception:
+                continue
+
+            if "/reports/" in rel and size > MAX_REPORT_SCAN_FILE_BYTES:
+                skipped_paths_by_budget.append(rel)
+                continue
+            if size > MAX_SCAN_FILE_BYTES:
+                skipped_paths_by_budget.append(rel)
+                continue
+
+            try:
+                text = file_path.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                continue
+
+            scanned_files += 1
             lines = text.splitlines()
             inspected_lines += len(lines)
+
             for i, line in enumerate(lines, start=1):
                 prev_line = lines[i - 2] if i > 1 else ""
                 next_line = lines[i] if i < len(lines) else ""
-                findings.extend(scan_line_rules(rel, i, line, prev_line, next_line, state))
+                for finding in parse_rule_findings(rel, i, line, prev_line, next_line, state):
+                    accumulator.add(finding)
 
-    result = {
-        "findings": [f.to_dict() for f in findings],
+    return {
         "scanned_paths": scanned_paths,
         "missing_expected_paths": missing_expected_paths,
+        "skipped_paths_by_budget": skipped_paths_by_budget,
+        "skipped_generated_reports": skipped_generated_reports,
         "scanned_files": scanned_files,
         "inspected_lines": inspected_lines,
         "baseline_blocked": bool(state.get("baseline_blocked")),
         "fps_missing": bool(state.get("fps_missing")),
+        "accumulator": accumulator.summary(),
     }
-    return result
 
 
-def summarize_findings(findings: List[Dict[str, object]]) -> Dict[str, List[Dict[str, object]]]:
-    by_level = {
-        "HARD_BLOCKER": [],
-        "WARNING": [],
-        "REVIEW_REQUIRED": [],
-        "ALLOWED_CONTEXT": [],
-        "NOT_APPLICABLE": [],
-    }
-    for finding in findings:
-        severity = str(finding.get("severity", "REVIEW_REQUIRED"))
-        by_level.setdefault(severity, []).append(finding)
-    return by_level
+def verdict_for(scan: Dict[str, object], summary: Dict[str, object]) -> str:
+    hard_blockers = int(summary["finding_counts"]["HARD_BLOCKER"])
+    warnings = int(summary["finding_counts"]["WARNING"])
+    review_required = int(summary["finding_counts"]["REVIEW_REQUIRED"])
 
-
-def verdict_for(scan: Dict[str, object], grouped: Dict[str, List[Dict[str, object]]]) -> str:
-    if grouped["HARD_BLOCKER"]:
+    if hard_blockers > 0:
         return "BLOCKED"
-    high_risk_warnings = [
-        w for w in grouped["WARNING"] if float(w.get("confidence", 0.0)) >= 0.85
-    ]
-    if scan["missing_expected_paths"]:
+    if scan.get("missing_expected_paths"):
         return "WARN"
-    if high_risk_warnings:
-        return "WARN"
-    if grouped["WARNING"] or grouped["REVIEW_REQUIRED"]:
+    if warnings > 0 or review_required > 0:
         return "WARN"
     return "PASS"
 
 
 def build_report(scan: Dict[str, object], repo_head: str) -> Dict[str, object]:
-    findings = scan["findings"]
-    grouped = summarize_findings(findings)  # type: ignore[arg-type]
-    verdict = verdict_for(scan, grouped)
+    summary = scan["accumulator"]
+    verdict = verdict_for(scan, summary)
     next_action = (
         "TASK-SECOND-BRAIN-V07-FAKE-GREEN-REPAIR-PLAN"
         if verdict == "BLOCKED"
         else "TASK-SECOND-BRAIN-V07-BROWSER-PERFORMANCE-AUDIT-RUNNER"
     )
-    finding_counts = {k: len(v) for k, v in grouped.items()}
 
-    report = {
+    return {
         "task_id": TASK_ID,
         "generated_at": utc_now(),
         "current_head": repo_head,
         "scanned_paths": scan["scanned_paths"],
         "scanner_version": SCANNER_VERSION,
+        "report_budget": {
+            **REPORT_BUDGET,
+            "scan_file_limits": {
+                "max_scan_file_bytes": MAX_SCAN_FILE_BYTES,
+                "max_report_scan_file_bytes": MAX_REPORT_SCAN_FILE_BYTES,
+            },
+        },
         "rules_used": [
             "FG-RULE-001 green/success decoration and token context",
             "FG-RULE-002 hardcoded PASS/READY/COMPLETE wording",
@@ -505,17 +709,24 @@ def build_report(scan: Dict[str, object], repo_head: str) -> Dict[str, object]:
             "FG-RULE-007 stale/blocked/missing hidden by positive wording",
             "FG-RULE-008 semantic claim without truth-binding hint",
         ],
-        "findings": findings,
-        "finding_counts": finding_counts,
-        "hard_blockers": grouped["HARD_BLOCKER"],
-        "warnings": grouped["WARNING"],
-        "review_required": grouped["REVIEW_REQUIRED"],
-        "allowed_context": grouped["ALLOWED_CONTEXT"],
+        "finding_counts": summary["finding_counts"],
+        "finding_counts_by_rule": summary["finding_counts_by_rule"],
+        "finding_counts_by_path": summary["finding_counts_by_path"],
+        "severity_counts": summary["severity_counts"],
+        "top_findings": summary["top_findings"],
+        "samples": summary["samples"],
+        "omitted_findings_count": summary["omitted_findings_count"],
+        "raw_dump_status": "OMITTED_BY_REPORT_BUDGET",
+        "hard_blockers": summary["hard_blockers"],
+        "warnings": summary["warnings"],
+        "review_required": summary["review_required"],
+        "allowed_context_count": summary["allowed_context_count"],
         "limitations": [
             "Static text/source scan only; does not execute runtime or backend.",
-            "Context classification is heuristic and may require manual review for borderline phrasing.",
+            "Context classification is heuristic and may require manual review.",
             "Scanner does not replace truth parity audit or browser performance audit.",
-            "If expected paths are missing, PASS is disallowed.",
+            "Generated reports are compacted by budget; raw unlimited dump is omitted by default.",
+            "Some large report files are intentionally skipped to prevent recursive output avalanche.",
         ],
         "verdict": verdict,
         "next_recommended_action": next_action,
@@ -523,11 +734,12 @@ def build_report(scan: Dict[str, object], repo_head: str) -> Dict[str, object]:
             "scanned_files": scan["scanned_files"],
             "inspected_lines": scan["inspected_lines"],
             "missing_expected_paths": scan["missing_expected_paths"],
+            "skipped_paths_by_budget_count": len(scan["skipped_paths_by_budget"]),
+            "skipped_generated_reports_count": len(scan["skipped_generated_reports"]),
             "baseline_blocked_reference": scan["baseline_blocked"],
             "fps_missing_reference": scan["fps_missing"],
         },
     }
-    return report
 
 
 def render_md(report: Dict[str, object]) -> str:
@@ -540,37 +752,89 @@ def render_md(report: Dict[str, object]) -> str:
     lines.append(f"- scanner_version: `{report['scanner_version']}`")
     lines.append(f"- verdict: `{report['verdict']}`")
     lines.append(f"- next_recommended_action: `{report['next_recommended_action']}`")
+    lines.append(f"- raw_dump_status: `{report['raw_dump_status']}`")
     lines.append("")
-    lines.append("## Scan Stats")
+
     stats = report["scan_stats"]
+    lines.append("## Scan Stats")
     lines.append(f"- scanned_files: `{stats['scanned_files']}`")
     lines.append(f"- inspected_lines: `{stats['inspected_lines']}`")
     lines.append(f"- missing_expected_paths: `{len(stats['missing_expected_paths'])}`")
+    lines.append(f"- skipped_paths_by_budget_count: `{stats['skipped_paths_by_budget_count']}`")
+    lines.append(f"- skipped_generated_reports_count: `{stats['skipped_generated_reports_count']}`")
     lines.append(f"- baseline_blocked_reference: `{stats['baseline_blocked_reference']}`")
     lines.append(f"- fps_missing_reference: `{stats['fps_missing_reference']}`")
     lines.append("")
+
     lines.append("## Finding Counts")
     counts = report["finding_counts"]
     for k in ["HARD_BLOCKER", "WARNING", "REVIEW_REQUIRED", "ALLOWED_CONTEXT", "NOT_APPLICABLE"]:
         lines.append(f"- {k}: `{counts.get(k, 0)}`")
+    lines.append(f"- omitted_findings_count: `{report['omitted_findings_count']}`")
+    lines.append(f"- allowed_context_count: `{report['allowed_context_count']}`")
     lines.append("")
-    lines.append("## Key Findings")
-    key = report["hard_blockers"][:8] + report["warnings"][:8] + report["review_required"][:8]
-    if not key:
+
+    lines.append("## Top Findings")
+    top = report["top_findings"][: min(20, int(REPORT_BUDGET["max_findings_stored"]))]
+    if not top:
         lines.append("- No suspicious findings above allowed context.")
     else:
-        for item in key:
+        for item in top:
             lines.append(
                 f"- [{item['severity']}] {item['rule_id']} {item['path']}:{item['line']} :: {item['snippet']}"
             )
     lines.append("")
+
+    lines.append("## Top Rules By Count")
+    for item in report["finding_counts_by_rule"][:10]:
+        lines.append(f"- {item['rule_id']}: `{item['count']}`")
+    lines.append("")
+
+    lines.append("## Top Paths By Count")
+    top_paths = report["finding_counts_by_path"]["top_paths"][:10]
+    for item in top_paths:
+        lines.append(f"- {item['path']}: `{item['count']}`")
+    lines.append(
+        f"- omitted_paths_count: `{report['finding_counts_by_path']['omitted_paths_count']}`"
+    )
+    lines.append("")
+
     lines.append("## Limitations")
     for item in report["limitations"]:
         lines.append(f"- {item}")
-    lines.append("")
-    lines.append("## Rule Reminder")
-    lines.append("- This scanner does not replace browser performance audit or truth parity audit.")
+
     return "\n".join(lines) + "\n"
+
+
+def apply_report_size_metrics(report: Dict[str, object], md_text: str) -> Tuple[Dict[str, object], str]:
+    json_text = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
+    report["report_size_estimate"] = {
+        "json_lines": json_text.count("\n"),
+        "json_kb": round(len(json_text.encode("utf-8")) / 1024, 2),
+        "md_lines": md_text.count("\n"),
+        "md_kb": round(len(md_text.encode("utf-8")) / 1024, 2),
+    }
+    md_text = render_md(report)
+    json_text = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
+    report["report_size_estimate"] = {
+        "json_lines": json_text.count("\n"),
+        "json_kb": round(len(json_text.encode("utf-8")) / 1024, 2),
+        "md_lines": md_text.count("\n"),
+        "md_kb": round(len(md_text.encode("utf-8")) / 1024, 2),
+    }
+    return report, md_text
+
+
+def enforce_budget(report: Dict[str, object]) -> None:
+    est = report["report_size_estimate"]
+    if int(est["json_lines"]) > int(REPORT_BUDGET["max_report_json_lines"]):
+        raise RuntimeError("JSON report exceeds max_report_json_lines budget.")
+    if float(est["json_kb"]) > float(REPORT_BUDGET["max_report_json_kb"]):
+        raise RuntimeError("JSON report exceeds max_report_json_kb budget.")
+    if int(est["md_lines"]) > int(REPORT_BUDGET["max_report_md_lines"]):
+        raise RuntimeError("MD report exceeds max_report_md_lines budget.")
+    if float(est["md_kb"]) > float(REPORT_BUDGET["max_report_md_kb"]):
+        raise RuntimeError("MD report exceeds max_report_md_kb budget.")
 
 
 def parse_args() -> argparse.Namespace:
@@ -588,16 +852,21 @@ def main() -> int:
 
     scan = scan_targets(SCAN_TARGETS)
     report = build_report(scan, repo_head)
+    md_text = render_md(report)
+    report, md_text = apply_report_size_metrics(report, md_text)
+    enforce_budget(report)
 
     json_out.parent.mkdir(parents=True, exist_ok=True)
     md_out.parent.mkdir(parents=True, exist_ok=True)
 
     json_out.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    md_out.write_text(render_md(report), encoding="utf-8")
+    md_out.write_text(md_text, encoding="utf-8")
 
     print("SCAN_JSON", str(json_out).replace("\\", "/"))
     print("SCAN_MD", str(md_out).replace("\\", "/"))
     print("VERDICT", report["verdict"])
+    print("REPORT_JSON_LINES", report["report_size_estimate"]["json_lines"])
+    print("REPORT_JSON_KB", report["report_size_estimate"]["json_kb"])
     return 0
 
 

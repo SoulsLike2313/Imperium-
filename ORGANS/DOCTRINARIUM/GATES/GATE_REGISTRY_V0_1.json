@@ -453,6 +453,50 @@
       "status": "ACTIVE"
     },
     {
+      "gate_id": "GATE-U12-REPORT-OUTPUT-BUDGET",
+      "name": "Report Output Budget / No Report Avalanche",
+      "version": "v0_1",
+      "owner_organ": "DOCTRINARIUM/INQUISITION/ADMINISTRATUM",
+      "purpose": "Prevent uncontrolled report data dumps and enforce compact actionable evidence outputs.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "scanner_tasks",
+        "checker_tasks",
+        "report_generating_tasks"
+      ],
+      "required_inputs": [
+        "report_output_budget_policy",
+        "report_artifact_paths",
+        "task_scope"
+      ],
+      "required_evidence": [
+        "compact_report_json",
+        "compact_report_md",
+        "report_line_size_metrics",
+        "raw_dump_status_field"
+      ],
+      "pass_condition": "Generated reports stay within budget and expose compact summary fields with omitted/raw dump status.",
+      "fail_condition": "Report artifact exceeds budget or contains unlimited/raw copied payload by default.",
+      "stop_condition": "Output avalanche detected and no explicit Owner gate for full raw dump.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U08-REPO-PURITY",
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "ACTIVE"
+    },
+    {
       "gate_id": "GATE-UI00-TRUTH-BINDING",
       "name": "UI Truth Binding",
       "version": "v0_1",

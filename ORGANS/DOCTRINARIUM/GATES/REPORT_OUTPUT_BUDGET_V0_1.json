@@ -1,0 +1,57 @@
+{
+  "gate_id": "GATE-U12-REPORT-OUTPUT-BUDGET",
+  "name": "Report Output Budget / No Report Avalanche",
+  "principle": "Reports are evidence, not data dumps.",
+  "limits": {
+    "max_report_json_lines": 2000,
+    "max_report_md_lines": 800,
+    "max_report_json_kb": 500,
+    "max_report_md_kb": 300,
+    "max_findings_stored": 100,
+    "max_samples_per_rule": 10,
+    "max_samples_per_path": 10,
+    "max_excerpt_chars": 240,
+    "full_raw_dump_allowed_by_default": false,
+    "full_raw_dump_requires_owner_gate": true
+  },
+  "default_behavior": {
+    "store_counts": true,
+    "store_top_findings": true,
+    "store_compact_samples": true,
+    "store_omitted_findings_count": true,
+    "raw_dump_status_required": true,
+    "prefer_compact_actionable_evidence": true
+  },
+  "owner_gate_required_for": [
+    "full_raw_findings_dump",
+    "full_source_context_dump",
+    "report_exceeds_default_budget",
+    "raw_trace_commit_to_repo"
+  ],
+  "stop_conditions": [
+    "report_exceeds_budget_without_owner_gate",
+    "scanner_dumps_unlimited_findings_by_default",
+    "report_contains_copied_source_files_as_payload",
+    "recursive_report_scan_causes_output_avalanche"
+  ],
+  "allowed_summary_fields": [
+    "finding_counts",
+    "finding_counts_by_rule",
+    "finding_counts_by_path",
+    "severity_counts",
+    "top_findings",
+    "samples",
+    "omitted_findings_count",
+    "raw_dump_status",
+    "limitations",
+    "verdict",
+    "next_recommended_action"
+  ],
+  "forbidden_default_outputs": [
+    "unlimited_findings_array",
+    "full_file_content_dump",
+    "unbounded_context_repetition",
+    "raw_trace_blob_in_repo_report"
+  ],
+  "status": "ACTIVE"
+}

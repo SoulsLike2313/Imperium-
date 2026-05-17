@@ -1,0 +1,29 @@
+{
+  "receipt_id": "GATE_RECEIPT_TASK_SECOND_BRAIN_V07_SCANNER_OUTPUT_BUDGET_HARDENING_V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-SCANNER-OUTPUT-BUDGET-HARDENING",
+  "generated_at": "2026-05-17T02:14:14+00:00",
+  "starting_head": "6cd43c85fb08f4f8cc556c5992148986a3840685",
+  "ending_head_before_commit": "6cd43c85fb08f4f8cc556c5992148986a3840685",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET"
+  ],
+  "evidence_paths": [
+    "ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.json",
+    "ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_fake_green_scanner_v0_1.py",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_FAKE_GREEN_SCAN_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/SCANNER_OUTPUT_BLOAT_DIAGNOSIS_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/SCANNER_OUTPUT_BUDGET_HARDENING_REPORT_V0_1.json"
+  ],
+  "forbidden_paths_touched": false,
+  "no_file_delete_rule_obeyed": true,
+  "runtime_changed": false,
+  "visual_implementation_changed": false,
+  "verdict": "PASS_HARDENED_COMPACT_OUTPUT"
+}

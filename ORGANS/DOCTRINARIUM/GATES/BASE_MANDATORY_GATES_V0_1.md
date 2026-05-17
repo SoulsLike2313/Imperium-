@@ -14,6 +14,7 @@
 | GATE-U09-NO-FAKE-GREEN | PASS without evidence. | All tasks. | Checker/test/receipt proofs. | PASS claim without hard evidence. |
 | GATE-U10-PATH-TRUTH | False touched-path reporting. | All tasks with edits. | Path declaration vs actual diff comparison. | Declaration mismatches actual changes. |
 | GATE-U11-BEFORE-AFTER | Unverifiable improvement claims. | All non-trivial tasks. | Before and after state receipts. | No comparable baseline evidence. |
+| GATE-U12-REPORT-OUTPUT-BUDGET | Report avalanche and evidence dump pollution. | All scanner/checker/report-producing tasks. | Report budget config + compact report metrics + omitted/raw_dump status. | Output exceeds budget or unlimited raw dump without Owner gate. |
 | GATE-UI00-TRUTH-BINDING | Visual/UI claims detached from backend truth. | UI/visual/boundary tasks. | Truth-binding report linking claims to data receipts. | UI readiness claimed while backend broken. |
 | GATE-VIS00-PERFORMANCE-BUDGET | Unmeasured performance claims. | Performance/visual tasks. | Performance measurement receipt. | Performance claim without metrics. |
 | GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT | Decorative tasks altering semantic corridor. | Visual/decorative tasks. | Scope split audit evidence. | Backend/semantic change during decorative task. |

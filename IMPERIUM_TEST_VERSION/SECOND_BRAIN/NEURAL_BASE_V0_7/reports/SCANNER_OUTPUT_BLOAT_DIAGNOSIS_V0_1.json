@@ -1,0 +1,30 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-SCANNER-OUTPUT-BUDGET-HARDENING",
+  "generated_at": "2026-05-17T02:14:14+00:00",
+  "starting_commit": "6cd43c85fb08f4f8cc556c5992148986a3840685",
+  "bloat_file_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_FAKE_GREEN_SCAN_V0_1.json",
+  "bloat_line_count": 164480,
+  "commit_bloat_context": {
+    "commit_hash": "6cd43c85fb08f4f8cc556c5992148986a3840685",
+    "commit_added_lines_total": 165480,
+    "bloat_file_added_lines": 164480
+  },
+  "root_cause": "Scanner persisted near-complete finding payloads without output budget constraints, causing report avalanche.",
+  "corrective_action": [
+    "Registered REPORT_OUTPUT_BUDGET / NO_REPORT_AVALANCHE gate rule.",
+    "Added GATE-U12-REPORT-OUTPUT-BUDGET to registry and base laws.",
+    "Hardened scanner to compact summary output with strict caps.",
+    "Regenerated compact VISUAL_FAKE_GREEN_SCAN_V0_1 artifacts under budget."
+  ],
+  "report_budget_created": true,
+  "scanner_hardened": true,
+  "compact_report_regenerated": true,
+  "old_bloat_commit_remains_in_history": true,
+  "current_compact_report": {
+    "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_FAKE_GREEN_SCAN_V0_1.json",
+    "line_count": 1360,
+    "size_kb": 53.77,
+    "raw_dump_status": "OMITTED_BY_REPORT_BUDGET"
+  },
+  "verdict": "BLOAT_DIAGNOSED_AND_HARDENED"
+}

@@ -18,6 +18,12 @@
 - Stop conditions must be explicit, accepted, and enforceable.
 - Touched/not-touched path declarations must match real diffs.
 
+## Report Output Budget / No Report Avalanche
+- Reports must not become uncontrolled data dumps.
+- Large raw outputs require explicit Owner gate.
+- Evidence artifacts must stay compact and actionable by default.
+- Full raw detail must be externalized/quarantined unless Owner-approved for commit.
+
 ## Script Laws
 - Every useful script must be absorbed, registered, or explicitly classified.
 - Script-first means reusable, scoped, and receipt-producing automation.
