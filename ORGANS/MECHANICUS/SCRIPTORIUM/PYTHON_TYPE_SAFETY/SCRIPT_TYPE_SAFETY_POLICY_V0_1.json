@@ -1,0 +1,90 @@
+{
+  "policy_id": "IMPERIUM-SCRIPTORIUM-SCRIPT-TYPE-SAFETY-POLICY-V0_1",
+  "generated_at": "2026-05-17T11:56:31Z",
+  "current_head": "6c47b495f8e527124390b7f3c96133cf6874fb4e",
+  "purpose": "Define staged Python type-safety requirements for script maturity and promotion in IMPERIUM.",
+  "maturity_levels": [
+    "EXPERIMENTAL",
+    "TASK_LOCAL",
+    "REUSABLE_TOOL",
+    "GATE_RUNNER",
+    "RECEIPT_CHECKER",
+    "AGENT_FACTORY_TOOL",
+    "SANCTUM_OR_SECOND_BRAIN_CORE_TOOL"
+  ],
+  "requirements_by_level": {
+    "EXPERIMENTAL": {
+      "minimum": [
+        "scope_note_present",
+        "py_compile_pass",
+        "no_reusable_promotion_claim"
+      ],
+      "strict_required": false
+    },
+    "TASK_LOCAL": {
+      "minimum": [
+        "basic_signature_annotations_started",
+        "known_risks_recorded"
+      ],
+      "strict_required": false
+    },
+    "REUSABLE_TOOL": {
+      "minimum": [
+        "typed_public_functions",
+        "return_annotations_for_reusable_paths",
+        "documented_any_usage",
+        "json_and_path_handling_review"
+      ],
+      "strict_required": true
+    },
+    "GATE_RUNNER": {
+      "minimum": [
+        "typed_receipt_contracts",
+        "explicit_optional_none_handling",
+        "broad_exception_review"
+      ],
+      "strict_required": true
+    },
+    "RECEIPT_CHECKER": {
+      "minimum": [
+        "typed_schema_expectations",
+        "fail_fast_on_invalid_shape"
+      ],
+      "strict_required": true
+    },
+    "AGENT_FACTORY_TOOL": {
+      "minimum": [
+        "typed_generation_contracts",
+        "deterministic_output_schema"
+      ],
+      "strict_required": true
+    },
+    "SANCTUM_OR_SECOND_BRAIN_CORE_TOOL": {
+      "minimum": [
+        "strict_clean_evidence",
+        "contract_regression_check_pass"
+      ],
+      "strict_required": true
+    }
+  },
+  "strict_required_for": [
+    "REUSABLE_TOOL",
+    "GATE_RUNNER",
+    "RECEIPT_CHECKER",
+    "AGENT_FACTORY_TOOL",
+    "SANCTUM_OR_SECOND_BRAIN_CORE_TOOL"
+  ],
+  "allowed_exceptions": [
+    "legacy_script_classified_as_experimental_or_task_local",
+    "documented_third_party_typing_gap_with_containment",
+    "explicit_no_promotion_until_strict_evidence"
+  ],
+  "forbidden_promotions": [
+    "promote_non_strict_script_to_reusable_tool",
+    "promote_non_strict_script_to_gate_runner",
+    "promote_non_strict_script_to_receipt_checker",
+    "promote_non_strict_script_to_agent_factory_tool",
+    "promote_non_strict_script_to_sanctum_or_second_brain_core_tool"
+  ],
+  "status": "ACTIVE_POLICY_BACKLOG_PHASE"
+}

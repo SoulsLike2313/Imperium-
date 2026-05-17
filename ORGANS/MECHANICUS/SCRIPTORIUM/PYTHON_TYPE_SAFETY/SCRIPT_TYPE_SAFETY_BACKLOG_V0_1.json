@@ -1,0 +1,92 @@
+{
+  "generated_at": "2026-05-17T11:56:31Z",
+  "current_head": "6c47b495f8e527124390b7f3c96133cf6874fb4e",
+  "source_context": {
+    "pain_incidents": [
+      "DIRTY_START_PARTIAL_ARTIFACTS",
+      "FAKE_GREEN_SCANNER_REPORT_AVALANCHE",
+      "STATIC_BROWSER_AUDIT_INVALID_FPS",
+      "FULL_RUNTIME_AUDIT_STATIC_ASSET_ROUTE_BLOCKER",
+      "PYTHON_STRICT_TYPE_SENSOR"
+    ],
+    "evidence_reports": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/SCANNER_OUTPUT_BLOAT_DIAGNOSIS_V0_1.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_INTERPRETATION_V0_1.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_BLOCKER_INTERPRETATION_V0_1.json",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_BLOCKER_MAP_V0_1.json"
+    ]
+  },
+  "candidates": [
+    {
+      "script_path": "ORGANS/MECHANICUS/SCRIPTORIUM/GATE_RUNNERS/imperium_gate_pack_builder_v0_1.py",
+      "owner_area": "MECHANICUS/SCRIPTORIUM",
+      "current_role": "gate_pack_builder",
+      "maturity_target": "GATE_RUNNER",
+      "strict_requirement_level": "STRICT_REQUIRED_BEFORE_PROMOTION",
+      "current_known_pain_risk": "Contract assembly can drift when optional fields are untyped.",
+      "recommended_future_action": "TYPE_HARDEN_REQUIRED",
+      "priority": "P1"
+    },
+    {
+      "script_path": "ORGANS/MECHANICUS/SCRIPTORIUM/GATE_RUNNERS/imperium_gate_receipt_check_v0_1.py",
+      "owner_area": "MECHANICUS/SCRIPTORIUM",
+      "current_role": "receipt_checker",
+      "maturity_target": "RECEIPT_CHECKER",
+      "strict_requirement_level": "STRICT_REQUIRED_BEFORE_REUSE",
+      "current_known_pain_risk": "Weak typing can hide invalid receipt fields and false PASS mappings.",
+      "recommended_future_action": "STRICT_REQUIRED_BEFORE_REUSE",
+      "priority": "P0"
+    },
+    {
+      "script_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_performance_receipt_runner_v0_1.py",
+      "owner_area": "SECOND_BRAIN_V0_7/tools",
+      "current_role": "visual_performance_receipt_runner",
+      "maturity_target": "REUSABLE_TOOL",
+      "strict_requirement_level": "STRICT_REQUIRED_BEFORE_REUSE",
+      "current_known_pain_risk": "Optional/None and JSON shape handling can break acceptance logic.",
+      "recommended_future_action": "STRICT_REQUIRED_BEFORE_REUSE",
+      "priority": "P1"
+    },
+    {
+      "script_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_fake_green_scanner_v0_1.py",
+      "owner_area": "SECOND_BRAIN_V0_7/tools",
+      "current_role": "fake_green_scanner",
+      "maturity_target": "REUSABLE_TOOL",
+      "strict_requirement_level": "STRICT_REQUIRED_BEFORE_REUSE",
+      "current_known_pain_risk": "Report avalanche history indicates insufficiently bounded typed contracts.",
+      "recommended_future_action": "TYPE_HARDEN_REQUIRED",
+      "priority": "P0"
+    },
+    {
+      "script_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/browser_performance_audit_runner_v0_1.py",
+      "owner_area": "SECOND_BRAIN_V0_7/tools",
+      "current_role": "browser_performance_audit_runner",
+      "maturity_target": "AGENT_FACTORY_TOOL",
+      "strict_requirement_level": "STRICT_REQUIRED_BEFORE_AGENT_FACTORY",
+      "current_known_pain_risk": "Target/path and required-asset truth handling can drift under weak typing.",
+      "recommended_future_action": "STRICT_REQUIRED_BEFORE_AGENT_FACTORY",
+      "priority": "P0"
+    },
+    {
+      "script_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py",
+      "owner_area": "SECOND_BRAIN_V0_7/tools",
+      "current_role": "full_runtime_performance_audit_runner",
+      "maturity_target": "SANCTUM_OR_SECOND_BRAIN_CORE_TOOL",
+      "strict_requirement_level": "STRICT_REQUIRED_BEFORE_CORE_PROMOTION",
+      "current_known_pain_risk": "API pass and UI blocker split requires strongly typed outcome contracts.",
+      "recommended_future_action": "STRICT_REQUIRED_BEFORE_AGENT_FACTORY",
+      "priority": "P0"
+    }
+  ],
+  "priority_summary": {
+    "P0": 4,
+    "P1": 2,
+    "actions": {
+      "TYPE_HARDEN_REQUIRED": 2,
+      "STRICT_REQUIRED_BEFORE_REUSE": 2,
+      "STRICT_REQUIRED_BEFORE_AGENT_FACTORY": 2
+    }
+  },
+  "next_recommended_task": "TASK-MECHANICUS-SCRIPTORIUM-PYTHON-TYPE-SAFETY-INVENTORY-RUN-V0_1",
+  "status": "BACKLOG_REGISTERED"
+}

@@ -1,11 +1,11 @@
 {
   "schema_version": "imperium.doctrinarium.gate_registry.v0_1",
-  "generated_at": "2026-05-17T00:00:00Z",
-  "task_id": "TASK-20260517-UNQUISITION-EXTEREMINATUS-GATE-SPINE-V0_1",
-  "current_head": "7a41b908d61df3360c734834b8935659e8630e3e",
+  "generated_at": "2026-05-17T12:03:35Z",
+  "task_id": "TASK-MECHANICUS-SCRIPTORIUM-SCRIPT-PAIN-CHRONICLE-AND-TYPE-SAFETY-V0_1",
+  "current_head": "6c47b495f8e527124390b7f3c96133cf6874fb4e",
   "source_schema": "ORGANS/DOCTRINARIUM/GATES/GATE_SCHEMA_V0_1.json",
   "owner_epoch": "UNQUISITION EXTEREMINATUS",
-  "gate_count": 16,
+  "gate_count": 18,
   "gates": [
     {
       "gate_id": "GATE-U00-GIT-TRUTH",
@@ -643,6 +643,54 @@
       ],
       "related_gates": [
         "GATE-U01-ROLE-ACK"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U13-PYTHON-TYPE-SAFETY",
+      "name": "Python Type Safety Promotion Gate",
+      "version": "v0_1",
+      "owner_organ": "DOCTRINARIUM/MECHANICUS/INQUISITION",
+      "purpose": "Prevent promotion of Python scripts to reusable/core operational roles without type-safety evidence.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "python_script_promotion",
+        "reusable_tools",
+        "gate_runners",
+        "receipt_checkers",
+        "agent_factory_tools",
+        "sanctum_or_second_brain_core_support_tools"
+      ],
+      "required_inputs": [
+        "script_classification",
+        "maturity_target",
+        "type_safety_policy_reference",
+        "backlog_or_inventory_reference"
+      ],
+      "required_evidence": [
+        "py_compile_baseline",
+        "strict_type_evidence_for_required_levels",
+        "documented_exceptions_if_any",
+        "promotion_scope_statement"
+      ],
+      "pass_condition": "Promotion request includes required strict evidence for target maturity and no unresolved contract-critical type-chaos.",
+      "fail_condition": "Promotion attempted without strict evidence, or strict-clean claim made without proof.",
+      "stop_condition": "Maturity classification missing, evidence missing, or mass type-refactor attempted outside scoped gate task.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U09-NO-FAKE-GREEN",
+        "GATE-U12-REPORT-OUTPUT-BUDGET"
       ],
       "status": "ACTIVE"
     }

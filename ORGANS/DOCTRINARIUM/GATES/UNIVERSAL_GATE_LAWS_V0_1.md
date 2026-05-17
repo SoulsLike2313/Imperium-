@@ -27,3 +27,9 @@
 ## Script Laws
 - Every useful script must be absorbed, registered, or explicitly classified.
 - Script-first means reusable, scoped, and receipt-producing automation.
+
+## Python Type Safety / Script Reuse Law
+- Reusable Python tools require type discipline, not one-run confidence.
+- Gate runners, receipt checkers, audit runners, and agent factory tools must not remain type-chaotic.
+- Strict type checking is required before promotion to reusable/core status.
+- Legacy/test scripts are not mass-fixed without explicit classification and backlog gating.

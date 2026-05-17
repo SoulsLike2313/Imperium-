@@ -1,0 +1,42 @@
+{
+  "gate_id": "GATE-U13-PYTHON-TYPE-SAFETY",
+  "name": "Python Type Safety Promotion Gate",
+  "version": "v0_1",
+  "owner_organ": "DOCTRINARIUM/MECHANICUS/INQUISITION",
+  "purpose": "Prevent promotion of Python scripts to reusable or core roles without type-safety evidence.",
+  "severity": "BLOCKER",
+  "applies_to": [
+    "python_script_promotion",
+    "reusable_tools",
+    "gate_runners",
+    "receipt_checkers",
+    "agent_factory_tools",
+    "sanctum_or_second_brain_core_support_tools"
+  ],
+  "required_inputs": [
+    "script_classification",
+    "maturity_target",
+    "type_safety_policy_reference",
+    "backlog_or_inventory_reference"
+  ],
+  "required_evidence": [
+    "py_compile_baseline",
+    "strict_type_evidence_for_required_levels",
+    "documented_exceptions_if_any",
+    "promotion_scope_statement"
+  ],
+  "pass_condition": "Promotion request includes required strict evidence for target maturity and no unresolved contract-critical type-chaos.",
+  "fail_condition": "Promotion attempted without strict evidence or strict-clean claim made without proof.",
+  "stop_condition": "Maturity classification missing, evidence missing, or mass-type-refactor attempted outside scoped gate task.",
+  "receipt_required": true,
+  "maturity_level_rules": {
+    "EXPERIMENTAL": "Allowed without strict, no promotion claim.",
+    "TASK_LOCAL": "Allowed without strict, must remain task-bound.",
+    "REUSABLE_TOOL": "Strict required before promotion.",
+    "GATE_RUNNER": "Strict required before promotion.",
+    "RECEIPT_CHECKER": "Strict required before promotion.",
+    "AGENT_FACTORY_TOOL": "Strict required before promotion.",
+    "SANCTUM_OR_SECOND_BRAIN_CORE_TOOL": "Strict required before promotion."
+  },
+  "status": "ACTIVE"
+}
