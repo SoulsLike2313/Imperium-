@@ -1,0 +1,34 @@
+{
+  "receipt_id": "GATE_RECEIPT_TASK_SECOND_BRAIN_V07_VISUAL_FAKE_GREEN_SCANNER_V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-VISUAL-FAKE-GREEN-SCANNER",
+  "generated_at": "2026-05-17T01:51:44+00:00",
+  "starting_head": "c448ad30d680eebf1b2857996970b7aa007a52cb",
+  "ending_head_before_commit": "c448ad30d680eebf1b2857996970b7aa007a52cb",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U03-NO-FEATURE-DRIFT",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U05-STOP-CONDITIONS",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-UI00-TRUTH-BINDING",
+    "GATE-VIS00-PERFORMANCE-BUDGET",
+    "GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT"
+  ],
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_VISUAL_FAKE_GREEN_SCANNER_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_FAKE_GREEN_SCAN_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_FAKE_GREEN_SCANNER_REPORT_V0_1.json"
+  ],
+  "tool_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_fake_green_scanner_v0_1.py",
+  "scan_report_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_FAKE_GREEN_SCAN_V0_1.json",
+  "forbidden_paths_touched": false,
+  "no_delete_rule_obeyed": true,
+  "runtime_changed": false,
+  "visual_implementation_changed": false,
+  "optimization_changed": false,
+  "fps_claim_made": false,
+  "verdict": "WARN_SUSPICIOUS_PATTERNS_RECORDED"
+}
