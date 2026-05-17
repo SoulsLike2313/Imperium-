@@ -1,0 +1,100 @@
+{
+  "schema_version": "imperium.scriptorium.script_group_schema.v0_1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "script_id",
+    "path",
+    "group",
+    "purpose",
+    "inputs",
+    "outputs",
+    "safe_scope",
+    "danger_level",
+    "mutates_repo",
+    "requires_owner_approval",
+    "reuse_status",
+    "known_limits",
+    "last_verified_head",
+    "receipt_path"
+  ],
+  "properties": {
+    "script_id": {
+      "type": "string",
+      "minLength": 3
+    },
+    "path": {
+      "type": "string",
+      "minLength": 3
+    },
+    "group": {
+      "type": "string",
+      "enum": [
+        "CHECKERS",
+        "BUILDERS",
+        "SCANNERS",
+        "REGISTRARS",
+        "EXPORTERS",
+        "REPAIR_TOOLS",
+        "VISUAL_TOOLS",
+        "GATE_RUNNERS",
+        "REPO_RECON"
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 3
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "safe_scope": {
+      "type": "string"
+    },
+    "danger_level": {
+      "type": "string",
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH"
+      ]
+    },
+    "mutates_repo": {
+      "type": "boolean"
+    },
+    "requires_owner_approval": {
+      "type": "boolean"
+    },
+    "reuse_status": {
+      "type": "string",
+      "enum": [
+        "NEW",
+        "REUSABLE",
+        "DEPRECATED",
+        "BLOCKED"
+      ]
+    },
+    "known_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_verified_head": {
+      "type": "string",
+      "minLength": 7
+    },
+    "receipt_path": {
+      "type": "string"
+    }
+  }
+}
