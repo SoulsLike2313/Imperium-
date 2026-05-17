@@ -1,0 +1,52 @@
+{
+  "schema_version": "imperium.doctrinarium.gate_schema.v0_1",
+  "description": "Machine-readable gate entry contract for Gate Spine V0.1.",
+  "entry_required_fields": [
+    "gate_id",
+    "name",
+    "version",
+    "owner_organ",
+    "purpose",
+    "severity",
+    "applies_to",
+    "required_inputs",
+    "required_evidence",
+    "pass_condition",
+    "fail_condition",
+    "stop_condition",
+    "receipt_required",
+    "receipt_fields",
+    "related_gates",
+    "status"
+  ],
+  "field_types": {
+    "gate_id": "string",
+    "name": "string",
+    "version": "string",
+    "owner_organ": "string",
+    "purpose": "string",
+    "severity": "string",
+    "applies_to": "array[string]",
+    "required_inputs": "array[string]",
+    "required_evidence": "array[string]",
+    "pass_condition": "string",
+    "fail_condition": "string",
+    "stop_condition": "string",
+    "receipt_required": "boolean",
+    "receipt_fields": "array[string]",
+    "related_gates": "array[string]",
+    "status": "string"
+  },
+  "allowed_status_values": [
+    "ACTIVE",
+    "DRAFT",
+    "DEPRECATED",
+    "BLOCKED"
+  ],
+  "allowed_severity_values": [
+    "INFO",
+    "WARNING",
+    "BLOCKER",
+    "CRITICAL"
+  ]
+}

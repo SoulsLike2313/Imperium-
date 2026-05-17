@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-05-17T00:55:54.591102+00:00",
+  "current_head": "7a41b908d61df3360c734834b8935659e8630e3e",
+  "registry_path": "ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json",
+  "gatepack_path": "ORGANS/DOCTRINARIUM/GATES/GATEPACKS/GATEPACK_TASK_SECOND_BRAIN_V07_VISUAL_BOUNDARY_CONTRACT_V0_1.json",
+  "checks": [
+    {
+      "check": "registry_json_parses",
+      "ok": true,
+      "detail": "Registry JSON parsed."
+    },
+    {
+      "check": "gatepack_json_parses",
+      "ok": true,
+      "detail": "Gatepack JSON parsed."
+    },
+    {
+      "check": "gatepack_required_fields",
+      "ok": true,
+      "detail": "All required fields present."
+    },
+    {
+      "check": "gatepack_gates_exist_in_registry",
+      "ok": true,
+      "detail": "All referenced gates exist in registry."
+    },
+    {
+      "check": "mandatory_gates_present",
+      "ok": true,
+      "detail": "All mandatory gates present."
+    },
+    {
+      "check": "gate_ack_required_true",
+      "ok": true,
+      "detail": "gate_ack_required must be true."
+    },
+    {
+      "check": "no_gate_ack_no_work_true",
+      "ok": true,
+      "detail": "no_gate_ack_no_work must be true."
+    },
+    {
+      "check": "expected_receipts_not_empty",
+      "ok": true,
+      "detail": "expected_receipts must be a non-empty list."
+    },
+    {
+      "check": "stop_conditions_not_empty",
+      "ok": true,
+      "detail": "stop_conditions must be a non-empty list."
+    }
+  ],
+  "summary": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0
+  },
+  "verdict": "PASS"
+}

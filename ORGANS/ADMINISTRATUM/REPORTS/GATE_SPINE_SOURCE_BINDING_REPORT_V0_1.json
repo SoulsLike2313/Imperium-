@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-05-17T00:00:00Z",
+  "task_id": "TASK-20260517-UNQUISITION-EXTEREMINATUS-GATE-SPINE-V0_1",
+  "current_head": "7a41b908d61df3360c734834b8935659e8630e3e",
+  "repo_root": "E:\\IMPERIUM",
+  "sources_read": [
+    "ORGANS/DOCTRINARIUM/GATES/GATE_SPINE_INPUT_PACKET_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/GATE_SPINE_INPUT_PACKET_V0_1.json",
+    "ORGANS/DOCTRINARIUM/EPOCHS/UNQUISITION_EXTEREMINATUS_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/REPO_RECON_GATE_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/GATEPACK_TEMPLATE_V0_1.md",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/UNQUISITION_EXTEREMINATUS_20260517/DIRTY_ADVISORY_SNAPSHOT_5082A8F_MANIFEST_V0_1.md",
+    "ORGANS/INQUISITION/GATE_AUDITS/CLEANUP_CANDIDATE_INDEX_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ABSORPTION_DOCTRINE_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ABSORPTION_BACKLOG_V0_1.md"
+  ],
+  "derivation": {
+    "from_input_packet": "Gate Spine V0.1 derives from GATE_SPINE_INPUT_PACKET_V0_1 (md+json) plus epoch/recon/cleanup/script doctrine sources.",
+    "approach": "Minimal working admission spine: schema + registry + gatepack builder/checker + receipt ledger + anti-fake-green audits."
+  },
+  "in_scope": [
+    "ORGANS/DOCTRINARIUM/GATES/",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/GATE_RUNNERS/",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/",
+    "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/",
+    "ORGANS/ADMINISTRATUM/ACTION_CARDS/",
+    "ORGANS/ADMINISTRATUM/REPORTS/",
+    "ORGANS/INQUISITION/GATE_AUDITS/"
+  ],
+  "forbidden": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/",
+    "KILO_TEST/",
+    ".kilo/",
+    "SANCTUM/",
+    "RUNTIME/",
+    "MEMORY_ZONES/",
+    "app/server/js/css/html runtime files",
+    "visual assets/screenshots/zip files"
+  ],
+  "intentionally_deferred": [
+    "Repo cleanup execution (delete/move/rename).",
+    "Second Brain runtime/visual mutation.",
+    "Mature Gate Spine V1 completeness.",
+    "Cross-repo merge/adoption from test version."
+  ],
+  "verdict": "SOURCE_BINDING_READY"
+}

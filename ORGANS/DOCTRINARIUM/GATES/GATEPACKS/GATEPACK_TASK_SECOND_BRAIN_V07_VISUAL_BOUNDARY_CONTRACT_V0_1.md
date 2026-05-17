@@ -1,0 +1,55 @@
+# Sample Gatepack V0.1
+
+- task_id: `TASK-SECOND-BRAIN-V07-VISUAL-BOUNDARY-CONTRACT`
+- generated_at: `2026-05-17T00:55:51.513454+00:00`
+- current_head: `7a41b908d61df3360c734834b8935659e8630e3e`
+- source_registry: `ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json`
+- source_registry_sha256: `e43512693e8772e1ebc5e524c570dc68907265d3812f97516bf6b96106af4871`
+- gatepack_sha256: `7fb74c93f51bbf516526ce106ed00323d5d94a96c4581222e44a31c77e654fc7`
+- gate_ack_required: `True`
+- no_gate_ack_no_work: `True`
+
+## Required Gates
+- `GATE-U00-GIT-TRUTH`
+- `GATE-U01-ROLE-ACK`
+- `GATE-U02-SCOPE-BOUNDARY`
+- `GATE-U03-NO-FEATURE-DRIFT`
+- `GATE-U04-EVIDENCE-RECEIPT`
+- `GATE-U05-STOP-CONDITIONS`
+- `GATE-U08-REPO-PURITY`
+- `GATE-U09-NO-FAKE-GREEN`
+- `GATE-UI00-TRUTH-BINDING`
+- `GATE-VIS00-PERFORMANCE-BUDGET`
+- `GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT`
+
+## Allowed Paths
+- `ORGANS/DOCTRINARIUM/GATES/`
+- `ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/`
+- `ORGANS/MECHANICUS/SCRIPTORIUM/GATE_RUNNERS/`
+- `ORGANS/ADMINISTRATUM/GATE_RECEIPTS/`
+- `ORGANS/ADMINISTRATUM/REPORTS/`
+- `ORGANS/INQUISITION/GATE_AUDITS/`
+
+## Forbidden Paths
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/`
+- `KILO_TEST/`
+- `.kilo/`
+- `SANCTUM/`
+- `RUNTIME/`
+- `MEMORY_ZONES/`
+- `any app/server/js/css/html runtime files`
+- `visual assets/screenshots/zip files`
+
+## Expected Receipts
+- `git_truth_receipt`
+- `scope_boundary_receipt`
+- `gate_ack_receipt`
+- `before_after_receipt`
+- `truth_binding_receipt`
+- `performance_receipt_if_claimed`
+
+## Stop Conditions
+- HEAD mismatch from expected task start hash.
+- Forbidden path appears in diff.
+- No-delete or no-runtime-mutation law would be violated.
+- Evidence receipts cannot be produced for a PASS claim.

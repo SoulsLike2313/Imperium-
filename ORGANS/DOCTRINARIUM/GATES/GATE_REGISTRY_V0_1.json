@@ -1,0 +1,606 @@
+{
+  "schema_version": "imperium.doctrinarium.gate_registry.v0_1",
+  "generated_at": "2026-05-17T00:00:00Z",
+  "task_id": "TASK-20260517-UNQUISITION-EXTEREMINATUS-GATE-SPINE-V0_1",
+  "current_head": "7a41b908d61df3360c734834b8935659e8630e3e",
+  "source_schema": "ORGANS/DOCTRINARIUM/GATES/GATE_SCHEMA_V0_1.json",
+  "owner_epoch": "UNQUISITION EXTEREMINATUS",
+  "gate_count": 16,
+  "gates": [
+    {
+      "gate_id": "GATE-U00-GIT-TRUTH",
+      "name": "Git Truth Lock",
+      "version": "v0_1",
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Bind task execution to verified HEAD/branch/status truth.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "all_tasks"
+      ],
+      "required_inputs": [
+        "expected_head",
+        "expected_branch",
+        "expected_repo_root"
+      ],
+      "required_evidence": [
+        "git rev-parse HEAD",
+        "git rev-parse --abbrev-ref HEAD",
+        "git status --short"
+      ],
+      "pass_condition": "HEAD, branch, and repo root match task truth contract.",
+      "fail_condition": "Any mismatch between expected and actual git truth values.",
+      "stop_condition": "Expected HEAD cannot be matched exactly.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U05-STOP-CONDITIONS",
+        "GATE-U10-PATH-TRUTH"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U01-ROLE-ACK",
+      "name": "Role Admission Ack",
+      "version": "v0_1",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "purpose": "Require explicit role and gate acknowledgment before work.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "all_tasks"
+      ],
+      "required_inputs": [
+        "task_id",
+        "role",
+        "gatepack_path"
+      ],
+      "required_evidence": [
+        "GATE_ACK block"
+      ],
+      "pass_condition": "GATE_ACK is complete and verdict is PASS.",
+      "fail_condition": "Missing or partial GATE_ACK fields.",
+      "stop_condition": "Agent cannot accept stop conditions.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U05-STOP-CONDITIONS"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U02-SCOPE-BOUNDARY",
+      "name": "Scope Boundary Enforcement",
+      "version": "v0_1",
+      "owner_organ": "INQUISITION",
+      "purpose": "Prevent out-of-scope modifications and forbidden path writes.",
+      "severity": "CRITICAL",
+      "applies_to": [
+        "all_tasks_with_edits"
+      ],
+      "required_inputs": [
+        "allowed_paths",
+        "forbidden_paths",
+        "planned_touched_paths"
+      ],
+      "required_evidence": [
+        "git diff --name-only",
+        "scope declaration report"
+      ],
+      "pass_condition": "All touched paths remain inside allowed scope.",
+      "fail_condition": "Any touched path outside allowed scope.",
+      "stop_condition": "Forbidden path appears in diff or staged changes.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U08-REPO-PURITY",
+        "GATE-U10-PATH-TRUTH"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U03-NO-FEATURE-DRIFT",
+      "name": "No Feature Drift",
+      "version": "v0_1",
+      "owner_organ": "DOCTRINARIUM",
+      "purpose": "Block unintended feature/runtime drift during bounded tasks.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "hardening_tasks",
+        "audit_tasks",
+        "visual_boundary_tasks"
+      ],
+      "required_inputs": [
+        "task_purpose",
+        "scope_boundary"
+      ],
+      "required_evidence": [
+        "before_after_report",
+        "git diff --name-status"
+      ],
+      "pass_condition": "Only scoped gate outputs changed.",
+      "fail_condition": "Unplanned feature or behavior change introduced.",
+      "stop_condition": "Runtime mutation becomes required to complete task.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U11-BEFORE-AFTER"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U04-EVIDENCE-RECEIPT",
+      "name": "Evidence And Receipt",
+      "version": "v0_1",
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Require concrete receipts for every critical claim.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "all_tasks"
+      ],
+      "required_inputs": [
+        "expected_receipts",
+        "evidence_paths"
+      ],
+      "required_evidence": [
+        "report files",
+        "receipt files"
+      ],
+      "pass_condition": "All expected receipts exist and are parseable.",
+      "fail_condition": "Missing or malformed required receipt files.",
+      "stop_condition": "Evidence cannot be produced for critical claim.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U05-STOP-CONDITIONS",
+      "name": "Stop Condition Binding",
+      "version": "v0_1",
+      "owner_organ": "INQUISITION",
+      "purpose": "Ensure stop conditions are explicit and accepted.",
+      "severity": "CRITICAL",
+      "applies_to": [
+        "all_tasks"
+      ],
+      "required_inputs": [
+        "stop_conditions"
+      ],
+      "required_evidence": [
+        "GATE_ACK.accepted_stop_conditions"
+      ],
+      "pass_condition": "Stop conditions are non-empty and explicitly accepted.",
+      "fail_condition": "Stop conditions missing or not acknowledged.",
+      "stop_condition": "New high-risk uncertainty appears without bounded fallback.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U01-ROLE-ACK"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U06-OWNER-GATE",
+      "name": "Owner Approval Gate",
+      "version": "v0_1",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "purpose": "Require explicit Owner gate for destructive or high-risk actions.",
+      "severity": "CRITICAL",
+      "applies_to": [
+        "destructive_tasks",
+        "architecture_rewrites",
+        "boundary_rewrites"
+      ],
+      "required_inputs": [
+        "owner_approval_reference"
+      ],
+      "required_evidence": [
+        "owner_approval_receipt"
+      ],
+      "pass_condition": "Owner approval exists for requested risky action.",
+      "fail_condition": "Risky action attempted without owner approval.",
+      "stop_condition": "Mass delete/move/rewrite requested without Owner gate.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U07-ROLLBACK-PATH",
+      "name": "Rollback Path Defined",
+      "version": "v0_1",
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Require rollback plan before mutable operations.",
+      "severity": "WARNING",
+      "applies_to": [
+        "mutable_tasks"
+      ],
+      "required_inputs": [
+        "rollback_plan"
+      ],
+      "required_evidence": [
+        "rollback_receipt_or_plan"
+      ],
+      "pass_condition": "Rollback path documented and reachable.",
+      "fail_condition": "No rollback path documented for mutable task.",
+      "stop_condition": "Rollback impossible and risk is elevated.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U04-EVIDENCE-RECEIPT"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U08-REPO-PURITY",
+      "name": "Repo Purity Check",
+      "version": "v0_1",
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Protect repo from unexpected drift and pollution.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "all_tasks"
+      ],
+      "required_inputs": [
+        "git_status_before",
+        "git_status_after"
+      ],
+      "required_evidence": [
+        "git status receipts",
+        "git diff summary"
+      ],
+      "pass_condition": "Only intentional task outputs are changed.",
+      "fail_condition": "Unexpected dirty changes appear during task.",
+      "stop_condition": "Unrelated paths changed and cannot be explained.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U09-NO-FAKE-GREEN",
+      "name": "No Fake Green",
+      "version": "v0_1",
+      "owner_organ": "INQUISITION",
+      "purpose": "Block PASS verdicts without hard evidence.",
+      "severity": "CRITICAL",
+      "applies_to": [
+        "all_tasks"
+      ],
+      "required_inputs": [
+        "verdict_claims",
+        "evidence_paths"
+      ],
+      "required_evidence": [
+        "receipt checker outputs",
+        "verification reports"
+      ],
+      "pass_condition": "PASS claims are backed by concrete evidence artifacts.",
+      "fail_condition": "PASS claimed while evidence missing or contradictory.",
+      "stop_condition": "Evidence is stale or invalid while verdict marked PASS.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U04-EVIDENCE-RECEIPT"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U10-PATH-TRUTH",
+      "name": "Path Truth",
+      "version": "v0_1",
+      "owner_organ": "INQUISITION",
+      "purpose": "Enforce truthful touched/not-touched declarations.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "all_tasks_with_edits"
+      ],
+      "required_inputs": [
+        "declared_touched_paths",
+        "declared_forbidden_paths"
+      ],
+      "required_evidence": [
+        "git diff --name-status"
+      ],
+      "pass_condition": "Declared paths match actual changed paths.",
+      "fail_condition": "Mismatch between declaration and real diff paths.",
+      "stop_condition": "Forbidden path appears in real diff.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U11-BEFORE-AFTER",
+      "name": "Before After Proof",
+      "version": "v0_1",
+      "owner_organ": "ADMINISTRATUM",
+      "purpose": "Require before/after state proof for operational claims.",
+      "severity": "WARNING",
+      "applies_to": [
+        "non_trivial_tasks"
+      ],
+      "required_inputs": [
+        "before_state",
+        "after_state"
+      ],
+      "required_evidence": [
+        "before_after_summary_report"
+      ],
+      "pass_condition": "Before and after states are captured and comparable.",
+      "fail_condition": "Before/after evidence is missing or inconsistent.",
+      "stop_condition": "Claimed improvements cannot be compared to baseline.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U03-NO-FEATURE-DRIFT"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-UI00-TRUTH-BINDING",
+      "name": "UI Truth Binding",
+      "version": "v0_1",
+      "owner_organ": "DOCTRINARIUM",
+      "purpose": "Bind UI/visual statements to backend truth and receipts.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "ui_tasks",
+        "visual_tasks",
+        "boundary_tasks"
+      ],
+      "required_inputs": [
+        "ui_claims",
+        "backend_receipts"
+      ],
+      "required_evidence": [
+        "truth_binding_report"
+      ],
+      "pass_condition": "UI claim references backend/data receipt IDs.",
+      "fail_condition": "UI claim exists without backend/data evidence.",
+      "stop_condition": "Visual readiness claim masks backend failure.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-VIS00-PERFORMANCE-BUDGET",
+      "name": "Performance Budget Claim Gate",
+      "version": "v0_1",
+      "owner_organ": "INQUISITION",
+      "purpose": "Block performance claims without measurement receipts.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "visual_tasks",
+        "performance_tasks"
+      ],
+      "required_inputs": [
+        "performance_claims",
+        "measurement_method"
+      ],
+      "required_evidence": [
+        "performance_receipt"
+      ],
+      "pass_condition": "Performance claims include metric and measurement evidence.",
+      "fail_condition": "Performance claimed without metric receipt.",
+      "stop_condition": "Measurement unavailable or invalid while claiming PASS.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U04-EVIDENCE-RECEIPT"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT",
+      "name": "Decorative Semantic Split",
+      "version": "v0_1",
+      "owner_organ": "INQUISITION",
+      "purpose": "Separate decorative visual work from semantic/runtime behavior.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "visual_tasks",
+        "decorative_tasks"
+      ],
+      "required_inputs": [
+        "visual_scope",
+        "semantic_scope"
+      ],
+      "required_evidence": [
+        "scope_boundary_audit_report"
+      ],
+      "pass_condition": "Decorative edits do not alter semantic/runtime corridor.",
+      "fail_condition": "Visual task changes semantic or runtime behavior.",
+      "stop_condition": "Backend corridor changes during decorative-only task.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY",
+        "GATE-U03-NO-FEATURE-DRIFT"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-AI00-NO-DIRECT-MODEL-COMMAND",
+      "name": "No Direct Model Command",
+      "version": "v0_1",
+      "owner_organ": "OFFICIO_AGENTIS",
+      "purpose": "Require gatepack/task contract over ad-hoc direct model instructions.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "all_operational_tasks"
+      ],
+      "required_inputs": [
+        "task_contract",
+        "gatepack_path"
+      ],
+      "required_evidence": [
+        "gatepack artifact",
+        "GATE_ACK artifact"
+      ],
+      "pass_condition": "Task execution is contract-bound and gate-bound.",
+      "fail_condition": "Execution driven by ad-hoc direct model instruction without contract.",
+      "stop_condition": "Critical task lacks gatepack or task contract artifacts.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U01-ROLE-ACK"
+      ],
+      "status": "ACTIVE"
+    }
+  ]
+}

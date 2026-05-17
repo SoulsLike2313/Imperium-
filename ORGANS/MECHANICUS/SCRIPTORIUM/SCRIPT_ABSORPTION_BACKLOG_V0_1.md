@@ -14,12 +14,14 @@ No script from this backlog is executed by this task unless already part of the 
 | `ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/final_bundle_assemble.py` | EXPORTERS | REVIEW_AND_REGISTER | repo recon unregistered sample | Bundle assembler candidate; requires boundary and portability checks. |
 | `.kilo/kilo.json` | VISUAL_TOOLS | KEEP_AS_NEGATIVE_REFERENCE | dirty snapshot commit 5082a8f | Not a canonical runtime tool; preserve as negative sample. |
 | `KILO_TEST/neural_map_optimized.html` | VISUAL_TOOLS | KEEP_AS_NEGATIVE_REFERENCE | dirty snapshot commit 5082a8f | Visual sandbox sample; no runtime adoption without dedicated gate. |
+| `ORGANS/MECHANICUS/SCRIPTORIUM/GATE_RUNNERS/imperium_gate_pack_builder_v0_1.py` | GATE_RUNNERS | REGISTER_AS_IS | Gate Spine V0.1 task output | Builds sample gatepack JSON+MD from Gate Registry V0.1. |
+| `ORGANS/MECHANICUS/SCRIPTORIUM/GATE_RUNNERS/imperium_gate_receipt_check_v0_1.py` | GATE_RUNNERS | REGISTER_AS_IS | Gate Spine V0.1 task output | Validates gatepack/registry linkage and emits PASS/FAIL check report. |
 
 ## Group Summary
 - BUILDERS: 1
 - CHECKERS: 3
 - EXPORTERS: 1
-- GATE_RUNNERS: 2
+- GATE_RUNNERS: 4
 - REPO_RECON: 1
 - VISUAL_TOOLS: 2
 
