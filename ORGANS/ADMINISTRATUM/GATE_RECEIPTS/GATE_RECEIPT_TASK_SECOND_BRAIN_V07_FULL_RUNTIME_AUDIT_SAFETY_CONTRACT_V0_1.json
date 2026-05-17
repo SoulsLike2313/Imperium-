@@ -1,0 +1,35 @@
+{
+  "receipt_id": "GATE_RECEIPT_TASK_SECOND_BRAIN_V07_FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-AUDIT-SAFETY-CONTRACT",
+  "generated_at": "2026-05-17T02:58:28+00:00",
+  "starting_head": "e488ea5224dccd3b2fd768c838fac7a9a434e6be",
+  "ending_head_before_commit": "e488ea5224dccd3b2fd768c838fac7a9a434e6be",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U05-STOP-CONDITIONS",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET",
+    "GATE-VIS00-PERFORMANCE-BUDGET"
+  ],
+  "gate_u12_report_output_budget_acknowledged": true,
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_AUDIT_SOURCE_SURVEY_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_REPORT_V0_1.json",
+    "ORGANS/INQUISITION/GATE_AUDITS/FULL_RUNTIME_AUDIT_SAFETY_RULES_V0_1.md",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1.json"
+  ],
+  "safety_contract_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1.json",
+  "source_survey_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_AUDIT_SOURCE_SURVEY_V0_1.json",
+  "runtime_executed": false,
+  "runtime_changed": false,
+  "forbidden_paths_touched": false,
+  "no_delete_rule_obeyed": true,
+  "visual_implementation_changed": false,
+  "optimization_changed": false,
+  "full_runtime_pass_claimed": false,
+  "verdict": "PASS_SAFETY_CONTRACT_READY"
+}

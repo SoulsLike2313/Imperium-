@@ -1,0 +1,80 @@
+{
+  "generated_at": "2026-05-17T02:58:28+00:00",
+  "current_head": "e488ea5224dccd3b2fd768c838fac7a9a434e6be",
+  "inspected_files": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_AUDIT_TARGET_PATH_FIX_REPORT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_TARGET_PATH_FIX_RUNNER_REPORT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/browser_performance_audit_runner_v0_1.py",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/VISUAL_LAYER_CONTRACT_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.json",
+    "ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json",
+    "ORGANS/DOCTRINARIUM/GATES/UNIVERSAL_GATE_LAWS_V0_1.md",
+    "ORGANS/INQUISITION/GATE_AUDITS/NO_FAKE_GREEN_AUDIT_RULES_V0_1.md",
+    "ORGANS/INQUISITION/GATE_AUDITS/SCOPE_BOUNDARY_AUDIT_RULES_V0_1.md",
+    "ORGANS/INQUISITION/GATE_AUDITS/REPORT_AVALANCHE_AUDIT_RULES_V0_1.md",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/server_v0_6.py",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css"
+  ],
+  "server_file_found": true,
+  "possible_runtime_write_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/*.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/task_packages/<task_id>/**",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/export_<stamp>/**",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/reports/neural_snapshot_live.json"
+  ],
+  "possible_api_endpoints": [
+    "GET /api/snapshot",
+    "GET /api/status",
+    "GET /api/tasks",
+    "GET /api/task_packages",
+    "GET /api/tasks/<id>",
+    "GET /api/tasks/<id>/validation",
+    "GET /api/comments",
+    "GET /api/links",
+    "GET /api/receipts",
+    "GET /api/export/status",
+    "GET /api/thread/<task_id>",
+    "POST /api/tasks/register",
+    "POST /api/tasks/launch",
+    "POST /api/tasks",
+    "POST /api/comments",
+    "POST /api/links",
+    "POST /api/export",
+    "POST /api/rebuild_snapshot"
+  ],
+  "possible_mutating_endpoints": [
+    "POST /api/tasks/register",
+    "POST /api/tasks/launch",
+    "POST /api/tasks",
+    "POST /api/comments",
+    "POST /api/links",
+    "POST /api/export",
+    "POST /api/rebuild_snapshot"
+  ],
+  "static_frontend_limitations": [
+    "Static frontend audit does not validate live API/backend path truth.",
+    "Static frontend FPS is not full runtime performance evidence.",
+    "Static mode does not prove runtime write isolation or cleanup discipline.",
+    "Console/network behavior in static mode differs from live runtime server mode."
+  ],
+  "full_runtime_risks": [
+    "Runtime audit can write into MEMORY_ZONES and RUNTIME paths by design.",
+    "Without quarantine, runtime writes can pollute repository truth and future gates.",
+    "Mutating endpoints can alter task/comment/link state and create receipts/exports.",
+    "Snapshot rebuild can invoke subprocess and generate new runtime/report artifacts.",
+    "Leaving server running can create uncontrolled side effects after audit window."
+  ],
+  "recommended_future_audit_mode": "DISPOSABLE_LOCAL_RUNTIME_SERVER_WITH_QUARANTINE_WRITES",
+  "limitations": [
+    "No runtime execution performed in this task.",
+    "Source survey is static/read-only and does not validate live runtime behavior.",
+    "Quarantine path effectiveness must be proven in next runtime runner task."
+  ]
+}

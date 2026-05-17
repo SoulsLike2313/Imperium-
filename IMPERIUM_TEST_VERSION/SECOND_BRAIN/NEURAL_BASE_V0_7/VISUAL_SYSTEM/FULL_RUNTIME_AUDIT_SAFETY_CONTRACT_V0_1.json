@@ -1,0 +1,106 @@
+{
+  "contract_id": "FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1",
+  "generated_at": "2026-05-17T02:58:28+00:00",
+  "current_head": "e488ea5224dccd3b2fd768c838fac7a9a434e6be",
+  "purpose": "Define safety law before future full runtime performance audit execution.",
+  "allowed_audit_modes": [
+    "DISPOSABLE_LOCAL_RUNTIME_SERVER_WITH_QUARANTINE_WRITES",
+    "LOCALHOST_RUNTIME_SERVER_WITH_EXPLICIT_QUARANTINE_ROOT_AND_RECEIPTS",
+    "READ_ONLY_STATIC_FRONTEND_AUDIT_FOR_STATIC_METRICS_ONLY"
+  ],
+  "forbidden_audit_modes": [
+    "CANONICAL_REPO_RUNTIME_MUTATION_WITHOUT_QUARANTINE",
+    "STATIC_FRONTEND_FPS_ACCEPTED_AS_FULL_RUNTIME_TRUTH",
+    "RAW_TRACE_COMMIT_BY_DEFAULT",
+    "SILENT_EVIDENCE_CLEANUP"
+  ],
+  "required_pre_run_checks": [
+    "git_truth_lock_clean_worktree",
+    "quarantine_root_declared_and_verified",
+    "server_shutdown_plan_declared",
+    "expected_receipts_declared",
+    "report_output_budget_loaded"
+  ],
+  "required_runtime_isolation": {
+    "quarantine_required": true,
+    "canonical_runtime_write_allowed": false,
+    "isolation_proof_required": true,
+    "recommended_mode": "DISPOSABLE_LOCAL_RUNTIME_SERVER_WITH_QUARANTINE_WRITES"
+  },
+  "allowed_runtime_writes": [
+    "quarantine_runtime_json",
+    "quarantine_receipts",
+    "quarantine_exports",
+    "quarantine_task_packages",
+    "quarantine_logs"
+  ],
+  "forbidden_runtime_writes": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/** (canonical)",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/** (canonical)",
+    "unreceipted_runtime_side_effects"
+  ],
+  "required_api_checks": [
+    "GET /api/status",
+    "GET /api/snapshot",
+    "GET /api/tasks",
+    "GET /api/comments",
+    "GET /api/links",
+    "GET /api/receipts",
+    "GET /api/export/status"
+  ],
+  "required_asset_checks": [
+    "neural_map_v0_6.css_loaded",
+    "neural_map_v0_6.js_loaded",
+    "failed_required_requests_recorded",
+    "console_errors_recorded"
+  ],
+  "required_performance_metrics": [
+    "load_to_domcontentloaded_ms",
+    "load_to_load_event_ms",
+    "dom_nodes",
+    "svg_elements",
+    "average_fps",
+    "fps_1pct_low",
+    "long_task_count_if_available",
+    "console_errors",
+    "failed_requests"
+  ],
+  "required_receipts": [
+    "runtime_launch_receipt",
+    "runtime_write_manifest_receipt",
+    "api_check_receipt",
+    "performance_receipt",
+    "report_output_budget_receipt",
+    "runtime_shutdown_receipt",
+    "quarantine_cleanup_receipt"
+  ],
+  "raw_trace_policy": {
+    "default": "FORBIDDEN_IN_COMMIT",
+    "owner_gate_required": true,
+    "quarantine_storage_required": true
+  },
+  "report_output_budget_policy": {
+    "gate_id": "GATE-U12-REPORT-OUTPUT-BUDGET",
+    "max_report_json_lines": 2000,
+    "max_report_md_lines": 800,
+    "max_report_json_kb": 500,
+    "max_report_md_kb": 300,
+    "compact_summary_required": true
+  },
+  "owner_gate_required_for": [
+    "raw_trace_commit",
+    "canonical_runtime_write_exception",
+    "budget_limit_exception",
+    "post_audit_cleanup_on_tracked_paths"
+  ],
+  "stop_conditions": [
+    "quarantine_isolation_not_proven",
+    "runtime_write_outside_quarantine_detected",
+    "required_api_check_failure_with_pass_claim",
+    "required_asset_load_failure_with_pass_claim",
+    "raw_trace_staged_without_owner_gate",
+    "report_output_budget_exceeded"
+  ],
+  "next_allowed_task": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-AUDIT-RUNNER",
+  "status": "ACTIVE_FOR_NEXT_RUNTIME_AUDIT_TASK"
+}
