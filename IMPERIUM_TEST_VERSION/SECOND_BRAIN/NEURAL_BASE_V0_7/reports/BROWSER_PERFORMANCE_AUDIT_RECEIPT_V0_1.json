@@ -1,10 +1,44 @@
 {
   "task_id": "TASK-SECOND-BRAIN-V07-BROWSER-PERFORMANCE-AUDIT-RUNNER",
-  "generated_at": "2026-05-17T02:25:28+00:00",
-  "current_head": "94cf6b7fb773ea967f47e087337c5461aa9a017a",
+  "generated_at": "2026-05-17T02:45:15+00:00",
+  "current_head": "2cf311540229e850a0107fbec2f04b50873c7da1",
   "budget_source": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
   "report_output_budget_source": "ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.json",
+  "audit_scope": "STATIC_FRONTEND_AUDIT",
+  "target_mode": "STATIC_READ_ONLY_LOCAL_SERVER",
+  "target_url": "http://127.0.0.1:64648/neural_map_v0_6.html",
   "audit_target": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+  "required_files_present": {
+    "html_exists": true,
+    "css_exists": true,
+    "js_exists": true
+  },
+  "required_assets_loaded": {
+    "status": "REQUIRED_ASSETS_LOADED",
+    "css_loaded": true,
+    "js_loaded": true,
+    "details": {
+      "css": {
+        "file_name": "neural_map_v0_6.css",
+        "requested": true,
+        "loaded_ok": true,
+        "last_url": "http://127.0.0.1:64648/neural_map_v0_6.css",
+        "last_status": 200,
+        "fail_reason": null
+      },
+      "js": {
+        "file_name": "neural_map_v0_6.js",
+        "requested": true,
+        "loaded_ok": true,
+        "last_url": "http://127.0.0.1:64648/neural_map_v0_6.js",
+        "last_status": 200,
+        "fail_reason": null
+      }
+    }
+  },
+  "failed_required_assets": [],
+  "css_loaded": true,
+  "js_loaded": true,
   "browser_automation_status": {
     "status": "BROWSER_AUTOMATION_AVAILABLE",
     "backend": "python_playwright",
@@ -23,8 +57,9 @@
   },
   "safe_target_status": {
     "status": "SAFE_STATIC_TARGET_DETECTED",
-    "target_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
-    "reason": "Local static V0.6 HTML target exists."
+    "target_mode": "STATIC_READ_ONLY_LOCAL_SERVER",
+    "target_url": "http://127.0.0.1:64648/neural_map_v0_6.html",
+    "reason": "Using read-only local static server to keep CSS/JS path resolution correct."
   },
   "static_browser_precheck": {
     "status": "STATIC_BROWSER_PRECHECK",
@@ -33,9 +68,15 @@
       "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
       "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
     ],
-    "v06_html_exists": true,
-    "v06_css_exists": true,
-    "v06_js_exists": true,
+    "required_files_present": {
+      "html_exists": true,
+      "css_exists": true,
+      "js_exists": true
+    },
+    "required_references_in_html": {
+      "css_reference_found": true,
+      "js_reference_found": true
+    },
     "file_sizes_bytes": {
       "v06_html": 15783,
       "v06_css": 56312,
@@ -69,68 +110,105 @@
     "status": "BROWSER_AUDIT_RUN",
     "reason": "",
     "http_status": 200,
-    "load_elapsed_ms": 984.64,
+    "load_elapsed_ms": 1032.11,
     "metrics": {
-      "nav_start_time": 0,
-      "load_to_domcontentloaded_ms": 26.899999976158142,
-      "load_to_load_event_ms": 28,
+      "load_to_domcontentloaded_ms": 64.5,
+      "load_to_load_event_ms": 69.5,
       "document_ready_state": "complete",
-      "dom_nodes": 240,
-      "svg_elements": 107,
-      "fps_estimate": 60.420460186325876,
-      "fps_1pct_low": 59.52380952380948,
+      "dom_nodes": 248,
+      "svg_elements": 108,
+      "fps_estimate": 59.63720699080593,
+      "fps_1pct_low": 59.52380952380968,
       "long_task_count": 0,
-      "frame_count": 73,
-      "frame_duration_ms": 1208.2000000476837
+      "frame_count": 72,
+      "frame_duration_ms": 1207.3,
+      "stylesheet_refs": [
+        "/neural_map_v0_6.css"
+      ],
+      "script_refs": [
+        "/neural_map_v0_6.js"
+      ]
     },
     "console_errors": [
-      "Failed to load resource: net::ERR_FILE_NOT_FOUND",
-      "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)"
     ],
-    "failed_requests": [
-      "GET file:///E:/neural_map_v0_6.css :: net::ERR_FILE_NOT_FOUND",
-      "GET file:///E:/neural_map_v0_6.js :: net::ERR_FILE_NOT_FOUND"
-    ]
+    "failed_requests": [],
+    "required_asset_state": {
+      "css": {
+        "file_name": "neural_map_v0_6.css",
+        "requested": true,
+        "loaded_ok": true,
+        "last_url": "http://127.0.0.1:64648/neural_map_v0_6.css",
+        "last_status": 200,
+        "fail_reason": null
+      },
+      "js": {
+        "file_name": "neural_map_v0_6.js",
+        "requested": true,
+        "loaded_ok": true,
+        "last_url": "http://127.0.0.1:64648/neural_map_v0_6.js",
+        "last_status": 200,
+        "fail_reason": null
+      }
+    }
   },
+  "browser_audit_run": true,
+  "fps_measured": true,
   "fps_measurement": {
     "status": "FPS_MEASURED",
-    "fps_estimate": 60.42,
+    "fps_estimate": 59.637,
     "fps_1pct_low": 59.524,
+    "fps_acceptance_status": "FPS_MEASURED_VALID_FOR_STATIC_FRONTEND_ONLY",
+    "label": "STATIC_FRONTEND_FPS_ESTIMATE",
     "reason": null
+  },
+  "fps_acceptance_status": "FPS_MEASURED_VALID_FOR_STATIC_FRONTEND_ONLY",
+  "full_runtime_audit_status": "FULL_RUNTIME_AUDIT_NOT_RUN",
+  "backend_api_status": {
+    "status": "NOT_DETECTED_IN_THIS_AUDIT",
+    "detail": "No explicit API request failures detected in compact sample.",
+    "sample": []
   },
   "budget_comparison": {
     "metrics": [
       {
         "metric": "load_to_domcontentloaded_ms",
-        "value": 26.9,
+        "value": 64.5,
         "target": 1800,
         "blocker": 3000,
         "status": "PASS"
       },
       {
         "metric": "load_to_load_event_ms",
-        "value": 28.0,
+        "value": 69.5,
         "target": 1800,
         "blocker": 3000,
         "status": "PASS"
       },
       {
         "metric": "dom_nodes",
-        "value": 240.0,
+        "value": 248.0,
         "target": 2200,
         "blocker": 3200,
         "status": "PASS"
       },
       {
         "metric": "svg_elements",
-        "value": 107.0,
+        "value": 108.0,
         "target": 900,
         "blocker": 1500,
         "status": "PASS"
       },
       {
         "metric": "average_fps",
-        "value": 60.42,
+        "value": 59.637,
         "target": 55,
         "blocker": 50,
         "status": "PASS"
@@ -144,30 +222,23 @@
       },
       {
         "metric": "console_errors",
-        "value": 2.0,
+        "value": 8.0,
         "target": 0.0,
         "blocker": 0.0,
         "status": "BLOCKED"
       },
       {
         "metric": "failed_requests",
-        "value": 2.0,
+        "value": 0.0,
         "target": 0.0,
         "blocker": 0.0,
-        "status": "BLOCKED"
+        "status": "PASS"
       }
     ],
     "blockers": [
       {
         "metric": "console_errors",
-        "value": 2.0,
-        "target": 0.0,
-        "blocker": 0.0,
-        "status": "BLOCKED"
-      },
-      {
-        "metric": "failed_requests",
-        "value": 2.0,
+        "value": 8.0,
         "target": 0.0,
         "blocker": 0.0,
         "status": "BLOCKED"
@@ -177,19 +248,22 @@
     "not_measured": []
   },
   "console_errors": {
-    "count": 2,
+    "count": 8,
     "samples": [
-      "Failed to load resource: net::ERR_FILE_NOT_FOUND",
-      "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)",
+      "Failed to load resource: the server responded with a status of 404 (File not found)"
     ],
     "status": "MEASURED"
   },
   "failed_requests": {
-    "count": 2,
-    "samples": [
-      "GET file:///E:/neural_map_v0_6.css :: net::ERR_FILE_NOT_FOUND",
-      "GET file:///E:/neural_map_v0_6.js :: net::ERR_FILE_NOT_FOUND"
-    ],
+    "count": 0,
+    "samples": [],
     "status": "MEASURED"
   },
   "raw_trace_status": {
@@ -199,15 +273,16 @@
   "limitations": [
     "Runner is read-only for source/runtime files and writes only compact reports.",
     "No dependency install or browser download is performed.",
-    "FPS is reported only when frame pacing measurement actually succeeded.",
-    "Live server startup is intentionally skipped when it risks runtime side effects."
+    "Static frontend audit is not equal to full runtime audit.",
+    "FPS is accepted only after required CSS/JS load validation.",
+    "No full runtime performance PASS is claimed in static-only mode."
   ],
-  "verdict": "BLOCKED",
-  "next_recommended_action": "TASK-SECOND-BRAIN-V07-PERFORMANCE-AUDIT-INTERPRETATION",
+  "verdict": "WARN",
+  "next_recommended_action": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-AUDIT-SAFETY-CONTRACT",
   "report_size_estimate": {
-    "json_lines": 208,
-    "json_kb": 6.17,
-    "md_lines": 46,
-    "md_kb": 2.0
+    "json_lines": 283,
+    "json_kb": 9.27,
+    "md_lines": 58,
+    "md_kb": 2.71
   }
 }

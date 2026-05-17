@@ -1,16 +1,19 @@
 #!/usr/bin/env python3
-"""Second Brain V0.7 browser performance audit runner (compact receipt, no raw trace)."""
+"""Second Brain V0.7 browser performance audit runner (target/path fixed, compact output)."""
 
 from __future__ import annotations
 
 import argparse
+import functools
 import importlib.util
 import json
 import math
 import re
 import subprocess
+import threading
 import time
 from datetime import datetime, timezone
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -34,8 +37,13 @@ V06_HTML = V06_APP_DIR / "neural_map_v0_6.html"
 V06_CSS = V06_APP_DIR / "neural_map_v0_6.css"
 V06_JS = V06_APP_DIR / "neural_map_v0_6.js"
 
+REQUIRED_ASSETS = {
+    "css": V06_CSS.name,
+    "js": V06_JS.name,
+}
+
 MAX_SAMPLES = 10
-MAX_CONSOLE_SAMPLE_CHARS = 200
+MAX_SAMPLE_CHARS = 240
 
 
 def utc_now() -> str:
@@ -95,8 +103,8 @@ def approx_html_tag_count(html: str) -> int:
 
 def count_svg_strings(texts: List[str]) -> int:
     total = 0
-    for t in texts:
-        total += len(re.findall(r"\bsvg\b", t, flags=re.IGNORECASE))
+    for text in texts:
+        total += len(re.findall(r"\bsvg\b", text, flags=re.IGNORECASE))
     return total
 
 
@@ -112,6 +120,17 @@ def sum_visual_assets_bytes(root: Path) -> int:
             except Exception:
                 pass
     return total
+
+
+def _clip(text: str) -> str:
+    return text[:MAX_SAMPLE_CHARS]
+
+
+def _safe_sample_list(items: List[str]) -> List[str]:
+    out: List[str] = []
+    for item in items[:MAX_SAMPLES]:
+        out.append(_clip(item))
+    return out
 
 
 def detect_python_playwright() -> Dict[str, Any]:
@@ -152,19 +171,132 @@ def detect_node_playwright() -> Dict[str, Any]:
     }
 
 
-def _safe_sample_list(items: List[str]) -> List[str]:
-    out = []
-    for item in items[:MAX_SAMPLES]:
-        out.append(item[:MAX_CONSOLE_SAMPLE_CHARS])
+def build_required_asset_state() -> Dict[str, Dict[str, Any]]:
+    out: Dict[str, Dict[str, Any]] = {}
+    for key, file_name in REQUIRED_ASSETS.items():
+        out[key] = {
+            "file_name": file_name,
+            "requested": False,
+            "loaded_ok": False,
+            "last_url": None,
+            "last_status": None,
+            "fail_reason": None,
+        }
     return out
 
 
-def run_python_playwright_audit(file_url: str) -> Dict[str, Any]:
+def _match_required_asset_key(url: str) -> Optional[str]:
+    lower_url = url.lower()
+    for key, file_name in REQUIRED_ASSETS.items():
+        if lower_url.endswith(file_name.lower()) or ("/" + file_name.lower()) in lower_url:
+            return key
+    return None
+
+
+def mark_required_asset_success(state: Dict[str, Dict[str, Any]], url: str, status: Optional[int]) -> None:
+    key = _match_required_asset_key(url)
+    if key is None:
+        return
+    entry = state[key]
+    entry["requested"] = True
+    entry["last_url"] = url
+    entry["last_status"] = status
+    if status is None or (200 <= status < 400):
+        entry["loaded_ok"] = True
+        entry["fail_reason"] = None
+    else:
+        entry["loaded_ok"] = False
+        entry["fail_reason"] = f"HTTP_STATUS_{status}"
+
+
+def mark_required_asset_failure(state: Dict[str, Dict[str, Any]], url: str, reason: str) -> None:
+    key = _match_required_asset_key(url)
+    if key is None:
+        return
+    entry = state[key]
+    entry["requested"] = True
+    entry["last_url"] = url
+    entry["last_status"] = None
+    if not entry["loaded_ok"]:
+        entry["fail_reason"] = reason
+
+
+def summarize_required_assets(state: Dict[str, Dict[str, Any]]) -> Dict[str, Any]:
+    css_loaded = bool(state["css"]["loaded_ok"])
+    js_loaded = bool(state["js"]["loaded_ok"])
+    failed: List[str] = []
+    for key in ("css", "js"):
+        entry = state[key]
+        if not entry["loaded_ok"]:
+            reason = entry["fail_reason"] or "NOT_LOADED"
+            failed.append(f"{entry['file_name']}: {reason}")
+    return {
+        "status": "REQUIRED_ASSETS_LOADED" if css_loaded and js_loaded else "REQUIRED_ASSETS_MISSING",
+        "css_loaded": css_loaded,
+        "js_loaded": js_loaded,
+        "details": state,
+        "failed_required_assets": failed,
+    }
+
+
+class QuietStaticHandler(SimpleHTTPRequestHandler):
+    def log_message(self, format: str, *args: Any) -> None:
+        return
+
+
+def start_local_static_server(directory: Path) -> Dict[str, Any]:
+    try:
+        handler_cls = functools.partial(QuietStaticHandler, directory=str(directory))
+        server = ThreadingHTTPServer(("127.0.0.1", 0), handler_cls)
+        thread = threading.Thread(target=server.serve_forever, daemon=True)
+        thread.start()
+        return {
+            "ok": True,
+            "server": server,
+            "thread": thread,
+            "mode": "STATIC_READ_ONLY_LOCAL_SERVER",
+            "host": "127.0.0.1",
+            "port": int(server.server_port),
+            "error": None,
+        }
+    except Exception as exc:
+        return {
+            "ok": False,
+            "server": None,
+            "thread": None,
+            "mode": "STATIC_READ_ONLY_LOCAL_SERVER",
+            "host": "127.0.0.1",
+            "port": None,
+            "error": str(exc),
+        }
+
+
+def stop_local_static_server(server_meta: Dict[str, Any]) -> None:
+    server = server_meta.get("server")
+    thread = server_meta.get("thread")
+    if server is not None:
+        try:
+            server.shutdown()
+        except Exception:
+            pass
+        try:
+            server.server_close()
+        except Exception:
+            pass
+    if thread is not None:
+        try:
+            thread.join(timeout=2.0)
+        except Exception:
+            pass
+
+
+def run_python_playwright_audit(target_url: str) -> Dict[str, Any]:
     from playwright.sync_api import sync_playwright  # type: ignore
 
     console_errors: List[str] = []
     failed_requests: List[str] = []
     page_errors: List[str] = []
+    required_state = build_required_asset_state()
 
     start = time.perf_counter()
     result: Dict[str, Any] = {
@@ -177,28 +309,37 @@ def run_python_playwright_audit(file_url: str) -> Dict[str, Any]:
         context = browser.new_context()
         page = context.new_page()
 
-        page.on(
-            "console",
-            lambda msg: console_errors.append(msg.text)
-            if msg.type == "error" and len(console_errors) < MAX_SAMPLES
-            else None,
-        )
-        page.on(
-            "pageerror",
-            lambda exc: page_errors.append(str(exc))
-            if len(page_errors) < MAX_SAMPLES
-            else None,
-        )
-        page.on(
-            "requestfailed",
-            lambda req: failed_requests.append(
-                f"{req.method} {req.url} :: {req.failure if req.failure else 'UNKNOWN'}"
-            )
-            if len(failed_requests) < MAX_SAMPLES
-            else None,
-        )
+        def on_console(msg: Any) -> None:
+            if msg.type == "error" and len(console_errors) < MAX_SAMPLES:
+                console_errors.append(_clip(msg.text))
 
-        response = page.goto(file_url, wait_until="load", timeout=45000)
+        def on_page_error(exc: Exception) -> None:
+            if len(page_errors) < MAX_SAMPLES:
+                page_errors.append(_clip(str(exc)))
+
+        def on_response(resp: Any) -> None:
+            req = resp.request
+            url = req.url
+            status = None
+            try:
+                status = int(resp.status)
+            except Exception:
+                status = None
+            mark_required_asset_success(required_state, url, status)
+
+        def on_request_failed(req: Any) -> None:
+            reason = req.failure if req.failure else "UNKNOWN"
+            line = f"{req.method} {req.url} :: {reason}"
+            if len(failed_requests) < MAX_SAMPLES:
+                failed_requests.append(_clip(line))
+            mark_required_asset_failure(required_state, req.url, str(reason))
+
+        page.on("console", on_console)
+        page.on("pageerror", on_page_error)
+        page.on("response", on_response)
+        page.on("requestfailed", on_request_failed)
+
+        response = page.goto(target_url, wait_until="load", timeout=45000)
         load_elapsed_ms = (time.perf_counter() - start) * 1000.0
 
         metrics = page.evaluate(
@@ -208,6 +349,8 @@ def run_python_playwright_audit(file_url: str) -> Dict[str, Any]:
               const dom_nodes = document.querySelectorAll('*').length;
               const svg_elements = document.querySelectorAll('svg, svg *').length;
               const ready_state = document.readyState;
+              const stylesheet_refs = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(x => x.getAttribute('href') || '');
+              const script_refs = Array.from(document.querySelectorAll('script[src]')).map(x => x.getAttribute('src') || '');
               let fps = null;
               let frame_count = 0;
               let frame_duration_ms = 0;
@@ -251,7 +394,6 @@ def run_python_playwright_audit(file_url: str) -> Dict[str, Any]:
               }
 
               return {
-                nav_start_time: nav ? nav.startTime : null,
                 load_to_domcontentloaded_ms: nav ? nav.domContentLoadedEventEnd : null,
                 load_to_load_event_ms: nav ? nav.loadEventEnd : null,
                 document_ready_state: ready_state,
@@ -261,7 +403,9 @@ def run_python_playwright_audit(file_url: str) -> Dict[str, Any]:
                 fps_1pct_low: fps_1pct_low,
                 long_task_count: long_task_count,
                 frame_count: frame_count,
-                frame_duration_ms: frame_duration_ms
+                frame_duration_ms: frame_duration_ms,
+                stylesheet_refs: stylesheet_refs,
+                script_refs: script_refs
               };
             }
             """
@@ -277,37 +421,84 @@ def run_python_playwright_audit(file_url: str) -> Dict[str, Any]:
             "metrics": metrics,
             "console_errors": _safe_sample_list(console_errors + page_errors),
             "failed_requests": _safe_sample_list(failed_requests),
+            "required_asset_state": required_state,
         }
     )
     return result
 
 
-def run_node_playwright_audit(file_url: str) -> Dict[str, Any]:
+def run_node_playwright_audit(target_url: str) -> Dict[str, Any]:
     script = r"""
 const url = process.argv[1];
+const requiredCss = process.argv[2];
+const requiredJs = process.argv[3];
 const MAX_SAMPLES = 10;
-const CLIP = 200;
+const CLIP = 240;
+function clip(s) { return String(s || '').slice(0, CLIP); }
 (async () => {
   const { chromium } = require('playwright');
   const consoleErrors = [];
   const failedRequests = [];
+  const requiredState = {
+    css: { file_name: requiredCss, requested: false, loaded_ok: false, last_url: null, last_status: null, fail_reason: null },
+    js:  { file_name: requiredJs, requested: false, loaded_ok: false, last_url: null, last_status: null, fail_reason: null }
+  };
+  function matchKey(u) {
+    const lu = String(u || '').toLowerCase();
+    if (lu.endsWith(requiredCss.toLowerCase()) || lu.includes('/' + requiredCss.toLowerCase())) return 'css';
+    if (lu.endsWith(requiredJs.toLowerCase()) || lu.includes('/' + requiredJs.toLowerCase())) return 'js';
+    return null;
+  }
+  function markSuccess(u, status) {
+    const k = matchKey(u);
+    if (!k) return;
+    requiredState[k].requested = true;
+    requiredState[k].last_url = u;
+    requiredState[k].last_status = status;
+    if (status === null || (status >= 200 && status < 400)) {
+      requiredState[k].loaded_ok = true;
+      requiredState[k].fail_reason = null;
+    } else {
+      requiredState[k].loaded_ok = false;
+      requiredState[k].fail_reason = `HTTP_STATUS_${status}`;
+    }
+  }
+  function markFailure(u, reason) {
+    const k = matchKey(u);
+    if (!k) return;
+    requiredState[k].requested = true;
+    requiredState[k].last_url = u;
+    requiredState[k].last_status = null;
+    if (!requiredState[k].loaded_ok) {
+      requiredState[k].fail_reason = String(reason || 'UNKNOWN');
+    }
+  }
+
   const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext();
   const page = await context.newPage();
   page.on('console', msg => {
     if (msg.type() === 'error' && consoleErrors.length < MAX_SAMPLES) {
-      consoleErrors.push(String(msg.text()).slice(0, CLIP));
+      consoleErrors.push(clip(msg.text()));
     }
   });
   page.on('pageerror', err => {
-    if (consoleErrors.length < MAX_SAMPLES) consoleErrors.push(String(err).slice(0, CLIP));
+    if (consoleErrors.length < MAX_SAMPLES) consoleErrors.push(clip(String(err)));
+  });
+  page.on('response', resp => {
+    try {
+      const req = resp.request();
+      markSuccess(req.url(), resp.status());
+    } catch (e) {}
   });
   page.on('requestfailed', req => {
+    const fail = req.failure() ? req.failure().errorText : 'UNKNOWN';
     if (failedRequests.length < MAX_SAMPLES) {
-      const fail = req.failure() ? req.failure().errorText : 'UNKNOWN';
-      failedRequests.push(`${req.method()} ${req.url()} :: ${fail}`.slice(0, CLIP));
+      failedRequests.push(clip(`${req.method()} ${req.url()} :: ${fail}`));
     }
+    markFailure(req.url(), fail);
   });
+
   const t0 = Date.now();
   const response = await page.goto(url, { waitUntil: 'load', timeout: 45000 });
   const loadElapsed = Date.now() - t0;
@@ -316,6 +507,8 @@ const CLIP = 200;
     const domNodes = document.querySelectorAll('*').length;
     const svgElements = document.querySelectorAll('svg, svg *').length;
     const readyState = document.readyState;
+    const stylesheetRefs = Array.from(document.querySelectorAll('link[rel="stylesheet"]')).map(x => x.getAttribute('href') || '');
+    const scriptRefs = Array.from(document.querySelectorAll('script[src]')).map(x => x.getAttribute('src') || '');
     let fps = null;
     let fps1pctLow = null;
     let frameCount = 0;
@@ -357,7 +550,9 @@ const CLIP = 200;
       fps_1pct_low: fps1pctLow,
       long_task_count: longTaskCount,
       frame_count: frameCount,
-      frame_duration_ms: frameDuration
+      frame_duration_ms: frameDuration,
+      stylesheet_refs: stylesheetRefs,
+      script_refs: scriptRefs
     };
   });
   await browser.close();
@@ -367,14 +562,18 @@ const CLIP = 200;
     load_elapsed_ms: loadElapsed,
     metrics,
     console_errors: consoleErrors,
-    failed_requests: failedRequests
+    failed_requests: failedRequests,
+    required_asset_state: requiredState
   }));
 })().catch((err) => {
   console.log(JSON.stringify({ ok: false, error: String(err) }));
   process.exit(2);
 });
 """
-    code, out, err = run_cmd(["node", "-e", script, file_url], timeout=120)
+    code, out, err = run_cmd(
+        ["node", "-e", script, target_url, REQUIRED_ASSETS["css"], REQUIRED_ASSETS["js"]],
+        timeout=150,
+    )
     if code != 0:
         return {
             "status": "BROWSER_AUDIT_NOT_RUN",
@@ -399,6 +598,7 @@ const CLIP = 200;
         "metrics": data.get("metrics", {}),
         "console_errors": _safe_sample_list(data.get("console_errors", [])),
         "failed_requests": _safe_sample_list(data.get("failed_requests", [])),
+        "required_asset_state": data.get("required_asset_state", build_required_asset_state()),
     }
 
 
@@ -437,6 +637,12 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Second Brain V0.7 browser performance audit runner.")
     parser.add_argument("--json-out", default=str(DEFAULT_JSON_OUT), help="JSON receipt output path")
     parser.add_argument("--md-out", default=str(DEFAULT_MD_OUT), help="Markdown receipt output path")
+    parser.add_argument(
+        "--target-mode",
+        choices=["auto", "static_server", "file"],
+        default="auto",
+        help="Target/path mode selection. Default prefers local static server.",
+    )
     return parser.parse_args()
 
 
@@ -453,6 +659,9 @@ def build_static_precheck(report_budget: Dict[str, Any]) -> Dict[str, Any]:
     html_tags = approx_html_tag_count(html_text) if html_text else 0
     svg_strings = count_svg_strings([html_text, js_text, css_text])
 
+    linked_css = REQUIRED_ASSETS["css"] in html_text
+    linked_js = REQUIRED_ASSETS["js"] in html_text
+
     return {
         "status": "STATIC_BROWSER_PRECHECK",
         "candidate_target_paths": [
@@ -460,9 +669,15 @@ def build_static_precheck(report_budget: Dict[str, Any]) -> Dict[str, Any]:
             str(V06_CSS).replace("\\", "/"),
             str(V06_JS).replace("\\", "/"),
         ],
-        "v06_html_exists": html_exists,
-        "v06_css_exists": css_exists,
-        "v06_js_exists": js_exists,
+        "required_files_present": {
+            "html_exists": html_exists,
+            "css_exists": css_exists,
+            "js_exists": js_exists,
+        },
+        "required_references_in_html": {
+            "css_reference_found": linked_css,
+            "js_reference_found": linked_js,
+        },
         "file_sizes_bytes": {
             "v06_html": file_size(V06_HTML),
             "v06_css": file_size(V06_CSS),
@@ -498,6 +713,21 @@ def enforce_report_budget(json_path: Path, md_path: Path, limits: Dict[str, Any]
     }
 
 
+def detect_backend_api_status(failed_requests: List[str]) -> Dict[str, Any]:
+    api_related = [x for x in failed_requests if "/api/" in x.lower() or "api" in x.lower()]
+    if not api_related:
+        return {
+            "status": "NOT_DETECTED_IN_THIS_AUDIT",
+            "detail": "No explicit API request failures detected in compact sample.",
+            "sample": [],
+        }
+    return {
+        "status": "BACKEND_API_UNAVAILABLE_OR_NOT_REACHABLE_IN_STATIC_AUDIT",
+        "detail": "API-related failures detected during static frontend audit sample.",
+        "sample": _safe_sample_list(api_related),
+    }
+
+
 def render_md(report: Dict[str, Any]) -> str:
     lines: List[str] = []
     lines.append("# BROWSER PERFORMANCE AUDIT RECEIPT V0.1")
@@ -506,17 +736,29 @@ def render_md(report: Dict[str, Any]) -> str:
     lines.append(f"- generated_at: `{report['generated_at']}`")
     lines.append(f"- current_head: `{report['current_head']}`")
     lines.append(f"- verdict: `{report['verdict']}`")
-    lines.append(f"- audit_target: `{report['audit_target']}`")
+    lines.append(f"- target_mode: `{report['target_mode']}`")
+    lines.append(f"- target_url: `{report['target_url']}`")
     lines.append(f"- browser_automation_status: `{report['browser_automation_status']['status']}`")
     lines.append(f"- browser_audit_status: `{report['browser_audit']['status']}`")
+    lines.append(f"- required_assets_status: `{report['required_assets_loaded']['status']}`")
     lines.append(f"- fps_status: `{report['fps_measurement']['status']}`")
+    lines.append(f"- fps_acceptance_status: `{report['fps_measurement']['fps_acceptance_status']}`")
+    lines.append(f"- full_runtime_audit_status: `{report['full_runtime_audit_status']}`")
     lines.append(f"- raw_trace_status: `{report['raw_trace_status']['status']}`")
+    lines.append("")
+    lines.append("## Required Assets")
+    lines.append(f"- css_loaded: `{report['required_assets_loaded']['css_loaded']}`")
+    lines.append(f"- js_loaded: `{report['required_assets_loaded']['js_loaded']}`")
+    if report["failed_required_assets"]:
+        lines.append("- failed_required_assets:")
+        for item in report["failed_required_assets"]:
+            lines.append(f"  - {item}")
     lines.append("")
     lines.append("## Static Browser Precheck")
     pre = report["static_browser_precheck"]
-    lines.append(f"- v06_html_exists: `{pre['v06_html_exists']}`")
-    lines.append(f"- v06_css_exists: `{pre['v06_css_exists']}`")
-    lines.append(f"- v06_js_exists: `{pre['v06_js_exists']}`")
+    lines.append(f"- html_exists: `{pre['required_files_present']['html_exists']}`")
+    lines.append(f"- css_exists: `{pre['required_files_present']['css_exists']}`")
+    lines.append(f"- js_exists: `{pre['required_files_present']['js_exists']}`")
     lines.append(f"- approx_html_tag_count: `{pre['approx_html_tag_count']}`")
     lines.append(f"- svg_related_string_count: `{pre['svg_related_string_count']}`")
     lines.append(f"- raw_visual_asset_total_bytes_estimate: `{pre['raw_visual_asset_total_bytes_estimate']}`")
@@ -532,12 +774,12 @@ def render_md(report: Dict[str, Any]) -> str:
     lines.append(f"- failed_request_count: `{report['failed_requests']['count']}`")
     if report["console_errors"]["samples"]:
         lines.append("- console_error_samples:")
-        for s in report["console_errors"]["samples"]:
-            lines.append(f"  - {s}")
+        for sample in report["console_errors"]["samples"]:
+            lines.append(f"  - {sample}")
     if report["failed_requests"]["samples"]:
         lines.append("- failed_request_samples:")
-        for s in report["failed_requests"]["samples"]:
-            lines.append(f"  - {s}")
+        for sample in report["failed_requests"]["samples"]:
+            lines.append(f"  - {sample}")
     lines.append("")
     lines.append("## Limitations")
     for item in report["limitations"]:
@@ -556,11 +798,15 @@ def main() -> int:
     current_head = get_git_head()
 
     precheck = build_static_precheck(report_budget)
-    safe_static_target = bool(precheck["v06_html_exists"])
+    required_files_present = precheck["required_files_present"]
+    all_required_files_present = bool(
+        required_files_present["html_exists"]
+        and required_files_present["css_exists"]
+        and required_files_present["js_exists"]
+    )
 
     py_pw = detect_python_playwright()
     node_pw = detect_node_playwright()
-
     browser_automation_status = {
         "status": "BROWSER_AUTOMATION_NOT_AVAILABLE",
         "backend": None,
@@ -573,53 +819,98 @@ def main() -> int:
         browser_automation_status["status"] = "BROWSER_AUTOMATION_AVAILABLE"
         browser_automation_status["backend"] = "node_playwright"
 
+    target_mode = "TARGET_NOT_AVAILABLE"
+    target_url = None
+    target_mode_reason = "Required HTML target not available."
+    server_meta: Optional[Dict[str, Any]] = None
+
+    if all_required_files_present:
+        if args.target_mode in {"auto", "static_server"}:
+            server_try = start_local_static_server(V06_APP_DIR.resolve())
+            if server_try["ok"]:
+                server_meta = server_try
+                target_mode = "STATIC_READ_ONLY_LOCAL_SERVER"
+                target_url = f"http://127.0.0.1:{server_try['port']}/{V06_HTML.name}"
+                target_mode_reason = "Using read-only local static server to keep CSS/JS path resolution correct."
+            elif args.target_mode == "static_server":
+                target_mode = "TARGET_NOT_AVAILABLE"
+                target_mode_reason = f"Static local server failed: {server_try['error']}"
+
+        if target_url is None and args.target_mode in {"auto", "file"}:
+            target_mode = "FILE_URI_FALLBACK"
+            target_url = V06_HTML.resolve().as_uri()
+            target_mode_reason = "Fallback to file:// mode; required asset load validation still enforced."
+
     safe_target_status = {
-        "status": "SAFE_STATIC_TARGET_DETECTED" if safe_static_target else "BROWSER_AUDIT_BLOCKED_BY_RUNTIME_SIDE_EFFECT_RISK",
-        "target_path": str(V06_HTML).replace("\\", "/") if safe_static_target else None,
-        "reason": "Local static V0.6 HTML target exists."
-        if safe_static_target
-        else "No safe static target found; live server start is prohibited in this task.",
+        "status": "SAFE_STATIC_TARGET_DETECTED" if target_url else "BROWSER_AUDIT_BLOCKED_BY_RUNTIME_SIDE_EFFECT_RISK",
+        "target_mode": target_mode,
+        "target_url": target_url,
+        "reason": target_mode_reason,
     }
 
     browser_audit: Dict[str, Any] = {
         "status": "BROWSER_AUDIT_NOT_RUN",
         "reason": "",
     }
+    metrics: Dict[str, Any] = {}
     console_samples: List[str] = []
     failed_samples: List[str] = []
-    metrics: Dict[str, Any] = {}
+    required_state = build_required_asset_state()
 
-    if not safe_static_target:
-        browser_audit["reason"] = "BROWSER_AUDIT_BLOCKED_BY_RUNTIME_SIDE_EFFECT_RISK"
-    elif browser_automation_status["status"] != "BROWSER_AUTOMATION_AVAILABLE":
-        browser_audit["reason"] = "BROWSER_AUTOMATION_NOT_AVAILABLE"
-    else:
-        file_url = V06_HTML.resolve().as_uri()
-        try:
-            if browser_automation_status["backend"] == "python_playwright":
-                browser_audit = run_python_playwright_audit(file_url)
-            else:
-                browser_audit = run_node_playwright_audit(file_url)
-        except Exception as exc:
-            browser_audit = {
-                "status": "BROWSER_AUDIT_NOT_RUN",
-                "reason": f"Browser automation failed: {exc}",
-            }
+    try:
+        if not target_url:
+            browser_audit["reason"] = "BROWSER_AUDIT_BLOCKED_BY_RUNTIME_SIDE_EFFECT_RISK"
+        elif browser_automation_status["status"] != "BROWSER_AUTOMATION_AVAILABLE":
+            browser_audit["reason"] = "BROWSER_AUTOMATION_NOT_AVAILABLE"
+        else:
+            try:
+                if browser_automation_status["backend"] == "python_playwright":
+                    browser_audit = run_python_playwright_audit(target_url)
+                else:
+                    browser_audit = run_node_playwright_audit(target_url)
+            except Exception as exc:
+                browser_audit = {
+                    "status": "BROWSER_AUDIT_NOT_RUN",
+                    "reason": f"Browser automation failed: {exc}",
+                }
+    finally:
+        if server_meta is not None:
+            stop_local_static_server(server_meta)
 
     if browser_audit.get("status") == "BROWSER_AUDIT_RUN":
         metrics = browser_audit.get("metrics", {}) or {}
         console_samples = browser_audit.get("console_errors", []) or []
         failed_samples = browser_audit.get("failed_requests", []) or []
+        required_state = browser_audit.get("required_asset_state", required_state)
+
+    required_assets_loaded = summarize_required_assets(required_state)
+    failed_required_assets = required_assets_loaded["failed_required_assets"]
 
     fps_val = metrics.get("fps_estimate")
     fps_1pct = metrics.get("fps_1pct_low")
-    fps_measured = isinstance(fps_val, (int, float)) and fps_val > 0
+    fps_measured = isinstance(fps_val, (int, float)) and float(fps_val) > 0
+
+    full_runtime_audit_status = "FULL_RUNTIME_AUDIT_NOT_RUN"
+    audit_scope = "STATIC_FRONTEND_AUDIT"
+
+    if not fps_measured:
+        fps_acceptance_status = "FPS_NOT_MEASURED"
+    elif not (required_assets_loaded["css_loaded"] and required_assets_loaded["js_loaded"]):
+        fps_acceptance_status = "FPS_INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE"
+    elif full_runtime_audit_status != "FULL_RUNTIME_AUDIT":
+        fps_acceptance_status = "FPS_MEASURED_VALID_FOR_STATIC_FRONTEND_ONLY"
+    else:
+        fps_acceptance_status = "FPS_VALID_FOR_UI_PERFORMANCE_ACCEPTANCE"
 
     fps_measurement = {
         "status": "FPS_MEASURED" if fps_measured else "FPS_NOT_MEASURED",
         "fps_estimate": round(float(fps_val), 3) if fps_measured else None,
         "fps_1pct_low": round(float(fps_1pct), 3) if isinstance(fps_1pct, (int, float)) else None,
-        "reason": None if fps_measured else "FPS not available because browser audit did not run or did not return frame data.",
+        "fps_acceptance_status": fps_acceptance_status,
+        "label": "STATIC_FRONTEND_FPS_ESTIMATE" if fps_measured else "NOT_MEASURED",
+        "reason": None
+        if fps_measured
+        else "FPS not available because browser audit did not run or did not return frame data.",
     }
 
     metric_results: List[Dict[str, Any]] = []
@@ -708,29 +999,27 @@ def main() -> int:
         )
     )
 
-    blockers = [m for m in metric_results if m["status"] == "BLOCKED"]
-    warns = [m for m in metric_results if m["status"] == "WARN"]
-    not_measured = [m for m in metric_results if m["status"] == "NOT_MEASURED"]
+    blockers = [item for item in metric_results if item["status"] == "BLOCKED"]
+    warns = [item for item in metric_results if item["status"] == "WARN"]
+    not_measured = [item for item in metric_results if item["status"] == "NOT_MEASURED"]
 
     if browser_audit.get("status") != "BROWSER_AUDIT_RUN":
-        verdict = "WARN" if safe_static_target else "BLOCKED"
-    elif blockers:
         verdict = "BLOCKED"
+    elif not (required_assets_loaded["css_loaded"] and required_assets_loaded["js_loaded"]):
+        verdict = "BLOCKED"
+    elif blockers:
+        verdict = "WARN"
     elif warns:
         verdict = "WARN"
     else:
-        verdict = "PASS"
+        verdict = "WARN"
 
-    if browser_audit.get("status") == "BROWSER_AUDIT_RUN":
-        next_task = "TASK-SECOND-BRAIN-V07-PERFORMANCE-AUDIT-INTERPRETATION"
-    elif safe_target_status["status"] == "BROWSER_AUDIT_BLOCKED_BY_RUNTIME_SIDE_EFFECT_RISK":
+    if not (required_assets_loaded["css_loaded"] and required_assets_loaded["js_loaded"]):
         next_task = "TASK-SECOND-BRAIN-V07-BROWSER-AUDIT-ENVIRONMENT-PREP"
+    elif full_runtime_audit_status != "FULL_RUNTIME_AUDIT":
+        next_task = "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-AUDIT-SAFETY-CONTRACT"
     else:
-        next_task = "TASK-SECOND-BRAIN-V07-BROWSER-AUDIT-ENVIRONMENT-PREP"
-
-    asset_mb = precheck["raw_visual_asset_total_bytes_estimate"] / (1024 * 1024)
-    if asset_mb > float(perf_budget.get("compressed_visual_assets_blocker_mb", math.inf)):
-        next_task = "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION"
+        next_task = "TASK-SECOND-BRAIN-V07-PERFORMANCE-AUDIT-INTERPRETATION"
 
     report: Dict[str, Any] = {
         "task_id": TASK_ID,
@@ -738,12 +1027,30 @@ def main() -> int:
         "current_head": current_head,
         "budget_source": str(PERF_BUDGET_PATH).replace("\\", "/"),
         "report_output_budget_source": str(REPORT_BUDGET_PATH).replace("\\", "/"),
+        "audit_scope": audit_scope,
+        "target_mode": target_mode,
+        "target_url": target_url,
         "audit_target": str(V06_HTML).replace("\\", "/"),
+        "required_files_present": required_files_present,
+        "required_assets_loaded": {
+            "status": required_assets_loaded["status"],
+            "css_loaded": required_assets_loaded["css_loaded"],
+            "js_loaded": required_assets_loaded["js_loaded"],
+            "details": required_assets_loaded["details"],
+        },
+        "failed_required_assets": failed_required_assets,
+        "css_loaded": required_assets_loaded["css_loaded"],
+        "js_loaded": required_assets_loaded["js_loaded"],
         "browser_automation_status": browser_automation_status,
         "safe_target_status": safe_target_status,
         "static_browser_precheck": precheck,
         "browser_audit": browser_audit,
+        "browser_audit_run": browser_audit.get("status") == "BROWSER_AUDIT_RUN",
+        "fps_measured": fps_measured,
         "fps_measurement": fps_measurement,
+        "fps_acceptance_status": fps_acceptance_status,
+        "full_runtime_audit_status": full_runtime_audit_status,
+        "backend_api_status": detect_backend_api_status(failed_samples),
         "budget_comparison": {
             "metrics": metric_results,
             "blockers": blockers,
@@ -767,8 +1074,9 @@ def main() -> int:
         "limitations": [
             "Runner is read-only for source/runtime files and writes only compact reports.",
             "No dependency install or browser download is performed.",
-            "FPS is reported only when frame pacing measurement actually succeeded.",
-            "Live server startup is intentionally skipped when it risks runtime side effects.",
+            "Static frontend audit is not equal to full runtime audit.",
+            "FPS is accepted only after required CSS/JS load validation.",
+            "No full runtime performance PASS is claimed in static-only mode.",
         ],
         "verdict": verdict,
         "next_recommended_action": next_task,
@@ -788,9 +1096,12 @@ def main() -> int:
 
     print("AUDIT_JSON", str(json_out).replace("\\", "/"))
     print("AUDIT_MD", str(md_out).replace("\\", "/"))
-    print("VERDICT", report["verdict"])
+    print("TARGET_MODE", report["target_mode"])
     print("BROWSER_AUDIT_STATUS", report["browser_audit"]["status"])
-    print("FPS_STATUS", report["fps_measurement"]["status"])
+    print("CSS_LOADED", report["required_assets_loaded"]["css_loaded"])
+    print("JS_LOADED", report["required_assets_loaded"]["js_loaded"])
+    print("FPS_ACCEPTANCE_STATUS", report["fps_measurement"]["fps_acceptance_status"])
+    print("VERDICT", report["verdict"])
     print("REPORT_JSON_LINES", size_meta["json_lines"])
     print("REPORT_JSON_KB", size_meta["json_kb"])
     return 0
