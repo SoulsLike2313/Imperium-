@@ -1,0 +1,27 @@
+{
+  "policy_id": "IMPERIUM-BILINGUAL-UI-POLICY-V0_1",
+  "generated_at": "2026-05-17T13:21:08Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "languages_required": [
+    "ru",
+    "en"
+  ],
+  "canonical_data_language": "en_ascii_preferred",
+  "ui_language_resources": [
+    "i18n_resource_keys",
+    "panel_label_maps",
+    "tooltip_maps",
+    "summary_templates"
+  ],
+  "pass_conditions": [
+    "Owner-facing UI supports RU and EN.",
+    "Language switch exists.",
+    "Canonical machine data stays stable and language-neutral where possible."
+  ],
+  "fail_conditions": [
+    "Any owner dashboard lacks RU or EN support.",
+    "Single-language hardcoded final interface.",
+    "Encoding/mojibake issues in owner-facing text."
+  ],
+  "status": "ACTIVE_POLICY"
+}

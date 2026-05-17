@@ -1,0 +1,52 @@
+{
+  "concept_id": "IMPERIUM-AGENT-FACTORY-FOUNDATION-CONCEPT-V0_1",
+  "generated_at": "2026-05-17T13:21:55Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "architecture_chain": [
+    "Script",
+    "Script Family",
+    "Agent Skill",
+    "Agent Profile",
+    "Agent Family",
+    "Block Wing",
+    "Organ",
+    "IMPERIUM Body",
+    "Owner Brain + IMPERIUM Body = operating intelligence"
+  ],
+  "required_agent_fields": [
+    "agent_profile_id",
+    "owner_organ",
+    "mission_scope",
+    "allowed_script_families",
+    "required_gates",
+    "required_receipts",
+    "stop_conditions",
+    "observer_output_targets"
+  ],
+  "first_agent_profiles": [
+    "recon_cartographer",
+    "gate_scribe",
+    "receipt_custodian",
+    "scriptorium_absorber",
+    "delivery_assembler"
+  ],
+  "controlling_organs": [
+    "OFFICIO_AGENTIS",
+    "DOCTRINARIUM",
+    "MECHANICUS",
+    "ADMINISTRATUM"
+  ],
+  "observation_surfaces": [
+    "ORGANS/SANCTUM/CONTROL_CENTER",
+    "Second Brain control surfaces",
+    "Gate receipts and action cards"
+  ],
+  "forbidden_agent_patterns": [
+    "huge_unbounded_agent_without_passport",
+    "agent_without_owner_organ",
+    "agent_without_allowed_scripts",
+    "agent_without_gate_and_receipt_binding",
+    "agent_without_observer_outputs"
+  ],
+  "status": "FOUNDATION_CONCEPT_REGISTERED"
+}

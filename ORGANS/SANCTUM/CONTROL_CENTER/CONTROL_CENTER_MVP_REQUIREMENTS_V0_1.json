@@ -1,0 +1,52 @@
+{
+  "requirements_id": "IMPERIUM-CONTROL-CENTER-MVP-REQ-V0_1",
+  "generated_at": "2026-05-17T13:21:08Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "required_panels": [
+    "system_state",
+    "task_state",
+    "progress_percentages",
+    "warnings_errors",
+    "gates",
+    "receipts",
+    "diff_touched_paths",
+    "memory_context",
+    "scripts_tools",
+    "capabilities",
+    "commands",
+    "action_cards",
+    "agent_activity",
+    "delivery_readiness",
+    "owner_decision_controls"
+  ],
+  "required_data_sources": [
+    "gate_registry",
+    "gate_receipt_index",
+    "task_reports",
+    "action_cards",
+    "git_diff_scope",
+    "readiness_matrix",
+    "runtime_audit_receipts",
+    "script_inventory_backlogs"
+  ],
+  "required_controls": [
+    "approve_or_reject_path",
+    "pause_resume_task",
+    "trigger_bound_checker",
+    "acknowledge_warning",
+    "request_reclassification"
+  ],
+  "bilingual_policy_ref": "ORGANS/SANCTUM/CONTROL_CENTER/BILINGUAL_UI_POLICY_V0_1.md",
+  "forbidden_ui_claims": [
+    "pass_without_receipt",
+    "progress_without_source",
+    "performance_ok_without_prerequisites",
+    "delivery_ready_without_artifacts"
+  ],
+  "pass_criteria": [
+    "Each panel field has source binding contract.",
+    "RU and EN labels are available.",
+    "Gate/receipt evidence attached to claims."
+  ],
+  "status": "REQUIREMENTS_REGISTERED"
+}

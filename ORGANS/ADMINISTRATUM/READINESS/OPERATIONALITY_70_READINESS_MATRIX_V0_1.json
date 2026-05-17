@@ -1,0 +1,136 @@
+{
+  "matrix_id": "IMPERIUM-OP70-READINESS-MATRIX-V0_1",
+  "generated_at": "2026-05-17T13:21:08Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "readiness_items": [
+    {
+      "name": "Gate Spine",
+      "current_status": "PASS",
+      "evidence_path": "ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json",
+      "blocker_or_warning": "Needs expansion governance for whole-repo tasks.",
+      "next_fix": "Adopt U14-U18 drafts into audit and execution checkers."
+    },
+    {
+      "name": "Report Output Budget",
+      "current_status": "PASS",
+      "evidence_path": "ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.json",
+      "blocker_or_warning": "Legacy warning flood still noisy in repo-level checks.",
+      "next_fix": "Apply budget discipline to new whole-repo reports."
+    },
+    {
+      "name": "Python Type Safety",
+      "current_status": "PARTIAL",
+      "evidence_path": "ORGANS/MECHANICUS/SCRIPTORIUM/PYTHON_TYPE_SAFETY/SCRIPT_TYPE_SAFETY_POLICY_V0_1.md",
+      "blocker_or_warning": "Strict-clean is not complete in promoted tool zones.",
+      "next_fix": "Run inventory and staged hardening by maturity levels."
+    },
+    {
+      "name": "Script Pain Chronicle",
+      "current_status": "PASS",
+      "evidence_path": "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_PAIN_CHRONICLE_V0_1.md",
+      "blocker_or_warning": "Must keep pain-to-law conversion active in later tasks.",
+      "next_fix": "Enforce conversion loop in roadmap execution tasks."
+    },
+    {
+      "name": "Second Brain V0.7 Visual Foundation",
+      "current_status": "PARTIAL",
+      "evidence_path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/SECOND_BRAIN_V07_VISUAL_SYSTEM_20260517/IMPERIUM_GATE_SPINE_SECOND_BRAIN_PLAN_20260517.pdf",
+      "blocker_or_warning": "Foundation exists but full runtime truth baseline incomplete.",
+      "next_fix": "Close static asset route truth blockers before full acceptance."
+    },
+    {
+      "name": "Performance/Fake-Green Tooling",
+      "current_status": "PARTIAL",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/gate_receipt_index_v0_1.jsonl",
+      "blocker_or_warning": "Tooling exists; some measurements blocked by missing required assets.",
+      "next_fix": "Re-run with required assets loaded and truthful acceptance criteria."
+    },
+    {
+      "name": "Full Runtime Audit",
+      "current_status": "BLOCKED",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_FULL_RUNTIME_PERFORMANCE_AUDIT_RUNNER_V0_1.json",
+      "blocker_or_warning": "Blocked by required assets missing / route mismatch.",
+      "next_fix": "Perform runtime static-asset route fix task and re-validate."
+    },
+    {
+      "name": "Control Center",
+      "current_status": "NOT_STARTED",
+      "evidence_path": "ORGANS/SANCTUM/CONTROL_CENTER/CONTROL_CENTER_MVP_REQUIREMENTS_V0_1.md",
+      "blocker_or_warning": "Only requirements in this task; implementation absent.",
+      "next_fix": "Create data spine contract then implement MVP panels."
+    },
+    {
+      "name": "Zone Reality Map",
+      "current_status": "NOT_STARTED",
+      "evidence_path": "ORGANS/ASTRONOMICON/ROADMAPS/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_FUSION_ROADMAP_V0_1.md",
+      "blocker_or_warning": "No canonical map artifact yet.",
+      "next_fix": "Execute whole-repo truth inventory task."
+    },
+    {
+      "name": "Scriptorium Tool Absorption",
+      "current_status": "PARTIAL",
+      "evidence_path": "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ABSORPTION_DOCTRINE_V0_1.md",
+      "blocker_or_warning": "Absorption doctrine exists; whole-repo map not yet executed.",
+      "next_fix": "Produce tool absorption map for test-version technologies."
+    },
+    {
+      "name": "Agent Factory",
+      "current_status": "NOT_STARTED",
+      "evidence_path": "ORGANS/OFFICIO_AGENTIS/AGENT_FACTORY/AGENT_FACTORY_FOUNDATION_CONCEPT_V0_1.md",
+      "blocker_or_warning": "Concept only; no operational passports/checkers yet.",
+      "next_fix": "Define agent passport schema and compliance checker."
+    },
+    {
+      "name": "Freelance Corridor",
+      "current_status": "NOT_STARTED",
+      "evidence_path": "ORGANS/ASTRONOMICON/FREELANCE_CORRIDOR/FREELANCE_CORRIDOR_MVP_CONTRACT_V0_1.md",
+      "blocker_or_warning": "Contract drafted; intake/execution toolchain not built.",
+      "next_fix": "Implement corridor intake and packaging flow with gates."
+    },
+    {
+      "name": "Deliverable Factory",
+      "current_status": "NOT_STARTED",
+      "evidence_path": "ORGANS/MECHANICUS/DELIVERABLE_FACTORY/DELIVERABLE_FACTORY_MVP_CONTRACT_V0_1.md",
+      "blocker_or_warning": "Factory blocks defined but not implemented.",
+      "next_fix": "Implement block runners and delivery receipts."
+    },
+    {
+      "name": "Bilingual UI",
+      "current_status": "PARTIAL",
+      "evidence_path": "ORGANS/SANCTUM/CONTROL_CENTER/BILINGUAL_UI_POLICY_V0_1.md",
+      "blocker_or_warning": "Policy exists; no runtime UI implementation yet.",
+      "next_fix": "Enforce U16 in control center and owner-facing apps."
+    },
+    {
+      "name": "Visual Construction",
+      "current_status": "NOT_STARTED",
+      "evidence_path": "ORGANS/ASTRONOMICON/ROADMAPS/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_FUSION_ROADMAP_V0_1.md",
+      "blocker_or_warning": "Intentionally deferred until truth/data/control prerequisites complete.",
+      "next_fix": "Start only after Stage 5-10 readiness gates are met."
+    },
+    {
+      "name": "Whole-Repo Fusion",
+      "current_status": "UNKNOWN",
+      "evidence_path": "ORGANS/ASTRONOMICON/ROADMAPS/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_FUSION_ROADMAP_V0_1.json",
+      "blocker_or_warning": "Fusion depends on outputs of all prior stages.",
+      "next_fix": "Execute sequence from whole-repo truth inventory forward."
+    }
+  ],
+  "readiness_summary": {
+    "PASS": 3,
+    "PARTIAL": 5,
+    "BLOCKED": 1,
+    "NOT_STARTED": 6,
+    "UNKNOWN": 1
+  },
+  "global_blockers": [
+    "Runtime baseline blocked by required asset route truth mismatch.",
+    "Control center, agent factory, freelance corridor, and deliverable factory are doctrine-level only."
+  ],
+  "priority_fixes": [
+    "TASK-IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+    "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+    "TASK-IMPERIUM-CONTROL-CENTER-DATA-SPINE-CONTRACT-V0_1"
+  ],
+  "status": "HONEST_BASELINE_REGISTERED"
+}

@@ -1,0 +1,27 @@
+{
+  "gate_id": "GATE-U16-BILINGUAL-UI",
+  "name": "Bilingual UI Foundation Gate",
+  "version": "v0_1",
+  "owner_organ": "SANCTUM/DOCTRINARIUM",
+  "purpose": "Owner-facing dashboards/apps must support RU/EN from the foundation.",
+  "severity": "BLOCKER",
+  "applies_to": [
+    "owner_facing_dashboards",
+    "control_center_panels",
+    "freelance_delivery_surfaces"
+  ],
+  "required_inputs": [
+    "ui_surface_scope",
+    "language_policy_ref"
+  ],
+  "required_evidence": [
+    "ru_en_resource_plan",
+    "language_switch_design",
+    "encoding_safety_notes"
+  ],
+  "pass_condition": "RU and EN availability is designed/enforced for owner-facing surfaces.",
+  "fail_condition": "Single-language owner-facing surface is treated as final/acceptable.",
+  "stop_condition": "Owner-facing implementation proceeds without bilingual policy alignment.",
+  "receipt_required": true,
+  "status": "DRAFT_ACTIVE_FOR_PLANNING"
+}

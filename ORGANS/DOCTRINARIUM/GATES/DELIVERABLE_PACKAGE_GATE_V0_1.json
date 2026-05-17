@@ -1,0 +1,30 @@
+{
+  "gate_id": "GATE-U17-DELIVERABLE-PACKAGE",
+  "name": "Deliverable Package Gate",
+  "version": "v0_1",
+  "owner_organ": "MECHANICUS/ADMINISTRATUM",
+  "purpose": "Freelance/delivery work must include package, README, summary, QA checklist, screenshots if relevant, and presentation.",
+  "severity": "BLOCKER",
+  "applies_to": [
+    "freelance_tasks",
+    "delivery_tasks",
+    "client_handoff_tasks"
+  ],
+  "required_inputs": [
+    "delivery_scope",
+    "artifact_requirements"
+  ],
+  "required_evidence": [
+    "package_manifest",
+    "readme",
+    "summary",
+    "qa_checklist",
+    "presentation",
+    "screenshots_if_relevant"
+  ],
+  "pass_condition": "Delivery claim includes required artifact bundle and explicit caveats.",
+  "fail_condition": "Delivery marked complete without required package artifacts.",
+  "stop_condition": "Handoff requested while artifact bundle is incomplete.",
+  "receipt_required": true,
+  "status": "DRAFT_ACTIVE_FOR_PLANNING"
+}

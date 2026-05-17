@@ -1,0 +1,30 @@
+{
+  "gate_id": "GATE-U18-AGENT-FACTORY-COMPLIANCE",
+  "name": "Agent Factory Compliance Gate",
+  "version": "v0_1",
+  "owner_organ": "OFFICIO_AGENTIS/DOCTRINARIUM",
+  "purpose": "No IMPERIUM agent profile may be accepted without passport, owner organ, allowed scripts, gates, scope, receipts, stop conditions, and observer output.",
+  "severity": "BLOCKER",
+  "applies_to": [
+    "agent_factory_tasks",
+    "agent_profile_registration",
+    "agent_execution_expansion"
+  ],
+  "required_inputs": [
+    "agent_profile",
+    "owner_organ",
+    "allowed_script_families",
+    "scope_definition"
+  ],
+  "required_evidence": [
+    "agent_passport",
+    "gate_bindings",
+    "receipt_schema",
+    "observer_output_contract"
+  ],
+  "pass_condition": "Agent profile is fully governed and observable before acceptance.",
+  "fail_condition": "Agent profile accepted with missing passport/governance fields.",
+  "stop_condition": "Attempt to execute or register agent without compliance evidence.",
+  "receipt_required": true,
+  "status": "DRAFT_ACTIVE_FOR_PLANNING"
+}

@@ -1,0 +1,126 @@
+{
+  "roadmap_id": "IMPERIUM-OP70-WHOLE-REPO-FUSION-ROADMAP-V0_1",
+  "generated_at": "2026-05-17T13:21:08Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "purpose": "Create the first whole-repo operationality and fusion execution map for IMPERIUM.",
+  "orientation_sources": [
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/SECOND_BRAIN_V07_VISUAL_SYSTEM_20260517/IMPERIUM_GATE_SPINE_SECOND_BRAIN_PLAN_20260517.pdf",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/SECOND_BRAIN_V07_VISUAL_SYSTEM_20260517/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_PLAN_V0_1.pdf",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/SECOND_BRAIN_V07_VISUAL_SYSTEM_20260517/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_PLAN_V0_1_EN.pdf"
+  ],
+  "strategic_goals": [
+    "Reach approximately 70% operational executability quickly with truth-bound discipline.",
+    "Provide Owner-visible, observable, controllable, configurable control center trajectory.",
+    "Fuse canon law, organs, gates, scripts/tools, test technologies, Sanctum, and Second Brain into one operational body.",
+    "Guarantee delivery readiness for freelance/client corridor with package/readme/checklist/summary/presentation."
+  ],
+  "major_stages": [
+    {
+      "stage_id": 0,
+      "name": "Whole-Imperium Truth Lock",
+      "status": "PARTIAL",
+      "target": "truth_baseline_and_zone_map"
+    },
+    {
+      "stage_id": 1,
+      "name": "Operationality 70 Doctrine / Roadmap",
+      "status": "PASS",
+      "target": "roadmap_and_readiness_doctrine"
+    },
+    {
+      "stage_id": 2,
+      "name": "Gate Spine Expansion",
+      "status": "PASS",
+      "target": "U14_to_U18_drafts_and_registry_update"
+    },
+    {
+      "stage_id": 3,
+      "name": "Scriptorium / Tool Absorption Spine",
+      "status": "PARTIAL",
+      "target": "classification_absorption_backlog_and_rules"
+    },
+    {
+      "stage_id": 4,
+      "name": "Runtime Truth / Second Brain Baseline Completion",
+      "status": "BLOCKED",
+      "target": "asset_complete_truthful_runtime_baseline"
+    },
+    {
+      "stage_id": 5,
+      "name": "Control Center Data Spine",
+      "status": "NOT_STARTED",
+      "target": "data_source_contracts"
+    },
+    {
+      "stage_id": 6,
+      "name": "Sanctum + Second Brain Control Center MVP",
+      "status": "NOT_STARTED",
+      "target": "owner_control_center_mvp"
+    },
+    {
+      "stage_id": 7,
+      "name": "Imperium Zone Reality Map",
+      "status": "NOT_STARTED",
+      "target": "live_zone_map_and_ownership"
+    },
+    {
+      "stage_id": 8,
+      "name": "Agent Factory Foundation",
+      "status": "NOT_STARTED",
+      "target": "agent_passport_and_family_governance"
+    },
+    {
+      "stage_id": 9,
+      "name": "Freelance Corridor MVP",
+      "status": "NOT_STARTED",
+      "target": "task_to_delivery_corridor"
+    },
+    {
+      "stage_id": 10,
+      "name": "Deliverable Factory MVP",
+      "status": "NOT_STARTED",
+      "target": "delivery_artifact_generation_blocks"
+    },
+    {
+      "stage_id": 11,
+      "name": "Visual Construction",
+      "status": "NOT_STARTED",
+      "target": "truth_bound_control_surfaces"
+    },
+    {
+      "stage_id": 12,
+      "name": "Whole-Imperium Fusion / Cleanup / Merge",
+      "status": "UNKNOWN",
+      "target": "single_operational_body"
+    }
+  ],
+  "immediate_sequence": [
+    "TASK-IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+    "TASK-IMPERIUM-CONTROL-CENTER-DATA-SPINE-CONTRACT-V0_1",
+    "TASK-IMPERIUM-GATE-U14-U18-AUDIT-CHECKERS-V0_1",
+    "TASK-MECHANICUS-SCRIPTORIUM-TEST-VERSION-TOOL-ABSORPTION-MAP-V0_1",
+    "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX"
+  ],
+  "gates_to_add_or_draft": [
+    "GATE-U14-WHOLE-REPO-SCOPE-RECON",
+    "GATE-U15-OPERATIONALITY-IMPACT",
+    "GATE-U16-BILINGUAL-UI",
+    "GATE-U17-DELIVERABLE-PACKAGE",
+    "GATE-U18-AGENT-FACTORY-COMPLIANCE"
+  ],
+  "owner_requirements": [
+    "Visible/controllable control center trajectory with truthful state and warnings.",
+    "Task intake to delivery corridor with receipts and gate evidence.",
+    "Bilingual RU/EN owner-facing surfaces from foundation.",
+    "No decorative-only claims without source truth binding."
+  ],
+  "forbidden_shortcuts": [
+    "Skip whole-repo recon for large fusion tasks.",
+    "Claim operationality from UI appearance only.",
+    "Promote ungoverned agent profiles without passports/gates/receipts.",
+    "Bypass delivery package requirements for freelance outputs.",
+    "Merge test tools into canon without Scriptorium absorption discipline."
+  ],
+  "next_allowed_task": "TASK-IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+  "status": "ACTIVE_FOUNDATION_REGISTERED"
+}

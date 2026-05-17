@@ -1,0 +1,28 @@
+{
+  "gate_id": "GATE-U14-WHOLE-REPO-SCOPE-RECON",
+  "name": "Whole-Repo Scope Recon Gate",
+  "version": "v0_1",
+  "owner_organ": "ASTRONOMICON/DOCTRINARIUM",
+  "purpose": "Large whole-system tasks must perform relevant repo-wide recon before editing.",
+  "severity": "BLOCKER",
+  "applies_to": [
+    "whole_repo_tasks",
+    "multi_organ_fusion_tasks",
+    "high_scope_contract_tasks"
+  ],
+  "required_inputs": [
+    "task_scope",
+    "recon_targets",
+    "forbidden_paths"
+  ],
+  "required_evidence": [
+    "repo_recon_summary",
+    "scope_map",
+    "touched_path_plan"
+  ],
+  "pass_condition": "Task demonstrates relevant whole-repo reconnaissance tied to requested scope.",
+  "fail_condition": "Task edits doctrine/roadmap scope without relevant whole-repo recon evidence.",
+  "stop_condition": "Scope is large but recon evidence is missing or obviously partial.",
+  "receipt_required": true,
+  "status": "DRAFT_ACTIVE_FOR_PLANNING"
+}

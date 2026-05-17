@@ -33,3 +33,19 @@
 - Gate runners, receipt checkers, audit runners, and agent factory tools must not remain type-chaotic.
 - Strict type checking is required before promotion to reusable/core status.
 - Legacy/test scripts are not mass-fixed without explicit classification and backlog gating.
+
+
+## Whole-Repo Scope Recon Law
+- Large multi-organ tasks must perform relevant repo-wide reconnaissance before edits.
+
+## Operational Impact Law
+- Every substantial task must improve execution, truth, observability, control, or delivery discipline.
+
+## Bilingual UI Law
+- Owner-facing dashboards and control applications must be RU/EN capable from the foundation.
+
+## Deliverable Package Law
+- Freelance/delivery claims require package, README, summary, QA checklist, and presentation (screenshots when relevant).
+
+## Agent Factory Compliance Law
+- Agent profiles require passport, owner organ, allowed scripts, gate binding, receipts, stop conditions, and observer output.

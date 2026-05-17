@@ -1,0 +1,39 @@
+{
+  "contract_id": "IMPERIUM-DELIVERABLE-FACTORY-MVP-CONTRACT-V0_1",
+  "generated_at": "2026-05-17T13:21:55Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "factory_blocks": [
+    "app_builder",
+    "readme_builder",
+    "screenshot_collector",
+    "demo_scenario_writer",
+    "powerpoint_builder",
+    "package_builder",
+    "qa_checklist_builder",
+    "client_summary_writer"
+  ],
+  "required_inputs": [
+    "scoped_task_contract",
+    "execution_evidence",
+    "acceptance_criteria",
+    "gate_and_receipt_context"
+  ],
+  "required_outputs": [
+    "app_artifact_or_delta",
+    "readme",
+    "screenshots_if_relevant",
+    "demo_scenario",
+    "presentation",
+    "qa_checklist",
+    "summary",
+    "delivery_package"
+  ],
+  "required_receipts": [
+    "build_receipt",
+    "qa_receipt",
+    "packaging_receipt",
+    "delivery_gate_receipt"
+  ],
+  "presentation_required": true,
+  "status": "CONTRACT_REGISTERED"
+}

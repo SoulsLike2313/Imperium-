@@ -1,11 +1,11 @@
 {
   "schema_version": "imperium.doctrinarium.gate_registry.v0_1",
-  "generated_at": "2026-05-17T12:03:35Z",
-  "task_id": "TASK-MECHANICUS-SCRIPTORIUM-SCRIPT-PAIN-CHRONICLE-AND-TYPE-SAFETY-V0_1",
-  "current_head": "6c47b495f8e527124390b7f3c96133cf6874fb4e",
+  "generated_at": "2026-05-17T13:22:50Z",
+  "task_id": "TASK-IMPERIUM-OPERATIONALITY-70-WHOLE-REPO-FUSION-ROADMAP-V0_1",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
   "source_schema": "ORGANS/DOCTRINARIUM/GATES/GATE_SCHEMA_V0_1.json",
   "owner_epoch": "UNQUISITION EXTEREMINATUS",
-  "gate_count": 18,
+  "gate_count": 23,
   "gates": [
     {
       "gate_id": "GATE-U00-GIT-TRUTH",
@@ -693,6 +693,225 @@
         "GATE-U12-REPORT-OUTPUT-BUDGET"
       ],
       "status": "ACTIVE"
+    },
+    {
+      "gate_id": "GATE-U14-WHOLE-REPO-SCOPE-RECON",
+      "name": "Whole-Repo Scope Recon Gate",
+      "version": "v0_1",
+      "owner_organ": "ASTRONOMICON/DOCTRINARIUM",
+      "purpose": "Large whole-system tasks must perform relevant repo-wide recon before editing.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "whole_repo_tasks",
+        "multi_organ_fusion_tasks",
+        "high_scope_contract_tasks"
+      ],
+      "required_inputs": [
+        "task_scope",
+        "recon_targets",
+        "forbidden_paths"
+      ],
+      "required_evidence": [
+        "repo_recon_summary",
+        "scope_map",
+        "touched_path_plan"
+      ],
+      "pass_condition": "Task demonstrates relevant whole-repo reconnaissance tied to requested scope.",
+      "fail_condition": "Task edits doctrine/roadmap scope without relevant whole-repo recon evidence.",
+      "stop_condition": "Scope is large but recon evidence is missing or obviously partial.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY",
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "DRAFT_ACTIVE_FOR_PLANNING"
+    },
+    {
+      "gate_id": "GATE-U15-OPERATIONALITY-IMPACT",
+      "name": "Operationality Impact Gate",
+      "version": "v0_1",
+      "owner_organ": "DOCTRINARIUM/ADMINISTRATUM",
+      "purpose": "A task must improve execution, truth, observability, control, or delivery.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "operational_tasks",
+        "roadmap_tasks",
+        "control_tasks",
+        "delivery_tasks"
+      ],
+      "required_inputs": [
+        "declared_impact_vector",
+        "before_state",
+        "after_state"
+      ],
+      "required_evidence": [
+        "impact_report",
+        "before_after_reference",
+        "next_step_link"
+      ],
+      "pass_condition": "Task creates measurable operational improvement or clear risk reduction.",
+      "fail_condition": "Task output is decorative/documentative without operational leverage.",
+      "stop_condition": "Operational impact cannot be articulated or evidenced.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY",
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "DRAFT_ACTIVE_FOR_PLANNING"
+    },
+    {
+      "gate_id": "GATE-U16-BILINGUAL-UI",
+      "name": "Bilingual UI Foundation Gate",
+      "version": "v0_1",
+      "owner_organ": "SANCTUM/DOCTRINARIUM",
+      "purpose": "Owner-facing dashboards/apps must support RU/EN from the foundation.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "owner_facing_dashboards",
+        "control_center_panels",
+        "freelance_delivery_surfaces"
+      ],
+      "required_inputs": [
+        "ui_surface_scope",
+        "language_policy_ref"
+      ],
+      "required_evidence": [
+        "ru_en_resource_plan",
+        "language_switch_design",
+        "encoding_safety_notes"
+      ],
+      "pass_condition": "RU and EN availability is designed/enforced for owner-facing surfaces.",
+      "fail_condition": "Single-language owner-facing surface is treated as final/acceptable.",
+      "stop_condition": "Owner-facing implementation proceeds without bilingual policy alignment.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY",
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "DRAFT_ACTIVE_FOR_PLANNING"
+    },
+    {
+      "gate_id": "GATE-U17-DELIVERABLE-PACKAGE",
+      "name": "Deliverable Package Gate",
+      "version": "v0_1",
+      "owner_organ": "MECHANICUS/ADMINISTRATUM",
+      "purpose": "Freelance/delivery work must include package, README, summary, QA checklist, screenshots if relevant, and presentation.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "freelance_tasks",
+        "delivery_tasks",
+        "client_handoff_tasks"
+      ],
+      "required_inputs": [
+        "delivery_scope",
+        "artifact_requirements"
+      ],
+      "required_evidence": [
+        "package_manifest",
+        "readme",
+        "summary",
+        "qa_checklist",
+        "presentation",
+        "screenshots_if_relevant"
+      ],
+      "pass_condition": "Delivery claim includes required artifact bundle and explicit caveats.",
+      "fail_condition": "Delivery marked complete without required package artifacts.",
+      "stop_condition": "Handoff requested while artifact bundle is incomplete.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY",
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "DRAFT_ACTIVE_FOR_PLANNING"
+    },
+    {
+      "gate_id": "GATE-U18-AGENT-FACTORY-COMPLIANCE",
+      "name": "Agent Factory Compliance Gate",
+      "version": "v0_1",
+      "owner_organ": "OFFICIO_AGENTIS/DOCTRINARIUM",
+      "purpose": "No IMPERIUM agent profile may be accepted without passport, owner organ, allowed scripts, gates, scope, receipts, stop conditions, and observer output.",
+      "severity": "BLOCKER",
+      "applies_to": [
+        "agent_factory_tasks",
+        "agent_profile_registration",
+        "agent_execution_expansion"
+      ],
+      "required_inputs": [
+        "agent_profile",
+        "owner_organ",
+        "allowed_script_families",
+        "scope_definition"
+      ],
+      "required_evidence": [
+        "agent_passport",
+        "gate_bindings",
+        "receipt_schema",
+        "observer_output_contract"
+      ],
+      "pass_condition": "Agent profile is fully governed and observable before acceptance.",
+      "fail_condition": "Agent profile accepted with missing passport/governance fields.",
+      "stop_condition": "Attempt to execute or register agent without compliance evidence.",
+      "receipt_required": true,
+      "receipt_fields": [
+        "task_id",
+        "gate_id",
+        "timestamp_utc",
+        "verdict",
+        "current_head",
+        "evidence_paths",
+        "checker",
+        "notes"
+      ],
+      "related_gates": [
+        "GATE-U02-SCOPE-BOUNDARY",
+        "GATE-U04-EVIDENCE-RECEIPT",
+        "GATE-U09-NO-FAKE-GREEN"
+      ],
+      "status": "DRAFT_ACTIVE_FOR_PLANNING"
     }
   ]
 }

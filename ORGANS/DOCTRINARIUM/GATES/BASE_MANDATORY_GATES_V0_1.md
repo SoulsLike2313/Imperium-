@@ -20,3 +20,9 @@
 | GATE-VIS00-PERFORMANCE-BUDGET | Unmeasured performance claims. | Performance/visual tasks. | Performance measurement receipt. | Performance claim without metrics. |
 | GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT | Decorative tasks altering semantic corridor. | Visual/decorative tasks. | Scope split audit evidence. | Backend/semantic change during decorative task. |
 | GATE-AI00-NO-DIRECT-MODEL-COMMAND | Free-form execution without contract/gates. | All operational tasks. | Gatepack + task contract + GATE_ACK. | No contract artifacts for critical task. |
+
+| GATE-U14-WHOLE-REPO-SCOPE-RECON | Whole-repo tasks executed with partial/local-only context. | Large multi-organ/whole-repo scope tasks. | Repo-wide recon summary + scope map + touched-path plan. | Required recon missing for declared whole-repo scope. |
+| GATE-U15-OPERATIONALITY-IMPACT | Work that does not improve execution/truth/control/delivery. | Operational doctrine/control/delivery tasks. | Explicit impact statement + before/after or risk-reduction evidence. | No measurable operational impact can be shown. |
+| GATE-U16-BILINGUAL-UI | Owner-facing surfaces locked to one language. | Owner-facing dashboard/control/freelance UI tasks. | RU/EN resource plan + switch strategy + encoding safety note. | Owner-facing implementation proceeds without bilingual support. |
+| GATE-U17-DELIVERABLE-PACKAGE | Delivery claims without complete artifact bundle. | Freelance/client delivery tasks. | Package manifest + README + summary + QA checklist + presentation (+ screenshots if relevant). | Handoff requested with incomplete delivery package. |
+| GATE-U18-AGENT-FACTORY-COMPLIANCE | Uncontrolled agent profile promotion. | Agent factory/profile registration tasks. | Agent passport + owner + allowed scripts + gates + receipts + stop conditions + observer output contract. | Agent accepted/executed without compliance evidence. |

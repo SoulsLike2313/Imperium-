@@ -1,0 +1,29 @@
+{
+  "gate_id": "GATE-U15-OPERATIONALITY-IMPACT",
+  "name": "Operationality Impact Gate",
+  "version": "v0_1",
+  "owner_organ": "DOCTRINARIUM/ADMINISTRATUM",
+  "purpose": "A task must improve execution, truth, observability, control, or delivery.",
+  "severity": "BLOCKER",
+  "applies_to": [
+    "operational_tasks",
+    "roadmap_tasks",
+    "control_tasks",
+    "delivery_tasks"
+  ],
+  "required_inputs": [
+    "declared_impact_vector",
+    "before_state",
+    "after_state"
+  ],
+  "required_evidence": [
+    "impact_report",
+    "before_after_reference",
+    "next_step_link"
+  ],
+  "pass_condition": "Task creates measurable operational improvement or clear risk reduction.",
+  "fail_condition": "Task output is decorative/documentative without operational leverage.",
+  "stop_condition": "Operational impact cannot be articulated or evidenced.",
+  "receipt_required": true,
+  "status": "DRAFT_ACTIVE_FOR_PLANNING"
+}

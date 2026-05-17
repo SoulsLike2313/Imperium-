@@ -1,0 +1,50 @@
+{
+  "contract_id": "IMPERIUM-FREELANCE-CORRIDOR-MVP-CONTRACT-V0_1",
+  "generated_at": "2026-05-17T13:21:55Z",
+  "current_head": "3043e251672a185c6efc0cd2506fe09af69b44ac",
+  "corridor_steps": [
+    "brief_intake",
+    "structured_task_json",
+    "clarification_questions",
+    "plan_acceptance_criteria",
+    "bounded_execution",
+    "qa_checklist_tests_screenshots",
+    "delivery_package",
+    "readme",
+    "summary",
+    "presentation",
+    "owner_client_handoff"
+  ],
+  "required_outputs": [
+    "task_json",
+    "execution_plan",
+    "qa_checklist",
+    "delivery_bundle",
+    "readme",
+    "summary",
+    "presentation"
+  ],
+  "required_gates": [
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET",
+    "GATE-U15-OPERATIONALITY-IMPACT",
+    "GATE-U17-DELIVERABLE-PACKAGE"
+  ],
+  "required_delivery_artifacts": [
+    "package_archive_or_folder",
+    "readme",
+    "qa_checklist",
+    "summary",
+    "presentation",
+    "screenshots_if_relevant"
+  ],
+  "presentation_required": true,
+  "pass_criteria": [
+    "Delivery includes all required artifacts.",
+    "Warnings/uncertainties are explicit.",
+    "Evidence and gates are attached to delivery claim."
+  ],
+  "status": "CONTRACT_REGISTERED"
+}
