@@ -1,0 +1,44 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+    "agent_role": "PC Servitor (big-model bounded runtime-audit fixer)",
+    "useful_outputs": [
+      "Route/static mismatch diagnosis with cause category D",
+      "Updated full runtime runner with native route discovery and audit proxy fallback",
+      "Regenerated full runtime receipt/side manifest with explicit HTML/CSS/JS/API/FPS truth fields",
+      "Fix report, runner report, chronology, self-assessment, gate receipt, action card artifacts"
+    ],
+    "waste_points": [
+      "Initial runner had a hardcoded target path and required manual blocker interpretation loop.",
+      "Prior FPS readings on 404 context caused misleading performance loops."
+    ],
+    "missing_tools": [
+      "Dedicated reusable route-probe utility shared across runtime/browser audit runners.",
+      "Unified verdict normalizer for runtime audit families."
+    ],
+    "generated_tools_to_preserve": [
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py",
+        "classification": "REWRITE_REQUIRED",
+        "note": "Improved and now reusable, but still should be folded into Scriptorium family after type hardening."
+      }
+    ],
+    "recommended_script_absorption": [
+      "Promote route-discovery/proxy helper functions into shared runtime audit utility module after explicit absorption task.",
+      "Add type-hardening follow-up under Python type safety backlog."
+    ],
+    "recommended_narrow_agent_profiles": [
+      "runtime-route-probe-agent",
+      "audit-receipt-schema-validator-agent"
+    ],
+    "future_prompt_improvements": [
+      "Require explicit route candidate list in runtime audit tasks by default.",
+      "Require top-level receipt keys for HTML/CSS/JS/API/FPS truth in initial runner contracts."
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Add a pre-browser gate check: browser target must be HTTP 200 before FPS measurement.",
+      "Add gate checklist item: required static assets requested and loaded before full baseline verdict."
+    ],
+    "kpd_verdict": "GOOD"
+  }
+}

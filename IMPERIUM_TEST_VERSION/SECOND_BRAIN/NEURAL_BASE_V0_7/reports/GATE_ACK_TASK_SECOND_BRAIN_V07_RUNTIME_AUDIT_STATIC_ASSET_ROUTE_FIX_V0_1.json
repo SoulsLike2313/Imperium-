@@ -1,0 +1,83 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "generated_at": "2026-05-17T14:23:11Z",
+  "current_head": "a6520bfea976b6b54497219518f6068fc83e27f5",
+  "branch": "master",
+  "worktree_clean_before_work": true,
+  "bootloader_files_read": [
+    "AGENTS.md",
+    "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/BIG_MODEL_AGENT_OPERATING_RULES_V0_1.md",
+    "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/LOCAL_EXECUTOR_AGENT_RULES_V0_1.md",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/AGENT_KPD_SELF_REVIEW_CONTRACT_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/COMMAND_DISCIPLINE/COMMAND_CHUNKING_DISCIPLINE_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ARTIFACT_PRESERVATION_POLICY_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/TEMP_SCRIPT_BUFFER_POLICY_V0_1.md",
+    "ORGANS/INQUISITION/GATE_AUDITS/AGENT_EXECUTION_INQUISITION_AUDIT_RULES_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/AGENT_EXECUTION_GATES_U19_U21_V0_1.md"
+  ],
+  "runtime_audit_evidence_read": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_SIDE_EFFECT_MANIFEST_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RUNNER_REPORT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_BLOCKER_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_BLOCKER_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/server_v0_6.py",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  ],
+  "context_truth_sources_read": [
+    "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_BLOCKER_WARNING_MAP_V0_1.json",
+    "ORGANS/ASTRONOMICON/ROADMAPS/WHOLE_REPO_TRUTH_INVENTORY_NEXT_STEP_MAP_V0_1.json",
+    "ORGANS/ASTRONOMICON/ROADMAPS/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_FUSION_ROADMAP_V0_1.md"
+  ],
+  "accepted_stop_conditions": [
+    "STOP on HEAD mismatch or dirty pre-worktree.",
+    "STOP on missing required source/evidence files.",
+    "STOP if runner fails py_compile or cannot provide honest compact evidence.",
+    "STOP if forbidden paths are touched or deletions appear.",
+    "STOP if runtime source/app/server/css/js/html edits become required."
+  ],
+  "allowed_write_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/",
+    "ORGANS/ADMINISTRATUM/REPORTS/",
+    "ORGANS/ADMINISTRATUM/ACTION_CARDS/",
+    "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/"
+  ],
+  "forbidden_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/app/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/assets/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/runtime/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/server/",
+    "KILO_TEST/",
+    ".kilo/",
+    "SANCTUM/",
+    "RUNTIME/",
+    "MEMORY_ZONES/",
+    "ARTIFACTS/",
+    "ASSETS/",
+    "CURRENT_STATE/",
+    "src/",
+    "tests/",
+    "scripts/",
+    "TOOLS/",
+    "ORGANS/DOCTRINARIUM/",
+    "ORGANS/OFFICIO_AGENTIS/",
+    "ORGANS/INQUISITION/",
+    "ORGANS/SANCTUM/"
+  ],
+  "acknowledgements": {
+    "no_v06_source_edit": true,
+    "no_visual_implementation": true,
+    "no_cleanup_or_refactor": true,
+    "report_output_budget_active": true,
+    "command_chunking_active": true,
+    "script_preservation_active": true,
+    "kpd_self_review_required": true
+  },
+  "verdict": "PASS_GATED_FOR_BOUNDED_ROUTE_FIX"
+}

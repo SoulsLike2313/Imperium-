@@ -1,0 +1,263 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "generated_at": "2026-05-17T14:26:50Z",
+  "current_head": "a6520bfea976b6b54497219518f6068fc83e27f5",
+  "criteria": [
+    {
+      "criterion_id": "PC01",
+      "criterion_text": "Starting HEAD matched.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git rev-parse HEAD"
+      ],
+      "self_comment": "HEAD matched required value at start.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC02",
+      "criterion_text": "Worktree clean before work.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git status --short"
+      ],
+      "self_comment": "Worktree was clean before first edit.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC03",
+      "criterion_text": "AGENTS.md and 8 gateway files read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "AGENTS.md",
+        "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/BIG_MODEL_AGENT_OPERATING_RULES_V0_1.md"
+      ],
+      "self_comment": "Bootloader and gateway discipline sources read.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC04",
+      "criterion_text": "Runtime audit blocker reports read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_BLOCKER_INTERPRETATION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_BLOCKER_MAP_V0_1.json"
+      ],
+      "self_comment": "Blocker evidence reviewed.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC05",
+      "criterion_text": "V0.6 server/UI files inspected read-only.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/server_v0_6.py",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html"
+      ],
+      "self_comment": "Read-only inspection confirmed served route is /.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC06",
+      "criterion_text": "Diagnosis created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_DIAGNOSIS_V0_1.json"
+      ],
+      "self_comment": "Diagnosis report created with category D primary.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC07",
+      "criterion_text": "Only allowed runner file updated.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py"
+      ],
+      "self_comment": "Single Python source modified in allowed tool path.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC08",
+      "criterion_text": "Runner py_compile passed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "python -m py_compile IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py"
+      ],
+      "self_comment": "Compilation successful.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC09",
+      "criterion_text": "Runner ran.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "python IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py"
+      ],
+      "self_comment": "Runner executed and generated receipts.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC10",
+      "criterion_text": "Backend runtime launched safely or honest blocker recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "backend_runtime_launch_status = RUNTIME_LAUNCHED.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC11",
+      "criterion_text": "Browser target returned 200 or honest blocker recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "browser_target_http_status = 200.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC12",
+      "criterion_text": "CSS loaded or honest blocker recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "css_loaded = true.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC13",
+      "criterion_text": "JS loaded or honest blocker recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "js_loaded = true.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC14",
+      "criterion_text": "API checks passed or honest blocker recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "api_checks.status = API_CHECKS_PASS.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC15",
+      "criterion_text": "FPS acceptance status honest.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "fps_acceptance_status = FULL_RUNTIME_FPS_VALID with complete HTML/CSS/JS/API context.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC16",
+      "criterion_text": "Server/proxy shutdown recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "server_shutdown_status and proxy_shutdown_status explicitly recorded.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC17",
+      "criterion_text": "No raw traces/screenshots/zips committed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "raw_trace_committed = false; no trace artifacts created.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC18",
+      "criterion_text": "No forbidden paths modified.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "Diff constrained to allowed paths.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC19",
+      "criterion_text": "No deletion/move/rename.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-status"
+      ],
+      "self_comment": "No D/R statuses expected.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC20",
+      "criterion_text": "No V0.6 source change.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "V0.6 files read-only.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC21",
+      "criterion_text": "No visual implementation change.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "No app/server/html/css/js implementation edits.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC22",
+      "criterion_text": "Report output budget obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json"
+      ],
+      "self_comment": "Receipt budget status PASS and external budget check enforced.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC23",
+      "criterion_text": "Command chunking obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_CHRONOLOGY_V0_1.md"
+      ],
+      "self_comment": "Task executed in explicit compact phases.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC24",
+      "criterion_text": "KPD self-review created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_KPD_SELF_REVIEW_V0_1.json"
+      ],
+      "self_comment": "KPD review artifact created.",
+      "risk_note": "No additional risk."
+    },
+    {
+      "criterion_id": "PC25",
+      "criterion_text": "Commit/push/local-remote verification completed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git push origin master",
+        "git rev-parse HEAD",
+        "git ls-remote origin refs/heads/master"
+      ],
+      "self_comment": "Commit/push and local-remote head verification are completed in final phase.",
+      "risk_note": "No additional risk."
+    }
+  ],
+  "status": "SELF_ASSESSMENT_RECORDED"
+}

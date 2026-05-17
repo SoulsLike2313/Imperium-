@@ -12,10 +12,13 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import threading
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -71,6 +74,7 @@ MAX_SAMPLES = 10
 MAX_SAMPLE_CHARS = 240
 SERVER_READY_TIMEOUT_SEC = 35.0
 SERVER_POLL_SLEEP_SEC = 0.5
+AUDIT_PROXY_READY_TIMEOUT_SEC = 10.0
 
 API_ENDPOINTS = [
     "/api/status",
@@ -546,6 +550,307 @@ def check_api_endpoints(base_url: str) -> Dict[str, Any]:
     }
 
 
+def fetch_url_probe(url: str, timeout_sec: float = 4.0) -> Dict[str, Any]:
+    probe: Dict[str, Any] = {
+        "url": url,
+        "status": None,
+        "ok": False,
+        "contains_css_ref": False,
+        "contains_js_ref": False,
+        "error": None,
+    }
+    req = urllib.request.Request(url, headers={"User-Agent": "IMPERIUM-RUNTIME-AUDIT/0.1"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout_sec) as resp:
+            body = resp.read(65536).decode("utf-8", errors="replace")
+            status = int(resp.getcode())
+            probe["status"] = status
+            probe["ok"] = bool(200 <= status < 400)
+            probe["contains_css_ref"] = REQUIRED_ASSETS["css"] in body
+            probe["contains_js_ref"] = REQUIRED_ASSETS["js"] in body
+    except urllib.error.HTTPError as exc:
+        probe["status"] = int(exc.code)
+        probe["ok"] = False
+        probe["error"] = f"HTTP_{exc.code}"
+    except Exception as exc:
+        probe["status"] = None
+        probe["ok"] = False
+        probe["error"] = _clip(str(exc))
+    return probe
+
+
+def discover_native_ui_route(runtime_url: str) -> Dict[str, Any]:
+    base = runtime_url.rstrip("/")
+    candidate_urls = [
+        base + "/",
+        base + "/index.html",
+        base + "/" + V06_HTML.name,
+    ]
+    probes: List[Dict[str, Any]] = []
+    preferred: Optional[Dict[str, Any]] = None
+    fallback: Optional[Dict[str, Any]] = None
+
+    for candidate in candidate_urls:
+        probe = fetch_url_probe(candidate, timeout_sec=4.0)
+        probes.append(probe)
+        if probe.get("status") == 200 and probe.get("contains_css_ref") and probe.get("contains_js_ref"):
+            preferred = probe
+            break
+        if fallback is None and probe.get("status") == 200:
+            fallback = probe
+
+    chosen = preferred or fallback
+    return {
+        "status": "NATIVE_ROUTE_FOUND" if chosen else "NATIVE_ROUTE_NOT_FOUND",
+        "candidate_urls": candidate_urls,
+        "probes": probes,
+        "native_route_found": bool(chosen),
+        "chosen_target_url": chosen.get("url") if chosen else None,
+        "chosen_http_status": chosen.get("status") if chosen else None,
+        "chosen_has_css_ref": chosen.get("contains_css_ref") if chosen else False,
+        "chosen_has_js_ref": chosen.get("contains_js_ref") if chosen else False,
+    }
+
+
+class AuditStaticProxyHandler(BaseHTTPRequestHandler):
+    static_app_dir: Path = Path(".")
+    backend_base_url: str = "http://127.0.0.1:8767"
+    server_version = "ImperiumAuditStaticProxy/0.1"
+
+    def log_message(self, _format: str, *_args: Any) -> None:  # pragma: no cover
+        return
+
+    def _send_bytes(self, status: int, content_type: str, payload: bytes) -> None:
+        self.send_response(status)
+        self.send_header("Content-Type", content_type)
+        self.send_header("Content-Length", str(len(payload)))
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(payload)
+
+    def _send_json_error(self, status: int, message: str) -> None:
+        payload = json.dumps({"error": message, "status": "ERROR"}, ensure_ascii=False).encode("utf-8")
+        self._send_bytes(status, "application/json; charset=utf-8", payload)
+
+    def _serve_static_path(self, path: str) -> None:
+        mapping = {
+            "/": "neural_map_v0_6.html",
+            "/index.html": "neural_map_v0_6.html",
+            "/neural_map_v0_6.html": "neural_map_v0_6.html",
+            "/neural_map_v0_6.css": "neural_map_v0_6.css",
+            "/neural_map_v0_6.js": "neural_map_v0_6.js",
+        }
+        rel_name = mapping.get(path)
+        if rel_name is None:
+            self._send_json_error(404, "Not found")
+            return
+
+        file_path = self.static_app_dir / rel_name
+        if not file_path.exists():
+            self._send_json_error(404, f"Missing static file: {rel_name}")
+            return
+
+        ctype = "text/plain; charset=utf-8"
+        if rel_name.endswith(".html"):
+            ctype = "text/html; charset=utf-8"
+        elif rel_name.endswith(".css"):
+            ctype = "text/css; charset=utf-8"
+        elif rel_name.endswith(".js"):
+            ctype = "application/javascript; charset=utf-8"
+
+        payload = file_path.read_bytes()
+        self._send_bytes(200, ctype, payload)
+
+    def _proxy_api_request(self) -> None:
+        parsed = urllib.parse.urlparse(self.path)
+        upstream = self.backend_base_url.rstrip("/") + parsed.path
+        if parsed.query:
+            upstream += "?" + parsed.query
+
+        body: Optional[bytes] = None
+        length_raw = self.headers.get("Content-Length")
+        if length_raw:
+            try:
+                length = int(length_raw)
+            except ValueError:
+                length = 0
+            if length > 0:
+                body = self.rfile.read(length)
+
+        request = urllib.request.Request(upstream, data=body, method=self.command)
+        content_type = self.headers.get("Content-Type")
+        if content_type:
+            request.add_header("Content-Type", content_type)
+        accept = self.headers.get("Accept")
+        if accept:
+            request.add_header("Accept", accept)
+
+        try:
+            with urllib.request.urlopen(request, timeout=8.0) as resp:
+                payload = resp.read()
+                status = int(resp.getcode())
+                resp_type = resp.headers.get("Content-Type", "application/json; charset=utf-8")
+                self._send_bytes(status, resp_type, payload)
+        except urllib.error.HTTPError as exc:
+            payload = exc.read()
+            resp_type = exc.headers.get("Content-Type", "application/json; charset=utf-8")
+            self._send_bytes(int(exc.code), resp_type, payload)
+        except Exception as exc:
+            self._send_json_error(502, f"API proxy failed: {_clip(str(exc))}")
+
+    def do_OPTIONS(self) -> None:  # noqa: N802
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
+    def do_GET(self) -> None:  # noqa: N802
+        path = urllib.parse.urlparse(self.path).path or "/"
+        if path.startswith("/api/"):
+            self._proxy_api_request()
+            return
+        self._serve_static_path(path)
+
+    def do_POST(self) -> None:  # noqa: N802
+        path = urllib.parse.urlparse(self.path).path or "/"
+        if path.startswith("/api/"):
+            self._proxy_api_request()
+            return
+        self._send_json_error(405, "Method not allowed")
+
+
+def wait_http_ok(url: str, timeout_sec: float) -> Tuple[bool, str]:
+    deadline = time.time() + timeout_sec
+    last_reason = "TIMEOUT"
+    while time.time() < deadline:
+        probe = fetch_url_probe(url, timeout_sec=2.0)
+        status = probe.get("status")
+        if isinstance(status, int) and 200 <= status < 400:
+            return True, "READY"
+        last_reason = probe.get("error") or f"HTTP_{status}" if status is not None else "NO_STATUS"
+        time.sleep(0.2)
+    return False, str(last_reason)
+
+
+def start_audit_static_proxy(static_app_dir: Path, backend_runtime_url: str) -> Dict[str, Any]:
+    required_files = [
+        static_app_dir / "neural_map_v0_6.html",
+        static_app_dir / "neural_map_v0_6.css",
+        static_app_dir / "neural_map_v0_6.js",
+    ]
+    missing = [str(path).replace("\\", "/") for path in required_files if not path.exists()]
+    if missing:
+        return {
+            "ok": False,
+            "status": "AUDIT_PROXY_STATIC_FILES_MISSING",
+            "reason": "Required static files missing for audit proxy.",
+            "missing_files": missing,
+        }
+
+    handler_cls = type("RuntimeAuditProxyHandler", (AuditStaticProxyHandler,), {})
+    handler_cls.static_app_dir = static_app_dir
+    handler_cls.backend_base_url = backend_runtime_url.rstrip("/")
+
+    try:
+        server = ThreadingHTTPServer(("127.0.0.1", 0), handler_cls)
+    except Exception as exc:
+        return {
+            "ok": False,
+            "status": "AUDIT_PROXY_START_FAILED",
+            "reason": _clip(str(exc)),
+            "missing_files": missing,
+        }
+
+    thread = threading.Thread(target=server.serve_forever, kwargs={"poll_interval": 0.2}, daemon=True)
+    thread.start()
+    proxy_url = f"http://127.0.0.1:{server.server_port}"
+
+    ready, reason = wait_http_ok(proxy_url + "/", AUDIT_PROXY_READY_TIMEOUT_SEC)
+    if not ready:
+        shutdown = stop_audit_static_proxy(server, thread)
+        return {
+            "ok": False,
+            "status": "AUDIT_PROXY_NOT_READY",
+            "reason": reason,
+            "proxy_url": proxy_url,
+            "shutdown_status": shutdown.get("status"),
+            "missing_files": missing,
+        }
+
+    return {
+        "ok": True,
+        "status": "AUDIT_PROXY_STARTED",
+        "reason": "READY",
+        "proxy_url": proxy_url,
+        "server": server,
+        "thread": thread,
+        "missing_files": missing,
+    }
+
+
+def stop_audit_static_proxy(server: ThreadingHTTPServer, thread: threading.Thread) -> Dict[str, Any]:
+    try:
+        server.shutdown()
+        server.server_close()
+        thread.join(timeout=5.0)
+        if thread.is_alive():
+            return {"status": "AUDIT_PROXY_STOP_TIMEOUT"}
+        return {"status": "AUDIT_PROXY_STOPPED"}
+    except Exception as exc:
+        return {"status": "AUDIT_PROXY_STOP_FAILED", "error": _clip(str(exc))}
+
+
+def resolve_browser_target(runtime_url: str, static_app_dir: Path) -> Dict[str, Any]:
+    native = discover_native_ui_route(runtime_url)
+    if native.get("native_route_found"):
+        return {
+            "ok": True,
+            "status": "NATIVE_ROUTE_SELECTED",
+            "target_url": native.get("chosen_target_url"),
+            "full_runtime_mode": "FULL_RUNTIME_NATIVE_ROUTE",
+            "audit_proxy_used": False,
+            "audit_proxy_url": None,
+            "route_strategy": "NATIVE_ROUTE_DISCOVERY",
+            "native_route_found": True,
+            "native_discovery": native,
+            "proxy_server": None,
+            "proxy_thread": None,
+        }
+
+    proxy = start_audit_static_proxy(static_app_dir, runtime_url)
+    if proxy.get("ok"):
+        return {
+            "ok": True,
+            "status": "AUDIT_PROXY_ROUTE_SELECTED",
+            "target_url": proxy.get("proxy_url", "").rstrip("/") + "/",
+            "full_runtime_mode": "FULL_RUNTIME_WITH_AUDIT_STATIC_PROXY",
+            "audit_proxy_used": True,
+            "audit_proxy_url": proxy.get("proxy_url"),
+            "route_strategy": "AUDIT_STATIC_PROXY",
+            "native_route_found": False,
+            "native_discovery": native,
+            "proxy_server": proxy.get("server"),
+            "proxy_thread": proxy.get("thread"),
+        }
+
+    return {
+        "ok": False,
+        "status": "BLOCKED_BROWSER_TARGET_404",
+        "target_url": None,
+        "full_runtime_mode": "FULL_RUNTIME_ROUTE_UNRESOLVED",
+        "audit_proxy_used": False,
+        "audit_proxy_url": None,
+        "route_strategy": "NATIVE_AND_PROXY_FAILED",
+        "native_route_found": False,
+        "native_discovery": native,
+        "proxy_server": None,
+        "proxy_thread": None,
+        "reason": proxy.get("reason", "Unable to resolve browser target."),
+        "proxy_status": proxy.get("status"),
+    }
+
+
 def run_python_playwright_audit(target_url: str) -> Dict[str, Any]:
     from playwright.sync_api import sync_playwright  # type: ignore
 
@@ -830,8 +1135,7 @@ function markFail(url, reason) {
     return data
 
 
-def run_browser_audit(runtime_url: str) -> Dict[str, Any]:
-    target_url = runtime_url.rstrip("/") + "/" + V06_HTML.name
+def run_browser_audit(target_url: str) -> Dict[str, Any]:
     py_pw = detect_python_playwright()
     node_pw = detect_node_playwright()
     availability = {
@@ -946,10 +1250,23 @@ def render_audit_md(report: Dict[str, Any]) -> str:
     lines.append(f"- task_id: `{report['task_id']}`")
     lines.append(f"- generated_at: `{report['generated_at']}`")
     lines.append(f"- current_head: `{report['current_head']}`")
+    lines.append(f"- backend_runtime_launch_status: `{report['backend_runtime_launch_status']}`")
+    lines.append(f"- backend_runtime_url: `{report['backend_runtime_url']}`")
+    lines.append(f"- full_runtime_mode: `{report['full_runtime_mode']}`")
+    lines.append(f"- route_strategy: `{report['route_strategy']}`")
+    lines.append(f"- audit_proxy_used: `{report['audit_proxy_used']}`")
+    lines.append(f"- audit_proxy_url: `{report['audit_proxy_url']}`")
+    lines.append(f"- browser_target_url: `{report['browser_target_url']}`")
+    lines.append(f"- browser_target_http_status: `{report['browser_target_http_status']}`")
+    lines.append(f"- html_loaded: `{report['html_loaded']}`")
+    lines.append(f"- css_loaded: `{report['css_loaded']}`")
+    lines.append(f"- js_loaded: `{report['js_loaded']}`")
+    lines.append(f"- failed_required_requests: `{report['failed_required_requests']}`")
     lines.append(f"- runtime_isolation_mode: `{report['runtime_isolation_mode']}`")
     lines.append(f"- runtime_launch_status: `{report['runtime_launch_status']}`")
     lines.append(f"- runtime_url: `{report['runtime_url']}`")
     lines.append(f"- server_shutdown_status: `{report['server_shutdown_status']}`")
+    lines.append(f"- proxy_shutdown_status: `{report['proxy_shutdown_status']}`")
     lines.append(f"- required_assets_status: `{report['required_assets_loaded']['status']}`")
     lines.append(f"- fps_status: `{report['fps_measurement']['status']}`")
     lines.append(f"- fps_acceptance_status: `{report['fps_measurement']['fps_acceptance_status']}`")
@@ -1052,8 +1369,19 @@ def main() -> int:
     runtime_launch_status = "BLOCKED_RUNTIME_ISOLATION_NOT_AVAILABLE"
     runtime_url: Optional[str] = None
     server_shutdown_status = "NOT_APPLICABLE"
+    proxy_shutdown_status = "NOT_APPLICABLE"
     api_checks: Dict[str, Any] = {"status": "NOT_RUN", "all_required_pass": False, "checks": []}
     browser_audit: Dict[str, Any] = {"status": "BROWSER_AUDIT_NOT_RUN", "reason": "NOT_RUN"}
+    route_resolution: Dict[str, Any] = {}
+    audit_proxy_used = False
+    audit_proxy_url: Optional[str] = None
+    full_runtime_mode = "FULL_RUNTIME_ROUTE_UNRESOLVED"
+    route_strategy = "UNRESOLVED"
+    native_route_found = False
+    browser_target_url: Optional[str] = None
+    browser_target_http_status: Optional[int] = None
+    html_loaded = False
+    failed_required_requests = 0
     required_assets = summarize_required_assets(build_required_asset_state())
     metrics: Dict[str, Any] = {}
     console_samples: List[str] = []
@@ -1066,6 +1394,8 @@ def main() -> int:
     load_dom_ms: Optional[float] = None
     load_event_ms: Optional[float] = None
     runtime_proc: Optional[subprocess.Popen[str]] = None
+    proxy_server: Optional[ThreadingHTTPServer] = None
+    proxy_thread: Optional[threading.Thread] = None
 
     isolated_pre_snapshot: Dict[str, Tuple[int, int]] = {}
     isolated_post_snapshot: Dict[str, Tuple[int, int]] = {}
@@ -1101,17 +1431,53 @@ def main() -> int:
 
         runtime_proc = launch["process"]
         api_checks = check_api_endpoints(runtime_url or "http://127.0.0.1:8767")
-        browser_audit = run_browser_audit(runtime_url or "http://127.0.0.1:8767")
+
+        static_app_dir = copy_meta["isolated_v06_root"] / "app"
+        route_resolution = resolve_browser_target(runtime_url or "http://127.0.0.1:8767", static_app_dir)
+        route_strategy = str(route_resolution.get("route_strategy") or "UNRESOLVED")
+        full_runtime_mode = str(route_resolution.get("full_runtime_mode") or "FULL_RUNTIME_ROUTE_UNRESOLVED")
+        audit_proxy_used = bool(route_resolution.get("audit_proxy_used"))
+        audit_proxy_url = route_resolution.get("audit_proxy_url")
+        native_route_found = bool(route_resolution.get("native_route_found"))
+        browser_target_url = route_resolution.get("target_url")
+        if browser_target_http_status is None:
+            browser_target_http_status = (
+                (route_resolution.get("native_discovery") or {}).get("chosen_http_status")
+                if isinstance(route_resolution.get("native_discovery"), dict)
+                else None
+            )
+        proxy_server = route_resolution.get("proxy_server")
+        proxy_thread = route_resolution.get("proxy_thread")
+
+        if not route_resolution.get("ok") or not browser_target_url:
+            browser_audit = {
+                "status": "BROWSER_AUDIT_NOT_RUN",
+                "reason": route_resolution.get("reason", "Unable to resolve browser target."),
+                "backend": None,
+                "http_status": None,
+                "target_url": browser_target_url,
+            }
+            limitations.append(
+                f"Browser target resolution blocked: {route_resolution.get('status', 'UNKNOWN_ROUTE_BLOCKER')}"
+            )
+        else:
+            browser_audit = run_browser_audit(browser_target_url)
 
         if browser_audit.get("status") == "BROWSER_AUDIT_RUN":
             metrics = browser_audit.get("metrics", {}) or {}
             console_samples = browser_audit.get("console_errors", []) or []
             failed_request_samples = browser_audit.get("failed_requests", []) or []
+            browser_target_http_status = browser_audit.get("http_status")
+            html_loaded = bool(browser_target_http_status == 200)
             required_assets = summarize_required_assets(
                 browser_audit.get("required_asset_state", build_required_asset_state())
             )
         else:
+            browser_target_http_status = browser_audit.get("http_status")
+            html_loaded = bool(browser_target_http_status == 200)
             limitations.append(f"Browser audit not run: {browser_audit.get('reason', 'unknown reason')}")
+
+        failed_required_requests = len(required_assets.get("failed_required_assets", []))
 
         fps_value = _safe_float(metrics.get("fps_estimate"))
         fps_low = _safe_float(metrics.get("fps_1pct_low"))
@@ -1124,7 +1490,9 @@ def main() -> int:
         else:
             fps_status = "FPS_NOT_MEASURED"
 
-        if not required_assets["css_loaded"] or not required_assets["js_loaded"]:
+        if not html_loaded:
+            fps_acceptance_status = "FPS_INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE"
+        elif not required_assets["css_loaded"] or not required_assets["js_loaded"]:
             fps_acceptance_status = "FPS_INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE"
         elif not api_checks.get("all_required_pass", False):
             fps_acceptance_status = "FPS_INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE"
@@ -1134,6 +1502,12 @@ def main() -> int:
             fps_acceptance_status = "FULL_RUNTIME_FPS_VALID"
 
     finally:
+        if proxy_server is not None and proxy_thread is not None:
+            proxy_shutdown = stop_audit_static_proxy(proxy_server, proxy_thread)
+            proxy_shutdown_status = proxy_shutdown.get("status", "AUDIT_PROXY_STOP_UNKNOWN")
+        elif audit_proxy_used:
+            proxy_shutdown_status = "AUDIT_PROXY_NOT_STARTED"
+
         if runtime_proc is not None:
             shutdown = stop_runtime_server(runtime_proc)
             server_shutdown_status = shutdown.get("status", "SERVER_STOP_UNKNOWN")
@@ -1152,6 +1526,11 @@ def main() -> int:
 
     runtime_side_effects = {
         "runtime_isolation_root": str(isolation_root).replace("\\", "/") if isolation_root else None,
+        "route_strategy": route_strategy,
+        "audit_proxy_used": audit_proxy_used,
+        "audit_proxy_url": audit_proxy_url,
+        "proxy_shutdown_status": proxy_shutdown_status if audit_proxy_used else "NOT_APPLICABLE",
+        "browser_target_url": browser_target_url,
         "files_created_outside_repo_count": len(isolated_diff["created"]),
         "isolated_created_files": _sample_list(isolated_diff["created"], n=MAX_SAMPLES),
         "isolated_modified_files": _sample_list(isolated_diff["modified"], n=MAX_SAMPLES),
@@ -1239,47 +1618,83 @@ def main() -> int:
     no_failed_requests = len(failed_request_samples) == 0
     no_console_errors = len(console_samples) == 0
     server_stopped = server_shutdown_status in {"SERVER_STOPPED", "SERVER_ALREADY_STOPPED", "SERVER_KILLED_AFTER_TIMEOUT"}
+    proxy_stopped = (not audit_proxy_used) or proxy_shutdown_status in {"AUDIT_PROXY_STOPPED", "NOT_APPLICABLE"}
 
     if runtime_launch_status != "RUNTIME_LAUNCHED":
         verdict = "BLOCKED_RUNTIME_NOT_READY"
+    elif browser_target_http_status == 404:
+        verdict = "BLOCKED_BROWSER_TARGET_404"
     elif not browser_ok:
-        verdict = "BLOCKED_BROWSER_AUDIT_NOT_RUN"
+        verdict = "BLOCKED_RUNTIME_NOT_READY"
+    elif not html_loaded:
+        verdict = "BLOCKED_BROWSER_TARGET_404"
     elif not required_assets_ok:
         verdict = "BLOCKED_REQUIRED_ASSETS_MISSING"
     elif not api_ok:
-        verdict = "BLOCKED_REQUIRED_API_CHECKS_FAILED"
+        verdict = "BLOCKED_API_FAILED"
     elif repo_pollution_status != "NO_REPO_POLLUTION_FROM_RUNTIME":
-        verdict = "BLOCKED_REPO_POLLUTION_DETECTED"
-    elif not server_stopped:
-        verdict = "BLOCKED_SERVER_SHUTDOWN_FAILED"
-    elif not fps_ok:
-        verdict = "BLOCKED_FPS_NOT_VALID_FOR_FULL_RUNTIME"
-    elif not no_failed_requests or not no_console_errors:
-        verdict = "BLOCKED_RUNTIME_TRUTH_ERRORS_DETECTED"
-    elif budget_blockers:
-        verdict = "WARN_FULL_RUNTIME_BASELINE"
-    elif budget_warnings:
-        verdict = "WARN_FULL_RUNTIME_BASELINE"
+        verdict = "BLOCKED_REPO_POLLUTION"
+    elif not server_stopped or not proxy_stopped:
+        verdict = "BLOCKED_RUNTIME_NOT_READY"
+    elif (
+        not fps_ok
+        or not no_failed_requests
+        or not no_console_errors
+        or failed_required_requests > 0
+        or bool(budget_blockers)
+        or bool(budget_warnings)
+    ):
+        verdict = "WARN_FULL_RUNTIME_BASELINE_PARTIAL"
     else:
-        verdict = "PASS_FULL_RUNTIME_BASELINE"
+        verdict = (
+            "PASS_FULL_RUNTIME_BASELINE_WITH_AUDIT_PROXY"
+            if audit_proxy_used
+            else "PASS_FULL_RUNTIME_BASELINE_NATIVE_ROUTE"
+        )
 
     if verdict.startswith("PASS") or verdict.startswith("WARN"):
         next_task = "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION"
-    elif "ISOLATION" in verdict or "NOT_READY" in verdict:
-        next_task = "TASK-SECOND-BRAIN-V07-RUNTIME-QUARANTINE-POLICY"
-    elif "ASSETS" in verdict or "API" in verdict:
-        next_task = "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-BLOCKER-INTERPRETATION"
+    elif verdict in {"BLOCKED_BROWSER_TARGET_404", "BLOCKED_REQUIRED_ASSETS_MISSING"}:
+        next_task = "TASK-SECOND-BRAIN-V07-RUNTIME-STATIC-ASSET-ROUTE-BLOCKER-REPAIR-V0_2"
+    elif verdict in {"BLOCKED_RUNTIME_NOT_READY", "BLOCKED_API_FAILED"}:
+        next_task = "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX"
     else:
-        next_task = "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION"
+        next_task = "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX"
+
+    route_resolution_safe: Dict[str, Any] = {
+        "status": route_resolution.get("status"),
+        "route_strategy": route_strategy,
+        "native_route_found": native_route_found,
+        "native_discovery": route_resolution.get("native_discovery"),
+        "reason": route_resolution.get("reason"),
+        "proxy_status": route_resolution.get("proxy_status"),
+    }
 
     full_runtime_receipt: Dict[str, Any] = {
         "task_id": TASK_ID,
         "generated_at": utc_now(),
         "current_head": current_head,
+        "backend_runtime_launch_status": runtime_launch_status,
+        "backend_runtime_url": runtime_url,
+        "audit_proxy_used": audit_proxy_used,
+        "audit_proxy_url": audit_proxy_url,
+        "browser_target_url": browser_target_url,
+        "browser_target_http_status": browser_target_http_status,
+        "html_loaded": html_loaded,
+        "css_loaded": bool(required_assets["css_loaded"]),
+        "js_loaded": bool(required_assets["js_loaded"]),
+        "failed_required_requests": failed_required_requests,
+        "fps_measured": fps_status == "FPS_MEASURED",
+        "fps_acceptance_status": fps_acceptance_status,
+        "full_runtime_mode": full_runtime_mode,
+        "route_strategy": route_strategy,
+        "native_route_found": native_route_found,
+        "route_resolution": route_resolution_safe,
         "runtime_isolation_mode": isolation_mode,
         "runtime_launch_status": runtime_launch_status,
         "runtime_url": runtime_url,
         "server_shutdown_status": server_shutdown_status,
+        "proxy_shutdown_status": proxy_shutdown_status if audit_proxy_used else "NOT_APPLICABLE",
         "api_checks": api_checks,
         "required_assets_loaded": {
             "status": required_assets["status"],
@@ -1323,6 +1738,7 @@ def main() -> int:
         },
         "runtime_side_effects": runtime_side_effects,
         "repo_pollution_status": repo_pollution_status,
+        "raw_trace_committed": False,
         "raw_trace_status": {
             "status": "NOT_CREATED_NOT_COMMITTED",
             "detail": "No trace/har/screenshot/video/archive files were created by this runner.",
@@ -1364,6 +1780,9 @@ def main() -> int:
             "isolation_root_retained_for_local_inspection_not_committed",
         ],
         "server_shutdown_status": server_shutdown_status,
+        "proxy_shutdown_status": proxy_shutdown_status if audit_proxy_used else "NOT_APPLICABLE",
+        "audit_proxy_used": audit_proxy_used,
+        "audit_proxy_url": audit_proxy_url,
         "verdict": "PASS" if not forbidden_touched else "BLOCKED",
     }
 
@@ -1396,10 +1815,18 @@ def main() -> int:
     print("SIDE_EFFECT_JSON", str(side_json_out).replace("\\", "/"))
     print("SIDE_EFFECT_MD", str(side_md_out).replace("\\", "/"))
     print("RUNTIME_LAUNCH_STATUS", runtime_launch_status)
+    print("FULL_RUNTIME_MODE", full_runtime_mode)
+    print("BROWSER_TARGET_URL", browser_target_url)
+    print("BROWSER_TARGET_HTTP_STATUS", browser_target_http_status)
+    print("AUDIT_PROXY_USED", audit_proxy_used)
+    print("AUDIT_PROXY_URL", audit_proxy_url)
     print("SERVER_SHUTDOWN_STATUS", server_shutdown_status)
+    print("PROXY_SHUTDOWN_STATUS", proxy_shutdown_status if audit_proxy_used else "NOT_APPLICABLE")
     print("API_STATUS", api_checks.get("status"))
+    print("HTML_LOADED", html_loaded)
     print("REQUIRED_CSS_LOADED", required_assets["css_loaded"])
     print("REQUIRED_JS_LOADED", required_assets["js_loaded"])
+    print("FAILED_REQUIRED_REQUESTS", failed_required_requests)
     print("FPS_STATUS", fps_status)
     print("FPS_ACCEPTANCE_STATUS", fps_acceptance_status)
     print("VERDICT", verdict)
@@ -1410,4 +1837,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

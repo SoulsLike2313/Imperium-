@@ -1,0 +1,48 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "generated_at": "2026-05-17T14:26:50Z",
+  "current_head": "a6520bfea976b6b54497219518f6068fc83e27f5",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what_done": "Выполнены truth-check, bootloader/gate reads и read-only анализ блокера.",
+      "why": "Зафиксировать истинные ограничения до любых изменений.",
+      "how_to_use": "Использовать GATE_ACK и список источников как доказательство admission.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_V0_1.json",
+      "limitation": "Нет изменений runtime/UI на этой фазе."
+    },
+    {
+      "phase": "Phase 2",
+      "what_done": "Диагностирован источник 404: target path mismatch между runner и V0.6 server route.",
+      "why": "Нужен честный root-cause перед правкой логики раннера.",
+      "how_to_use": "Использовать diagnosis report как базу для route strategy decision.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_DIAGNOSIS_V0_1.json",
+      "limitation": "Диагноз сам по себе не исправляет маршрут."
+    },
+    {
+      "phase": "Phase 3",
+      "what_done": "Обновлен только full runtime runner: native route discovery + audit static proxy fallback + truth fields.",
+      "why": "Обеспечить проверку полной UI цепочки без правок V0.6 source.",
+      "how_to_use": "Использовать runner для повторяемого full-runtime аудита.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py",
+      "limitation": "Производительность UI не оптимизировалась."
+    },
+    {
+      "phase": "Phase 4",
+      "what_done": "Запущен раннер, регенерированы FULL_RUNTIME receipt + side manifest.",
+      "why": "Подтвердить 200 HTML + CSS/JS/API truth + честный FPS acceptance status.",
+      "how_to_use": "Проверять verdict и ключевые поля в FULL_RUNTIME receipt.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+      "limitation": "Итог WARN из-за FPS budget blockers, не из-за route/assets."
+    },
+    {
+      "phase": "Phase 5",
+      "what_done": "Сформированы fix report, runner report, chronology, self-assessment и KPD review.",
+      "why": "Закрепить изменение в auditable административных артефактах.",
+      "how_to_use": "Использовать отчеты для next-task admission и owner контроля.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_REPORT_V0_1.json",
+      "limitation": "Часть критериев финализируется только после commit/push проверки."
+    }
+  ],
+  "status": "CHRONOLOGY_RECORDED"
+}

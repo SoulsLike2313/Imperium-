@@ -1,0 +1,58 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "generated_at": "2026-05-17T14:25:25Z",
+  "current_head": "a6520bfea976b6b54497219518f6068fc83e27f5",
+  "previous_blocker": "BLOCKED_REQUIRED_ASSETS_MISSING due browser target 404 with CSS/JS not loaded",
+  "diagnosis": {
+    "category": "D",
+    "summary": "Runner used /neural_map_v0_6.html while V0.6 server serves the UI entry from /. This produced 404, prevented required CSS/JS requests, and invalidated FPS for full UI acceptance.",
+    "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_FIX_DIAGNOSIS_V0_1.json"
+  },
+  "changed_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py",
+  "route_strategy_used": "NATIVE_ROUTE_DISCOVERY",
+  "native_route_found": true,
+  "audit_proxy_static_mode_used": false,
+  "audit_proxy_url": null,
+  "full_runtime_mode": "FULL_RUNTIME_NATIVE_ROUTE",
+  "browser_target_status": {
+    "url": "http://127.0.0.1:8767/",
+    "http_status": 200,
+    "html_loaded": true
+  },
+  "required_assets": {
+    "css_loaded": true,
+    "js_loaded": true,
+    "failed_required_requests": 0
+  },
+  "api_checks_status": {
+    "status": "API_CHECKS_PASS",
+    "all_required_pass": true
+  },
+  "fps_status": {
+    "fps_measured": true,
+    "fps_acceptance_status": "FULL_RUNTIME_FPS_VALID",
+    "budget_blockers": [
+      {
+        "metric": "average_fps",
+        "value": 33.085,
+        "target": 55.0,
+        "blocker": 50.0,
+        "status": "BLOCKED"
+      },
+      {
+        "metric": "fps_1pct_low",
+        "value": 11.976,
+        "target": 45.0,
+        "blocker": 35.0,
+        "status": "BLOCKED"
+      }
+    ]
+  },
+  "limitations": [
+    "Runner does not install dependencies or download browsers.",
+    "Only compact samples are stored; no raw trace files are created.",
+    "Read-only policy for source files is enforced through isolated runtime copy."
+  ],
+  "runner_verdict": "WARN_FULL_RUNTIME_BASELINE_PARTIAL",
+  "next_allowed_task": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION"
+}

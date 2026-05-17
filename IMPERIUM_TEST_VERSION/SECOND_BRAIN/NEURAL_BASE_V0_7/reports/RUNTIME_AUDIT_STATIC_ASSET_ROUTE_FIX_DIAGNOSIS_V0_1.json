@@ -1,0 +1,50 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "generated_at": "2026-05-17T14:23:35Z",
+  "current_head": "a6520bfea976b6b54497219518f6068fc83e27f5",
+  "primary_cause_category": "D",
+  "secondary_cause_categories": [
+    "A",
+    "B"
+  ],
+  "cause_category_map": {
+    "A": "wrong browser target URL",
+    "B": "server serves API but not app route used by runner",
+    "C": "isolated runtime copy missing app static files",
+    "D": "runner target path does not match server static mount",
+    "E": "required asset verification logic is wrong",
+    "F": "backend and frontend require audit proxy/static composite mode"
+  },
+  "observed_evidence": {
+    "browser_target_url_previous": "http://127.0.0.1:8767/neural_map_v0_6.html",
+    "browser_target_http_status_previous": 404,
+    "css_loaded_previous": false,
+    "js_loaded_previous": false,
+    "api_checks_previous": "API_CHECKS_PASS",
+    "fps_status_previous": "FPS_MEASURED_BUT_INVALID_FOR_UI_ACCEPTANCE"
+  },
+  "route_truth_from_v06_server": {
+    "ui_routes_served": [
+      "/",
+      "/index.html"
+    ],
+    "static_assets_served": [
+      "/neural_map_v0_6.css",
+      "/neural_map_v0_6.js"
+    ],
+    "runner_old_target_mismatch": true
+  },
+  "diagnosis": "Runner used /neural_map_v0_6.html while V0.6 server serves the UI entry from /. This produced 404, prevented required CSS/JS requests, and invalidated FPS for full UI acceptance.",
+  "repair_strategy": {
+    "native_route_discovery_required": true,
+    "audit_static_proxy_fallback_required": true,
+    "proxy_constraints": [
+      "127.0.0.1 bind only",
+      "ephemeral free port",
+      "read-only static files",
+      "/api/* proxy to backend",
+      "explicit proxy shutdown"
+    ]
+  },
+  "verdict": "DIAGNOSIS_CONFIRMED_ROUTE_STATIC_MISMATCH"
+}
