@@ -1,0 +1,110 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "generated_at": "2026-05-17T14:57:22Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "html_indicator_counts": {
+    "linked_css_refs_count": 1,
+    "linked_js_refs_count": 1,
+    "image_refs_count": 0,
+    "inline_style_blocks_count": 0,
+    "inline_script_blocks_count": 0,
+    "dom_tag_count": 240,
+    "svg_marker_count": 4,
+    "canvas_marker_count": 0,
+    "background_style_markers_count": 0,
+    "linked_css_refs": [
+      "/neural_map_v0_6.css"
+    ],
+    "linked_js_refs": [
+      "/neural_map_v0_6.js"
+    ],
+    "image_refs": []
+  },
+  "css_indicator_counts": {
+    "keyframes_count": 37,
+    "animation_declarations_count": 45,
+    "transition_declarations_count": 21,
+    "filter_declarations_count": 15,
+    "backdrop_filter_declarations_count": 4,
+    "box_shadow_declarations_count": 47,
+    "text_shadow_declarations_count": 13,
+    "blur_usage_count": 5,
+    "transform_declarations_count": 62,
+    "will_change_declarations_count": 0,
+    "position_fixed_count": 4,
+    "position_sticky_count": 0,
+    "large_z_index_count": 5,
+    "gradient_count": 64,
+    "radial_gradient_count": 35,
+    "conic_gradient_count": 0,
+    "complex_selector_count": 195,
+    "repeated_expensive_selector_count": 0,
+    "reduced_motion_media_support_count": 1
+  },
+  "js_indicator_counts": {
+    "request_animation_frame_count": 2,
+    "set_interval_count": 1,
+    "set_timeout_count": 4,
+    "event_listener_count": 8,
+    "query_selector_all_count": 2,
+    "inner_html_write_count": 18,
+    "dom_create_element_count": 4,
+    "dom_append_count": 59,
+    "style_write_count": 8,
+    "classlist_mutation_count": 11,
+    "layout_read_count": 6,
+    "storage_access_count": 0,
+    "fetch_call_count": 1,
+    "api_path_marker_count": 14,
+    "svg_canvas_manipulation_count": 1,
+    "large_literal_arrays_count": 1,
+    "large_literal_objects_count": 1,
+    "functions_count": 97
+  },
+  "referenced_assets_sample": [
+    ");\n    a.href = url; a.download = `${r.task_id}_manifest.json`;\n    a.click(); URL.revokeObjectURL(url);\n    notify(",
+    ", ...options });\n  if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);\n  return res.json();\n}\n\nasync function loadSnapshot() {\n  try { STATE.snapshot = await apiFetch(",
+    "/neural_map_v0_6.css",
+    "/neural_map_v0_6.js",
+    ">task_manifest.json</code> first<br>\n      4. Servitor performs the work within scope<br>\n      5. Servitor produces receipts and evidence\n    </div>\n  </div>\n\n  <div style=",
+    ">validation_report.json</div>\n      <pre style="
+  ],
+  "top_local_referenced_assets_by_size": [
+    {
+      "reference": "/neural_map_v0_6.js",
+      "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+      "size_kb": 92.53
+    },
+    {
+      "reference": "/neural_map_v0_6.css",
+      "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+      "size_kb": 54.99
+    }
+  ],
+  "missing_referenced_assets_sample": [
+    {
+      "reference": ");\n    a.href = url; a.download = `${r.task_id}_manifest.json`;\n    a.click(); URL.revokeObjectURL(url);\n    notify(",
+      "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/);\n    a.href = url; a.download = `${r.task_id}_manifest.json`;\n    a.click(); URL.revokeObjectURL(url);\n    notify(",
+      "reason": "MISSING_LOCAL_FILE"
+    },
+    {
+      "reference": ", ...options });\n  if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);\n  return res.json();\n}\n\nasync function loadSnapshot() {\n  try { STATE.snapshot = await apiFetch(",
+      "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/, ...options });\n  if (!res.ok) throw new Error(`HTTP ${res.status} ${path}`);\n  return res.json();\n}\n\nasync function loadSnapshot() {\n  try { STATE.snapshot = await apiFetch(",
+      "reason": "MISSING_LOCAL_FILE"
+    },
+    {
+      "reference": ">task_manifest.json</code> first<br>\n      4. Servitor performs the work within scope<br>\n      5. Servitor produces receipts and evidence\n    </div>\n  </div>\n\n  <div style=",
+      "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/>task_manifest.json</code> first<br>\n      4. Servitor performs the work within scope<br>\n      5. Servitor produces receipts and evidence\n    </div>\n  </div>\n\n  <div style=",
+      "reason": "MISSING_LOCAL_FILE"
+    },
+    {
+      "reference": ">validation_report.json</div>\n      <pre style=",
+      "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/>validation_report.json</div>\n      <pre style=",
+      "reason": "MISSING_LOCAL_FILE"
+    }
+  ],
+  "omitted_count": {
+    "referenced_assets_omitted": 0,
+    "missing_assets_omitted": 0
+  }
+}

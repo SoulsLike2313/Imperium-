@@ -1,0 +1,56 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "generated_at": "2026-05-17T14:55:27Z",
+  "current_head": "59d01e136badc5648043497ae935e1bb1ce83ad7",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what_done": "Preflight truth-check and mandatory bootloader/gate/evidence read completed.",
+      "why": "To anchor the task in strict truth and scope boundary before any writes.",
+      "how_to_use_verify": "Use GATE_ACK and preflight command outputs as admission evidence.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+      "limitation": "No diagnostics generated in this phase."
+    },
+    {
+      "phase": "Phase 2",
+      "what_done": "Created read-only analyzer tool with standard-library-only static heuristics.",
+      "why": "To map likely source-level blockers without runtime execution or optimization.",
+      "how_to_use_verify": "Compile the analyzer and inspect tool path plus code-level indicator coverage.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/performance_blocker_source_mapper_v0_1.py",
+      "limitation": "Heuristics cannot assert exact root cause."
+    },
+    {
+      "phase": "Phase 3",
+      "what_done": "Ran analyzer and generated source map/details/decision reports.",
+      "why": "To convert baseline blocker truth into evidence-weighted likelihood categories.",
+      "how_to_use_verify": "Check generated JSON/MD reports and strongest category ordering.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+      "limitation": "Requires follow-up measurement tasks for precise attribution."
+    },
+    {
+      "phase": "Phase 4",
+      "what_done": "Produced admin package: report, chronology, self-assessment, KPD, gate receipt, action card, roadmap next-step map.",
+      "why": "To preserve governance trace and owner-operational decision continuity.",
+      "how_to_use_verify": "Cross-check consistency across decision report, roadmap map, and action card.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/PERFORMANCE_BLOCKER_SOURCE_MAP_REPORT_V0_1.json",
+      "limitation": "Does not execute optimization plan."
+    },
+    {
+      "phase": "Phase 5",
+      "what_done": "Ran JSON/JSONL/report-budget/scope validation checks.",
+      "why": "To satisfy report quality and scope purity gates before commit.",
+      "how_to_use_verify": "Review JSON_OK/JSONL_OK and forbidden-path/no-deletion outputs.",
+      "evidence_path": "validation_commands_output_in_terminal",
+      "limitation": "Validation does not improve performance; it verifies truth discipline."
+    },
+    {
+      "phase": "Phase 6",
+      "what_done": "Review diff/status, commit, push, and local/remote sync verification.",
+      "why": "To close task as auditable delivery unit.",
+      "how_to_use_verify": "Use commit hash and remote-sync check.",
+      "evidence_path": "git_commit_and_remote_sync",
+      "limitation": "Dependent on clean validation in prior phase."
+    }
+  ],
+  "status": "CHRONOLOGY_RECORDED"
+}

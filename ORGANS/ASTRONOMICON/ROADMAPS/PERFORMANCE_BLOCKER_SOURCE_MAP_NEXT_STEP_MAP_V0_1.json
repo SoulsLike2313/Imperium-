@@ -1,0 +1,34 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "generated_at": "2026-05-17T14:55:27Z",
+  "current_head": "59d01e136badc5648043497ae935e1bb1ce83ad7",
+  "what_was_learned": [
+    "Baseline remains valid and blocked; source-only mapping found strong CSS visual-effect density and strong JS main-thread pressure markers.",
+    "Animation frame pressure is moderate by static indicators and aligns with blocked FPS metrics.",
+    "Asset references are present with unresolved/missing local references, so asset classification remains necessary before optimization planning."
+  ],
+  "recommended_next_3_tasks": [
+    {
+      "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+      "reason": "Highest leverage now: resolve asset weight/missing-reference uncertainty before optimization planning."
+    },
+    {
+      "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+      "reason": "Admitted only as planning after asset classification and source-map evidence consolidation."
+    },
+    {
+      "task_id": "TASK-MECHANICUS-SCRIPTORIUM-TEST-VERSION-TOOL-ABSORPTION-MAP-V0_1",
+      "reason": "Parallel governance continuity for reusable tool absorption while runtime remains blocked."
+    }
+  ],
+  "task_order_reasoning": "Asset uncertainty still exists; classify assets first, then build bounded optimization plan, then continue Scriptorium absorption in strategic parallel track.",
+  "asset_budget_classification_should_come_next": true,
+  "optimization_plan_admitted_yet": true,
+  "optimization_plan_admission_note": "Planning task only; implementation/optimization execution is still not admitted until plan and gates agree.",
+  "control_center_readiness_feed": [
+    "performance_route_truth: RESOLVED",
+    "performance_acceptance: BLOCKED_BY_FPS_BUDGET",
+    "current_priority_task: TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION"
+  ],
+  "verdict": "NEXT_STEP_MAP_REGISTERED_WITH_ASSET_CLASSIFICATION_PRIORITY"
+}

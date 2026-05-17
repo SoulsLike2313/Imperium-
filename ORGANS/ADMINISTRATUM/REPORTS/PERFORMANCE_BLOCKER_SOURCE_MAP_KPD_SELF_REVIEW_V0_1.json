@@ -1,0 +1,41 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+    "agent_role": "PC Servitor (performance-source-mapper)",
+    "useful_outputs": [
+      "Reusable static source mapper tool for CSS/JS/HTML pressure heuristics.",
+      "Source map + details + decision reports with explicit uncertainty handling.",
+      "Roadmap next-step map prioritizing asset classification."
+    ],
+    "waste_points": [
+      "Heuristic-only mapping cannot fully replace runtime profile slices, so some uncertainty remains by design."
+    ],
+    "missing_tools": [
+      "Dedicated gated runtime profile summarizer that can safely produce frame-phase slices without raw trace pollution."
+    ],
+    "generated_tools_to_preserve": [
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/performance_blocker_source_mapper_v0_1.py",
+        "classification": "BUFFER_FOR_REVIEW",
+        "note": "Useful and reusable candidate; should enter Scriptorium review for hardening and shared usage."
+      }
+    ],
+    "recommended_script_absorption": [
+      "Promote source mapper into Scriptorium performance diagnostics family after review.",
+      "Add shared indicator schema for future performance mapping tools."
+    ],
+    "recommended_narrow_agent_profiles": [
+      "performance-source-mapper-agent",
+      "asset-budget-classifier-agent"
+    ],
+    "future_prompt_improvements": [
+      "Require explicit likelihood and uncertainty tags for each suspected blocker category.",
+      "Require pre-commit scope checker output in every major report bundle."
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Add gate check that forbids optimization plan admission when asset uncertainty remains unresolved.",
+      "Add consistency check between source-map decision and roadmap next-step task ordering."
+    ],
+    "kpd_verdict": "GOOD"
+  }
+}

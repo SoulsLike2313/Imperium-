@@ -1,0 +1,55 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "generated_at": "2026-05-17T14:55:27Z",
+  "current_head": "59d01e136badc5648043497ae935e1bb1ce83ad7",
+  "sources_read": [
+    "AGENTS.md",
+    "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/BIG_MODEL_AGENT_OPERATING_RULES_V0_1.md",
+    "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/LOCAL_EXECUTOR_AGENT_RULES_V0_1.md",
+    "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/AGENT_KPD_SELF_REVIEW_CONTRACT_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/COMMAND_DISCIPLINE/COMMAND_CHUNKING_DISCIPLINE_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ARTIFACT_PRESERVATION_POLICY_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/TEMP_SCRIPT_BUFFER_POLICY_V0_1.md",
+    "ORGANS/INQUISITION/GATE_AUDITS/AGENT_EXECUTION_INQUISITION_AUDIT_RULES_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/AGENT_EXECUTION_GATES_U19_U21_V0_1.md",
+    "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+    "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_BLOCKER_WARNING_MAP_V0_1.json",
+    "ORGANS/ASTRONOMICON/ROADMAPS/WHOLE_REPO_TRUTH_INVENTORY_NEXT_STEP_MAP_V0_1.json",
+    "ORGANS/ASTRONOMICON/ROADMAPS/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_FUSION_ROADMAP_V0_1.md",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BUDGET_BLOCKER_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_ACCEPTANCE_DECISION_V0_1.json",
+    "ORGANS/ASTRONOMICON/ROADMAPS/FULL_RUNTIME_PERFORMANCE_BASELINE_NEXT_STEP_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  ],
+  "analyzer_created": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/performance_blocker_source_mapper_v0_1.py",
+  "analyzer_ran": true,
+  "outputs_created": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DETAILS_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DECISION_V0_1.json",
+    "ORGANS/ASTRONOMICON/ROADMAPS/PERFORMANCE_BLOCKER_SOURCE_MAP_NEXT_STEP_MAP_V0_1.json"
+  ],
+  "key_findings": [
+    "Likely strongest categories: heavy_visual_effects (strong), js_main_thread_work (strong), animation_frame_pressure (moderate).",
+    "Baseline remains blocked by FPS metrics, but mapping stayed diagnostic-only without optimization claims.",
+    "Asset uncertainty remains (unresolved references), so asset classification is the next admitted task."
+  ],
+  "limitations": [
+    "Read-only static source analysis; no runtime/browser execution.",
+    "Heuristic indicators cannot prove an exact root cause alone.",
+    "Binary assets are inspected by metadata only when locally resolvable."
+  ],
+  "what_was_intentionally_not_changed": [
+    "No runtime/browser execution performed.",
+    "No V0.6 source edit performed.",
+    "No existing runner/tool modified.",
+    "No optimization or visual implementation performed."
+  ],
+  "next_allowed_task": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "verdict": "PASS_SOURCE_MAP_CREATED_WITH_TRUTHFUL_LIMITATIONS"
+}

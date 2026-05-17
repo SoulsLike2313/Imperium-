@@ -1,0 +1,150 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "generated_at": "2026-05-17T14:57:22Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "source_files": {
+    "html": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "css": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "js": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  },
+  "baseline_metrics_ref": {
+    "receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "interpretation_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+    "blocker_map_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BUDGET_BLOCKER_MAP_V0_1.json",
+    "acceptance_decision_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_ACCEPTANCE_DECISION_V0_1.json",
+    "receipt_verdict": "WARN_FULL_RUNTIME_BASELINE_PARTIAL",
+    "fps_average": 33.085,
+    "fps_1pct_low": 11.976,
+    "performance_acceptance": "BLOCKED_BY_FPS_BUDGET"
+  },
+  "css_pressure_summary": {
+    "animation_and_effect_indicators": {
+      "keyframes_count": 37,
+      "animation_declarations_count": 45,
+      "filter_declarations_count": 15,
+      "backdrop_filter_declarations_count": 4,
+      "shadow_declarations_count": 60,
+      "gradient_count": 64
+    },
+    "layout_layer_indicators": {
+      "position_fixed_count": 4,
+      "position_sticky_count": 0,
+      "large_z_index_count": 5,
+      "will_change_declarations_count": 0
+    },
+    "reduced_motion_support_count": 1
+  },
+  "js_pressure_summary": {
+    "animation_loop_indicators": {
+      "request_animation_frame_count": 2,
+      "set_interval_count": 1,
+      "set_timeout_count": 4
+    },
+    "dom_mutation_indicators": {
+      "dom_create_element_count": 4,
+      "dom_append_count": 59,
+      "classlist_mutation_count": 11,
+      "style_write_count": 8
+    },
+    "layout_read_indicators": {
+      "layout_read_count": 6,
+      "query_selector_all_count": 2
+    },
+    "function_and_listener_indicators": {
+      "functions_count": 97,
+      "event_listener_count": 8
+    }
+  },
+  "dom_svg_source_summary": {
+    "dom_tag_count": 240,
+    "svg_marker_count": 4,
+    "canvas_marker_count": 0,
+    "linked_css_refs_count": 1,
+    "linked_js_refs_count": 1
+  },
+  "asset_reference_summary": {
+    "referenced_assets_count": 6,
+    "resolvable_local_assets_count": 2,
+    "missing_or_unresolved_assets_count": 4,
+    "top_local_referenced_assets_by_size": [
+      {
+        "reference": "/neural_map_v0_6.js",
+        "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+        "size_kb": 92.53
+      },
+      {
+        "reference": "/neural_map_v0_6.css",
+        "resolved_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+        "size_kb": 54.99
+      }
+    ]
+  },
+  "likely_blocker_categories": [
+    {
+      "category_id": "A",
+      "name": "heavy_visual_effects",
+      "likelihood": "EVIDENCE_STRONG",
+      "score": 248.0,
+      "evidence": "CSS animation/filter/shadow/gradient indicator density."
+    },
+    {
+      "category_id": "E",
+      "name": "js_main_thread_work",
+      "likelihood": "EVIDENCE_STRONG",
+      "score": 239.0,
+      "evidence": "Layout reads + style writes + DOM mutations heuristics from JS source."
+    },
+    {
+      "category_id": "C",
+      "name": "animation_frame_pressure",
+      "likelihood": "EVIDENCE_MODERATE",
+      "score": 85.0,
+      "evidence": "rAF/timers combined with animation declarations under blocked FPS baseline."
+    },
+    {
+      "category_id": "F",
+      "name": "layout_reflow_pressure",
+      "likelihood": "EVIDENCE_WEAK",
+      "score": 54.0,
+      "evidence": "Reflow-related source markers (layout reads/classList/fixed-layer hints)."
+    },
+    {
+      "category_id": "G",
+      "name": "measurement_environment_limitation",
+      "likelihood": "EVIDENCE_WEAK",
+      "score": 0.0,
+      "evidence": "Environment can influence absolute FPS but does not invalidate baseline truth."
+    },
+    {
+      "category_id": "D",
+      "name": "asset_weight_pressure",
+      "likelihood": "UNKNOWN_REQUIRES_MEASUREMENT",
+      "score": 532.58,
+      "evidence": "Resolvable local referenced asset size signals and missing references."
+    },
+    {
+      "category_id": "B",
+      "name": "excessive_dom_svg",
+      "likelihood": "UNKNOWN_REQUIRES_MEASUREMENT",
+      "score": 250.0,
+      "evidence": "DOM/SVG structural markers plus querySelectorAll usage."
+    }
+  ],
+  "unknowns": [
+    "Exact runtime frame-time split between CSS animation, JS update cost, and compositor behavior is not measurable from static source only.",
+    "Asset payload runtime decode/render cost requires dedicated asset budget classification and runtime profiling.",
+    "Environment variance contribution cannot be isolated without repeated controlled baseline runs."
+  ],
+  "recommended_next_measurements": [
+    "Task-level asset budget classification with resolved file weights and priority impact.",
+    "Frame-phase source map with targeted runtime profiling per animation/update zone.",
+    "Controlled repeated FPS baselines across comparable environment conditions."
+  ],
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "limitations": [
+    "Read-only static source analysis; no runtime/browser execution.",
+    "Heuristic indicators cannot prove an exact root cause alone.",
+    "Binary assets are inspected by metadata only when locally resolvable."
+  ],
+  "verdict": "PERFORMANCE_BLOCKER_SOURCES_LIKELY_MAPPED_NOT_CONFIRMED_AS_EXACT_ROOT_CAUSE"
+}

@@ -1,0 +1,16 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-SOURCE-MAP",
+  "generated_at": "2026-05-17T14:57:22Z",
+  "current_head": "6dee3394b3a2a77f092e548ad6fd06a6c265ef1b",
+  "baseline_valid": true,
+  "performance_blocked": true,
+  "optimization_admitted_now": false,
+  "visual_construction_admitted_now": false,
+  "strongest_evidence_categories": [
+    "heavy_visual_effects",
+    "js_main_thread_work",
+    "animation_frame_pressure"
+  ],
+  "next_task_decision": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "reason": "Valid baseline remains blocked by FPS metrics; source-map provides likely categories but asset-weight classification is the next safest narrowing step before any optimization planning."
+}
