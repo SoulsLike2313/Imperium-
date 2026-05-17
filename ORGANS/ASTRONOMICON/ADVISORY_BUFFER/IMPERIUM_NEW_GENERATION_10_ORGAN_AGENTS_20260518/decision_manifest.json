@@ -1,0 +1,21 @@
+{
+  "artifact_id": "IMPERIUM_NEW_GENERATION_10_ORGAN_AGENTS_FORMATION_PLAN_V0_2",
+  "decision_date": "2026-05-18",
+  "owner_decision": "accepted_as_current_guiding_plan",
+  "target_future_folder": "IMPERIUM_NEW_GENERATION",
+  "future_possible_name": "IMPERIUM_RISING",
+  "no_merge_after_first_three_agents": true,
+  "first_three_agents": [
+    "ADMINISTRATUM_AGENT",
+    "CUSTODES_AGENT",
+    "MECHANICUS_AGENT"
+  ],
+  "all_agents_required_before_fusion": true,
+  "files": [
+    "IMPERIUM_NEW_GENERATION_10_ORGAN_AGENTS_FORMATION_PLAN_RU_V0_2.pdf",
+    "IMPERIUM_NEW_GENERATION_10_ORGAN_AGENTS_FORMATION_PLAN_EN_V0_2.pdf",
+    "README.md",
+    "decision_manifest.json"
+  ],
+  "next_action": "write_servitor_prompt_for_base_foundation_of_first_three_agents_only"
+}
