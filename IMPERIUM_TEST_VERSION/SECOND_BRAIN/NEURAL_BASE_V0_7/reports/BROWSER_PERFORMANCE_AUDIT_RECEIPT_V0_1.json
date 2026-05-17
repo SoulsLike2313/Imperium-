@@ -1,0 +1,213 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-BROWSER-PERFORMANCE-AUDIT-RUNNER",
+  "generated_at": "2026-05-17T02:25:28+00:00",
+  "current_head": "94cf6b7fb773ea967f47e087337c5461aa9a017a",
+  "budget_source": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+  "report_output_budget_source": "ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.json",
+  "audit_target": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+  "browser_automation_status": {
+    "status": "BROWSER_AUTOMATION_AVAILABLE",
+    "backend": "python_playwright",
+    "details": [
+      {
+        "available": true,
+        "backend": "python_playwright",
+        "reason": "Python Playwright module detected."
+      },
+      {
+        "available": false,
+        "backend": "node_playwright",
+        "reason": "Node Playwright package not available."
+      }
+    ]
+  },
+  "safe_target_status": {
+    "status": "SAFE_STATIC_TARGET_DETECTED",
+    "target_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "reason": "Local static V0.6 HTML target exists."
+  },
+  "static_browser_precheck": {
+    "status": "STATIC_BROWSER_PRECHECK",
+    "candidate_target_paths": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+    ],
+    "v06_html_exists": true,
+    "v06_css_exists": true,
+    "v06_js_exists": true,
+    "file_sizes_bytes": {
+      "v06_html": 15783,
+      "v06_css": 56312,
+      "v06_js": 94754
+    },
+    "css_effect_counts": {
+      "keyframes_count": 37,
+      "animation_count": 45,
+      "filter_count": 15,
+      "drop_shadow_count": 10,
+      "box_shadow_count": 47
+    },
+    "approx_html_tag_count": 240,
+    "svg_related_string_count": 15,
+    "raw_visual_asset_total_bytes_estimate": 0,
+    "report_output_budget_active": true,
+    "report_output_budget_limits": {
+      "max_report_json_lines": 2000,
+      "max_report_md_lines": 800,
+      "max_report_json_kb": 500,
+      "max_report_md_kb": 300,
+      "max_findings_stored": 100,
+      "max_samples_per_rule": 10,
+      "max_samples_per_path": 10,
+      "max_excerpt_chars": 240,
+      "full_raw_dump_allowed_by_default": false,
+      "full_raw_dump_requires_owner_gate": true
+    }
+  },
+  "browser_audit": {
+    "status": "BROWSER_AUDIT_RUN",
+    "reason": "",
+    "http_status": 200,
+    "load_elapsed_ms": 984.64,
+    "metrics": {
+      "nav_start_time": 0,
+      "load_to_domcontentloaded_ms": 26.899999976158142,
+      "load_to_load_event_ms": 28,
+      "document_ready_state": "complete",
+      "dom_nodes": 240,
+      "svg_elements": 107,
+      "fps_estimate": 60.420460186325876,
+      "fps_1pct_low": 59.52380952380948,
+      "long_task_count": 0,
+      "frame_count": 73,
+      "frame_duration_ms": 1208.2000000476837
+    },
+    "console_errors": [
+      "Failed to load resource: net::ERR_FILE_NOT_FOUND",
+      "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    ],
+    "failed_requests": [
+      "GET file:///E:/neural_map_v0_6.css :: net::ERR_FILE_NOT_FOUND",
+      "GET file:///E:/neural_map_v0_6.js :: net::ERR_FILE_NOT_FOUND"
+    ]
+  },
+  "fps_measurement": {
+    "status": "FPS_MEASURED",
+    "fps_estimate": 60.42,
+    "fps_1pct_low": 59.524,
+    "reason": null
+  },
+  "budget_comparison": {
+    "metrics": [
+      {
+        "metric": "load_to_domcontentloaded_ms",
+        "value": 26.9,
+        "target": 1800,
+        "blocker": 3000,
+        "status": "PASS"
+      },
+      {
+        "metric": "load_to_load_event_ms",
+        "value": 28.0,
+        "target": 1800,
+        "blocker": 3000,
+        "status": "PASS"
+      },
+      {
+        "metric": "dom_nodes",
+        "value": 240.0,
+        "target": 2200,
+        "blocker": 3200,
+        "status": "PASS"
+      },
+      {
+        "metric": "svg_elements",
+        "value": 107.0,
+        "target": 900,
+        "blocker": 1500,
+        "status": "PASS"
+      },
+      {
+        "metric": "average_fps",
+        "value": 60.42,
+        "target": 55,
+        "blocker": 50,
+        "status": "PASS"
+      },
+      {
+        "metric": "fps_1pct_low",
+        "value": 59.524,
+        "target": 45,
+        "blocker": 35,
+        "status": "PASS"
+      },
+      {
+        "metric": "console_errors",
+        "value": 2.0,
+        "target": 0.0,
+        "blocker": 0.0,
+        "status": "BLOCKED"
+      },
+      {
+        "metric": "failed_requests",
+        "value": 2.0,
+        "target": 0.0,
+        "blocker": 0.0,
+        "status": "BLOCKED"
+      }
+    ],
+    "blockers": [
+      {
+        "metric": "console_errors",
+        "value": 2.0,
+        "target": 0.0,
+        "blocker": 0.0,
+        "status": "BLOCKED"
+      },
+      {
+        "metric": "failed_requests",
+        "value": 2.0,
+        "target": 0.0,
+        "blocker": 0.0,
+        "status": "BLOCKED"
+      }
+    ],
+    "warnings": [],
+    "not_measured": []
+  },
+  "console_errors": {
+    "count": 2,
+    "samples": [
+      "Failed to load resource: net::ERR_FILE_NOT_FOUND",
+      "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    ],
+    "status": "MEASURED"
+  },
+  "failed_requests": {
+    "count": 2,
+    "samples": [
+      "GET file:///E:/neural_map_v0_6.css :: net::ERR_FILE_NOT_FOUND",
+      "GET file:///E:/neural_map_v0_6.js :: net::ERR_FILE_NOT_FOUND"
+    ],
+    "status": "MEASURED"
+  },
+  "raw_trace_status": {
+    "status": "NOT_CREATED",
+    "detail": "Raw browser traces/har/screenshots are disabled by default and not committed."
+  },
+  "limitations": [
+    "Runner is read-only for source/runtime files and writes only compact reports.",
+    "No dependency install or browser download is performed.",
+    "FPS is reported only when frame pacing measurement actually succeeded.",
+    "Live server startup is intentionally skipped when it risks runtime side effects."
+  ],
+  "verdict": "BLOCKED",
+  "next_recommended_action": "TASK-SECOND-BRAIN-V07-PERFORMANCE-AUDIT-INTERPRETATION",
+  "report_size_estimate": {
+    "json_lines": 208,
+    "json_kb": 6.17,
+    "md_lines": 46,
+    "md_kb": 2.0
+  }
+}
