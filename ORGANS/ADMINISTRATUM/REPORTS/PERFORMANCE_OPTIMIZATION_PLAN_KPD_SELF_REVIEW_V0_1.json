@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+  "generated_at": "2026-05-17T17:57:47Z",
+  "current_head": "fc0c094ef785a9879cf3e08c61a2d0dc09a88107",
+  "what_wasted_effort": [
+    "Repeated manual truth-mapping across many reports; reusable context pack would reduce repetition.",
+    "Additional explicit scope checks needed because untracked files are invisible to plain git diff filters."
+  ],
+  "what_tools_were_missing": [
+    "Reusable optimization-plan contract template generator (JSON+MD pair).",
+    "Shared evidence normalizer for runtime/source-map/asset reports."
+  ],
+  "whether_optimization_plan_generator_or_checker_should_be_reusable": {
+    "verdict": true,
+    "reason": "Standardized planning artifacts reduce drift and speed future bounded optimization tasks."
+  },
+  "future_narrow_agent_would_help": "PERFORMANCE_SLICE_GOVERNOR_AGENT_V0_1",
+  "context_pack_would_help": "SECOND_BRAIN_V07_PERFORMANCE_TRUTH_CONTEXT_PACK_V0_1",
+  "next_gate_or_check_would_improve_kpd": "Gate requiring slice-by-slice rollback evidence and truth-preservation checklist before any performance implementation verdict.",
+  "verdict": "KPD_REVIEW_REGISTERED"
+}

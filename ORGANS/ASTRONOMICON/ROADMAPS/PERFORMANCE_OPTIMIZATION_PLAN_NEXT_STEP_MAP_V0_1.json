@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+  "generated_at": "2026-05-17T17:55:43Z",
+  "current_head": "fc0c094ef785a9879cf3e08c61a2d0dc09a88107",
+  "what_was_learned": {
+    "baseline_truth": "Route/API/assets truth is valid; FPS remains below budget.",
+    "pressure_balance": "File assets are not primary blocker; CSS/JS/effect pressure is likely primary.",
+    "owner_intent": "Optimization must be surgical, measurable, reversible, and truth-preserving."
+  },
+  "next_3_tasks": [
+    "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+    "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+    "TASK-SECOND-BRAIN-V07-PERFORMANCE-REBASELINE-AND-BUDGET-RECHECK-V0_1"
+  ],
+  "recommended_immediate_next_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "why": "Motion/throttle is the safest first reversible slice to reduce frame pressure before deeper CSS/JS surgery.",
+  "must_verify_after_implementation": [
+    "route/API truth gates remain PASS",
+    "average FPS and 1% low FPS trend upward",
+    "no visual identity collapse",
+    "no truth overlay break",
+    "no repo pollution/raw traces committed"
+  ],
+  "when_visual_construction_can_resume": "Only after FPS acceptance criteria are met and sustained with truth gates intact.",
+  "status": "NEXT_STEP_MAP_REGISTERED"
+}

@@ -1,0 +1,158 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+  "generated_at": "2026-05-17T17:55:43Z",
+  "current_head": "fc0c094ef785a9879cf3e08c61a2d0dc09a88107",
+  "source_evidence_refs": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BUDGET_BLOCKER_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_ACCEPTANCE_DECISION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DETAILS_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DECISION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_DETAILS_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_DECISION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json"
+  ],
+  "current_performance_truth": {
+    "full_runtime_mode": "FULL_RUNTIME_NATIVE_ROUTE",
+    "route_http_status": 200,
+    "html_loaded": true,
+    "css_loaded": true,
+    "js_loaded": true,
+    "failed_required_requests": 0,
+    "api_checks_status": "API_CHECKS_PASS",
+    "console_errors": 0,
+    "fps_average": 33.085,
+    "fps_1pct_low": 11.976,
+    "fps_budget_status": "BLOCKED"
+  },
+  "owner_performance_intent": {
+    "intent": "Current hardware should run this interface smoothly; valid low-FPS baseline is unacceptable.",
+    "non_negotiables": [
+      "No fake-green claims",
+      "No route/API truth breakage",
+      "No visual identity collapse",
+      "No observability loss"
+    ]
+  },
+  "primary_pressure_hypothesis": {
+    "status": "LIKELY_PRIMARY",
+    "signals": [
+      "many keyframes/animation declarations",
+      "many shadows/filters/gradients",
+      "rAF + timer loops",
+      "innerHTML and DOM append churn",
+      "main-thread/frame pressure indicators in source map"
+    ]
+  },
+  "non_primary_pressure_hypothesis": {
+    "status": "FILE_ASSET_PRESSURE_NOT_PRIMARY",
+    "signals": [
+      "estimated local payload 0.1591 MB",
+      "asset budget classification PASS for file-weight threshold"
+    ]
+  },
+  "optimization_goals": [
+    "Raise average FPS to at least blocker minimum (>=50) and target (>=55).",
+    "Raise 1% low FPS to at least blocker minimum (>=35) and target (>=45).",
+    "Preserve route/API truth and observability panels.",
+    "Preserve recognizable visual identity while reducing heavy effects cost."
+  ],
+  "optimization_levels": [
+    {
+      "level_id": "L0_MEASURED_GUARDRAILS",
+      "scope": "No source changes; only truth checks and acceptance framing.",
+      "goal": "Preserve route/API/visual truth before any optimization edit."
+    },
+    {
+      "level_id": "L1_RUNTIME_SAFE_THROTTLE",
+      "scope": "Motion density/performance mode controls with reversible toggles.",
+      "goal": "Reduce frame pressure first without deleting feature truth."
+    },
+    {
+      "level_id": "L2_EFFECT_COST_REBALANCE",
+      "scope": "Targeted CSS effect simplification preserving identity.",
+      "goal": "Lower compositor/paint overhead while keeping style language."
+    },
+    {
+      "level_id": "L3_DOM_UPDATE_EFFICIENCY",
+      "scope": "JS frame-loop and DOM churn reduction with batched updates.",
+      "goal": "Reduce main-thread spikes and improve 1% low FPS."
+    }
+  ],
+  "proposed_implementation_slices": [
+    "SLICE_1_PERFORMANCE_MODE_AND_MOTION_THROTTLE",
+    "SLICE_2_CSS_EFFECT_PRESSURE_REDUCTION",
+    "SLICE_3_JS_FRAME_LOOP_AND_DOM_CHURN_REDUCTION",
+    "SLICE_4_LOD_VISUAL_ARCHITECTURE"
+  ],
+  "files_likely_to_touch_next": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  ],
+  "forbidden_next_touch_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/runtime/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/server/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/",
+    "ORGANS/DOCTRINARIUM/",
+    "ORGANS/OFFICIO_AGENTIS/",
+    "ORGANS/INQUISITION/",
+    "ORGANS/SANCTUM/"
+  ],
+  "validation_plan": {
+    "must_hold_truth": [
+      "route_http_status == 200",
+      "html_loaded && css_loaded && js_loaded",
+      "api checks pass",
+      "failed required requests == 0",
+      "console errors critical == 0"
+    ],
+    "performance_targets": {
+      "average_fps_minimum": 50,
+      "average_fps_target": 55,
+      "fps_1pct_low_minimum": 35,
+      "fps_1pct_low_target": 45
+    },
+    "repetition_policy": "Use repeated bounded runs to reduce measurement noise before declaring gains."
+  },
+  "rollback_plan": {
+    "principle": "Any truth break or identity collapse triggers immediate rollback of the active slice only.",
+    "triggers": [
+      "Any route/API truth regression",
+      "Any visual identity collapse",
+      "Any interaction/state regression",
+      "No measurable gain with added complexity"
+    ],
+    "scope": "Rollback only latest bounded slice; keep prior validated gains."
+  },
+  "pass_criteria_for_next_implementation": {
+    "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+    "generated_at": "2026-05-17T17:55:43Z",
+    "current_head": "fc0c094ef785a9879cf3e08c61a2d0dc09a88107",
+    "route_http_status": 200,
+    "html_loaded": true,
+    "css_loaded": true,
+    "js_loaded": true,
+    "required_api_checks_pass": true,
+    "failed_required_requests": 0,
+    "console_errors_critical": 0,
+    "average_fps_minimum": 50,
+    "average_fps_target": 55,
+    "fps_1pct_low_minimum": 35,
+    "fps_1pct_low_target": 45,
+    "no_visual_identity_collapse": true,
+    "no_truth_overlay_break": true,
+    "no_repo_pollution": true,
+    "no_raw_traces_committed": true,
+    "verdict": "ACCEPTANCE_CRITERIA_REGISTERED"
+  },
+  "limitations": [
+    "This task is planning-only; no optimization implementation was performed.",
+    "No runtime/browser execution was performed in this task.",
+    "Exact root-cause proportions between CSS and JS require post-slice remeasurement."
+  ],
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "verdict": "PERFORMANCE_OPTIMIZATION_PLAN_REGISTERED_NOT_IMPLEMENTED"
+}

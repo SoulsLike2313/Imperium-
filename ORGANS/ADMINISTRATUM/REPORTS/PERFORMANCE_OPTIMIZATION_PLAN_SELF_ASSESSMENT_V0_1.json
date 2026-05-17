@@ -1,0 +1,229 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+  "generated_at": "2026-05-17T17:57:47Z",
+  "current_head": "fc0c094ef785a9879cf3e08c61a2d0dc09a88107",
+  "criteria": [
+    {
+      "criterion_id": "PC01",
+      "criterion_text": "Starting HEAD matched.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git rev-parse HEAD"
+      ],
+      "self_comment": "HEAD matched required starting commit.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC02",
+      "criterion_text": "Worktree clean before work.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git status --short"
+      ],
+      "self_comment": "Worktree was clean at start.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC03",
+      "criterion_text": "AGENTS.md and 8 gateway files read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "AGENTS.md",
+        "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/BIG_MODEL_AGENT_OPERATING_RULES_V0_1.md",
+        "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/LOCAL_EXECUTOR_AGENT_RULES_V0_1.md",
+        "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/AGENT_KPD_SELF_REVIEW_CONTRACT_V0_1.md",
+        "ORGANS/MECHANICUS/SCRIPTORIUM/COMMAND_DISCIPLINE/COMMAND_CHUNKING_DISCIPLINE_V0_1.md",
+        "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ARTIFACT_PRESERVATION_POLICY_V0_1.md",
+        "ORGANS/MECHANICUS/SCRIPTORIUM/TEMP_SCRIPT_BUFFER_POLICY_V0_1.md",
+        "ORGANS/INQUISITION/GATE_AUDITS/AGENT_EXECUTION_INQUISITION_AUDIT_RULES_V0_1.md",
+        "ORGANS/DOCTRINARIUM/GATES/AGENT_EXECUTION_GATES_U19_U21_V0_1.md"
+      ],
+      "self_comment": "Bootloader and gateway docs read.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC04",
+      "criterion_text": "Performance baseline/source-map/asset evidence read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BUDGET_BLOCKER_MAP_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_ACCEPTANCE_DECISION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DETAILS_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DECISION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_DETAILS_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_DECISION_V0_1.json",
+        "ORGANS/ASTRONOMICON/ROADMAPS/ASSET_BUDGET_CLASSIFICATION_NEXT_STEP_MAP_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json"
+      ],
+      "self_comment": "All required performance evidence files read.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC05",
+      "criterion_text": "V0.6 HTML/CSS/JS inspected read-only.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+      ],
+      "self_comment": "V0.6 source inspected with no edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC06",
+      "criterion_text": "Optimization plan created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../PERFORMANCE_OPTIMIZATION_PLAN_V0_1.json"
+      ],
+      "self_comment": "Main plan created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC07",
+      "criterion_text": "Slice plan created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../PERFORMANCE_OPTIMIZATION_SLICE_PLAN_V0_1.json"
+      ],
+      "self_comment": "Slice plan created with 4 slices.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC08",
+      "criterion_text": "Acceptance criteria created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../PERFORMANCE_OPTIMIZATION_ACCEPTANCE_CRITERIA_V0_1.json"
+      ],
+      "self_comment": "Acceptance targets registered.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC09",
+      "criterion_text": "Risk register created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../PERFORMANCE_OPTIMIZATION_RISK_REGISTER_V0_1.json"
+      ],
+      "self_comment": "Risk register created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC10",
+      "criterion_text": "Next step map created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ASTRONOMICON/ROADMAPS/PERFORMANCE_OPTIMIZATION_PLAN_NEXT_STEP_MAP_V0_1.json"
+      ],
+      "self_comment": "Next step map created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC11",
+      "criterion_text": "No optimization implemented.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "Planning-only outputs, no source optimization edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC12",
+      "criterion_text": "No runtime/browser execution.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "execution log"
+      ],
+      "self_comment": "No runtime/browser commands run in this task.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC13",
+      "criterion_text": "No V0.6 source changed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "V0.6 source untouched.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC14",
+      "criterion_text": "No existing runner/tool changed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "No files under V0_7/tools changed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC15",
+      "criterion_text": "No forbidden paths modified.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "forbidden path checks"
+      ],
+      "self_comment": "Changes constrained to allowed write paths.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC16",
+      "criterion_text": "No deletion/move/rename.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-status"
+      ],
+      "self_comment": "No deletion/rename operations.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC17",
+      "criterion_text": "Report output budget obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "budget check command"
+      ],
+      "self_comment": "Reports remain compact under budget.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC18",
+      "criterion_text": "Command chunking obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "chronology"
+      ],
+      "self_comment": "Work executed in bounded phases and commands.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC19",
+      "criterion_text": "KPD self-review created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../PERFORMANCE_OPTIMIZATION_PLAN_KPD_SELF_REVIEW_V0_1.json"
+      ],
+      "self_comment": "KPD review prepared.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC20",
+      "criterion_text": "Commit/push/local-remote verification completed.",
+      "verdict": "PARTIAL",
+      "evidence_paths": [
+        "phase6 pending"
+      ],
+      "self_comment": "Will be finalized after commit and push checks.",
+      "risk_note": "Requires post-commit verification."
+    }
+  ],
+  "verdict": "SELF_ASSESSMENT_REGISTERED"
+}

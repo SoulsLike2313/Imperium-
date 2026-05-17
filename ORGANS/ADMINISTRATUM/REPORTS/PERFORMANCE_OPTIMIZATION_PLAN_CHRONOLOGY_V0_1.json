@@ -1,0 +1,56 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+  "generated_at": "2026-05-17T17:57:47Z",
+  "current_head": "fc0c094ef785a9879cf3e08c61a2d0dc09a88107",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what_was_done": "Preflight truth check and mandatory bootloader/evidence read.",
+      "why": "Guarantee truthful scope entry before any planning output.",
+      "how_to_use_verify": "Check GATE_ACK + source list in report.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_PERFORMANCE_OPTIMIZATION_PLAN_V0_1.json",
+      "limitation": "Read-only phase; no runtime measurement refresh."
+    },
+    {
+      "phase": "Phase 2",
+      "what_was_done": "Read-only synthesis of pressure map from reports and V0.6 source indicators.",
+      "why": "Anchor plan in evidence instead of speculation.",
+      "how_to_use_verify": "Cross-check counts/hypotheses in optimization plan JSON.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_PLAN_V0_1.json",
+      "limitation": "No new runtime/browser runs performed."
+    },
+    {
+      "phase": "Phase 3",
+      "what_was_done": "Created optimization plan, slice plan, acceptance criteria, risk register, and next-step map.",
+      "why": "Define reversible, measurable implementation sequence with explicit gates.",
+      "how_to_use_verify": "Use slice IDs and acceptance targets as constraints for next implementation task.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_SLICE_PLAN_V0_1.json",
+      "limitation": "Planning only; no performance fix claimed."
+    },
+    {
+      "phase": "Phase 4",
+      "what_was_done": "Produced administratum report set, self-assessment, KPD review, receipt, action card.",
+      "why": "Maintain auditable continuity and operator-readable control artifacts.",
+      "how_to_use_verify": "Trace receipt paths and action card summary.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_PERFORMANCE_OPTIMIZATION_PLAN_V0_1.json",
+      "limitation": "Commit/push verification finalized in Phase 6."
+    },
+    {
+      "phase": "Phase 5",
+      "what_was_done": "Prepared validation scope: JSON/JSONL/budget/forbidden-path checks.",
+      "why": "Prevent fake green and scope drift before commit.",
+      "how_to_use_verify": "Run validation commands from task brief.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/PERFORMANCE_OPTIMIZATION_PLAN_SELF_ASSESSMENT_V0_1.json",
+      "limitation": "Final verdict depends on successful commit/push checks."
+    },
+    {
+      "phase": "Phase 6",
+      "what_was_done": "Reserved for diff review, commit, push, and remote sync verification.",
+      "why": "Close task with immutable evidence and sync certainty.",
+      "how_to_use_verify": "Verify commit hash, push result, and local/remote HEAD match.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_PERFORMANCE_OPTIMIZATION_PLAN_V0_1.json",
+      "limitation": "Not complete until git operations succeed."
+    }
+  ],
+  "verdict": "CHRONOLOGY_REGISTERED"
+}
