@@ -1,0 +1,111 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BASELINE-INTERPRETATION",
+  "generated_at": "2026-05-17T01:37:28+00:00",
+  "current_head": "5708c1cef6f4398eafe7a15f71bbac9ada84e2f4",
+  "source_performance_receipt": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_V0_1.json",
+  "source_runner_report": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_RUNNER_REPORT_V0_1.json",
+  "source_budget": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+  "baseline_verdict": "BLOCKED",
+  "evidence_backed_findings": [
+    {
+      "finding_id": "STATIC-AUDIT-EXECUTED",
+      "detail": "Static audit was executed and produced measurable source metrics.",
+      "evidence": "static_audit.status=STATIC_AUDIT"
+    },
+    {
+      "finding_id": "DOM-SVG-UNDER-BLOCKER",
+      "detail": "Approx DOM tags and SVG-related strings are below blocker thresholds.",
+      "evidence": [
+        {
+          "metric": "approx_dom_nodes_from_html_tags",
+          "value": 450,
+          "target": 2200,
+          "blocker": 3200,
+          "status": "PASS"
+        },
+        {
+          "metric": "svg_related_strings",
+          "value": 204,
+          "target": 900,
+          "blocker": 1500,
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "finding_id": "ASSET-BUDGET-BLOCKED",
+      "detail": "Compressed visual assets metric exceeds blocker threshold.",
+      "evidence": [
+        {
+          "metric": "compressed_visual_assets_mb",
+          "value": 31.515,
+          "target": 4.0,
+          "blocker": 8.0,
+          "status": "BLOCKED"
+        }
+      ]
+    }
+  ],
+  "not_measured_findings": [
+    {
+      "finding_id": "FPS-NOT-MEASURED",
+      "detail": "Browser audit was not run; real FPS metrics are unavailable.",
+      "evidence": {
+        "status": "NOT_MEASURED",
+        "audit_type": "OPTIONAL_BROWSER_AUDIT",
+        "browser_audit_status": "BROWSER_AUDIT_NOT_RUN",
+        "reason": "Run without --browser-audit flag.",
+        "fps_measurement_available": false
+      }
+    },
+    {
+      "finding_id": "LOAD-TIMING-NOT-MEASURED",
+      "detail": "Initial load-to-usable timing cannot be confirmed from static audit only.",
+      "evidence": "optional_browser_audit.status=NOT_MEASURED"
+    },
+    {
+      "finding_id": "CONSOLE-NETWORK-NOT-MEASURED",
+      "detail": "console_errors and failed_requests were not measured by static run.",
+      "evidence": {
+        "console_errors": {
+          "status": "NOT_MEASURED",
+          "value": null
+        },
+        "failed_requests": {
+          "status": "NOT_MEASURED",
+          "value": null
+        }
+      }
+    }
+  ],
+  "blocker_findings": [
+    {
+      "finding_id": "BLOCKER-ASSET-BUDGET",
+      "metric": "compressed_visual_assets_mb",
+      "value": 31.515,
+      "blocker": 8.0,
+      "detail": "Static baseline indicates visual asset budget blocker."
+    }
+  ],
+  "warning_findings": [
+    {
+      "finding_id": "WARN-NONE-CURRENT",
+      "detail": "No WARN-tier budget checks in this baseline; verdict driven by BLOCKED + NOT_MEASURED browser evidence."
+    }
+  ],
+  "limitations": [
+    "No browser automation run in this baseline.",
+    "No runtime optimization/implementation performed in this task.",
+    "Interpretation is bounded to existing receipt evidence only."
+  ],
+  "cannot_claim": [
+    "Cannot claim average FPS target achieved.",
+    "Cannot claim 1pct low FPS target achieved.",
+    "Cannot claim initial_load_to_usable_ms target achieved.",
+    "Cannot claim console/network clean runtime without browser/runtime probe.",
+    "Cannot claim overall visual performance PASS."
+  ],
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-VISUAL-FAKE-GREEN-SCANNER",
+  "alternative_next_task": "TASK-SECOND-BRAIN-V07-BROWSER-PERFORMANCE-AUDIT-RUNNER",
+  "verdict": "BLOCKED_BASELINE_INTERPRETED"
+}

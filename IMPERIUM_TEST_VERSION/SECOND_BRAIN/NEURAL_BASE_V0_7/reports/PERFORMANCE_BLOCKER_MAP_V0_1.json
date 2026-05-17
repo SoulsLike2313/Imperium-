@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-05-17T01:37:28+00:00",
+  "current_head": "5708c1cef6f4398eafe7a15f71bbac9ada84e2f4",
+  "blocker_categories": [
+    "missing_browser_fps_evidence",
+    "static_source_complexity_risks",
+    "css_animation_effect_density_risk",
+    "dom_svg_risk",
+    "asset_budget_risk",
+    "console_network_not_measured",
+    "fake_green_performance_claim_risk"
+  ],
+  "risk_items": [
+    {
+      "risk_id": "RISK-FPS-MISSING",
+      "category": "missing_browser_fps_evidence",
+      "severity": "HIGH",
+      "detail": "BROWSER_AUDIT_NOT_RUN prevents FPS claim."
+    },
+    {
+      "risk_id": "RISK-ASSET-BLOCKER",
+      "category": "asset_budget_risk",
+      "severity": "BLOCKER",
+      "detail": "compressed_visual_assets_mb exceeds blocker threshold in baseline."
+    },
+    {
+      "risk_id": "RISK-CSS-EFFECT-DENSITY",
+      "category": "css_animation_effect_density_risk",
+      "severity": "MEDIUM",
+      "detail": "High counts of animation/shadow/gradient indicate potential render-cost concentration."
+    },
+    {
+      "risk_id": "RISK-CONSOLE-NETWORK-GAP",
+      "category": "console_network_not_measured",
+      "severity": "HIGH",
+      "detail": "console_errors and failed_requests are NOT_MEASURED."
+    },
+    {
+      "risk_id": "RISK-FAKE-GREEN",
+      "category": "fake_green_performance_claim_risk",
+      "severity": "CRITICAL",
+      "detail": "Any green/performance PASS claim now would violate no-fake-green rules."
+    }
+  ],
+  "required_future_evidence": [
+    "browser FPS measurement receipt",
+    "runtime load timing receipt",
+    "console errors and failed requests runtime receipt",
+    "post-mitigation asset-size baseline receipt"
+  ],
+  "proposed_next_gate": "TASK-SECOND-BRAIN-V07-VISUAL-FAKE-GREEN-SCANNER",
+  "verdict": "BLOCKER_MAP_READY"
+}

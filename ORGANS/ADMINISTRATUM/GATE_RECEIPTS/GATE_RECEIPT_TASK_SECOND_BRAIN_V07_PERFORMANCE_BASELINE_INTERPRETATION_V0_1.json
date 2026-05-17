@@ -1,0 +1,33 @@
+{
+  "receipt_id": "GATE_RECEIPT_TASK_SECOND_BRAIN_V07_PERFORMANCE_BASELINE_INTERPRETATION_V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BASELINE-INTERPRETATION",
+  "generated_at": "2026-05-17T01:37:28+00:00",
+  "starting_head": "5708c1cef6f4398eafe7a15f71bbac9ada84e2f4",
+  "ending_head_before_commit": "5708c1cef6f4398eafe7a15f71bbac9ada84e2f4",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U03-NO-FEATURE-DRIFT",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U05-STOP-CONDITIONS",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-UI00-TRUTH-BINDING",
+    "GATE-VIS00-PERFORMANCE-BUDGET",
+    "GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT"
+  ],
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_RUNNER_REPORT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_MAP_V0_1.json"
+  ],
+  "forbidden_paths_touched": false,
+  "no_delete_rule_obeyed": true,
+  "runtime_changed": false,
+  "visual_implementation_changed": false,
+  "optimization_changed": false,
+  "fps_claim_made": false,
+  "verdict": "BLOCKED_BASELINE_INTERPRETED"
+}
