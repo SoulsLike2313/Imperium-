@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:29:47Z",
+  "source_receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "source_receipt_generated_at": "2026-05-17T14:23:57+00:00",
+  "before_verdict": "WARN_FULL_RUNTIME_BASELINE_PARTIAL",
+  "before_route_http_status": 200,
+  "before_html_loaded": true,
+  "before_css_loaded": true,
+  "before_js_loaded": true,
+  "before_api_checks_status": "API_CHECKS_PASS",
+  "before_failed_required_requests": 0,
+  "before_console_errors_count": 0,
+  "before_average_fps": 33.085,
+  "before_fps_1pct_low": 11.976,
+  "before_fps_acceptance_status": "FULL_RUNTIME_FPS_VALID"
+}

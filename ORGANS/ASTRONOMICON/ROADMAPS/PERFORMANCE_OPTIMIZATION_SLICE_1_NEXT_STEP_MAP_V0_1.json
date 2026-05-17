@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:34:52Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "what_was_changed": [
+    "Default performance-mode activation in JS.",
+    "CSS decorative animation/effect throttles for performance-mode.",
+    "Reduced decorative brain-field geometry density and spark/particle visuals."
+  ],
+  "what_improved_or_did_not_improve": {
+    "before_average_fps": 33.085,
+    "after_average_fps": 56.368,
+    "before_fps_1pct_low": 11.976,
+    "after_fps_1pct_low": 20.0,
+    "route_api_truth_preserved": true
+  },
+  "next_3_tasks": [
+    "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+    "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-3-JS-FRAME-LOOP-REDUCTION-V0_1",
+    "TASK-SECOND-BRAIN-V07-PERFORMANCE-REBASELINE-AND-BUDGET-RECHECK-V0_1"
+  ],
+  "slice_2_css_effect_reduction_needed": true,
+  "slice_3_js_frame_loop_reduction_needed": true,
+  "another_audit_needed": true,
+  "when_visual_construction_may_resume": "Only after FPS acceptance targets pass with truth gates intact.",
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+  "status": "NEXT_STEP_MAP_REGISTERED"
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:34:52Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "before_metrics_source": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_SLICE_1_BEFORE_METRICS_SNAPSHOT_V0_1.json",
+  "after_metrics_source": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "before_average_fps": 33.085,
+  "after_average_fps": 56.368,
+  "average_fps_delta": 23.283,
+  "before_1pct_low_fps": 11.976,
+  "after_1pct_low_fps": 20.0,
+  "fps_1pct_low_delta": 8.024,
+  "route_status_before": 200,
+  "route_status_after": 200,
+  "css_loaded_after": true,
+  "js_loaded_after": true,
+  "api_checks_after": "API_CHECKS_PASS",
+  "failed_requests_after": 0,
+  "console_errors_after": 0,
+  "acceptance_targets": {
+    "average_fps_minimum": 50.0,
+    "average_fps_target": 55.0,
+    "fps_1pct_low_minimum": 35.0,
+    "fps_1pct_low_target": 45.0
+  },
+  "target_status": {
+    "average_fps_minimum_met": true,
+    "average_fps_target_met": true,
+    "fps_1pct_low_minimum_met": false,
+    "fps_1pct_low_target_met": false
+  },
+  "verdict": "WARN_PARTIAL_IMPROVEMENT",
+  "next_recommended_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1"
+}

@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:37:37Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "what_wasted_effort": [
+    "Manual selection of expensive animation classes for first slice.",
+    "Additional scope checks due untracked visibility limits."
+  ],
+  "what_tools_were_missing": [
+    "Reusable animation pressure inventory helper.",
+    "Reusable before/after comparator scaffold."
+  ],
+  "whether_motion_throttle_pattern_should_become_reusable": {
+    "verdict": true,
+    "reason": "Bounded default performance-mode pattern is reusable across heavy visual slices."
+  },
+  "what_future_narrow_agent_would_help": "SECOND_BRAIN_MOTION_THROTTLE_SLICE_AGENT_V0_1",
+  "what_context_pack_would_help": "SECOND_BRAIN_V07_FPS_SLICE_EXECUTION_CONTEXT_PACK_V0_1",
+  "what_next_gate_or_check_would_improve_kpd": "Require mandatory before/after FPS + truth-gate matrix per optimization slice before acceptance verdict.",
+  "verdict": "KPD_REVIEW_REGISTERED"
+}

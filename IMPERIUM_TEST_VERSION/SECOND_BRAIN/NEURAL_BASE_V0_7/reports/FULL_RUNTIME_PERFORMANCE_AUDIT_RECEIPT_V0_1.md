@@ -1,8 +1,8 @@
 # FULL RUNTIME PERFORMANCE AUDIT RECEIPT V0.1
 
 - task_id: `TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-AUDIT-RUNNER`
-- generated_at: `2026-05-17T14:23:57+00:00`
-- current_head: `a6520bfea976b6b54497219518f6068fc83e27f5`
+- generated_at: `2026-05-17T18:29:55+00:00`
+- current_head: `ea0a36dc228c6a18ae4dc2120e7e913d019cf24c`
 - backend_runtime_launch_status: `RUNTIME_LAUNCHED`
 - backend_runtime_url: `http://127.0.0.1:8767`
 - full_runtime_mode: `FULL_RUNTIME_NATIVE_ROUTE`
@@ -28,11 +28,11 @@
 
 ## API Checks
 - status: `API_CHECKS_PASS`
-- /api/status: code=`200` elapsed_ms=`3.36` ok=`True`
-- /api/snapshot: code=`200` elapsed_ms=`1.97` ok=`True`
-- /api/tasks: code=`200` elapsed_ms=`1.74` ok=`True`
-- /api/task_packages: code=`200` elapsed_ms=`81.71` ok=`True`
-- /api/export/status: code=`200` elapsed_ms=`14.71` ok=`True`
+- /api/status: code=`200` elapsed_ms=`3.79` ok=`True`
+- /api/snapshot: code=`200` elapsed_ms=`2.18` ok=`True`
+- /api/tasks: code=`200` elapsed_ms=`1.87` ok=`True`
+- /api/task_packages: code=`200` elapsed_ms=`34.08` ok=`True`
+- /api/export/status: code=`200` elapsed_ms=`3.71` ok=`True`
 
 ## Browser Audit
 - browser_audit_status: `BROWSER_AUDIT_RUN`
@@ -43,7 +43,7 @@
 - console_error_count: `0`
 
 ## Runtime Side Effects
-- isolation_root: `C:/Users/PC/AppData/Local/Temp/imperium_runtime_audits/full_runtime_audit_20260517_142340_14876`
+- isolation_root: `C:/Users/PC/AppData/Local/Temp/imperium_runtime_audits/full_runtime_audit_20260517_182951_19316`
 - created_outside_repo_count: `0`
 - isolated_created_count: `0`
 - isolated_modified_count: `0`

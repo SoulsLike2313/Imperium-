@@ -1,0 +1,34 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:34:52Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "files_changed": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  ],
+  "exact_strategy": "Default performance-mode + decorative motion/effect throttle + reduced decorative geometry density.",
+  "css_changes_summary": [
+    "Added performance-mode block with PERF-SLICE-1-MOTION-THROTTLE marker.",
+    "Disabled high-cost decorative animations in performance-mode.",
+    "Reduced heavy filter/glow load for animated neural visuals."
+  ],
+  "js_changes_summary": [
+    "Added PERF_SLICE_1_MOTION_THROTTLE config + default mode activation in init().",
+    "Reduced brain-field orbit/fiber/neuron/link counts in performance mode.",
+    "Disabled decorative spark/particle effects in performance mode."
+  ],
+  "what_was_intentionally_not_changed": [
+    "No server/backend edits",
+    "No HTML edits",
+    "No V0.7 runner/tool edits",
+    "No API logic rewrites"
+  ],
+  "risk": [
+    "Potential visual richness reduction.",
+    "1% low FPS may still require next slices."
+  ],
+  "rollback_notes": [
+    "Revert CSS performance-mode block and JS PERF-SLICE-1-MOTION-THROTTLE section."
+  ],
+  "verdict": "IMPLEMENTATION_NOTE_REGISTERED"
+}

@@ -1,0 +1,72 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:36:27Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what_was_done": "Truth check and mandatory reads complete.",
+      "why": "Scope and truth lock before edits.",
+      "how_to_use_verify": "Use GATE_ACK and source list.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_PERFORMANCE_OPTIMIZATION_SLICE_1_MOTION_THROTTLE_V0_1.json",
+      "limitation": "Read-only only."
+    },
+    {
+      "phase": "Phase 2",
+      "what_was_done": "Created gate ack and localized implementation design.",
+      "why": "Prevent uncontrolled optimization drift.",
+      "how_to_use_verify": "Use implementation note + markers.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_SLICE_1_IMPLEMENTATION_NOTE_V0_1.json",
+      "limitation": "No runtime metrics yet."
+    },
+    {
+      "phase": "Phase 3",
+      "what_was_done": "Implemented minimal reversible CSS/JS motion throttle.",
+      "why": "Reduce decorative frame pressure safely.",
+      "how_to_use_verify": "Inspect CSS/JS diff and markers.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+      "limitation": "Slice 1 only."
+    },
+    {
+      "phase": "Phase 4",
+      "what_was_done": "Ran static checks and marker checks.",
+      "why": "Validate syntax and traceability.",
+      "how_to_use_verify": "Run findstr marker checks.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_SLICE_1_IMPLEMENTATION_NOTE_V0_1.md",
+      "limitation": "Static checks are not perf proof."
+    },
+    {
+      "phase": "Phase 5",
+      "what_was_done": "Reran full runtime audit runner.",
+      "why": "Collect truthful after-metrics.",
+      "how_to_use_verify": "Check regenerated runtime receipt.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+      "limitation": "Single-run noise possible."
+    },
+    {
+      "phase": "Phase 6",
+      "what_was_done": "Built comparison/decision/next-step outputs and admin package.",
+      "why": "Translate metrics into controlled next action.",
+      "how_to_use_verify": "Read comparison+decision reports.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_SLICE_1_BEFORE_AFTER_COMPARISON_V0_1.json",
+      "limitation": "Further slices may be needed."
+    },
+    {
+      "phase": "Phase 7",
+      "what_was_done": "Ran validation checks for JSON, budget, scope.",
+      "why": "Block fake green before commit.",
+      "how_to_use_verify": "Execute validation command set.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/PERFORMANCE_OPTIMIZATION_SLICE_1_MOTION_THROTTLE_SELF_ASSESSMENT_V0_1.json",
+      "limitation": "Commit still pending."
+    },
+    {
+      "phase": "Phase 8",
+      "what_was_done": "Commit/push/sync verification phase.",
+      "why": "Finalize immutable evidence and sync.",
+      "how_to_use_verify": "Verify local/remote HEAD equality.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_PERFORMANCE_OPTIMIZATION_SLICE_1_MOTION_THROTTLE_V0_1.json",
+      "limitation": "Pending until done."
+    }
+  ],
+  "verdict": "CHRONOLOGY_REGISTERED"
+}

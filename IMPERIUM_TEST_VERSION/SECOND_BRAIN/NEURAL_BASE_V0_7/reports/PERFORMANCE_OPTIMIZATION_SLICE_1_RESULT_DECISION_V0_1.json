@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:34:52Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "route_truth_preserved": true,
+  "api_truth_preserved": true,
+  "visual_identity_preserved_estimate": true,
+  "average_fps_target_met": true,
+  "fps_1pct_low_target_met": false,
+  "performance_acceptance_status": "WARN_PARTIAL_IMPROVEMENT",
+  "optimization_slice_status": "SLICE_1_IMPLEMENTED_PARTIAL_GAIN",
+  "visual_construction_admitted_now": false,
+  "next_task_decision": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+  "reason": "Average FPS improved strongly and route/API truth is preserved, but 1% low remains below threshold."
+}

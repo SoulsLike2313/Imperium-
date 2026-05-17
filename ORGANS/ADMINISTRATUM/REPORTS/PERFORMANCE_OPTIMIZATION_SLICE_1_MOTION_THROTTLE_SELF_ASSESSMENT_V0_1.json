@@ -1,0 +1,268 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-1-MOTION-THROTTLE-V0_1",
+  "generated_at": "2026-05-17T18:37:37Z",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
+  "criteria": [
+    {
+      "criterion_id": "PC01",
+      "criterion_text": "Starting HEAD matched.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git rev-parse HEAD"
+      ],
+      "self_comment": "Start HEAD matched required hash.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC02",
+      "criterion_text": "Worktree clean before work.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git status --short"
+      ],
+      "self_comment": "Worktree was clean before edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC03",
+      "criterion_text": "AGENTS.md and 8 gateway files read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "GATE_ACK json bootloader list"
+      ],
+      "self_comment": "Bootloader docs read.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC04",
+      "criterion_text": "Performance plan/evidence read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "GATE_ACK json performance list"
+      ],
+      "self_comment": "Performance evidence read.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC05",
+      "criterion_text": "V0.6 CSS/JS inspected.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "V0.6 css/js files"
+      ],
+      "self_comment": "V0.6 UI css/js inspected.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC06",
+      "criterion_text": "Only allowed V0.6 CSS/JS files changed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "Source changes limited to allowed css/js files.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC07",
+      "criterion_text": "No V0.6 server/backend change.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "No server/backend file changed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC08",
+      "criterion_text": "No V0.7 runner/tool change.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "No V0.7 tools changed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC09",
+      "criterion_text": "Motion throttle implemented.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "implementation note json"
+      ],
+      "self_comment": "Motion throttle implemented.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC10",
+      "criterion_text": "Comments/markers added for PERF-SLICE-1-MOTION-THROTTLE.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "findstr marker checks"
+      ],
+      "self_comment": "PERF marker lines exist in css/js.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC11",
+      "criterion_text": "Full runtime audit reran.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "runner command output"
+      ],
+      "self_comment": "Full runtime audit reran successfully.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC12",
+      "criterion_text": "Route HTTP 200 preserved.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "runtime receipt json"
+      ],
+      "self_comment": "Route HTTP 200 preserved.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC13",
+      "criterion_text": "HTML/CSS/JS load preserved.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "runtime receipt json"
+      ],
+      "self_comment": "HTML/CSS/JS loaded true after slice.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC14",
+      "criterion_text": "API checks pass preserved.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "runtime receipt json"
+      ],
+      "self_comment": "API checks pass preserved.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC15",
+      "criterion_text": "Failed required requests remain 0.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "runtime receipt json"
+      ],
+      "self_comment": "Failed required requests stayed at 0.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC16",
+      "criterion_text": "Critical console errors remain 0.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "runtime receipt json"
+      ],
+      "self_comment": "Critical console errors stayed at 0.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC17",
+      "criterion_text": "Average FPS improved or honest no-improvement recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "comparison json"
+      ],
+      "self_comment": "Average FPS delta 23.283.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC18",
+      "criterion_text": "1% low FPS improved or honest no-improvement recorded.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "comparison json"
+      ],
+      "self_comment": "1% low FPS delta 8.024.",
+      "risk_note": "Still below acceptance threshold."
+    },
+    {
+      "criterion_id": "PC19",
+      "criterion_text": "Acceptance target status honest.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "result decision json"
+      ],
+      "self_comment": "Partial improvement recorded honestly.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC20",
+      "criterion_text": "No visual identity collapse claimed without evidence.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "implementation note + decision"
+      ],
+      "self_comment": "No collapse claim; only preserved estimate.",
+      "risk_note": "Subjective visual risk remains."
+    },
+    {
+      "criterion_id": "PC21",
+      "criterion_text": "No deletion/move/rename.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-status"
+      ],
+      "self_comment": "No deletion/move/rename.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC22",
+      "criterion_text": "No raw traces/screenshots/zips committed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "No raw trace/screenshot/archive artifacts added.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC23",
+      "criterion_text": "Report output budget obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "budget check command"
+      ],
+      "self_comment": "Reports are within output budget.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC24",
+      "criterion_text": "Command chunking obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "chronology json"
+      ],
+      "self_comment": "Command chunking obeyed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC25",
+      "criterion_text": "KPD self-review created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "kpd self review json"
+      ],
+      "self_comment": "KPD review created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC26",
+      "criterion_text": "Commit/push/local-remote verification completed.",
+      "verdict": "PARTIAL",
+      "evidence_paths": [
+        "phase8 pending"
+      ],
+      "self_comment": "Will become PASS after commit/push/sync verification.",
+      "risk_note": "Pending final git operations."
+    }
+  ],
+  "verdict": "SELF_ASSESSMENT_REGISTERED"
+}

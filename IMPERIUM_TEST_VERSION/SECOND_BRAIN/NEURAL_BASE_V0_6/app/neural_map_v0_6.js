@@ -26,6 +26,37 @@ const STATE = {
   lastPackageCount: 0
 };
 
+// PERF-SLICE-1-MOTION-THROTTLE:
+// Default lightweight motion mode for runtime audits.
+// Goal: reduce frame pressure without breaking route/API/truth behavior.
+const PERF_SLICE_1_MOTION_THROTTLE = Object.freeze({
+  defaultEnabled: true,
+  bodyClass: "performance-mode",
+  brainOrbitCount: 3,
+  brainFiberCount: 18,
+  brainNeuronCount: 84,
+  brainLinkCount: 56,
+  disableDecorativeParticles: true
+});
+
+function isPerformanceMode() {
+  return (
+    typeof document !== "undefined" &&
+    !!document.body &&
+    document.body.classList.contains(PERF_SLICE_1_MOTION_THROTTLE.bodyClass)
+  );
+}
+
+function applyPerformanceModeDefaults() {
+  if (
+    PERF_SLICE_1_MOTION_THROTTLE.defaultEnabled &&
+    typeof document !== "undefined" &&
+    document.body
+  ) {
+    document.body.classList.add(PERF_SLICE_1_MOTION_THROTTLE.bodyClass);
+  }
+}
+
 // ── Color maps ─────────────────────────────────────────────────────────────────
 const TOKEN_COLOR = {
   accent_cyan:    "#00d7ff",
@@ -166,12 +197,16 @@ function updateStatsBar(status) {
 
   // Sparks on new receipts
   const newRcp = c.receipts || 0;
-  if (newRcp > STATE.lastReceiptCount && STATE.lastReceiptCount > 0) triggerReceiptSpark();
+  // PERF-SLICE-1-MOTION-THROTTLE: disable decorative sparks in performance mode.
+  if (!isPerformanceMode() && newRcp > STATE.lastReceiptCount && STATE.lastReceiptCount > 0) {
+    triggerReceiptSpark();
+  }
   STATE.lastReceiptCount = newRcp;
 
   // Particle on new package
   const newPkg = c.task_packages || 0;
-  if (newPkg > STATE.lastPackageCount && STATE.lastPackageCount > 0) {
+  // PERF-SLICE-1-MOTION-THROTTLE: keep truth update, skip decorative particles.
+  if (!isPerformanceMode() && newPkg > STATE.lastPackageCount && STATE.lastPackageCount > 0) {
     triggerParticle("task_intake", "core_brain", "#00d7ff");
     triggerParticle("task_intake", "evidence_receipts", "#29c272");
   }
@@ -789,6 +824,7 @@ function renderNeuralCanvas() {
 }
 
 function renderBrainField(strandsLayer, zones, W, H) {
+  const perfMode = isPerformanceMode();
   const core = ZONE_POS_CACHE["core_brain"] || { cx: W / 2, cy: H / 2, r: 58 };
   const brainRx = Math.max(W * 0.285, 348);
   const brainRy = Math.max(H * 0.255, 246);
@@ -879,7 +915,9 @@ function renderBrainField(strandsLayer, zones, W, H) {
   });
   strandsLayer.appendChild(seam);
 
-  for (let i = 0; i < 5; i++) {
+  // PERF-SLICE-1-MOTION-THROTTLE: reduce decorative orbit density.
+  const orbitCount = perfMode ? PERF_SLICE_1_MOTION_THROTTLE.brainOrbitCount : 5;
+  for (let i = 0; i < orbitCount; i++) {
     const orbit = svgEl("ellipse", {
       cx: core.cx,
       cy: core.cy,
@@ -892,7 +930,8 @@ function renderBrainField(strandsLayer, zones, W, H) {
     strandsLayer.appendChild(orbit);
   }
 
-  const fiberCount = 40;
+  // PERF-SLICE-1-MOTION-THROTTLE: reduce live animated fiber count.
+  const fiberCount = perfMode ? PERF_SLICE_1_MOTION_THROTTLE.brainFiberCount : 40;
   for (let i = 0; i < fiberCount; i++) {
     const angle = (i / fiberCount) * Math.PI * 2;
     const radius = Math.max(Math.min(W, H) * (0.184 + ((i % 6) * 0.017)), 176);
@@ -917,7 +956,8 @@ function renderBrainField(strandsLayer, zones, W, H) {
   const webGroup = svgEl("g", { "clip-path": "url(#brain-clip-v06)" });
 
   const neuronPoints = [];
-  const neuronCount = 162;
+  // PERF-SLICE-1-MOTION-THROTTLE: reduce neural web node/link density.
+  const neuronCount = perfMode ? PERF_SLICE_1_MOTION_THROTTLE.brainNeuronCount : 162;
   for (let i = 0; i < neuronCount; i++) {
     const angle = seededRand(i + 11) * Math.PI * 2;
     const radial = Math.sqrt(seededRand(i + 17)) * 0.97;
@@ -935,7 +975,8 @@ function renderBrainField(strandsLayer, zones, W, H) {
     webGroup.appendChild(node);
   }
 
-  for (let i = 0; i < 124; i++) {
+  const linkCount = perfMode ? PERF_SLICE_1_MOTION_THROTTLE.brainLinkCount : 124;
+  for (let i = 0; i < linkCount; i++) {
     const p1 = neuronPoints[(i * 7) % neuronPoints.length];
     const p2 = neuronPoints[(i * 13 + 19) % neuronPoints.length];
     const midX = (p1.x + p2.x) / 2;
@@ -2178,6 +2219,9 @@ function attachCorridorHandlers(stage) {
    ═══════════════════════════════════════════════════════════════ */
 
 async function init() {
+  // PERF-SLICE-1-MOTION-THROTTLE: active by default for audited runtime path.
+  applyPerformanceModeDefaults();
+
   // Initial load
   await fullRefresh();
 

@@ -1,7 +1,7 @@
 {
   "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-AUDIT-RUNNER",
-  "generated_at": "2026-05-17T14:23:57+00:00",
-  "current_head": "a6520bfea976b6b54497219518f6068fc83e27f5",
+  "generated_at": "2026-05-17T18:29:55+00:00",
+  "current_head": "ea0a36dc228c6a18ae4dc2120e7e913d019cf24c",
   "backend_runtime_launch_status": "RUNTIME_LAUNCHED",
   "backend_runtime_url": "http://127.0.0.1:8767",
   "audit_proxy_used": false,
@@ -60,7 +60,7 @@
         "endpoint": "/api/status",
         "url": "http://127.0.0.1:8767/api/status",
         "status_code": 200,
-        "elapsed_ms": 3.36,
+        "elapsed_ms": 3.79,
         "ok": true,
         "error_sample": null
       },
@@ -68,7 +68,7 @@
         "endpoint": "/api/snapshot",
         "url": "http://127.0.0.1:8767/api/snapshot",
         "status_code": 200,
-        "elapsed_ms": 1.97,
+        "elapsed_ms": 2.18,
         "ok": true,
         "error_sample": null
       },
@@ -76,7 +76,7 @@
         "endpoint": "/api/tasks",
         "url": "http://127.0.0.1:8767/api/tasks",
         "status_code": 200,
-        "elapsed_ms": 1.74,
+        "elapsed_ms": 1.87,
         "ok": true,
         "error_sample": null
       },
@@ -84,7 +84,7 @@
         "endpoint": "/api/task_packages",
         "url": "http://127.0.0.1:8767/api/task_packages",
         "status_code": 200,
-        "elapsed_ms": 81.71,
+        "elapsed_ms": 34.08,
         "ok": true,
         "error_sample": null
       },
@@ -92,7 +92,7 @@
         "endpoint": "/api/export/status",
         "url": "http://127.0.0.1:8767/api/export/status",
         "status_code": 200,
-        "elapsed_ms": 14.71,
+        "elapsed_ms": 3.71,
         "ok": true,
         "error_sample": null
       }
@@ -148,15 +148,15 @@
   },
   "fps_measurement": {
     "status": "FPS_MEASURED",
-    "fps_estimate": 33.085,
-    "fps_1pct_low": 11.976,
+    "fps_estimate": 56.368,
+    "fps_1pct_low": 20.0,
     "fps_acceptance_status": "FULL_RUNTIME_FPS_VALID",
     "label": "FULL_RUNTIME_FPS_ESTIMATE"
   },
   "load_timings": {
-    "load_to_domcontentloaded_ms": 62.59999990463257,
-    "load_to_load_event_ms": 78.19999992847443,
-    "load_elapsed_ms": 12945.46
+    "load_to_domcontentloaded_ms": 97.10000002384186,
+    "load_to_load_event_ms": 98.10000002384186,
+    "load_elapsed_ms": 1028.12
   },
   "console_errors": {
     "count": 0,
@@ -169,7 +169,7 @@
     "status": "MEASURED"
   },
   "runtime_side_effects": {
-    "runtime_isolation_root": "C:/Users/PC/AppData/Local/Temp/imperium_runtime_audits/full_runtime_audit_20260517_142340_14876",
+    "runtime_isolation_root": "C:/Users/PC/AppData/Local/Temp/imperium_runtime_audits/full_runtime_audit_20260517_182951_19316",
     "route_strategy": "NATIVE_ROUTE_DISCOVERY",
     "audit_proxy_used": false,
     "audit_proxy_url": null,
@@ -201,16 +201,16 @@
       "full_raw_dump_requires_owner_gate": true
     },
     "receipt_report_size": {
-      "json_lines": 355,
-      "json_kb": 10.9,
+      "json_lines": 348,
+      "json_kb": 10.73,
       "md_lines": 56,
       "md_kb": 2.22
     },
     "side_effect_report_size": {
       "json_lines": 37,
-      "json_kb": 2.16,
+      "json_kb": 2.09,
       "md_lines": 28,
-      "md_kb": 1.77
+      "md_kb": 1.7
     }
   },
   "static_frontend_precheck": {
@@ -232,14 +232,14 @@
     },
     "file_sizes_bytes": {
       "html": 15783,
-      "css": 56312,
-      "js": 94754,
+      "css": 58654,
+      "js": 96448,
       "server_py": 52445
     },
     "css_effect_counts": {
       "keyframes_count": 37,
-      "animation_count": 45,
-      "filter_count": 15,
+      "animation_count": 46,
+      "filter_count": 17,
       "drop_shadow_count": 10,
       "box_shadow_count": 47,
       "radial_gradient_count": 35,
@@ -265,14 +265,14 @@
     "metrics": [
       {
         "metric": "load_to_domcontentloaded_ms",
-        "value": 62.6,
+        "value": 97.1,
         "target": 1800.0,
         "blocker": 3000.0,
         "status": "PASS"
       },
       {
         "metric": "load_to_load_event_ms",
-        "value": 78.2,
+        "value": 98.1,
         "target": 1800.0,
         "blocker": 3000.0,
         "status": "PASS"
@@ -293,14 +293,14 @@
       },
       {
         "metric": "average_fps",
-        "value": 33.085,
+        "value": 56.368,
         "target": 55.0,
         "blocker": 50.0,
-        "status": "BLOCKED"
+        "status": "PASS"
       },
       {
         "metric": "fps_1pct_low",
-        "value": 11.976,
+        "value": 20.0,
         "target": 45.0,
         "blocker": 35.0,
         "status": "BLOCKED"
@@ -329,15 +329,8 @@
     ],
     "blockers": [
       {
-        "metric": "average_fps",
-        "value": 33.085,
-        "target": 55.0,
-        "blocker": 50.0,
-        "status": "BLOCKED"
-      },
-      {
         "metric": "fps_1pct_low",
-        "value": 11.976,
+        "value": 20.0,
         "target": 45.0,
         "blocker": 35.0,
         "status": "BLOCKED"

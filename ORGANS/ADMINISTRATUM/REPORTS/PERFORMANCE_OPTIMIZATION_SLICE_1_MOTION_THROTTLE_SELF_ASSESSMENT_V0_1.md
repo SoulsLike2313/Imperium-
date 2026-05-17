@@ -1,0 +1,28 @@
+# Performance Optimization Slice 1 Motion Throttle Self Assessment V0.1
+
+- PC01 | PASS | Starting HEAD matched. | evidence=['git rev-parse HEAD'] | note=Start HEAD matched required hash. | risk=Low risk.
+- PC02 | PASS | Worktree clean before work. | evidence=['git status --short'] | note=Worktree was clean before edits. | risk=Low risk.
+- PC03 | PASS | AGENTS.md and 8 gateway files read. | evidence=['GATE_ACK json bootloader list'] | note=Bootloader docs read. | risk=Low risk.
+- PC04 | PASS | Performance plan/evidence read. | evidence=['GATE_ACK json performance list'] | note=Performance evidence read. | risk=Low risk.
+- PC05 | PASS | V0.6 CSS/JS inspected. | evidence=['V0.6 css/js files'] | note=V0.6 UI css/js inspected. | risk=Low risk.
+- PC06 | PASS | Only allowed V0.6 CSS/JS files changed. | evidence=['git diff --name-only'] | note=Source changes limited to allowed css/js files. | risk=Low risk.
+- PC07 | PASS | No V0.6 server/backend change. | evidence=['git diff --name-only'] | note=No server/backend file changed. | risk=Low risk.
+- PC08 | PASS | No V0.7 runner/tool change. | evidence=['git diff --name-only'] | note=No V0.7 tools changed. | risk=Low risk.
+- PC09 | PASS | Motion throttle implemented. | evidence=['implementation note json'] | note=Motion throttle implemented. | risk=Low risk.
+- PC10 | PASS | Comments/markers added for PERF-SLICE-1-MOTION-THROTTLE. | evidence=['findstr marker checks'] | note=PERF marker lines exist in css/js. | risk=Low risk.
+- PC11 | PASS | Full runtime audit reran. | evidence=['runner command output'] | note=Full runtime audit reran successfully. | risk=Low risk.
+- PC12 | PASS | Route HTTP 200 preserved. | evidence=['runtime receipt json'] | note=Route HTTP 200 preserved. | risk=Low risk.
+- PC13 | PASS | HTML/CSS/JS load preserved. | evidence=['runtime receipt json'] | note=HTML/CSS/JS loaded true after slice. | risk=Low risk.
+- PC14 | PASS | API checks pass preserved. | evidence=['runtime receipt json'] | note=API checks pass preserved. | risk=Low risk.
+- PC15 | PASS | Failed required requests remain 0. | evidence=['runtime receipt json'] | note=Failed required requests stayed at 0. | risk=Low risk.
+- PC16 | PASS | Critical console errors remain 0. | evidence=['runtime receipt json'] | note=Critical console errors stayed at 0. | risk=Low risk.
+- PC17 | PASS | Average FPS improved or honest no-improvement recorded. | evidence=['comparison json'] | note=Average FPS delta 23.283. | risk=Low risk.
+- PC18 | PASS | 1% low FPS improved or honest no-improvement recorded. | evidence=['comparison json'] | note=1% low FPS delta 8.024. | risk=Still below acceptance threshold.
+- PC19 | PASS | Acceptance target status honest. | evidence=['result decision json'] | note=Partial improvement recorded honestly. | risk=Low risk.
+- PC20 | PASS | No visual identity collapse claimed without evidence. | evidence=['implementation note + decision'] | note=No collapse claim; only preserved estimate. | risk=Subjective visual risk remains.
+- PC21 | PASS | No deletion/move/rename. | evidence=['git diff --name-status'] | note=No deletion/move/rename. | risk=Low risk.
+- PC22 | PASS | No raw traces/screenshots/zips committed. | evidence=['git diff --name-only'] | note=No raw trace/screenshot/archive artifacts added. | risk=Low risk.
+- PC23 | PASS | Report output budget obeyed. | evidence=['budget check command'] | note=Reports are within output budget. | risk=Low risk.
+- PC24 | PASS | Command chunking obeyed. | evidence=['chronology json'] | note=Command chunking obeyed. | risk=Low risk.
+- PC25 | PASS | KPD self-review created. | evidence=['kpd self review json'] | note=KPD review created. | risk=Low risk.
+- PC26 | PARTIAL | Commit/push/local-remote verification completed. | evidence=['phase8 pending'] | note=Will become PASS after commit/push/sync verification. | risk=Pending final git operations.

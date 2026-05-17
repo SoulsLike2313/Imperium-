@@ -1550,6 +1550,76 @@ footer {
 .footer-honest { display: flex; gap: 8px; }
 .footer-honest span { opacity: 0.82; }
 
+/* PERF-SLICE-1-MOTION-THROTTLE:
+   Default performance mode to reduce expensive decorative motion/effects
+   while preserving route/API truth and semantic visual zones. */
+body.performance-mode::after,
+body.performance-mode header::before,
+body.performance-mode .brand-icon,
+body.performance-mode .brand-icon::after,
+body.performance-mode .badge-launch,
+body.performance-mode .live-dot,
+body.performance-mode .truth-chip::after,
+body.performance-mode .brain-field-aura,
+body.performance-mode .brain-cortex-edge,
+body.performance-mode .brain-shell-outer,
+body.performance-mode .brain-shell-inner,
+body.performance-mode .brain-shell-lobe,
+body.performance-mode .brain-shell-seam,
+body.performance-mode .brain-orbit,
+body.performance-mode .brain-fiber,
+body.performance-mode .brain-neuron-link,
+body.performance-mode .brain-region-halo,
+body.performance-mode .core-halo,
+body.performance-mode .core-glow-ring,
+body.performance-mode .ring-spin-cw,
+body.performance-mode .ring-spin-ccw,
+body.performance-mode .ring-spin-slow,
+body.performance-mode .ring-spin-vslow,
+body.performance-mode .pulse-working,
+body.performance-mode .pulse-partial,
+body.performance-mode .pulse-blocked,
+body.performance-mode .pulse-missing,
+body.performance-mode .pulse-experimental,
+body.performance-mode .zone-active-ring,
+body.performance-mode .strand-primary,
+body.performance-mode .strand-data,
+body.performance-mode .strand-secondary,
+body.performance-mode .strand-active,
+body.performance-mode #operator-panel::before,
+body.performance-mode #corridor-panel::before,
+body.performance-mode #corridor-panel::after,
+body.performance-mode .corridor-icon,
+body.performance-mode .btn-launch {
+  animation: none !important;
+}
+
+body.performance-mode .brain-field-aura {
+  filter: blur(4px);
+  opacity: 0.7;
+}
+
+body.performance-mode .brain-cortex-contour,
+body.performance-mode .brain-stem-fill,
+body.performance-mode .brain-shell-lobe,
+body.performance-mode .brain-neuron-node,
+body.performance-mode .brain-neuron-node-warm,
+body.performance-mode .zone-capsule-shell,
+body.performance-mode .zone-node:hover .zone-capsule-shell,
+body.performance-mode .zone-node:hover .zone-body {
+  filter: none !important;
+}
+
+body.performance-mode .brain-neuron-link {
+  stroke-width: 0.9;
+  opacity: 0.52;
+}
+
+body.performance-mode .brain-fiber {
+  stroke-width: 0.9;
+  opacity: 0.5;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
