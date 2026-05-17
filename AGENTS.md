@@ -1,121 +1,208 @@
-# AGENTS.md
+# AGENTS.md - IMPERIUM Agent Bootloader V0.2
 
 ## Purpose
-This is the first file every agent should read before editing anything in this repository. It defines what is active, what is legacy/caution, what is local/runtime-only, and how to avoid fake green.
 
-## Current Truth Check
-Run these checks before any patch and before handing work back.
+This is the first file every agent must read before editing anything in this repository.
 
-Linux / VM2:
-- `git status --short`
-- `git fetch origin`
-- `git rev-parse HEAD`
-- `git rev-parse origin/master`
-- `git ls-remote origin refs/heads/master`
-- `git rev-list --count HEAD`
-- `git log -1 --oneline`
-- `./TOOLS/run_administratum_git_cli_check.sh`
-- `python3 scripts/verify_repo.py`
+This file is a bootloader and router. It does not duplicate all doctrine. It tells the agent:
+- what truth checks to run first;
+- what gates are mandatory;
+- what files to read by task class;
+- what shortcuts are forbidden;
+- how to report, preserve tools, and stop safely.
 
-Windows / PC:
-- `git status --short`
-- `git fetch origin`
-- `git rev-parse HEAD`
-- `git rev-parse origin/master`
-- `git ls-remote origin refs/heads/master`
-- `git rev-list --count HEAD`
-- `git log -1 --oneline`
-- `powershell -ExecutionPolicy Bypass -NoProfile -File .\TOOLS\RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1`
-- `py -3 .\scripts\verify_repo.py`
+IMPERIUM is not a normal repository. It is an operating body made of organs, gates, scripts, receipts, dashboards, and future agent profiles. An agent must not work as an isolated chatbot. It must work as a bounded unit inside IMPERIUM.
 
-## Safe First Commands
-Use read-only or low-risk commands first:
-- `git status --short`
-- `git log -1 --oneline`
-- `git ls-files`
-- `git grep "<pattern>"`
-- `rg "<pattern>"` if available
-- `fd "<name>"` if available
-- `python3 scripts/verify_repo.py`
-- `./TOOLS/run_administratum_git_cli_check.sh`
+## Universal First Truth Check
 
-## Active Source Zones
-- `src/imperium/`: active Python package source (config/security/receipts)
-- `scripts/`: active verification and checker scripts
-- `tests/`: active pytest coverage for current spine and checks
-- `schemas/`: active JSON schema contracts
-- `REGISTRY/`: active machine-readable registries
-- `TOOLS/`: active operational wrappers/check tools
-- `SANCTUM/sanctum_v0_29_qt.py`: current Sanctum UI runtime entry
-- `SANCTUM/sanctum_git_cli_check_service_v0_1.py`: Sanctum Git CLI check service
-- `ORGANS/`: organ definitions, continuity, and organ-specific scripts/docs
+Before editing anything:
 
-## Current Active Entrypoints
-- `SANCTUM/RUN_SANCTUM_V0_29_QT.ps1`
-- `SANCTUM/sanctum_v0_29_qt.py`
-- `TOOLS/RUN_ADMINISTRATUM_GIT_CLI_CHECK.ps1`
-- `TOOLS/run_administratum_git_cli_check.sh`
-- `scripts/verify_repo.py`
+```powershell
+cd E:\IMPERIUM
+git status --short
+git rev-parse --show-toplevel
+git rev-parse HEAD
+git branch --show-current
+git ls-remote origin refs/heads/master
+```
 
-## Registries
-- `REGISTRY/ORGAN_REGISTRY.json`: organ ownership/status map (may drift from current reality)
-- `REGISTRY/SCRIPT_REGISTRY.json`: script inventory and metadata (may drift from current reality)
-- `REGISTRY/COMMAND_ALLOWLIST.json`: command policy allowlist
-- `schemas/schema_registry.json`: schema inventory for active JSON contracts
+STOP if:
+- repo root is not `E:\IMPERIUM`;
+- branch is not the expected branch;
+- HEAD does not match the task-required starting HEAD;
+- worktree is dirty before work unless the task explicitly begins with dirty-state classification;
+- required orientation/gate files are missing.
 
-## Runtime / Generated / Local-Only Zones
-These are not active product source and should not be treated as canonical implementation:
-- `.imperium_runtime/` runtime reports, verdicts, receipts
-- `INBOX/` inbound local transfer area
-- `OUTBOX/` outbound local transfer area
-- local bundle folders (including VM2 bundle staging)
-- VM2 private folders outside repo root
-- runtime receipts and generated evidence files
+## Universal Admission Rules
 
-## Legacy / Caution Zones
-Caution zones are continuity/history context. Do not mass-delete:
-- older Sanctum files before `SANCTUM/sanctum_v0_29_qt.py`
-- `ORGANS/ADMINISTRATUM/CONTINUITY/PACKS/`
-- `CURRENT_STATE/`
-- `ARTIFACTS/`
-- older organ dashboard variants
-- `PC_ENGINEERING_ROOM/`
+No agent is admitted to work unless it has:
+1. task id;
+2. required starting HEAD;
+3. allowed write paths;
+4. forbidden paths;
+5. required gates;
+6. GATE_ACK before edits;
+7. report/receipt/action-card requirements;
+8. STOP conditions.
 
-## Known Current Debt
-- warning flood from legacy/continuity packs creates noisy `PASS_WITH_WARNINGS`
-- Sanctum raw subprocess usage is not yet migrated to command gateway
-- missing 4 organs: Custodes, Strategium, Schola Imperialis, Throne
-- registry drift between declared state and real active files
-- version sprawl across Sanctum and historical operational scripts
+Missing GATE_ACK means the work is not admitted.
 
-## Do Not Touch Without Owner Approval
-- mass deletion of files or folders
-- moving legacy folders
-- rewriting Sanctum architecture
-- changing public/private boundary model
-- editing private/local paths outside scoped VM2 workspace
-- committing or pushing from VM2
-- adding runtime outputs into tracked source
-- declaring product-ready, fully green, or stable
+## Mandatory Gate Families
 
-## How To Prepare A Safe Patch
-1. Run preflight truth checks and capture evidence.
-2. Keep edits tightly scoped to the assigned task.
-3. Run `py_compile` and task-specific tests.
-4. Run `python3 scripts/verify_repo.py`.
-5. Run `./TOOLS/run_administratum_git_cli_check.sh`.
-6. Inspect `git status --short` and `git diff`.
-7. Build an artifact bundle with source + runtime evidence.
-8. Hand off to PC owner review and commit on PC only.
+Always consider these gates:
+- `GATE-U00-GIT-TRUTH`
+- `GATE-U01-ROLE-ACK`
+- `GATE-U02-SCOPE-BOUNDARY`
+- `GATE-U04-EVIDENCE-RECEIPT`
+- `GATE-U05-STOP-CONDITIONS`
+- `GATE-U08-REPO-PURITY`
+- `GATE-U09-NO-FAKE-GREEN`
+- `GATE-U12-REPORT-OUTPUT-BUDGET`
+- `GATE-U13-PYTHON-TYPE-SAFETY`
+- `GATE-U14-WHOLE-REPO-SCOPE-RECON`
+- `GATE-U15-OPERATIONALITY-IMPACT`
+- `GATE-U16-BILINGUAL-UI`
+- `GATE-U17-DELIVERABLE-PACKAGE`
+- `GATE-U18-AGENT-FACTORY-COMPLIANCE`
+- `GATE-U19-SCRIPT-ARTIFACT-PRESERVATION`
+- `GATE-U20-AGENT-KPD-SELF-REVIEW`
+- `GATE-U21-COMMAND-CHUNKING`
 
-## Task Lifecycle Summary
-Owner goal -> Doctrinarium preflight -> Officio Agentis role assignment -> Administratum work packet -> Astronomicon stage map -> Strategium scope/plan -> Mechanicus tools/scripts -> Servitor execution -> Inquisition audit -> Schola lessons learned -> Owner/Throne acceptance.
+Read canonical gate details from:
+- `ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json`
+- `ORGANS/DOCTRINARIUM/GATES/UNIVERSAL_GATE_LAWS_V0_1.md`
+- `ORGANS/DOCTRINARIUM/GATES/BASE_MANDATORY_GATES_V0_1.md`
 
-## Kiro Audit Follow-up Order
-Do not execute these here; this is ordering guidance only:
-1. warning flood / continuity packs cleanup
-2. registry sync
-3. Sanctum command gateway migration
-4. missing organs scaffold
-5. Sanctum legacy/archive cleanup
-6. Arsenal/Scriptorium later
+## Task-Class Reading Routes
+
+### Any task
+Read:
+- `AGENTS.md`
+- `ORGANS/DOCTRINARIUM/GATES/GATE_REGISTRY_V0_1.json`
+- `ORGANS/DOCTRINARIUM/GATES/UNIVERSAL_GATE_LAWS_V0_1.md`
+- `ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/AGENT_GATE_ACK_CONTRACT_V0_1.md`
+
+### Whole-repo / roadmap / planning task
+Read:
+- `ORGANS/ASTRONOMICON/ROADMAPS/IMPERIUM_OPERATIONALITY_70_WHOLE_REPO_FUSION_ROADMAP_V0_1.md`
+- `ORGANS/ADMINISTRATUM/READINESS/OPERATIONALITY_70_READINESS_MATRIX_V0_1.md`
+- orientation PDFs under `ORGANS/ASTRONOMICON/ADVISORY_BUFFER/SECOND_BRAIN_V07_VISUAL_SYSTEM_20260517/`
+
+### Script / tool task
+Read:
+- `ORGANS/MECHANICUS/SCRIPTORIUM/PYTHON_TYPE_SAFETY/SCRIPT_TYPE_SAFETY_POLICY_V0_1.md`
+- `ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ARTIFACT_PRESERVATION_POLICY_V0_1.md`
+- `ORGANS/MECHANICUS/SCRIPTORIUM/TEMP_SCRIPT_BUFFER_POLICY_V0_1.md`
+- `ORGANS/MECHANICUS/SCRIPTORIUM/COMMAND_DISCIPLINE/COMMAND_CHUNKING_DISCIPLINE_V0_1.md`
+
+### Big-model / Codex / Kiro / high-reasoning task
+Read:
+- `ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/BIG_MODEL_AGENT_OPERATING_RULES_V0_1.md`
+- `ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/AGENT_KPD_SELF_REVIEW_CONTRACT_V0_1.md`
+- `ORGANS/INQUISITION/GATE_AUDITS/AGENT_EXECUTION_INQUISITION_AUDIT_RULES_V0_1.md`
+
+### Local executor task
+Read:
+- `ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/LOCAL_EXECUTOR_AGENT_RULES_V0_1.md`
+
+### Runtime / browser / performance task
+Read:
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1.md`
+- `ORGANS/INQUISITION/GATE_AUDITS/FULL_RUNTIME_AUDIT_SAFETY_RULES_V0_1.md`
+- `ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.md`
+
+### Visual / UI / dashboard task
+Read:
+- `ORGANS/SANCTUM/CONTROL_CENTER/CONTROL_CENTER_MVP_REQUIREMENTS_V0_1.md`
+- `ORGANS/SANCTUM/CONTROL_CENTER/BILINGUAL_UI_POLICY_V0_1.md`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/VISUAL_LAYER_CONTRACT_V0_1.md`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json`
+
+### Freelance / delivery task
+Read:
+- `ORGANS/ASTRONOMICON/FREELANCE_CORRIDOR/FREELANCE_CORRIDOR_MVP_CONTRACT_V0_1.md`
+- `ORGANS/MECHANICUS/DELIVERABLE_FACTORY/DELIVERABLE_FACTORY_MVP_CONTRACT_V0_1.md`
+
+### Agent-factory task
+Read:
+- `ORGANS/OFFICIO_AGENTIS/AGENT_FACTORY/AGENT_FACTORY_FOUNDATION_CONCEPT_V0_1.md`
+- `ORGANS/DOCTRINARIUM/GATES/AGENT_FACTORY_COMPLIANCE_GATE_V0_1.md`
+
+## Command Discipline
+
+Do not use huge monolithic PowerShell or shell command blocks.
+
+Large work must be split into compact phases:
+1. create core docs;
+2. validate;
+3. create gates/registry updates;
+4. validate;
+5. create reports/receipts/action cards;
+6. validate JSON/JSONL/report budget;
+7. inspect diff/status;
+8. commit/push only if clean.
+
+If a command-length limit or partial dirty start appears, STOP and recover through quarantine or explicit cleanup.
+
+## Tool Preservation
+
+If you create a script, helper, parser, checker, runner, temporary generator, or useful command file:
+- do not silently delete it;
+- preserve it in a controlled buffer or register why it is unsafe/useless;
+- include it in the tool/artifact preservation manifest;
+- recommend absorb/rewrite/negative-sample/discard-after-review.
+
+## Big Model KPD Review
+
+Large reasoning agents must include KPD self-review:
+- what was wasteful;
+- what tools were missing;
+- what generated tools should be preserved;
+- what narrower future agent profile would improve execution;
+- what context pack would increase useful action density.
+
+Small local executors may skip deep reflection unless the task explicitly requires it.
+
+## Owner-Facing Language and Encoding
+
+Canonical machine artifacts should be English / UTF-8 safe by default.
+Owner-facing action cards, summaries, and live chat may be Russian.
+Dashboards and applications must support both Russian and English.
+No mojibake is acceptable.
+
+## Mandatory Final Response
+
+For normal task completion:
+1. step name;
+2. full path to reports/receipts/action card;
+3. verdict;
+4. short Russian Owner comment;
+5. next allowed task.
+
+For auto-push task:
+1. step name;
+2. verdict;
+3. new commit hash;
+4. GitHub commit URL;
+5. worktree clean yes/no and remote sync yes/no;
+6. micro-summary and next allowed task.
+
+## Never Claim
+
+Do not claim:
+- Control Center implemented if only requirements exist;
+- Agent Factory implemented if only concept exists;
+- runtime baseline valid if CSS/JS/assets/API failed;
+- visual build admitted before truth/performance gates pass;
+- freelance corridor ready before delivery package path exists;
+- strict type safety complete without evidence;
+- PASS without receipt.
+
+## When Unsure
+
+STOP. Report:
+- what is unclear;
+- what you read;
+- what paths are affected;
+- what options exist;
+- what Owner decision is needed.
