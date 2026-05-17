@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-05-17T02:32:17+00:00",
+  "current_head": "bfa4c7811efb2b66d835d4fa5a40254a54bf06b2",
+  "blocker_id": "BLOCKER-V07-BROWSER-TARGET-PATH-001",
+  "blocker_name": "Required CSS/JS not loaded in current browser audit target/path mode",
+  "failed_requests": [
+    "GET file:///E:/neural_map_v0_6.css :: net::ERR_FILE_NOT_FOUND",
+    "GET file:///E:/neural_map_v0_6.js :: net::ERR_FILE_NOT_FOUND"
+  ],
+  "affected_evidence": {
+    "fps_acceptance_status": "INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE",
+    "performance_acceptance": "BLOCKED",
+    "console_error_samples": [
+      "Failed to load resource: net::ERR_FILE_NOT_FOUND",
+      "Failed to load resource: net::ERR_FILE_NOT_FOUND"
+    ]
+  },
+  "safe_fix_options": [
+    "A. Use a safe local static server mode with no runtime side effects and verified asset serving.",
+    "B. Correct file:// base/path handling so CSS/JS resolve from V0.6 app directory.",
+    "C. Enforce runner gate: reject FPS acceptance unless required CSS/JS loaded successfully."
+  ],
+  "required_future_checks": [
+    "Confirm required CSS loaded (HTTP/file status success).",
+    "Confirm required JS loaded (HTTP/file status success).",
+    "Re-run browser audit and verify failed_requests_required == 0.",
+    "Only then accept FPS for UI performance evidence."
+  ],
+  "next_gate_requirements": [
+    "No runtime mutation while fixing audit target/path mode.",
+    "No raw trace commit by default.",
+    "Compact reports under GATE-U12 limits.",
+    "No fake PASS when required assets are missing."
+  ],
+  "verdict": "BLOCKED_TARGET_PATH_MODE"
+}

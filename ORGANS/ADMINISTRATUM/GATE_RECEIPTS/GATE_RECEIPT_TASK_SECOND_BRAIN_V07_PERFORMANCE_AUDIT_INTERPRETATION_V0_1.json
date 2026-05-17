@@ -1,0 +1,30 @@
+{
+  "receipt_id": "GATE_RECEIPT_TASK_SECOND_BRAIN_V07_PERFORMANCE_AUDIT_INTERPRETATION_V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-AUDIT-INTERPRETATION",
+  "generated_at": "2026-05-17T02:32:17+00:00",
+  "starting_head": "bfa4c7811efb2b66d835d4fa5a40254a54bf06b2",
+  "ending_head_before_commit": "bfa4c7811efb2b66d835d4fa5a40254a54bf06b2",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET",
+    "GATE-VIS00-PERFORMANCE-BUDGET"
+  ],
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_AUDIT_TARGET_PATH_BLOCKER_MAP_V0_1.json"
+  ],
+  "source_audit_receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "forbidden_paths_touched": false,
+  "no_delete_rule_obeyed": true,
+  "runtime_changed": false,
+  "visual_implementation_changed": false,
+  "optimization_changed": false,
+  "raw_trace_committed": false,
+  "fps_acceptance_status": "INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE",
+  "verdict": "BLOCKED_PERFORMANCE_ACCEPTANCE_RECORDED"
+}

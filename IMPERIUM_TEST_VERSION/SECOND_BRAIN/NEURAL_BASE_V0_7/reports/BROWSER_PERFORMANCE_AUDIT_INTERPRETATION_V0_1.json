@@ -1,0 +1,41 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-AUDIT-INTERPRETATION",
+  "generated_at": "2026-05-17T02:32:17+00:00",
+  "current_head": "bfa4c7811efb2b66d835d4fa5a40254a54bf06b2",
+  "source_audit_receipt": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "source_runner_report": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/BROWSER_PERFORMANCE_AUDIT_RUNNER_REPORT_V0_1.json",
+  "source_budget": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+  "source_report_output_budget": "ORGANS/DOCTRINARIUM/GATES/REPORT_OUTPUT_BUDGET_V0_1.json",
+  "audit_verdict": "BLOCKED",
+  "browser_automation_available": true,
+  "browser_audit_run": true,
+  "fps_measured": true,
+  "fps_acceptance_status": "INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE",
+  "required_assets_loaded": false,
+  "failed_required_requests": [
+    "GET file:///E:/neural_map_v0_6.css :: net::ERR_FILE_NOT_FOUND",
+    "GET file:///E:/neural_map_v0_6.js :: net::ERR_FILE_NOT_FOUND"
+  ],
+  "valid_findings": [
+    "Browser automation was available and browser audit runner executed.",
+    "Runner produced compact JSON/MD receipt under report output budget.",
+    "Raw trace status is NOT_CREATED; no raw trace artifacts were committed.",
+    "Console/failed request counters were measured and surfaced honestly."
+  ],
+  "invalid_or_blocked_findings": [
+    "Required CSS failed to load: neural_map_v0_6.css (net::ERR_FILE_NOT_FOUND).",
+    "Required JS failed to load: neural_map_v0_6.js (net::ERR_FILE_NOT_FOUND).",
+    "Measured FPS reflects incomplete page state and cannot represent real V0.6 UI performance.",
+    "Performance acceptance is blocked until required assets load successfully in audit mode."
+  ],
+  "cannot_claim": [
+    "Cannot claim valid UI FPS performance evidence for V0.6.",
+    "Cannot claim performance PASS for current browser audit receipt.",
+    "Cannot use current frame timing as truth-bound performance baseline.",
+    "Cannot claim asset-complete rendering path health while CSS/JS failed to load."
+  ],
+  "blocker_reason": "Required CSS/JS assets failed to load in current target/path mode; therefore performance acceptance is blocked and FPS is invalid for UI truth.",
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-BROWSER-AUDIT-TARGET-PATH-FIX",
+  "alternative_next_task": "TASK-SECOND-BRAIN-V07-BROWSER-AUDIT-ENVIRONMENT-PREP",
+  "verdict": "BLOCKED_PERFORMANCE_ACCEPTANCE"
+}
