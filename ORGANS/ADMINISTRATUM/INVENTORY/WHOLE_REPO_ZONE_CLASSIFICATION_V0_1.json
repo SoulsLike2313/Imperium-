@@ -1,0 +1,534 @@
+{
+  "generated_at": "2026-05-17T14:03:48Z",
+  "current_head": "bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0",
+  "zones": [
+    {
+      "path": ".",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "file_count_estimate": 8,
+      "key_subzones": [],
+      "warnings": [
+        "Category may require manual follow-up."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": ".gitattributes",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Category may require manual follow-up."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": ".gitignore",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Category may require manual follow-up."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": ".imperium_runtime",
+      "category": "RUNTIME_OR_LOCAL",
+      "confidence": "HIGH",
+      "reason": "Likely runtime/local/generated operations zone.",
+      "file_count_estimate": 6,
+      "key_subzones": [
+        "administratum",
+        "verification_spine"
+      ],
+      "warnings": [
+        "Treat as non-canon source for implementation claims."
+      ],
+      "recommended_action": "IGNORE_FOR_NOW"
+    },
+    {
+      "path": ".kilo",
+      "category": "NEGATIVE_SAMPLE",
+      "confidence": "MEDIUM",
+      "reason": "Test harness/negative or isolated zone by naming.",
+      "file_count_estimate": 3450,
+      "key_subzones": [
+        "node_modules",
+        ".gitignore",
+        "kilo.json",
+        "package-lock.json",
+        "package.json",
+        "plans"
+      ],
+      "warnings": [
+        "Keep outside canon merge without explicit absorption decision."
+      ],
+      "recommended_action": "NEGATIVE_SAMPLE_REVIEW"
+    },
+    {
+      "path": ".vscode",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "file_count_estimate": 1,
+      "key_subzones": [
+        "settings.json"
+      ],
+      "warnings": [
+        "Category may require manual follow-up."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": "AGENTS.md",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "ARTIFACTS",
+      "category": "ASSET_OR_ARTIFACT",
+      "confidence": "HIGH",
+      "reason": "Artifact/asset-heavy zone.",
+      "file_count_estimate": 5647,
+      "key_subzones": [
+        "TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1",
+        "TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1",
+        "TASK-20260508-0014D-IMPERIUM-STAGE-COORDINATION-SKELETON-AND-SPECULUM-SNAPSHOT-V1",
+        "TASK-20260508-0014E1-RUNTIME-EVIDENCE-PACKAGING-REPAIR-V1",
+        "TASK-20260509-SANCTUM-V0_1-OWNER-ACCEPTABLE-VERSION-ACTIVE-V1",
+        "TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1",
+        "TASK-20260509-0016A1-CONTINUITY-EXECUTOR-FINAL-STATUS-AND-ORGAN-PORT-SLOTS-V1",
+        "TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1"
+      ],
+      "warnings": [
+        "Avoid mass cleanup without owner gate."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": "ASSETS",
+      "category": "ASSET_OR_ARTIFACT",
+      "confidence": "HIGH",
+      "reason": "Artifact/asset-heavy zone.",
+      "file_count_estimate": 117,
+      "key_subzones": [
+        "INBOX_OWNER_VISUAL_SORTING",
+        "REFERENCES",
+        "ASSET_MANIFEST.json",
+        "OWNER_VISUAL_PREFERENCES.md",
+        "README_ASSETS.md",
+        "DATA"
+      ],
+      "warnings": [
+        "Avoid mass cleanup without owner gate."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": "ASTRONOMICON",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 174,
+      "key_subzones": [
+        "GENERAL_TASKS",
+        "SMOKE_TESTS",
+        "PROTOCOLS"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "CURRENT_STATE",
+      "category": "ASSET_OR_ARTIFACT",
+      "confidence": "HIGH",
+      "reason": "Artifact/asset-heavy zone.",
+      "file_count_estimate": 134,
+      "key_subzones": [
+        "GIT_SANITIZE_V0_1",
+        "ADMINISTRATUM_ANALYZER",
+        "ENGINEERING_CLEAN_POINT_V0_1",
+        "ADMINISTRATUM_ANALYZER_POST_PUSH",
+        "REPO_FORMATTING_REPAIR_V0_1",
+        "ADMINISTRATUM_WORKTREE_CLASSIFIER",
+        "ADMINISTRATUM_ANALYZER_V0_3",
+        "ADDRESS_REPAIR_REPORT_20260514.md"
+      ],
+      "warnings": [
+        "Avoid mass cleanup without owner gate."
+      ],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": "DOCS",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 81,
+      "key_subzones": [
+        "AUDITS",
+        "OWNER_DOCTRINE",
+        "ASTRONOMICON",
+        "TOOLING_SPINOFF",
+        "ACT3_ADDRESS_TRUTH_CAPABILITY_SPINE_SEED_20260513.md",
+        "ACT4_FULL_REGISTRATION_CORRIDOR_SEED_20260513.md",
+        "ACT4_INQUISITION_GENERAL_TASK_DECOMPOSITION_20260513.md",
+        "ACT5_PREFIRE_ADVISORY_INGEST_AND_MODERNIZATION_V0_1.md"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "EXPLORER",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 411,
+      "key_subzones": [
+        "SCREENSHOTS",
+        "VERIFY",
+        "__pycache__",
+        "POLICIES",
+        "CHANGELOG.md",
+        "imperium_explorer_v0_1.py",
+        "imperium_explorer_v0_2.py",
+        "imperium_explorer_v0_3.py"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "imperium.example.toml",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION",
+      "category": "TEST_VERSION",
+      "confidence": "HIGH",
+      "reason": "Explicit test/experimental technology zone.",
+      "file_count_estimate": 1363,
+      "key_subzones": [
+        "SECOND_BRAIN",
+        "ORGANS",
+        "RECEIPTS",
+        "AUDITS",
+        "TESTING_FIELD",
+        "STRATEGIC_CAPABILITIES",
+        "LIVE_WORKBENCH",
+        "AGENT_EXCHANGE"
+      ],
+      "warnings": [
+        "Do not edit in this task; candidate absorption source."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "KILO_TEST",
+      "category": "NEGATIVE_SAMPLE",
+      "confidence": "MEDIUM",
+      "reason": "Test harness/negative or isolated zone by naming.",
+      "file_count_estimate": 6,
+      "key_subzones": [
+        "kilo.json",
+        "neural_map_optimized.css",
+        "neural_map_optimized.html",
+        "README.md",
+        "VISUAL_GATES.md",
+        "VISUAL_PROFILE.md"
+      ],
+      "warnings": [
+        "Keep outside canon merge without explicit absorption decision."
+      ],
+      "recommended_action": "NEGATIVE_SAMPLE_REVIEW"
+    },
+    {
+      "path": "KILO_TEST_RESULTS.zip",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "KIRO_PLAN_ADVISOR",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 51,
+      "key_subzones": [
+        "SAN_CLEAN_PLAN"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "ORGANS",
+      "category": "ORGAN",
+      "confidence": "HIGH",
+      "reason": "Primary organ body path.",
+      "file_count_estimate": 1942,
+      "key_subzones": [
+        "ASTRONOMICON",
+        "ADMINISTRATUM",
+        "DOCTRINARIUM",
+        "OFFICIO_AGENTIS",
+        "MECHANICUS",
+        "INQUISITION",
+        "_PORTS",
+        "CUSTODES"
+      ],
+      "warnings": [],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": "PC_ENGINEERING_ROOM",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 24,
+      "key_subzones": [
+        "00_SYSTEM_MAPS",
+        "06_ORGANS_WORKSHOP",
+        "00_README_RU.md",
+        "08_LOCAL_LLM_LAB",
+        "09_INTERNET_RESEARCH_GATEWAY",
+        "SCRIPTS"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "pyproject.toml",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "README.md",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "REGISTRY",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 13,
+      "key_subzones": [
+        "AGENT_ENTRYPOINT_REGISTRY.json",
+        "ARSENAL_INSTALL_STATUS.json",
+        "ARSENAL_TOOL_INDEX.json",
+        "ARTIFACT_REGISTRY.json",
+        "BUNDLE_ROUTE_REGISTRY.json",
+        "COMMAND_ALLOWLIST.json",
+        "DYNAMIC_STATE_REGISTRY.json",
+        "KNOWN_DEFECTS.json"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "SANCTUM",
+      "category": "RUNTIME_OR_LOCAL",
+      "confidence": "MEDIUM",
+      "reason": "Root SANCTUM path is restricted in current task contracts.",
+      "file_count_estimate": 73,
+      "key_subzones": [
+        "__pycache__",
+        "VERIFY",
+        "SCREENSHOTS",
+        "UI_LAB",
+        "DESIGN_SYSTEM",
+        "ACTIONS",
+        "DASHBOARD",
+        "DASHBOARD_DATA"
+      ],
+      "warnings": [
+        "Current task forbids modifications in root SANCTUM/."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "schemas",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 54,
+      "key_subzones": [
+        "administratum_ack_v0_1.schema.json",
+        "administratum_address_book.schema.json",
+        "administratum_chronicle_entry.schema.json",
+        "administratum_stage_report.schema.json",
+        "administratum_task_bundle_manifest.schema.json",
+        "administratum_task_session.schema.json",
+        "advisory_response.schema.json",
+        "advisory_review_pack.schema.json"
+      ],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "scripts",
+      "category": "SCRIPT_TOOLING",
+      "confidence": "HIGH",
+      "reason": "Named tooling/script execution zone.",
+      "file_count_estimate": 127,
+      "key_subzones": [
+        "__pycache__",
+        "foundational_organs_v1",
+        "administratum_address_book_check_v0_1.py",
+        "administratum_build_task_bundle_v0_1.py",
+        "administratum_check_all_v0_1.py",
+        "administratum_chronicle_check_v0_1.py",
+        "administratum_lifecycle_common_v0_1.py",
+        "administratum_stage_report_v0_1.py"
+      ],
+      "warnings": [
+        "Read-only in this task; important for future absorption map."
+      ],
+      "recommended_action": "ABSORB_CANDIDATE"
+    },
+    {
+      "path": "src",
+      "category": "SOURCE_CODE",
+      "confidence": "HIGH",
+      "reason": "Conventional source-code zone.",
+      "file_count_estimate": 24,
+      "key_subzones": [
+        "imperium"
+      ],
+      "warnings": [],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "START_HERE.md",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "file_count_estimate": 0,
+      "key_subzones": [],
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ],
+      "recommended_action": "REVIEW_REQUIRED"
+    },
+    {
+      "path": "tests",
+      "category": "TESTS",
+      "confidence": "HIGH",
+      "reason": "Conventional tests zone.",
+      "file_count_estimate": 44,
+      "key_subzones": [
+        "fixtures",
+        "__pycache__",
+        "test_agent_entrypoint_registry.py",
+        "test_command_gateway.py",
+        "test_path_policy.py",
+        "test_receipt_model.py",
+        "test_verify_repo_smoke.py"
+      ],
+      "warnings": [],
+      "recommended_action": "INVENTORY_ONLY"
+    },
+    {
+      "path": "TOOLS",
+      "category": "SCRIPT_TOOLING",
+      "confidence": "HIGH",
+      "reason": "Named tooling/script execution zone.",
+      "file_count_estimate": 77,
+      "key_subzones": [
+        "__pycache__",
+        "administratum_ack_stage_progress_v0_1.py",
+        "administratum_analyze_git_local_context.ps1",
+        "administratum_git_cli_check_v0_1.py",
+        "administratum_record_analyzer_checkpoint.ps1",
+        "astronomicon_commit_push_task_plan_v0_1.ps1",
+        "astronomicon_decompose_local_task_to_stages_v0_1.ps1",
+        "astronomicon_decompose_local_task_to_stages_v0_2.ps1"
+      ],
+      "warnings": [
+        "Read-only in this task; important for future absorption map."
+      ],
+      "recommended_action": "ABSORB_CANDIDATE"
+    }
+  ],
+  "classification_rules": {
+    "top_level_name_rules": "Deterministic mappings for ORGANS, IMPERIUM_TEST_VERSION, runtime/artifact/test/source zones.",
+    "fallback_rule": "UNKNOWN/REVIEW_REQUIRED when name-only confidence is low.",
+    "scan_depth": "Whole-repo metadata walk with compact subzone summaries."
+  },
+  "uncertain_zones": [
+    "AGENTS.md",
+    "ASTRONOMICON",
+    "DOCS",
+    "EXPLORER",
+    "KILO_TEST_RESULTS.zip",
+    "KIRO_PLAN_ADVISOR",
+    "PC_ENGINEERING_ROOM",
+    "README.md",
+    "REGISTRY",
+    "START_HERE.md",
+    "imperium.example.toml",
+    "pyproject.toml",
+    "schemas"
+  ],
+  "recommended_followups": [
+    "TASK-MECHANICUS-SCRIPTORIUM-TEST-VERSION-TOOL-ABSORPTION-MAP-V0_1",
+    "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+    "TASK-IMPERIUM-CONTROL-CENTER-DATA-SPINE-CONTRACT-V0_1"
+  ],
+  "verdict": "PASS_WITH_REVIEW_REQUIRED_ZONES"
+}

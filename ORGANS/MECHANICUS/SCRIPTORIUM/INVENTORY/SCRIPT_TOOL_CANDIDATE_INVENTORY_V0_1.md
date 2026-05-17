@@ -1,0 +1,82 @@
+# SCRIPT TOOL CANDIDATE INVENTORY V0.1
+
+- generated_at: `2026-05-17T14:03:48Z`
+- current_head: `bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0`
+- candidate_count_total: `4564`
+- candidate_rows_included: `80`
+- candidate_rows_omitted: `4484`
+
+## Family Summary
+| Family | Count |
+|---|---:|
+| JS_TS_TOOL | 2283 |
+| UNKNOWN_TOOL | 975 |
+| PYTHON_TOOL | 709 |
+| REPORTING_TOOL | 295 |
+| POWERSHELL_TOOL | 162 |
+| AUDIT_TOOL | 96 |
+| INVENTORY_TOOL | 28 |
+| SHELL_HELPER | 8 |
+| GATE_RUNNER | 8 |
+
+## Priority Absorption Candidates (sample)
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/build_frontback_truth_parity_audit_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/server_v0_6.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/browser_performance_audit_runner_v0_1.py`
+- `ARTIFACTS/TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1/00_README/audit_collector_readonly.py`
+- `IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_DELTA_WINDOW_AUDIT_20260516/_build_outputs.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_fake_green_scanner_v0_1.py`
+- `IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/_build_audit_outputs.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/playwright_v0_5_full_audit.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_frontback_truth_parity_v0_2.py`
+- `IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/dashboard_generator.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/playwright_v0_5_truth_lock.py`
+- `EXPLORER/VERIFY/explorer_truth_audit_v0_2.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/INTERACTIVE_APP/server.py`
+- `IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/TOOLS/generate_agent_exchange_window.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/tools/snapshot_builder_v0_6.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/tools/playwright_visual_acceptance_hardening_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_performance_receipt_runner_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_neural_base_v0_5.py`
+- `IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_analyzer.py`
+- `ARTIFACTS/TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1/02_PROOF_TOOLS/explorer_truth_audit_v1_0.py`
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/explorer_truth_audit_v1_0a.py`
+
+## Type Safety Candidates (sample)
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/build_frontback_truth_parity_audit_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/full_runtime_performance_audit_runner_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/server_v0_6.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/browser_performance_audit_runner_v0_1.py`
+- `ARTIFACTS/TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1/00_README/audit_collector_readonly.py`
+- `IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_DELTA_WINDOW_AUDIT_20260516/_build_outputs.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_fake_green_scanner_v0_1.py`
+- `IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/_build_audit_outputs.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/playwright_v0_5_full_audit.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/app/server_v0_5.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_frontback_truth_parity_v0_2.py`
+- `IMPERIUM_TEST_VERSION/SANCTUM_MIRROR/dashboard_generator.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/playwright_v0_5_truth_lock.py`
+- `EXPLORER/VERIFY/explorer_truth_audit_v0_2.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/INTERACTIVE_APP/server.py`
+- `IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/TOOLS/generate_agent_exchange_window.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/snapshot_builder_v0_5.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/tools/snapshot_builder_v0_6.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/tools/playwright_visual_acceptance_hardening_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_performance_receipt_runner_v0_1.py`
+- `IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_5/tools/check_neural_base_v0_5.py`
+- `IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_analyzer.py`
+- `ARTIFACTS/TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1/02_PROOF_TOOLS/explorer_truth_audit_v1_0.py`
+- `ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/00_CONTENT_SNAPSHOT/EXPLORER/VERIFY/explorer_truth_audit_v1_0a.py`
+- `EXPLORER/VERIFY/explorer_truth_audit_v1_0.py`
+- `EXPLORER/VERIFY/explorer_truth_audit_v1_0a.py`
+- `IMPERIUM_TEST_VERSION/ORGANS/THRONE/SCRIPTS/promotion_workflow.py`
+- `IMPERIUM_TEST_VERSION/ORGANS/SCHOLA_IMPERIALIS/SCRIPTS/lesson_extractor.py`
+- `IMPERIUM_TEST_VERSION/ORGANS/ADMINISTRATUM/SCRIPTS/self_diagnosis.py`
+
+## Next Recommended Task
+- `TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX`

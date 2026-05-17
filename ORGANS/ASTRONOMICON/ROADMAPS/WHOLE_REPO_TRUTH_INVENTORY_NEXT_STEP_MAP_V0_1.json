@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-05-17T13:59:33Z",
+  "current_head": "bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0",
+  "findings_summary": {
+    "tracked_file_count": 9335,
+    "directory_count_estimate": 2735,
+    "zone_count": 30,
+    "uncertain_zone_count": 13,
+    "blocker_count": 1,
+    "warning_count": 2,
+    "script_tool_candidate_count": 4562
+  },
+  "recommended_next_tasks": [
+    {
+      "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+      "reason": "Runtime truth blocker is active and blocks trusted full-baseline UI performance evidence."
+    },
+    {
+      "task_id": "TASK-MECHANICUS-SCRIPTORIUM-TEST-VERSION-TOOL-ABSORPTION-MAP-V0_1",
+      "reason": "Inventory surfaced a large tool candidate set requiring structured absorption triage."
+    },
+    {
+      "task_id": "TASK-IMPERIUM-CONTROL-CENTER-DATA-SPINE-CONTRACT-V0_1",
+      "reason": "Control Center implementation should follow truth inventory and blocker map outputs."
+    },
+    {
+      "task_id": "TASK-IMPERIUM-GATE-U14-U18-AUDIT-CHECKERS-V0_1",
+      "reason": "New draft gates need executable checker discipline."
+    },
+    {
+      "task_id": "TASK-OFFICIO-AGENTIS-AGENT-PASSPORT-SCHEMA-V0_1",
+      "reason": "Agent factory progression needs profile passport schema and compliance evidence."
+    }
+  ],
+  "priority_order_reasoning": "Resolve truth blocker first, then absorption map, then control-data spine, then gate automation, then agent passport compliance.",
+  "blocked_until": [
+    "Runtime route/assets truth restored for full runtime baseline claims.",
+    "Tool absorption map created for high-volume candidate zones."
+  ],
+  "status": "NEXT_STEP_MAP_REGISTERED"
+}

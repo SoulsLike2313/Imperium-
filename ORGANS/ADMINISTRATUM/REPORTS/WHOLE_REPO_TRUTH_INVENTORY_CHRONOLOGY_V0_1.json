@@ -1,0 +1,56 @@
+{
+  "task_id": "TASK-IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+  "generated_at": "2026-05-17T14:01:25Z",
+  "current_head": "bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what": "truth check + bootloader/gate reading",
+      "why": "admission truth baseline",
+      "how_to_use": "use as scope and discipline anchor",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+      "limitation": "summary-level reading for large files"
+    },
+    {
+      "phase": "Phase 2",
+      "what": "inventory tool creation",
+      "why": "repeatable metadata recon",
+      "how_to_use": "rerun tool for compact refreshed inventory",
+      "evidence_path": "ORGANS/MECHANICUS/SCRIPTORIUM/INVENTORY/imperium_whole_repo_truth_inventory_v0_1.py",
+      "limitation": "heuristic classification"
+    },
+    {
+      "phase": "Phase 3",
+      "what": "tool compile/run and output generation",
+      "why": "executable evidence artifact generation",
+      "how_to_use": "consume inventory outputs for next tasks",
+      "evidence_path": "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+      "limitation": "metadata-only no binary parsing"
+    },
+    {
+      "phase": "Phase 4",
+      "what": "reports/next-step/assessment/KPD/receipt/action card",
+      "why": "auditable handoff and decision support",
+      "how_to_use": "owner and agent continuity package",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_REPORT_V0_1.json",
+      "limitation": "recommendations constrained by current blockers"
+    },
+    {
+      "phase": "Phase 5",
+      "what": "validation pass",
+      "why": "scope and truth compliance before commit",
+      "how_to_use": "release gate before versioning",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+      "limitation": "terminal command evidence not separately archived"
+    },
+    {
+      "phase": "Phase 6",
+      "what": "commit/push/sync verification",
+      "why": "final repository truth handoff",
+      "how_to_use": "continuity via commit hash + receipt index",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/gate_receipt_index_v0_1.jsonl",
+      "limitation": "depends on remote availability"
+    }
+  ],
+  "status": "CHRONOLOGY_REGISTERED"
+}

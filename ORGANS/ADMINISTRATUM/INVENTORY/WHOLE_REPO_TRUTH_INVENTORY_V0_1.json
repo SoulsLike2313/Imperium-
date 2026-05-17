@@ -1,0 +1,779 @@
+{
+  "inventory_id": "IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+  "generated_at": "2026-05-17T14:03:48Z",
+  "current_head": "bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0",
+  "repo_root": "E:\\IMPERIUM",
+  "branch": "master",
+  "git_status_before_inventory": [
+    "M ORGANS/ADMINISTRATUM/GATE_RECEIPTS/gate_receipt_index_v0_1.jsonl",
+    "?? ORGANS/ADMINISTRATUM/ACTION_CARDS/ACTION_CARD_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.md",
+    "?? ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+    "?? ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.md",
+    "?? ORGANS/ADMINISTRATUM/INVENTORY/",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.md",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_CHRONOLOGY_V0_1.json",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_CHRONOLOGY_V0_1.md",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_KPD_SELF_REVIEW_V0_1.json",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_KPD_SELF_REVIEW_V0_1.md",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_REPORT_V0_1.json",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_REPORT_V0_1.md",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_SELF_ASSESSMENT_V0_1.json",
+    "?? ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_SELF_ASSESSMENT_V0_1.md",
+    "?? ORGANS/ASTRONOMICON/ROADMAPS/WHOLE_REPO_TRUTH_INVENTORY_NEXT_STEP_MAP_V0_1.json",
+    "?? ORGANS/ASTRONOMICON/ROADMAPS/WHOLE_REPO_TRUTH_INVENTORY_NEXT_STEP_MAP_V0_1.md",
+    "?? ORGANS/MECHANICUS/SCRIPTORIUM/INVENTORY/"
+  ],
+  "tracked_file_count": 9335,
+  "untracked_file_count": 17,
+  "directory_count_estimate": 2736,
+  "top_level_zones": [
+    {
+      "path": ".gitattributes",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": [
+        "Category may require manual follow-up."
+      ]
+    },
+    {
+      "path": ".gitignore",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": [
+        "Category may require manual follow-up."
+      ]
+    },
+    {
+      "path": ".imperium_runtime",
+      "category": "RUNTIME_OR_LOCAL",
+      "confidence": "HIGH",
+      "reason": "Likely runtime/local/generated operations zone.",
+      "recommended_action": "IGNORE_FOR_NOW",
+      "warnings": [
+        "Treat as non-canon source for implementation claims."
+      ]
+    },
+    {
+      "path": ".kilo",
+      "category": "NEGATIVE_SAMPLE",
+      "confidence": "MEDIUM",
+      "reason": "Test harness/negative or isolated zone by naming.",
+      "recommended_action": "NEGATIVE_SAMPLE_REVIEW",
+      "warnings": [
+        "Keep outside canon merge without explicit absorption decision."
+      ]
+    },
+    {
+      "path": ".vscode",
+      "category": "ADVISORY",
+      "confidence": "LOW",
+      "reason": "Dot-prefixed auxiliary/config zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": [
+        "Category may require manual follow-up."
+      ]
+    },
+    {
+      "path": "AGENTS.md",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "ARTIFACTS",
+      "category": "ASSET_OR_ARTIFACT",
+      "confidence": "HIGH",
+      "reason": "Artifact/asset-heavy zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": [
+        "Avoid mass cleanup without owner gate."
+      ]
+    },
+    {
+      "path": "ASSETS",
+      "category": "ASSET_OR_ARTIFACT",
+      "confidence": "HIGH",
+      "reason": "Artifact/asset-heavy zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": [
+        "Avoid mass cleanup without owner gate."
+      ]
+    },
+    {
+      "path": "ASTRONOMICON",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "CURRENT_STATE",
+      "category": "ASSET_OR_ARTIFACT",
+      "confidence": "HIGH",
+      "reason": "Artifact/asset-heavy zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": [
+        "Avoid mass cleanup without owner gate."
+      ]
+    },
+    {
+      "path": "DOCS",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "EXPLORER",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "imperium.example.toml",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "IMPERIUM_TEST_VERSION",
+      "category": "TEST_VERSION",
+      "confidence": "HIGH",
+      "reason": "Explicit test/experimental technology zone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Do not edit in this task; candidate absorption source."
+      ]
+    },
+    {
+      "path": "KILO_TEST",
+      "category": "NEGATIVE_SAMPLE",
+      "confidence": "MEDIUM",
+      "reason": "Test harness/negative or isolated zone by naming.",
+      "recommended_action": "NEGATIVE_SAMPLE_REVIEW",
+      "warnings": [
+        "Keep outside canon merge without explicit absorption decision."
+      ]
+    },
+    {
+      "path": "KILO_TEST_RESULTS.zip",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "KIRO_PLAN_ADVISOR",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "ORGANS",
+      "category": "ORGAN",
+      "confidence": "HIGH",
+      "reason": "Primary organ body path.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": []
+    },
+    {
+      "path": "PC_ENGINEERING_ROOM",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "pyproject.toml",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "README.md",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "REGISTRY",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "SANCTUM",
+      "category": "RUNTIME_OR_LOCAL",
+      "confidence": "MEDIUM",
+      "reason": "Root SANCTUM path is restricted in current task contracts.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Current task forbids modifications in root SANCTUM/."
+      ]
+    },
+    {
+      "path": "schemas",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "scripts",
+      "category": "SCRIPT_TOOLING",
+      "confidence": "HIGH",
+      "reason": "Named tooling/script execution zone.",
+      "recommended_action": "ABSORB_CANDIDATE",
+      "warnings": [
+        "Read-only in this task; important for future absorption map."
+      ]
+    },
+    {
+      "path": "src",
+      "category": "SOURCE_CODE",
+      "confidence": "HIGH",
+      "reason": "Conventional source-code zone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": []
+    },
+    {
+      "path": "START_HERE.md",
+      "category": "UNKNOWN",
+      "confidence": "LOW",
+      "reason": "No deterministic rule matched by top-level name alone.",
+      "recommended_action": "REVIEW_REQUIRED",
+      "warnings": [
+        "Manual classification follow-up recommended."
+      ]
+    },
+    {
+      "path": "tests",
+      "category": "TESTS",
+      "confidence": "HIGH",
+      "reason": "Conventional tests zone.",
+      "recommended_action": "INVENTORY_ONLY",
+      "warnings": []
+    },
+    {
+      "path": "TOOLS",
+      "category": "SCRIPT_TOOLING",
+      "confidence": "HIGH",
+      "reason": "Named tooling/script execution zone.",
+      "recommended_action": "ABSORB_CANDIDATE",
+      "warnings": [
+        "Read-only in this task; important for future absorption map."
+      ]
+    }
+  ],
+  "zone_summaries": [
+    {
+      "category": "ADVISORY",
+      "zone_count": 4
+    },
+    {
+      "category": "ASSET_OR_ARTIFACT",
+      "zone_count": 3
+    },
+    {
+      "category": "NEGATIVE_SAMPLE",
+      "zone_count": 2
+    },
+    {
+      "category": "ORGAN",
+      "zone_count": 1
+    },
+    {
+      "category": "RUNTIME_OR_LOCAL",
+      "zone_count": 2
+    },
+    {
+      "category": "SCRIPT_TOOLING",
+      "zone_count": 2
+    },
+    {
+      "category": "SOURCE_CODE",
+      "zone_count": 1
+    },
+    {
+      "category": "TESTS",
+      "zone_count": 1
+    },
+    {
+      "category": "TEST_VERSION",
+      "zone_count": 1
+    },
+    {
+      "category": "UNKNOWN",
+      "zone_count": 13
+    }
+  ],
+  "extension_summary": {
+    "top_extensions": [
+      {
+        "extension": ".json",
+        "count": 3899
+      },
+      {
+        "extension": ".md",
+        "count": 2694
+      },
+      {
+        "extension": ".ts",
+        "count": 1417
+      },
+      {
+        "extension": ".js",
+        "count": 869
+      },
+      {
+        "extension": ".map",
+        "count": 864
+      },
+      {
+        "extension": ".txt",
+        "count": 850
+      },
+      {
+        "extension": ".pyc",
+        "count": 781
+      },
+      {
+        "extension": ".py",
+        "count": 775
+      },
+      {
+        "extension": ".png",
+        "count": 685
+      },
+      {
+        "extension": ".ps1",
+        "count": 164
+      },
+      {
+        "extension": ".cjs",
+        "count": 101
+      },
+      {
+        "extension": ".cts",
+        "count": 101
+      },
+      {
+        "extension": ".zip",
+        "count": 96
+      },
+      {
+        "extension": ".jsonl",
+        "count": 86
+      },
+      {
+        "extension": ".err",
+        "count": 84
+      },
+      {
+        "extension": "<no_ext>",
+        "count": 79
+      },
+      {
+        "extension": ".sha256",
+        "count": 75
+      },
+      {
+        "extension": ".log",
+        "count": 42
+      },
+      {
+        "extension": ".html",
+        "count": 41
+      },
+      {
+        "extension": ".csv",
+        "count": 39
+      },
+      {
+        "extension": ".jpg",
+        "count": 34
+      },
+      {
+        "extension": ".css",
+        "count": 20
+      },
+      {
+        "extension": ".cmd",
+        "count": 7
+      },
+      {
+        "extension": ".mjs",
+        "count": 4
+      },
+      {
+        "extension": ".yaml",
+        "count": 3
+      },
+      {
+        "extension": ".pdf",
+        "count": 3
+      },
+      {
+        "extension": ".toml",
+        "count": 2
+      },
+      {
+        "extension": ".node",
+        "count": 2
+      },
+      {
+        "extension": ".bak_20260509_202816",
+        "count": 2
+      },
+      {
+        "extension": ".bak_laws_20260509_214943",
+        "count": 2
+      },
+      {
+        "extension": ".bak_playwright_fix_20260509_221611",
+        "count": 2
+      },
+      {
+        "extension": ".gyp",
+        "count": 1
+      },
+      {
+        "extension": ".cpp",
+        "count": 1
+      },
+      {
+        "extension": ".patch",
+        "count": 1
+      },
+      {
+        "extension": ".sh",
+        "count": 1
+      }
+    ],
+    "omitted_count": 0
+  },
+  "large_file_candidates": {
+    "threshold_kb": 1024.0,
+    "top_files": [
+      {
+        "path": "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/OUTPUTS/repo_inventory.json",
+        "size_kb": 79382.71,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR/01_INPUTS/ROOT_LEVEL_FILES_MOVED_FROM_ROOT/PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip",
+        "size_kb": 42919.81,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/02_ORGAN_CANDIDATE_FILES/ORGAN_FILE_INDEX.json",
+        "size_kb": 21688.21,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/01_OBSERVED_SCAN/RAW_SCAN_INDEX.json",
+        "size_kb": 20174.31,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/03_PROMPT_ENGINEERING_CANON/PROMPT_ENGINEERING_CANON_INDEX.json",
+        "size_kb": 14819.13,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip",
+        "size_kb": 14496.59,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/truth_preservation_visual_rules_v0_1.zip",
+        "size_kb": 12585.28,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots.zip",
+        "size_kb": 11682.96,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/PACKAGE/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF.zip",
+        "size_kb": 10688.93,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_REPAIR_AND_AAA_PASS_V0_2/git_diff_name_status.zip",
+        "size_kb": 7794.72,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "ORGANS/DOCTRINARIUM/UTILITY/PLAYWRIGHT_AUDIT_V0_8/node_modules.zip",
+        "size_kb": 7213.42,
+        "top_zone": "ORGANS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1/08_BUNDLE/TASK-20260509-EXPLORER-V1_0-READONLY-BASELINE-FREEZE-PROOF-V1.zip",
+        "size_kb": 6753.06,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1/07_BUNDLE/TASK-20260509-IMPERIUM-FOUNDATION-0_1A-PACKAGING-AND-EVIDENCE-REPAIR-V1.zip",
+        "size_kb": 6318.02,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ORGANS/DOCTRINARIUM/UTILITY/PLAYWRIGHT_AUDIT/node_modules.zip",
+        "size_kb": 6109.73,
+        "top_zone": "ORGANS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1/06_BUNDLE/TASK-20260509-EXPLORER-V0_6-BASELINE-PROOF-V1.zip",
+        "size_kb": 5602.96,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "EXPLORER/SCREENSHOTS/AUTO-RUN-20260509-112849/059_CHANGELOG_md.zip",
+        "size_kb": 5580.18,
+        "top_zone": "EXPLORER"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-IMPERIUM-READONLY-AUDIT-AND-MAP-FOR-SPECULUM-V1/01_INVENTORY/FILES_OF_INTEREST.md",
+        "size_kb": 5202.86,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/PLAYWRIGHT_AUDIT/screenshots/07_priority_fixes.zip",
+        "size_kb": 3585.29,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ORGANS/DOCTRINARIUM/UTILITY/PLAYWRIGHT_AUDIT_V0_8/screenshots/07_priority_fixes.zip",
+        "size_kb": 3585.29,
+        "top_zone": "ORGANS"
+      },
+      {
+        "path": "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/PLAYWRIGHT_AUDIT/screenshots/11_dashboard_return.zip",
+        "size_kb": 3538.27,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ORGANS/DOCTRINARIUM/UTILITY/PLAYWRIGHT_AUDIT_V0_8/screenshots/11_dashboard_return.zip",
+        "size_kb": 3538.27,
+        "top_zone": "ORGANS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-DOCTRINARIUM-DOCTRINE-EXTRACTION-AND-CANON-CANDIDATE-V0_1/01_SOURCE_SEARCH/SOURCE_SEARCH_REPORT.json",
+        "size_kb": 3200.72,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": ".kilo/node_modules/effect/dist/unstable/httpapi/internal/httpApiScalar.js",
+        "size_kb": 3173.36,
+        "top_zone": ".kilo"
+      },
+      {
+        "path": ".kilo/node_modules/effect/src/unstable/httpapi/internal/httpApiScalar.ts",
+        "size_kb": 3173.32,
+        "top_zone": ".kilo"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR/01_INPUTS/ROOT_LEVEL_FILES_MOVED_FROM_ROOT/PC_READ_ONLY_CLASSIFICATION_AND_REPAIR_PLAN_20260507_1813.zip",
+        "size_kb": 2928.64,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/09_BUNDLE/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1_FINAL_BUNDLE.zip",
+        "size_kb": 2248.07,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 мая 2026 г., 18_43_10 (4).png",
+        "size_kb": 2209.43,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 мая 2026 г., 18_43_10 (3).png",
+        "size_kb": 2194.15,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "ARTIFACTS/TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1/FINAL_STEP_BUNDLE/TASK-20260508-0014C2-REGISTRY-INTEGRITY-REPAIR-V1_FINAL_STEP_BUNDLE.zip",
+        "size_kb": 2132.83,
+        "top_zone": "ARTIFACTS"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 мая 2026 г., 18_43_09 (2).png",
+        "size_kb": 2065.69,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 мая 2026 г., 18_43_11 (5).png",
+        "size_kb": 2032.96,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": ".kilo/node_modules/effect/dist/unstable/httpapi/internal/httpApiSwagger.js",
+        "size_kb": 1938.35,
+        "top_zone": ".kilo"
+      },
+      {
+        "path": ".kilo/node_modules/effect/src/unstable/httpapi/internal/httpApiSwagger.ts",
+        "size_kb": 1938.32,
+        "top_zone": ".kilo"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/ChatGPT Image 16 мая 2026 г., 18_43_09 (1).png",
+        "size_kb": 1922.45,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/AUDITS/SERVITOR_AUDIT_20260516_ORGAN_PIPELINE/AUDIT_RECEIPT.zip",
+        "size_kb": 1726.98,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/videoframe_3696.png",
+        "size_kb": 1414.52,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "ASSETS/REFERENCES/CANDIDATE/videoframe_3696.png",
+        "size_kb": 1414.52,
+        "top_zone": "ASSETS"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/07_truth_bar_readability.png",
+        "size_kb": 1408.37,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/01_full_view_after_pass.png",
+        "size_kb": 1403.7,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/03_all_zones_visible.png",
+        "size_kb": 1376.0,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/05_task_intake_corridor_entry.png",
+        "size_kb": 1372.38,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/02_brain_field_visible.png",
+        "size_kb": 1368.93,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/04_right_panel_readability.png",
+        "size_kb": 1366.74,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/screenshots/01_initial_full_view.png",
+        "size_kb": 1338.02,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots/06_selected_zone_panel.png",
+        "size_kb": 1321.24,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/screenshots/03_all_12_zones_visible.png",
+        "size_kb": 1313.92,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/screenshots/09_truth_bar_readable.png",
+        "size_kb": 1313.48,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/screenshots/02_brain_zone_visible.png",
+        "size_kb": 1313.27,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/screenshots/08_launch_handoff_state.png",
+        "size_kb": 1289.0,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      },
+      {
+        "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/screenshots/10_1080p_readability_check.png",
+        "size_kb": 1283.25,
+        "top_zone": "IMPERIUM_TEST_VERSION"
+      }
+    ],
+    "omitted_count": 12
+  },
+  "report_budget": {
+    "max_report_json_lines": 2000,
+    "max_report_md_lines": 1200,
+    "max_report_json_kb": 500,
+    "max_report_md_kb": 500,
+    "max_top_lists": 50
+  },
+  "omitted_details": {
+    "extension_summary_omitted_count": 0,
+    "large_file_omitted_count": 12,
+    "script_candidate_omitted_count": 4484
+  },
+  "limitations": [
+    "Metadata-only scan: no deep content copy and no binary parsing.",
+    "No script execution performed for discovered files.",
+    "Classification is heuristic and may mark UNKNOWN/REVIEW_REQUIRED honestly.",
+    "Binary-extension candidate checks skipped for 818 files."
+  ],
+  "verdict": "PASS_METADATA_TRUTH_BASELINE",
+  "next_recommended_task": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX"
+}

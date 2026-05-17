@@ -1,0 +1,38 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+    "agent_role": "PC Servitor (Big Model path under bootloader discipline)",
+    "useful_outputs": [
+      "Whole-repo metadata inventory artifacts",
+      "Zone classification and blocker map",
+      "Script/tool candidate inventory",
+      "Next-step map and audit/report package"
+    ],
+    "waste_points": [
+      "Small repeated git/status probes due strict staged validation discipline."
+    ],
+    "missing_tools": [
+      "No prior dedicated whole-repo truth inventory tool in allowed Scriptorium inventory path."
+    ],
+    "generated_tools_to_preserve": [
+      "ORGANS/MECHANICUS/SCRIPTORIUM/INVENTORY/imperium_whole_repo_truth_inventory_v0_1.py"
+    ],
+    "recommended_script_absorption": [
+      "Promote inventory tool into reusable Scriptorium recon family after follow-up hardening/review."
+    ],
+    "recommended_narrow_agent_profiles": [
+      "recon_cartographer",
+      "gate_scope_auditor",
+      "candidate_absorption_triager"
+    ],
+    "future_prompt_improvements": [
+      "Pre-provide concise gate and forbidden-path checklist in machine-readable form.",
+      "Provide expected output schemas as JSON templates for faster low-risk generation."
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Automate U19/U20/U21 major-task evidence completeness validation.",
+      "Add compact checker for inventory output budget against configured thresholds."
+    ],
+    "kpd_verdict": "GOOD"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-05-17T14:03:48Z",
+  "current_head": "bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0",
+  "blockers": [
+    {
+      "id": "BR-RT-STATIC-ASSET-ROUTE",
+      "summary": "Second Brain full runtime audit baseline still blocked by required static asset route truth gap.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_FULL_RUNTIME_PERFORMANCE_AUDIT_RUNNER_V0_1.json"
+    }
+  ],
+  "warnings": [
+    {
+      "id": "WRN-VERIFY-REPO-NOISE",
+      "summary": "Repository-level verification still reports warning flood/noise and known legacy blocker classes.",
+      "evidence_path": "scripts/verify_repo.py"
+    },
+    {
+      "id": "WRN-TYPE-SAFETY-PARTIAL",
+      "summary": "Python type safety policy exists but strict maturity rollout remains partial.",
+      "evidence_path": "ORGANS/MECHANICUS/SCRIPTORIUM/PYTHON_TYPE_SAFETY/SCRIPT_TYPE_SAFETY_POLICY_V0_1.md"
+    }
+  ],
+  "unknowns": [
+    {
+      "id": "UNK-ZONE-CLASSIFICATION",
+      "summary": "Some top-level zones remain low-confidence UNKNOWN/REVIEW_REQUIRED by metadata-only rules.",
+      "count": 13
+    }
+  ],
+  "risk_summary": {
+    "blocker_count": 1,
+    "warning_count": 2,
+    "unknown_count": 1
+  },
+  "priority_fixes": [
+    "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+    "TASK-MECHANICUS-SCRIPTORIUM-TEST-VERSION-TOOL-ABSORPTION-MAP-V0_1",
+    "TASK-IMPERIUM-CONTROL-CENTER-DATA-SPINE-CONTRACT-V0_1"
+  ],
+  "next_recommended_task": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "verdict": "PASS_BLOCKER_WARNING_MAP_CREATED"
+}

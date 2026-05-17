@@ -1,0 +1,188 @@
+{
+  "task_id": "TASK-IMPERIUM-WHOLE-REPO-TRUTH-INVENTORY-V0_1",
+  "generated_at": "2026-05-17T14:01:25Z",
+  "current_head": "bb099bc922ec04bab530ba5dd4c0ae7c52da1ab0",
+  "criteria_results": [
+    {
+      "criterion_id": "PC01",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Starting HEAD matched required hash.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC02",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Clean status confirmed before edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC03",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Bootloader and gateway reading completed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC04",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/GATE_ACK_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Roadmap/readiness/gates baseline reviewed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC05",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/MECHANICUS/SCRIPTORIUM/INVENTORY/imperium_whole_repo_truth_inventory_v0_1.py"
+      ],
+      "self_comment": "Tool created in allowed path.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC06",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/MECHANICUS/SCRIPTORIUM/INVENTORY/imperium_whole_repo_truth_inventory_v0_1.py"
+      ],
+      "self_comment": "py_compile executed successfully.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC07",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Tool execution completed and outputs generated.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC08",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_TRUTH_INVENTORY_V0_1.md"
+      ],
+      "self_comment": "Metadata-only whole-repo walk completed.",
+      "risk_note": "No deep content scan by design."
+    },
+    {
+      "criterion_id": "PC09",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_ZONE_CLASSIFICATION_V0_1.json"
+      ],
+      "self_comment": "Zone classification output exists.",
+      "risk_note": "Some zones remain uncertain by honest heuristic."
+    },
+    {
+      "criterion_id": "PC10",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_BLOCKER_WARNING_MAP_V0_1.json"
+      ],
+      "self_comment": "Blocker/warning map output exists.",
+      "risk_note": "Depends on available evidence signals."
+    },
+    {
+      "criterion_id": "PC11",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/MECHANICUS/SCRIPTORIUM/INVENTORY/SCRIPT_TOOL_CANDIDATE_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Candidate inventory output exists.",
+      "risk_note": "Compact sample omits lower-priority rows."
+    },
+    {
+      "criterion_id": "PC12",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ASTRONOMICON/ROADMAPS/WHOLE_REPO_TRUTH_INVENTORY_NEXT_STEP_MAP_V0_1.json"
+      ],
+      "self_comment": "Next-step map output exists.",
+      "risk_note": "Ordering may evolve after blocker closure."
+    },
+    {
+      "criterion_id": "PC13",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Current path scope remains within allowed writes.",
+      "risk_note": "Final check still required pre-commit."
+    },
+    {
+      "criterion_id": "PC14",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "No delete/move/rename operations performed.",
+      "risk_note": "Final git checks still required."
+    },
+    {
+      "criterion_id": "PC15",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "No runtime/app execution in this task.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC16",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_IMPERIUM_WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "No cleanup/refactor behavior applied.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC17",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/INVENTORY/WHOLE_REPO_TRUTH_INVENTORY_V0_1.json"
+      ],
+      "self_comment": "Reports are compact and budget-bounded.",
+      "risk_note": "Needs explicit budget command verification."
+    },
+    {
+      "criterion_id": "PC18",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_CHRONOLOGY_V0_1.md"
+      ],
+      "self_comment": "Task executed in phased command chunks.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC19",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_KPD_SELF_REVIEW_V0_1.json"
+      ],
+      "self_comment": "KPD self-review artifact created.",
+      "risk_note": "Quality depends on honest self-critique depth."
+    },
+    {
+      "criterion_id": "PC20",
+      "verdict": "PARTIAL",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/WHOLE_REPO_TRUTH_INVENTORY_SELF_ASSESSMENT_V0_1.md"
+      ],
+      "self_comment": "Pending finalization phase execution.",
+      "risk_note": "Must be updated by final execution evidence in task result."
+    }
+  ],
+  "status": "SELF_ASSESSMENT_REGISTERED"
+}
