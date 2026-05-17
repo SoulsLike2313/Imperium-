@@ -1,0 +1,351 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-AUDIT-RUNNER",
+  "generated_at": "2026-05-17T20:59:32+00:00",
+  "current_head": "e74138a5c65085a185b97dfd8ea7453d1f432552",
+  "backend_runtime_launch_status": "RUNTIME_LAUNCHED",
+  "backend_runtime_url": "http://127.0.0.1:8767",
+  "audit_proxy_used": false,
+  "audit_proxy_url": null,
+  "browser_target_url": "http://127.0.0.1:8767/",
+  "browser_target_http_status": 200,
+  "html_loaded": true,
+  "css_loaded": true,
+  "js_loaded": true,
+  "failed_required_requests": 0,
+  "fps_measured": true,
+  "fps_acceptance_status": "FULL_RUNTIME_FPS_VALID",
+  "full_runtime_mode": "FULL_RUNTIME_NATIVE_ROUTE",
+  "route_strategy": "NATIVE_ROUTE_DISCOVERY",
+  "native_route_found": true,
+  "route_resolution": {
+    "status": "NATIVE_ROUTE_SELECTED",
+    "route_strategy": "NATIVE_ROUTE_DISCOVERY",
+    "native_route_found": true,
+    "native_discovery": {
+      "status": "NATIVE_ROUTE_FOUND",
+      "candidate_urls": [
+        "http://127.0.0.1:8767/",
+        "http://127.0.0.1:8767/index.html",
+        "http://127.0.0.1:8767/neural_map_v0_6.html"
+      ],
+      "probes": [
+        {
+          "url": "http://127.0.0.1:8767/",
+          "status": 200,
+          "ok": true,
+          "contains_css_ref": true,
+          "contains_js_ref": true,
+          "error": null
+        }
+      ],
+      "native_route_found": true,
+      "chosen_target_url": "http://127.0.0.1:8767/",
+      "chosen_http_status": 200,
+      "chosen_has_css_ref": true,
+      "chosen_has_js_ref": true
+    },
+    "reason": null,
+    "proxy_status": null
+  },
+  "runtime_isolation_mode": "TEMP_RUNTIME_AUDIT_ROOT:DISPOSABLE_LOCAL_RUNTIME_SERVER_WITH_QUARANTINE_WRITES",
+  "runtime_launch_status": "RUNTIME_LAUNCHED",
+  "runtime_url": "http://127.0.0.1:8767",
+  "server_shutdown_status": "SERVER_STOPPED",
+  "proxy_shutdown_status": "NOT_APPLICABLE",
+  "api_checks": {
+    "status": "API_CHECKS_PASS",
+    "all_required_pass": true,
+    "checks": [
+      {
+        "endpoint": "/api/status",
+        "url": "http://127.0.0.1:8767/api/status",
+        "status_code": 200,
+        "elapsed_ms": 3.26,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/snapshot",
+        "url": "http://127.0.0.1:8767/api/snapshot",
+        "status_code": 200,
+        "elapsed_ms": 1.94,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/tasks",
+        "url": "http://127.0.0.1:8767/api/tasks",
+        "status_code": 200,
+        "elapsed_ms": 1.79,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/task_packages",
+        "url": "http://127.0.0.1:8767/api/task_packages",
+        "status_code": 200,
+        "elapsed_ms": 13.29,
+        "ok": true,
+        "error_sample": null
+      },
+      {
+        "endpoint": "/api/export/status",
+        "url": "http://127.0.0.1:8767/api/export/status",
+        "status_code": 200,
+        "elapsed_ms": 3.44,
+        "ok": true,
+        "error_sample": null
+      }
+    ]
+  },
+  "required_assets_loaded": {
+    "status": "REQUIRED_ASSETS_LOADED",
+    "css_loaded": true,
+    "js_loaded": true,
+    "failed_required_assets": [],
+    "details": {
+      "css": {
+        "file_name": "neural_map_v0_6.css",
+        "requested": true,
+        "loaded_ok": true,
+        "last_url": "http://127.0.0.1:8767/neural_map_v0_6.css",
+        "last_status": 200,
+        "fail_reason": null
+      },
+      "js": {
+        "file_name": "neural_map_v0_6.js",
+        "requested": true,
+        "loaded_ok": true,
+        "last_url": "http://127.0.0.1:8767/neural_map_v0_6.js",
+        "last_status": 200,
+        "fail_reason": null
+      }
+    }
+  },
+  "browser_audit": {
+    "status": "BROWSER_AUDIT_RUN",
+    "backend": "python_playwright",
+    "automation_availability": {
+      "python_playwright": {
+        "available": true,
+        "backend": "python_playwright",
+        "reason": "Python Playwright module detected."
+      },
+      "node_playwright": {
+        "available": false,
+        "backend": "node_playwright",
+        "reason": "Node Playwright package unavailable."
+      },
+      "status": "BROWSER_AUTOMATION_AVAILABLE",
+      "backend": "python_playwright"
+    },
+    "http_status": 200,
+    "target_url": "http://127.0.0.1:8767/",
+    "reason": "",
+    "document_ready_state": "complete",
+    "dom_nodes": 240,
+    "svg_elements": 107
+  },
+  "fps_measurement": {
+    "status": "FPS_MEASURED",
+    "fps_estimate": 58.945,
+    "fps_1pct_low": 59.524,
+    "fps_acceptance_status": "FULL_RUNTIME_FPS_VALID",
+    "label": "FULL_RUNTIME_FPS_ESTIMATE"
+  },
+  "load_timings": {
+    "load_to_domcontentloaded_ms": 112.09999999962747,
+    "load_to_load_event_ms": 113.29999999981374,
+    "load_elapsed_ms": 1021.3
+  },
+  "console_errors": {
+    "count": 0,
+    "samples": [],
+    "status": "MEASURED"
+  },
+  "failed_requests": {
+    "count": 0,
+    "samples": [],
+    "status": "MEASURED"
+  },
+  "runtime_side_effects": {
+    "runtime_isolation_root": "C:/Users/PC/AppData/Local/Temp/imperium_runtime_audits/full_runtime_audit_20260517_205928_6616",
+    "route_strategy": "NATIVE_ROUTE_DISCOVERY",
+    "audit_proxy_used": false,
+    "audit_proxy_url": null,
+    "proxy_shutdown_status": "NOT_APPLICABLE",
+    "browser_target_url": "http://127.0.0.1:8767/",
+    "files_created_outside_repo_count": 0,
+    "isolated_created_files": [],
+    "isolated_modified_files": [],
+    "isolated_deleted_files": []
+  },
+  "repo_pollution_status": "NO_REPO_POLLUTION_FROM_RUNTIME",
+  "raw_trace_committed": false,
+  "raw_trace_status": {
+    "status": "NOT_CREATED_NOT_COMMITTED",
+    "detail": "No trace/har/screenshot/video/archive files were created by this runner."
+  },
+  "report_output_budget_status": {
+    "status": "PASS",
+    "limits": {
+      "max_report_json_lines": 2000,
+      "max_report_md_lines": 800,
+      "max_report_json_kb": 500,
+      "max_report_md_kb": 300,
+      "max_findings_stored": 100,
+      "max_samples_per_rule": 10,
+      "max_samples_per_path": 10,
+      "max_excerpt_chars": 240,
+      "full_raw_dump_allowed_by_default": false,
+      "full_raw_dump_requires_owner_gate": true
+    },
+    "receipt_report_size": {
+      "json_lines": 340,
+      "json_kb": 10.58,
+      "md_lines": 56,
+      "md_kb": 2.22
+    },
+    "side_effect_report_size": {
+      "json_lines": 39,
+      "json_kb": 2.19,
+      "md_lines": 30,
+      "md_kb": 1.79
+    }
+  },
+  "static_frontend_precheck": {
+    "status": "STATIC_FRONTEND_AUDIT_PRECHECK",
+    "candidate_target_paths": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+    ],
+    "required_files_present": {
+      "html_exists": true,
+      "css_exists": true,
+      "js_exists": true,
+      "server_exists": true
+    },
+    "required_references_in_html": {
+      "css_reference_found": true,
+      "js_reference_found": true
+    },
+    "file_sizes_bytes": {
+      "html": 15783,
+      "css": 61050,
+      "js": 96448,
+      "server_py": 52445
+    },
+    "css_effect_counts": {
+      "keyframes_count": 37,
+      "animation_count": 46,
+      "filter_count": 18,
+      "drop_shadow_count": 10,
+      "box_shadow_count": 51,
+      "radial_gradient_count": 46,
+      "linear_gradient_count": 31
+    },
+    "approx_html_tag_count": 240,
+    "svg_related_string_count": 15,
+    "report_output_budget_active": true,
+    "report_output_budget_limits": {
+      "max_report_json_lines": 2000,
+      "max_report_md_lines": 800,
+      "max_report_json_kb": 500,
+      "max_report_md_kb": 300,
+      "max_findings_stored": 100,
+      "max_samples_per_rule": 10,
+      "max_samples_per_path": 10,
+      "max_excerpt_chars": 240,
+      "full_raw_dump_allowed_by_default": false,
+      "full_raw_dump_requires_owner_gate": true
+    }
+  },
+  "budget_comparison": {
+    "metrics": [
+      {
+        "metric": "load_to_domcontentloaded_ms",
+        "value": 112.1,
+        "target": 1800.0,
+        "blocker": 3000.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "load_to_load_event_ms",
+        "value": 113.3,
+        "target": 1800.0,
+        "blocker": 3000.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "dom_nodes",
+        "value": 240.0,
+        "target": 2200.0,
+        "blocker": 3200.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "svg_elements",
+        "value": 107.0,
+        "target": 900.0,
+        "blocker": 1500.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "average_fps",
+        "value": 58.945,
+        "target": 55.0,
+        "blocker": 50.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "fps_1pct_low",
+        "value": 59.524,
+        "target": 45.0,
+        "blocker": 35.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "long_tasks_over_50ms",
+        "value": 0.0,
+        "target": 3.0,
+        "blocker": 3.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "console_errors",
+        "value": 0.0,
+        "target": 0.0,
+        "blocker": 0.0,
+        "status": "PASS"
+      },
+      {
+        "metric": "failed_requests",
+        "value": 0.0,
+        "target": 0.0,
+        "blocker": 0.0,
+        "status": "PASS"
+      }
+    ],
+    "blockers": [],
+    "warnings": []
+  },
+  "safety_contract_ref": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/FULL_RUNTIME_AUDIT_SAFETY_CONTRACT_V0_1.json",
+  "source_survey_ref": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_AUDIT_SOURCE_SURVEY_V0_1.json",
+  "source_survey_runtime_candidates": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/*.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/task_packages/<task_id>/**",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/export_<stamp>/**",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/reports/neural_snapshot_live.json"
+  ],
+  "limitations": [
+    "Runner does not install dependencies or download browsers.",
+    "Only compact samples are stored; no raw trace files are created.",
+    "Read-only policy for source files is enforced through isolated runtime copy."
+  ],
+  "verdict": "PASS_FULL_RUNTIME_BASELINE_NATIVE_ROUTE",
+  "next_recommended_action": "TASK-SECOND-BRAIN-V07-FULL-RUNTIME-PERFORMANCE-BASELINE-INTERPRETATION"
+}

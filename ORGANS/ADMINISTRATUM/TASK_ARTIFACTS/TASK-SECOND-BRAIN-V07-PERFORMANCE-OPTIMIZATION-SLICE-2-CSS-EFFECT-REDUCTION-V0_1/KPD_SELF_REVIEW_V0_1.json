@@ -1,0 +1,40 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+    "agent_role": "PC Servitor for IMPERIUM / Second Brain performance hardening",
+    "useful_outputs": [
+      "Bounded CSS slice with PERF-SLICE-2 marker",
+      "3x full-runtime audit receipts copied into task evidence folder",
+      "Conservative multi-run comparison against Slice 1 baseline",
+      "Scope/self-assessment/action card package"
+    ],
+    "waste_points": [
+      "Initial PDF parsing required dependency install (pypdf) due missing local parser",
+      "One noisy audit outlier required repeat runs for stable interpretation"
+    ],
+    "missing_tools": [
+      "Stable multi-run FPS aggregator runner for min/median/max with automatic freeze copies",
+      "Native PDF text extractor in repo tooling (to avoid environment dependency install)"
+    ],
+    "generated_tools_to_preserve": [
+      "none (no standalone script files created in repo)"
+    ],
+    "recommended_script_absorption": [
+      "Create `full_runtime_performance_multi_run_comparator_v0_1.py` in V0.7 tools",
+      "Create `pdf_read_receipt_extractor_v0_1.py` under Mechanicus Scriptorium utilities"
+    ],
+    "recommended_narrow_agent_profiles": [
+      "SECOND_BRAIN_CSS_EFFECT_SLICE_AGENT_V0_1",
+      "SECOND_BRAIN_PERF_MULTI_RUN_VERIFIER_V0_1"
+    ],
+    "future_prompt_improvements": [
+      "Require explicit number of audit reruns and acceptance method (min/median) upfront",
+      "Declare allowed audit-receipt write paths in scope section to avoid ambiguity"
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Add deterministic performance-run stability gate: acceptance requires N consecutive runs above blocker",
+      "Add mandatory audit-run freeze-copy step to prevent receipt overwrite loss"
+    ],
+    "kpd_verdict": "PARTIAL"
+  }
+}

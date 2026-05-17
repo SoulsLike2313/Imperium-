@@ -1594,12 +1594,8 @@ body.performance-mode .btn-launch {
   animation: none !important;
 }
 
-body.performance-mode .brain-field-aura {
-  filter: blur(4px);
-  opacity: 0.7;
-}
-
 body.performance-mode .brain-cortex-contour,
+body.performance-mode .brain-cortex-fill,
 body.performance-mode .brain-stem-fill,
 body.performance-mode .brain-shell-lobe,
 body.performance-mode .brain-neuron-node,
@@ -1618,6 +1614,70 @@ body.performance-mode .brain-neuron-link {
 body.performance-mode .brain-fiber {
   stroke-width: 0.9;
   opacity: 0.5;
+}
+
+/* PERF-SLICE-2-CSS-EFFECT-REDUCTION:
+   Reduce paint-heavy effect stacks in default performance mode while preserving
+   recognizable sci-fi/neural visual identity. */
+body.performance-mode::before {
+  background:
+    radial-gradient(ellipse 92% 72% at -2% -4%, rgba(155,125,255,0.1) 0%, rgba(155,125,255,0.03) 38%, transparent 66%),
+    radial-gradient(ellipse 72% 62% at 102% 104%, rgba(255,100,220,0.07) 0%, rgba(255,100,220,0.02) 38%, transparent 65%),
+    var(--bg);
+}
+
+body.performance-mode::after {
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.42) 0%, transparent 100%),
+    radial-gradient(1px 1px at 27% 62%, rgba(255,255,255,0.34) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 24%, rgba(255,255,255,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 63% 44%, rgba(255,255,255,0.34) 0%, transparent 100%),
+    radial-gradient(1px 1px at 81% 14%, rgba(255,255,255,0.36) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 73% 74%, rgba(0,215,255,0.34) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 18% 80%, rgba(255,79,216,0.26) 0%, transparent 100%),
+    radial-gradient(2px 2px at 56% 32%, rgba(255,255,255,0.48) 0%, transparent 100%);
+  opacity: 0.72;
+}
+
+body.performance-mode #neural-canvas-wrap::before {
+  background-image:
+    linear-gradient(rgba(35,212,255,0.013) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35,212,255,0.013) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px;
+  mask-image: none;
+  opacity: 0.55;
+}
+
+body.performance-mode #neural-canvas-wrap::after {
+  background: radial-gradient(ellipse 95% 95% at 50% 50%, transparent 52%, rgba(6,7,16,0.32) 100%);
+}
+
+body.performance-mode .brain-field-aura {
+  filter: none;
+  opacity: 0.55;
+}
+
+body.performance-mode #zone-tooltip,
+body.performance-mode #zone-detail-panel,
+body.performance-mode #corridor-panel,
+body.performance-mode .notif {
+  backdrop-filter: none !important;
+}
+
+body.performance-mode #zone-tooltip {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.66), 0 0 10px rgba(0,215,255,0.04);
+}
+
+body.performance-mode #zone-detail-panel {
+  box-shadow: -4px 0 20px rgba(0,0,0,0.5), inset 1px 0 0 rgba(0,215,255,0.05);
+}
+
+body.performance-mode #corridor-panel {
+  box-shadow: -6px 0 26px rgba(0,0,0,0.56), inset 1px 0 0 rgba(0,215,255,0.06);
+}
+
+body.performance-mode .btn-launch {
+  box-shadow: 0 0 14px rgba(41,194,114,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 @media (prefers-reduced-motion: reduce) {

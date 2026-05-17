@@ -1,0 +1,78 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+  "artifact_type": "GATE_ACK_START_RECEIPT",
+  "timestamp_utc": "2026-05-17T20:55:01Z",
+  "current_head": "e74138a5c65085a185b97dfd8ea7453d1f432552",
+  "expected_head": "e74138a5c65085a185b97dfd8ea7453d1f432552",
+  "branch": "master",
+  "repo_root": "E:/IMPERIUM",
+  "worktree_clean_before_work": true,
+  "worktree_status_short": "",
+  "remote_master_ref": "e74138a5c65085a185b97dfd8ea7453d1f432552	refs/heads/master",
+  "gatepack_path": "OWNER_TASK_PACKET_IN_CHAT_2026-05-17",
+  "gatepack_sha256": "NOT_APPLICABLE_OWNER_INLINE_PACKET",
+  "read_gates": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U05-STOP-CONDITIONS",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET",
+    "GATE-U13-PYTHON-TYPE-SAFETY",
+    "GATE-U14-WHOLE-REPO-SCOPE-RECON",
+    "GATE-U15-OPERATIONALITY-IMPACT",
+    "GATE-U16-BILINGUAL-UI",
+    "GATE-U17-DELIVERABLE-PACKAGE",
+    "GATE-U18-AGENT-FACTORY-COMPLIANCE",
+    "GATE-U19-SCRIPT-ARTIFACT-PRESERVATION",
+    "GATE-U20-AGENT-KPD-SELF-REVIEW",
+    "GATE-U21-COMMAND-CHUNKING",
+    "GATE-UI00-TRUTH-BINDING",
+    "GATE-VIS00-PERFORMANCE-BUDGET",
+    "GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT"
+  ],
+  "accepted_stop_conditions": [
+    "HEAD mismatch against required starting hash",
+    "dirty worktree before execution",
+    "forbidden path appears in diff",
+    "required runtime audit cannot execute",
+    "truth gate regression (route/assets/API/console/network)",
+    "need to touch backend/server/HTML/V0.7 runner without explicit permission"
+  ],
+  "scope_boundary": {
+    "allowed_primary": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css"
+    ],
+    "allowed_only_if_required": [
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+    ],
+    "forbidden_unless_hard_blocker": [
+      "backend/server files",
+      "HTML route files",
+      "V0.7 full-runtime audit runner logic",
+      "unrelated organs/reports/mass formatting/renames/deletions"
+    ]
+  },
+  "touched_paths_planned": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "ORGANS/ADMINISTRATUM/TASK_ARTIFACTS/TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1/*"
+  ],
+  "expected_receipts": [
+    "gate_ack_start_receipt",
+    "changed_files_list",
+    "scope_report",
+    "before_after_performance_comparison",
+    "full_runtime_audit_output_pointer",
+    "action_card",
+    "kpd_review",
+    "self_assessment",
+    "next_recommended_task",
+    "owner_report_ru"
+  ],
+  "repo_recon_required": true,
+  "script_absorption_required": false,
+  "clarification_needed": "none",
+  "verdict": "PASS"
+}

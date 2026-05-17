@@ -1,0 +1,61 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-SLICE-2-CSS-EFFECT-REDUCTION-V0_1",
+  "slice1_after_average_fps": 56.368,
+  "slice1_after_fps_1pct_low": 20.0,
+  "slice1_source": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_OPTIMIZATION_SLICE_1_BEFORE_AFTER_COMPARISON_V0_1.json",
+  "slice2_runs": [
+    {
+      "run": 1,
+      "average_fps": 59.05,
+      "fps_1pct_low": 59.524,
+      "verdict": "PASS_FULL_RUNTIME_BASELINE_NATIVE_ROUTE",
+      "http_status": 200,
+      "css_loaded": true,
+      "js_loaded": true,
+      "api_status": "API_CHECKS_PASS",
+      "failed_required_requests": 0,
+      "failed_requests": 0,
+      "console_errors": 0
+    },
+    {
+      "run": 2,
+      "average_fps": 58.517,
+      "fps_1pct_low": 29.94,
+      "verdict": "WARN_FULL_RUNTIME_BASELINE_PARTIAL",
+      "http_status": 200,
+      "css_loaded": true,
+      "js_loaded": true,
+      "api_status": "API_CHECKS_PASS",
+      "failed_required_requests": 0,
+      "failed_requests": 0,
+      "console_errors": 0
+    },
+    {
+      "run": 3,
+      "average_fps": 58.945,
+      "fps_1pct_low": 59.524,
+      "verdict": "PASS_FULL_RUNTIME_BASELINE_NATIVE_ROUTE",
+      "http_status": 200,
+      "css_loaded": true,
+      "js_loaded": true,
+      "api_status": "API_CHECKS_PASS",
+      "failed_required_requests": 0,
+      "failed_requests": 0,
+      "console_errors": 0
+    }
+  ],
+  "slice2_average_fps_min": 58.517,
+  "slice2_average_fps_median": 58.945,
+  "slice2_average_fps_max": 59.05,
+  "slice2_fps_1pct_low_min": 29.94,
+  "slice2_fps_1pct_low_median": 59.524,
+  "slice2_fps_1pct_low_max": 59.524,
+  "average_fps_min_delta_vs_slice1": 2.149,
+  "average_fps_median_delta_vs_slice1": 2.577,
+  "fps_1pct_low_min_delta_vs_slice1": 9.94,
+  "fps_1pct_low_median_delta_vs_slice1": 39.524,
+  "conservative_acceptance_method": "min_of_3_runs",
+  "fps_1pct_low_minimum_required": 35.0,
+  "fps_1pct_low_minimum_pass": false,
+  "verdict": "WARN_PARTIAL_IMPROVEMENT"
+}
