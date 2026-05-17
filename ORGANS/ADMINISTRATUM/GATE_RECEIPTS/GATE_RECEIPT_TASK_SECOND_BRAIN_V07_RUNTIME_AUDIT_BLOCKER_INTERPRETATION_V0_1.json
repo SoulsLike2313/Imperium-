@@ -1,0 +1,34 @@
+{
+  "receipt_id": "RCP-TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-BLOCKER-INTERPRETATION-V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-BLOCKER-INTERPRETATION",
+  "starting_head": "cd8966bfd226d73172def180d77ca9f9b58dff3c",
+  "ending_head_before_commit": "cd8966bfd226d73172def180d77ca9f9b58dff3c",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET"
+  ],
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_RUNTIME_AUDIT_BLOCKER_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_BLOCKER_INTERPRETATION_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/RUNTIME_AUDIT_STATIC_ASSET_ROUTE_BLOCKER_MAP_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_SIDE_EFFECT_MANIFEST_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RUNNER_REPORT_V0_1.json"
+  ],
+  "source_audit_receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "forbidden_paths_touched": [],
+  "no_delete_rule_obeyed": true,
+  "runtime_executed": false,
+  "runner_edited": false,
+  "runtime_source_changed": false,
+  "visual_implementation_changed": false,
+  "optimization_changed": false,
+  "raw_trace_committed": false,
+  "fps_acceptance_status": "FPS_INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE",
+  "verdict": "PASS_BLOCKER_INTERPRETED"
+}

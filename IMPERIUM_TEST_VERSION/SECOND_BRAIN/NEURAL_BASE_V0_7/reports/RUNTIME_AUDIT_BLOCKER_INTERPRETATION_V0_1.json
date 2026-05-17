@@ -1,0 +1,48 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-BLOCKER-INTERPRETATION",
+  "generated_at": "2026-05-17T03:35:00Z",
+  "current_head": "cd8966bfd226d73172def180d77ca9f9b58dff3c",
+  "source_audit_receipt": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+  "source_side_effect_manifest": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_SIDE_EFFECT_MANIFEST_V0_1.json",
+  "source_runner_report": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RUNNER_REPORT_V0_1.json",
+  "audit_verdict": "BLOCKED_REQUIRED_ASSETS_MISSING",
+  "runtime_launch_status": "RUNTIME_LAUNCHED",
+  "api_checks_status": "API_CHECKS_PASS",
+  "browser_target_status": {
+    "browser_audit_status": "BROWSER_AUDIT_RUN",
+    "target_url": "http://127.0.0.1:8767/neural_map_v0_6.html",
+    "http_status": 404
+  },
+  "css_loaded": false,
+  "js_loaded": false,
+  "required_assets_loaded": "REQUIRED_ASSETS_MISSING",
+  "fps_measured": true,
+  "fps_acceptance_status": "FPS_INVALID_FOR_UI_PERFORMANCE_ACCEPTANCE",
+  "valid_findings": [
+    "Runtime launched safely in isolated mode.",
+    "API checks passed for /api/status, /api/snapshot, /api/tasks, /api/task_packages, /api/export/status.",
+    "Server shutdown status is SERVER_STOPPED.",
+    "Raw trace committed is false.",
+    "Report output budget status is PASS.",
+    "Forbidden paths touched list is empty.",
+    "Runtime source changed is false.",
+    "Visual implementation changed is false.",
+    "Optimization changed is false."
+  ],
+  "invalid_or_blocked_findings": [
+    "Browser target returned HTTP 404.",
+    "Required CSS asset did not load.",
+    "Required JS asset did not load.",
+    "DOM/SVG observations are from incomplete page context and are invalid as full UI baseline.",
+    "Measured FPS is invalid for UI performance acceptance."
+  ],
+  "cannot_claim": [
+    "PASS_FULL_RUNTIME_BASELINE",
+    "Valid full UI FPS baseline",
+    "Complete runtime UI rendering health"
+  ],
+  "blocker_reason": "Browser target/static asset route returned 404, required CSS/JS did not load, therefore performance evidence is not full UI truth.",
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-STATIC-ASSET-ROUTE-FIX",
+  "alternative_next_task": "TASK-SECOND-BRAIN-V07-RUNTIME-AUDIT-ISOLATED-COPY-FIX",
+  "verdict": "PASS_BLOCKER_INTERPRETED"
+}
