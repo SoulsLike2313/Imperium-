@@ -1,0 +1,79 @@
+{
+  "generated_at": "2026-05-17T00:38:33.102429+00:00",
+  "current_head": "5082a8f1bbb8087ff18c19d378855f1b090ed2f9",
+  "gate_spine_task_recommended": "TASK-20260517-UNQUISITION-EXTEREMINATUS-GATE-SPINE-V0_1",
+  "required_sources": [
+    {
+      "path": "AGENTS.md",
+      "role": "guiding_plan_source"
+    },
+    {
+      "path": "ORGANS/DOCTRINARIUM/EPOCHS/UNQUISITION_EXTEREMINATUS_V0_1.md",
+      "role": "epoch_source"
+    },
+    {
+      "path": "ORGANS/ADMINISTRATUM/REPORTS/repo_recon_report_v0_1.json",
+      "role": "repo_recon_source"
+    },
+    {
+      "path": "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/UNQUISITION_EXTEREMINATUS_20260517/DIRTY_ADVISORY_SNAPSHOT_5082A8F_MANIFEST_V0_1.json",
+      "role": "dirty_snapshot_manifest_source"
+    },
+    {
+      "path": "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ABSORPTION_DOCTRINE_V0_1.md",
+      "role": "script_absorption_doctrine_source"
+    },
+    {
+      "path": "ORGANS/INQUISITION/GATE_AUDITS/CLEANUP_CANDIDATE_INDEX_V0_1.json",
+      "role": "cleanup_candidate_index_source"
+    },
+    {
+      "path": "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ABSORPTION_BACKLOG_V0_1.json",
+      "role": "script_absorption_backlog_source"
+    }
+  ],
+  "mandatory_gates": [
+    {
+      "gate_id": "GATE_TRUTH_AND_SCOPE_LOCK_V0_1",
+      "must_exist_next": true,
+      "reason": "Freeze HEAD/scope and forbid accidental path mutation."
+    },
+    {
+      "gate_id": "GATE_DIRTY_ADVISORY_CLASSIFICATION_V0_1",
+      "must_exist_next": true,
+      "reason": "Convert preserved dirt into controlled categories only."
+    },
+    {
+      "gate_id": "GATE_TEST_VERSION_INTAKE_V0_1",
+      "must_exist_next": true,
+      "reason": "Review legacy test-version material before any adoption."
+    },
+    {
+      "gate_id": "GATE_SCRIPTORIUM_REGISTRATION_V0_1",
+      "must_exist_next": true,
+      "reason": "Register/assign reusable scripts and reject shadow tools."
+    },
+    {
+      "gate_id": "GATE_RUNTIME_AND_ARCHIVE_BOUNDARY_V0_1",
+      "must_exist_next": true,
+      "reason": "Separate runtime receipts/archives from canon source."
+    },
+    {
+      "gate_id": "GATE_CLEANUP_DRYRUN_ONLY_V0_1",
+      "must_exist_next": true,
+      "reason": "Plan cleanup actions with no-delete dry-run evidence first."
+    }
+  ],
+  "required_outputs": [
+    "ORGANS/DOCTRINARIUM/GATES/GATE_SPINE_V0_1.md",
+    "ORGANS/DOCTRINARIUM/GATES/GATE_SPINE_V0_1.json",
+    "ORGANS/INQUISITION/GATE_AUDITS/GATE_SPINE_AUDIT_V0_1.md",
+    "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_REGISTRATION_PACKET_V0_1.json"
+  ],
+  "stop_conditions": [
+    "HEAD mismatch against task expectation.",
+    "Any forbidden path appears in planned touched paths.",
+    "No-delete rule cannot be maintained.",
+    "Required source artifacts are missing or inconsistent."
+  ]
+}

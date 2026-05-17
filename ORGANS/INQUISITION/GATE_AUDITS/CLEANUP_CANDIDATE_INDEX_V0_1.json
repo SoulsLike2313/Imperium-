@@ -1,0 +1,227 @@
+{
+  "generated_at": "2026-05-17T00:38:33.102429+00:00",
+  "current_head": "5082a8f1bbb8087ff18c19d378855f1b090ed2f9",
+  "source_reports": [
+    "ORGANS/ADMINISTRATUM/REPORTS/repo_recon_report_v0_1.json",
+    "ORGANS/ASTRONOMICON/ADVISORY_BUFFER/UNQUISITION_EXTEREMINATUS_20260517/DIRTY_ADVISORY_SNAPSHOT_5082A8F_MANIFEST_V0_1.json"
+  ],
+  "no_delete_in_this_task": true,
+  "candidates": [
+    {
+      "category_id": "dirty_advisory_artifacts",
+      "count_estimate": 56,
+      "source": "5082a8f1bbb8087ff18c19d378855f1b090ed2f9",
+      "sample_paths": [
+        ".kilo/kilo.json",
+        "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/",
+        "KILO_TEST/",
+        "KILO_TEST_RESULTS.zip",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/"
+      ],
+      "why_matters": "Defines preserved dirty battlefield input requiring controlled review.",
+      "risk_if_kept_forever": "Noise accumulation and false-canon drift.",
+      "risk_if_deleted_too_early": "Loss of forensic context and negative references.",
+      "recommended_future_gate": "DIRTY_ADVISORY_RETENTION_GATE_V0_1"
+    },
+    {
+      "category_id": "kilo_sandbox_negative_sample",
+      "count_estimate": 8,
+      "source": "5082a8f1bbb8087ff18c19d378855f1b090ed2f9",
+      "sample_paths": [
+        ".kilo/kilo.json",
+        ".kilo/plans/1778970809167-brave-canyon.md",
+        "KILO_TEST/README.md",
+        "KILO_TEST/VISUAL_GATES.md",
+        "KILO_TEST/VISUAL_PROFILE.md",
+        "KILO_TEST/kilo.json",
+        "KILO_TEST/neural_map_optimized.css",
+        "KILO_TEST/neural_map_optimized.html"
+      ],
+      "why_matters": "Negative samples are needed to define anti-pattern boundaries.",
+      "risk_if_kept_forever": "Policy confusion if mixed with canonical tooling.",
+      "risk_if_deleted_too_early": "Loss of training evidence for future Servitors.",
+      "recommended_future_gate": "NEGATIVE_SAMPLE_BOUNDARY_GATE_V0_1"
+    },
+    {
+      "category_id": "legacy_test_version_material",
+      "count_estimate": 35,
+      "source": "5082a8f1bbb8087ff18c19d378855f1b090ed2f9",
+      "sample_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/ACTION_SAFETY_CONTRACT.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/ARCHITECTURE.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/BACKEND_TRUTH_CONTRACT.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/FEATURE_MODULE_CONTRACT.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/HOW_TO_OPEN_AND_USE.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/README.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/ROADMAP_TO_FULL_NEURAL_OPERATOR.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/VISUAL_DIRECTION.md",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/app/neural_base_v0_4.css",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/app/neural_base_v0_4.html"
+      ],
+      "why_matters": "Contains potentially reusable technology and architecture docs.",
+      "risk_if_kept_forever": "Version sprawl and duplicate meaning layers.",
+      "risk_if_deleted_too_early": "Discarding useful migration candidates before intake review.",
+      "recommended_future_gate": "TEST_VERSION_INTAKE_GATE_V0_1"
+    },
+    {
+      "category_id": "archives_zip_outputs",
+      "count_estimate": 2,
+      "source": "5082a8f1bbb8087ff18c19d378855f1b090ed2f9+repo_recon_report_v0_1",
+      "sample_paths": [
+        "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip",
+        "KILO_TEST_RESULTS.zip",
+        "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/PACKAGE/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF.zip",
+        "ARTIFACTS/TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR/01_INPUTS/ROOT_LEVEL_FILES_MOVED_FROM_ROOT/PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip",
+        "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots.zip",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/truth_preservation_visual_rules_v0_1.zip"
+      ],
+      "why_matters": "Archives may duplicate payloads and inflate storage/noise.",
+      "risk_if_kept_forever": "Opaque duplication and verification burden.",
+      "risk_if_deleted_too_early": "Potential loss of unindexed evidence payloads.",
+      "recommended_future_gate": "ARCHIVE_CONTENT_INVENTORY_GATE_V0_1"
+    },
+    {
+      "category_id": "runtime_output_cache_candidates",
+      "count_estimate": 300,
+      "source": "repo_recon_report_v0_1.json",
+      "sample_paths": [
+        ".imperium_runtime",
+        "ARTIFACTS",
+        ".imperium_runtime/administratum",
+        ".imperium_runtime/verification_spine",
+        ".imperium_runtime/administratum/git_cli_check",
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RECEIPT.json",
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_RESULT.json",
+        ".imperium_runtime/administratum/git_cli_check/GIT_CLI_CHECK_VERDICT.md",
+        ".imperium_runtime/verification_spine/VERIFY_REPO_RECEIPT.json",
+        ".imperium_runtime/verification_spine/VERIFY_REPO_REPORT.json",
+        ".imperium_runtime/verification_spine/VERIFY_REPO_VERDICT.md",
+        "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF",
+        "ARTIFACTS/MANUAL-DOCTRINARIUM-RECHECK-UTILITY-RULE",
+        "ARTIFACTS/MANUAL-DOCTRINARIUM-WORKBENCH-REFRESH",
+        "ARTIFACTS/TASK-20260508-0003-IMPERIUM-ROOT-MAP-ARTIFACT-ROUTING"
+      ],
+      "why_matters": "Runtime and cache zones generate non-canonical churn.",
+      "risk_if_kept_forever": "Explosive noise and fake-green evidence contamination.",
+      "risk_if_deleted_too_early": "May remove receipts still needed for audit continuity.",
+      "recommended_future_gate": "RUNTIME_RECEIPT_RETENTION_GATE_V0_1"
+    },
+    {
+      "category_id": "unregistered_scripts_tools",
+      "count_estimate": 300,
+      "source": "repo_recon_report_v0_1.json",
+      "sample_paths": [
+        "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/FILES/launch_doctrinarium_dashboard_v0_8.ps1",
+        "ARTIFACTS/TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION/02_OUTPUTS/fetch_vm2_stage_bundle.py",
+        "ARTIFACTS/TASK-20260508-0009-PC-VM2-PYTHON-TOOLS-REGISTRATION/02_OUTPUTS/send_prompt_to_vm2.py",
+        "ARTIFACTS/TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST/01_INPUTS/fetch_vm2_stage_bundle.py",
+        "ARTIFACTS/TASK-20260508-0010-PC-VM2-PYTHON-TOOLS-SMOKE-TEST/01_INPUTS/send_prompt_to_vm2.py",
+        "ARTIFACTS/TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1/02_OUTPUTS/PYTHON_TOOLS/fetch_vm2_stage_bundle.py",
+        "ARTIFACTS/TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1/02_OUTPUTS/PYTHON_TOOLS/send_prompt_to_vm2.py",
+        "ARTIFACTS/TASK-20260508-0011-IMPERIUM-CONTINUITY-PACK-V1/02_OUTPUTS/PYTHON_TOOLS/WRITE_SSH_LIBRARY_MANIFESTS.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/barrier_verify.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/fetch_vm2_stage_bundle.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/final_bundle_assemble.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/send_prompt_to_vm2.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/task_status_append.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/task_status_view.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/__init__.py",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/examples/barrier_verify_example.ps1",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/examples/fetch_vm2_bundle_example.ps1",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/examples/final_bundle_assemble_example.ps1",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/examples/send_prompt_example.ps1",
+        "ARTIFACTS/TASK-20260508-0014-SCRIPT-REPAIR-TASK-STAGE-RUN-BARRIER-LEDGER-PROVENANCE-V1/02_OUTPUTS/TOOL_SNAPSHOT/imperium_pipeline/lib/id_validation.py"
+      ],
+      "why_matters": "Unregistered tools block safe reuse and ownership traceability.",
+      "risk_if_kept_forever": "Shadow tooling and unpredictable execution behavior.",
+      "risk_if_deleted_too_early": "Loss of potentially valuable operational automation.",
+      "recommended_future_gate": "SCRIPT_REGISTRATION_GATE_V0_1"
+    },
+    {
+      "category_id": "duplicate_name_candidates",
+      "count_estimate": 300,
+      "source": "repo_recon_report_v0_1.json",
+      "sample_paths": [
+        "readme.md (count=270)",
+        "owner_summary.md (count=136)",
+        "sha256sums.txt (count=113)",
+        "manifest.json (count=102)",
+        "speculum_review_request.md (count=88)",
+        "agent_final_response.txt (count=85)",
+        "origin_index.json (count=56)",
+        "barrier_report.json (count=55)",
+        ".gitkeep (count=45)",
+        "task_status_ledger.jsonl (count=41)",
+        "file.txt (count=40)",
+        "stage_plan.md (count=40)"
+      ],
+      "why_matters": "Duplicate basenames increase confusion and misrouting risk.",
+      "risk_if_kept_forever": "Operational mistakes due to wrong-file edits.",
+      "risk_if_deleted_too_early": "Could remove required continuity copies without mapping.",
+      "recommended_future_gate": "DUPLICATE_NAMESPACE_GATE_V0_1"
+    },
+    {
+      "category_id": "placeholder_todo_fixme_candidates",
+      "count_estimate": 326,
+      "source": "repo_recon_report_v0_1.json",
+      "sample_paths": [
+        "ARTIFACTS/TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1/00_REGISTRY/TOOLS_MASTER_INDEX.json:441:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1/00_REGISTRY/TOOLS_MASTER_INDEX.json:470:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1/00_REGISTRY/TOOLS_MASTER_INDEX.json:499:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1/00_REGISTRY/TOOL_REGISTRY_RECEIPT.json:13:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C-TOOL-ROOT-RUNTIME-CLOSURE-ADDRESS-REGISTRY-READONLY-EXPLORER-AND-DRYRUN-PROOF-V1/20_CONTINUITY/examples/README.md:3:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/00_REGISTRY/TOOLS_MASTER_INDEX.json:441:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/00_REGISTRY/TOOLS_MASTER_INDEX.json:470:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/00_REGISTRY/TOOLS_MASTER_INDEX.json:499:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/00_REGISTRY/TOOL_REGISTRY_RECEIPT.json:13:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/02_OUTPUTS/CLEANHASH_VERIFY_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:441:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/02_OUTPUTS/CLEANHASH_VERIFY_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:470:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/02_OUTPUTS/CLEANHASH_VERIFY_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:499:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/02_OUTPUTS/CLEANHASH_VERIFY_EXTRACT/00_REGISTRY/TOOL_REGISTRY_RECEIPT.json:13:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/02_OUTPUTS/CLEANHASH_VERIFY_EXTRACT/20_CONTINUITY/examples/README.md:3:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/20_CONTINUITY/examples/README.md:3:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/FINAL_STEP_BUNDLE/VERIFY_TMP_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:441:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/FINAL_STEP_BUNDLE/VERIFY_TMP_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:470:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/FINAL_STEP_BUNDLE/VERIFY_TMP_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:499:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/FINAL_STEP_BUNDLE/VERIFY_TMP_EXTRACT/00_REGISTRY/TOOL_REGISTRY_RECEIPT.json:13:PLACEHOLDER",
+        "ARTIFACTS/TASK-20260508-0014C1-CLEANHASH-REGISTRY-PACKAGING-REPAIR-V1/FINAL_STEP_BUNDLE/VERIFY_TMP_EXTRACT/02_OUTPUTS/CLEANHASH_VERIFY_EXTRACT/00_REGISTRY/TOOLS_MASTER_INDEX.json:441:PLACEHOLDER"
+      ],
+      "why_matters": "Markers indicate unfinished or caution zones requiring triage.",
+      "risk_if_kept_forever": "Unresolved placeholders may become silent quality debt.",
+      "risk_if_deleted_too_early": "May hide unresolved obligations without proper closure.",
+      "recommended_future_gate": "MARKER_TRIAGE_GATE_V0_1"
+    },
+    {
+      "category_id": "large_file_candidates",
+      "count_estimate": 9,
+      "source": "repo_recon_report_v0_1.json",
+      "sample_paths": [
+        "ARTIFACTS/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF/PACKAGE/MANUAL-DOCTRINARIUM-DASHBOARD-V0_8-TECHNICAL-HANDOFF.zip (10.44 MB)",
+        "ARTIFACTS/TASK-20260508-0004-IMPERIUM-ROOT-HYGIENE-REPAIR/01_INPUTS/ROOT_LEVEL_FILES_MOVED_FROM_ROOT/PC_LOCAL_IMPERIUM_ANALYSIS_20260507_1711.zip (41.91 MB)",
+        "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/01_OBSERVED_SCAN/RAW_SCAN_INDEX.json (19.7 MB)",
+        "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/02_ORGAN_CANDIDATE_FILES/ORGAN_FILE_INDEX.json (21.18 MB)",
+        "ARTIFACTS/TASK-20260509-ORGANS-OBSERVED-CANON-INVENTORY-AND-MIGRATION-MAP-V1/03_PROMPT_ENGINEERING_CANON/PROMPT_ENGINEERING_CANON_INDEX.json (14.47 MB)",
+        "ARTIFACTS/TASK-20260511-IMPERIUM-STRUCTURE-PORTS-REGISTRY-AND-SERVITOR-WORKFLOW-HARDENING-V0_1/OUTPUTS/repo_inventory.json (77.52 MB)",
+        "ASSETS/INBOX_OWNER_VISUAL_SORTING/RAW_SCREENSHOTS/3f345bccf83abe2e209613d5bcb257d0.zip (14.16 MB)",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_ACCEPTANCE_HARDENING_V0_1/screenshots.zip (11.41 MB)",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/VISUAL_STYLE_CONTRACT_V0_1/truth_preservation_visual_rules_v0_1.zip (12.29 MB)"
+      ],
+      "why_matters": "Large files impact repo portability, clone speed, and review cost.",
+      "risk_if_kept_forever": "Repository weight and sync latency increase.",
+      "risk_if_deleted_too_early": "Potential loss of archives or authoritative bundles.",
+      "recommended_future_gate": "LARGE_ARTIFACT_RETENTION_GATE_V0_1"
+    }
+  ],
+  "required_future_gates": [
+    "ARCHIVE_CONTENT_INVENTORY_GATE_V0_1",
+    "DIRTY_ADVISORY_RETENTION_GATE_V0_1",
+    "DUPLICATE_NAMESPACE_GATE_V0_1",
+    "LARGE_ARTIFACT_RETENTION_GATE_V0_1",
+    "MARKER_TRIAGE_GATE_V0_1",
+    "NEGATIVE_SAMPLE_BOUNDARY_GATE_V0_1",
+    "RUNTIME_RECEIPT_RETENTION_GATE_V0_1",
+    "SCRIPT_REGISTRATION_GATE_V0_1",
+    "TEST_VERSION_INTAKE_GATE_V0_1"
+  ]
+}
