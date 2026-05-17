@@ -1,0 +1,529 @@
+{
+  "checker": "check_neural_base_v0_4.py",
+  "timestamp_utc": "2026-05-16T16:24:04Z",
+  "scope_path": "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_4",
+  "overall": "PASS",
+  "checks_total": 85,
+  "failures_count": 0,
+  "warnings_count": 0,
+  "checks": [
+    {
+      "name": "exists:README.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:README.md",
+      "passed": true,
+      "detail": "size=1124",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:ARCHITECTURE.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:ARCHITECTURE.md",
+      "passed": true,
+      "detail": "size=1818",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:VISUAL_DIRECTION.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:VISUAL_DIRECTION.md",
+      "passed": true,
+      "detail": "size=1089",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:FEATURE_MODULE_CONTRACT.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:FEATURE_MODULE_CONTRACT.md",
+      "passed": true,
+      "detail": "size=1421",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:BACKEND_TRUTH_CONTRACT.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:BACKEND_TRUTH_CONTRACT.md",
+      "passed": true,
+      "detail": "size=1059",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:ACTION_SAFETY_CONTRACT.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:ACTION_SAFETY_CONTRACT.md",
+      "passed": true,
+      "detail": "size=1112",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:ROADMAP_TO_FULL_NEURAL_OPERATOR.md",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:ROADMAP_TO_FULL_NEURAL_OPERATOR.md",
+      "passed": true,
+      "detail": "size=1098",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:registry/neural_feature_registry.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:registry/neural_feature_registry.json",
+      "passed": true,
+      "detail": "size=4898",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:registry/neural_visual_tokens.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:registry/neural_visual_tokens.json",
+      "passed": true,
+      "detail": "size=1707",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:registry/neural_truth_matrix.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:registry/neural_truth_matrix.json",
+      "passed": true,
+      "detail": "size=3453",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:registry/neural_action_registry.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:registry/neural_action_registry.json",
+      "passed": true,
+      "detail": "size=3424",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:features/second_brain_runtime.feature.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:features/second_brain_runtime.feature.json",
+      "passed": true,
+      "detail": "size=1048",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:features/delta_window.feature.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:features/delta_window.feature.json",
+      "passed": true,
+      "detail": "size=1019",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:features/agent_exchange.feature.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:features/agent_exchange.feature.json",
+      "passed": true,
+      "detail": "size=983",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:features/testing_field.feature.json",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:features/testing_field.feature.json",
+      "passed": true,
+      "detail": "size=928",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:app/neural_base_v0_4.html",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:app/neural_base_v0_4.html",
+      "passed": true,
+      "detail": "size=3086",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:app/neural_base_v0_4.css",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:app/neural_base_v0_4.css",
+      "passed": true,
+      "detail": "size=6115",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:app/neural_base_v0_4.js",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:app/neural_base_v0_4.js",
+      "passed": true,
+      "detail": "size=4933",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:tools/build_neural_base_snapshot_v0_4.py",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:tools/build_neural_base_snapshot_v0_4.py",
+      "passed": true,
+      "detail": "size=5030",
+      "level": "FAIL"
+    },
+    {
+      "name": "exists:tools/check_neural_base_v0_4.py",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "nonempty:tools/check_neural_base_v0_4.py",
+      "passed": true,
+      "detail": "size=7934",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:neural_feature_registry.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:neural_visual_tokens.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:neural_truth_matrix.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:neural_action_registry.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:second_brain_runtime.feature.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:delta_window.feature.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:agent_exchange.feature.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "json:testing_field.feature.json",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "feature_id:second_brain_runtime",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "feature_id:delta_window",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "feature_id:testing_field",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "feature_id:agent_exchange",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:1",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:1",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:2",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:2",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:3",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:3",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:4",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:4",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:5",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:5",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:6",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:6",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:7",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:7",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_desc:8",
+      "passed": true,
+      "detail": "has description",
+      "level": "FAIL"
+    },
+    {
+      "name": "truth_sources:8",
+      "passed": true,
+      "detail": "has source patterns",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_check_second_brain_v03",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_export_second_brain_runtime",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_run_delta_standard",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_run_delta_full",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_scan_agent_exchange_mojibake",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_refresh_agent_exchange_window",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_run_testing_field_smoke",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "safe_action_cmd:action_read_testing_field_smoke_reports",
+      "passed": true,
+      "detail": "command exists",
+      "level": "FAIL"
+    },
+    {
+      "name": "mutating_disabled:action_create_task_node_future",
+      "passed": true,
+      "detail": "disabled command empty",
+      "level": "FAIL"
+    },
+    {
+      "name": "mutating_status:action_create_task_node_future",
+      "passed": true,
+      "detail": "status starts with DISABLED",
+      "level": "FAIL"
+    },
+    {
+      "name": "mutating_disabled:action_bind_memory_strand_future",
+      "passed": true,
+      "detail": "disabled command empty",
+      "level": "FAIL"
+    },
+    {
+      "name": "mutating_status:action_bind_memory_strand_future",
+      "passed": true,
+      "detail": "status starts with DISABLED",
+      "level": "FAIL"
+    },
+    {
+      "name": "snapshot_build_exit",
+      "passed": true,
+      "detail": "exit=0 stderr=",
+      "level": "FAIL"
+    },
+    {
+      "name": "snapshot_exists",
+      "passed": true,
+      "detail": "present",
+      "level": "FAIL"
+    },
+    {
+      "name": "snapshot_parse",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "scope_only_imperium_test_version",
+      "passed": true,
+      "detail": "ok",
+      "level": "FAIL"
+    },
+    {
+      "name": "delta_window_active_path_exists",
+      "passed": true,
+      "detail": "TESTING_FIELD/DELTA_WINDOW present",
+      "level": "FAIL"
+    }
+  ],
+  "failures": [],
+  "warnings": [],
+  "build_snapshot_result": {
+    "command": "C:\\Users\\PC\\AppData\\Local\\Programs\\Python\\Python312\\python.exe E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_4\\tools\\build_neural_base_snapshot_v0_4.py",
+    "exit_code": 0,
+    "stdout": "snapshot_written: E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_4\\reports\\neural_base_snapshot_v0_4.json\nfeatures: 4 actions: 10 mappings: 8\nmissing_sources: 0",
+    "stderr": ""
+  }
+}

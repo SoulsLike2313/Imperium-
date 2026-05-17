@@ -1,0 +1,104 @@
+{
+  "timestamp_utc": "2026-05-16T16:04:23Z",
+  "targets": {
+    "second_brain": "e:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN",
+    "testing_field": "e:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD",
+    "agent_exchange": "e:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\AGENT_EXCHANGE",
+    "delta_window_direct": "e:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\DELTA_WINDOW",
+    "delta_window_actual": "e:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\TESTING_FIELD\\DELTA_WINDOW"
+  },
+  "paths_exist": {
+    "second_brain": true,
+    "testing_field": true,
+    "agent_exchange": true,
+    "delta_window_direct": false,
+    "delta_window_actual": true
+  },
+  "dashboards_and_pages": {
+    "second_brain_html": [
+      "SECOND_BRAIN/UI/second_brain_interactive.html",
+      "SECOND_BRAIN/UI/second_brain_operator.html"
+    ],
+    "testing_field_html": [
+      "TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+    ],
+    "agent_exchange_html": [
+      "AGENT_EXCHANGE/agent_exchange_window.html"
+    ],
+    "delta_window_html": [
+      "TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+    ]
+  },
+  "launchers": {
+    "second_brain_ps1": [
+      "SECOND_BRAIN/INTERACTIVE_APP/launch_second_brain_v0_3.ps1"
+    ],
+    "testing_field_ps1": [
+      "TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1",
+      "TESTING_FIELD/RUN_SMOKE.ps1"
+    ]
+  },
+  "checkers": [
+    "SECOND_BRAIN/TOOLS/check_second_brain_v0_2.py",
+    "SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"
+  ],
+  "runtime_json": [
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/accepted_tasks.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/manifest.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/owner_comments_runtime.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-120000-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-120001-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-120002-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-151558-316.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-151625-705.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-151649-185.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/task_comment_links.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/accepted_tasks.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/manifest.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/owner_comments_runtime.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-120000-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-120001-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-120002-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-151558-316.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-151625-705.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-151649-185.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/task_comment_links.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-120000-001.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-120001-001.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-120002-001.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-151558-316.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-151625-705.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-151649-185.json"
+  ],
+  "receipts": [
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-120000-001.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-120001-001.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-120002-001.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-151558-316.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-151625-705.json",
+    "SECOND_BRAIN/RUNTIME/receipts/RCP-20260516-151649-185.json"
+  ],
+  "exports": [
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/accepted_tasks.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/manifest.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/owner_comments_runtime.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-120000-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-120001-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-120002-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-151558-316.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-151625-705.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/receipts/RCP-20260516-151649-185.json",
+    "SECOND_BRAIN/RUNTIME/exports/_preview_last_export/export_20260516-151730/task_comment_links.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730.zip",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/accepted_tasks.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/manifest.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/owner_comments_runtime.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-120000-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-120001-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-120002-001.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-151558-316.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-151625-705.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/receipts/RCP-20260516-151649-185.json",
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730/task_comment_links.json"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "feature_id": "delta_window",
+  "display_name": "Delta Window Verification Mesh",
+  "visual_zone": "verification_ring",
+  "integration_status": "PARTIAL_BINDING",
+  "scope_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW",
+  "ui_components": [
+    "TESTING_FIELD/DELTA_WINDOW/delta_window.html",
+    "app/neural_base_v0_4.js::renderTruthMatrix"
+  ],
+  "data_sources": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json"
+  ],
+  "checker": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1",
+  "receipts": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS"
+  ],
+  "allowed_actions": [
+    "action_run_delta_standard",
+    "action_run_delta_full"
+  ],
+  "current_limitations": [
+    "FULL mode may fail due mojibake scan and external tooling dependencies"
+  ]
+}
+

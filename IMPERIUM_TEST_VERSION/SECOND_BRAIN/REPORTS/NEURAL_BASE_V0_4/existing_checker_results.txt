@@ -1,0 +1,48 @@
+E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\TOOLS\check_second_brain_v0_3_interactive.py:285: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "date": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
+=================================================================
+Second Brain V0.3 Interactive Checker
+=================================================================
+
+[1] Required V0.3 folders
+
+[2] server.py
+
+[3] Launcher
+
+[4] Interactive UI files
+
+[6] Runtime schemas
+
+[7] accepted_tasks.json
+
+[8] owner_comments_runtime.json
+
+[9] task_comment_links.json
+
+[10] At least one task
+
+[11] At least one comment
+
+[12] At least one link
+
+[13] Receipts exist
+
+[14] UI references API (not static hardcoded)
+
+[15] NO_LOCAL_LLM / NOT_CONFIGURED honest status
+
+[16] NO_AGENT_API / NOT_IMPLEMENTED honest status
+
+[17] No fake green / production claims
+
+[18] All work inside SECOND_BRAIN
+
+=================================================================
+PASSES: 54
+FAILS:  0
+
+VERDICT:  PASS
+OVERALL:  READY_FOR_OWNER_REVIEW
+
+Report written: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\REPORTS\second_brain_v0_3_check_report.json

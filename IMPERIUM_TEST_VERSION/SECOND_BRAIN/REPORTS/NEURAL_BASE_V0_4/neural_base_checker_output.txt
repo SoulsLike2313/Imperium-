@@ -1,0 +1,6 @@
+=== Neural Base V0.4 Checker ===
+overall: WARN
+checks: 85
+failures: 0
+warnings: 1
+report: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_4\reports\neural_base_check_report_v0_4.json

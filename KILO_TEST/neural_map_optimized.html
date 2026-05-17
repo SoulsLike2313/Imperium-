@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Second Brain Neural Map V0.6 - Optimized</title>
+  <link rel="stylesheet" href="./neural_map_optimized.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- ── Header ── -->
+  <header>
+    <div class="header-brand">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <circle cx="11" cy="11" r="9" stroke="#00d7ff" stroke-width="1.5" opacity="0.8"/>
+          <circle cx="11" cy="11" r="5" fill="rgba(0,215,255,0.2)" stroke="#00d7ff" stroke-width="1"/>
+          <circle cx="11" cy="11" r="2" fill="#00d7ff"/>
+          <line x1="11" y1="2" x2="11" y2="5" stroke="#00d7ff" stroke-width="1" opacity="0.6"/>
+          <line x1="11" y1="17" x2="11" y2="20" stroke="#00d7ff" stroke-width="1" opacity="0.6"/>
+          <line x1="2" y1="11" x2="5" y2="11" stroke="#00d7ff" stroke-width="1" opacity="0.6"/>
+          <line x1="17" y1="11" x2="20" y2="11" stroke="#00d7ff" stroke-width="1" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-title">SECOND BRAIN</span>
+        <span class="brand-sub">NEURAL MAP V0.6 · TASK INTAKE CORRIDOR</span>
+      </div>
+    </div>
+    <div class="header-status">
+      <span id="server-badge" class="badge badge-prototype">CONNECTING…</span>
+      <span id="badge-runtime-mode" class="badge badge-prototype">PROTOTYPE_INTERACTIVE</span>
+      <span id="badge-rule-based" class="badge badge-rule">RULE_BASED_ONLY</span>
+      <span id="badge-no-llm" class="badge badge-dim">NO_LOCAL_LLM</span>
+      <span id="badge-no-agent" class="badge badge-dim">NO_AGENT_API</span>
+      <span id="badge-not-production" class="badge badge-dim">NOT_RELEASE_READY</span>
+      <span id="live-dot" class="live-dot offline" title="Server connection"></span>
+    </div>
+  </header>
+
+  <!-- ── Stats bar ── -->
+  <div id="stats-bar">
+    <div class="stat-item">
+      <span class="stat-num" id="stat-tasks">—</span>
+      <span class="stat-label">Задач</span>
+    </div>
+    <div class="stat-item stat-highlight">
+      <span class="stat-num accent-cyan" id="stat-task-packages">—</span>
+      <span class="stat-label">Пакетов</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num accent-amber" id="stat-comments">—</span>
+      <span class="stat-label">Комментариев</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num accent-magenta" id="stat-links">—</span>
+      <span class="stat-label">Связей</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num accent-green" id="stat-receipts">—</span>
+      <span class="stat-label">Receipts</span>
+    </div>
+    <div class="stat-health">
+      <span class="stat-label">Health:</span>
+      <span class="health-score" id="health-score">—/12</span>
+    </div>
+    <div class="stats-actions">
+      <button class="btn btn-primary btn-sm" onclick="rebuildSnapshot()">⚡ Rebuild</button>
+      <button class="btn btn-amber btn-sm" onclick="doExport()">📦 Export</button>
+    </div>
+  </div>
+
+  <!-- ── Truth lock bar ── -->
+  <div id="truth-lock-bar">
+    <div class="truth-chip"><span class="truth-key">PARTIAL</span><span class="truth-val" id="stat-partial">—</span></div>
+    <div class="truth-chip"><span class="truth-key">BLOCKED</span><span class="truth-val" id="stat-blocked">—</span></div>
+    <div class="truth-chip"><span class="truth-key">MISSING</span><span class="truth-val" id="stat-missing">—</span></div>
+    <div class="truth-chip"><span class="truth-key">WARNINGS</span><span class="truth-val" id="stat-warnings">—</span></div>
+    <div class="truth-chip"><span class="truth-key">STALE</span><span class="truth-val" id="stat-stale">—</span></div>
+    <div class="truth-chip"><span class="truth-key">FRESHNESS</span><span class="truth-val freshness-val" id="snapshot-freshness">—</span></div>
+    <div class="truth-chip truth-wide"><span class="truth-key">SNAPSHOT_ID</span><span class="truth-val mono" id="snapshot-id">—</span></div>
+    <div class="truth-chip truth-wide"><span class="truth-key">TRUTH_LOCK_RUN_ID</span><span class="truth-val mono" id="truth-lock-run-id">—</span></div>
+    <div class="truth-chip truth-wide"><span class="truth-key">SNAPSHOT_TS</span><span class="truth-val mono" id="snapshot-ts">—</span></div>
+    <div class="truth-chip"><span class="truth-key">AGE_SEC</span><span class="truth-val" id="snapshot-age-sec">—</span></div>
+  </div>
+
+  <!-- ── Main layout ── -->
+  <div id="main-layout">
+
+    <!-- ── Neural Canvas ── -->
+    <div id="neural-canvas-wrap">
+      <svg id="neural-canvas" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <!-- Zone radial gradients -->
+          <radialGradient id="grad-cyan"    cx="40%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#40e8ff" stop-opacity="0.9"/>
+            <stop offset="45%"  stop-color="#00d7ff" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#00d7ff" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-amber"   cx="40%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#ffc870" stop-opacity="0.9"/>
+            <stop offset="45%"  stop-color="#ffb347" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#ffb347" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-magenta" cx="40%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#ff80e8" stop-opacity="0.9"/>
+            <stop offset="45%"  stop-color="#ff4fd8" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#ff4fd8" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-green"   cx="40%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#40d888" stop-opacity="0.9"/>
+            <stop offset="45%"  stop-color="#29c272" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#29c272" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-violet"  cx="40%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#9aa4ff" stop-opacity="0.9"/>
+            <stop offset="45%"  stop-color="#7a84ff" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#7a84ff" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-red"     cx="40%" cy="35%" r="60%">
+            <stop offset="0%"   stop-color="#ff8088" stop-opacity="0.9"/>
+            <stop offset="45%"  stop-color="#ff5d66" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#ff5d66" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-core" cx="45%" cy="40%" r="60%">
+            <stop offset="0%"   stop-color="#60f0ff" stop-opacity="0.75"/>
+            <stop offset="20%"  stop-color="#00d7ff" stop-opacity="0.55"/>
+            <stop offset="50%"  stop-color="#7a84ff" stop-opacity="0.3"/>
+            <stop offset="80%"  stop-color="#ff4fd8" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#04080f" stop-opacity="0.0"/>
+          </radialGradient>
+          <radialGradient id="grad-core-halo" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#00d7ff" stop-opacity="0.22"/>
+            <stop offset="40%"  stop-color="#00d7ff" stop-opacity="0.08"/>
+            <stop offset="100%" stop-color="#00d7ff" stop-opacity="0.0"/>
+          </radialGradient>
+          <filter id="glow-cyan" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="6" result="blur1"/>
+            <feGaussianBlur stdDeviation="2" result="blur2" in="SourceGraphic"/>
+            <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-amber" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="6" result="blur1"/>
+            <feGaussianBlur stdDeviation="2" result="blur2" in="SourceGraphic"/>
+            <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-magenta" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="6" result="blur1"/>
+            <feGaussianBlur stdDeviation="2" result="blur2" in="SourceGraphic"/>
+            <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-green" x="-80%" y="-80%" width="260%" height="260%">
+            <feGaussianBlur stdDeviation="6" result="blur1"/>
+            <feGaussianBlur stdDeviation="2" result="blur2" in="SourceGraphic"/>
+            <feMerge><feMergeNode in="blur1"/><feMergeNode in="blur2"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="glow-strong" x="-120%" y="-120%" width="340%" height="340%">
+            <feGaussianBlur stdDeviation="16" result="blur-far"/>
+            <feGaussianBlur stdDeviation="8" result="blur-mid" in="SourceGraphic"/>
+            <feGaussianBlur stdDeviation="3" result="blur-near" in="SourceGraphic"/>
+            <feMerge>
+              <feMergeNode in="blur-far"/>
+              <feMergeNode in="blur-mid"/>
+              <feMergeNode in="blur-near"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <pattern id="hex-pattern" x="0" y="0" width="14" height="12.1" patternUnits="userSpaceOnUse">
+            <polygon points="7,0 14,3.5 14,8.6 7,12.1 0,8.6 0,3.5"
+              fill="none" stroke="rgba(0,215,255,0.07)" stroke-width="0.5"/>
+          </pattern>
+          <linearGradient id="spec-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%"   stop-color="rgba(255,255,255,0.12)"/>
+            <stop offset="40%"  stop-color="rgba(255,255,255,0.04)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.0)"/>
+          </linearGradient>
+        </defs>
+        <g id="strands-layer"></g>
+        <g id="zones-layer"></g>
+        <g id="sparks-layer"></g>
+        <g id="particles-layer"></g>
+      </svg>
+    </div>
+
+    <div id="operator-panel">
+      <div id="panel-mode-bar">
+        <span id="panel-mode-label">OPERATOR SURFACE</span>
+        <span id="panel-mode-zone"></span>
+      </div>
+      <div class="panel-tabs" id="panel-tabs">
+        <button class="panel-tab active" data-tab="tasks"    onclick="switchTab('tasks')">📋 Tasks</button>
+        <button class="panel-tab"        data-tab="comments" onclick="switchTab('comments')">💬 Comments</button>
+        <button class="panel-tab"        data-tab="links"    onclick="switchTab('links')">🔗 Links</button>
+        <button class="panel-tab"        data-tab="thread"   onclick="switchTab('thread')">🧵 Thread</button>
+        <button class="panel-tab"        data-tab="evidence" onclick="switchTab('evidence')">🔬 Evidence</button>
+      </div>
+      <div class="panel-content" id="panel-content"></div>
+    </div>
+
+    <div id="zone-detail-panel">
+      <div class="zone-detail-header">
+        <div class="zone-detail-icon" id="zdp-icon"></div>
+        <div class="zone-detail-title">
+          <div class="zone-detail-name" id="zdp-name">Zone Name</div>
+          <div class="zone-detail-purpose" id="zdp-purpose">Purpose</div>
+        </div>
+        <button class="zone-detail-close" onclick="closeZoneDetail()">✕</button>
+      </div>
+      <div class="zone-detail-body" id="zdp-body"></div>
+    </div>
+
+    <div id="corridor-panel">
+      <div class="corridor-header">
+        <div class="corridor-header-left">
+          <div class="corridor-icon">📋</div>
+          <div>
+            <div class="corridor-title">TASK INTAKE CORRIDOR</div>
+            <div class="corridor-subtitle">V0.6 · RULE_BASED_ONLY · NO_AUTO_EXECUTION</div>
+          </div>
+        </div>
+        <button class="corridor-close" onclick="closeCorridor()">✕</button>
+      </div>
+      <div class="corridor-stages" id="corridor-stages">
+        <div class="stage-dot active" data-stage="0">COMPOSE</div>
+        <div class="stage-sep">›</div>
+        <div class="stage-dot" data-stage="1">COMMENT</div>
+        <div class="stage-sep">›</div>
+        <div class="stage-dot" data-stage="2">REGISTER</div>
+        <div class="stage-sep">›</div>
+        <div class="stage-dot" data-stage="3">REVIEW</div>
+        <div class="stage-sep">›</div>
+        <div class="stage-dot" data-stage="4">LAUNCH</div>
+      </div>
+      <div class="corridor-content" id="corridor-content"></div>
+    </div>
+
+  </div><!-- /#main-layout -->
+
+  <footer>
+    <span>Second Brain Neural Map V0.6 — Task Intake Corridor</span>
+    <div class="footer-honest">
+      <span>PROTOTYPE_INTERACTIVE</span><span>·</span>
+      <span>RULE_BASED_ONLY</span><span>·</span>
+      <span>NO_LOCAL_LLM</span><span>·</span>
+      <span>NO_AGENT_API</span><span>·</span>
+      <span>NOT PRODUCTION READY</span>
+    </div>
+  </footer>
+
+</div><!-- /#app -->
+
+<div id="zone-tooltip">
+  <div class="tooltip-title" id="tt-title"></div>
+  <div class="tooltip-summary" id="tt-summary"></div>
+  <div class="tooltip-telemetry" id="tt-telemetry"></div>
+</div>
+
+<div id="notifications"></div>
+
+</body>
+</html>

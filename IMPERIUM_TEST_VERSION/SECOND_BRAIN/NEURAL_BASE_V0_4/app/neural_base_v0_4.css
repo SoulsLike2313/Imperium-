@@ -1,0 +1,331 @@
+:root {
+  --bg: #070b14;
+  --bg-panel: #101a2c;
+  --line: #253752;
+  --text: #dfeaf5;
+  --muted: #8ca1b8;
+  --cyan: #00d7ff;
+  --amber: #ffb347;
+  --magenta: #ff4fd8;
+  --green: #29c272;
+  --red: #ff5d66;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 12% 10%, rgba(0, 215, 255, 0.18), transparent 38%),
+    radial-gradient(circle at 90% 90%, rgba(255, 79, 216, 0.14), transparent 42%),
+    radial-gradient(circle at 50% 50%, rgba(255, 179, 71, 0.09), transparent 52%),
+    var(--bg);
+}
+
+.shell {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.title-wrap h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--cyan);
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.status-wrap {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  border: 1px solid var(--line);
+}
+
+.badge-cyan {
+  color: var(--cyan);
+  background: rgba(0, 215, 255, 0.13);
+}
+
+.badge-amber {
+  color: var(--amber);
+  background: rgba(255, 179, 71, 0.14);
+}
+
+.badge-magenta {
+  color: var(--magenta);
+  background: rgba(255, 79, 216, 0.14);
+}
+
+.disclaimer {
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 179, 71, 0.45);
+  border-left: 4px solid var(--amber);
+  border-radius: 8px;
+  color: #ffd3a0;
+  background: rgba(255, 179, 71, 0.08);
+}
+
+.layout {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(360px, 1fr));
+  gap: 12px;
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(165deg, rgba(16, 26, 44, 0.95), rgba(9, 15, 26, 0.95));
+  padding: 12px;
+}
+
+.panel h2 {
+  margin: 0 0 10px;
+  color: #c9dcf2;
+  font-size: 1rem;
+}
+
+.neural-panel {
+  min-height: 340px;
+}
+
+.neural-canvas {
+  position: relative;
+  min-height: 220px;
+  border: 1px dashed rgba(0, 215, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(7, 14, 24, 0.8);
+}
+
+.brain-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 215, 255, 0.22), rgba(255, 79, 216, 0.1) 60%, transparent 72%);
+}
+
+.brain-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 215, 255, 0.38);
+  animation: spin 8s linear infinite;
+}
+
+.ring-b {
+  inset: 14px;
+  border-color: rgba(255, 179, 71, 0.4);
+  animation-direction: reverse;
+  animation-duration: 10s;
+}
+
+.ring-c {
+  inset: 28px;
+  border-color: rgba(255, 79, 216, 0.45);
+  animation-duration: 12s;
+}
+
+.brain-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+.dot-cyan {
+  left: 14%;
+  top: 48%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+}
+
+.dot-amber {
+  right: 18%;
+  top: 28%;
+  background: var(--amber);
+  box-shadow: 0 0 12px var(--amber);
+  animation-delay: 0.4s;
+}
+
+.dot-magenta {
+  left: 45%;
+  bottom: 16%;
+  background: var(--magenta);
+  box-shadow: 0 0 14px var(--magenta);
+  animation-delay: 0.7s;
+}
+
+.brain-label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.strand {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  animation: flow 3s linear infinite;
+}
+
+.strand-1 {
+  left: 8%;
+  right: 12%;
+  top: 30%;
+}
+
+.strand-2 {
+  left: 12%;
+  right: 15%;
+  top: 58%;
+  animation-duration: 4s;
+}
+
+.strand-3 {
+  left: 18%;
+  right: 10%;
+  top: 74%;
+  background: linear-gradient(90deg, transparent, var(--magenta), transparent);
+  animation-duration: 5s;
+}
+
+.legend {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.node {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 7px;
+}
+
+.node-task { background: var(--cyan); }
+.node-comment { background: var(--amber); }
+.node-link { background: var(--magenta); }
+.node-evidence { background: var(--green); }
+.node-action { background: #7a84ff; }
+
+.summary-panel .hint {
+  margin-top: 10px;
+  font-size: 0.83rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 6px;
+  font-size: 0.9rem;
+}
+
+.meta-grid .k {
+  color: var(--muted);
+}
+
+.meta-grid .v {
+  color: var(--text);
+}
+
+.stack {
+  display: grid;
+  gap: 8px;
+}
+
+.card {
+  border: 1px solid rgba(140, 161, 184, 0.26);
+  border-radius: 9px;
+  padding: 9px;
+  background: rgba(14, 24, 39, 0.78);
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: #d8e8f9;
+}
+
+.line {
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin: 3px 0;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.73rem;
+  border: 1px solid var(--line);
+}
+
+.PASS { color: var(--green); background: rgba(41, 194, 114, 0.13); }
+.WORKING { color: var(--green); background: rgba(41, 194, 114, 0.13); }
+.PARTIAL { color: var(--amber); background: rgba(255, 179, 71, 0.13); }
+.FOUNDATION { color: var(--cyan); background: rgba(0, 215, 255, 0.13); }
+.BLOCKED { color: var(--red); background: rgba(255, 93, 102, 0.13); }
+.MANUAL_CONFIRMATION_REQUIRED { color: var(--magenta); background: rgba(255, 79, 216, 0.14); }
+.MUTATING_DISABLED { color: var(--magenta); background: rgba(255, 79, 216, 0.14); }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.35); opacity: 0.55; }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes flow {
+  from { opacity: 0.25; }
+  50% { opacity: 1; }
+  to { opacity: 0.25; }
+}
+
+@media (max-width: 1080px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+

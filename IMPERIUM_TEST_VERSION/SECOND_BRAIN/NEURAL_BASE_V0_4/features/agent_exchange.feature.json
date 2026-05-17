@@ -1,0 +1,29 @@
+{
+  "feature_id": "agent_exchange",
+  "display_name": "Agent Exchange Thread Relay",
+  "visual_zone": "exchange_cluster",
+  "integration_status": "PARTIAL_BINDING",
+  "scope_path": "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE",
+  "ui_components": [
+    "AGENT_EXCHANGE/agent_exchange_window.html",
+    "app/neural_base_v0_4.js::renderFeatureCards"
+  ],
+  "data_sources": [
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/EXCHANGE_STATE.json",
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS/latest_exchange_status.json",
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/THREADS/*/thread_index.json"
+  ],
+  "checker": "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/TOOLS/mojibake_scan.py",
+  "receipts": [
+    "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS"
+  ],
+  "allowed_actions": [
+    "action_scan_agent_exchange_mojibake",
+    "action_refresh_agent_exchange_window"
+  ],
+  "current_limitations": [
+    "Known mojibake scanner runtime issue in some flows",
+    "Multiple exchange flows still manual"
+  ]
+}
+

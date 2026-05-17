@@ -1,0 +1,97 @@
+{
+  "schema_version": "second_brain.neural_action_registry.v0.4",
+  "scope_policy": "IMPERIUM_TEST_VERSION_ONLY",
+  "actions": [
+    {
+      "action_id": "action_check_second_brain_v03",
+      "label": "Run Second Brain V0.3 Checker",
+      "type": "CHECK",
+      "command": "python .\\SECOND_BRAIN\\TOOLS\\check_second_brain_v0_3_interactive.py",
+      "owner_gate_required": false,
+      "writes_receipt": false,
+      "status": "ENABLED_SAFE_READ_CHECK"
+    },
+    {
+      "action_id": "action_export_second_brain_runtime",
+      "label": "Export Second Brain Runtime Pack",
+      "type": "EXPORT",
+      "command": "python .\\SECOND_BRAIN\\TOOLS\\export_second_brain_runtime_pack.py",
+      "owner_gate_required": true,
+      "writes_receipt": true,
+      "status": "OWNER_GATED"
+    },
+    {
+      "action_id": "action_run_delta_standard",
+      "label": "Run Delta Check Standard",
+      "type": "CHECK",
+      "command": ".\\TESTING_FIELD\\DELTA_WINDOW\\run_delta_check.ps1 -Mode STANDARD",
+      "owner_gate_required": false,
+      "writes_receipt": true,
+      "status": "ENABLED_SAFE_READ_CHECK"
+    },
+    {
+      "action_id": "action_run_delta_full",
+      "label": "Run Delta Check Full",
+      "type": "CHECK",
+      "command": ".\\TESTING_FIELD\\DELTA_WINDOW\\run_delta_check.ps1 -Mode FULL",
+      "owner_gate_required": true,
+      "writes_receipt": true,
+      "status": "ENABLED_WITH_KNOWN_LIMITATIONS"
+    },
+    {
+      "action_id": "action_scan_agent_exchange_mojibake",
+      "label": "Scan Agent Exchange Mojibake",
+      "type": "CHECK",
+      "command": "python .\\AGENT_EXCHANGE\\TOOLS\\mojibake_scan.py --scope IMPERIUM_TEST_VERSION --root .\\IMPERIUM_TEST_VERSION",
+      "owner_gate_required": false,
+      "writes_receipt": true,
+      "status": "ENABLED_WITH_KNOWN_LIMITATIONS"
+    },
+    {
+      "action_id": "action_refresh_agent_exchange_window",
+      "label": "Regenerate Agent Exchange Window",
+      "type": "READ_ONLY",
+      "command": "python .\\AGENT_EXCHANGE\\TOOLS\\generate_agent_exchange_window.py",
+      "owner_gate_required": true,
+      "writes_receipt": true,
+      "status": "OWNER_GATED"
+    },
+    {
+      "action_id": "action_run_testing_field_smoke",
+      "label": "Run Testing Field Smoke",
+      "type": "CHECK",
+      "command": ".\\TESTING_FIELD\\RUN_SMOKE.ps1",
+      "owner_gate_required": true,
+      "writes_receipt": true,
+      "status": "OWNER_GATED"
+    },
+    {
+      "action_id": "action_read_testing_field_smoke_reports",
+      "label": "Read Smoke Reports",
+      "type": "READ_ONLY",
+      "command": "python -c \"import json;print(json.load(open('IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json','r',encoding='utf-8-sig'))['overall'])\"",
+      "owner_gate_required": false,
+      "writes_receipt": false,
+      "status": "ENABLED_SAFE_READ_CHECK"
+    },
+    {
+      "action_id": "action_create_task_node_future",
+      "label": "Create Task Node (Future)",
+      "type": "MUTATING_DISABLED",
+      "command": "",
+      "owner_gate_required": true,
+      "writes_receipt": true,
+      "status": "DISABLED_UNTIL_SAFE_PIPELINE"
+    },
+    {
+      "action_id": "action_bind_memory_strand_future",
+      "label": "Bind Memory Strand (Future)",
+      "type": "MUTATING_DISABLED",
+      "command": "",
+      "owner_gate_required": true,
+      "writes_receipt": true,
+      "status": "DISABLED_UNTIL_SAFE_PIPELINE"
+    }
+  ]
+}
+

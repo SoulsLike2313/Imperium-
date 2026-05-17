@@ -1,0 +1,130 @@
+{
+  "schema_version": "second_brain.neural_feature_registry.v0.4",
+  "title": "Second Brain Neural Feature Registry",
+  "scope": "IMPERIUM_TEST_VERSION_ONLY",
+  "features": [
+    {
+      "id": "second_brain_runtime",
+      "title": "Second Brain Runtime Interactive Core",
+      "status": "WORKING",
+      "scope_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN",
+      "dashboard_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/UI/second_brain_interactive.html",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/UI/second_brain_operator.html"
+      ],
+      "data_sources": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/*.json"
+      ],
+      "receipts_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"
+      ],
+      "checker_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py"
+      ],
+      "visual_zone": "core_brain",
+      "allowed_actions": [
+        "action_check_second_brain_v03",
+        "action_export_second_brain_runtime"
+      ],
+      "current_limitations": [
+        "NO_LOCAL_LLM",
+        "NO_AGENT_API",
+        "RULE_BASED_ONLY"
+      ],
+      "backend_truth_status": "TRUTH_BOUND"
+    },
+    {
+      "id": "delta_window",
+      "title": "Delta Window Verification Mesh",
+      "status": "PARTIAL",
+      "scope_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW",
+      "dashboard_paths": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+      ],
+      "data_sources": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json",
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/run_receipt.json"
+      ],
+      "receipts_paths": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS"
+      ],
+      "checker_paths": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/run_delta_check.ps1"
+      ],
+      "visual_zone": "verification_ring",
+      "allowed_actions": [
+        "action_run_delta_standard",
+        "action_run_delta_full"
+      ],
+      "current_limitations": [
+        "FULL mode depends on external Playwright availability for screenshots",
+        "Known mojibake tool crash can degrade FULL mode"
+      ],
+      "backend_truth_status": "PARTIAL_BINDING"
+    },
+    {
+      "id": "agent_exchange",
+      "title": "Agent Exchange Thread Relay",
+      "status": "PARTIAL",
+      "scope_path": "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE",
+      "dashboard_paths": [
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/agent_exchange_window.html"
+      ],
+      "data_sources": [
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/EXCHANGE_STATE.json",
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/THREADS/*/thread_index.json",
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS/latest_exchange_status.json"
+      ],
+      "receipts_paths": [
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS"
+      ],
+      "checker_paths": [
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/TOOLS/mojibake_scan.py"
+      ],
+      "visual_zone": "exchange_cluster",
+      "allowed_actions": [
+        "action_scan_agent_exchange_mojibake",
+        "action_refresh_agent_exchange_window"
+      ],
+      "current_limitations": [
+        "Current mojibake scan has known runtime fault in some invocations",
+        "Exchange policy and templates exist but are partly manual"
+      ],
+      "backend_truth_status": "PARTIAL_BINDING"
+    },
+    {
+      "id": "testing_field",
+      "title": "Testing Field Execution and Smoke Layer",
+      "status": "PARTIAL",
+      "scope_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD",
+      "dashboard_paths": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/delta_window.html"
+      ],
+      "data_sources": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json",
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json"
+      ],
+      "receipts_paths": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS"
+      ],
+      "checker_paths": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/RUN_SMOKE.ps1"
+      ],
+      "visual_zone": "execution_dock",
+      "allowed_actions": [
+        "action_run_testing_field_smoke",
+        "action_read_testing_field_smoke_reports"
+      ],
+      "current_limitations": [
+        "Smoke checks do not imply production quality",
+        "UI integration across all testing assets is incomplete"
+      ],
+      "backend_truth_status": "PARTIAL_BINDING"
+    }
+  ]
+}
+

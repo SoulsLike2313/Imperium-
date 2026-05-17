@@ -1,0 +1,19 @@
+{
+  "name": "neural-map-v06",
+  "version": "1.0.0",
+  "description": "Second Brain Neural Map V0.6 Visual Profile",
+  "visual": {
+    "profile": "HIGH",
+    "allowlist": ["cyan", "amber", "magenta", "green", "violet"],
+    "gates": {
+      "HIGH": { "animations": true, "stars": 22, "layers": 5 },
+      "MEDIUM": { "animations": true, "stars": 11, "layers": 3 },
+      "LOW": { "animations": false, "stars": 6, "layers": 1 },
+      "OFF": { "animations": false, "stars": 0, "layers": 0 }
+    }
+  },
+  "paths": {
+    "html": "./neural_map_optimized.html",
+    "css": "./neural_map_optimized.css"
+  }
+}

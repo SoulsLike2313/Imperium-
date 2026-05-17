@@ -1,0 +1,29 @@
+{
+  "feature_id": "second_brain_runtime",
+  "display_name": "Second Brain Runtime Interactive Core",
+  "visual_zone": "core_brain",
+  "integration_status": "TRUTH_BOUND",
+  "scope_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN",
+  "ui_components": [
+    "app/neural_base_v0_4.html::core_brain_panel",
+    "app/neural_base_v0_4.js::renderFeatureCards"
+  ],
+  "data_sources": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json"
+  ],
+  "checker": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/TOOLS/check_second_brain_v0_3_interactive.py",
+  "receipts": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts"
+  ],
+  "allowed_actions": [
+    "action_check_second_brain_v03",
+    "action_export_second_brain_runtime"
+  ],
+  "current_limitations": [
+    "No local LLM runtime integration",
+    "No external agent API integration"
+  ]
+}
+

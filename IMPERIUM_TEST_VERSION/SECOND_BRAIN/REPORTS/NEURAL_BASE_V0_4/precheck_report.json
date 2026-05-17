@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-05-16T16:04:23Z",
+  "repo_root": "e:\\IMPERIUM",
+  "git_root_detected": "E:/IMPERIUM",
+  "expected_head": "ad257b4376cd3f7bf1b75979955cf94700fa7364",
+  "actual_head": "ad257b4376cd3f7bf1b75979955cf94700fa7364",
+  "head_matches_expected": true,
+  "expected_latest_commit_message": "EXPERIMENT: add Second Brain V0.3 interactive task intake and owner comments",
+  "actual_latest_commit": "ad257b4 EXPERIMENT: add Second Brain V0.3 interactive task intake and owner comments",
+  "origin_master": "ad257b4376cd3f7bf1b75979955cf94700fa7364",
+  "status_short": [
+    "M IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/second_brain_v0_3_check_report.json",
+    "?? IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/NEURAL_BASE_V0_4/"
+  ],
+  "diff_name_only": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/second_brain_v0_3_check_report.json"
+  ],
+  "untracked": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/NEURAL_BASE_V0_4/existing_checker_results.txt"
+  ],
+  "changes_outside_imperium_test_version": [],
+  "scope_blocker": false,
+  "scope_allowed_to_continue": true
+}

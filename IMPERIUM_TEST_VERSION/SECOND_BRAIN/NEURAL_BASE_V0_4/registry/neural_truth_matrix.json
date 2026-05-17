@@ -1,0 +1,82 @@
+{
+  "schema_version": "second_brain.neural_truth_matrix.v0.4",
+  "mappings": [
+    {
+      "ui_element": "task_node",
+      "description": "Task intake nodes shown in neural shell",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json"
+      ],
+      "pass_logic": "JSON parses and contains tasks array with at least one object",
+      "failure_logic": "File missing or invalid JSON or empty required keys"
+    },
+    {
+      "ui_element": "owner_comment_node",
+      "description": "Owner comment nodes bound to runtime comments",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json"
+      ],
+      "pass_logic": "JSON parses and comments array exists",
+      "failure_logic": "Missing/invalid comments runtime file"
+    },
+    {
+      "ui_element": "memory_link_strand",
+      "description": "Task-comment relation strands",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json"
+      ],
+      "pass_logic": "links array exists and relation objects parse",
+      "failure_logic": "File missing or malformed links structure"
+    },
+    {
+      "ui_element": "receipt_glow",
+      "description": "Evidence glow intensity for runtime receipts",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/receipts/*.json"
+      ],
+      "pass_logic": "At least one receipt json exists and parses",
+      "failure_logic": "No receipts or invalid receipt documents"
+    },
+    {
+      "ui_element": "export_gate",
+      "description": "Export availability and pack evidence",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/*.zip",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/exports/*/manifest.json"
+      ],
+      "pass_logic": "At least one export zip and manifest are available",
+      "failure_logic": "No export artifacts or broken manifest chain"
+    },
+    {
+      "ui_element": "delta_verification_node",
+      "description": "Delta window verification node",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_delta_report.json",
+        "IMPERIUM_TEST_VERSION/TESTING_FIELD/DELTA_WINDOW/REPORTS/latest_precommit_verdict.json"
+      ],
+      "pass_logic": "Reports parse and include verdict fields",
+      "failure_logic": "Missing delta reports or invalid report JSON"
+    },
+    {
+      "ui_element": "agent_exchange_node",
+      "description": "Agent exchange thread and status node",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/EXCHANGE_STATE.json",
+        "IMPERIUM_TEST_VERSION/AGENT_EXCHANGE/REPORTS/latest_exchange_status.json"
+      ],
+      "pass_logic": "Exchange state parses and status report exists",
+      "failure_logic": "Exchange state/report missing or invalid"
+    },
+    {
+      "ui_element": "checker_status_node",
+      "description": "Checker execution status node for V0.3 and V0.4",
+      "source_patterns": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/REPORTS/second_brain_v0_3_check_report.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_4/reports/neural_base_check_report_v0_4.json"
+      ],
+      "pass_logic": "Checker report files parse and include summary verdicts",
+      "failure_logic": "Checker outputs missing or unparsable"
+    }
+  ]
+}
+

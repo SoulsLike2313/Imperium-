@@ -1,0 +1,60 @@
+{
+  "timestamp_utc": "2026-05-16T16:04:23Z",
+  "server_runtime_mode_source": "SECOND_BRAIN/INTERACTIVE_APP/server.py",
+  "server_reads_from": [
+    "SECOND_BRAIN/MEMORY_ZONES/TASK_INTAKE/accepted_tasks.json",
+    "SECOND_BRAIN/MEMORY_ZONES/OWNER_COMMENTS/owner_comments_runtime.json",
+    "SECOND_BRAIN/MEMORY_ZONES/MEMORY_LINKS/task_comment_links.json",
+    "SECOND_BRAIN/RUNTIME/receipts/*.json",
+    "SECOND_BRAIN/RUNTIME/exports/*"
+  ],
+  "runtime_folder_exists": true,
+  "runtime_subfolders": [
+    "comments",
+    "exports",
+    "links",
+    "receipts",
+    "state",
+    "tasks"
+  ],
+  "runtime_placeholders_only": {
+    "tasks_folder_has_data_json": false,
+    "comments_folder_has_data_json": false,
+    "links_folder_has_data_json": false
+  },
+  "memory_zone_runtime_counts": {
+    "tasks": 2,
+    "comments": 2,
+    "links": 2
+  },
+  "receipts_count": 6,
+  "exports_zip_count": 1,
+  "export_zip_index": {
+    "SECOND_BRAIN/RUNTIME/exports/export_20260516-151730.zip": [
+      "export_20260516-151730/accepted_tasks.json",
+      "export_20260516-151730/manifest.json",
+      "export_20260516-151730/owner_comments_runtime.json",
+      "export_20260516-151730/receipts/",
+      "export_20260516-151730/receipts/RCP-20260516-120000-001.json",
+      "export_20260516-151730/receipts/RCP-20260516-120001-001.json",
+      "export_20260516-151730/receipts/RCP-20260516-120002-001.json",
+      "export_20260516-151730/receipts/RCP-20260516-151558-316.json",
+      "export_20260516-151730/receipts/RCP-20260516-151625-705.json",
+      "export_20260516-151730/receipts/RCP-20260516-151649-185.json",
+      "export_20260516-151730/task_comment_links.json"
+    ]
+  },
+  "honesty_signals_in_v0_3_ui": {
+    "prototype_interactive": true,
+    "rule_based_only": true,
+    "no_local_llm": true,
+    "no_agent_api": true,
+    "not_production_ready": true
+  },
+  "known_breakages_or_gaps": [
+    "Delta path is canonical at TESTING_FIELD/DELTA_WINDOW; no separate direct DELTA_WINDOW root path is required.",
+    "AGENT_EXCHANGE/TOOLS/mojibake_scan.py has known runtime error during DELTA FULL mode from previous repair cycle.",
+    "Second Brain storage is split between MEMORY_ZONES (active data) and RUNTIME (receipts/exports), no unified registry layer.",
+    "second_brain_interactive.html and JS include Russian UI text; this is legacy and outside this task scope."
+  ]
+}

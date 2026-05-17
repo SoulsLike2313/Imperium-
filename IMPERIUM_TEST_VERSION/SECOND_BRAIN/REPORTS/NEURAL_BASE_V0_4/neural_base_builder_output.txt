@@ -1,0 +1,3 @@
+snapshot_written: E:\IMPERIUM\IMPERIUM_TEST_VERSION\SECOND_BRAIN\NEURAL_BASE_V0_4\reports\neural_base_snapshot_v0_4.json
+features: 4 actions: 10 mappings: 8
+missing_sources: 0

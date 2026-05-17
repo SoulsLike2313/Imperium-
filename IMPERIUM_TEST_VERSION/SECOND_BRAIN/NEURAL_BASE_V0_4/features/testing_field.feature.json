@@ -1,0 +1,28 @@
+{
+  "feature_id": "testing_field",
+  "display_name": "Testing Field Execution Layer",
+  "visual_zone": "execution_dock",
+  "integration_status": "PARTIAL_BINDING",
+  "scope_path": "IMPERIUM_TEST_VERSION/TESTING_FIELD",
+  "ui_components": [
+    "TESTING_FIELD/DELTA_WINDOW/delta_window.html",
+    "app/neural_base_v0_4.js::renderActionRegistry"
+  ],
+  "data_sources": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/latest_smoke_report.json",
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS/organ_smoke_report.json"
+  ],
+  "checker": "IMPERIUM_TEST_VERSION/TESTING_FIELD/RUN_SMOKE.ps1",
+  "receipts": [
+    "IMPERIUM_TEST_VERSION/TESTING_FIELD/SMOKE_RESULTS"
+  ],
+  "allowed_actions": [
+    "action_run_testing_field_smoke",
+    "action_read_testing_field_smoke_reports"
+  ],
+  "current_limitations": [
+    "Smoke reports are not full system proof",
+    "Cross-module orchestration is not centralized yet"
+  ]
+}
+
