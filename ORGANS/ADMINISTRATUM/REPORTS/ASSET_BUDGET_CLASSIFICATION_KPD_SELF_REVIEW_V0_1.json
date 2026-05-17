@@ -1,0 +1,21 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "generated_at": "2026-05-17T15:41:47Z",
+  "current_head": "f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8",
+  "what_wasted_effort": [
+    "Minor rework on regex escaping in classifier before successful first run.",
+    "Additional scope verification needed because git diff does not show untracked by default."
+  ],
+  "what_tools_were_missing": [
+    "A reusable local helper for mandatory JSON/MD/gate receipt skeleton generation.",
+    "A standard static-reference resolver utility shared across Scriptorium tools."
+  ],
+  "whether_classifier_should_be_reusable": {
+    "verdict": true,
+    "reason": "Asset classifier is standard-library, read-only, and directly reusable for future V0.6/V0.7 budget gates."
+  },
+  "future_narrow_agent_that_would_help": "ASSET_REFERENCE_RESOLUTION_AGENT_V0_1",
+  "context_pack_that_would_help": "SECOND_BRAIN_V07_PERF_CONTEXT_PACK_WITH_ROUTE_REF_RULES_V0_1",
+  "next_gate_or_check_to_improve_kpd": "Add a gate requiring static reference classification before any optimization plan task.",
+  "verdict": "KPD_REVIEW_REGISTERED"
+}

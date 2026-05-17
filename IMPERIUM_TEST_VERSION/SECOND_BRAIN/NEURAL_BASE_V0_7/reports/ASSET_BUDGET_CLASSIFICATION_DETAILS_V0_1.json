@@ -1,0 +1,65 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "generated_at": "2026-05-17T15:38:59Z",
+  "current_head": "f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8",
+  "route_file_sizes": {
+    "html_bytes": 15783,
+    "css_bytes": 56312,
+    "js_bytes": 94754,
+    "route_required_total_bytes": 166849,
+    "route_required_total_kb": 162.94
+  },
+  "referenced_assets_list_sample": [
+    {
+      "source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+      "source_kind": "html",
+      "reference": "/neural_map_v0_6.css",
+      "asset_kind": "ROUTE_CODE_FILE",
+      "extension": ".css",
+      "local_candidate_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+      "local_exists": true,
+      "local_size_kb": 54.99
+    },
+    {
+      "source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+      "source_kind": "html",
+      "reference": "/neural_map_v0_6.js",
+      "asset_kind": "ROUTE_CODE_FILE",
+      "extension": ".js",
+      "local_candidate_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+      "local_exists": true,
+      "local_size_kb": 92.53
+    },
+    {
+      "source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+      "source_kind": "js",
+      "reference": "e.g. Python 3.12, no Node.js",
+      "asset_kind": "ROUTE_CODE_FILE",
+      "extension": ".js",
+      "local_candidate_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/e.g. Python 3.12, no Node.js",
+      "local_exists": false,
+      "local_size_kb": null
+    }
+  ],
+  "top_local_referenced_assets_by_size": [],
+  "missing_referenced_assets": [
+    {
+      "source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+      "source_kind": "js",
+      "reference": "e.g. Python 3.12, no Node.js",
+      "asset_kind": "ROUTE_CODE_FILE",
+      "extension": ".js",
+      "local_candidate_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/e.g. Python 3.12, no Node.js"
+    }
+  ],
+  "extension_breakdown": {
+    ".css": 1,
+    ".js": 2
+  },
+  "omitted_count": {
+    "referenced_assets_omitted": 0,
+    "missing_assets_omitted": 0,
+    "heavy_assets_omitted": 0
+  },
+  "verdict": "ASSET_BUDGET_DETAILS_COMPACT"
+}

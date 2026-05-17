@@ -1,0 +1,259 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "generated_at": "2026-05-17T15:41:47Z",
+  "current_head": "f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8",
+  "criteria": [
+    {
+      "criterion_id": "PC01",
+      "criterion_text": "Starting HEAD matched.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git rev-parse HEAD"
+      ],
+      "self_comment": "HEAD matched required start commit.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC02",
+      "criterion_text": "Worktree clean before work.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git status --short"
+      ],
+      "self_comment": "Worktree was clean before edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC03",
+      "criterion_text": "AGENTS.md and 8 gateway files read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "AGENTS.md",
+        "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/BIG_MODEL_AGENT_OPERATING_RULES_V0_1.md",
+        "ORGANS/OFFICIO_AGENTIS/AGENT_SETTINGS/LOCAL_EXECUTOR_AGENT_RULES_V0_1.md",
+        "ORGANS/OFFICIO_AGENTIS/RESPONSE_CONTRACTS/AGENT_KPD_SELF_REVIEW_CONTRACT_V0_1.md",
+        "ORGANS/MECHANICUS/SCRIPTORIUM/COMMAND_DISCIPLINE/COMMAND_CHUNKING_DISCIPLINE_V0_1.md",
+        "ORGANS/MECHANICUS/SCRIPTORIUM/SCRIPT_ARTIFACT_PRESERVATION_POLICY_V0_1.md",
+        "ORGANS/MECHANICUS/SCRIPTORIUM/TEMP_SCRIPT_BUFFER_POLICY_V0_1.md",
+        "ORGANS/INQUISITION/GATE_AUDITS/AGENT_EXECUTION_INQUISITION_AUDIT_RULES_V0_1.md",
+        "ORGANS/DOCTRINARIUM/GATES/AGENT_EXECUTION_GATES_U19_U21_V0_1.md"
+      ],
+      "self_comment": "All bootloader/gateway files were read.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC04",
+      "criterion_text": "Performance baseline/source-map evidence read.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BUDGET_BLOCKER_MAP_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_ACCEPTANCE_DECISION_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DETAILS_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DECISION_V0_1.json",
+        "ORGANS/ASTRONOMICON/ROADMAPS/PERFORMANCE_BLOCKER_SOURCE_MAP_NEXT_STEP_MAP_V0_1.json",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json"
+      ],
+      "self_comment": "All required performance evidence files were read.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC05",
+      "criterion_text": "V0.6 HTML/CSS/JS inspected read-only.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+      ],
+      "self_comment": "V0.6 source inspected without edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC06",
+      "criterion_text": "Asset classifier tool created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/asset_budget_classifier_v0_1.py"
+      ],
+      "self_comment": "Classifier tool created in allowed path.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC07",
+      "criterion_text": "Classifier py_compile passed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "python -m py_compile .../asset_budget_classifier_v0_1.py"
+      ],
+      "self_comment": "Compile gate passed.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC08",
+      "criterion_text": "Classifier ran.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "python .../asset_budget_classifier_v0_1.py"
+      ],
+      "self_comment": "Classifier executed and wrote outputs.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC09",
+      "criterion_text": "Classification JSON/MD created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../ASSET_BUDGET_CLASSIFICATION_V0_1.json",
+        ".../ASSET_BUDGET_CLASSIFICATION_V0_1.md"
+      ],
+      "self_comment": "Classification outputs created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC10",
+      "criterion_text": "Details JSON/MD created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../ASSET_BUDGET_CLASSIFICATION_DETAILS_V0_1.json",
+        ".../ASSET_BUDGET_CLASSIFICATION_DETAILS_V0_1.md"
+      ],
+      "self_comment": "Details outputs created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC11",
+      "criterion_text": "Decision JSON/MD created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        ".../ASSET_BUDGET_CLASSIFICATION_DECISION_V0_1.json",
+        ".../ASSET_BUDGET_CLASSIFICATION_DECISION_V0_1.md"
+      ],
+      "self_comment": "Decision outputs created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC12",
+      "criterion_text": "Next step map created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ASTRONOMICON/ROADMAPS/ASSET_BUDGET_CLASSIFICATION_NEXT_STEP_MAP_V0_1.json"
+      ],
+      "self_comment": "Roadmap next-step map created.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC13",
+      "criterion_text": "No optimization performed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "Task scope + diff"
+      ],
+      "self_comment": "Diagnostic classification only; no optimization edits.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC14",
+      "criterion_text": "No runtime/browser execution.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "Task execution log"
+      ],
+      "self_comment": "No runtime/browser commands executed in this task.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC15",
+      "criterion_text": "No V0.6 source changed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "V0.6 files untouched.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC16",
+      "criterion_text": "No existing runner/tool changed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-only"
+      ],
+      "self_comment": "Only new classifier tool added.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC17",
+      "criterion_text": "No forbidden paths modified.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "forbidden path check command"
+      ],
+      "self_comment": "Edits constrained to allowed write paths.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC18",
+      "criterion_text": "No deletion/move/rename.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "git diff --name-status"
+      ],
+      "self_comment": "No D/R statuses expected.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC19",
+      "criterion_text": "Report output budget obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "report budget check command"
+      ],
+      "self_comment": "Reports are compact and budget-bound.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC20",
+      "criterion_text": "Command chunking obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "execution chronology"
+      ],
+      "self_comment": "Commands executed in bounded phases, no giant monolithic block.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC21",
+      "criterion_text": "Script preservation obeyed.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "asset_budget_classifier_v0_1.py"
+      ],
+      "self_comment": "Generated classifier retained as reusable artifact.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC22",
+      "criterion_text": "KPD self-review created.",
+      "verdict": "PASS",
+      "evidence_paths": [
+        "ORGANS/ADMINISTRATUM/REPORTS/ASSET_BUDGET_CLASSIFICATION_KPD_SELF_REVIEW_V0_1.json"
+      ],
+      "self_comment": "KPD review outputs prepared.",
+      "risk_note": "Low risk."
+    },
+    {
+      "criterion_id": "PC23",
+      "criterion_text": "Commit/push/local-remote verification completed.",
+      "verdict": "PARTIAL",
+      "evidence_paths": [
+        "git commit/push pending"
+      ],
+      "self_comment": "Will be finalized in Phase 6 after commit and remote sync check.",
+      "risk_note": "Must be confirmed post-commit."
+    }
+  ],
+  "verdict": "SELF_ASSESSMENT_REGISTERED"
+}

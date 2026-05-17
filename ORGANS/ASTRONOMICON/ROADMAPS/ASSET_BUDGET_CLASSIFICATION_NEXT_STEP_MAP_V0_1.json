@@ -1,0 +1,38 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "generated_at": "2026-05-17T15:41:47Z",
+  "current_head": "f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8",
+  "what_was_learned": {
+    "route_truth": "Runtime native route remains valid (HTTP 200, HTML/CSS/JS/API loaded, failed required requests=0).",
+    "asset_budget_truth": "Estimated local payload is 0.1591 MB with status PASS against compressed asset budget.",
+    "pressure_balance": "File asset pressure=FILE_ASSET_PRESSURE_NOT_PRIMARY; CSS/JS effect pressure=LIKELY_PRIMARY.",
+    "missing_assets_detected": 1
+  },
+  "recommended_next_tasks": [
+    {
+      "order": 1,
+      "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+      "reason": "Classification shows performance is still blocked and requires a bounded plan before implementation."
+    },
+    {
+      "order": 2,
+      "task_id": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BLOCKER-WORK-PACK-PRIORITIZATION-V0_1",
+      "reason": "Convert CSS/JS/effect pressure findings into a bounded optimization sequence with acceptance gates."
+    },
+    {
+      "order": 3,
+      "task_id": "TASK-MECHANICUS-SCRIPTORIUM-TEST-VERSION-TOOL-ABSORPTION-MAP-V0_1",
+      "reason": "Parallel doctrinal progress: preserve and absorb reusable diagnostics tools into Scriptorium."
+    }
+  ],
+  "task_order_reasoning": "Plan first, then prioritize bounded execution packs, then continue Scriptorium absorption in parallel governance track.",
+  "performance_optimization_plan_admitted": true,
+  "control_center_readiness_feed": [
+    "asset_payload_estimate",
+    "asset_pressure_verdict",
+    "css_js_effect_pressure_status",
+    "missing_referenced_assets_count",
+    "next_task_decision"
+  ],
+  "status": "NEXT_STEP_MAP_REGISTERED"
+}

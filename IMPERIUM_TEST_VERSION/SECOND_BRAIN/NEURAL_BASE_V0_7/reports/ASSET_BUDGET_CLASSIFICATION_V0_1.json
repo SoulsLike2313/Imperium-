@@ -1,0 +1,140 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "generated_at": "2026-05-17T15:38:59Z",
+  "current_head": "f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8",
+  "source_files": {
+    "html": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "css": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "js": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  },
+  "performance_budget_ref": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+  "route_required_files": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js"
+  ],
+  "route_required_file_sizes": {
+    "html_bytes": 15783,
+    "css_bytes": 56312,
+    "js_bytes": 94754,
+    "route_required_total_bytes": 166849,
+    "route_required_total_kb": 162.94
+  },
+  "runtime_loaded_route_truth": {
+    "runtime_route_url": "http://127.0.0.1:8767/",
+    "runtime_route_http_status": 200,
+    "html_loaded": true,
+    "css_loaded": true,
+    "js_loaded": true,
+    "failed_required_requests": 0
+  },
+  "referenced_assets_summary": {
+    "total_references_detected": 3,
+    "tracked_extension_references": 3,
+    "resolvable_existing_local_references": 2,
+    "missing_or_unresolved_local_references": 1,
+    "images_or_svg_references": 0,
+    "font_references": 0,
+    "video_references": 0,
+    "audio_references": 0,
+    "data_json_references": 0,
+    "route_code_references": 3
+  },
+  "local_estimated_initial_payload": {
+    "estimated_payload_bytes": 166849,
+    "estimated_payload_mb": 0.1591,
+    "route_required_bytes": 166849,
+    "additional_resolved_asset_bytes": 0,
+    "method": "LOCAL_ESTIMATE_FROM_SOURCE_REFERENCES_NOT_RUNTIME_TRANSFER_MEASUREMENT"
+  },
+  "budget_comparison": {
+    "compressed_visual_assets_target_mb": 4.0,
+    "compressed_visual_assets_blocker_mb": 8.0,
+    "estimated_payload_mb": 0.1591,
+    "estimated_payload_vs_budget_status": "PASS"
+  },
+  "missing_referenced_assets": [
+    {
+      "source_file": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+      "source_kind": "js",
+      "reference": "e.g. Python 3.12, no Node.js",
+      "asset_kind": "ROUTE_CODE_FILE",
+      "extension": ".js",
+      "local_candidate_path": "E:/IMPERIUM/IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/e.g. Python 3.12, no Node.js"
+    }
+  ],
+  "top_heaviest_referenced_assets": [],
+  "non_file_visual_complexity_summary": {
+    "css_indicator_counts": {
+      "keyframes_count": 37,
+      "animation_declarations_count": 45,
+      "transition_declarations_count": 20,
+      "filter_declarations_count": 11,
+      "backdrop_filter_declarations_count": 4,
+      "box_shadow_count": 47,
+      "text_shadow_count": 13,
+      "blur_marker_count": 5,
+      "transform_declarations_count": 52,
+      "will_change_count": 0,
+      "position_fixed_count": 4,
+      "position_sticky_count": 0,
+      "large_z_index_count": 2,
+      "linear_gradient_count": 29,
+      "radial_gradient_count": 35,
+      "conic_gradient_count": 0,
+      "complex_selector_count": 76,
+      "prefers_reduced_motion_count": 1,
+      "css_data_url_count": 0
+    },
+    "js_indicator_counts": {
+      "request_animation_frame_count": 2,
+      "set_interval_count": 1,
+      "set_timeout_count": 4,
+      "event_listener_count": 8,
+      "query_selector_all_count": 2,
+      "inner_html_writes_count": 18,
+      "create_element_count": 3,
+      "dom_append_count": 58,
+      "style_write_count": 8,
+      "classlist_mutation_count": 11,
+      "layout_read_count": 2,
+      "local_storage_count": 0,
+      "fetch_count": 1,
+      "svg_canvas_marker_count": 81,
+      "function_count": 97
+    },
+    "html_indicator_counts": {
+      "inline_style_blocks_count": 0,
+      "inline_script_blocks_count": 0,
+      "svg_tag_count": 2,
+      "canvas_tag_count": 0,
+      "img_tag_count": 0,
+      "dom_like_tag_count": 240
+    },
+    "source_map_strong_categories": [
+      "heavy_visual_effects",
+      "js_main_thread_work"
+    ],
+    "source_map_verdict_ref": "PERFORMANCE_BLOCKER_SOURCES_LIKELY_MAPPED_NOT_CONFIRMED_AS_EXACT_ROOT_CAUSE",
+    "source_map_details_ref": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DETAILS_V0_1.json",
+    "warning": "High CSS/JS visual complexity can block FPS even when file payload is moderate."
+  },
+  "asset_pressure_verdict": "FILE_ASSET_PRESSURE_NOT_PRIMARY",
+  "limitations": [
+    "This is metadata/source classification only; no browser/runtime execution.",
+    "Payload is a local estimated payload, not actual compressed transfer bytes.",
+    "Some references may be runtime-generated or API-fed and cannot be resolved statically.",
+    "Exact root cause cannot be proven from asset metadata alone."
+  ],
+  "recommended_next_task": "TASK-SECOND-BRAIN-V07-PERFORMANCE-OPTIMIZATION-PLAN-V0_1",
+  "verdict": "ASSET_BUDGET_CLASSIFIED_WITH_TRUTHFUL_LIMITATIONS",
+  "evidence_refs": {
+    "full_runtime_receipt": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_AUDIT_RECEIPT_V0_1.json",
+    "baseline_interpretation": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/FULL_RUNTIME_PERFORMANCE_BASELINE_INTERPRETATION_V0_1.json",
+    "source_map": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_V0_1.json",
+    "source_map_details": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/PERFORMANCE_BLOCKER_SOURCE_MAP_DETAILS_V0_1.json",
+    "baseline_interpretation_verdict": "PERFORMANCE_BASELINE_VALID_BUT_BLOCKED",
+    "source_map_verdict": "PERFORMANCE_BLOCKER_SOURCES_LIKELY_MAPPED_NOT_CONFIRMED_AS_EXACT_ROOT_CAUSE",
+    "source_map_details_verdict": null
+  }
+}

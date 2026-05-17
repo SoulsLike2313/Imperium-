@@ -1,0 +1,56 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION",
+  "generated_at": "2026-05-17T15:41:47Z",
+  "current_head": "f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8",
+  "phases": [
+    {
+      "phase": "Phase 1",
+      "what_done": "Executed truth check and read all mandatory bootloader/gate/performance evidence files.",
+      "why": "To lock scope and avoid fake-green interpretation drift.",
+      "how_to_use_verify": "Cross-check in GATE_ACK and source list in task report.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_ASSET_BUDGET_CLASSIFICATION_V0_1.json",
+      "limitation": "Read-only review does not execute runtime."
+    },
+    {
+      "phase": "Phase 2",
+      "what_done": "Created read-only standard-library classifier for route file size/reference budget analysis.",
+      "why": "Need deterministic metadata-based asset classification before optimization planning.",
+      "how_to_use_verify": "Run py_compile and execute classifier from repo root.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/asset_budget_classifier_v0_1.py",
+      "limitation": "Static scan cannot measure actual compressed transfer/decode costs."
+    },
+    {
+      "phase": "Phase 3",
+      "what_done": "Ran classifier and generated classification/details/decision JSON+MD outputs.",
+      "why": "Produce compact, auditable evidence for asset pressure vs CSS/JS pressure.",
+      "how_to_use_verify": "Inspect generated reports and JSON validation output.",
+      "evidence_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/ASSET_BUDGET_CLASSIFICATION_V0_1.json",
+      "limitation": "Dynamic/runtime-only references can remain unresolved."
+    },
+    {
+      "phase": "Phase 4",
+      "what_done": "Produced decision, next-step map, administratum report set, self-assessment, KPD review, and receipt.",
+      "why": "Convert classification into controlled next actions under bootloader discipline.",
+      "how_to_use_verify": "Read roadmap next-step map and action card; verify receipt paths.",
+      "evidence_path": "ORGANS/ASTRONOMICON/ROADMAPS/ASSET_BUDGET_CLASSIFICATION_NEXT_STEP_MAP_V0_1.json",
+      "limitation": "No implementation work is executed in this phase."
+    },
+    {
+      "phase": "Phase 5",
+      "what_done": "Prepared validation command set for JSON/JSONL/budget/scope checks.",
+      "why": "Ensure gate compliance before commit.",
+      "how_to_use_verify": "Run validation commands listed in task brief.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/REPORTS/ASSET_BUDGET_CLASSIFICATION_SELF_ASSESSMENT_V0_1.json",
+      "limitation": "Commit/push verification is finalized only after Phase 6."
+    },
+    {
+      "phase": "Phase 6",
+      "what_done": "Reserved for final git diff review, commit, push, and local/remote sync verification.",
+      "why": "Close task with traceable immutable evidence.",
+      "how_to_use_verify": "Check commit hash, push output, and remote HEAD equality.",
+      "evidence_path": "ORGANS/ADMINISTRATUM/GATE_RECEIPTS/GATE_RECEIPT_TASK_SECOND_BRAIN_V07_ASSET_BUDGET_CLASSIFICATION_V0_1.json",
+      "limitation": "Not final until commit and push are complete."
+    }
+  ],
+  "verdict": "CHRONOLOGY_REGISTERED"
+}

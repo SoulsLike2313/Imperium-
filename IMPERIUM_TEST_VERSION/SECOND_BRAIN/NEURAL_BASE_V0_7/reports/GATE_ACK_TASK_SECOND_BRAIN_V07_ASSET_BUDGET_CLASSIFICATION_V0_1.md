@@ -1,0 +1,22 @@
+# GATE ACK — TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION
+
+- task_id: `TASK-SECOND-BRAIN-V07-ASSET-BUDGET-CLASSIFICATION`
+- current_head: `f6fddf184b7ea0160d32ad6a17c490ffe0dbc4d8`
+- branch: `master`
+- worktree_clean_before_work: `true`
+- bootloader_files_read_count: `9`
+- performance_evidence_files_read_count: `9`
+- V0.6 UI/source files inspected read-only acknowledgement: `true`
+- accepted stop conditions: HEAD mismatch, dirty start, missing required files, classifier/JSON/budget/scope failures, optimization drift
+- allowed write paths: `NEURAL_BASE_V0_7/tools`, `NEURAL_BASE_V0_7/reports`, `ORGANS/ADMINISTRATUM/{REPORTS,ACTION_CARDS,GATE_RECEIPTS}`, `ORGANS/ASTRONOMICON/ROADMAPS`
+- forbidden paths: V0.6 source tree, V0.7 app/assets/runtime/server, root runtime/local zones, `src/tests/scripts/TOOLS`, doctrinal/agent/inquisition/sanctum organ zones
+- no runtime execution acknowledgement: `true`
+- no runner edit acknowledgement (except new classifier): `true`
+- no V0.6 source edit acknowledgement: `true`
+- no optimization acknowledgement: `true`
+- no visual implementation acknowledgement: `true`
+- report output budget acknowledgement: `true`
+- command chunking acknowledgement: `true`
+- script preservation acknowledgement: `true`
+- KPD self-review acknowledgement: `true`
+- verdict: `PASS_GATE_ACK_REGISTERED`
