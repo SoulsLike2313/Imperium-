@@ -1,0 +1,229 @@
+{
+  "task_id": "TASK-SECOND-BRAIN-V07-VISUAL-PERFORMANCE-RECEIPT-RUNNER",
+  "generated_at": "2026-05-17T01:27:57.322498+00:00",
+  "current_head": "df0f8985c5cf2015dc2739dff6149d949aefa01a",
+  "budget_source": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/VISUAL_SYSTEM/PERFORMANCE_BUDGET_V0_1.json",
+  "inspected_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6"
+  ],
+  "static_audit": {
+    "status": "STATIC_AUDIT",
+    "target_paths_inspected": [
+      "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_7",
+      "E:\\IMPERIUM\\IMPERIUM_TEST_VERSION\\SECOND_BRAIN\\NEURAL_BASE_V0_6"
+    ],
+    "html_file_count": 2,
+    "css_file_count": 2,
+    "js_file_count": 2,
+    "source_file_sizes": {
+      "html": [
+        {
+          "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/AAA_VISUAL_PASS_V0_1/neural_map_v0_6_BEFORE.html",
+          "size_bytes": 12493
+        },
+        {
+          "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.html",
+          "size_bytes": 15783
+        }
+      ],
+      "css": [
+        {
+          "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/AAA_VISUAL_PASS_V0_1/neural_map_v0_6_BEFORE.css",
+          "size_bytes": 34433
+        },
+        {
+          "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.css",
+          "size_bytes": 56312
+        }
+      ],
+      "js": [
+        {
+          "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/AAA_VISUAL_PASS_V0_1/neural_map_v0_6_BEFORE.js",
+          "size_bytes": 79092
+        },
+        {
+          "path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_6/app/neural_map_v0_6.js",
+          "size_bytes": 94754
+        }
+      ]
+    },
+    "css_metrics": {
+      "css_files_count": 2,
+      "keyframes_count": 62,
+      "animation_property_count": 75,
+      "filter_property_count": 20,
+      "drop_shadow_count": 10,
+      "box_shadow_count": 72,
+      "radial_gradient_count": 57,
+      "linear_gradient_count": 39
+    },
+    "html_metrics": {
+      "html_files_count": 2,
+      "approx_total_tag_count": 450,
+      "top_tags": [
+        {
+          "tag": "div",
+          "count": 122
+        },
+        {
+          "tag": "span",
+          "count": 106
+        },
+        {
+          "tag": "stop",
+          "count": 47
+        },
+        {
+          "tag": "femergenode",
+          "count": 35
+        },
+        {
+          "tag": "fegaussianblur",
+          "count": 21
+        },
+        {
+          "tag": "button",
+          "count": 18
+        },
+        {
+          "tag": "radialgradient",
+          "count": 16
+        },
+        {
+          "tag": "filter",
+          "count": 14
+        },
+        {
+          "tag": "femerge",
+          "count": 14
+        },
+        {
+          "tag": "line",
+          "count": 10
+        },
+        {
+          "tag": "g",
+          "count": 8
+        },
+        {
+          "tag": "circle",
+          "count": 7
+        },
+        {
+          "tag": "meta",
+          "count": 4
+        },
+        {
+          "tag": "svg",
+          "count": 4
+        },
+        {
+          "tag": "pattern",
+          "count": 3
+        },
+        {
+          "tag": "html",
+          "count": 2
+        },
+        {
+          "tag": "head",
+          "count": 2
+        },
+        {
+          "tag": "title",
+          "count": 2
+        },
+        {
+          "tag": "link",
+          "count": 2
+        },
+        {
+          "tag": "body",
+          "count": 2
+        },
+        {
+          "tag": "header",
+          "count": 2
+        },
+        {
+          "tag": "defs",
+          "count": 2
+        },
+        {
+          "tag": "polygon",
+          "count": 2
+        },
+        {
+          "tag": "footer",
+          "count": 2
+        },
+        {
+          "tag": "script",
+          "count": 2
+        }
+      ],
+      "svg_related_string_count_from_html": 6
+    },
+    "js_metrics": {
+      "js_files_count": 2,
+      "svg_related_string_count_from_js": 198
+    },
+    "visual_asset_count": 29,
+    "visual_asset_total_bytes": 33045397,
+    "visual_asset_total_mb": 31.515,
+    "visual_asset_count_by_ext": {
+      ".png": 29
+    },
+    "missing_expected_paths": []
+  },
+  "optional_browser_audit": {
+    "status": "NOT_MEASURED",
+    "audit_type": "OPTIONAL_BROWSER_AUDIT",
+    "browser_audit_status": "BROWSER_AUDIT_NOT_RUN",
+    "reason": "Run without --browser-audit flag.",
+    "fps_measurement_available": false
+  },
+  "budget_comparison": {
+    "checks": [
+      {
+        "metric": "approx_dom_nodes_from_html_tags",
+        "value": 450,
+        "target": 2200,
+        "blocker": 3200,
+        "status": "PASS"
+      },
+      {
+        "metric": "svg_related_strings",
+        "value": 204,
+        "target": 900,
+        "blocker": 1500,
+        "status": "PASS"
+      },
+      {
+        "metric": "compressed_visual_assets_mb",
+        "value": 31.515,
+        "target": 4.0,
+        "blocker": 8.0,
+        "status": "BLOCKED"
+      }
+    ],
+    "static_budget_status": "BLOCKED"
+  },
+  "console_errors": {
+    "status": "NOT_MEASURED",
+    "value": null
+  },
+  "failed_requests": {
+    "status": "NOT_MEASURED",
+    "value": null
+  },
+  "limitations": [
+    "No runtime mutation performed; static audit only by default.",
+    "FPS and load timings cannot be claimed without executable browser probe.",
+    "BROWSER_AUDIT_NOT_RUN is honest outcome when probe is unavailable or disabled."
+  ],
+  "verdict": "BLOCKED",
+  "next_recommended_action": "TASK-SECOND-BRAIN-V07-PERFORMANCE-BASELINE-INTERPRETATION",
+  "verdict_reason": "Static budget blockers detected. Do not claim visual-performance PASS."
+}

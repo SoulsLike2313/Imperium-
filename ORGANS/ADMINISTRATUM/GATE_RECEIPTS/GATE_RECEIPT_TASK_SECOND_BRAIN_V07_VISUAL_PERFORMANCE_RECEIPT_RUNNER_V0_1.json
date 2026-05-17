@@ -1,0 +1,32 @@
+{
+  "receipt_id": "GATE_RECEIPT_TASK_SECOND_BRAIN_V07_VISUAL_PERFORMANCE_RECEIPT_RUNNER_V0_1",
+  "task_id": "TASK-SECOND-BRAIN-V07-VISUAL-PERFORMANCE-RECEIPT-RUNNER",
+  "generated_at": "2026-05-17T00:00:00Z",
+  "starting_head": "df0f8985c5cf2015dc2739dff6149d949aefa01a",
+  "ending_head_before_commit": "df0f8985c5cf2015dc2739dff6149d949aefa01a",
+  "gates_acknowledged": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U03-NO-FEATURE-DRIFT",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U05-STOP-CONDITIONS",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-UI00-TRUTH-BINDING",
+    "GATE-VIS00-PERFORMANCE-BUDGET",
+    "GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT"
+  ],
+  "evidence_paths": [
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/GATE_ACK_TASK_SECOND_BRAIN_V07_VISUAL_PERFORMANCE_RECEIPT_RUNNER_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_V0_1.json",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_RUNNER_REPORT_V0_1.json"
+  ],
+  "tool_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/tools/visual_performance_receipt_runner_v0_1.py",
+  "performance_receipt_path": "IMPERIUM_TEST_VERSION/SECOND_BRAIN/NEURAL_BASE_V0_7/reports/VISUAL_PERFORMANCE_RECEIPT_V0_1.json",
+  "forbidden_paths_touched": false,
+  "no_delete_rule_obeyed": true,
+  "runtime_changed": false,
+  "visual_implementation_changed": false,
+  "verdict": "BLOCKED_EVIDENCE_RECORDED"
+}
