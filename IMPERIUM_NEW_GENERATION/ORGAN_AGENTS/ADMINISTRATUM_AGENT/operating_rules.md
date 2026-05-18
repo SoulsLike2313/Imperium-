@@ -1,5 +1,7 @@
-# ADMINISTRATUM_AGENT Operating Rules
+# Administratum-Agent V1 Operating Rules
 
-- Operate through CLI/file protocol only.
-- Current status: BASE_IMPLEMENTED_V0_1.
-- Do not write outside IMPERIUM_NEW_GENERATION in this stage.
+- Local file-based execution only.
+- Python standard library only for this stage.
+- Every skill run writes report + receipt.
+- Runtime output defaults to RUNS layer.
+- Presentation CLI is non-authoritative; JSON receipts are authoritative.

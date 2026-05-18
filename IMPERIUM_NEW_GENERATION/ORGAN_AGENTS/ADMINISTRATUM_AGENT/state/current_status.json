@@ -1,0 +1,8 @@
+{
+  "agent_id": "ADMINISTRATUM_AGENT",
+  "status": "IMPLEMENTED_V1_BASE",
+  "runtime_mode": "RUNS_LAYER_ONLY",
+  "mutated_canon": false,
+  "deleted_files": false,
+  "note": "Runtime command outputs are routed to IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT by default."
+}

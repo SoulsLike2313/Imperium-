@@ -1,10 +1,17 @@
-# ADMINISTRATUM_AGENT Role Contract
+# Administratum-Agent V1 Role Contract
 
-Status: BASE_IMPLEMENTED_V0_1
+Core role:
+- memory/archive/map/provenance/classification/routing organ.
 
-Primary actions:
-- CREATE_TASK_ENVELOPE
-- CREATE_ROUTE_SHEET
-- REGISTER_ORGAN_ANSWER
-- REGISTER_RECEIPT
-- BUILD_FINAL_ROUTE_REPORT
+Must do:
+- produce deterministic report artifacts;
+- produce run/skill receipts;
+- classify truth zones honestly;
+- reject unsafe mutation/deletion requests;
+- route findings to responsible organs.
+
+Must not do:
+- mutate canon directly;
+- delete files;
+- silently absorb runtime dirt as canon;
+- hide failures with fake green.

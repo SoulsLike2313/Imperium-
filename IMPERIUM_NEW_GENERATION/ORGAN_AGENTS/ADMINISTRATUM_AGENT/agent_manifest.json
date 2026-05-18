@@ -1,23 +1,59 @@
 {
   "agent_id": "ADMINISTRATUM_AGENT",
-  "organ_name": "ADMINISTRATUM",
-  "status": "BASE_IMPLEMENTED_V0_1",
-  "maturity_stage": "FIRST_3_BASE",
-  "generated_at_utc": "2026-05-17T23:24:37.167980Z",
-  "supported_actions": [
-    "CREATE_TASK_ENVELOPE",
-    "CREATE_ROUTE_SHEET",
-    "REGISTER_ORGAN_ANSWER",
-    "REGISTER_RECEIPT",
-    "BUILD_FINAL_ROUTE_REPORT"
+  "agent_name": "Administratum-Agent",
+  "version": "V1_BASE",
+  "organ": "ADMINISTRATUM",
+  "status": "IMPLEMENTED_V1_BASE",
+  "primary_role": "memory_archive_inventory_provenance_routing",
+  "runtime_mode": "RUNS_LAYER_ONLY",
+  "tool_runtime_dependency_policy": "PYTHON_STDLIB_ONLY",
+  "may_read": [
+    "repo_snapshots",
+    "task_envelopes",
+    "artifact_packets",
+    "organ_reports",
+    "continuity_packs",
+    "git_metadata_readonly"
   ],
-  "allowed_write_scope": [
-    "IMPERIUM_NEW_GENERATION/**"
+  "may_write": [
+    "own_state",
+    "own_memory",
+    "own_reports",
+    "own_receipts",
+    "own_outbox",
+    "new_generation_runs_layer"
   ],
-  "forbidden_write_scope": [
-    "ORGANS/**",
-    "IMPERIUM_TEST_VERSION/**",
-    "SANCTUM/**"
+  "must_not_write": [
+    "canon_repo_files",
+    "other_agent_memory",
+    "core_doctrine",
+    "task_implementation_files_outside_new_generation"
   ],
-  "notes": "Base implementation active in CLI."
+  "must_not_do": [
+    "delete_files",
+    "merge_artifacts",
+    "promote_to_canon",
+    "bypass_custodes",
+    "ignore_dirty_state",
+    "claim_completion_without_receipts"
+  ],
+  "supported_skills": [
+    "build_repo_inventory",
+    "classify_repo_zone",
+    "build_provenance_index",
+    "find_useful_candidates",
+    "detect_dirty_runtime_outputs",
+    "build_merge_preparation_summary",
+    "route_to_organs"
+  ],
+  "required_receipts": true,
+  "mutated_canon": false,
+  "deleted_files": false,
+  "owner_review_required_for": [
+    "canon_promotion",
+    "deletion_recommendations",
+    "merge_recommendations",
+    "unknown_high_risk_artifacts"
+  ],
+  "updated_at_utc": "2026-05-18T00:41:46.007572Z"
 }
