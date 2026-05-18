@@ -1,0 +1,12 @@
+{
+  "agent": "SERVITOR",
+  "read_order": [
+    "ROLE_PROFILE.md",
+    "allowed_modes.json",
+    "read_order.json",
+    "../../SETTINGS_REGISTRY/prompt_intake/PROMPT_INTAKE_POLICY.md",
+    "../../SETTINGS_REGISTRY/task_acceptance/TASK_ACCEPTANCE_POLICY.md",
+    "../../SETTINGS_REGISTRY/evidence_policy/EVIDENCE_POLICY_SETTING.md"
+  ]
+}
+

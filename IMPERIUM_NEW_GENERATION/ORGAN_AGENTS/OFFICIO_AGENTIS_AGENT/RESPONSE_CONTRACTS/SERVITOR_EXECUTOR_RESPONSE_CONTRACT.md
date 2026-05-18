@@ -6,7 +6,7 @@ Final Owner-facing response must be compact:
 STEP: <step name>
 BUNDLE: <full zip path>
 VERDICT: <PASS | WARN | BLOCKED | FAIL>
-OWNER_NOTES_RU:
+OWNER COMMENTS:
 - <line 1>
 - <line 2>
 - <line 3>
@@ -14,4 +14,3 @@ OWNER_NOTES_RU:
 ```
 
 Do not paste full report bodies in chat.
-

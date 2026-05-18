@@ -1,0 +1,12 @@
+{
+  "message_type": "ACK_SETTINGS",
+  "from_agent": "SERVITOR",
+  "to_agent": "OFFICIO_AGENTIS_AGENT",
+  "payload": {
+    "agent": "SERVITOR",
+    "stage": "settings",
+    "artifact_hash": "sha256-placeholder",
+    "verdict": "ACCEPTED"
+  }
+}
+

@@ -1,0 +1,11 @@
+{
+  "agent": "LOGOS_PRIME",
+  "read_order": [
+    "ROLE_PROFILE.md",
+    "allowed_modes.json",
+    "read_order.json",
+    "../../SETTINGS_REGISTRY/response_contracts/logos_prime_response_contract.json",
+    "../../SETTINGS_REGISTRY/task_acceptance/task_acceptance_policy.json"
+  ]
+}
+

@@ -1,0 +1,9 @@
+{
+  "message_type": "ROLE_REQUEST",
+  "from_agent": "SERVITOR",
+  "to_agent": "OFFICIO_AGENTIS_AGENT",
+  "payload": {
+    "agent": "SERVITOR"
+  }
+}
+

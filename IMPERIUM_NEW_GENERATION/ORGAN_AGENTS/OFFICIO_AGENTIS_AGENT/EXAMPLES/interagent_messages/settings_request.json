@@ -1,0 +1,10 @@
+{
+  "message_type": "SETTINGS_REQUEST",
+  "from_agent": "SERVITOR",
+  "to_agent": "OFFICIO_AGENTIS_AGENT",
+  "payload": {
+    "agent": "SERVITOR",
+    "mode": "EXECUTOR"
+  }
+}
+

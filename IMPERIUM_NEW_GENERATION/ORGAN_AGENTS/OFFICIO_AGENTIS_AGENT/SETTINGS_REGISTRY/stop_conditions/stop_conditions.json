@@ -1,4 +1,20 @@
 {
+  "setting_id": "SET-STOP-CONDITIONS-V0_1",
+  "title": "Stop Conditions",
+  "version": "v0_1",
+  "state": "ACTIVE",
+  "scope": "execution blockers and safe exits",
+  "applies_to_roles": [
+    "SERVITOR",
+    "LOGOS_PRIME",
+    "LOGOS_SPECULUM"
+  ],
+  "applies_to_modes": [
+    "EXECUTOR",
+    "AUDITOR",
+    "ARCHITECT",
+    "REPAIRER"
+  ],
   "stop_conditions": [
     {
       "code": "BLOCKED_DIRTY_START",
@@ -119,6 +135,20 @@
         "accept BLOCKED"
       ]
     }
-  ]
+  ],
+  "machine_rule": {
+    "on_trigger": "return BLOCKED and emit receipt"
+  },
+  "human_summary": "Stop conditions force explicit blocked output with evidence.",
+  "acceptance_tests": [
+    "triggered stop condition yields BLOCKED verdict"
+  ],
+  "evidence_required": [
+    "stop condition receipts"
+  ],
+  "dependencies": [],
+  "conflicts_with": [],
+  "supersedes": [],
+  "rollback_plan": "restore prior stop list and rerun status checks",
+  "owner_approval_required": true
 }
-

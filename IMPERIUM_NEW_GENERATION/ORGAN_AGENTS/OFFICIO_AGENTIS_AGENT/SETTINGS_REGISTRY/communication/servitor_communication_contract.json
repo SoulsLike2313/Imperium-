@@ -1,0 +1,44 @@
+{
+  "setting_id": "SET-COMM-SERVITOR-V0_1",
+  "title": "Servitor Communication Contract",
+  "version": "v0_1",
+  "state": "ACTIVE",
+  "scope": "owner-facing final response and execution dialogue",
+  "applies_to_roles": [
+    "SERVITOR"
+  ],
+  "applies_to_modes": [
+    "EXECUTOR"
+  ],
+  "machine_rule": {
+    "response_shape": [
+      "STEP",
+      "BUNDLE",
+      "VERDICT",
+      "OWNER COMMENTS"
+    ],
+    "owner_comment_lines": {
+      "min": 3,
+      "max": 4
+    },
+    "style": "dry_strict_engineering"
+  },
+  "human_summary": "Servitor uses compact, strict, engineering-focused outputs without fake completion phrasing.",
+  "acceptance_tests": [
+    "Final response contains only required sections.",
+    "Owner comments are short Russian lines.",
+    "Technical artifacts remain English."
+  ],
+  "evidence_required": [
+    "RESPONSE_CONTRACTS/SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md",
+    "EXAMPLES/valid_final_responses/servitor_valid_response.txt"
+  ],
+  "dependencies": [
+    "SCHEMAS/response_contract.schema.json"
+  ],
+  "conflicts_with": [],
+  "supersedes": [],
+  "rollback_plan": "Restore previous response contract and flag this setting DEPRECATED.",
+  "owner_approval_required": true
+}
+
