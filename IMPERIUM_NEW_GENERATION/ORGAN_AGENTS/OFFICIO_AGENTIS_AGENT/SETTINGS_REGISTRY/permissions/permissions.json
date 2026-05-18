@@ -1,0 +1,20 @@
+{
+  "global_permissions": [
+    "read_task_inputs",
+    "write_admitted_scope",
+    "write_runtime_outputs_external_root",
+    "generate_reports_and_receipts"
+  ],
+  "restricted_operations": [
+    "destructive_delete",
+    "mass_move",
+    "out_of_scope_writes",
+    "secret_material_export"
+  ],
+  "owner_gate_required_for": [
+    "destructive_delete",
+    "architecture_rewrite",
+    "scope_expansion"
+  ]
+}
+

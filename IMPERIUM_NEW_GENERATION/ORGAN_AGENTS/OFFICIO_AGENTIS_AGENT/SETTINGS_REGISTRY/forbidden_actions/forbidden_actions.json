@@ -1,0 +1,12 @@
+{
+  "forbidden_actions": [
+    "claim_pass_without_evidence",
+    "hide_failed_checks",
+    "ignore_dirty_start",
+    "ignore_head_mismatch",
+    "modify_forbidden_paths",
+    "fabricate_outputs",
+    "bypass_response_contract"
+  ]
+}
+

@@ -1,0 +1,8 @@
+{
+  "visual_claim_policy": {
+    "requires_screenshot_evidence": true,
+    "blocked_code_if_missing": "BLOCKED_VISUAL_EVIDENCE_MISSING",
+    "default_for_v0_1": "no_visual_done_claims_without_evidence"
+  }
+}
+

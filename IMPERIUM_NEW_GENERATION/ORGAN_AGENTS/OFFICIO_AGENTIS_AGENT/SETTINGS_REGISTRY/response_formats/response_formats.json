@@ -1,0 +1,13 @@
+{
+  "servitor_owner_response": [
+    "STEP",
+    "BUNDLE",
+    "VERDICT",
+    "OWNER_NOTES_RU"
+  ],
+  "notes": [
+    "owner notes are russian",
+    "full logs and reports must be bundled, not pasted in chat"
+  ]
+}
+

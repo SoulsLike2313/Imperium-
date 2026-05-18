@@ -1,0 +1,41 @@
+{
+  "rules": [
+    {
+      "claim_type": "visual_change",
+      "required_evidence": [
+        "before_after_screenshot_or_blocked_marker"
+      ]
+    },
+    {
+      "claim_type": "git_clean",
+      "required_evidence": [
+        "git status --short output"
+      ]
+    },
+    {
+      "claim_type": "push",
+      "required_evidence": [
+        "remote head hash or github commit url"
+      ]
+    },
+    {
+      "claim_type": "schema",
+      "required_evidence": [
+        "schema validator output"
+      ]
+    },
+    {
+      "claim_type": "response_contract",
+      "required_evidence": [
+        "compliance check output"
+      ]
+    },
+    {
+      "claim_type": "done_claim",
+      "required_evidence": [
+        "requirement matrix row and evidence paths"
+      ]
+    }
+  ]
+}
+
