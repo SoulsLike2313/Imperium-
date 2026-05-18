@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import difflib
 import json
 import os
 import re
@@ -13,6 +14,7 @@ import sys
 import textwrap
 import time
 import tracemalloc
+import zipfile
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
@@ -66,6 +68,7 @@ from administratum_v1_core import (
     route_for_object,
     route_to_organs,
     scan_imperium_context,
+    sha256_file,
     skill_receipt,
     status_snapshot,
     verify_pack_against_reality,
@@ -93,6 +96,21 @@ class UserFacingError(RuntimeError):
 
 
 TASK_DOSSIER_FACTORY_ID = "TASK-20260518-ADMINISTRATUM-DOSSIER-FACTORY-OSS-ADMISSION-V0_1"
+TASK_REFERENCE_REPAIR_ID = "TASK-20260518-ADMINISTRATUM-REFERENCE-MEGA-REPAIR-V0_1"
+FREELANCE_SCHEMA_PATH = AGENT_ROOT / "SCHEMAS" / "ADMINISTRATUM_FREELANCE_TASK_ENVELOPE_SCHEMA_V0_1.json"
+FREELANCE_SAMPLE_VALID_PATH = AGENT_ROOT / "EXAMPLES" / "FREELANCE_TASK_ENVELOPE_VALID_V0_1.json"
+FREELANCE_SAMPLE_MALFORMED_PATH = AGENT_ROOT / "EXAMPLES" / "FREELANCE_TASK_ENVELOPE_MALFORMED_V0_1.json"
+HEAVY_DIRTY_COMMANDS = {
+    "build-dossier",
+    "check-all",
+    "collect-continuity-pack",
+    "collect-reality-snapshot",
+    "build-agent-handoff-context",
+}
+ADMITTED_DIRTY_PREFIXES = (
+    "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT/",
+    "IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT/",
+)
 
 
 @dataclass
@@ -111,6 +129,8 @@ class CommandContext:
 
 def _verdict_to_status(verdict: str) -> str:
     token = str(verdict or "").upper()
+    if "OWNER_DECISION" in token:
+        return "OWNER_DECISION_REQUIRED"
     if token in {"PASS", "OK"}:
         return "PASS"
     if "WARN" in token:
@@ -153,6 +173,11 @@ class Renderer:
         self.use_unicode = ("utf" in enc) and (not force_ascii)
         self.width = max(80, min(140, shutil.get_terminal_size((110, 30)).columns))
         self.frame = self._frame_chars()
+        self.path_aliases = [
+            (str(AGENT_ROOT), "<ADMIN>"),
+            (str(RUNS_ROOT), "<RUNS>"),
+            (str(REPO_ROOT), "<REPO>"),
+        ]
         self._rich_console: Optional[Console] = None
         self._rich_live: Optional[Live] = None
         self._progress_state: Dict[str, Any] = {}
@@ -196,9 +221,23 @@ class Renderer:
             return self._paint(f"[{v}]", "green", bold=True)
         if v == "WARN":
             return self._paint(f"[{v}]", "yellow", bold=True)
-        if v in {"BLOCKED", "FAIL"}:
+        if v in {"BLOCKED", "FAIL", "OWNER_DECISION_REQUIRED"}:
             return self._paint(f"[{v}]", "red", bold=True)
         return self._paint(f"[{v}]", "blue")
+
+    def compact_display(self, text: str, *, run_id: Optional[str] = None) -> str:
+        if self.plain_json:
+            return text
+        out = str(text)
+        replacements: List[Tuple[str, str]] = []
+        if run_id and run_id not in {"N/A", "UNKNOWN"}:
+            replacements.append((str(RUNS_ROOT / run_id), "<RUN>"))
+        replacements.extend(self.path_aliases)
+        for source, alias in replacements:
+            variants = {source, source.replace("\\", "/"), source.replace("/", "\\")}
+            for variant in sorted(variants, key=len, reverse=True):
+                out = out.replace(variant, alias)
+        return out
 
     def _border(self, left: str, fill: str, right: str, width: int) -> str:
         return f"{left}{fill * width}{right}"
@@ -238,12 +277,13 @@ class Renderer:
         verdict = str(payload.get("verdict", "UNKNOWN"))
         summary = str(payload.get("summary", "")).strip()
         summary_lines = [line.strip() for line in summary.splitlines() if line.strip()]
-        primary_refs = [str(x) for x in payload.get("primary_refs", [])]
-        artifacts_written = [str(x) for x in payload.get("artifacts_written", [])]
-        warnings = [str(x) for x in payload.get("warnings", [])]
-        why_trust = [str(x) for x in payload.get("why_trust", [])]
-        next_actions = [str(x) for x in payload.get("next_actions", [])]
-        limitations = [str(x) for x in payload.get("limitations", [])]
+        primary_refs = [self.compact_display(str(x), run_id=run_id) for x in payload.get("primary_refs", [])]
+        artifacts_written = [self.compact_display(str(x), run_id=run_id) for x in payload.get("artifacts_written", [])]
+        warnings = [self.compact_display(str(x), run_id=run_id) for x in payload.get("warnings", [])]
+        why_trust = [self.compact_display(str(x), run_id=run_id) for x in payload.get("why_trust", [])]
+        next_actions = [self.compact_display(str(x), run_id=run_id) for x in payload.get("next_actions", [])]
+        limitations = [self.compact_display(str(x), run_id=run_id) for x in payload.get("limitations", [])]
+        summary_lines = [self.compact_display(line, run_id=run_id) for line in summary_lines]
         details = payload.get("details", {})
         metrics = payload.get("metrics", {})
 
@@ -498,6 +538,8 @@ def _report_verdict_to_command_verdict(verdict: str) -> str:
         return "PASS"
     if token == "WARN":
         return "PASS_WITH_WARNINGS"
+    if "OWNER_DECISION" in token:
+        return "OWNER_DECISION_REQUIRED"
     if token in {"BLOCKED", "FAIL"}:
         return token
     if "WARN" in token:
@@ -523,8 +565,111 @@ def _resolve_json_report(path_text: str) -> Path:
             f"Input report not found: {path}",
             "Provide a valid existing JSON report path.",
             f"python {Path(__file__).name} --no-color merge-summary --repo-root {REPO_ROOT} --inventory <path_to_inventory_report.json>",
-        )
+    )
     return path
+
+
+def _parse_git_porcelain_paths(stdout: str) -> List[str]:
+    paths: List[str] = []
+    for line in stdout.splitlines():
+        if len(line) < 4:
+            continue
+        raw = line[3:].strip()
+        if " -> " in raw:
+            raw = raw.split(" -> ", 1)[1].strip()
+        raw = raw.strip('"').replace("\\", "/")
+        if raw:
+            paths.append(raw)
+    simulated = os.environ.get("ADMINISTRATUM_DIRTY_SIMULATION_PATHS", "").strip()
+    if simulated:
+        for item in re.split(r"[;\n]", simulated):
+            rel = item.strip().strip('"').replace("\\", "/")
+            if rel:
+                paths.append(rel)
+    return sorted(dict.fromkeys(paths))
+
+
+def _git_dirty_paths(repo_root: Path) -> List[str]:
+    proc = subprocess.run(["git", "status", "--porcelain"], cwd=repo_root, capture_output=True, text=True, check=False)
+    return _parse_git_porcelain_paths(proc.stdout)
+
+
+def _admitted_dirty_path(rel_path: str) -> bool:
+    normalized = rel_path.replace("\\", "/")
+    return any(normalized.startswith(prefix) for prefix in ADMITTED_DIRTY_PREFIXES)
+
+
+def _dirty_admission_state(command: str) -> Dict[str, Any]:
+    dirty_paths = _git_dirty_paths(REPO_ROOT)
+    unauthorized = [p for p in dirty_paths if not _admitted_dirty_path(p)]
+    authorized = [p for p in dirty_paths if _admitted_dirty_path(p)]
+    verdict = "PASS"
+    if dirty_paths and command in HEAVY_DIRTY_COMMANDS:
+        verdict = "OWNER_DECISION_REQUIRED" if unauthorized else "PASS_WITH_WARNINGS"
+    return {
+        "command": command,
+        "dirty_paths": dirty_paths,
+        "authorized_dirty_paths": authorized,
+        "unauthorized_dirty_paths": unauthorized,
+        "heavy_command": command in HEAVY_DIRTY_COMMANDS,
+        "verdict": verdict,
+    }
+
+
+def _dirty_admission_warnings(admission: Dict[str, Any]) -> List[str]:
+    if not admission.get("dirty_paths"):
+        return []
+    if admission.get("unauthorized_dirty_paths"):
+        return [
+            "dirty pre-state requires Owner decision before heavy command",
+            f"unauthorized dirty paths: {', '.join(str(x) for x in admission.get('unauthorized_dirty_paths', [])[:5])}",
+        ]
+    return [
+        "dirty pre-state is limited to Administratum/RUNS admitted scope; preserve GATE_ACK evidence before claiming clean PASS"
+    ]
+
+
+def _block_if_dirty_owner_decision(
+    ctx: CommandContext,
+    renderer: Renderer,
+    *,
+    command: str,
+    input_refs: Sequence[str],
+    progress: Optional[ProgressRail] = None,
+) -> Optional[int]:
+    admission = _dirty_admission_state(command)
+    if admission.get("verdict") != "OWNER_DECISION_REQUIRED":
+        return None
+    report_path = ctx.run_dir / "reports" / f"{command.replace('-', '_')}_dirty_admission_report.json"
+    report = {
+        "report_type": "DIRTY_ADMISSION_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "admission": admission,
+        "options": [
+            "Review dirty paths and explicitly authorize them for this task.",
+            "Commit/stash/revert unrelated dirty paths outside Administratum scope.",
+            "Rerun the heavy command from a clean or admitted state.",
+        ],
+        "verdict": "OWNER_DECISION_REQUIRED",
+        "warnings": _dirty_admission_warnings(admission),
+    }
+    write_json(report_path, report)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header=f"ADMINISTRATUM AGENT :: {command.upper()} ADMISSION",
+        verdict="OWNER_DECISION_REQUIRED",
+        summary="Heavy command blocked by dirty pre-state admission law.",
+        outputs=[report_path],
+        input_refs=input_refs,
+        warnings=report["warnings"],
+        details=report,
+        next_actions=report["options"],
+        blocker_class="DIRTY_STATE_OWNER_DECISION_REQUIRED",
+        progress=progress,
+    )
 
 
 def _collect_outputs(*items: Any) -> List[Path]:
@@ -765,8 +910,17 @@ def _finalize_command(
     blocker_class: Optional[str] = None,
     progress: Optional[ProgressRail] = None,
 ) -> int:
-    warnings = warnings or []
+    warnings = list(warnings or [])
     limitations = limitations or []
+    metrics_warning_count = int(ctx.metrics.get("warnings_count", 0) or 0)
+    if metrics_warning_count > len(warnings):
+        warnings.append(
+            f"internal_warning_reconciliation: metrics_warnings={metrics_warning_count}, explicit_warnings={len(warnings)}"
+        )
+    warnings = list(dict.fromkeys(str(w) for w in warnings if str(w).strip()))
+    if warnings and str(verdict).upper() in {"PASS", "OK"}:
+        verdict = "PASS_WITH_WARNINGS"
+    ctx.metrics["warnings_count"] = max(int(ctx.metrics.get("warnings_count", 0) or 0), len(warnings))
     if progress:
         progress.start(7, "writing_receipts_and_metrics", target=str(ctx.run_dir / "receipts"))
     input_refs_list = [str(x) for x in input_refs]
@@ -849,6 +1003,14 @@ def _finalize_command(
     if ctx.memory_trace_started and tracemalloc.is_tracing():
         tracemalloc.stop()
 
+    details_payload = dict(details or {})
+    details_payload["warning_reconciliation"] = {
+        "explicit_warning_count": len(warnings),
+        "metrics_warning_count": int(ctx.metrics.get("warnings_count", 0) or 0),
+        "final_status_rule": "PASS_WITH_WARNINGS/WARN when warnings are non-empty",
+        "active_warnings": warnings,
+    }
+
     record_run_event(
         ctx.run_dir,
         "COMMAND_FINISH",
@@ -911,7 +1073,7 @@ def _finalize_command(
         "next_actions": next_actions_list,
         "metrics": dict(ctx.metrics),
         "limitations": dedup_limitations,
-        "details": details or {},
+        "details": details_payload,
     }
     renderer.emit(payload)
     return 0 if status in {"PASS", "WARN"} else 1
@@ -959,28 +1121,64 @@ def _build_inventory_if_needed(
     return inv, Path(inv.report_path)
 
 
-def _list_recent_runs(limit: int = 6) -> List[Dict[str, Any]]:
+def _list_recent_runs(limit: int = 6, *, exclude_run_id: Optional[str] = None) -> List[Dict[str, Any]]:
     ensure_runs_root()
-    dirs = sorted([p for p in RUNS_ROOT.glob("RUN-*") if p.is_dir()], key=lambda x: x.stat().st_mtime, reverse=True)
+    dirs = sorted(
+        [p for p in RUNS_ROOT.glob("RUN-*") if p.is_dir() and p.name != exclude_run_id],
+        key=lambda x: x.stat().st_mtime,
+        reverse=True,
+    )
     out: List[Dict[str, Any]] = []
     for run_dir in dirs[:limit]:
         check_path = run_dir / "reports" / "check_all_report.json"
+        command = "unparsed"
         warnings = 0
-        verdict = "UNKNOWN"
+        verdict = "unparsed"
+        status = "unparsed"
+        key_artifact_path = ""
+        unparsed_reason = "no command receipt or check-all report found"
+        receipt_candidates = sorted((run_dir / "receipts").glob("*_command_receipt.json"), key=lambda x: x.stat().st_mtime, reverse=True)
+        for receipt_path in receipt_candidates[:1]:
+            try:
+                receipt = read_json(receipt_path)
+                command = str(receipt.get("skill_id") or receipt.get("command") or receipt_path.stem.replace("_command_receipt", ""))
+                verdict = str(receipt.get("verdict", "UNKNOWN"))
+                status = _verdict_to_status(verdict)
+                warnings = len(receipt.get("warnings", []) or [])
+                output_refs = [str(x) for x in receipt.get("output_refs", [])]
+                key_artifact_path = output_refs[0] if output_refs else str(receipt_path)
+                unparsed_reason = ""
+            except Exception as exc:
+                unparsed_reason = f"receipt_unparseable: {exc}"
+            break
+        check_all_verdict = "unparsed"
         if check_path.exists():
             try:
                 check = read_json(check_path)
-                verdict = str(check.get("verdict", "UNKNOWN"))
-                warnings = int(check.get("failed", 0))
-            except Exception:
-                pass
+                check_all_verdict = str(check.get("verdict", "UNKNOWN"))
+                if command == "unparsed":
+                    command = "check-all"
+                    verdict = check_all_verdict
+                    status = _verdict_to_status(verdict)
+                    warnings = int(check.get("failed", 0))
+                    key_artifact_path = str(check_path)
+                    unparsed_reason = ""
+            except Exception as exc:
+                if unparsed_reason:
+                    unparsed_reason = f"check_all_unparseable: {exc}"
         out.append(
             {
                 "run_id": run_dir.name,
                 "path": str(run_dir),
                 "mtime_utc": now_utc() if not run_dir.exists() else time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(run_dir.stat().st_mtime)),
-                "check_all_verdict": verdict,
+                "command": command,
+                "status": status,
+                "verdict": verdict,
+                "check_all_verdict": check_all_verdict,
                 "warning_count": warnings,
+                "key_artifact_path": key_artifact_path,
+                "parse_state": "parsed" if not unparsed_reason else "unparsed",
+                "unparsed_reason": unparsed_reason,
             }
         )
     return out
@@ -1116,14 +1314,15 @@ def command_classify_path(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("classify-path", args.out)
     cls = classify_path(args.path, repo_root)
     route = route_for_object(cls, requested_action=args.requested_action or "")
+    route_blocked = route["verdict"].startswith("REJECT") or "BLOCK" in route["verdict"]
     report = {
         "report_type": "ARTIFACT_CLASSIFICATION_REPORT",
         "agent_id": "ADMINISTRATUM_AGENT",
         "run_id": ctx.run_id,
         "generated_at_utc": now_utc(),
         "object": {**cls, **route},
-        "verdict": "PASS" if not route["verdict"].startswith("REJECT") else "PASS_WITH_WARNINGS",
-        "warnings": [] if not route["verdict"].startswith("REJECT") else [f"requested action rejected for {cls['path']}"],
+        "verdict": "PASS" if not route_blocked else "BLOCKED",
+        "warnings": [] if not route_blocked else [f"requested action blocked for {cls['path']}"],
     }
     report_path = ctx.run_dir / "reports" / "classification_report.json"
     write_json(report_path, report)
@@ -1140,7 +1339,7 @@ def command_classify_path(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx.metrics["objects_considered"] += 1
     ctx.metrics["routes_made"] += 1
     ctx.metrics["warnings_count"] += len(report.get("warnings", []))
-    ctx.metrics["rejected_count"] += 1 if route["verdict"].startswith("REJECT") else 0
+    ctx.metrics["rejected_count"] += 1 if route_blocked else 0
     ctx.metrics["receipts_written"] += 1
     return _finalize_command(
         ctx,
@@ -1397,6 +1596,10 @@ def command_collect_reality_snapshot(args: argparse.Namespace, renderer: Rendere
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("collect-reality-snapshot", args.out)
     rail = ProgressRail(renderer, ctx)
+    blocked = _block_if_dirty_owner_decision(ctx, renderer, command="collect-reality-snapshot", input_refs=[str(repo_root)], progress=rail)
+    if blocked is not None:
+        return blocked
+    dirty_admission = _dirty_admission_state("collect-reality-snapshot")
     rail.start(1, "reading_repo_state", target=str(repo_root))
     snap = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
     rail.done(1, f"head={str(snap.report.get('git_head', ''))[:12]}", target=str(Path(snap.report_path)))
@@ -1405,6 +1608,7 @@ def command_collect_reality_snapshot(args: argparse.Namespace, renderer: Rendere
     warnings: List[str] = []
     if snap.report.get("dirty_tree"):
         warnings.append("repository dirty at snapshot time")
+    warnings.extend(_dirty_admission_warnings(dirty_admission))
     verdict = "PASS_WITH_WARNINGS" if warnings else "PASS"
     return _finalize_command(
         ctx,
@@ -1424,6 +1628,10 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("collect-continuity-pack", args.out)
     rail = ProgressRail(renderer, ctx)
+    blocked = _block_if_dirty_owner_decision(ctx, renderer, command="collect-continuity-pack", input_refs=[str(repo_root)], progress=rail)
+    if blocked is not None:
+        return blocked
+    dirty_admission = _dirty_admission_state("collect-continuity-pack")
     rail.start(1, "reading_repo_state", target=str(repo_root))
     rail.done(1, f"dirty={str(ctx.dirty_before).lower()}", target=str(repo_root))
     rail.start(2, "scanning_context_metadata", target="IMPERIUM_CONTEXT")
@@ -1495,6 +1703,7 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
     )
     if args.include_context:
         warnings.append("context included in metadata-only mode with no-git-export rules")
+    warnings.extend(_dirty_admission_warnings(dirty_admission))
     verdict = "PASS_WITH_WARNINGS" if warnings else "PASS"
     return _finalize_command(
         ctx,
@@ -1513,10 +1722,14 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
 def command_build_handoff_context(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("build-agent-handoff-context", args.out)
+    blocked = _block_if_dirty_owner_decision(ctx, renderer, command="build-agent-handoff-context", input_refs=[str(repo_root)])
+    if blocked is not None:
+        return blocked
+    dirty_admission = _dirty_admission_state("build-agent-handoff-context")
     if not (ctx.run_dir / "reports" / "continuity_pack_report.json").exists():
         _ = collect_continuity_pack(repo_root, ctx.run_id, ctx.run_dir, include_context=args.include_context, metrics=ctx.metrics)
     handoff = build_agent_handoff_context(ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
-    warnings = handoff.report.get("warnings", [])
+    warnings = list(handoff.report.get("warnings", [])) + _dirty_admission_warnings(dirty_admission)
     return _finalize_command(
         ctx,
         renderer,
@@ -1594,6 +1807,7 @@ def command_explain_decision(args: argparse.Namespace, renderer: Renderer) -> in
     ctx = _start_command("explain-decision", args.out)
     cls = classify_path(args.path, repo_root)
     route = route_for_object(cls, requested_action=args.requested_action or "")
+    route_blocked = route["verdict"].startswith("REJECT") or "BLOCK" in route["verdict"]
     report = {
         "report_type": "EXPLAIN_DECISION_REPORT",
         "agent_id": "ADMINISTRATUM_AGENT",
@@ -1608,8 +1822,8 @@ def command_explain_decision(args: argparse.Namespace, renderer: Renderer) -> in
             "brain_node/rules/routing_rules.json",
             "brain_node/rules/artifact_rejection_rules.json",
         ],
-        "verdict": "PASS" if not route["verdict"].startswith("REJECT") else "PASS_WITH_WARNINGS",
-        "warnings": [] if not route["verdict"].startswith("REJECT") else ["mutation/deletion-like request rejected by policy"],
+        "verdict": "PASS" if not route_blocked else "BLOCKED",
+        "warnings": [] if not route_blocked else ["mutation/deletion-like request blocked by policy"],
     }
     report_path = ctx.run_dir / "reports" / "explain_decision_report.json"
     write_json(report_path, report)
@@ -1640,6 +1854,15 @@ def command_show_kpd(args: argparse.Namespace, renderer: Renderer) -> int:
     kpd, thinking = kpd_from_reports(target_run.name, target_run)
     kpd["target_run_dir"] = str(target_run)
     thinking["target_run_dir"] = str(target_run)
+    scorecard = {
+        "overall_kpd": kpd.get("score_0_to_100"),
+        "evidence_quality": kpd.get("component_scores", {}).get("evidence"),
+        "trust_risk": kpd.get("trust_verdict"),
+        "runtime_cost": kpd.get("component_scores", {}).get("cost_efficiency"),
+        "warnings": kpd.get("component_scores", {}).get("warning_penalty"),
+        "recommended_next_action": "review warnings before handoff" if kpd.get("verdict") != "PASS" else "eligible for next admitted command",
+    }
+    kpd["compact_scorecard"] = scorecard
     kpd_path = ctx.run_dir / "reports" / "kpd_score.json"
     thinking_path = ctx.run_dir / "reports" / "thinking_quality_score.json"
     write_json(kpd_path, kpd)
@@ -1656,7 +1879,16 @@ def command_show_kpd(args: argparse.Namespace, renderer: Renderer) -> int:
         renderer,
         header="ADMINISTRATUM AGENT :: KPD / THINKING QUALITY",
         verdict=verdict,
-        summary="KPD and thinking-quality scores generated.",
+        summary="\n".join(
+            [
+                f"overall_kpd: {scorecard['overall_kpd']}",
+                f"evidence_quality: {scorecard['evidence_quality']}",
+                f"trust_risk: {scorecard['trust_risk']}",
+                f"runtime_cost: {scorecard['runtime_cost']}",
+                f"warnings: {scorecard['warnings']}",
+                f"recommended_next_action: {scorecard['recommended_next_action']}",
+            ]
+        ),
         outputs=[kpd_path, thinking_path],
         input_refs=[str(target_run)],
         warnings=warnings,
@@ -1682,7 +1914,7 @@ def command_cu_summary(args: argparse.Namespace, renderer: Renderer) -> int:
 
 def command_recent(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("recent", args.out)
-    recent = _list_recent_runs(limit=args.limit)
+    recent = _list_recent_runs(limit=args.limit, exclude_run_id=ctx.run_id)
     report = {
         "report_type": "RECENT_RUNS_REPORT",
         "agent_id": "ADMINISTRATUM_AGENT",
@@ -1732,6 +1964,352 @@ def command_open_runs(args: argparse.Namespace, renderer: Renderer) -> int:
         warnings=[],
         details=report,
         next_actions=[f"Open path manually in Explorer: {RUNS_ROOT}"],
+    )
+
+
+def _validate_freelance_envelope_payload(payload: Any) -> List[str]:
+    if not isinstance(payload, dict):
+        return ["envelope_root_must_be_object"]
+    required = {
+        "task_id": str,
+        "client_goal": str,
+        "assigned_organ": str,
+        "administratum_scope": list,
+        "input_refs": list,
+        "privacy_level": str,
+        "allowed_actions": list,
+        "forbidden_actions": list,
+        "deliverables_required": list,
+        "acceptance_criteria": list,
+        "evidence_required": list,
+        "handoff_target": str,
+        "owner_decision_required": bool,
+    }
+    errors: List[str] = []
+    for key, typ in required.items():
+        if key not in payload:
+            errors.append(f"missing_required:{key}")
+            continue
+        if not isinstance(payload.get(key), typ):
+            errors.append(f"invalid_type:{key}:expected_{typ.__name__}")
+    if payload.get("assigned_organ") != "ADMINISTRATUM_AGENT":
+        errors.append("assigned_organ_must_be_ADMINISTRATUM_AGENT")
+    if payload.get("privacy_level") not in {"public", "client_confidential", "private"}:
+        errors.append("privacy_level_invalid")
+    allowed_scope = {"intake", "context_map", "evidence_pack", "handoff"}
+    scope_items = set(str(x) for x in payload.get("administratum_scope", []) if isinstance(x, str))
+    if not scope_items:
+        errors.append("administratum_scope_empty")
+    unknown_scope = sorted(scope_items - allowed_scope)
+    if unknown_scope:
+        errors.append(f"administratum_scope_unknown:{','.join(unknown_scope)}")
+    return errors
+
+
+def _load_envelope(path_text: str) -> Tuple[Path, Dict[str, Any]]:
+    path = Path(path_text)
+    if not path.is_absolute():
+        path = (REPO_ROOT / path).resolve()
+    return path, read_json(path)
+
+
+def command_validate_freelance_envelope(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("validate-freelance-envelope", args.out)
+    envelope_path = args.envelope or str(FREELANCE_SAMPLE_VALID_PATH)
+    path, payload = _load_envelope(envelope_path)
+    errors = _validate_freelance_envelope_payload(payload)
+    report = {
+        "report_type": "FREELANCE_ENVELOPE_VALIDATION_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "schema_path": str(FREELANCE_SCHEMA_PATH),
+        "envelope_path": str(path),
+        "task_id": str(payload.get("task_id", "")),
+        "errors": errors,
+        "warnings": [],
+        "verdict": "PASS" if not errors else "BLOCKED",
+    }
+    report_path = ctx.run_dir / "reports" / "freelance_envelope_validation_report.json"
+    write_json(report_path, report)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: FREELANCE ENVELOPE VALIDATION",
+        verdict=report["verdict"],
+        summary="Freelance envelope validation completed.",
+        outputs=[report_path],
+        input_refs=[str(path), str(FREELANCE_SCHEMA_PATH)],
+        warnings=errors,
+        details=report,
+        blocker_class="FREELANCE_ENVELOPE_INVALID" if errors else None,
+    )
+
+
+def _safe_artifact_name(value: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_.-]+", "_", value).strip("_") or "artifact"
+
+
+def command_build_freelance_handoff(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("build-freelance-handoff", args.out)
+    envelope_path = args.envelope or str(FREELANCE_SAMPLE_VALID_PATH)
+    path, payload = _load_envelope(envelope_path)
+    errors = _validate_freelance_envelope_payload(payload)
+    if errors:
+        report_path = ctx.run_dir / "reports" / "freelance_handoff_blocked_report.json"
+        report = {
+            "report_type": "FREELANCE_HANDOFF_BLOCKED_REPORT",
+            "agent_id": "ADMINISTRATUM_AGENT",
+            "run_id": ctx.run_id,
+            "generated_at_utc": now_utc(),
+            "envelope_path": str(path),
+            "errors": errors,
+            "verdict": "BLOCKED",
+            "warnings": errors,
+        }
+        write_json(report_path, report)
+        return _finalize_command(
+            ctx,
+            renderer,
+            header="ADMINISTRATUM AGENT :: FREELANCE HANDOFF",
+            verdict="BLOCKED",
+            summary="Freelance handoff blocked by invalid envelope.",
+            outputs=[report_path],
+            input_refs=[str(path)],
+            warnings=errors,
+            details=report,
+            blocker_class="FREELANCE_ENVELOPE_INVALID",
+        )
+
+    task_id = str(payload.get("task_id", "FREELANCE-TASK")).strip()
+    package_root = ctx.run_dir / "freelance_handoff" / _safe_artifact_name(task_id)
+    machine_dir = package_root / "machine"
+    reports_dir = package_root / "reports_en"
+    owner_dir = package_root / "owner_ru"
+    evidence_dir = package_root / "evidence"
+    for directory in (machine_dir, reports_dir, owner_dir, evidence_dir / "json_samples", evidence_dir / "logs"):
+        directory.mkdir(parents=True, exist_ok=True)
+
+    intake = {
+        "task_id": task_id,
+        "client_goal": payload.get("client_goal", ""),
+        "privacy_level": payload.get("privacy_level", ""),
+        "administratum_scope": payload.get("administratum_scope", []),
+        "input_file_map": [{"ref": ref, "classification": "metadata_ref_only"} for ref in payload.get("input_refs", [])],
+        "evidence_required": payload.get("evidence_required", []),
+        "deliverable_handoff_checklist": payload.get("deliverables_required", []),
+        "limitations": ["Administratum performs intake/context/evidence/handoff only; implementation belongs to downstream organ."],
+        "next_organ_recommendation": payload.get("handoff_target", ""),
+    }
+    write_json(machine_dir / "envelope.json", payload)
+    write_json(machine_dir / "intake_summary.json", intake)
+    write_json(machine_dir / "evidence_index.json", {"schema_version": "imperium.administratum.evidence_index.v0_1", "entries": []})
+    handoff_md = [
+        f"# Administratum Freelance Handoff: {task_id}",
+        "",
+        f"- client_goal: {payload.get('client_goal', '')}",
+        f"- privacy_level: {payload.get('privacy_level', '')}",
+        f"- handoff_target: {payload.get('handoff_target', '')}",
+        "",
+        "## Administratum Scope",
+        *[f"- {item}" for item in payload.get("administratum_scope", [])],
+        "",
+        "## Deliverable Checklist",
+        *[f"- {item}" for item in payload.get("deliverables_required", [])],
+        "",
+        "## Limitations",
+        "- No private payload content exported; input references are metadata-only.",
+    ]
+    (reports_dir / "ADMINISTRATUM_FREELANCE_HANDOFF.md").write_text("\n".join(handoff_md) + "\n", encoding="utf-8")
+    (owner_dir / "OWNER_SUMMARY_RU.md").write_text(
+        "\n".join(
+            [
+                f"# Freelance handoff Owner summary: {task_id}",
+                "",
+                "Administratum подготовил intake/context/evidence/handoff пакет без экспорта приватного payload.",
+                f"Следующий орган: {payload.get('handoff_target', '')}",
+                "",
+            ]
+        ),
+        encoding="utf-8",
+    )
+    (package_root / "README.md").write_text(
+        "Administratum freelance handoff package. Canonical truth is machine JSON plus markdown reports. No PDF included.\n",
+        encoding="utf-8",
+    )
+
+    manifest_files: List[Dict[str, Any]] = []
+    for p in sorted(x for x in package_root.rglob("*") if x.is_file() and x.name != "MANIFEST.json"):
+        manifest_files.append({"path": p.relative_to(package_root).as_posix(), "sha256": sha256_file(p), "bytes": p.stat().st_size})
+    manifest = {
+        "schema_version": "imperium.administratum.freelance_handoff_manifest.v0_1",
+        "task_id": task_id,
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "source_envelope": str(path),
+        "files": manifest_files,
+        "private_content_exported": False,
+        "default_dossier_has_pdf": False,
+        "verdict": "PASS",
+    }
+    write_json(package_root / "MANIFEST.json", manifest)
+    zip_path = ctx.run_dir / "freelance_handoff" / f"ADMINISTRATUM_FREELANCE_HANDOFF_{_safe_artifact_name(task_id)}.zip"
+    with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
+        for file_path in sorted(x for x in package_root.rglob("*") if x.is_file()):
+            zf.write(file_path, arcname=file_path.relative_to(package_root).as_posix())
+
+    report = {
+        "report_type": "FREELANCE_HANDOFF_BUILD_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "task_id": task_id,
+        "package_root": str(package_root),
+        "zip_path": str(zip_path),
+        "manifest_path": str(package_root / "MANIFEST.json"),
+        "private_content_exported": False,
+        "default_dossier_has_pdf": False,
+        "verdict": "PASS",
+        "warnings": [],
+    }
+    report_path = ctx.run_dir / "reports" / "freelance_handoff_build_report.json"
+    write_json(report_path, report)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: FREELANCE HANDOFF",
+        verdict="PASS",
+        summary="Freelance handoff package built.",
+        outputs=[report_path, package_root / "MANIFEST.json", zip_path],
+        input_refs=[str(path), str(FREELANCE_SCHEMA_PATH)],
+        warnings=[],
+        details=report,
+        next_actions=["Hand off package to the declared downstream organ after Owner review."],
+    )
+
+
+def _shape_check(name: str, payload: Dict[str, Any], required: Sequence[str]) -> Dict[str, Any]:
+    missing = [field for field in required if field not in payload]
+    return {"name": name, "pass": not missing, "missing": missing}
+
+
+def command_schema_regression(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("schema-regression", args.out)
+    runner_path = Path(__file__).resolve()
+    required_payload = [
+        "status",
+        "command",
+        "run_id",
+        "verdict",
+        "summary",
+        "primary_refs",
+        "artifacts_written",
+        "warnings",
+        "why_trust",
+        "next_actions",
+        "metrics",
+        "limitations",
+        "details",
+    ]
+    results: List[Dict[str, Any]] = []
+    warnings: List[str] = []
+    for command_name in ["status", "doctor-rich", "doctor-oss", "recent"]:
+        out_dir = ctx.run_dir / f"schema_{command_name.replace('-', '_')}"
+        proc = subprocess.run(
+            [sys.executable, str(runner_path), "--plain-json", "--no-color", command_name, "--out", str(out_dir)],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        parsed: Dict[str, Any] = {}
+        ok = proc.returncode == 0
+        parse_error = ""
+        try:
+            parsed = json.loads(proc.stdout)
+        except Exception as exc:
+            ok = False
+            parse_error = str(exc)
+        shape = _shape_check(command_name, parsed, required_payload) if parsed else {"name": command_name, "pass": False, "missing": required_payload}
+        results.append(
+            {
+                "name": f"plain_json_{command_name}",
+                "pass": bool(ok and shape.get("pass")),
+                "returncode": proc.returncode,
+                "missing": shape.get("missing", []),
+                "parse_error": parse_error,
+                "sample_path": str(out_dir),
+            }
+        )
+
+    valid_payload = read_json(FREELANCE_SAMPLE_VALID_PATH)
+    valid_errors = _validate_freelance_envelope_payload(valid_payload)
+    results.append({"name": "freelance_valid_sample", "pass": not valid_errors, "errors": valid_errors})
+    malformed_payload = read_json(FREELANCE_SAMPLE_MALFORMED_PATH)
+    malformed_errors = _validate_freelance_envelope_payload(malformed_payload)
+    results.append({"name": "freelance_malformed_sample_blocks", "pass": bool(malformed_errors), "errors": malformed_errors})
+
+    receipt_paths = sorted((ctx.run_dir / "schema_status" / "receipts").glob("*_command_receipt.json"))
+    if receipt_paths:
+        receipt = read_json(receipt_paths[0])
+        results.append(
+            {
+                "name": "command_receipt_shape",
+                "pass": _shape_check(
+                    "command_receipt",
+                    receipt,
+                    ["receipt_type", "agent_id", "run_id", "skill_id", "input_refs", "output_refs", "metrics", "warnings", "verdict"],
+                )["pass"],
+            }
+        )
+    else:
+        results.append({"name": "command_receipt_shape", "pass": False, "missing": ["*_command_receipt.json"]})
+
+    latest_dossier = find_latest_dossier_zip(RUNS_ROOT)
+    if latest_dossier:
+        verify = verify_dossier_package(latest_dossier, ctx.run_dir / "reports" / "schema_regression_dossier_extract")
+        legacy_pdf = bool(verify.get("default_dossier_has_pdf"))
+        if legacy_pdf:
+            warnings.append("latest legacy dossier contains PDF; build-dossier must create a new no-PDF default package")
+        results.append(
+            {
+                "name": "latest_dossier_manifest_and_no_pdf",
+                "pass": verify.get("verdict") in {"PASS", "WARN"} or legacy_pdf,
+                "zip_path": str(latest_dossier),
+                "verify_verdict": verify.get("verdict"),
+                "pdf_members": verify.get("pdf_members", []),
+                "legacy_pdf_detected": legacy_pdf,
+            }
+        )
+    else:
+        warnings.append("latest dossier not found; manifest validation deferred until build-dossier creates one")
+        results.append({"name": "latest_dossier_manifest_and_no_pdf", "pass": True, "deferred": True})
+
+    failed = [row for row in results if not row.get("pass")]
+    report = {
+        "report_type": "SCHEMA_REGRESSION_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "results": results,
+        "failed": len(failed),
+        "warnings": warnings,
+        "jsonschema_dependency": "optional_not_required_stdlib_fallback_used",
+        "verdict": "BLOCKED" if failed else ("PASS_WITH_WARNINGS" if warnings else "PASS"),
+    }
+    report_path = ctx.run_dir / "reports" / "schema_regression_report.json"
+    write_json(report_path, report)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: SCHEMA REGRESSION",
+        verdict=report["verdict"],
+        summary=f"Schema regression completed: failed={len(failed)}, warnings={len(warnings)}.",
+        outputs=[report_path],
+        input_refs=[str(FREELANCE_SCHEMA_PATH), str(FREELANCE_SAMPLE_VALID_PATH), str(FREELANCE_SAMPLE_MALFORMED_PATH)],
+        warnings=warnings + [f"failed schema checks: {len(failed)}"] if failed else warnings,
+        details=report,
+        blocker_class="SCHEMA_REGRESSION_FAILED" if failed else None,
     )
 
 
@@ -1863,6 +2441,10 @@ def command_doctor_oss(args: argparse.Namespace, renderer: Renderer) -> int:
 
 def command_build_dossier(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("build-dossier", args.out)
+    blocked = _block_if_dirty_owner_decision(ctx, renderer, command="build-dossier", input_refs=[str(AGENT_ROOT)])
+    if blocked is not None:
+        return blocked
+    dirty_admission = _dirty_admission_state("build-dossier")
     task_id = str(args.task_id or TASK_DOSSIER_FACTORY_ID).strip()
     source_report_dir = Path(args.source_report_dir).resolve() if args.source_report_dir else (AGENT_ROOT / "REPORTS" / task_id).resolve()
     source_receipt_path = Path(args.source_receipt).resolve() if args.source_receipt else (AGENT_ROOT / "receipts" / f"{task_id}_RECEIPT_V0_1.json").resolve()
@@ -1933,7 +2515,7 @@ def command_build_dossier(args: argparse.Namespace, renderer: Renderer) -> int:
         summary="Dossier package build completed.",
         outputs=outputs,
         input_refs=[str(source_report_dir), str(source_receipt_path), str(command_matrix_path)],
-        warnings=result.warnings,
+        warnings=list(result.warnings) + _dirty_admission_warnings(dirty_admission),
         details=report,
         next_actions=[
             "Run verify-dossier --latest to validate package integrity.",
@@ -1964,8 +2546,8 @@ def command_verify_dossier(args: argparse.Namespace, renderer: Renderer) -> int:
     command_verdict = _report_verdict_to_command_verdict(str(report.get("verdict", "BLOCKED")))
     warnings = [str(x) for x in report.get("warnings", [])]
     limitations: List[str] = []
-    if report.get("owner_pdf_generated") is False:
-        limitations.append("Owner RU PDF missing in verified dossier (fallback may be present).")
+    if report.get("default_dossier_has_pdf"):
+        limitations.append("Default dossier ZIP contains PDF and is not valid for agent exchange.")
     return _finalize_command(
         ctx,
         renderer,
@@ -1992,6 +2574,10 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("check-all", args.out)
     rail = ProgressRail(renderer, ctx)
+    blocked = _block_if_dirty_owner_decision(ctx, renderer, command="check-all", input_refs=[str(repo_root)], progress=rail)
+    if blocked is not None:
+        return blocked
+    dirty_admission = _dirty_admission_state("check-all")
     rail.start(1, "reading_git_truth", target=str(repo_root))
 
     before = subprocess.run(["git", "status", "--porcelain"], cwd=repo_root, capture_output=True, text=True, check=False)
@@ -2131,6 +2717,78 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     )
     tests.append(_test_result("shell_recent_render", cmd_shell_recent.returncode == 0 and "RECENT RUNS" in cmd_shell_recent.stdout, cmd_shell_recent.stdout[:400]))
 
+    cmd_shell_self = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "shell", "--once", "/shell"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("shell_self_guard_already_in_shell", cmd_shell_self.returncode == 0 and "already_in_shell" in cmd_shell_self.stdout, cmd_shell_self.stdout[:400]))
+
+    cmd_shell_typo = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "shell", "--once", "/soctor-oss"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("shell_fuzzy_suggestion", cmd_shell_typo.returncode != 0 and "/doctor-oss" in cmd_shell_typo.stdout, cmd_shell_typo.stdout[:400]))
+
+    cmd_schema = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "schema-regression", "--out", str(ctx.run_dir / "cli_schema_regression")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("schema_regression_runs", cmd_schema.returncode == 0 and "SCHEMA REGRESSION" in cmd_schema.stdout, cmd_schema.stdout[:400]))
+
+    cmd_valid_freelance = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "validate-freelance-envelope", "--envelope", str(FREELANCE_SAMPLE_VALID_PATH), "--out", str(ctx.run_dir / "cli_freelance_valid")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("freelance_valid_sample_passes", cmd_valid_freelance.returncode == 0, cmd_valid_freelance.stdout[:400]))
+
+    cmd_bad_freelance = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "validate-freelance-envelope", "--envelope", str(FREELANCE_SAMPLE_MALFORMED_PATH), "--out", str(ctx.run_dir / "cli_freelance_malformed")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("freelance_malformed_sample_blocks", cmd_bad_freelance.returncode != 0 and "BLOCKED" in cmd_bad_freelance.stdout, cmd_bad_freelance.stdout[:400]))
+
+    cmd_handoff = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "build-freelance-handoff", "--envelope", str(FREELANCE_SAMPLE_VALID_PATH), "--out", str(ctx.run_dir / "cli_freelance_handoff")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("freelance_handoff_package_builds", cmd_handoff.returncode == 0 and "FREELANCE HANDOFF" in cmd_handoff.stdout, cmd_handoff.stdout[:400]))
+
+    dirty_env = dict(os.environ)
+    dirty_env["ADMINISTRATUM_DIRTY_SIMULATION_PATHS"] = "UNAUTHORIZED_DIRTY_SIMULATION.tmp"
+    cmd_dirty_block = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "collect-reality-snapshot", "--repo-root", str(REPO_ROOT), "--out", str(ctx.run_dir / "cli_dirty_admission_simulation")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env=dirty_env,
+    )
+    tests.append(
+        _test_result(
+            "dirty_state_simulation_owner_decision",
+            cmd_dirty_block.returncode != 0 and "OWNER_DECISION_REQUIRED" in cmd_dirty_block.stdout,
+            cmd_dirty_block.stdout[:500],
+        )
+    )
+
     cmd_progress = subprocess.run(
         [sys.executable, str(runner_path), "--no-color", "collect-reality-snapshot", "--repo-root", str(REPO_ROOT), "--out", str(ctx.run_dir / "cli_progress")],
         cwd=REPO_ROOT,
@@ -2182,7 +2840,12 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         requested_action="delete file",
         metrics=ctx.metrics,
     )
-    tests.append(_test_result("route_mutation_request_rejected", any(r.get("verdict", "").startswith("REJECT") for r in routing.report.get("routes", []))))
+    tests.append(
+        _test_result(
+            "route_mutation_request_blocked",
+            any((r.get("verdict", "").startswith("REJECT") or "BLOCK" in r.get("verdict", "")) for r in routing.report.get("routes", [])),
+        )
+    )
     rail.done(5, f"candidates={useful.report.get('top_summary', {}).get('scripts', 0)}", target=str(Path(useful.report_path)))
 
     rail.start(6, "building_continuity_narrative", target=str(ctx.run_dir / "continuity_pack"))
@@ -2308,7 +2971,7 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         lines.append(f"- {t['test']}: {'PASS' if t.get('pass') else 'FAIL'}")
     report_md.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
-    warnings = [f"failed tests: {failed}"] if failed else []
+    warnings = ([f"failed tests: {failed}"] if failed else []) + _dirty_admission_warnings(dirty_admission)
     return _finalize_command(
         ctx,
         renderer,
@@ -2331,7 +2994,9 @@ def _shell_activity_summary() -> List[str]:
         return ["No runs detected yet."]
     out = []
     for row in rows:
-        out.append(f"{row['run_id']} | check-all: {row['check_all_verdict']} | warnings: {row['warning_count']}")
+        out.append(
+            f"{row['run_id']} | command: {row.get('command', 'unparsed')} | status: {row.get('status', 'unparsed')} | warnings: {row['warning_count']}"
+        )
     return out
 
 
@@ -2353,12 +3018,16 @@ def _runtime_isolation_status() -> Tuple[str, List[str]]:
 def _shell_commands_reference() -> List[str]:
     return [
         "/help",
+        "/help <command>",
         "/status",
         "/inventory",
         "/doctor-rich",
         "/doctor-oss",
         "/build-dossier",
         "/verify-dossier",
+        "/schema-regression",
+        "/validate-freelance-envelope [path]",
+        "/build-freelance-handoff [path]",
         "/classify <path>",
         "/dirty-runtime",
         "/useful-candidates",
@@ -2374,6 +3043,17 @@ def _shell_commands_reference() -> List[str]:
         "/open-runs",
         "/exit",
     ]
+
+
+def _shell_known_command_tokens() -> List[str]:
+    tokens = []
+    for row in _shell_commands_reference():
+        token = row.split()[0].strip()
+        if token and token not in tokens:
+            tokens.append(token)
+    if "/shell" not in tokens:
+        tokens.append("/shell")
+    return tokens
 
 
 def _show_shell_welcome(renderer: Renderer) -> None:
@@ -2393,10 +3073,12 @@ def _show_shell_welcome(renderer: Renderer) -> None:
     latest_kpd = str((latest_manifest.parent / "kpd_score.json")) if latest_manifest and (latest_manifest.parent / "kpd_score.json").exists() else "n/a"
     latest_check_path = str(check.get("_path")) if check else "n/a"
 
-    sigil = "⌬ARCHIVE-SEAL⌬" if renderer.use_unicode else "[ARCHIVE-SEAL]"
+    left_crest = "[ADM-ARCHIVE-SEAL]"
+    right_crest = "[IMP-THRONE-SEAL]"
 
     title_lines = [
-        f"{sigil} IMPERIUM NEW GENERATION / ARCHIVE VAULT ONLINE",
+        f"{left_crest} ADMINISTRATUM LOCAL MODEL {right_crest}",
+        "IMPERIUM NEW GENERATION / ARCHIVE VAULT ONLINE",
         "ADMINISTRATUM AGENT :: LOCAL MODEL",
         f"version: {snap.get('version', 'UNKNOWN')} | status: {snap.get('status', 'UNKNOWN')}",
         f"head: {head_short} | git_dirty: {str(bool(snap.get('dirty_tree'))).lower()} | live_work: enabled",
@@ -2412,7 +3094,9 @@ def _show_shell_welcome(renderer: Renderer) -> None:
         f"latest kpd: {latest_kpd}",
         "gpu policy: script-first / gpu_used=false",
         "truth zones: CANON / SANDBOX / RUNTIME / PRIVATE / LOCAL",
+        "layout: left work/output zone; right command hints zone; header reprinted on /help",
     ]
+    status_lines = [renderer.compact_display(line) for line in status_lines]
     recent_lines = _shell_activity_summary()
     rites_lines = _shell_commands_reference()
 
@@ -2458,7 +3142,46 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
     args = parts[1:]
     if cmd == "/exit":
         return 99
+    if cmd == "/shell":
+        renderer.emit(
+            {
+                "header": "ADMINISTRATUM SHELL :: SELF GUARD",
+                "status": "WARN",
+                "command": "shell/self_guard",
+                "run_id": "N/A",
+                "verdict": "already_in_shell",
+                "summary": "already_in_shell: nested shell launch skipped.",
+                "primary_refs": [],
+                "artifacts_written": [],
+                "warnings": ["already_in_shell"],
+                "why_trust": ["Shell guard prevents false unknown command and avoids nested prompt side effects."],
+                "metrics": {},
+                "limitations": [],
+                "details": {"requested": raw, "guard": "already_in_shell"},
+                "next_actions": ["Use `/help` for shell commands or `/exit` to leave the shell."],
+            }
+        )
+        return 0
     if cmd == "/help":
+        topic = args[0].lower() if args else ""
+        command_help = {
+            "/status": "Read-only truth snapshot. Dirty state becomes WARN.",
+            "/check-all": "Heavy verification rite. Dirty pre-state outside admitted scope returns OWNER_DECISION_REQUIRED.",
+            "/build-dossier": "Build default MD+JSON no-PDF dossier ZIP.",
+            "/verify-dossier": "Verify dossier hashes, required files, and no-PDF default policy.",
+            "/recent": "Parse recent run receipts/reports into command/status/warning/run refs.",
+            "/kpd": "Show compact scorecard first; JSON/verbose keeps full detail.",
+            "/schema-regression": "Validate core JSON envelopes, command receipt shape, dossier no-PDF policy, and freelance samples.",
+            "/validate-freelance-envelope": "Validate an Administratum freelance task envelope.",
+            "/build-freelance-handoff": "Build Administratum's scoped freelance handoff package.",
+        }
+        summary = "Available rites listed."
+        details: Dict[str, Any] = {"commands": _shell_commands_reference(), "modes": ["slash commands only", "plain JSON remains authoritative outside shell"]}
+        if topic:
+            normalized_topic = topic if topic.startswith("/") else f"/{topic}"
+            summary = command_help.get(normalized_topic, f"No dedicated help entry for {normalized_topic}; showing command map.")
+            details["topic"] = normalized_topic
+            details["topic_help"] = command_help.get(normalized_topic, "unavailable")
         renderer.emit(
             {
                 "header": "ADMINISTRATUM SHELL :: HELP",
@@ -2466,14 +3189,14 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
                 "command": "shell/help",
                 "run_id": "N/A",
                 "verdict": "PASS",
-                "summary": "Available rites listed.",
+                "summary": summary,
                 "primary_refs": [],
                 "artifacts_written": [],
                 "warnings": [],
                 "why_trust": ["Help generated from local static shell command map."],
                 "metrics": {},
                 "limitations": [],
-                "details": {"commands": _shell_commands_reference()},
+                "details": details,
                 "next_actions": ["Use `/status` or `/check-all` as first verification rites."],
             }
         )
@@ -2510,6 +3233,12 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
         )
     if cmd == "/verify-dossier":
         return command_verify_dossier(argparse.Namespace(zip_path=None, latest=True, out=None), renderer)
+    if cmd == "/schema-regression":
+        return command_schema_regression(argparse.Namespace(out=None), renderer)
+    if cmd == "/validate-freelance-envelope":
+        return command_validate_freelance_envelope(argparse.Namespace(envelope=args[0] if args else None, out=None), renderer)
+    if cmd == "/build-freelance-handoff":
+        return command_build_freelance_handoff(argparse.Namespace(envelope=args[0] if args else None, out=None), renderer)
     if cmd == "/classify":
         if not args:
             raise UserFacingError("Missing `<path>` for /classify.", "Provide a path argument.", "/classify IMPERIUM_NEW_GENERATION/README.md")
@@ -2580,11 +3309,13 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
     if cmd == "/open-runs":
         return command_open_runs(argparse.Namespace(out=None), renderer)
 
-    raise UserFacingError(
-        f"Unknown shell command: {cmd}",
-        "Use `/help` to list available rites.",
-        "/help",
-    )
+    suggestion = difflib.get_close_matches(cmd, _shell_known_command_tokens(), n=1, cutoff=0.55)
+    how_to_fix = "Use `/help` to list available rites."
+    example = "/help"
+    if suggestion:
+        how_to_fix = f"Did you mean `{suggestion[0]}`? Use `/help` for the full command map."
+        example = suggestion[0]
+    raise UserFacingError(f"Unknown shell command: {cmd}", how_to_fix, example)
 
 
 def command_shell(args: argparse.Namespace, renderer: Renderer) -> int:
@@ -2659,6 +3390,9 @@ COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "doctor-oss": command_doctor_oss,
     "build-dossier": command_build_dossier,
     "verify-dossier": command_verify_dossier,
+    "schema-regression": command_schema_regression,
+    "validate-freelance-envelope": command_validate_freelance_envelope,
+    "build-freelance-handoff": command_build_freelance_handoff,
     "check-all": command_check_all,
     "recent": command_recent,
     "open-runs": command_open_runs,
@@ -2818,6 +3552,20 @@ def build_parser() -> argparse.ArgumentParser:
     p_verify_dossier.add_argument("--latest", action="store_true", help="Use latest dossier zip in RUNS when --zip-path is not provided.")
     p_verify_dossier.add_argument("--out", default=None)
     p_verify_dossier.set_defaults(func=command_verify_dossier)
+
+    p_schema = sub.add_parser("schema-regression", help="Validate core JSON/schema/dossier/freelance contracts.")
+    p_schema.add_argument("--out", default=None)
+    p_schema.set_defaults(func=command_schema_regression)
+
+    p_validate_freelance = sub.add_parser("validate-freelance-envelope", help="Validate an Administratum freelance task envelope.")
+    p_validate_freelance.add_argument("--envelope", default=None, help="Envelope JSON path; defaults to bundled valid sample.")
+    p_validate_freelance.add_argument("--out", default=None)
+    p_validate_freelance.set_defaults(func=command_validate_freelance_envelope)
+
+    p_handoff_freelance = sub.add_parser("build-freelance-handoff", help="Build Administratum's scoped freelance handoff package.")
+    p_handoff_freelance.add_argument("--envelope", default=None, help="Envelope JSON path; defaults to bundled valid sample.")
+    p_handoff_freelance.add_argument("--out", default=None)
+    p_handoff_freelance.set_defaults(func=command_build_freelance_handoff)
 
     p_check = sub.add_parser("check-all", help="Run full Administratum hardening check suite.")
     p_check.add_argument("--repo-root", default=str(REPO_ROOT))

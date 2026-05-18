@@ -27,7 +27,11 @@
               "rich_render_capture",
               "pdf_page_preview",
               "browser_screenshot_planned",
-              "file_hash_manifest"
+              "file_hash_manifest",
+              "owner_summary_md",
+              "json_sample",
+              "zip_listing",
+              "policy_report"
             ]
           },
           "path": {

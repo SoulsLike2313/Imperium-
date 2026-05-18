@@ -55,7 +55,10 @@
     "metrics_summary",
     "explain_decision",
     "show_kpd",
-    "cu_summary"
+    "cu_summary",
+    "schema_regression",
+    "validate_freelance_envelope",
+    "build_freelance_handoff"
   ],
   "required_receipts": true,
   "mutated_canon": false,

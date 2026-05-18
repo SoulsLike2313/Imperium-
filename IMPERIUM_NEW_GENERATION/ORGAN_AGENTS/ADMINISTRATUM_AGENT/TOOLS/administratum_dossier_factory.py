@@ -346,8 +346,8 @@ def build_dossier_package(
     (staging_root / "reports_en").mkdir(parents=True, exist_ok=True)
     (staging_root / "owner_ru").mkdir(parents=True, exist_ok=True)
     (staging_root / "evidence" / "terminal_captures").mkdir(parents=True, exist_ok=True)
-    (staging_root / "evidence" / "screenshots").mkdir(parents=True, exist_ok=True)
-    (staging_root / "evidence" / "rendered_pages").mkdir(parents=True, exist_ok=True)
+    (staging_root / "evidence" / "json_samples").mkdir(parents=True, exist_ok=True)
+    (staging_root / "evidence" / "zip_listings").mkdir(parents=True, exist_ok=True)
     (staging_root / "evidence" / "logs").mkdir(parents=True, exist_ok=True)
 
     warnings: List[str] = []
@@ -357,24 +357,23 @@ def build_dossier_package(
     missing_reports: List[str] = []
 
     canonical_reports = {
-        "IMPLEMENTATION_REPORT.md": "IMPLEMENTATION_REPORT_V0_1.md",
-        "TEST_REPORT.md": "TEST_REPORT_V0_1.md",
-        "CHANGED_FILES.md": "CHANGED_FILES_V0_1.md",
-        "SELF_ASSESSMENT.md": "SELF_ASSESSMENT_V0_1.md",
-        "LIMITATIONS_AND_UNVERIFIED.md": "LIMITATIONS_AND_UNVERIFIED_V0_1.md",
-        "OSS_ADMISSION_REPORT.md": "OSS_ADMISSION_REPORT_V0_1.md",
-        "DOSSIER_FACTORY_REPORT.md": "DOSSIER_FACTORY_REPORT_V0_1.md",
-        "EVIDENCE_CAPTURE_REPORT.md": "EVIDENCE_CAPTURE_REPORT_V0_1.md",
-        "OWNER_QUICKSTART.md": "OWNER_QUICKSTART_V0_1.md",
-        "COMMAND_STATUS_MATRIX.md": "COMMAND_STATUS_MATRIX_V0_1.md",
+        "IMPLEMENTATION_REPORT.md": ["IMPLEMENTATION_REPORT.md", "IMPLEMENTATION_REPORT_V0_1.md"],
+        "TEST_REPORT.md": ["TEST_REPORT.md", "TEST_REPORT_V0_1.md"],
+        "CHANGED_FILES.md": ["CHANGED_FILES.md", "CHANGED_FILES_V0_1.md"],
+        "SELF_ASSESSMENT.md": ["SELF_ASSESSMENT.md", "SELF_ASSESSMENT_V0_1.md"],
+        "LIMITATIONS_AND_UNVERIFIED.md": ["LIMITATIONS_AND_UNVERIFIED.md", "LIMITATIONS_AND_UNVERIFIED_V0_1.md"],
+        "OSS_ADMISSION_REPORT.md": ["OSS_ADMISSION_REPORT.md", "OSS_ADMISSION_REPORT_V0_1.md"],
+        "DOSSIER_FACTORY_REPORT.md": ["DOSSIER_FACTORY_REPORT.md", "DOSSIER_FACTORY_REPORT_V0_1.md"],
+        "EVIDENCE_CAPTURE_REPORT.md": ["EVIDENCE_CAPTURE_REPORT.md", "EVIDENCE_CAPTURE_REPORT_V0_1.md"],
+        "OWNER_QUICKSTART.md": ["OWNER_QUICKSTART.md", "OWNER_QUICKSTART_V0_1.md"],
+        "COMMAND_STATUS_MATRIX.md": ["COMMAND_STATUS_MATRIX.md", "COMMAND_STATUS_MATRIX_V0_1.md"],
     }
-    for out_name, src_name in canonical_reports.items():
-        _copy_if_exists(
-            source_report_dir / src_name,
-            staging_root / "reports_en" / out_name,
-            copied_reports,
-            missing_reports,
-        )
+    for out_name, src_names in canonical_reports.items():
+        src = next((source_report_dir / name for name in src_names if (source_report_dir / name).exists()), None)
+        if src is None:
+            missing_reports.append((source_report_dir / src_names[0]).as_posix())
+            continue
+        _copy_if_exists(src, staging_root / "reports_en" / out_name, copied_reports, missing_reports)
     if missing_reports:
         warnings.append("Some canonical reports were missing and not copied to dossier reports_en.")
 
@@ -446,7 +445,7 @@ def build_dossier_package(
         f"- verdict: {source_receipt.get('final_verdict', 'UNKNOWN')}",
         f"- head: {source_receipt.get('starting_head', '')} -> {source_receipt.get('ending_head_before_commit', '')}",
         f"- branch: {source_receipt.get('branch', '')}",
-        "- short_owner_summary: Досье собрано в machine-first формате; PDF для Owner не заменяет канонические markdown/json.",
+            "- short_owner_summary: Досье собрано в machine-first формате; стандартный ZIP содержит markdown/json без PDF.",
         "",
         "## Доказательная база (evidence)",
         "- machine/receipt.json",
@@ -502,34 +501,11 @@ def build_dossier_package(
             "",
         ]
     )
-    pdf_render = _render_owner_pdf_ru(
-        "\n".join(owner_ru_md) + "\n",
-        staging_root / "owner_ru",
-        preferred_backend=str(oss_snapshot.get("available_pdf_backend", "unavailable")),
-    )
-
-    owner_pdf_generated = bool(pdf_render.get("generated", False))
-    owner_pdf_path = str(pdf_render.get("owner_pdf_path")) if pdf_render.get("owner_pdf_path") else None
-    pdf_backend = str(pdf_render.get("backend", "unavailable"))
-    if not owner_pdf_generated:
-        warnings.append("Owner Russian PDF backend unavailable; fallback markdown generated.")
-        limitations.append("Russian PDF missing in this dossier build.")
-        fallback_path = staging_root / "owner_ru" / "PDF_BACKEND_MISSING_RU.md"
-        fallback_path.write_text(
-            "\n".join(
-                [
-                    "# PDF backend unavailable",
-                    "",
-                    "Russian owner PDF could not be generated with admitted local backends.",
-                    "Owner options:",
-                    "1. allow Edge/Chrome headless backend usage in environment;",
-                    "2. approve reportlab/weasyprint OSS admission for PDF rendering;",
-                    "",
-                ]
-            )
-            + "\n",
-            encoding="utf-8",
-        )
+    owner_summary_path = staging_root / "owner_ru" / "OWNER_SUMMARY_RU.md"
+    owner_summary_path.write_text("\n".join(owner_ru_md) + "\n", encoding="utf-8")
+    owner_pdf_generated = False
+    owner_pdf_path = None
+    pdf_backend = "not_rendered_default_no_pdf"
 
     readme_path = staging_root / "README.md"
     readme_path.write_text(
@@ -539,6 +515,7 @@ def build_dossier_package(
                 "",
                 "This archive contains machine-first JSON, canonical English reports, and Owner-facing Russian summary artifact.",
                 "Canonical truth remains markdown reports and JSON receipts.",
+                "Default exchange policy: no PDF files are included in this ZIP.",
                 "",
             ]
         )
@@ -550,6 +527,7 @@ def build_dossier_package(
     for rel_kind, path in [
         ("terminal_transcript", terminal_capture),
         ("file_hash_manifest", builder_log),
+        ("owner_summary_md", owner_summary_path),
     ]:
         evidence_entries.append(
             {
@@ -558,27 +536,6 @@ def build_dossier_package(
                 "sha256": sha256_file(path),
                 "bytes": path.stat().st_size,
                 "note": "",
-            }
-        )
-    if owner_pdf_generated and owner_pdf_path:
-        owner_pdf_file = Path(owner_pdf_path)
-        evidence_entries.append(
-            {
-                "evidence_kind": "pdf_page_preview",
-                "path": owner_pdf_file.relative_to(staging_root).as_posix(),
-                "sha256": sha256_file(owner_pdf_file),
-                "bytes": owner_pdf_file.stat().st_size,
-                "note": "Owner-facing Russian PDF",
-            }
-        )
-    else:
-        evidence_entries.append(
-            {
-                "evidence_kind": "browser_screenshot_planned",
-                "path": "evidence/screenshots/",
-                "sha256": "",
-                "bytes": 0,
-                "note": "No browser screenshot capture in V0.1 default mode.",
             }
         )
     evidence_index = {"schema_version": "imperium.administratum.evidence_index.v0_1", "entries": evidence_entries}
@@ -616,6 +573,8 @@ def build_dossier_package(
             "language": "ru",
             "backend": pdf_backend,
             "path": Path(owner_pdf_path).relative_to(staging_root).as_posix() if owner_pdf_path else None,
+            "default_zip_policy": "NO_PDF_MD_JSON_ONLY",
+            "optional_external_render_only": True,
         },
     }
     manifest_path = staging_root / "MANIFEST.json"
@@ -640,8 +599,6 @@ def build_dossier_package(
             zf.write(file_path, arcname=file_path.relative_to(staging_root).as_posix())
 
     verdict = initial_verdict
-    if not owner_pdf_generated and verdict == "PASS":
-        verdict = "WARN"
     if not hash_verify.get("ok", False):
         verdict = "FAIL"
     return DossierBuildResult(
@@ -693,14 +650,12 @@ def verify_dossier_package(zip_path: Path, verify_dir: Path) -> Dict[str, Any]:
         "reports_en/IMPLEMENTATION_REPORT.md",
         "reports_en/TEST_REPORT.md",
         "reports_en/CHANGED_FILES.md",
-        "reports_en/SELF_ASSESSMENT.md",
         "reports_en/LIMITATIONS_AND_UNVERIFIED.md",
+        "owner_ru/OWNER_SUMMARY_RU.md",
     ]
     missing_required = [item for item in required if not (extract_root / item).exists()]
     hash_report = _verify_sha256sums(extract_root, extract_root / "SHA256SUMS.txt")
-    owner_pdf_path = extract_root / "owner_ru" / "OWNER_DOSSIER_RU.pdf"
-    owner_pdf_fallback = extract_root / "owner_ru" / "PDF_BACKEND_MISSING_RU.md"
-    owner_pdf_generated = owner_pdf_path.exists()
+    pdf_members = [name for name in zip_members if name.lower().endswith(".pdf")]
 
     warnings: List[str] = []
     verdict = "PASS"
@@ -710,13 +665,9 @@ def verify_dossier_package(zip_path: Path, verify_dir: Path) -> Dict[str, Any]:
     if not hash_report.get("ok", False):
         verdict = "FAIL"
         warnings.append("hash_verification_failed")
-    if not owner_pdf_generated:
-        if owner_pdf_fallback.exists() and verdict != "FAIL":
-            verdict = "WARN"
-            warnings.append("owner_pdf_missing_backend_fallback_present")
-        elif verdict != "FAIL":
-            verdict = "WARN"
-            warnings.append("owner_pdf_missing_without_fallback")
+    if pdf_members:
+        verdict = "FAIL"
+        warnings.append("default_dossier_contains_pdf")
 
     return {
         "report_type": "DOSSIER_VERIFY_REPORT",
@@ -724,11 +675,13 @@ def verify_dossier_package(zip_path: Path, verify_dir: Path) -> Dict[str, Any]:
         "zip_path": str(zip_path),
         "extract_root": str(extract_root),
         "zip_members_count": len(zip_members),
+        "zip_members": zip_members,
         "missing_required": missing_required,
         "hash_verification": hash_report,
-        "owner_pdf_generated": owner_pdf_generated,
-        "owner_pdf_path": str(owner_pdf_path) if owner_pdf_generated else None,
-        "owner_pdf_fallback_path": str(owner_pdf_fallback) if owner_pdf_fallback.exists() else None,
+        "owner_pdf_generated": False,
+        "owner_pdf_path": None,
+        "pdf_members": pdf_members,
+        "default_dossier_has_pdf": bool(pdf_members),
         "warnings": warnings,
         "verdict": verdict,
     }

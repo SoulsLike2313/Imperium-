@@ -527,7 +527,7 @@ def route_for_object(obj: Dict[str, Any], requested_action: str = "") -> Dict[st
         reason.append("mutation/deletion request detected")
         confidence = 0.95
         escalation = "REQUEST_MUTATION_REJECT"
-        verdict = "REJECT_MUTATION_REQUEST"
+        verdict = "BLOCKED_SCOPE_OR_MUTATION_REQUEST"
     else:
         if zone == "PRIVATE_CONTEXT":
             routes.extend(["CUSTODES_AGENT", "INQUISITION_AGENT", "THRONE_AGENT"])
@@ -648,7 +648,7 @@ def build_inventory(
                     "route_confidence": route["route_confidence"],
                 }
             )
-            if route["verdict"].startswith("REJECT"):
+            if route["verdict"].startswith("REJECT") or "BLOCK" in route["verdict"]:
                 rejected += 1
             zone_counts[obj["zone_class"]] += 1
             artifact_counts[obj["artifact_type"]] += 1
@@ -840,7 +840,7 @@ def _review_priority(obj: Dict[str, Any]) -> str:
 
 def _recommended_action(obj: Dict[str, Any]) -> str:
     route = route_for_object(obj)
-    if route["verdict"].startswith("REJECT"):
+    if route["verdict"].startswith("REJECT") or "BLOCK" in route["verdict"]:
         return "Reject and escalate to Custodes/Inquisition."
     if obj.get("artifact_type") == "SCRIPT":
         return "Mechanicus review before any promotion."
@@ -1033,13 +1033,13 @@ def route_to_organs(
         combined = dict(cls)
         combined.update(decision)
         routes.append(combined)
-        if decision["verdict"].startswith("REJECT"):
+        if decision["verdict"].startswith("REJECT") or "BLOCK" in decision["verdict"]:
             rejected += 1
             warnings.append(f"rejected requested action for {cls['path']}")
 
     verdict = "PASS"
     if rejected > 0:
-        verdict = "PASS_WITH_WARNINGS"
+        verdict = "BLOCKED"
     report = {
         "report_type": "ROUTING_RECOMMENDATIONS_REPORT",
         "agent_id": "ADMINISTRATUM_AGENT",

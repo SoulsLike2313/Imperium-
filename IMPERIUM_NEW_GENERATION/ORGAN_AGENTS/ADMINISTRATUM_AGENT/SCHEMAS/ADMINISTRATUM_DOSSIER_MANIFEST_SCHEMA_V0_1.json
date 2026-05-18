@@ -115,6 +115,12 @@
             "string",
             "null"
           ]
+        },
+        "default_zip_policy": {
+          "type": "string"
+        },
+        "optional_external_render_only": {
+          "type": "boolean"
         }
       }
     }
