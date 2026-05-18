@@ -1,8 +1,8 @@
 {
   "agent_id": "ADMINISTRATUM_AGENT",
-  "status": "REFERENCE_READY_WITH_TRANSFER_GATE_V0_1",
+  "status": "REFERENCE_READY_WITH_PC_TRANSFER_PUSH_SHELL_REPAIR_V0_1",
   "runtime_mode": "RUNS_LAYER_ONLY",
   "mutated_canon": false,
   "deleted_files": false,
-  "note": "Runtime command outputs are routed to IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT by default; manual PC-to-VM2 transfer payloads are routed to ADMINISTRATUM_TRANSFER outside Git."
+  "note": "Runtime command outputs are routed to IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT by default; manual PC-to-VM2 transfer payloads are routed to ADMINISTRATUM_TRANSFER outside Git; transfer-push-vm2 requires remote SHA256/size proof before PASS."
 }

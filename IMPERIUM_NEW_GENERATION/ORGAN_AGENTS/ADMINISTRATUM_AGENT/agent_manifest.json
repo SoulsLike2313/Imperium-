@@ -3,7 +3,7 @@
   "agent_name": "Administratum-Agent",
   "version": "V1_HARDENED_REF_TRAJECTORY",
   "organ": "ADMINISTRATUM",
-  "status": "REFERENCE_READY_WITH_TRANSFER_GATE_V0_1",
+  "status": "REFERENCE_READY_WITH_PC_TRANSFER_PUSH_SHELL_REPAIR_V0_1",
   "primary_role": "memory_archive_inventory_provenance_routing_transfer_gateway",
   "runtime_mode": "RUNS_LAYER_ONLY",
   "tool_runtime_dependency_policy": "PYTHON_STDLIB_ONLY",
@@ -61,6 +61,7 @@
     "build_freelance_handoff",
     "transfer_verify_pack",
     "transfer_send_vm2",
+    "transfer_push_vm2",
     "transfer_fetch_vm2",
     "transfer_status"
   ],
@@ -73,5 +74,5 @@
     "merge_recommendations",
     "unknown_high_risk_artifacts"
   ],
-  "updated_at_utc": "2026-05-18T19:52:00Z"
+  "updated_at_utc": "2026-05-18T20:45:00Z"
 }

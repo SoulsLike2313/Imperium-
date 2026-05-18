@@ -90,7 +90,9 @@ if str(TRANSFER_GATE_SCRIPTS) not in sys.path:
 
 from transfer_gate_core_v0_1 import (  # noqa: E402
     DEFAULT_TRANSFER_ROOT,
+    fetch_vm2_response_bundle_remote,
     fetch_vm2_response_bundle,
+    push_vm2_prompt_pack,
     send_vm2_prompt_pack,
     transfer_status,
     verify_prompt_pack,
@@ -2796,6 +2798,89 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
             cmd_transfer_status.stdout[:400],
         )
     )
+    cmd_shell_transfer_help = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "shell", "--once", "/help"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(
+        _test_result(
+            "shell_help_lists_transfer_rites",
+            all(
+                token in cmd_shell_transfer_help.stdout
+                for token in [
+                    "/transfer-status",
+                    "/transfer-verify-pack",
+                    "/transfer-send-vm2",
+                    "/transfer-push-vm2",
+                    "/transfer-fetch-vm2",
+                ]
+            ),
+            cmd_shell_transfer_help.stdout[:500],
+        )
+    )
+
+    cmd_transfer_push_missing = subprocess.run(
+        [sys.executable, str(runner_path), "--plain-json", "transfer-push-vm2", "--step-name", "missing-pack", "--transport", "local", "--remote-root", str(ctx.run_dir / "mock_vm2")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(
+        _test_result(
+            "transfer_push_missing_path_blocks",
+            cmd_transfer_push_missing.returncode != 0 and "BLOCKED_INPUT_MISSING" in cmd_transfer_push_missing.stdout,
+            cmd_transfer_push_missing.stdout[:500] or cmd_transfer_push_missing.stderr[:500],
+        )
+    )
+
+    cmd_transfer_push_bad = subprocess.run(
+        [
+            sys.executable,
+            str(runner_path),
+            "--plain-json",
+            "transfer-push-vm2",
+            "--pack-zip",
+            str(ctx.run_dir / "missing_prompt_pack.zip"),
+            "--step-name",
+            "bad-pack",
+            "--transport",
+            "local",
+            "--remote-root",
+            str(ctx.run_dir / "mock_vm2"),
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(
+        _test_result(
+            "transfer_push_bad_path_blocks",
+            cmd_transfer_push_bad.returncode != 0 and "BLOCKED_INPUT_MISSING" in cmd_transfer_push_bad.stdout,
+            cmd_transfer_push_bad.stdout[:500] or cmd_transfer_push_bad.stderr[:500],
+        )
+    )
+
+    transfer_pc_test_path = AGENT_ROOT / "TRANSFER_GATE" / "TESTS" / "test_transfer_gate_pc_push_fetch_v0_1.py"
+    tests.append(_test_result("transfer_pc_test_script_exists", transfer_pc_test_path.exists(), str(transfer_pc_test_path)))
+    cmd_transfer_pc_test = subprocess.run(
+        [sys.executable, str(transfer_pc_test_path)],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(
+        _test_result(
+            "transfer_pc_push_fetch_synthetic",
+            cmd_transfer_pc_test.returncode == 0 and '"verdict": "PASS"' in cmd_transfer_pc_test.stdout,
+            cmd_transfer_pc_test.stdout[:700] or cmd_transfer_pc_test.stderr[:700],
+        )
+    )
 
     cmd_valid_freelance = subprocess.run(
         [sys.executable, str(runner_path), "--no-color", "validate-freelance-envelope", "--envelope", str(FREELANCE_SAMPLE_VALID_PATH), "--out", str(ctx.run_dir / "cli_freelance_valid")],
@@ -3092,6 +3177,11 @@ def _shell_commands_reference() -> List[str]:
         "/metrics",
         "/kpd",
         "/check-all",
+        "/transfer-status",
+        "/transfer-verify-pack <pack_zip>",
+        "/transfer-send-vm2 <pack_zip> <step name>",
+        "/transfer-push-vm2 <pack_zip> <step name>",
+        "/transfer-fetch-vm2 <task_id> <expected_filename>",
         "/recent",
         "/open-runs",
         "/exit",
@@ -3227,6 +3317,11 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
             "/schema-regression": "Validate core JSON envelopes, command receipt shape, dossier no-PDF policy, and freelance samples.",
             "/validate-freelance-envelope": "Validate an Administratum freelance task envelope.",
             "/build-freelance-handoff": "Build Administratum's scoped freelance handoff package.",
+            "/transfer-status": "Show Transfer Gate runtime status.",
+            "/transfer-verify-pack": "Verify a Logos prompt ZIP. Usage: /transfer-verify-pack <pack_zip>",
+            "/transfer-send-vm2": "Local stamp/register only. Usage: /transfer-send-vm2 <pack_zip> <step name>",
+            "/transfer-push-vm2": "PC-side push to VM2 with remote hash/size proof. Usage: /transfer-push-vm2 <pack_zip> <step name>",
+            "/transfer-fetch-vm2": "PC-side fetch by exact response filename. Usage: /transfer-fetch-vm2 <task_id> <expected_filename>",
         }
         summary = "Available rites listed."
         details: Dict[str, Any] = {"commands": _shell_commands_reference(), "modes": ["slash commands only", "plain JSON remains authoritative outside shell"]}
@@ -3361,6 +3456,85 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
         return command_recent(argparse.Namespace(limit=8, out=None), renderer)
     if cmd == "/open-runs":
         return command_open_runs(argparse.Namespace(out=None), renderer)
+    if cmd == "/transfer-status":
+        return command_transfer_status(argparse.Namespace(transfer_root=str(DEFAULT_TRANSFER_ROOT), ledger_tail=5, out=None), renderer)
+    if cmd == "/transfer-verify-pack":
+        if not args:
+            raise UserFacingError(
+                "Missing `<pack_zip>` for /transfer-verify-pack.",
+                "Provide a prompt pack ZIP path.",
+                "/transfer-verify-pack /path/to/TASK__PROMPT_PACK.zip",
+            )
+        return command_transfer_verify_pack(argparse.Namespace(pack_zip=args[0], transfer_root=str(DEFAULT_TRANSFER_ROOT), out=None), renderer)
+    if cmd == "/transfer-send-vm2":
+        if len(args) < 2:
+            raise UserFacingError(
+                "Missing arguments for /transfer-send-vm2.",
+                "Provide pack path and step name. Quote the step name when it contains spaces.",
+                "/transfer-send-vm2 /path/to/TASK__PROMPT_PACK.zip \"Owner step\"",
+            )
+        return command_transfer_send_vm2(
+            argparse.Namespace(
+                pack_zip=args[0],
+                step_name=" ".join(args[1:]),
+                source_head=None,
+                operator="OWNER",
+                transfer_root=str(DEFAULT_TRANSFER_ROOT),
+                out=None,
+            ),
+            renderer,
+        )
+    if cmd == "/transfer-push-vm2":
+        if len(args) < 2:
+            raise UserFacingError(
+                "Missing arguments for /transfer-push-vm2.",
+                "Provide pack path and step name. VM2 target defaults are used unless CLI flags are needed.",
+                "/transfer-push-vm2 /path/to/TASK__PROMPT_PACK.zip \"Owner step\"",
+            )
+        return command_transfer_push_vm2(
+            argparse.Namespace(
+                pack_zip=args[0],
+                step_name=" ".join(args[1:]),
+                source_head=None,
+                operator="OWNER",
+                task_id=None,
+                vm_user="vboxuser2",
+                vm_host="127.0.0.1",
+                vm_port=2223,
+                vm_key=None,
+                remote_root="/home/vboxuser2/IMPERIUM_CONTEXT/LOCAL/ADMINISTRATUM_TRANSFER",
+                transfer_root=str(DEFAULT_TRANSFER_ROOT),
+                transport="ssh",
+                dry_run=False,
+                out=None,
+            ),
+            renderer,
+        )
+    if cmd == "/transfer-fetch-vm2":
+        if len(args) < 2:
+            raise UserFacingError(
+                "Missing arguments for /transfer-fetch-vm2.",
+                "Provide task id and exact expected response filename.",
+                "/transfer-fetch-vm2 TASK-ID TASK-ID__VM2_RESPONSE_BUNDLE.zip",
+            )
+        return command_transfer_fetch_vm2(
+            argparse.Namespace(
+                task_id=args[0],
+                expected_filename=args[1],
+                correlation_id=None,
+                transfer_root=str(DEFAULT_TRANSFER_ROOT),
+                no_quarantine=False,
+                pc_remote=True,
+                vm_user="vboxuser2",
+                vm_host="127.0.0.1",
+                vm_port=2223,
+                vm_key=None,
+                remote_root="/home/vboxuser2/IMPERIUM_CONTEXT/LOCAL/ADMINISTRATUM_TRANSFER",
+                transport="ssh",
+                out=None,
+            ),
+            renderer,
+        )
 
     suggestion = difflib.get_close_matches(cmd, _shell_known_command_tokens(), n=1, cutoff=0.55)
     how_to_fix = "Use `/help` to list available rites."
@@ -3491,16 +3665,85 @@ def command_transfer_send_vm2(args: argparse.Namespace, renderer: Renderer) -> i
     )
 
 
+def _add_dirty_truth(result: Dict[str, Any]) -> Dict[str, Any]:
+    dirty_paths = _git_dirty_paths(REPO_ROOT)
+    if not dirty_paths:
+        result["dirty_repo_before"] = False
+        result["dirty_paths_before"] = []
+        return result
+    warnings = list(result.get("warnings", []) or [])
+    warnings.append("WARN_DIRTY_REPO")
+    result["warnings"] = list(dict.fromkeys(warnings))
+    result["dirty_repo_before"] = True
+    result["dirty_paths_before"] = dirty_paths
+    return result
+
+
+def command_transfer_push_vm2(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("transfer-push-vm2", args.out)
+    source_head = str(args.source_head or git_head(REPO_ROOT))
+    result = push_vm2_prompt_pack(
+        getattr(args, "pack_zip", None),
+        step_name=str(getattr(args, "step_name", "")),
+        source_head=source_head,
+        operator=str(getattr(args, "operator", "OWNER")),
+        task_id=getattr(args, "task_id", None),
+        vm_user=str(getattr(args, "vm_user", "vboxuser2")),
+        vm_host=str(getattr(args, "vm_host", "127.0.0.1")),
+        vm_port=int(getattr(args, "vm_port", 2223)),
+        vm_key=getattr(args, "vm_key", None),
+        remote_root=str(getattr(args, "remote_root", "/home/vboxuser2/IMPERIUM_CONTEXT/LOCAL/ADMINISTRATUM_TRANSFER")),
+        runtime_root=Path(getattr(args, "transfer_root", str(DEFAULT_TRANSFER_ROOT))),
+        transport=str(getattr(args, "transport", "ssh")),
+        dry_run=bool(getattr(args, "dry_run", False)),
+    )
+    result = _add_dirty_truth(result)
+    report_path = ctx.run_dir / "reports" / "transfer_push_vm2_report.json"
+    write_json(report_path, result)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: TRANSFER PUSH VM2",
+        verdict=_transfer_command_verdict(result),
+        summary="Transfer prompt pack PC-to-VM2 push completed.",
+        outputs=[report_path],
+        input_refs=[
+            str(getattr(args, "pack_zip", "")),
+            str(getattr(args, "remote_root", "")),
+            str(getattr(args, "transfer_root", "")),
+        ],
+        warnings=_transfer_warnings(result),
+        details=result,
+        next_actions=["Use transfer-fetch-vm2 after VM2 creates the exact response bundle."],
+        blocker_class="TRANSFER_PUSH_BLOCKED" if str(result.get("verdict", "")).startswith("BLOCKED") else None,
+    )
+
+
 def command_transfer_fetch_vm2(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("transfer-fetch-vm2", args.out)
     runtime_root = Path(args.transfer_root)
-    result = fetch_vm2_response_bundle(
-        task_id=str(args.task_id),
-        expected_filename=args.expected_filename,
-        correlation_id=args.correlation_id,
-        runtime_root=runtime_root,
-        quarantine_on_mismatch=not bool(args.no_quarantine),
-    )
+    if bool(getattr(args, "pc_remote", False)):
+        result = fetch_vm2_response_bundle_remote(
+            task_id=str(args.task_id),
+            expected_filename=str(args.expected_filename or ""),
+            correlation_id=args.correlation_id,
+            runtime_root=runtime_root,
+            vm_user=str(getattr(args, "vm_user", "vboxuser2")),
+            vm_host=str(getattr(args, "vm_host", "127.0.0.1")),
+            vm_port=int(getattr(args, "vm_port", 2223)),
+            vm_key=getattr(args, "vm_key", None),
+            remote_root=str(getattr(args, "remote_root", "/home/vboxuser2/IMPERIUM_CONTEXT/LOCAL/ADMINISTRATUM_TRANSFER")),
+            transport=str(getattr(args, "transport", "ssh")),
+        )
+    else:
+        result = fetch_vm2_response_bundle(
+            task_id=str(args.task_id),
+            expected_filename=args.expected_filename,
+            correlation_id=args.correlation_id,
+            runtime_root=runtime_root,
+            quarantine_on_mismatch=not bool(args.no_quarantine),
+        )
+    result = _add_dirty_truth(result)
     report_path = ctx.run_dir / "reports" / "transfer_fetch_vm2_report.json"
     write_json(report_path, result)
     return _finalize_command(
@@ -3571,6 +3814,7 @@ COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "optional-oss-proposal": command_optional_oss_proposal,
     "transfer-verify-pack": command_transfer_verify_pack,
     "transfer-send-vm2": command_transfer_send_vm2,
+    "transfer-push-vm2": command_transfer_push_vm2,
     "transfer-fetch-vm2": command_transfer_fetch_vm2,
     "transfer-status": command_transfer_status,
 }
@@ -3782,11 +4026,35 @@ def build_parser() -> argparse.ArgumentParser:
     p_transfer_send.add_argument("--out", default=None)
     p_transfer_send.set_defaults(func=command_transfer_send_vm2)
 
+    p_transfer_push = sub.add_parser("transfer-push-vm2", help="Push a prompt pack to VM2 and require remote SHA256/size proof.")
+    p_transfer_push.add_argument("--pack-zip", default=None)
+    p_transfer_push.add_argument("--step-name", default="")
+    p_transfer_push.add_argument("--source-head", default=None)
+    p_transfer_push.add_argument("--operator", default="OWNER")
+    p_transfer_push.add_argument("--task-id", default=None)
+    p_transfer_push.add_argument("--vm-user", default="vboxuser2")
+    p_transfer_push.add_argument("--vm-host", default="127.0.0.1")
+    p_transfer_push.add_argument("--vm-port", type=int, default=2223)
+    p_transfer_push.add_argument("--vm-key", default=None)
+    p_transfer_push.add_argument("--remote-root", default="/home/vboxuser2/IMPERIUM_CONTEXT/LOCAL/ADMINISTRATUM_TRANSFER")
+    p_transfer_push.add_argument("--transfer-root", default=str(DEFAULT_TRANSFER_ROOT))
+    p_transfer_push.add_argument("--transport", choices=["ssh", "local"], default="ssh")
+    p_transfer_push.add_argument("--dry-run", action="store_true")
+    p_transfer_push.add_argument("--out", default=None)
+    p_transfer_push.set_defaults(func=command_transfer_push_vm2)
+
     p_transfer_fetch = sub.add_parser("transfer-fetch-vm2", help="Fetch and verify a VM2 response ZIP by exact filename.")
     p_transfer_fetch.add_argument("--task-id", required=True)
     p_transfer_fetch.add_argument("--expected-filename", default=None)
     p_transfer_fetch.add_argument("--correlation-id", default=None)
     p_transfer_fetch.add_argument("--transfer-root", default=str(DEFAULT_TRANSFER_ROOT))
+    p_transfer_fetch.add_argument("--pc-remote", action="store_true", help="Fetch from a remote VM2 outbox instead of local transfer root.")
+    p_transfer_fetch.add_argument("--vm-user", default="vboxuser2")
+    p_transfer_fetch.add_argument("--vm-host", default="127.0.0.1")
+    p_transfer_fetch.add_argument("--vm-port", type=int, default=2223)
+    p_transfer_fetch.add_argument("--vm-key", default=None)
+    p_transfer_fetch.add_argument("--remote-root", default="/home/vboxuser2/IMPERIUM_CONTEXT/LOCAL/ADMINISTRATUM_TRANSFER")
+    p_transfer_fetch.add_argument("--transport", choices=["ssh", "local"], default="ssh")
     p_transfer_fetch.add_argument("--no-quarantine", action="store_true")
     p_transfer_fetch.add_argument("--out", default=None)
     p_transfer_fetch.set_defaults(func=command_transfer_fetch_vm2)
