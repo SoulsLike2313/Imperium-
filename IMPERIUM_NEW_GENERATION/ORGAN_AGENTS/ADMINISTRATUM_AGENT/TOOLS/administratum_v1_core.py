@@ -14,7 +14,7 @@ from collections import Counter
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
 AGENT_ROOT = Path(__file__).resolve().parents[1]
 NEW_GENERATION_ROOT = AGENT_ROOT.parents[1]
@@ -68,13 +68,29 @@ CU_TAXONOMY = [
 
 METRIC_FIELDS = [
     "wall_clock_ms",
+    "process_cpu_seconds",
+    "peak_memory_kb",
+    "peak_memory_unavailable_reason",
+    "memory_metric_source",
     "files_scanned",
     "files_classified",
     "objects_considered",
+    "outputs_written_count",
+    "output_bytes_total",
     "warnings_count",
+    "errors_count",
     "rejected_count",
     "routes_made",
     "receipts_written",
+    "dirty_before",
+    "dirty_after",
+    "gpu_used",
+    "gpu_reason",
+    "touched_paths_read_count",
+    "touched_paths_written_count",
+    "run_cost_class",
+    "owner_wait_seconds",
+    "maintenance_cost_note",
     "output_bytes",
     "cost_class",
     "dirty_tree_before",
@@ -219,7 +235,12 @@ def create_run_dir(out_dir: Optional[str] = None) -> Tuple[str, Path]:
             out_path = (REPO_ROOT / out_path).resolve()
     else:
         stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
-        out_path = RUNS_ROOT / f"RUN-ADMINISTRATUM-{stamp}-{stable_id('r', now_utc())[-4:]}"
+        base_name = f"RUN-ADMINISTRATUM-{stamp}-{stable_id('r', now_utc())[-6:]}"
+        out_path = RUNS_ROOT / base_name
+        suffix = 1
+        while out_path.exists():
+            out_path = RUNS_ROOT / f"{base_name}-{suffix:02d}"
+            suffix += 1
 
     out_path.mkdir(parents=True, exist_ok=True)
     (out_path / "receipts").mkdir(parents=True, exist_ok=True)
@@ -235,15 +256,31 @@ def new_metrics(command: str, dirty_before: bool) -> Dict[str, Any]:
     return {
         "command": command,
         "wall_clock_ms": 0,
+        "process_cpu_seconds": 0.0,
+        "peak_memory_kb": None,
+        "peak_memory_unavailable_reason": "not_measured_yet",
+        "memory_metric_source": "unavailable",
         "files_scanned": 0,
         "files_classified": 0,
         "objects_considered": 0,
+        "outputs_written_count": 0,
+        "output_bytes_total": 0,
         "warnings_count": 0,
+        "errors_count": 0,
         "rejected_count": 0,
         "routes_made": 0,
         "receipts_written": 0,
+        "gpu_used": False,
+        "gpu_reason": "No GPU API/dependency invoked; Python stdlib/script-first execution.",
+        "touched_paths_read_count": 0,
+        "touched_paths_written_count": 0,
+        "owner_wait_seconds": 0.0,
+        "maintenance_cost_note": "Low ongoing maintenance in stdlib-first mode.",
+        "run_cost_class": "UNSET",
         "output_bytes": 0,
         "cost_class": "UNSET",
+        "dirty_before": dirty_before,
+        "dirty_after": dirty_before,
         "dirty_tree_before": dirty_before,
         "dirty_tree_after": dirty_before,
     }
@@ -264,15 +301,40 @@ def finalize_metrics(
     start_ns: int,
     output_paths: Sequence[Path],
     dirty_after: bool,
+    process_cpu_seconds: Optional[float] = None,
+    peak_memory_kb: Optional[int] = None,
+    peak_memory_source: str = "unavailable",
+    peak_memory_reason: str = "",
+    touched_paths_read_count: Optional[int] = None,
+    touched_paths_written_count: Optional[int] = None,
 ) -> Dict[str, Any]:
     metrics["wall_clock_ms"] = int((time.perf_counter_ns() - start_ns) / 1_000_000)
+    metrics["owner_wait_seconds"] = round(metrics["wall_clock_ms"] / 1000.0, 3)
+    if process_cpu_seconds is not None:
+        metrics["process_cpu_seconds"] = round(float(process_cpu_seconds), 6)
+    if peak_memory_kb is not None:
+        metrics["peak_memory_kb"] = int(peak_memory_kb)
+        metrics["peak_memory_unavailable_reason"] = ""
+        metrics["memory_metric_source"] = peak_memory_source or "tracemalloc"
+    else:
+        metrics["peak_memory_kb"] = None
+        metrics["peak_memory_unavailable_reason"] = peak_memory_reason or "unavailable_in_current_runtime"
+        metrics["memory_metric_source"] = peak_memory_source or "unavailable"
     total_bytes = 0
     for p in output_paths:
         if p.exists() and p.is_file():
             total_bytes += p.stat().st_size
+    metrics["outputs_written_count"] = len([p for p in output_paths if p.exists() and p.is_file()])
+    metrics["output_bytes_total"] = total_bytes
     metrics["output_bytes"] = total_bytes
+    if touched_paths_read_count is not None:
+        metrics["touched_paths_read_count"] = int(touched_paths_read_count)
+    if touched_paths_written_count is not None:
+        metrics["touched_paths_written_count"] = int(touched_paths_written_count)
+    metrics["dirty_after"] = dirty_after
     metrics["dirty_tree_after"] = dirty_after
     metrics["cost_class"] = _cost_class(metrics)
+    metrics["run_cost_class"] = metrics["cost_class"]
     return metrics
 
 
@@ -550,6 +612,7 @@ def build_inventory(
     metrics: Optional[Dict[str, Any]] = None,
     max_objects_preview: int = 300,
     max_files: Optional[int] = None,
+    progress_hook: Optional[Callable[[Dict[str, Any]], None]] = None,
 ) -> SkillRunResult:
     objects_jsonl = run_dir / "reports" / "inventory_objects.jsonl"
     if objects_jsonl.exists():
@@ -593,6 +656,14 @@ def build_inventory(
             append_jsonl(objects_jsonl, obj)
             if len(objects_preview) < max_objects_preview:
                 objects_preview.append(obj)
+            if progress_hook and total_files % 200 == 0:
+                progress_hook(
+                    {
+                        "files_scanned": total_files,
+                        "warnings_count": len(warnings),
+                        "rejected_count": rejected,
+                    }
+                )
         if stop_scan:
             break
 
@@ -1005,6 +1076,7 @@ def _scan_context_root(
     scope: str,
     metrics: Optional[Dict[str, Any]] = None,
     max_entries: int = 10000,
+    progress_hook: Optional[Callable[[Dict[str, Any]], None]] = None,
 ) -> Tuple[List[Dict[str, Any]], List[str]]:
     entries: List[Dict[str, Any]] = []
     warnings: List[str] = []
@@ -1039,6 +1111,8 @@ def _scan_context_root(
                 metrics["files_scanned"] += 1
                 metrics["files_classified"] += 1
                 metrics["objects_considered"] += 1
+            if progress_hook and count % 250 == 0:
+                progress_hook({"scope": scope, "objects_scanned": count, "warnings_count": len(warnings)})
     return entries, warnings
 
 
@@ -1048,9 +1122,15 @@ def scan_imperium_context(
     local_root: Path = DEFAULT_CONTEXT_LOCAL,
     private_root: Path = DEFAULT_CONTEXT_PRIVATE,
     metrics: Optional[Dict[str, Any]] = None,
+    progress_hook: Optional[Callable[[Dict[str, Any]], None]] = None,
 ) -> SkillRunResult:
-    local_entries, local_warnings = _scan_context_root(local_root, "LOCAL_CONTEXT", metrics)
-    private_entries, private_warnings = _scan_context_root(private_root, "PRIVATE_CONTEXT", metrics)
+    local_entries, local_warnings = _scan_context_root(local_root, "LOCAL_CONTEXT", metrics, progress_hook=progress_hook)
+    private_entries, private_warnings = _scan_context_root(
+        private_root,
+        "PRIVATE_CONTEXT",
+        metrics,
+        progress_hook=progress_hook,
+    )
     warnings = local_warnings + private_warnings
     entries = local_entries + private_entries
     index_jsonl = run_dir / "reports" / "imperium_context_index.jsonl"
@@ -1287,6 +1367,15 @@ def collect_continuity_pack(
         if src.exists():
             included_refs[name] = str(src)
 
+    loaded_reports: Dict[str, Dict[str, Any]] = {}
+    for name, path_text in included_refs.items():
+        path = Path(path_text)
+        if path.suffix.lower() == ".json" and path.exists():
+            try:
+                loaded_reports[name] = read_json(path)
+            except Exception:
+                continue
+
     manifest = {
         "pack_type": "CONTINUITY_PACK",
         "agent_id": "ADMINISTRATUM_AGENT",
@@ -1304,6 +1393,131 @@ def collect_continuity_pack(
     }
     manifest_path = pack_dir / "continuity_pack_manifest.json"
     write_json(manifest_path, manifest)
+
+    git_truth = {
+        "repo_root": str(repo_root),
+        "git_head": git_head(repo_root),
+        "git_branch": git_branch(repo_root),
+        "dirty": git_is_dirty(repo_root),
+        "timestamp_utc": now_utc(),
+    }
+    current_git_truth_path = pack_dir / "current_git_truth.json"
+    write_json(current_git_truth_path, git_truth)
+
+    active_status = status_snapshot()
+    active_status_path = pack_dir / "active_agent_status.json"
+    write_json(active_status_path, active_status)
+
+    reality = loaded_reports.get("reality_snapshot_report.json", {})
+    reality_excerpt = {
+        "git_head": reality.get("git_head"),
+        "git_branch": reality.get("git_branch"),
+        "dirty_tree": reality.get("dirty_tree"),
+        "dirty_paths_preview": reality.get("dirty_paths", [])[:30],
+        "runtime": reality.get("runtime", {}),
+        "generated_at_utc": reality.get("generated_at_utc"),
+    }
+    reality_excerpt_path = pack_dir / "reality_snapshot_excerpt.json"
+    write_json(reality_excerpt_path, reality_excerpt)
+
+    private_cls = loaded_reports.get("local_context_classification_report.json", {})
+    private_risk = loaded_reports.get("private_export_risk_report.json", {})
+    private_safety = {
+        "metadata_only_mode": True,
+        "private_content_exported": False,
+        "no_git_export_rules": private_cls.get("no_git_export_rules", []),
+        "redaction_guidance": private_cls.get("redaction_guidance", []),
+        "high_risk_count": private_cls.get("high_risk_count", 0),
+        "private_export_risk_count": private_risk.get("risk_count", 0),
+        "warnings": private_risk.get("warnings", []),
+    }
+    private_safety_path = pack_dir / "private_context_safety_report.json"
+    write_json(private_safety_path, private_safety)
+
+    useful = loaded_reports.get("useful_candidates_report.json", {})
+    useful_refs_index = {
+        "top_summary": useful.get("top_summary", {}),
+        "review_priority_distribution": useful.get("review_priority_distribution", {}),
+        "script_candidates_preview": useful.get("script_candidates", [])[:40],
+        "gate_candidates_preview": useful.get("gate_candidates", [])[:40],
+        "policy_candidates_preview": useful.get("policy_candidates", [])[:40],
+    }
+    useful_refs_index_path = pack_dir / "useful_refs_index.json"
+    write_json(useful_refs_index_path, useful_refs_index)
+
+    metrics_summary = metrics_summary_from_run(run_id, run_dir)
+    metrics_summary_path = pack_dir / "metrics_summary.json"
+    write_json(metrics_summary_path, metrics_summary)
+
+    kpd_score, thinking_quality = kpd_from_reports(run_id, run_dir)
+    kpd_path = pack_dir / "kpd_score.json"
+    thinking_path = pack_dir / "thinking_quality_score.json"
+    write_json(kpd_path, kpd_score)
+    write_json(thinking_path, thinking_quality)
+
+    routing = loaded_reports.get("routing_recommendations_report.json", {})
+    warnings_lines: List[str] = []
+    for report_name, report_data in loaded_reports.items():
+        for warning in report_data.get("warnings", []):
+            warnings_lines.append(f"- [{report_name}] {warning}")
+    if not warnings_lines:
+        warnings_lines.append("- No warnings registered for included reports.")
+    warnings_lines.extend(
+        [
+            "",
+            "Owner decision points:",
+            "- Any canon promotion recommendation.",
+            "- Any deletion/mutation request.",
+            "- Any private context export exception.",
+        ]
+    )
+    warnings_decisions_path = pack_dir / "warnings_and_owner_decisions.md"
+    warnings_decisions_path.write_text(
+        "\n".join(["# Warnings and Owner Decisions", "", *warnings_lines, ""]) + "\n",
+        encoding="utf-8",
+    )
+
+    owner_brief_lines = [
+        "# Owner Readable Continuity Brief",
+        "",
+        f"- run_id: {run_id}",
+        f"- git_head: {git_truth['git_head']}",
+        f"- repo_dirty: {str(git_truth['dirty']).lower()}",
+        f"- included_refs_count: {len(included_refs)}",
+        f"- context_mode: {'metadata_only' if include_context else 'disabled'}",
+        f"- kpd_verdict: {kpd_score.get('verdict', 'UNKNOWN')}",
+        f"- trust_verdict: {kpd_score.get('trust_verdict', 'UNKNOWN')}",
+        "",
+        "## Top continuity points",
+        "- Repository truth and runtime truth captured.",
+        "- Private context remains metadata-only with no-git-export rules.",
+        "- Useful references indexed for follow-up Servitor work.",
+        "- Owner decisions isolated in dedicated warnings document.",
+        "",
+    ]
+    owner_brief_path = pack_dir / "owner_readable_continuity_brief.md"
+    owner_brief_path.write_text("\n".join(owner_brief_lines), encoding="utf-8")
+
+    handoff_brief_lines = [
+        "# Agent Handoff Brief",
+        "",
+        f"- run_id: {run_id}",
+        "- next_servitor_focus:",
+        "  - review P0/P1 useful candidates;",
+        "  - validate high-risk routes with Custodes/Inquisition;",
+        "  - keep private context metadata-only;",
+        "  - verify pack against reality before acting on stale refs.",
+        "",
+        "## Routing preview",
+    ]
+    for route_item in routing.get("routes", [])[:20]:
+        path = route_item.get("path", "unknown")
+        route_to = ",".join(route_item.get("route_to", []))
+        handoff_brief_lines.append(f"- {path} -> {route_to}")
+    handoff_brief_lines.append("")
+    handoff_brief_path = pack_dir / "agent_handoff_brief.md"
+    handoff_brief_path.write_text("\n".join(handoff_brief_lines), encoding="utf-8")
+
     summary_path = pack_dir / "continuity_pack_summary.md"
     summary_path.write_text(
         "\n".join(
@@ -1315,11 +1529,40 @@ def collect_continuity_pack(
                 f"- repo_dirty: {str(manifest['repo_dirty']).lower()}",
                 f"- include_context: {str(include_context).lower()}",
                 f"- refs_count: {len(included_refs)}",
+                f"- kpd_verdict: {kpd_score.get('verdict', 'UNKNOWN')}",
+                f"- trust_verdict: {kpd_score.get('trust_verdict', 'UNKNOWN')}",
                 "",
             ]
         ),
         encoding="utf-8",
     )
+
+    pack_receipt = {
+        "receipt_type": "CONTINUITY_PACK_RECEIPT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": run_id,
+        "timestamp_utc": now_utc(),
+        "outputs": [
+            str(manifest_path),
+            str(summary_path),
+            str(owner_brief_path),
+            str(handoff_brief_path),
+            str(reality_excerpt_path),
+            str(current_git_truth_path),
+            str(active_status_path),
+            str(warnings_decisions_path),
+            str(useful_refs_index_path),
+            str(private_safety_path),
+            str(metrics_summary_path),
+            str(kpd_path),
+            str(thinking_path),
+        ],
+        "mutated_canon": False,
+        "private_content_exported": False,
+        "include_context": include_context,
+    }
+    pack_receipt_path = pack_dir / "receipt.json"
+    write_json(pack_receipt_path, pack_receipt)
 
     report = {
         "report_type": "CONTINUITY_PACK_REPORT",
@@ -1329,6 +1572,17 @@ def collect_continuity_pack(
         "pack_dir": str(pack_dir),
         "manifest_path": str(manifest_path),
         "summary_path": str(summary_path),
+        "owner_brief_path": str(owner_brief_path),
+        "agent_handoff_brief_path": str(handoff_brief_path),
+        "reality_snapshot_excerpt_path": str(reality_excerpt_path),
+        "current_git_truth_path": str(current_git_truth_path),
+        "active_agent_status_path": str(active_status_path),
+        "warnings_and_owner_decisions_path": str(warnings_decisions_path),
+        "useful_refs_index_path": str(useful_refs_index_path),
+        "private_context_safety_report_path": str(private_safety_path),
+        "metrics_summary_path": str(metrics_summary_path),
+        "kpd_score_path": str(kpd_path),
+        "continuity_pack_receipt_path": str(pack_receipt_path),
         "included_refs_count": len(included_refs),
         "verdict": "PASS",
     }
@@ -1338,7 +1592,7 @@ def collect_continuity_pack(
         run_id=run_id,
         skill_id="collect_continuity_pack",
         input_refs=[str(repo_root)],
-        outputs=[str(report_path), str(manifest_path), str(summary_path)],
+        outputs=[str(report_path), str(manifest_path), str(summary_path), str(owner_brief_path), str(handoff_brief_path), str(pack_receipt_path)],
         verdict="PASS",
         warnings=[],
     )
@@ -1707,40 +1961,64 @@ def kpd_from_reports(run_id: str, run_dir: Path) -> Tuple[Dict[str, Any], Dict[s
     safety = max(0.0, 1.0 - (warnings * 0.02 + rejected * 0.03))
     owner_action = min(1.0, outputs_count / 8.0)
     servitor_action = min(1.0, outputs_count / 9.0)
+    usefulness = min(1.0, outputs_count / 10.0)
     cost_eff = 0.78
+    warning_penalty = min(0.5, warnings * 0.03)
+    unknown_penalty = max(0.0, 0.2 - class_quality * 0.15)
+    runtime_cost_penalty = min(0.3, rejected * 0.02)
+    total_score_raw = (
+        usefulness * 0.15
+        + route_quality * 0.18
+        + evidence_quality * 0.18
+        + safety * 0.18
+        + cost_eff * 0.08
+        + owner_action * 0.11
+        + servitor_action * 0.12
+        - warning_penalty
+        - unknown_penalty
+        - runtime_cost_penalty
+    )
+    kpd_score = max(0.0, min(1.0, total_score_raw))
+    if kpd_score >= 0.78:
+        trust_verdict = "TRUSTED_FOR_BASE_USE"
+    elif kpd_score >= 0.58:
+        trust_verdict = "TRUSTED_WITH_WARNINGS"
+    elif kpd_score >= 0.35:
+        trust_verdict = "NOT_TRUSTED"
+    else:
+        trust_verdict = "BLOCKED"
 
-    comp = {
-        "useful_outputs": round(min(1.0, outputs_count / 10.0), 3),
-        "route_quality": round(route_quality, 3),
-        "evidence_quality": round(evidence_quality, 3),
+    unproven_claims: List[str] = []
+    if outputs_count < 5:
+        unproven_claims.append("insufficient_output_surface_for_confident_handoff")
+    if route_conf == []:
+        unproven_claims.append("route_confidence_not_observed_in_reports")
+    if provenance_completeness == 0.0:
+        unproven_claims.append("provenance_completeness_not_observed")
+
+    component_scores = {
+        "usefulness": round(usefulness, 3),
+        "evidence": round(evidence_quality, 3),
         "safety": round(safety, 3),
         "cost_efficiency": round(cost_eff, 3),
         "owner_actionability": round(owner_action, 3),
         "servitor_actionability": round(servitor_action, 3),
-        "penalty_warnings": round(min(0.5, warnings * 0.03), 3),
-        "penalty_unknowns": round(max(0.0, 0.2 - class_quality * 0.15), 3),
-        "penalty_correction_burden": round(min(0.3, rejected * 0.02), 3),
+        "route_quality": round(route_quality, 3),
+        "warning_penalty": round(warning_penalty, 3),
+        "unknown_penalty": round(unknown_penalty, 3),
+        "runtime_cost_penalty": round(runtime_cost_penalty, 3),
+        "total_score": round(kpd_score, 3),
     }
-    raw = (
-        comp["useful_outputs"] * 0.15
-        + comp["route_quality"] * 0.18
-        + comp["evidence_quality"] * 0.18
-        + comp["safety"] * 0.18
-        + comp["cost_efficiency"] * 0.08
-        + comp["owner_actionability"] * 0.11
-        + comp["servitor_actionability"] * 0.12
-        - comp["penalty_warnings"]
-        - comp["penalty_unknowns"]
-        - comp["penalty_correction_burden"]
-    )
-    kpd_score = max(0.0, min(1.0, raw))
 
     kpd = {
         "report_type": "KPD_SCORE",
         "agent_id": "ADMINISTRATUM_AGENT",
         "run_id": run_id,
         "generated_at_utc": now_utc(),
-        "component_scores": comp,
+        "component_scores": component_scores,
+        "explanation": "KPD combines usefulness, evidence, safety, actionability and explicit penalties.",
+        "unproven_claims": unproven_claims,
+        "trust_verdict": trust_verdict,
         "score_0_to_1": round(kpd_score, 3),
         "score_0_to_100": round(kpd_score * 100, 1),
         "verdict": "PASS" if kpd_score >= 0.75 else ("PASS_WITH_WARNINGS" if kpd_score >= 0.55 else "BLOCKED"),
@@ -1767,6 +2045,9 @@ def kpd_from_reports(run_id: str, run_dir: Path) -> Tuple[Dict[str, Any], Dict[s
     thinking["score_0_to_1"] = round(tq, 3)
     thinking["score_0_to_100"] = round(tq * 100, 1)
     thinking["verdict"] = "PASS" if tq >= 0.75 else ("PASS_WITH_WARNINGS" if tq >= 0.55 else "BLOCKED")
+    thinking["explanation"] = "Thinking quality measures classification confidence, route appropriateness and evidence consistency."
+    thinking["unproven_claims"] = unproven_claims
+    thinking["trust_verdict"] = "TRUSTED_FOR_BASE_USE" if tq >= 0.78 else ("TRUSTED_WITH_WARNINGS" if tq >= 0.58 else "NOT_TRUSTED")
     return kpd, thinking
 
 
@@ -1778,21 +2059,38 @@ def metrics_summary_from_run(run_id: str, run_dir: Path) -> Dict[str, Any]:
         except Exception:
             continue
     metrics_list = [r.get("metrics", {}) for r in receipts if r.get("metrics")]
+    peak_values = [m.get("peak_memory_kb") for m in metrics_list if isinstance(m.get("peak_memory_kb"), int)]
     aggregate = {
         "commands": len(metrics_list),
         "wall_clock_ms": sum(int(m.get("wall_clock_ms", 0)) for m in metrics_list),
+        "process_cpu_seconds": round(sum(float(m.get("process_cpu_seconds", 0.0) or 0.0) for m in metrics_list), 6),
+        "peak_memory_kb": max(peak_values) if peak_values else None,
+        "peak_memory_unavailable_reason": "" if peak_values else "peak memory not measured in receipts",
+        "memory_metric_source": "tracemalloc_or_unavailable",
         "files_scanned": sum(int(m.get("files_scanned", 0)) for m in metrics_list),
         "files_classified": sum(int(m.get("files_classified", 0)) for m in metrics_list),
         "objects_considered": sum(int(m.get("objects_considered", 0)) for m in metrics_list),
+        "outputs_written_count": sum(int(m.get("outputs_written_count", 0)) for m in metrics_list),
+        "output_bytes_total": sum(int(m.get("output_bytes_total", m.get("output_bytes", 0)) or 0) for m in metrics_list),
         "warnings_count": sum(int(m.get("warnings_count", 0)) for m in metrics_list),
+        "errors_count": sum(int(m.get("errors_count", 0)) for m in metrics_list),
         "rejected_count": sum(int(m.get("rejected_count", 0)) for m in metrics_list),
         "routes_made": sum(int(m.get("routes_made", 0)) for m in metrics_list),
         "receipts_written": sum(int(m.get("receipts_written", 0)) for m in metrics_list),
         "output_bytes": sum(int(m.get("output_bytes", 0)) for m in metrics_list),
+        "touched_paths_read_count": sum(int(m.get("touched_paths_read_count", 0)) for m in metrics_list),
+        "touched_paths_written_count": sum(int(m.get("touched_paths_written_count", 0)) for m in metrics_list),
+        "gpu_used": any(bool(m.get("gpu_used", False)) for m in metrics_list),
+        "gpu_reason": "No GPU API/dependency invoked; Python stdlib/script-first execution.",
+        "owner_wait_seconds": round(sum(float(m.get("owner_wait_seconds", 0.0) or 0.0) for m in metrics_list), 3),
+        "maintenance_cost_note": "Ongoing cost remains moderate with stdlib-only implementation.",
+        "dirty_before": any(bool(m.get("dirty_before", m.get("dirty_tree_before", False))) for m in metrics_list),
+        "dirty_after": any(bool(m.get("dirty_after", m.get("dirty_tree_after", False))) for m in metrics_list),
         "dirty_tree_before": any(bool(m.get("dirty_tree_before", False)) for m in metrics_list),
         "dirty_tree_after": any(bool(m.get("dirty_tree_after", False)) for m in metrics_list),
     }
     aggregate["cost_class"] = _cost_class(aggregate)
+    aggregate["run_cost_class"] = aggregate["cost_class"]
     return {
         "report_type": "METRICS_SUMMARY",
         "agent_id": "ADMINISTRATUM_AGENT",

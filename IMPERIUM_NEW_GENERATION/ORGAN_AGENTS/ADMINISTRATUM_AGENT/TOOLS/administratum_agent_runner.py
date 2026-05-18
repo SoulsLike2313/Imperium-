@@ -11,6 +11,7 @@ import subprocess
 import sys
 import textwrap
 import time
+import tracemalloc
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
@@ -77,7 +78,11 @@ class CommandContext:
     run_dir: Path
     metrics: Dict[str, Any]
     start_ns: int
+    cpu_start: float
+    memory_trace_started: bool
     dirty_before: bool
+    read_paths: set[str]
+    written_paths: set[str]
 
 
 class Renderer:
@@ -222,6 +227,54 @@ class Renderer:
             )
         )
 
+    def emit_progress(self, line: str) -> None:
+        if self.plain_json:
+            return
+        print(line)
+
+
+class ProgressRail:
+    PHASE_LABELS = {
+        1: "Reading repo state",
+        2: "Scanning IMPERIUM_CONTEXT metadata",
+        3: "Building inventory",
+        4: "Classifying risks",
+        5: "Collecting useful refs",
+        6: "Building continuity narrative",
+        7: "Writing receipts and metrics",
+        8: "Verifying pack",
+    }
+
+    def __init__(self, renderer: Renderer, ctx: CommandContext, *, total_phases: int = 8) -> None:
+        self.renderer = renderer
+        self.ctx = ctx
+        self.total_phases = total_phases
+        self.last_phase = 0
+
+    def _elapsed(self) -> str:
+        ms = int((time.perf_counter_ns() - self.ctx.start_ns) / 1_000_000)
+        sec = ms // 1000
+        return f"[{sec:02d}:{ms % 1000:03d}]"
+
+    def _line(self, phase: int, status: str, extra: str = "") -> str:
+        label = self.PHASE_LABELS.get(phase, f"Phase {phase}")
+        tail = f" | {extra}" if extra else ""
+        return f"{self._elapsed()} PHASE {phase}/{self.total_phases} {label} | status={status}{tail}"
+
+    def start(self, phase: int, extra: str = "") -> None:
+        self.last_phase = phase
+        self.renderer.emit_progress(self._line(phase, "RUNNING", extra))
+
+    def pulse(self, phase: Optional[int] = None, extra: str = "") -> None:
+        p = phase if phase is not None else self.last_phase
+        if p <= 0:
+            return
+        self.renderer.emit_progress(self._line(p, "RUNNING", extra))
+
+    def done(self, phase: int, extra: str = "") -> None:
+        self.last_phase = phase
+        self.renderer.emit_progress(self._line(phase, "DONE", extra))
+
 
 def _truthy(value: Optional[str]) -> bool:
     if value is None:
@@ -279,8 +332,24 @@ def _start_command(command: str, out_dir: Optional[str]) -> CommandContext:
     dirty_before = git_is_dirty(REPO_ROOT)
     metrics = new_metrics(command, dirty_before)
     start_ns = time.perf_counter_ns()
+    cpu_start = time.process_time()
+    started_memory_trace = False
+    if not tracemalloc.is_tracing():
+        tracemalloc.start()
+        started_memory_trace = True
     record_run_event(run_dir, "COMMAND_START", {"command": command})
-    return CommandContext(command=command, run_id=run_id, run_dir=run_dir, metrics=metrics, start_ns=start_ns, dirty_before=dirty_before)
+    return CommandContext(
+        command=command,
+        run_id=run_id,
+        run_dir=run_dir,
+        metrics=metrics,
+        start_ns=start_ns,
+        cpu_start=cpu_start,
+        memory_trace_started=started_memory_trace,
+        dirty_before=dirty_before,
+        read_paths=set(),
+        written_paths=set(),
+    )
 
 
 def _write_metrics_report(ctx: CommandContext) -> Path:
@@ -297,6 +366,56 @@ def _write_metrics_report(ctx: CommandContext) -> Path:
     return metrics_path
 
 
+def _register_paths(ctx: CommandContext, refs: Iterable[str], *, write: bool) -> None:
+    target = ctx.written_paths if write else ctx.read_paths
+    for ref in refs:
+        raw = str(ref).strip()
+        if not raw:
+            continue
+        candidate = Path(raw)
+        if not candidate.is_absolute():
+            candidate = (REPO_ROOT / candidate).resolve()
+        target.add(str(candidate))
+
+
+def _path_category(path: Path) -> str:
+    name = path.name.lower()
+    if "receipt" in name:
+        return "receipts"
+    if "metric" in name:
+        return "metrics"
+    if path.suffix.lower() in {".md", ".txt"}:
+        return "docs"
+    return "reports"
+
+
+def _build_access_map(ctx: CommandContext, dirty_after: bool) -> Dict[str, Any]:
+    read_roots = sorted({str(Path(p).anchor + Path(p).parts[1]) if len(Path(p).parts) > 1 else str(Path(p)) for p in ctx.read_paths})
+    written_roots = sorted({str(Path(p).anchor + Path(p).parts[1]) if len(Path(p).parts) > 1 else str(Path(p)) for p in ctx.written_paths})
+    private_roots = sorted({p for p in ctx.read_paths if "IMPERIUM_CONTEXT\\PRIVATE" in p.upper() or "IMPERIUM_CONTEXT/PRIVATE" in p.upper()})
+    files_written_by_category: Dict[str, int] = {}
+    for raw in sorted(ctx.written_paths):
+        p = Path(raw)
+        cat = _path_category(p)
+        files_written_by_category[cat] = files_written_by_category.get(cat, 0) + 1
+    return {
+        "report_type": "ACCESS_MAP_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "read_roots": read_roots,
+        "written_roots": written_roots,
+        "private_roots_metadata_only": private_roots,
+        "forbidden_roots_not_touched": [
+            "E:/IMPERIUM/ORGANS/SANCTUM",
+            "E:/IMPERIUM/IMPERIUM_TEST_VERSION",
+        ],
+        "runtime_output_dir": str(ctx.run_dir),
+        "files_written_by_category": files_written_by_category,
+        "git_mutation_status": "NO_GIT_MUTATION" if (ctx.dirty_before == dirty_after) else "DIRTY_STATE_CHANGED",
+    }
+
+
 def _finalize_command(
     ctx: CommandContext,
     renderer: Renderer,
@@ -310,12 +429,50 @@ def _finalize_command(
     details: Optional[Dict[str, Any]] = None,
     next_actions: Optional[List[str]] = None,
     blocker_class: Optional[str] = None,
+    progress: Optional[ProgressRail] = None,
 ) -> int:
     warnings = warnings or []
+    if progress:
+        progress.start(7, "writing_receipts_and_metrics")
+    input_refs_list = [str(x) for x in input_refs]
+    _register_paths(ctx, input_refs_list, write=False)
     output_paths = [p for p in _collect_outputs(list(outputs)) if p.exists()]
-    finalize_metrics(ctx.metrics, ctx.start_ns, output_paths, git_is_dirty(REPO_ROOT))
+    _register_paths(ctx, [str(p) for p in output_paths], write=True)
+
+    dirty_after = git_is_dirty(REPO_ROOT)
+    cpu_delta = max(0.0, time.process_time() - ctx.cpu_start)
+    peak_kb: Optional[int] = None
+    peak_reason = ""
+    peak_source = "unavailable"
+    if tracemalloc.is_tracing():
+        _, peak = tracemalloc.get_traced_memory()
+        peak_kb = int(peak / 1024)
+        peak_source = "tracemalloc"
+    else:
+        peak_reason = "tracemalloc_not_active"
+
+    finalize_metrics(
+        ctx.metrics,
+        ctx.start_ns,
+        output_paths,
+        dirty_after,
+        process_cpu_seconds=cpu_delta,
+        peak_memory_kb=peak_kb,
+        peak_memory_source=peak_source,
+        peak_memory_reason=peak_reason,
+        touched_paths_read_count=len(ctx.read_paths),
+        touched_paths_written_count=len(ctx.written_paths),
+    )
+
+    access_map = _build_access_map(ctx, dirty_after)
+    access_map_path = ctx.run_dir / "reports" / f"{ctx.command.replace('-', '_')}_access_map.json"
+    write_json(access_map_path, access_map)
+    output_paths.append(access_map_path)
+    _register_paths(ctx, [str(access_map_path)], write=True)
+
     metrics_path = _write_metrics_report(ctx)
     output_paths.append(metrics_path)
+    _register_paths(ctx, [str(metrics_path)], write=True)
     ctx.metrics["receipts_written"] += 1
     receipt = command_receipt(
         run_id=ctx.run_id,
@@ -323,17 +480,35 @@ def _finalize_command(
         argv=sys.argv,
         cwd=str(Path.cwd()),
         git_head_value=git_head(REPO_ROOT),
-        input_refs=list(input_refs),
+        input_refs=input_refs_list,
         output_refs=[str(p) for p in output_paths],
         metrics=ctx.metrics,
         warnings=warnings,
         verdict=verdict,
         dirty_before=ctx.dirty_before,
-        dirty_after=git_is_dirty(REPO_ROOT),
+        dirty_after=dirty_after,
         blocker_class=blocker_class,
     )
     receipt_path = write_command_receipt(ctx.run_dir, ctx.command.replace("-", "_"), receipt)
     output_paths.append(receipt_path)
+
+    _register_paths(ctx, [str(receipt_path)], write=True)
+    existing_files = [p for p in output_paths if p.exists() and p.is_file()]
+    ctx.metrics["outputs_written_count"] = len(existing_files)
+    ctx.metrics["output_bytes_total"] = sum(p.stat().st_size for p in existing_files)
+    ctx.metrics["output_bytes"] = ctx.metrics["output_bytes_total"]
+    ctx.metrics["touched_paths_read_count"] = len(ctx.read_paths)
+    ctx.metrics["touched_paths_written_count"] = len(ctx.written_paths)
+    ctx.metrics["dirty_after"] = dirty_after
+    ctx.metrics["dirty_tree_after"] = dirty_after
+    _ = _write_metrics_report(ctx)
+    if progress:
+        progress.done(7, f"receipts={ctx.metrics.get('receipts_written', 0)}")
+        progress.start(8, "verifying_pack_and_git_state")
+
+    if ctx.memory_trace_started and tracemalloc.is_tracing():
+        tracemalloc.stop()
+
     record_run_event(
         ctx.run_dir,
         "COMMAND_FINISH",
@@ -344,6 +519,8 @@ def _finalize_command(
             "outputs": [str(x) for x in output_paths],
         },
     )
+    if progress:
+        progress.done(8, f"verdict={verdict}")
 
     out_map: Dict[str, str] = {"run_dir": str(ctx.run_dir), "metrics_report": str(metrics_path), "command_receipt": str(receipt_path)}
     for index, path_obj in enumerate(output_paths, start=1):
@@ -460,6 +637,42 @@ def _latest_run_dir() -> Optional[Path]:
     return Path(rows[0]["path"])
 
 
+def _latest_matching_report(file_name: str, limit: int = 30) -> Optional[Path]:
+    for row in _list_recent_runs(limit=limit):
+        candidate = Path(row["path"]) / "reports" / file_name
+        if candidate.exists():
+            return candidate
+    return None
+
+
+def _inventory_progress_hook(rail: ProgressRail) -> Callable[[Dict[str, Any]], None]:
+    def _hook(payload: Dict[str, Any]) -> None:
+        rail.pulse(
+            3,
+            (
+                f"files={payload.get('files_scanned', 0)} "
+                f"warnings={payload.get('warnings_count', 0)} "
+                f"rejected={payload.get('rejected_count', 0)}"
+            ),
+        )
+
+    return _hook
+
+
+def _context_progress_hook(rail: ProgressRail) -> Callable[[Dict[str, Any]], None]:
+    def _hook(payload: Dict[str, Any]) -> None:
+        rail.pulse(
+            2,
+            (
+                f"scope={payload.get('scope', 'N/A')} "
+                f"objects={payload.get('objects_scanned', 0)} "
+                f"warnings={payload.get('warnings_count', 0)}"
+            ),
+        )
+
+    return _hook
+
+
 def command_status(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("status", args.out)
     snap = status_snapshot()
@@ -491,7 +704,14 @@ def command_status(args: argparse.Namespace, renderer: Renderer) -> int:
 def command_inventory(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("inventory", args.out)
-    inv = build_inventory(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
+    rail = ProgressRail(renderer, ctx)
+    rail.start(1, "git_truth_and_dirty_state")
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
+    rail.start(3, "building_inventory")
+    inv = build_inventory(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics, progress_hook=_inventory_progress_hook(rail))
+    rail.done(3, f"files={inv.report.get('total_files', 0)} warnings={len(inv.report.get('warnings', []))}")
+    rail.start(4, "classifying_risks")
+    rail.done(4, f"zones={len(inv.report.get('zone_counts', {}))}")
     payload = _render_skill_payload(inv, "ADMINISTRATUM AGENT :: INVENTORY")
     return _finalize_command(
         ctx,
@@ -500,9 +720,10 @@ def command_inventory(args: argparse.Namespace, renderer: Renderer) -> int:
         verdict=inv.report.get("verdict", "PASS"),
         summary="Repository inventory built.",
         outputs=[inv, Path(inv.report.get("objects_jsonl_path", ""))],
-        input_refs=[str(repo_root)],
+        input_refs=[str(repo_root), "E:/IMPERIUM"],
         warnings=inv.report.get("warnings", []),
         details=inv.report,
+        progress=rail,
     )
 
 
@@ -722,7 +943,22 @@ def command_scan_context(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("scan-imperium-context", args.out)
     local_root = Path(args.local_root).resolve()
     private_root = Path(args.private_root).resolve()
-    scan = scan_imperium_context(ctx.run_id, ctx.run_dir, local_root=local_root, private_root=private_root, metrics=ctx.metrics)
+    rail = ProgressRail(renderer, ctx)
+    rail.start(1, "git_truth_and_dirty_state")
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
+    rail.start(2, "scanning_context_metadata")
+    scan = scan_imperium_context(
+        ctx.run_id,
+        ctx.run_dir,
+        local_root=local_root,
+        private_root=private_root,
+        metrics=ctx.metrics,
+        progress_hook=_context_progress_hook(rail),
+    )
+    total_entries = int(scan.report.get("entry_count", 0))
+    rail.done(2, f"objects={total_entries} warnings={len(scan.report.get('warnings', []))}")
+    rail.start(4, "classifying_risks")
+    rail.done(4, f"private_entries={scan.report.get('scope_counts', {}).get('PRIVATE_CONTEXT', 0)}")
     warnings = list(scan.report.get("warnings", []))
     if scan.report.get("scope_counts", {}).get("PRIVATE_CONTEXT", 0) > 0:
         warnings.append("private context detected; metadata-only export policy active")
@@ -734,9 +970,10 @@ def command_scan_context(args: argparse.Namespace, renderer: Renderer) -> int:
         verdict=verdict,
         summary="Context scan completed (metadata-only).",
         outputs=[scan, Path(scan.report.get("index_jsonl_path", ""))],
-        input_refs=[str(local_root), str(private_root)],
+        input_refs=[str(local_root), str(private_root), "E:/IMPERIUM_CONTEXT"],
         warnings=warnings,
         details=scan.report,
+        progress=rail,
     )
 
 
@@ -771,7 +1008,12 @@ def command_classify_local_context(args: argparse.Namespace, renderer: Renderer)
 def command_collect_reality_snapshot(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("collect-reality-snapshot", args.out)
+    rail = ProgressRail(renderer, ctx)
+    rail.start(1, "reading_repo_state")
     snap = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
+    rail.done(1, f"head={str(snap.report.get('git_head', ''))[:12]}")
+    rail.start(6, "building_reality_capsule")
+    rail.done(6, f"dirty={str(bool(snap.report.get('dirty_tree'))).lower()}")
     warnings: List[str] = []
     if snap.report.get("dirty_tree"):
         warnings.append("repository dirty at snapshot time")
@@ -783,28 +1025,20 @@ def command_collect_reality_snapshot(args: argparse.Namespace, renderer: Rendere
         verdict=verdict,
         summary="Reality snapshot collected.",
         outputs=[snap],
-        input_refs=[str(repo_root)],
+        input_refs=[str(repo_root), "E:/IMPERIUM"],
         warnings=warnings,
         details=snap.report,
+        progress=rail,
     )
 
 
 def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("collect-continuity-pack", args.out)
-    inv = build_inventory(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics, max_files=args.inventory_max_files)
-    prov = build_provenance_index(repo_root, ctx.run_id, ctx.run_dir, Path(inv.report_path), metrics=ctx.metrics, limit=args.provenance_limit)
-    useful = find_useful_candidates(ctx.run_id, ctx.run_dir, Path(inv.report_path), repo_root=repo_root, metrics=ctx.metrics)
-    dirty = detect_dirty_runtime_outputs(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
-    routing = route_to_organs(
-        ctx.run_id,
-        ctx.run_dir,
-        [{"path": x.get("path", "")} for x in inv.report.get("objects_preview", [])[:80] if x.get("path")],
-        requested_action="continuity_pack_collection",
-        metrics=ctx.metrics,
-    )
-    reality = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
-    context_chain: List[Any] = []
+    rail = ProgressRail(renderer, ctx)
+    rail.start(1, "reading_repo_state")
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
+    rail.start(2, "scanning_context_metadata")
     if args.include_context:
         scan = scan_imperium_context(
             ctx.run_id,
@@ -812,12 +1046,42 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
             local_root=Path(args.local_root).resolve(),
             private_root=Path(args.private_root).resolve(),
             metrics=ctx.metrics,
+            progress_hook=_context_progress_hook(rail),
         )
         classify_ctx = classify_local_context(ctx.run_id, ctx.run_dir, Path(scan.report_path), metrics=ctx.metrics)
         risk = detect_private_export_risk(ctx.run_id, ctx.run_dir, Path(classify_ctx.report_path), metrics=ctx.metrics)
-        context_chain = [scan, classify_ctx, risk]
-
+        context_chain: List[Any] = [scan, classify_ctx, risk]
+    else:
+        context_chain = []
+    rail.done(2, "metadata_only=true")
+    rail.start(3, "building_inventory_and_provenance")
+    inv = build_inventory(
+        repo_root,
+        ctx.run_id,
+        ctx.run_dir,
+        metrics=ctx.metrics,
+        max_files=args.inventory_max_files,
+        progress_hook=_inventory_progress_hook(rail),
+    )
+    prov = build_provenance_index(repo_root, ctx.run_id, ctx.run_dir, Path(inv.report_path), metrics=ctx.metrics, limit=args.provenance_limit)
+    rail.done(3, f"files={inv.report.get('total_files', 0)} provenance={prov.report.get('entry_count', 0)}")
+    rail.start(4, "classifying_risks")
+    useful = find_useful_candidates(ctx.run_id, ctx.run_dir, Path(inv.report_path), repo_root=repo_root, metrics=ctx.metrics)
+    dirty = detect_dirty_runtime_outputs(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
+    rail.done(4, f"warnings={len(dirty.report.get('warnings', []))}")
+    rail.start(5, "collecting_useful_refs")
+    routing = route_to_organs(
+        ctx.run_id,
+        ctx.run_dir,
+        [{"path": x.get("path", "")} for x in inv.report.get("objects_preview", [])[:80] if x.get("path")],
+        requested_action="continuity_pack_collection",
+        metrics=ctx.metrics,
+    )
+    rail.done(5, f"routes={routing.report.get('route_count', 0)}")
+    rail.start(6, "building_continuity_narrative")
+    reality = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
     pack = collect_continuity_pack(repo_root, ctx.run_id, ctx.run_dir, include_context=args.include_context, metrics=ctx.metrics)
+    rail.done(6, f"pack_dir={Path(pack.report.get('pack_dir', '')).name}")
     warnings = (
         list(inv.report.get("warnings", []))
         + list(prov.report.get("warnings", []))
@@ -836,9 +1100,10 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
         verdict=verdict,
         summary="Continuity pack collected.",
         outputs=[inv, prov, useful, dirty, routing, reality, context_chain, pack],
-        input_refs=[str(repo_root)],
+        input_refs=[str(repo_root), "E:/IMPERIUM", str(Path(args.local_root).resolve()), str(Path(args.private_root).resolve())],
         warnings=warnings,
         details=pack.report,
+        progress=rail,
     )
 
 
@@ -865,6 +1130,9 @@ def command_build_handoff_context(args: argparse.Namespace, renderer: Renderer) 
 def command_verify_pack(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("verify-pack-against-reality", args.out)
+    rail = ProgressRail(renderer, ctx)
+    rail.start(1, "reading_repo_state")
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
     if args.manifest:
         manifest_path = _resolve_json_report(args.manifest)
     else:
@@ -887,6 +1155,7 @@ def command_verify_pack(args: argparse.Namespace, renderer: Renderer) -> int:
         input_refs=[str(manifest_path)],
         warnings=verification.report.get("warnings", []),
         details=verification.report,
+        progress=rail,
     )
 
 
@@ -1073,10 +1342,13 @@ def _test_result(name: str, ok: bool, detail: Optional[Any] = None) -> Dict[str,
 def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("check-all", args.out)
+    rail = ProgressRail(renderer, ctx)
+    rail.start(1, "reading_git_truth")
 
     before = subprocess.run(["git", "status", "--porcelain"], cwd=repo_root, capture_output=True, text=True, check=False)
     before_set = {line[3:] for line in before.stdout.splitlines() if len(line) > 3}
     tests: List[Dict[str, Any]] = []
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
 
     manifest = load_manifest()
     tests.append(_test_result("manifest_exists", manifest.get("agent_id") == "ADMINISTRATUM_AGENT"))
@@ -1152,24 +1424,48 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     )
     tests.append(_test_result("shell_recent_render", cmd_shell_recent.returncode == 0 and "RECENT RUNS" in cmd_shell_recent.stdout, cmd_shell_recent.stdout[:400]))
 
+    cmd_progress = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "collect-reality-snapshot", "--repo-root", str(REPO_ROOT), "--out", str(ctx.run_dir / "cli_progress")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("progress_renderer_visible", cmd_progress.returncode == 0 and "PHASE 1/8" in cmd_progress.stdout, cmd_progress.stdout[:400]))
+
     # Functional new layers
+    rail.start(2, "scanning_context_metadata")
     scan = scan_imperium_context(
         ctx.run_id,
         ctx.run_dir,
         local_root=Path(args.local_root).resolve(),
         private_root=Path(args.private_root).resolve(),
         metrics=ctx.metrics,
+        progress_hook=_context_progress_hook(rail),
     )
     tests.append(_test_result("scan_imperium_context_runs", Path(scan.report_path).exists()))
+    rail.done(2, f"objects={scan.report.get('entry_count', 0)}")
 
+    rail.start(4, "classifying_risks")
     local_cls = classify_local_context(ctx.run_id, ctx.run_dir, Path(scan.report_path), metrics=ctx.metrics)
     tests.append(_test_result("classify_local_context_runs", Path(local_cls.report_path).exists()))
 
     risk = detect_private_export_risk(ctx.run_id, ctx.run_dir, Path(local_cls.report_path), metrics=ctx.metrics)
     tests.append(_test_result("private_export_risk_report_runs", Path(risk.report_path).exists()))
+    rail.done(4, f"high_risk={local_cls.report.get('high_risk_count', 0)}")
 
-    inv = build_inventory(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics, max_files=args.inventory_max_files)
+    rail.start(3, "building_inventory")
+    inv = build_inventory(
+        repo_root,
+        ctx.run_id,
+        ctx.run_dir,
+        metrics=ctx.metrics,
+        max_files=args.inventory_max_files,
+        progress_hook=_inventory_progress_hook(rail),
+    )
     prov = build_provenance_index(repo_root, ctx.run_id, ctx.run_dir, Path(inv.report_path), metrics=ctx.metrics, limit=120)
+    rail.done(3, f"files={inv.report.get('total_files', 0)}")
+    rail.start(5, "collecting_useful_refs")
     useful = find_useful_candidates(ctx.run_id, ctx.run_dir, Path(inv.report_path), repo_root=repo_root, metrics=ctx.metrics)
     dirty = detect_dirty_runtime_outputs(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
     routing = route_to_organs(
@@ -1180,9 +1476,30 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         metrics=ctx.metrics,
     )
     tests.append(_test_result("route_mutation_request_rejected", any(r.get("verdict", "").startswith("REJECT") for r in routing.report.get("routes", []))))
+    rail.done(5, f"candidates={useful.report.get('top_summary', {}).get('scripts', 0)}")
 
+    rail.start(6, "building_continuity_narrative")
     continuity = collect_continuity_pack(repo_root, ctx.run_id, ctx.run_dir, include_context=True, metrics=ctx.metrics)
     tests.append(_test_result("continuity_pack_exists", Path(continuity.report.get("manifest_path", "")).exists()))
+    required_pack_files = [
+        "continuity_pack_manifest.json",
+        "continuity_pack_summary.md",
+        "owner_readable_continuity_brief.md",
+        "agent_handoff_brief.md",
+        "reality_snapshot_excerpt.json",
+        "current_git_truth.json",
+        "active_agent_status.json",
+        "warnings_and_owner_decisions.md",
+        "useful_refs_index.json",
+        "private_context_safety_report.json",
+        "metrics_summary.json",
+        "kpd_score.json",
+        "receipt.json",
+    ]
+    pack_dir = Path(continuity.report.get("pack_dir", ""))
+    missing_pack = [name for name in required_pack_files if not (pack_dir / name).exists()]
+    tests.append(_test_result("continuity_pack_rich_files_exist", len(missing_pack) == 0, missing_pack))
+    rail.done(6, f"pack_files={len(required_pack_files) - len(missing_pack)}")
 
     verify = verify_pack_against_reality(repo_root, ctx.run_id, ctx.run_dir, Path(continuity.report.get("manifest_path", "")), metrics=ctx.metrics)
     tests.append(_test_result("verify_pack_against_reality_runs", Path(verify.report_path).exists()))
@@ -1215,6 +1532,22 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         except Exception:
             plain_ok = False
     tests.append(_test_result("cli_plain_json_mode", plain_ok, cmd_plain.stdout[:200]))
+
+    metrics_file = ctx.run_dir / "cli_progress" / "reports" / "collect_reality_snapshot_metrics_summary.json"
+    metrics_data = read_json(metrics_file) if metrics_file.exists() else {}
+    metrics_payload = metrics_data.get("metrics", {})
+    tests.append(_test_result("resource_metrics_present", all(k in metrics_payload for k in ["process_cpu_seconds", "gpu_used", "run_cost_class"])))
+    tests.append(_test_result("gpu_fields_explicit_false", metrics_payload.get("gpu_used") is False))
+
+    access_map_path = ctx.run_dir / "cli_progress" / "reports" / "collect_reality_snapshot_access_map.json"
+    tests.append(_test_result("access_map_generated", access_map_path.exists()))
+    if access_map_path.exists():
+        amap = read_json(access_map_path)
+        tests.append(_test_result("access_map_has_touched_roots", bool(amap.get("read_roots")) and bool(amap.get("written_roots"))))
+
+    runner_text = Path(__file__).read_text(encoding="utf-8")
+    banned = [pkg for pkg in ["rich", "textual", "numpy", "pandas"] if f"import {pkg}" in runner_text]
+    tests.append(_test_result("no_external_dependency_imports", len(banned) == 0, banned))
 
     after = subprocess.run(["git", "status", "--porcelain"], cwd=repo_root, capture_output=True, text=True, check=False)
     after_set = {line[3:] for line in after.stdout.splitlines() if len(line) > 3}
@@ -1260,11 +1593,12 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         verdict=verdict if verdict == "PASS" else "BLOCKED",
         summary="Acceptance check suite completed.",
         outputs=[report_path, report_md, kpd_path, thinking_path, inv, prov, useful, dirty, routing, continuity, verify, handoff, cu],
-        input_refs=[str(repo_root)],
+        input_refs=[str(repo_root), "E:/IMPERIUM", str(Path(args.local_root).resolve()), str(Path(args.private_root).resolve())],
         warnings=warnings,
         details=report,
         next_actions=["Review failed checks before claiming PASS."] if failed else ["All checks passed."],
         blocker_class="CHECKS_FAILED" if failed else None,
+        progress=rail,
     )
 
 
@@ -1326,10 +1660,19 @@ def _show_shell_welcome(renderer: Renderer) -> None:
         check_line = f"{check.get('verdict', 'UNKNOWN')} ({check.get('passed', 0)}/{check.get('total', 0)})"
         warning_count = int(check.get("failed", 0))
 
+    latest_manifest = _latest_continuity_manifest()
+    latest_pack = str(latest_manifest.parent) if latest_manifest else "n/a"
+    latest_pack_metrics = str((latest_manifest.parent / "metrics_summary.json")) if latest_manifest and (latest_manifest.parent / "metrics_summary.json").exists() else "n/a"
+    latest_kpd = str((latest_manifest.parent / "kpd_score.json")) if latest_manifest and (latest_manifest.parent / "kpd_score.json").exists() else "n/a"
+    latest_check_path = str(check.get("_path")) if check else "n/a"
+
+    sigil = "⌬ARCHIVE-SEAL⌬" if renderer.use_unicode else "[ARCHIVE-SEAL]"
+
     title_lines = [
+        f"{sigil} IMPERIUM NEW GENERATION / ARCHIVE VAULT ONLINE",
         "ADMINISTRATUM AGENT :: LOCAL MODEL",
         f"version: {snap.get('version', 'UNKNOWN')} | status: {snap.get('status', 'UNKNOWN')}",
-        f"git head: {head_short} | dirty: {str(bool(snap.get('dirty_tree'))).lower()}",
+        f"head: {head_short} | git_dirty: {str(bool(snap.get('dirty_tree'))).lower()} | live_work: enabled",
     ]
     print(renderer.panel("WELCOME", title_lines, color="blue"))
     print(
@@ -1340,6 +1683,11 @@ def _show_shell_welcome(renderer: Renderer) -> None:
                 *iso_lines,
                 f"last check-all: {check_line}",
                 f"warning count: {warning_count}",
+                f"latest check-all report: {latest_check_path}",
+                f"latest continuity pack: {latest_pack}",
+                f"latest metrics: {latest_pack_metrics}",
+                f"latest kpd: {latest_kpd}",
+                "gpu policy: script-first / gpu_used=false",
                 "truth zones: CANON / SANDBOX / RUNTIME / PRIVATE / LOCAL",
             ],
             color="cyan",
