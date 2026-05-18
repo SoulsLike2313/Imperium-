@@ -16,6 +16,20 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Callable, Dict, Iterable, List, Optional, Sequence, Tuple
 
+try:  # Optional controlled renderer experiment.
+    from rich.console import Console
+    from rich.live import Live
+    from rich.panel import Panel
+    from rich.text import Text
+
+    RICH_AVAILABLE = True
+except Exception:  # pragma: no cover - environment dependent
+    Console = Any  # type: ignore[assignment]
+    Live = Any  # type: ignore[assignment]
+    Panel = Any  # type: ignore[assignment]
+    Text = Any  # type: ignore[assignment]
+    RICH_AVAILABLE = False
+
 from administratum_v1_core import (
     AGENT_ROOT,
     NEW_GENERATION_ROOT,
@@ -97,16 +111,32 @@ class Renderer:
         "bold": "\x1b[1m",
     }
 
-    def __init__(self, *, plain_json: bool, color: bool, verbose: bool, compact: bool, force_ascii: bool) -> None:
+    def __init__(
+        self,
+        *,
+        plain_json: bool,
+        color: bool,
+        verbose: bool,
+        compact: bool,
+        force_ascii: bool,
+        rich_enabled: bool,
+    ) -> None:
         self.plain_json = plain_json
         self.color = bool(color)
         self.verbose = verbose
         self.compact = compact
         self.force_ascii = force_ascii
+        self.rich_available = RICH_AVAILABLE
+        self.rich_enabled = bool(rich_enabled and RICH_AVAILABLE and not plain_json)
         enc = (sys.stdout.encoding or "").lower()
         self.use_unicode = ("utf" in enc) and (not force_ascii)
         self.width = max(80, min(140, shutil.get_terminal_size((110, 30)).columns))
         self.frame = self._frame_chars()
+        self._rich_console: Optional[Console] = None
+        self._rich_live: Optional[Live] = None
+        self._progress_state: Dict[str, Any] = {}
+        if self.rich_enabled:
+            self._rich_console = Console(no_color=not self.color, force_terminal=True if self.color else None)
 
     def _frame_chars(self) -> Dict[str, str]:
         if self.use_unicode:
@@ -194,12 +224,14 @@ class Renderer:
         return "\n".join(blocks)
 
     def emit(self, payload: Dict[str, Any]) -> None:
+        self.finish_progress()
         if self.plain_json:
             print(json.dumps(payload, indent=2, ensure_ascii=False))
             return
         print(self._render_payload(payload))
 
     def emit_error(self, err: UserFacingError) -> None:
+        self.finish_progress()
         if self.plain_json:
             print(
                 json.dumps(
@@ -227,10 +259,72 @@ class Renderer:
             )
         )
 
-    def emit_progress(self, line: str) -> None:
+    def begin_progress(self, command: str, run_id: str) -> None:
+        if not self.rich_enabled or self._rich_console is None:
+            return
+        self._progress_state = {
+            "command": command,
+            "run_id": run_id,
+            "phase": 0,
+            "total": 8,
+            "label": "idle",
+            "status": "IDLE",
+            "elapsed": "[00:000]",
+            "extra": "",
+            "last_done": "none",
+        }
+
+    def _render_rich_progress(self) -> Any:
+        phase = int(self._progress_state.get("phase", 0))
+        total = int(self._progress_state.get("total", 8))
+        completed = max(0, min(total, phase))
+        bar_width = 16
+        filled = int((completed / total) * bar_width) if total > 0 else 0
+        bar = f"[{'#' * filled}{'-' * (bar_width - filled)}]"
+        text = Text()
+        text.append("IMPERIUM :: ADMINISTRATUM LOCAL MODEL\n", style="bold magenta")
+        text.append(f"LIVE RITE: {self._progress_state.get('command', 'unknown')}\n", style="bold cyan")
+        text.append(
+            f"{self._progress_state.get('elapsed', '[00:000]')} PHASE {phase}/{total} {self._progress_state.get('label', '')}\n",
+            style="white",
+        )
+        text.append(f"status={self._progress_state.get('status', 'RUNNING')}  {self._progress_state.get('extra', '')}\n", style="yellow")
+        text.append(f"{bar}  last: {self._progress_state.get('last_done', 'none')}", style="bright_blue")
+        return Panel(text, title="ARCHIVE SEAL", border_style="bright_magenta")
+
+    def emit_phase(self, phase: int, total: int, label: str, status: str, elapsed: str, extra: str) -> None:
         if self.plain_json:
             return
+        if self.rich_enabled and self._rich_console is not None:
+            self._progress_state.update(
+                {
+                    "phase": phase,
+                    "total": total,
+                    "label": label,
+                    "status": status,
+                    "elapsed": elapsed,
+                    "extra": extra,
+                }
+            )
+            if status == "DONE":
+                self._progress_state["last_done"] = label
+            renderable = self._render_rich_progress()
+            if self._rich_live is None:
+                self._rich_live = Live(renderable, console=self._rich_console, refresh_per_second=8, transient=False)
+                self._rich_live.start()
+            else:
+                self._rich_live.update(renderable, refresh=True)
+            return
+        line = f"{elapsed} PHASE {phase}/{total} {label} | status={status}"
+        if extra:
+            line += f" | {extra}"
         print(line)
+
+    def finish_progress(self) -> None:
+        if self._rich_live is not None:
+            self._rich_live.stop()
+            self._rich_live = None
+            print("")
 
 
 class ProgressRail:
@@ -250,6 +344,7 @@ class ProgressRail:
         self.ctx = ctx
         self.total_phases = total_phases
         self.last_phase = 0
+        self.renderer.begin_progress(ctx.command, ctx.run_id)
 
     def _elapsed(self) -> str:
         ms = int((time.perf_counter_ns() - self.ctx.start_ns) / 1_000_000)
@@ -263,17 +358,38 @@ class ProgressRail:
 
     def start(self, phase: int, extra: str = "") -> None:
         self.last_phase = phase
-        self.renderer.emit_progress(self._line(phase, "RUNNING", extra))
+        self.renderer.emit_phase(
+            phase,
+            self.total_phases,
+            self.PHASE_LABELS.get(phase, f"Phase {phase}"),
+            "RUNNING",
+            self._elapsed(),
+            extra,
+        )
 
     def pulse(self, phase: Optional[int] = None, extra: str = "") -> None:
         p = phase if phase is not None else self.last_phase
         if p <= 0:
             return
-        self.renderer.emit_progress(self._line(p, "RUNNING", extra))
+        self.renderer.emit_phase(
+            p,
+            self.total_phases,
+            self.PHASE_LABELS.get(p, f"Phase {p}"),
+            "RUNNING",
+            self._elapsed(),
+            extra,
+        )
 
     def done(self, phase: int, extra: str = "") -> None:
         self.last_phase = phase
-        self.renderer.emit_progress(self._line(phase, "DONE", extra))
+        self.renderer.emit_phase(
+            phase,
+            self.total_phases,
+            self.PHASE_LABELS.get(phase, f"Phase {phase}"),
+            "DONE",
+            self._elapsed(),
+            extra,
+        )
 
 
 def _truthy(value: Optional[str]) -> bool:
@@ -416,6 +532,78 @@ def _build_access_map(ctx: CommandContext, dirty_after: bool) -> Dict[str, Any]:
     }
 
 
+def _sync_continuity_pack_metrics(run_dir: Path, metrics: Dict[str, Any]) -> None:
+    metrics_summary_path = run_dir / "continuity_pack" / "metrics_summary.json"
+    if not metrics_summary_path.exists():
+        return
+    try:
+        summary = read_json(metrics_summary_path)
+    except Exception:
+        return
+    aggregate = summary.get("aggregate")
+    if not isinstance(aggregate, dict):
+        return
+
+    numeric_fields = [
+        "wall_clock_ms",
+        "process_cpu_seconds",
+        "files_scanned",
+        "files_classified",
+        "objects_considered",
+        "outputs_written_count",
+        "output_bytes_total",
+        "warnings_count",
+        "errors_count",
+        "rejected_count",
+        "routes_made",
+        "receipts_written",
+        "owner_wait_seconds",
+        "touched_paths_read_count",
+        "touched_paths_written_count",
+    ]
+    for field in numeric_fields:
+        try:
+            current = float(aggregate.get(field, 0) or 0)
+            incoming = float(metrics.get(field, 0) or 0)
+            if incoming > current:
+                if field in {"process_cpu_seconds", "owner_wait_seconds"}:
+                    aggregate[field] = round(incoming, 6 if field == "process_cpu_seconds" else 3)
+                else:
+                    aggregate[field] = int(incoming)
+        except Exception:
+            continue
+
+    peak_incoming = metrics.get("peak_memory_kb")
+    if isinstance(peak_incoming, int):
+        peak_current = aggregate.get("peak_memory_kb")
+        if not isinstance(peak_current, int) or peak_incoming > peak_current:
+            aggregate["peak_memory_kb"] = peak_incoming
+            aggregate["peak_memory_unavailable_reason"] = ""
+            aggregate["memory_metric_source"] = str(metrics.get("memory_metric_source", "tracemalloc"))
+
+    aggregate["gpu_used"] = bool(aggregate.get("gpu_used", False) or metrics.get("gpu_used", False))
+    aggregate["gpu_reason"] = str(metrics.get("gpu_reason", aggregate.get("gpu_reason", "")))
+    aggregate["dirty_before"] = bool(aggregate.get("dirty_before", False) or metrics.get("dirty_before", False))
+    aggregate["dirty_after"] = bool(aggregate.get("dirty_after", False) or metrics.get("dirty_after", False))
+    aggregate["dirty_tree_before"] = bool(
+        aggregate.get("dirty_tree_before", False) or metrics.get("dirty_tree_before", False)
+    )
+    aggregate["dirty_tree_after"] = bool(
+        aggregate.get("dirty_tree_after", False) or metrics.get("dirty_tree_after", False)
+    )
+    aggregate["commands"] = max(int(aggregate.get("commands", 0) or 0), 1)
+
+    incoming_cost = str(metrics.get("run_cost_class", metrics.get("cost_class", "UNSET")))
+    if incoming_cost and incoming_cost != "UNSET":
+        aggregate["run_cost_class"] = incoming_cost
+        aggregate["cost_class"] = incoming_cost
+    aggregate["maintenance_cost_note"] = str(
+        metrics.get("maintenance_cost_note", aggregate.get("maintenance_cost_note", ""))
+    )
+    summary["aggregate"] = aggregate
+    write_json(metrics_summary_path, summary)
+
+
 def _finalize_command(
     ctx: CommandContext,
     renderer: Renderer,
@@ -502,6 +690,7 @@ def _finalize_command(
     ctx.metrics["dirty_after"] = dirty_after
     ctx.metrics["dirty_tree_after"] = dirty_after
     _ = _write_metrics_report(ctx)
+    _sync_continuity_pack_metrics(ctx.run_dir, ctx.metrics)
     if progress:
         progress.done(7, f"receipts={ctx.metrics.get('receipts_written', 0)}")
         progress.start(8, "verifying_pack_and_git_state")
@@ -1080,7 +1269,18 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
     rail.done(5, f"routes={routing.report.get('route_count', 0)}")
     rail.start(6, "building_continuity_narrative")
     reality = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
-    pack = collect_continuity_pack(repo_root, ctx.run_id, ctx.run_dir, include_context=args.include_context, metrics=ctx.metrics)
+    live_snapshot = dict(ctx.metrics)
+    live_snapshot["wall_clock_ms"] = int((time.perf_counter_ns() - ctx.start_ns) / 1_000_000)
+    live_snapshot["process_cpu_seconds"] = max(0.0, time.process_time() - ctx.cpu_start)
+    live_snapshot["owner_wait_seconds"] = round(float(live_snapshot["wall_clock_ms"]) / 1000.0, 3)
+    pack = collect_continuity_pack(
+        repo_root,
+        ctx.run_id,
+        ctx.run_dir,
+        include_context=args.include_context,
+        metrics=ctx.metrics,
+        live_metrics_snapshot=live_snapshot,
+    )
     rail.done(6, f"pack_dir={Path(pack.report.get('pack_dir', '')).name}")
     warnings = (
         list(inv.report.get("warnings", []))
@@ -1674,27 +1874,42 @@ def _show_shell_welcome(renderer: Renderer) -> None:
         f"version: {snap.get('version', 'UNKNOWN')} | status: {snap.get('status', 'UNKNOWN')}",
         f"head: {head_short} | git_dirty: {str(bool(snap.get('dirty_tree'))).lower()} | live_work: enabled",
     ]
+    status_lines = [
+        f"runtime isolation: {iso_status}",
+        *iso_lines,
+        f"last check-all: {check_line}",
+        f"warning count: {warning_count}",
+        f"latest check-all report: {latest_check_path}",
+        f"latest continuity pack: {latest_pack}",
+        f"latest metrics: {latest_pack_metrics}",
+        f"latest kpd: {latest_kpd}",
+        "gpu policy: script-first / gpu_used=false",
+        "truth zones: CANON / SANDBOX / RUNTIME / PRIVATE / LOCAL",
+    ]
+    recent_lines = _shell_activity_summary()
+    rites_lines = _shell_commands_reference()
+
+    if renderer.rich_enabled and renderer._rich_console is not None:
+        welcome_text = Text("\n".join(title_lines), style="bright_white")
+        renderer._rich_console.print(Panel(welcome_text, title="WELCOME", border_style="bright_magenta"))
+        renderer._rich_console.print(Panel(Text("\n".join(status_lines), style="cyan"), title="STATUS", border_style="bright_blue"))
+        renderer._rich_console.print(Panel(Text("\n".join(recent_lines), style="bright_black"), title="RECENT ACTIVITY", border_style="bright_black"))
+        renderer._rich_console.print(Panel(Text("\n".join(rites_lines), style="green"), title="AVAILABLE RITES", border_style="green"))
+        if Path("E:/IMPERIUM_CONTEXT/PRIVATE").exists():
+            renderer._rich_console.print(
+                Panel(
+                    Text("PRIVATE context detected. Metadata-only indexing and no-git-export rules are active.", style="yellow"),
+                    title="SAFETY NOTICE",
+                    border_style="yellow",
+                )
+            )
+        renderer._rich_console.print("ADMINISTRATUM://LOCAL >")
+        return
+
     print(renderer.panel("WELCOME", title_lines, color="blue"))
-    print(
-        renderer.panel(
-            "STATUS",
-            [
-                f"runtime isolation: {iso_status}",
-                *iso_lines,
-                f"last check-all: {check_line}",
-                f"warning count: {warning_count}",
-                f"latest check-all report: {latest_check_path}",
-                f"latest continuity pack: {latest_pack}",
-                f"latest metrics: {latest_pack_metrics}",
-                f"latest kpd: {latest_kpd}",
-                "gpu policy: script-first / gpu_used=false",
-                "truth zones: CANON / SANDBOX / RUNTIME / PRIVATE / LOCAL",
-            ],
-            color="cyan",
-        )
-    )
-    print(renderer.panel("RECENT ACTIVITY", _shell_activity_summary(), color="gray"))
-    print(renderer.panel("AVAILABLE RITES", _shell_commands_reference(), color="green"))
+    print(renderer.panel("STATUS", status_lines, color="cyan"))
+    print(renderer.panel("RECENT ACTIVITY", recent_lines, color="gray"))
+    print(renderer.panel("AVAILABLE RITES", rites_lines, color="green"))
     if Path("E:/IMPERIUM_CONTEXT/PRIVATE").exists():
         print(renderer.panel("SAFETY NOTICE", ["PRIVATE context detected. Metadata-only indexing and no-git-export rules are active."], color="yellow"))
     print("ADMINISTRATUM://LOCAL >")
@@ -1899,6 +2114,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--verbose", action="store_true", help="Verbose output with full details blocks.")
     parser.add_argument("--compact", action="store_true", help="Compact renderer mode.")
     parser.add_argument("--ascii", action="store_true", help="Force ASCII-safe panel rendering.")
+    parser.add_argument("--rich", action="store_true", help="Enable optional Rich renderer when available.")
+    parser.add_argument("--no-rich", action="store_true", help="Force stdlib renderer even if Rich is available.")
 
     sub = parser.add_subparsers(dest="command", required=True)
 
@@ -2045,7 +2262,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 
 def _normalize_global_flags(argv: Sequence[str]) -> List[str]:
-    globals_no_arg = {"--plain-json", "--no-color", "--color", "--verbose", "--compact", "--ascii"}
+    globals_no_arg = {"--plain-json", "--no-color", "--color", "--verbose", "--compact", "--ascii", "--rich", "--no-rich"}
     front: List[str] = []
     rest: List[str] = []
     for tok in argv:
@@ -2072,12 +2289,15 @@ def parse_args(argv: Optional[Sequence[str]]) -> argparse.Namespace:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     args = parse_args(argv)
     color_allowed = bool(args.color and not args.no_color and sys.stdout.isatty() and not _truthy(os.environ.get("NO_COLOR")))
+    rich_auto = bool(RICH_AVAILABLE and sys.stdout.isatty() and not args.plain_json and not args.no_rich)
+    rich_enabled = bool((args.rich or rich_auto) and not args.no_rich and RICH_AVAILABLE and not args.plain_json)
     renderer = Renderer(
         plain_json=bool(args.plain_json),
         color=color_allowed,
         verbose=bool(args.verbose),
         compact=bool(args.compact),
         force_ascii=bool(args.ascii),
+        rich_enabled=rich_enabled,
     )
     command = str(args.command)
     handler = COMMAND_HANDLERS.get(command)

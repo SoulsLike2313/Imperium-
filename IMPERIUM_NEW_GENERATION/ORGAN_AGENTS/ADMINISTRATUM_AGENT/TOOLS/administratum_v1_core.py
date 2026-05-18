@@ -1348,6 +1348,7 @@ def collect_continuity_pack(
     run_dir: Path,
     include_context: bool,
     metrics: Optional[Dict[str, Any]] = None,
+    live_metrics_snapshot: Optional[Dict[str, Any]] = None,
 ) -> SkillRunResult:
     pack_dir = run_dir / "continuity_pack"
     pack_dir.mkdir(parents=True, exist_ok=True)
@@ -1446,6 +1447,29 @@ def collect_continuity_pack(
     write_json(useful_refs_index_path, useful_refs_index)
 
     metrics_summary = metrics_summary_from_run(run_id, run_dir)
+    if live_metrics_snapshot:
+        metrics_summary["live_command_metrics_snapshot"] = live_metrics_snapshot
+        aggregate = metrics_summary.get("aggregate", {})
+        if int(aggregate.get("commands", 0)) == 0:
+            aggregate["commands"] = 1
+            aggregate["wall_clock_ms"] = int(live_metrics_snapshot.get("wall_clock_ms", 0))
+            aggregate["process_cpu_seconds"] = float(live_metrics_snapshot.get("process_cpu_seconds", 0.0) or 0.0)
+            aggregate["files_scanned"] = int(live_metrics_snapshot.get("files_scanned", 0))
+            aggregate["files_classified"] = int(live_metrics_snapshot.get("files_classified", 0))
+            aggregate["objects_considered"] = int(live_metrics_snapshot.get("objects_considered", 0))
+            aggregate["warnings_count"] = int(live_metrics_snapshot.get("warnings_count", 0))
+            aggregate["errors_count"] = int(live_metrics_snapshot.get("errors_count", 0))
+            aggregate["output_bytes_total"] = int(live_metrics_snapshot.get("output_bytes_total", 0))
+            aggregate["gpu_used"] = bool(live_metrics_snapshot.get("gpu_used", False))
+            aggregate["gpu_reason"] = str(
+                live_metrics_snapshot.get(
+                    "gpu_reason",
+                    "No GPU API/dependency invoked; Python stdlib/script-first execution.",
+                )
+            )
+            aggregate["owner_wait_seconds"] = float(live_metrics_snapshot.get("owner_wait_seconds", 0.0) or 0.0)
+            aggregate["run_cost_class"] = str(live_metrics_snapshot.get("run_cost_class", "UNSET"))
+            metrics_summary["aggregate"] = aggregate
     metrics_summary_path = pack_dir / "metrics_summary.json"
     write_json(metrics_summary_path, metrics_summary)
 
@@ -1564,6 +1588,29 @@ def collect_continuity_pack(
     pack_receipt_path = pack_dir / "receipt.json"
     write_json(pack_receipt_path, pack_receipt)
 
+    required_files = [
+        manifest_path,
+        summary_path,
+        owner_brief_path,
+        handoff_brief_path,
+        reality_excerpt_path,
+        current_git_truth_path,
+        active_status_path,
+        warnings_decisions_path,
+        useful_refs_index_path,
+        private_safety_path,
+        metrics_summary_path,
+        kpd_path,
+        pack_receipt_path,
+    ]
+    present_required = sum(1 for p in required_files if p.exists())
+    pack_quality = {
+        "required_files_total": len(required_files),
+        "required_files_present": present_required,
+        "required_files_missing": [str(p.name) for p in required_files if not p.exists()],
+        "quality_verdict": "PASS" if present_required == len(required_files) else "PASS_WITH_WARNINGS",
+    }
+
     report = {
         "report_type": "CONTINUITY_PACK_REPORT",
         "agent_id": "ADMINISTRATUM_AGENT",
@@ -1583,6 +1630,7 @@ def collect_continuity_pack(
         "metrics_summary_path": str(metrics_summary_path),
         "kpd_score_path": str(kpd_path),
         "continuity_pack_receipt_path": str(pack_receipt_path),
+        "pack_quality": pack_quality,
         "included_refs_count": len(included_refs),
         "verdict": "PASS",
     }
