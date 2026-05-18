@@ -3,8 +3,8 @@
   "agent_name": "Administratum-Agent",
   "version": "V1_HARDENED_REF_TRAJECTORY",
   "organ": "ADMINISTRATUM",
-  "status": "IMPLEMENTED_V1_HARDENED",
-  "primary_role": "memory_archive_inventory_provenance_routing",
+  "status": "REFERENCE_READY_WITH_TRANSFER_GATE_V0_1",
+  "primary_role": "memory_archive_inventory_provenance_routing_transfer_gateway",
   "runtime_mode": "RUNS_LAYER_ONLY",
   "tool_runtime_dependency_policy": "PYTHON_STDLIB_ONLY",
   "may_read": [
@@ -58,7 +58,11 @@
     "cu_summary",
     "schema_regression",
     "validate_freelance_envelope",
-    "build_freelance_handoff"
+    "build_freelance_handoff",
+    "transfer_verify_pack",
+    "transfer_send_vm2",
+    "transfer_fetch_vm2",
+    "transfer_status"
   ],
   "required_receipts": true,
   "mutated_canon": false,
@@ -69,5 +73,5 @@
     "merge_recommendations",
     "unknown_high_risk_artifacts"
   ],
-  "updated_at_utc": "2026-05-18T07:15:00Z"
+  "updated_at_utc": "2026-05-18T19:52:00Z"
 }

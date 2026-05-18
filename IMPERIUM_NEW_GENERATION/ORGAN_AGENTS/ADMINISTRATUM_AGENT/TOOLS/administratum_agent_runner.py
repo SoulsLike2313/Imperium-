@@ -84,6 +84,18 @@ from administratum_dossier_factory import (
     verify_dossier_package,
 )
 
+TRANSFER_GATE_SCRIPTS = AGENT_ROOT / "TRANSFER_GATE" / "SCRIPTS"
+if str(TRANSFER_GATE_SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(TRANSFER_GATE_SCRIPTS))
+
+from transfer_gate_core_v0_1 import (  # noqa: E402
+    DEFAULT_TRANSFER_ROOT,
+    fetch_vm2_response_bundle,
+    send_vm2_prompt_pack,
+    transfer_status,
+    verify_prompt_pack,
+)
+
 
 class UserFacingError(RuntimeError):
     """Error with operator guidance."""
@@ -2630,6 +2642,7 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         check=False,
     )
     tests.append(_test_result("cli_help_runs", cmd_help.returncode == 0 and "doctor-rich" in cmd_help.stdout, cmd_help.stdout[:300]))
+    tests.append(_test_result("cli_help_lists_transfer_commands", "transfer-verify-pack" in cmd_help.stdout, cmd_help.stdout[:300]))
 
     cmd_status = subprocess.run(
         [sys.executable, str(runner_path), "--no-color", "status", "--out", str(ctx.run_dir / "cli_status")],
@@ -2743,6 +2756,46 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         check=False,
     )
     tests.append(_test_result("schema_regression_runs", cmd_schema.returncode == 0 and "SCHEMA REGRESSION" in cmd_schema.stdout, cmd_schema.stdout[:400]))
+
+    transfer_test_path = AGENT_ROOT / "TRANSFER_GATE" / "TESTS" / "test_transfer_gate_v0_1.py"
+    tests.append(_test_result("transfer_gate_test_script_exists", transfer_test_path.exists(), str(transfer_test_path)))
+    cmd_transfer_test = subprocess.run(
+        [sys.executable, str(transfer_test_path)],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(
+        _test_result(
+            "transfer_gate_synthetic_e2e",
+            cmd_transfer_test.returncode == 0 and '"verdict": "PASS"' in cmd_transfer_test.stdout,
+            cmd_transfer_test.stdout[:500] or cmd_transfer_test.stderr[:500],
+        )
+    )
+    cmd_transfer_status = subprocess.run(
+        [
+            sys.executable,
+            str(runner_path),
+            "--no-color",
+            "transfer-status",
+            "--transfer-root",
+            str(ctx.run_dir / "transfer_status_root"),
+            "--out",
+            str(ctx.run_dir / "cli_transfer_status"),
+        ],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(
+        _test_result(
+            "transfer_status_cli_runs",
+            cmd_transfer_status.returncode == 0 and "TRANSFER STATUS" in cmd_transfer_status.stdout,
+            cmd_transfer_status.stdout[:400],
+        )
+    )
 
     cmd_valid_freelance = subprocess.run(
         [sys.executable, str(runner_path), "--no-color", "validate-freelance-envelope", "--envelope", str(FREELANCE_SAMPLE_VALID_PATH), "--out", str(ctx.run_dir / "cli_freelance_valid")],
@@ -3367,6 +3420,124 @@ def command_optional_oss_proposal(args: argparse.Namespace, renderer: Renderer) 
     )
 
 
+def _transfer_command_verdict(result: Dict[str, Any]) -> str:
+    token = str(result.get("verdict", "BLOCKED")).upper()
+    if token.startswith("BLOCKED"):
+        return "BLOCKED"
+    warnings = result.get("warnings", []) or []
+    verification = result.get("verification")
+    if isinstance(verification, dict):
+        warnings = list(warnings) + list(verification.get("warnings", []) or [])
+    return "PASS_WITH_WARNINGS" if warnings else "PASS"
+
+
+def _transfer_warnings(result: Dict[str, Any]) -> List[str]:
+    warnings = list(result.get("warnings", []) or [])
+    errors = list(result.get("errors", []) or [])
+    verification = result.get("verification")
+    if isinstance(verification, dict):
+        warnings.extend(verification.get("warnings", []) or [])
+        errors.extend(verification.get("errors", []) or [])
+    return list(dict.fromkeys(str(item) for item in warnings + errors if str(item).strip()))
+
+
+def command_transfer_verify_pack(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("transfer-verify-pack", args.out)
+    pack_zip = Path(args.pack_zip)
+    runtime_root = Path(args.transfer_root)
+    result = verify_prompt_pack(pack_zip, runtime_root)
+    report_path = ctx.run_dir / "reports" / "transfer_verify_pack_report.json"
+    write_json(report_path, result)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: TRANSFER VERIFY PACK",
+        verdict=_transfer_command_verdict(result),
+        summary="Transfer prompt pack verification completed.",
+        outputs=[report_path],
+        input_refs=[str(pack_zip), str(runtime_root)],
+        warnings=_transfer_warnings(result),
+        details=result,
+        next_actions=["Run transfer-send-vm2 if verification is PASS or accepted WARN."],
+        blocker_class="TRANSFER_PACK_INVALID" if str(result.get("verdict", "")).startswith("BLOCKED") else None,
+    )
+
+
+def command_transfer_send_vm2(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("transfer-send-vm2", args.out)
+    runtime_root = Path(args.transfer_root)
+    source_head = str(args.source_head or git_head(REPO_ROOT))
+    result = send_vm2_prompt_pack(
+        Path(args.pack_zip),
+        step_name=str(args.step_name),
+        source_head=source_head,
+        operator=str(args.operator),
+        runtime_root=runtime_root,
+    )
+    report_path = ctx.run_dir / "reports" / "transfer_send_vm2_report.json"
+    write_json(report_path, result)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: TRANSFER SEND VM2",
+        verdict=_transfer_command_verdict(result),
+        summary="Transfer prompt pack send/stamp completed.",
+        outputs=[report_path],
+        input_refs=[str(args.pack_zip), str(runtime_root)],
+        warnings=_transfer_warnings(result),
+        details=result,
+        next_actions=["Use the VM2 prompt pack manually, then create/fetch the exact response bundle."],
+        blocker_class="TRANSFER_SEND_BLOCKED" if str(result.get("verdict", "")).startswith("BLOCKED") else None,
+    )
+
+
+def command_transfer_fetch_vm2(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("transfer-fetch-vm2", args.out)
+    runtime_root = Path(args.transfer_root)
+    result = fetch_vm2_response_bundle(
+        task_id=str(args.task_id),
+        expected_filename=args.expected_filename,
+        correlation_id=args.correlation_id,
+        runtime_root=runtime_root,
+        quarantine_on_mismatch=not bool(args.no_quarantine),
+    )
+    report_path = ctx.run_dir / "reports" / "transfer_fetch_vm2_report.json"
+    write_json(report_path, result)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: TRANSFER FETCH VM2",
+        verdict=_transfer_command_verdict(result),
+        summary="Transfer response bundle fetch/verification completed.",
+        outputs=[report_path],
+        input_refs=[str(runtime_root), str(args.task_id), str(args.expected_filename or "")],
+        warnings=_transfer_warnings(result),
+        details=result,
+        next_actions=["Hand off verified response bundle by exact filename."],
+        blocker_class="TRANSFER_FETCH_BLOCKED" if str(result.get("verdict", "")).startswith("BLOCKED") else None,
+    )
+
+
+def command_transfer_status(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("transfer-status", args.out)
+    runtime_root = Path(args.transfer_root)
+    result = transfer_status(runtime_root, ledger_tail=int(args.ledger_tail))
+    report_path = ctx.run_dir / "reports" / "transfer_status_report.json"
+    write_json(report_path, result)
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: TRANSFER STATUS",
+        verdict="PASS",
+        summary="Transfer gate runtime status collected.",
+        outputs=[report_path],
+        input_refs=[str(runtime_root)],
+        warnings=[],
+        details=result,
+        next_actions=["Use transfer-verify-pack, transfer-send-vm2, or transfer-fetch-vm2 as needed."],
+    )
+
+
 COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "status": command_status,
     "inventory": command_inventory,
@@ -3398,6 +3569,10 @@ COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "open-runs": command_open_runs,
     "shell": command_shell,
     "optional-oss-proposal": command_optional_oss_proposal,
+    "transfer-verify-pack": command_transfer_verify_pack,
+    "transfer-send-vm2": command_transfer_send_vm2,
+    "transfer-fetch-vm2": command_transfer_fetch_vm2,
+    "transfer-status": command_transfer_status,
 }
 
 
@@ -3591,6 +3766,36 @@ def build_parser() -> argparse.ArgumentParser:
     p_oss = sub.add_parser("optional-oss-proposal", help="Write optional OSS enhancement proposal (advisory only).")
     p_oss.add_argument("--out", default=None)
     p_oss.set_defaults(func=command_optional_oss_proposal)
+
+    p_transfer_verify = sub.add_parser("transfer-verify-pack", help="Verify a Logos prompt pack ZIP for VM2 transfer.")
+    p_transfer_verify.add_argument("--pack-zip", required=True)
+    p_transfer_verify.add_argument("--transfer-root", default=str(DEFAULT_TRANSFER_ROOT))
+    p_transfer_verify.add_argument("--out", default=None)
+    p_transfer_verify.set_defaults(func=command_transfer_verify_pack)
+
+    p_transfer_send = sub.add_parser("transfer-send-vm2", help="Stamp and place a prompt pack in the VM2 transfer intake.")
+    p_transfer_send.add_argument("--pack-zip", required=True)
+    p_transfer_send.add_argument("--step-name", required=True)
+    p_transfer_send.add_argument("--source-head", default=None)
+    p_transfer_send.add_argument("--operator", default="OWNER")
+    p_transfer_send.add_argument("--transfer-root", default=str(DEFAULT_TRANSFER_ROOT))
+    p_transfer_send.add_argument("--out", default=None)
+    p_transfer_send.set_defaults(func=command_transfer_send_vm2)
+
+    p_transfer_fetch = sub.add_parser("transfer-fetch-vm2", help="Fetch and verify a VM2 response ZIP by exact filename.")
+    p_transfer_fetch.add_argument("--task-id", required=True)
+    p_transfer_fetch.add_argument("--expected-filename", default=None)
+    p_transfer_fetch.add_argument("--correlation-id", default=None)
+    p_transfer_fetch.add_argument("--transfer-root", default=str(DEFAULT_TRANSFER_ROOT))
+    p_transfer_fetch.add_argument("--no-quarantine", action="store_true")
+    p_transfer_fetch.add_argument("--out", default=None)
+    p_transfer_fetch.set_defaults(func=command_transfer_fetch_vm2)
+
+    p_transfer_status = sub.add_parser("transfer-status", help="Show Administratum transfer runtime status.")
+    p_transfer_status.add_argument("--transfer-root", default=str(DEFAULT_TRANSFER_ROOT))
+    p_transfer_status.add_argument("--ledger-tail", type=int, default=5)
+    p_transfer_status.add_argument("--out", default=None)
+    p_transfer_status.set_defaults(func=command_transfer_status)
 
     return parser
 
