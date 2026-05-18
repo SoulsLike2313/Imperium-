@@ -1,9 +1,9 @@
 {
   "agent_id": "ADMINISTRATUM_AGENT",
   "agent_name": "Administratum-Agent",
-  "version": "V1_BASE",
+  "version": "V1_HARDENED_REF_TRAJECTORY",
   "organ": "ADMINISTRATUM",
-  "status": "IMPLEMENTED_V1_BASE",
+  "status": "IMPLEMENTED_V1_HARDENED",
   "primary_role": "memory_archive_inventory_provenance_routing",
   "runtime_mode": "RUNS_LAYER_ONLY",
   "tool_runtime_dependency_policy": "PYTHON_STDLIB_ONLY",
@@ -44,7 +44,18 @@
     "find_useful_candidates",
     "detect_dirty_runtime_outputs",
     "build_merge_preparation_summary",
-    "route_to_organs"
+    "route_to_organs",
+    "scan_imperium_context",
+    "classify_local_context",
+    "detect_private_export_risk",
+    "collect_continuity_pack",
+    "collect_reality_snapshot",
+    "build_agent_handoff_context",
+    "verify_pack_against_reality",
+    "metrics_summary",
+    "explain_decision",
+    "show_kpd",
+    "cu_summary"
   ],
   "required_receipts": true,
   "mutated_canon": false,
@@ -55,5 +66,5 @@
     "merge_recommendations",
     "unknown_high_risk_artifacts"
   ],
-  "updated_at_utc": "2026-05-18T00:41:46.007572Z"
+  "updated_at_utc": "2026-05-18T07:15:00Z"
 }
