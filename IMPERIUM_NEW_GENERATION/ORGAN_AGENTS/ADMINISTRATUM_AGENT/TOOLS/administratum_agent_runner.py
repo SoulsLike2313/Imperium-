@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shlex
 import shutil
 import subprocess
@@ -73,6 +74,12 @@ from administratum_v1_core import (
     write_skill_receipt,
     kpd_from_reports,
 )
+from administratum_dossier_factory import (
+    build_dossier_package,
+    detect_oss_availability,
+    find_latest_dossier_zip,
+    verify_dossier_package,
+)
 
 
 class UserFacingError(RuntimeError):
@@ -83,6 +90,9 @@ class UserFacingError(RuntimeError):
         self.what_happened = what_happened
         self.how_to_fix = how_to_fix
         self.example = example
+
+
+TASK_DOSSIER_FACTORY_ID = "TASK-20260518-ADMINISTRATUM-DOSSIER-FACTORY-OSS-ADMISSION-V0_1"
 
 
 @dataclass
@@ -97,6 +107,17 @@ class CommandContext:
     dirty_before: bool
     read_paths: set[str]
     written_paths: set[str]
+
+
+def _verdict_to_status(verdict: str) -> str:
+    token = str(verdict or "").upper()
+    if token in {"PASS", "OK"}:
+        return "PASS"
+    if "WARN" in token:
+        return "WARN"
+    if token in {"BLOCKED", "REJECT_MUTATION_REQUEST"} or "BLOCK" in token:
+        return "BLOCKED"
+    return "FAIL"
 
 
 class Renderer:
@@ -169,13 +190,13 @@ class Renderer:
             prefix += self.COLORS["bold"]
         return f"{prefix}{self.COLORS[color_name]}{text}{self.COLORS['reset']}"
 
-    def status_tag(self, verdict: str) -> str:
-        v = str(verdict or "INFO").upper()
+    def status_tag(self, status: str) -> str:
+        v = str(status or "INFO").upper()
         if v == "PASS":
             return self._paint(f"[{v}]", "green", bold=True)
-        if "WARN" in v:
+        if v == "WARN":
             return self._paint(f"[{v}]", "yellow", bold=True)
-        if v in {"BLOCKED", "FAIL"} or "REJECT" in v:
+        if v in {"BLOCKED", "FAIL"}:
             return self._paint(f"[{v}]", "red", bold=True)
         return self._paint(f"[{v}]", "blue")
 
@@ -197,30 +218,57 @@ class Renderer:
         out.append(self._border(self.frame["bl"], h, self.frame["br"], inner + 2))
         return "\n".join(out)
 
+    def _list_lines(self, title: str, rows: Sequence[str], *, limit: int = 5) -> List[str]:
+        out = [f"{title}:"]
+        if not rows:
+            out.append("  - NONE")
+            return out
+        visible = list(rows) if self.verbose else list(rows[:limit])
+        for row in visible:
+            out.append(f"  - {row}")
+        if not self.verbose and len(rows) > len(visible):
+            out.append(f"  - ... +{len(rows) - len(visible)} more")
+        return out
+
     def _render_payload(self, payload: Dict[str, Any]) -> str:
         header = str(payload.get("header", "ADMINISTRATUM AGENT"))
-        verdict = str(payload.get("verdict", "INFO"))
+        status = str(payload.get("status", "FAIL")).upper()
+        command = str(payload.get("command", "unknown"))
         run_id = str(payload.get("run_id", "N/A"))
+        verdict = str(payload.get("verdict", "UNKNOWN"))
         summary = str(payload.get("summary", "")).strip()
+        summary_lines = [line.strip() for line in summary.splitlines() if line.strip()]
+        primary_refs = [str(x) for x in payload.get("primary_refs", [])]
+        artifacts_written = [str(x) for x in payload.get("artifacts_written", [])]
         warnings = [str(x) for x in payload.get("warnings", [])]
-        outputs = payload.get("outputs", {})
+        why_trust = [str(x) for x in payload.get("why_trust", [])]
         next_actions = [str(x) for x in payload.get("next_actions", [])]
-        details = payload.get("details")
+        limitations = [str(x) for x in payload.get("limitations", [])]
+        details = payload.get("details", {})
+        metrics = payload.get("metrics", {})
 
-        lines = [f"run_id: {run_id}", f"verdict: {self.status_tag(verdict)}"]
-        if summary:
-            lines.append(f"summary: {summary}")
+        lines: List[str] = [
+            f"STATUS: {self.status_tag(status)}",
+            f"COMMAND: {command}",
+            f"RUN_ID: {run_id}",
+            f"VERDICT: {verdict}",
+        ]
+        lines.extend(self._list_lines("SUMMARY", summary_lines or ["No summary provided."], limit=3))
+        lines.extend(self._list_lines("PRIMARY_REFS", primary_refs))
+        lines.extend(self._list_lines("ARTIFACTS_WRITTEN", artifacts_written))
+        lines.extend(self._list_lines("WARNINGS", warnings))
+        lines.extend(self._list_lines("WHY_TRUST", why_trust))
+        lines.extend(self._list_lines("NEXT_ACTIONS", next_actions))
+        lines.extend(self._list_lines("LIMITATIONS", limitations))
+
         blocks = [self.panel(header, lines, color="blue")]
-
-        if outputs:
-            out_lines = [f"{k}: {v}" for k, v in outputs.items()]
-            blocks.append(self.panel("OUTPUT PATHS", out_lines, color="cyan"))
-        if warnings:
-            blocks.append(self.panel("WARNINGS", warnings, color="yellow"))
-        if next_actions:
-            blocks.append(self.panel("NEXT ACTIONS", next_actions, color="green"))
-        if self.verbose and details is not None:
-            blocks.append(self.panel("DETAILS", json.dumps(details, indent=2, ensure_ascii=False).splitlines(), color="gray"))
+        if self.verbose:
+            if metrics:
+                metrics_lines = json.dumps(metrics, indent=2, ensure_ascii=False).splitlines()
+                blocks.append(self.panel("METRICS", metrics_lines, color="cyan"))
+            if details:
+                detail_lines = json.dumps(details, indent=2, ensure_ascii=False).splitlines()
+                blocks.append(self.panel("DETAILS", detail_lines, color="gray"))
         return "\n".join(blocks)
 
     def emit(self, payload: Dict[str, Any]) -> None:
@@ -232,32 +280,30 @@ class Renderer:
 
     def emit_error(self, err: UserFacingError) -> None:
         self.finish_progress()
+        payload = {
+            "header": "ADMINISTRATUM AGENT :: ERROR",
+            "status": "BLOCKED",
+            "command": "error",
+            "run_id": "N/A",
+            "verdict": "BLOCKED",
+            "summary": err.what_happened,
+            "primary_refs": [],
+            "artifacts_written": [],
+            "warnings": [err.what_happened],
+            "why_trust": ["Operator-facing guidance generated by CLI guardrail."],
+            "next_actions": [err.how_to_fix, f"Example: {err.example}"],
+            "metrics": {},
+            "limitations": ["No command outputs were written due to failure."],
+            "details": {
+                "what_happened": err.what_happened,
+                "how_to_fix": err.how_to_fix,
+                "example": err.example,
+            },
+        }
         if self.plain_json:
-            print(
-                json.dumps(
-                    {
-                        "header": "ADMINISTRATUM AGENT :: ERROR",
-                        "verdict": "BLOCKED",
-                        "what_happened": err.what_happened,
-                        "how_to_fix": err.how_to_fix,
-                        "example": err.example,
-                    },
-                    indent=2,
-                    ensure_ascii=False,
-                )
-            )
+            print(json.dumps(payload, indent=2, ensure_ascii=False))
             return
-        print(
-            self.panel(
-                "ERROR",
-                [
-                    f"what happened: {err.what_happened}",
-                    f"how to fix: {err.how_to_fix}",
-                    f"example command: {err.example}",
-                ],
-                color="red",
-            )
-        )
+        print(self._render_payload(payload))
 
     def begin_progress(self, command: str, run_id: str) -> None:
         if not self.rich_enabled or self._rich_console is None:
@@ -271,8 +317,21 @@ class Renderer:
             "status": "IDLE",
             "elapsed": "[00:000]",
             "extra": "",
+            "counters": "",
+            "warnings_count": 0,
+            "target": "none",
+            "final_status": "N/A",
             "last_done": "none",
         }
+
+    def _warnings_from_extra(self, extra: str) -> int:
+        m = re.search(r"warnings\s*=\s*(\d+)", extra)
+        if m:
+            try:
+                return int(m.group(1))
+            except Exception:
+                return 0
+        return 0
 
     def _render_rich_progress(self) -> Any:
         phase = int(self._progress_state.get("phase", 0))
@@ -288,13 +347,41 @@ class Renderer:
             f"{self._progress_state.get('elapsed', '[00:000]')} PHASE {phase}/{total} {self._progress_state.get('label', '')}\n",
             style="white",
         )
-        text.append(f"status={self._progress_state.get('status', 'RUNNING')}  {self._progress_state.get('extra', '')}\n", style="yellow")
-        text.append(f"{bar}  last: {self._progress_state.get('last_done', 'none')}", style="bright_blue")
+        text.append(
+            (
+                f"status={self._progress_state.get('status', 'RUNNING')} "
+                f"warnings={self._progress_state.get('warnings_count', 0)} "
+                f"target={self._progress_state.get('target', 'none')}\n"
+            ),
+            style="yellow",
+        )
+        if self._progress_state.get("counters"):
+            text.append(f"counters: {self._progress_state.get('counters', '')}\n", style="bright_black")
+        text.append(
+            (
+                f"{bar}  last={self._progress_state.get('last_done', 'none')} "
+                f"final={self._progress_state.get('final_status', 'N/A')}"
+            ),
+            style="bright_blue",
+        )
         return Panel(text, title="ARCHIVE SEAL", border_style="bright_magenta")
 
-    def emit_phase(self, phase: int, total: int, label: str, status: str, elapsed: str, extra: str) -> None:
+    def emit_phase(
+        self,
+        phase: int,
+        total: int,
+        label: str,
+        status: str,
+        elapsed: str,
+        extra: str,
+        *,
+        warnings_count: Optional[int] = None,
+        target: Optional[str] = None,
+    ) -> None:
         if self.plain_json:
             return
+        resolved_warnings = self._warnings_from_extra(extra) if warnings_count is None else int(warnings_count)
+        resolved_target = (target or "").strip() or "none"
         if self.rich_enabled and self._rich_console is not None:
             self._progress_state.update(
                 {
@@ -304,10 +391,16 @@ class Renderer:
                     "status": status,
                     "elapsed": elapsed,
                     "extra": extra,
+                    "counters": extra,
+                    "warnings_count": resolved_warnings,
+                    "target": resolved_target,
                 }
             )
             if status == "DONE":
                 self._progress_state["last_done"] = label
+            if status in {"DONE", "BLOCKED", "FAIL"}:
+                verdict_match = re.search(r"verdict\s*=\s*([A-Z_]+)", extra)
+                self._progress_state["final_status"] = verdict_match.group(1) if verdict_match else status
             renderable = self._render_rich_progress()
             if self._rich_live is None:
                 self._rich_live = Live(renderable, console=self._rich_console, refresh_per_second=8, transient=False)
@@ -315,7 +408,7 @@ class Renderer:
             else:
                 self._rich_live.update(renderable, refresh=True)
             return
-        line = f"{elapsed} PHASE {phase}/{total} {label} | status={status}"
+        line = f"{elapsed} PHASE {phase}/{total} {label} | status={status} | warnings={resolved_warnings} | target={resolved_target}"
         if extra:
             line += f" | {extra}"
         print(line)
@@ -351,12 +444,7 @@ class ProgressRail:
         sec = ms // 1000
         return f"[{sec:02d}:{ms % 1000:03d}]"
 
-    def _line(self, phase: int, status: str, extra: str = "") -> str:
-        label = self.PHASE_LABELS.get(phase, f"Phase {phase}")
-        tail = f" | {extra}" if extra else ""
-        return f"{self._elapsed()} PHASE {phase}/{self.total_phases} {label} | status={status}{tail}"
-
-    def start(self, phase: int, extra: str = "") -> None:
+    def start(self, phase: int, extra: str = "", *, target: str = "") -> None:
         self.last_phase = phase
         self.renderer.emit_phase(
             phase,
@@ -365,9 +453,11 @@ class ProgressRail:
             "RUNNING",
             self._elapsed(),
             extra,
+            warnings_count=int(self.ctx.metrics.get("warnings_count", 0)),
+            target=target,
         )
 
-    def pulse(self, phase: Optional[int] = None, extra: str = "") -> None:
+    def pulse(self, phase: Optional[int] = None, extra: str = "", *, target: str = "") -> None:
         p = phase if phase is not None else self.last_phase
         if p <= 0:
             return
@@ -378,9 +468,11 @@ class ProgressRail:
             "RUNNING",
             self._elapsed(),
             extra,
+            warnings_count=int(self.ctx.metrics.get("warnings_count", 0)),
+            target=target,
         )
 
-    def done(self, phase: int, extra: str = "") -> None:
+    def done(self, phase: int, extra: str = "", *, target: str = "") -> None:
         self.last_phase = phase
         self.renderer.emit_phase(
             phase,
@@ -389,6 +481,8 @@ class ProgressRail:
             "DONE",
             self._elapsed(),
             extra,
+            warnings_count=int(self.ctx.metrics.get("warnings_count", 0)),
+            target=target,
         )
 
 
@@ -396,6 +490,21 @@ def _truthy(value: Optional[str]) -> bool:
     if value is None:
         return False
     return str(value).strip().lower() in {"1", "true", "yes", "y", "on"}
+
+
+def _report_verdict_to_command_verdict(verdict: str) -> str:
+    token = str(verdict or "").upper()
+    if token == "PASS":
+        return "PASS"
+    if token == "WARN":
+        return "PASS_WITH_WARNINGS"
+    if token in {"BLOCKED", "FAIL"}:
+        return token
+    if "WARN" in token:
+        return "PASS_WITH_WARNINGS"
+    if "PASS" in token:
+        return "PASS"
+    return "BLOCKED"
 
 
 def _resolve_repo_path(path_text: str) -> Path:
@@ -604,6 +713,42 @@ def _sync_continuity_pack_metrics(run_dir: Path, metrics: Dict[str, Any]) -> Non
     write_json(metrics_summary_path, summary)
 
 
+def _is_within(path: Path, root: Path) -> bool:
+    try:
+        path.resolve().relative_to(root.resolve())
+        return True
+    except Exception:
+        return False
+
+
+def _build_why_trust(
+    *,
+    ctx: CommandContext,
+    input_refs: Sequence[str],
+    output_paths: Sequence[Path],
+    access_map_path: Path,
+    metrics_path: Path,
+    receipt_path: Path,
+    dirty_after: bool,
+    limitations: Sequence[str],
+) -> List[str]:
+    confined = all(_is_within(path, ctx.run_dir) for path in output_paths if path.exists())
+    runtime_root_confined = all(_is_within(path, RUNS_ROOT) for path in output_paths if path.exists())
+    private_context_seen = any("IMPERIUM_CONTEXT/PRIVATE" in ref.replace("\\", "/").upper() for ref in input_refs)
+    reasons = [
+        f"Git truth checked before/after command: dirty_before={str(ctx.dirty_before).lower()}, dirty_after={str(dirty_after).lower()}.",
+        f"Command receipt written: {receipt_path}.",
+        f"Metrics report written: {metrics_path}.",
+        f"Access map written: {access_map_path}.",
+        f"Runtime outputs confined to run dir: {str(confined).lower()}; RUNS root confinement: {str(runtime_root_confined).lower()}.",
+    ]
+    if private_context_seen:
+        reasons.append("Private context detected in refs; metadata-only/no-git-export policy remains required.")
+    if limitations:
+        reasons.append("Trust is partial where limitations are present.")
+    return reasons
+
+
 def _finalize_command(
     ctx: CommandContext,
     renderer: Renderer,
@@ -616,12 +761,14 @@ def _finalize_command(
     warnings: Optional[List[str]] = None,
     details: Optional[Dict[str, Any]] = None,
     next_actions: Optional[List[str]] = None,
+    limitations: Optional[List[str]] = None,
     blocker_class: Optional[str] = None,
     progress: Optional[ProgressRail] = None,
 ) -> int:
     warnings = warnings or []
+    limitations = limitations or []
     if progress:
-        progress.start(7, "writing_receipts_and_metrics")
+        progress.start(7, "writing_receipts_and_metrics", target=str(ctx.run_dir / "receipts"))
     input_refs_list = [str(x) for x in input_refs]
     _register_paths(ctx, input_refs_list, write=False)
     output_paths = [p for p in _collect_outputs(list(outputs)) if p.exists()]
@@ -692,8 +839,12 @@ def _finalize_command(
     _ = _write_metrics_report(ctx)
     _sync_continuity_pack_metrics(ctx.run_dir, ctx.metrics)
     if progress:
-        progress.done(7, f"receipts={ctx.metrics.get('receipts_written', 0)}")
-        progress.start(8, "verifying_pack_and_git_state")
+        progress.done(
+            7,
+            f"receipts={ctx.metrics.get('receipts_written', 0)} warnings={len(warnings)}",
+            target=str(receipt_path),
+        )
+        progress.start(8, "verifying_pack_and_git_state", target=str(ctx.run_dir))
 
     if ctx.memory_trace_started and tracemalloc.is_tracing():
         tracemalloc.stop()
@@ -709,24 +860,61 @@ def _finalize_command(
         },
     )
     if progress:
-        progress.done(8, f"verdict={verdict}")
+        progress.done(8, f"verdict={verdict}", target=str(ctx.run_dir))
 
     out_map: Dict[str, str] = {"run_dir": str(ctx.run_dir), "metrics_report": str(metrics_path), "command_receipt": str(receipt_path)}
     for index, path_obj in enumerate(output_paths, start=1):
         out_map[f"output_{index:02d}"] = str(path_obj)
 
+    status = _verdict_to_status(verdict)
+    auto_limitations: List[str] = list(limitations)
+    private_context_seen = any("IMPERIUM_CONTEXT/PRIVATE" in ref.replace("\\", "/").upper() for ref in input_refs_list)
+    if private_context_seen:
+        auto_limitations.append("Private context references are metadata-only and must not be exported as content.")
+    if not all(_is_within(path, RUNS_ROOT) for path in output_paths if path.exists()):
+        auto_limitations.append("Some outputs are outside the expected RUNS root.")
+    if status != "PASS":
+        auto_limitations.append(f"Command status is {status}; review warnings and receipts before downstream trust.")
+    dedup_limitations = list(dict.fromkeys(auto_limitations))
+    why_trust = _build_why_trust(
+        ctx=ctx,
+        input_refs=input_refs_list,
+        output_paths=output_paths,
+        access_map_path=access_map_path,
+        metrics_path=metrics_path,
+        receipt_path=receipt_path,
+        dirty_after=dirty_after,
+        limitations=dedup_limitations,
+    )
+    summary_text = str(summary).strip() or f"{ctx.command} completed."
+    primary_refs = list(dict.fromkeys(input_refs_list))
+    artifacts_written = [str(p) for p in existing_files]
+    next_actions_list = list(next_actions or [])
+    if not next_actions_list:
+        if status == "PASS":
+            next_actions_list = ["Proceed to next admitted command or handoff review."]
+        else:
+            next_actions_list = ["Rerun with --verbose and inspect command receipt plus metrics report."]
+
     payload = {
         "header": header,
+        "status": status,
+        "command": ctx.command,
         "run_id": ctx.run_id,
         "verdict": verdict,
-        "summary": summary,
+        "summary": summary_text,
+        "primary_refs": primary_refs,
+        "artifacts_written": artifacts_written,
         "outputs": out_map,
         "warnings": warnings,
+        "why_trust": why_trust,
+        "next_actions": next_actions_list,
+        "metrics": dict(ctx.metrics),
+        "limitations": dedup_limitations,
         "details": details or {},
-        "next_actions": next_actions or [],
     }
     renderer.emit(payload)
-    return 0 if verdict in {"PASS", "PASS_WITH_WARNINGS"} else 1
+    return 0 if status in {"PASS", "WARN"} else 1
 
 
 def _render_skill_payload(skill: SkillRunResult, header: str) -> Dict[str, Any]:
@@ -843,6 +1031,7 @@ def _inventory_progress_hook(rail: ProgressRail) -> Callable[[Dict[str, Any]], N
                 f"warnings={payload.get('warnings_count', 0)} "
                 f"rejected={payload.get('rejected_count', 0)}"
             ),
+            target="inventory_scan",
         )
 
     return _hook
@@ -850,13 +1039,15 @@ def _inventory_progress_hook(rail: ProgressRail) -> Callable[[Dict[str, Any]], N
 
 def _context_progress_hook(rail: ProgressRail) -> Callable[[Dict[str, Any]], None]:
     def _hook(payload: Dict[str, Any]) -> None:
+        scope = str(payload.get("scope", "N/A"))
         rail.pulse(
             2,
             (
-                f"scope={payload.get('scope', 'N/A')} "
+                f"scope={scope} "
                 f"objects={payload.get('objects_scanned', 0)} "
                 f"warnings={payload.get('warnings_count', 0)}"
             ),
+            target=scope,
         )
 
     return _hook
@@ -894,13 +1085,17 @@ def command_inventory(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("inventory", args.out)
     rail = ProgressRail(renderer, ctx)
-    rail.start(1, "git_truth_and_dirty_state")
-    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
-    rail.start(3, "building_inventory")
+    rail.start(1, "git_truth_and_dirty_state", target=str(repo_root))
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}", target=str(repo_root))
+    rail.start(3, "building_inventory", target=str(repo_root))
     inv = build_inventory(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics, progress_hook=_inventory_progress_hook(rail))
-    rail.done(3, f"files={inv.report.get('total_files', 0)} warnings={len(inv.report.get('warnings', []))}")
-    rail.start(4, "classifying_risks")
-    rail.done(4, f"zones={len(inv.report.get('zone_counts', {}))}")
+    rail.done(
+        3,
+        f"files={inv.report.get('total_files', 0)} warnings={len(inv.report.get('warnings', []))}",
+        target=str(Path(inv.report_path)),
+    )
+    rail.start(4, "classifying_risks", target="zone_classification")
+    rail.done(4, f"zones={len(inv.report.get('zone_counts', {}))}", target="zone_classification")
     payload = _render_skill_payload(inv, "ADMINISTRATUM AGENT :: INVENTORY")
     return _finalize_command(
         ctx,
@@ -1133,9 +1328,9 @@ def command_scan_context(args: argparse.Namespace, renderer: Renderer) -> int:
     local_root = Path(args.local_root).resolve()
     private_root = Path(args.private_root).resolve()
     rail = ProgressRail(renderer, ctx)
-    rail.start(1, "git_truth_and_dirty_state")
-    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
-    rail.start(2, "scanning_context_metadata")
+    rail.start(1, "git_truth_and_dirty_state", target="E:/IMPERIUM")
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}", target="E:/IMPERIUM")
+    rail.start(2, "scanning_context_metadata", target="IMPERIUM_CONTEXT")
     scan = scan_imperium_context(
         ctx.run_id,
         ctx.run_dir,
@@ -1145,9 +1340,13 @@ def command_scan_context(args: argparse.Namespace, renderer: Renderer) -> int:
         progress_hook=_context_progress_hook(rail),
     )
     total_entries = int(scan.report.get("entry_count", 0))
-    rail.done(2, f"objects={total_entries} warnings={len(scan.report.get('warnings', []))}")
-    rail.start(4, "classifying_risks")
-    rail.done(4, f"private_entries={scan.report.get('scope_counts', {}).get('PRIVATE_CONTEXT', 0)}")
+    rail.done(2, f"objects={total_entries} warnings={len(scan.report.get('warnings', []))}", target=str(Path(scan.report_path)))
+    rail.start(4, "classifying_risks", target=str(Path(scan.report_path)))
+    rail.done(
+        4,
+        f"private_entries={scan.report.get('scope_counts', {}).get('PRIVATE_CONTEXT', 0)}",
+        target=str(Path(scan.report_path)),
+    )
     warnings = list(scan.report.get("warnings", []))
     if scan.report.get("scope_counts", {}).get("PRIVATE_CONTEXT", 0) > 0:
         warnings.append("private context detected; metadata-only export policy active")
@@ -1198,11 +1397,11 @@ def command_collect_reality_snapshot(args: argparse.Namespace, renderer: Rendere
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("collect-reality-snapshot", args.out)
     rail = ProgressRail(renderer, ctx)
-    rail.start(1, "reading_repo_state")
+    rail.start(1, "reading_repo_state", target=str(repo_root))
     snap = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
-    rail.done(1, f"head={str(snap.report.get('git_head', ''))[:12]}")
-    rail.start(6, "building_reality_capsule")
-    rail.done(6, f"dirty={str(bool(snap.report.get('dirty_tree'))).lower()}")
+    rail.done(1, f"head={str(snap.report.get('git_head', ''))[:12]}", target=str(Path(snap.report_path)))
+    rail.start(6, "building_reality_capsule", target=str(ctx.run_dir / "reports"))
+    rail.done(6, f"dirty={str(bool(snap.report.get('dirty_tree'))).lower()}", target=str(Path(snap.report_path)))
     warnings: List[str] = []
     if snap.report.get("dirty_tree"):
         warnings.append("repository dirty at snapshot time")
@@ -1225,9 +1424,9 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("collect-continuity-pack", args.out)
     rail = ProgressRail(renderer, ctx)
-    rail.start(1, "reading_repo_state")
-    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
-    rail.start(2, "scanning_context_metadata")
+    rail.start(1, "reading_repo_state", target=str(repo_root))
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}", target=str(repo_root))
+    rail.start(2, "scanning_context_metadata", target="IMPERIUM_CONTEXT")
     if args.include_context:
         scan = scan_imperium_context(
             ctx.run_id,
@@ -1242,8 +1441,8 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
         context_chain: List[Any] = [scan, classify_ctx, risk]
     else:
         context_chain = []
-    rail.done(2, "metadata_only=true")
-    rail.start(3, "building_inventory_and_provenance")
+    rail.done(2, "metadata_only=true", target="IMPERIUM_CONTEXT")
+    rail.start(3, "building_inventory_and_provenance", target=str(repo_root))
     inv = build_inventory(
         repo_root,
         ctx.run_id,
@@ -1253,12 +1452,16 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
         progress_hook=_inventory_progress_hook(rail),
     )
     prov = build_provenance_index(repo_root, ctx.run_id, ctx.run_dir, Path(inv.report_path), metrics=ctx.metrics, limit=args.provenance_limit)
-    rail.done(3, f"files={inv.report.get('total_files', 0)} provenance={prov.report.get('entry_count', 0)}")
-    rail.start(4, "classifying_risks")
+    rail.done(
+        3,
+        f"files={inv.report.get('total_files', 0)} provenance={prov.report.get('entry_count', 0)}",
+        target=str(Path(inv.report_path)),
+    )
+    rail.start(4, "classifying_risks", target=str(ctx.run_dir / "reports"))
     useful = find_useful_candidates(ctx.run_id, ctx.run_dir, Path(inv.report_path), repo_root=repo_root, metrics=ctx.metrics)
     dirty = detect_dirty_runtime_outputs(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
-    rail.done(4, f"warnings={len(dirty.report.get('warnings', []))}")
-    rail.start(5, "collecting_useful_refs")
+    rail.done(4, f"warnings={len(dirty.report.get('warnings', []))}", target=str(Path(dirty.report_path)))
+    rail.start(5, "collecting_useful_refs", target=str(ctx.run_dir / "reports"))
     routing = route_to_organs(
         ctx.run_id,
         ctx.run_dir,
@@ -1266,8 +1469,8 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
         requested_action="continuity_pack_collection",
         metrics=ctx.metrics,
     )
-    rail.done(5, f"routes={routing.report.get('route_count', 0)}")
-    rail.start(6, "building_continuity_narrative")
+    rail.done(5, f"routes={routing.report.get('route_count', 0)}", target=str(Path(routing.report_path)))
+    rail.start(6, "building_continuity_narrative", target=str(ctx.run_dir / "continuity_pack"))
     reality = collect_reality_snapshot(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
     live_snapshot = dict(ctx.metrics)
     live_snapshot["wall_clock_ms"] = int((time.perf_counter_ns() - ctx.start_ns) / 1_000_000)
@@ -1281,7 +1484,7 @@ def command_collect_continuity_pack(args: argparse.Namespace, renderer: Renderer
         metrics=ctx.metrics,
         live_metrics_snapshot=live_snapshot,
     )
-    rail.done(6, f"pack_dir={Path(pack.report.get('pack_dir', '')).name}")
+    rail.done(6, f"pack_dir={Path(pack.report.get('pack_dir', '')).name}", target=str(Path(pack.report.get("pack_dir", ""))))
     warnings = (
         list(inv.report.get("warnings", []))
         + list(prov.report.get("warnings", []))
@@ -1331,8 +1534,8 @@ def command_verify_pack(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("verify-pack-against-reality", args.out)
     rail = ProgressRail(renderer, ctx)
-    rail.start(1, "reading_repo_state")
-    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
+    rail.start(1, "reading_repo_state", target=str(repo_root))
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}", target=str(repo_root))
     if args.manifest:
         manifest_path = _resolve_json_report(args.manifest)
     else:
@@ -1469,7 +1672,7 @@ def command_cu_summary(args: argparse.Namespace, renderer: Renderer) -> int:
         renderer,
         header="ADMINISTRATUM AGENT :: CU SUMMARY",
         verdict=cu.report.get("verdict", "PASS"),
-        summary="Control Unit (цушки) summary generated.",
+        summary="Control Unit (CU) summary generated.",
         outputs=[cu],
         input_refs=[str(AGENT_ROOT)],
         warnings=cu.report.get("warnings", []),
@@ -1532,6 +1735,252 @@ def command_open_runs(args: argparse.Namespace, renderer: Renderer) -> int:
     )
 
 
+def command_doctor_rich(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("doctor-rich", args.out)
+    no_color_env = _truthy(os.environ.get("NO_COLOR"))
+    stdout_isatty = bool(sys.stdout.isatty())
+    rich_import_available = bool(RICH_AVAILABLE)
+    rich_mode_selected = bool(renderer.rich_enabled)
+    plain_json_mode = bool(args.plain_json)
+    no_color_flag = bool(args.no_color)
+    color_flag = bool(args.color)
+    no_rich_flag = bool(args.no_rich)
+    rich_flag = bool(args.rich)
+
+    detected_color_system = "unknown"
+    if renderer._rich_console is not None:
+        detected_color_system = str(renderer._rich_console.color_system or "none")
+    elif RICH_AVAILABLE:
+        try:
+            probe = Console()
+            detected_color_system = str(probe.color_system or "none")
+        except Exception:
+            detected_color_system = "unavailable"
+
+    fallback_reasons: List[str] = []
+    if not rich_import_available:
+        fallback_reasons.append("rich_import_unavailable")
+    if plain_json_mode:
+        fallback_reasons.append("plain_json_mode_forces_machine_output")
+    if no_rich_flag:
+        fallback_reasons.append("no_rich_flag_enabled")
+    if not stdout_isatty:
+        fallback_reasons.append("stdout_is_not_tty")
+    if no_color_flag or no_color_env:
+        fallback_reasons.append("color_disabled_by_flag_or_env")
+    if rich_mode_selected:
+        fallback_reasons = []
+
+    env_summary = {
+        "TERM": os.environ.get("TERM", ""),
+        "COLORTERM": os.environ.get("COLORTERM", ""),
+        "WT_SESSION": os.environ.get("WT_SESSION", ""),
+        "TERM_PROGRAM": os.environ.get("TERM_PROGRAM", ""),
+        "NO_COLOR": os.environ.get("NO_COLOR", ""),
+        "PYTHONIOENCODING": os.environ.get("PYTHONIOENCODING", ""),
+    }
+    report = {
+        "report_type": "RICH_RENDERER_DIAGNOSTIC_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "rich_import_available": rich_import_available,
+        "rich_mode_selected": rich_mode_selected,
+        "stdout_isatty": stdout_isatty,
+        "no_color_flag_active": no_color_flag,
+        "no_color_env_active": no_color_env,
+        "plain_json_mode_active": plain_json_mode,
+        "rich_flag_active": rich_flag,
+        "no_rich_flag_active": no_rich_flag,
+        "color_flag_active": color_flag,
+        "terminal_environment": env_summary,
+        "color_system_detected": detected_color_system,
+        "fallback_renderer_reason": fallback_reasons if fallback_reasons else ["none"],
+        "suggested_local_test_commands": [
+            f"python {Path(__file__).name} doctor-rich --no-color",
+            f"python {Path(__file__).name} --rich status",
+            f"python {Path(__file__).name} --no-rich status",
+            f"python {Path(__file__).name} --plain-json status",
+        ],
+        "verdict": "PASS_WITH_WARNINGS" if fallback_reasons else "PASS",
+    }
+    report_path = ctx.run_dir / "reports" / "doctor_rich_report.json"
+    write_json(report_path, report)
+
+    warnings = []
+    if fallback_reasons:
+        warnings.append(f"rich_renderer_fallback_active: {','.join(fallback_reasons)}")
+    limitations = []
+    if not stdout_isatty:
+        limitations.append("Non-TTY stdout can suppress live color even when Rich is installed.")
+    if plain_json_mode:
+        limitations.append("Machine-first plain JSON mode disables Rich rendering by design.")
+
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: DOCTOR RICH",
+        verdict=report["verdict"],
+        summary="Renderer diagnostics collected.",
+        outputs=[report_path],
+        input_refs=[str(REPO_ROOT)],
+        warnings=warnings,
+        details=report,
+        next_actions=report["suggested_local_test_commands"],
+        limitations=limitations,
+    )
+
+
+def command_doctor_oss(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("doctor-oss", args.out)
+    snapshot = detect_oss_availability(AGENT_ROOT)
+    report_path = ctx.run_dir / "reports" / "doctor_oss_report.json"
+    write_json(report_path, snapshot)
+    unavailable = list(snapshot.get("unavailable", []))
+    warnings: List[str] = []
+    if unavailable:
+        warnings.append(f"oss_unavailable_tools: {','.join(unavailable)}")
+    if str(snapshot.get("available_pdf_backend", "unavailable")) == "unavailable":
+        warnings.append("no_local_pdf_backend_detected_for_owner_pdf")
+    verdict = "PASS_WITH_WARNINGS" if warnings else "PASS"
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: DOCTOR OSS",
+        verdict=verdict,
+        summary="OSS availability detection completed (no installs performed).",
+        outputs=[report_path],
+        input_refs=[str(AGENT_ROOT / "OSS_ADMISSION" / "OSS_ADMISSION_REGISTER_V0_1.json")],
+        warnings=warnings,
+        details=snapshot,
+        next_actions=[
+            "Review OSS candidate statuses before any admission update.",
+            "Use build-dossier to package machine reports and Owner artifact.",
+        ],
+        limitations=[] if str(snapshot.get("available_pdf_backend", "unavailable")) != "unavailable" else ["Russian PDF backend may require local browser backend admission."],
+    )
+
+
+def command_build_dossier(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("build-dossier", args.out)
+    task_id = str(args.task_id or TASK_DOSSIER_FACTORY_ID).strip()
+    source_report_dir = Path(args.source_report_dir).resolve() if args.source_report_dir else (AGENT_ROOT / "REPORTS" / task_id).resolve()
+    source_receipt_path = Path(args.source_receipt).resolve() if args.source_receipt else (AGENT_ROOT / "receipts" / f"{task_id}_RECEIPT_V0_1.json").resolve()
+    command_matrix_path = source_report_dir / "COMMAND_STATUS_MATRIX_V0_1.md"
+    if not source_report_dir.exists():
+        raise UserFacingError(
+            f"Source report dir missing: {source_report_dir}",
+            "Generate required task reports before build-dossier.",
+            f"python {Path(__file__).name} build-dossier --task-id {task_id} --source-report-dir <existing_path>",
+        )
+    if not source_receipt_path.exists():
+        raise UserFacingError(
+            f"Source receipt missing: {source_receipt_path}",
+            "Generate task receipt before build-dossier.",
+            f"python {Path(__file__).name} build-dossier --task-id {task_id} --source-receipt <existing_receipt_path>",
+        )
+
+    oss_snapshot = detect_oss_availability(AGENT_ROOT)
+    result = build_dossier_package(
+        task_id=task_id,
+        run_id=ctx.run_id,
+        run_dir=ctx.run_dir,
+        repo_root=REPO_ROOT,
+        source_report_dir=source_report_dir,
+        source_receipt_path=source_receipt_path,
+        command_status_matrix_path=command_matrix_path,
+        oss_snapshot=oss_snapshot,
+        next_recommended_task=str(args.next_task or "TASK-20260518-ADMINISTRATUM-CONTRACT-REGRESSION-GATE-V0_1"),
+    )
+    report = {
+        "report_type": "DOSSIER_FACTORY_BUILD_REPORT",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": ctx.run_id,
+        "generated_at_utc": now_utc(),
+        "task_id": task_id,
+        "source_report_dir": str(source_report_dir),
+        "source_receipt_path": str(source_receipt_path),
+        "zip_path": result.zip_path,
+        "manifest_path": result.manifest_path,
+        "sha256sums_path": result.sha256sums_path,
+        "owner_pdf_generated": result.owner_pdf_generated,
+        "owner_pdf_path": result.owner_pdf_path,
+        "owner_pdf_language": result.owner_pdf_language,
+        "pdf_backend": result.pdf_backend,
+        "evidence_index_path": result.evidence_index_path,
+        "warnings": result.warnings,
+        "limitations": result.limitations,
+        "unverified": result.unverified,
+        "verdict": result.verdict,
+    }
+    report_path = ctx.run_dir / "reports" / "dossier_factory_build_report.json"
+    write_json(report_path, report)
+    command_verdict = _report_verdict_to_command_verdict(result.verdict)
+    outputs: List[Any] = [
+        report_path,
+        Path(result.zip_path),
+        Path(result.manifest_path),
+        Path(result.sha256sums_path),
+        Path(result.evidence_index_path),
+    ]
+    if result.owner_pdf_path:
+        outputs.append(Path(result.owner_pdf_path))
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: BUILD DOSSIER",
+        verdict=command_verdict,
+        summary="Dossier package build completed.",
+        outputs=outputs,
+        input_refs=[str(source_report_dir), str(source_receipt_path), str(command_matrix_path)],
+        warnings=result.warnings,
+        details=report,
+        next_actions=[
+            "Run verify-dossier --latest to validate package integrity.",
+            "Use OWNER_QUICKSTART and canonical reports for Owner review.",
+        ],
+        limitations=result.limitations + result.unverified,
+    )
+
+
+def command_verify_dossier(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("verify-dossier", args.out)
+    if args.zip_path:
+        zip_path = Path(args.zip_path)
+        if not zip_path.is_absolute():
+            zip_path = (REPO_ROOT / zip_path).resolve()
+    else:
+        latest = find_latest_dossier_zip(RUNS_ROOT)
+        if latest is None:
+            raise UserFacingError(
+                "No dossier zip found under RUNS.",
+                "Build a dossier first or pass --zip-path explicitly.",
+                f"python {Path(__file__).name} build-dossier --task-id {TASK_DOSSIER_FACTORY_ID}",
+            )
+        zip_path = latest
+    report = verify_dossier_package(zip_path, ctx.run_dir / "reports" / "dossier_verify_extract")
+    report_path = ctx.run_dir / "reports" / "dossier_verify_report.json"
+    write_json(report_path, report)
+    command_verdict = _report_verdict_to_command_verdict(str(report.get("verdict", "BLOCKED")))
+    warnings = [str(x) for x in report.get("warnings", [])]
+    limitations: List[str] = []
+    if report.get("owner_pdf_generated") is False:
+        limitations.append("Owner RU PDF missing in verified dossier (fallback may be present).")
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: VERIFY DOSSIER",
+        verdict=command_verdict,
+        summary="Dossier package verification completed.",
+        outputs=[report_path],
+        input_refs=[str(zip_path)],
+        warnings=warnings,
+        details=report,
+        next_actions=["Inspect verify report and hash status before Owner handoff."],
+        limitations=limitations,
+    )
+
+
 def _test_result(name: str, ok: bool, detail: Optional[Any] = None) -> Dict[str, Any]:
     row: Dict[str, Any] = {"test": name, "pass": bool(ok)}
     if detail is not None:
@@ -1543,12 +1992,12 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     repo_root = _resolve_repo_path(args.repo_root)
     ctx = _start_command("check-all", args.out)
     rail = ProgressRail(renderer, ctx)
-    rail.start(1, "reading_git_truth")
+    rail.start(1, "reading_git_truth", target=str(repo_root))
 
     before = subprocess.run(["git", "status", "--porcelain"], cwd=repo_root, capture_output=True, text=True, check=False)
     before_set = {line[3:] for line in before.stdout.splitlines() if len(line) > 3}
     tests: List[Dict[str, Any]] = []
-    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}")
+    rail.done(1, f"dirty={str(ctx.dirty_before).lower()}", target=str(repo_root))
 
     manifest = load_manifest()
     tests.append(_test_result("manifest_exists", manifest.get("agent_id") == "ADMINISTRATUM_AGENT"))
@@ -1587,6 +2036,15 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
 
     # CLI smoke commands
     runner_path = Path(__file__).resolve()
+    cmd_help = subprocess.run(
+        [sys.executable, str(runner_path), "--help"],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("cli_help_runs", cmd_help.returncode == 0 and "doctor-rich" in cmd_help.stdout, cmd_help.stdout[:300]))
+
     cmd_status = subprocess.run(
         [sys.executable, str(runner_path), "--no-color", "status", "--out", str(ctx.run_dir / "cli_status")],
         cwd=REPO_ROOT,
@@ -1595,6 +2053,55 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         check=False,
     )
     tests.append(_test_result("cli_status_runs", cmd_status.returncode == 0, cmd_status.stdout[:300]))
+    tests.append(_test_result("cli_status_compact_default", "DETAILS:" not in cmd_status.stdout, cmd_status.stdout[:300]))
+
+    cmd_inventory = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "inventory", "--repo-root", str(REPO_ROOT), "--out", str(ctx.run_dir / "cli_inventory")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("cli_inventory_runs", cmd_inventory.returncode == 0, cmd_inventory.stdout[:300]))
+
+    cmd_doctor_rich = subprocess.run(
+        [sys.executable, str(runner_path), "--no-color", "doctor-rich", "--out", str(ctx.run_dir / "cli_doctor_rich")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("cli_doctor_rich_runs", cmd_doctor_rich.returncode == 0, cmd_doctor_rich.stdout[:300]))
+
+    cmd_verbose = subprocess.run(
+        [sys.executable, str(runner_path), "--verbose", "--no-color", "status", "--out", str(ctx.run_dir / "cli_status_verbose")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("cli_verbose_mode_renders_details", cmd_verbose.returncode == 0 and "DETAILS" in cmd_verbose.stdout, cmd_verbose.stdout[:300]))
+
+    cmd_no_rich = subprocess.run(
+        [sys.executable, str(runner_path), "--no-rich", "--no-color", "status", "--out", str(ctx.run_dir / "cli_status_no_rich")],
+        cwd=REPO_ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    tests.append(_test_result("cli_no_rich_mode_runs", cmd_no_rich.returncode == 0 and "ARCHIVE SEAL" not in cmd_no_rich.stdout, cmd_no_rich.stdout[:300]))
+
+    if RICH_AVAILABLE:
+        cmd_rich = subprocess.run(
+            [sys.executable, str(runner_path), "--rich", "--no-color", "status", "--out", str(ctx.run_dir / "cli_status_rich")],
+            cwd=REPO_ROOT,
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        tests.append(_test_result("cli_rich_mode_runs_if_available", cmd_rich.returncode == 0, cmd_rich.stdout[:300]))
+    else:
+        tests.append(_test_result("cli_rich_mode_runs_if_available", True, "rich_not_installed"))
 
     cmd_shell_help = subprocess.run(
         [sys.executable, str(runner_path), "--no-color", "shell", "--once", "/help"],
@@ -1634,7 +2141,7 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     tests.append(_test_result("progress_renderer_visible", cmd_progress.returncode == 0 and "PHASE 1/8" in cmd_progress.stdout, cmd_progress.stdout[:400]))
 
     # Functional new layers
-    rail.start(2, "scanning_context_metadata")
+    rail.start(2, "scanning_context_metadata", target="IMPERIUM_CONTEXT")
     scan = scan_imperium_context(
         ctx.run_id,
         ctx.run_dir,
@@ -1644,17 +2151,17 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         progress_hook=_context_progress_hook(rail),
     )
     tests.append(_test_result("scan_imperium_context_runs", Path(scan.report_path).exists()))
-    rail.done(2, f"objects={scan.report.get('entry_count', 0)}")
+    rail.done(2, f"objects={scan.report.get('entry_count', 0)}", target=str(Path(scan.report_path)))
 
-    rail.start(4, "classifying_risks")
+    rail.start(4, "classifying_risks", target=str(Path(scan.report_path)))
     local_cls = classify_local_context(ctx.run_id, ctx.run_dir, Path(scan.report_path), metrics=ctx.metrics)
     tests.append(_test_result("classify_local_context_runs", Path(local_cls.report_path).exists()))
 
     risk = detect_private_export_risk(ctx.run_id, ctx.run_dir, Path(local_cls.report_path), metrics=ctx.metrics)
     tests.append(_test_result("private_export_risk_report_runs", Path(risk.report_path).exists()))
-    rail.done(4, f"high_risk={local_cls.report.get('high_risk_count', 0)}")
+    rail.done(4, f"high_risk={local_cls.report.get('high_risk_count', 0)}", target=str(Path(local_cls.report_path)))
 
-    rail.start(3, "building_inventory")
+    rail.start(3, "building_inventory", target=str(repo_root))
     inv = build_inventory(
         repo_root,
         ctx.run_id,
@@ -1664,8 +2171,8 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         progress_hook=_inventory_progress_hook(rail),
     )
     prov = build_provenance_index(repo_root, ctx.run_id, ctx.run_dir, Path(inv.report_path), metrics=ctx.metrics, limit=120)
-    rail.done(3, f"files={inv.report.get('total_files', 0)}")
-    rail.start(5, "collecting_useful_refs")
+    rail.done(3, f"files={inv.report.get('total_files', 0)}", target=str(Path(inv.report_path)))
+    rail.start(5, "collecting_useful_refs", target=str(Path(inv.report_path)))
     useful = find_useful_candidates(ctx.run_id, ctx.run_dir, Path(inv.report_path), repo_root=repo_root, metrics=ctx.metrics)
     dirty = detect_dirty_runtime_outputs(repo_root, ctx.run_id, ctx.run_dir, metrics=ctx.metrics)
     routing = route_to_organs(
@@ -1676,9 +2183,9 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
         metrics=ctx.metrics,
     )
     tests.append(_test_result("route_mutation_request_rejected", any(r.get("verdict", "").startswith("REJECT") for r in routing.report.get("routes", []))))
-    rail.done(5, f"candidates={useful.report.get('top_summary', {}).get('scripts', 0)}")
+    rail.done(5, f"candidates={useful.report.get('top_summary', {}).get('scripts', 0)}", target=str(Path(useful.report_path)))
 
-    rail.start(6, "building_continuity_narrative")
+    rail.start(6, "building_continuity_narrative", target=str(ctx.run_dir / "continuity_pack"))
     continuity = collect_continuity_pack(repo_root, ctx.run_id, ctx.run_dir, include_context=True, metrics=ctx.metrics)
     tests.append(_test_result("continuity_pack_exists", Path(continuity.report.get("manifest_path", "")).exists()))
     required_pack_files = [
@@ -1699,7 +2206,11 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     pack_dir = Path(continuity.report.get("pack_dir", ""))
     missing_pack = [name for name in required_pack_files if not (pack_dir / name).exists()]
     tests.append(_test_result("continuity_pack_rich_files_exist", len(missing_pack) == 0, missing_pack))
-    rail.done(6, f"pack_files={len(required_pack_files) - len(missing_pack)}")
+    rail.done(
+        6,
+        f"pack_files={len(required_pack_files) - len(missing_pack)} warnings={len(missing_pack)}",
+        target=str(pack_dir),
+    )
 
     verify = verify_pack_against_reality(repo_root, ctx.run_id, ctx.run_dir, Path(continuity.report.get("manifest_path", "")), metrics=ctx.metrics)
     tests.append(_test_result("verify_pack_against_reality_runs", Path(verify.report_path).exists()))
@@ -1728,7 +2239,19 @@ def command_check_all(args: argparse.Namespace, renderer: Renderer) -> int:
     if cmd_plain.returncode == 0:
         try:
             j = json.loads(cmd_plain.stdout)
-            plain_ok = bool(j.get("verdict"))
+            required = {
+                "status",
+                "command",
+                "summary",
+                "primary_refs",
+                "artifacts_written",
+                "warnings",
+                "why_trust",
+                "next_actions",
+                "metrics",
+                "limitations",
+            }
+            plain_ok = required.issubset(set(j.keys()))
         except Exception:
             plain_ok = False
     tests.append(_test_result("cli_plain_json_mode", plain_ok, cmd_plain.stdout[:200]))
@@ -1832,6 +2355,10 @@ def _shell_commands_reference() -> List[str]:
         "/help",
         "/status",
         "/inventory",
+        "/doctor-rich",
+        "/doctor-oss",
+        "/build-dossier",
+        "/verify-dossier",
         "/classify <path>",
         "/dirty-runtime",
         "/useful-candidates",
@@ -1935,11 +2462,17 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
         renderer.emit(
             {
                 "header": "ADMINISTRATUM SHELL :: HELP",
+                "status": "PASS",
+                "command": "shell/help",
                 "run_id": "N/A",
                 "verdict": "PASS",
                 "summary": "Available rites listed.",
-                "outputs": {},
+                "primary_refs": [],
+                "artifacts_written": [],
                 "warnings": [],
+                "why_trust": ["Help generated from local static shell command map."],
+                "metrics": {},
+                "limitations": [],
                 "details": {"commands": _shell_commands_reference()},
                 "next_actions": ["Use `/status` or `/check-all` as first verification rites."],
             }
@@ -1950,6 +2483,33 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
         return command_status(argparse.Namespace(out=None), renderer)
     if cmd == "/inventory":
         return command_inventory(argparse.Namespace(repo_root=str(REPO_ROOT), out=None), renderer)
+    if cmd == "/doctor-rich":
+        return command_doctor_rich(
+            argparse.Namespace(
+                out=None,
+                plain_json=False,
+                no_color=False,
+                color=False,
+                rich=renderer.rich_enabled,
+                no_rich=not renderer.rich_enabled,
+            ),
+            renderer,
+        )
+    if cmd == "/doctor-oss":
+        return command_doctor_oss(argparse.Namespace(out=None), renderer)
+    if cmd == "/build-dossier":
+        return command_build_dossier(
+            argparse.Namespace(
+                task_id=TASK_DOSSIER_FACTORY_ID,
+                source_report_dir=None,
+                source_receipt=None,
+                next_task="TASK-20260518-ADMINISTRATUM-CONTRACT-REGRESSION-GATE-V0_1",
+                out=None,
+            ),
+            renderer,
+        )
+    if cmd == "/verify-dossier":
+        return command_verify_dossier(argparse.Namespace(zip_path=None, latest=True, out=None), renderer)
     if cmd == "/classify":
         if not args:
             raise UserFacingError("Missing `<path>` for /classify.", "Provide a path argument.", "/classify IMPERIUM_NEW_GENERATION/README.md")
@@ -2095,6 +2655,10 @@ COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "explain-decision": command_explain_decision,
     "show-kpd": command_show_kpd,
     "cu-summary": command_cu_summary,
+    "doctor-rich": command_doctor_rich,
+    "doctor-oss": command_doctor_oss,
+    "build-dossier": command_build_dossier,
+    "verify-dossier": command_verify_dossier,
     "check-all": command_check_all,
     "recent": command_recent,
     "open-runs": command_open_runs,
@@ -2229,9 +2793,31 @@ def build_parser() -> argparse.ArgumentParser:
     p_kpd.add_argument("--out", default=None)
     p_kpd.set_defaults(func=command_show_kpd)
 
-    p_cu = sub.add_parser("cu-summary", help="Build Control Units (цушки) index and summary.")
+    p_cu = sub.add_parser("cu-summary", help="Build Control Units (CU) index and summary.")
     p_cu.add_argument("--out", default=None)
     p_cu.set_defaults(func=command_cu_summary)
+
+    p_doctor = sub.add_parser("doctor-rich", help="Diagnose Rich/color renderer availability and fallback reasons.")
+    p_doctor.add_argument("--out", default=None)
+    p_doctor.set_defaults(func=command_doctor_rich)
+
+    p_doctor_oss = sub.add_parser("doctor-oss", help="Detect OSS tool availability and PDF backend status.")
+    p_doctor_oss.add_argument("--out", default=None)
+    p_doctor_oss.set_defaults(func=command_doctor_oss)
+
+    p_build_dossier = sub.add_parser("build-dossier", help="Build a dossier ZIP from canonical report and receipt inputs.")
+    p_build_dossier.add_argument("--task-id", default=TASK_DOSSIER_FACTORY_ID)
+    p_build_dossier.add_argument("--source-report-dir", default=None, help="Optional explicit report folder path.")
+    p_build_dossier.add_argument("--source-receipt", default=None, help="Optional explicit receipt path.")
+    p_build_dossier.add_argument("--next-task", default="TASK-20260518-ADMINISTRATUM-CONTRACT-REGRESSION-GATE-V0_1")
+    p_build_dossier.add_argument("--out", default=None)
+    p_build_dossier.set_defaults(func=command_build_dossier)
+
+    p_verify_dossier = sub.add_parser("verify-dossier", help="Verify dossier ZIP required files and hash manifest.")
+    p_verify_dossier.add_argument("--zip-path", default=None, help="Optional explicit dossier zip path.")
+    p_verify_dossier.add_argument("--latest", action="store_true", help="Use latest dossier zip in RUNS when --zip-path is not provided.")
+    p_verify_dossier.add_argument("--out", default=None)
+    p_verify_dossier.set_defaults(func=command_verify_dossier)
 
     p_check = sub.add_parser("check-all", help="Run full Administratum hardening check suite.")
     p_check.add_argument("--repo-root", default=str(REPO_ROOT))

@@ -1385,6 +1385,8 @@ def collect_continuity_pack(
         "repo_head": git_head(repo_root),
         "repo_dirty": git_is_dirty(repo_root),
         "include_context": include_context,
+        "included_refs_count": len(included_refs),
+        "context_export_policy": "METADATA_ONLY_NO_GIT_EXPORT",
         "included_refs": included_refs,
         "safety": {
             "metadata_only_context": True,
@@ -1543,22 +1545,29 @@ def collect_continuity_pack(
     handoff_brief_path.write_text("\n".join(handoff_brief_lines), encoding="utf-8")
 
     summary_path = pack_dir / "continuity_pack_summary.md"
-    summary_path.write_text(
-        "\n".join(
-            [
-                "# Continuity Pack Summary",
-                "",
-                f"- run_id: {run_id}",
-                f"- repo_head: {manifest['repo_head']}",
-                f"- repo_dirty: {str(manifest['repo_dirty']).lower()}",
-                f"- include_context: {str(include_context).lower()}",
-                f"- refs_count: {len(included_refs)}",
-                f"- kpd_verdict: {kpd_score.get('verdict', 'UNKNOWN')}",
-                f"- trust_verdict: {kpd_score.get('trust_verdict', 'UNKNOWN')}",
-                "",
-            ]
-        ),
-        encoding="utf-8",
+    summary_lines = [
+        "# Continuity Pack Summary",
+        "",
+        f"- run_id: {run_id}",
+        f"- repo_head: {manifest['repo_head']}",
+        f"- repo_dirty: {str(manifest['repo_dirty']).lower()}",
+        f"- include_context: {str(include_context).lower()}",
+        f"- refs_count: {len(included_refs)}",
+        f"- kpd_verdict: {kpd_score.get('verdict', 'UNKNOWN')}",
+        f"- trust_verdict: {kpd_score.get('trust_verdict', 'UNKNOWN')}",
+        "",
+    ]
+    summary_path.write_text("\n".join(summary_lines), encoding="utf-8")
+    maturity_capsule_path = pack_dir / "continuity_maturity_capsule.json"
+    write_json(
+        maturity_capsule_path,
+        {
+            "report_type": "CONTINUITY_MATURITY_CAPSULE",
+            "agent_id": "ADMINISTRATUM_AGENT",
+            "run_id": run_id,
+            "generated_at_utc": now_utc(),
+            "status": "PENDING_FINALIZATION",
+        },
     )
 
     pack_receipt = {
@@ -1580,6 +1589,7 @@ def collect_continuity_pack(
             str(metrics_summary_path),
             str(kpd_path),
             str(thinking_path),
+            str(maturity_capsule_path),
         ],
         "mutated_canon": False,
         "private_content_exported": False,
@@ -1601,6 +1611,7 @@ def collect_continuity_pack(
         private_safety_path,
         metrics_summary_path,
         kpd_path,
+        maturity_capsule_path,
         pack_receipt_path,
     ]
     present_required = sum(1 for p in required_files if p.exists())
@@ -1610,7 +1621,95 @@ def collect_continuity_pack(
         "required_files_missing": [str(p.name) for p in required_files if not p.exists()],
         "quality_verdict": "PASS" if present_required == len(required_files) else "PASS_WITH_WARNINGS",
     }
+    continuity_limitations: List[str] = []
+    if bool(manifest.get("repo_dirty")):
+        continuity_limitations.append("Repository was dirty during continuity pack creation.")
+    if include_context:
+        continuity_limitations.append("Context references are metadata-only and not content-export ready.")
+    if int(private_safety.get("private_export_risk_count", 0) or 0) > 0:
+        continuity_limitations.append("Private export risk items detected; requires strict no-git-export handling.")
+    if int(len(included_refs)) < 4:
+        continuity_limitations.append("Low included refs count reduces standalone handoff confidence.")
+    if pack_quality["quality_verdict"] != "PASS":
+        continuity_limitations.append("Required continuity files are incomplete.")
 
+    if pack_quality["quality_verdict"] != "PASS" or bool(manifest.get("repo_dirty")):
+        maturity_verdict = "NOT_READY_FOR_SOLE_HANDOFF"
+    elif continuity_limitations:
+        maturity_verdict = "PARTIAL"
+    elif (
+        kpd_score.get("trust_verdict") in {"TRUSTED_FOR_BASE_USE", "TRUSTED_WITH_WARNINGS"}
+        and len(included_refs) >= 6
+        and not include_context
+    ):
+        maturity_verdict = "READY_CANDIDATE"
+    else:
+        maturity_verdict = "PARTIAL"
+
+    recommended_handoff_method = (
+        "Run verify-pack-against-reality immediately before next Servitor action and include Owner checkpoint."
+        if maturity_verdict == "NOT_READY_FOR_SOLE_HANDOFF"
+        else (
+            "Use pack with mandatory verify-pack-against-reality pre-flight for each downstream execution."
+            if maturity_verdict == "PARTIAL"
+            else "Use as primary handoff capsule with lightweight reality re-check."
+        )
+    )
+
+    key_receipts = sorted(str(p) for p in (run_dir / "receipts").glob("*_receipt.json"))
+    maturity_capsule = {
+        "report_type": "CONTINUITY_MATURITY_CAPSULE",
+        "agent_id": "ADMINISTRATUM_AGENT",
+        "run_id": run_id,
+        "generated_at_utc": now_utc(),
+        "repo_truth": git_truth,
+        "repo_dirty": bool(git_truth.get("dirty")),
+        "included_refs_count": len(included_refs),
+        "included_refs": included_refs,
+        "context_export_policy": "METADATA_ONLY_NO_GIT_EXPORT",
+        "private_export_safety": private_safety,
+        "key_reports": included_refs,
+        "key_receipts": key_receipts[:80],
+        "limitations": continuity_limitations,
+        "recommended_next_handoff_method": recommended_handoff_method,
+        "self_verdict": maturity_verdict,
+    }
+    write_json(maturity_capsule_path, maturity_capsule)
+    manifest["maturity_capsule_path"] = str(maturity_capsule_path)
+    manifest["self_verdict"] = maturity_verdict
+    manifest["limitations"] = continuity_limitations
+    manifest["recommended_next_handoff_method"] = recommended_handoff_method
+    write_json(manifest_path, manifest)
+
+    owner_brief_lines.extend(
+        [
+            "## Maturity capsule",
+            f"- self_verdict: {maturity_verdict}",
+            f"- recommended_next_handoff_method: {recommended_handoff_method}",
+            f"- limitations_count: {len(continuity_limitations)}",
+            "",
+        ]
+    )
+    for limitation in continuity_limitations:
+        owner_brief_lines.append(f"- limitation: {limitation}")
+    owner_brief_lines.append("")
+    owner_brief_path.write_text("\n".join(owner_brief_lines), encoding="utf-8")
+
+    summary_lines.extend(
+        [
+            "## Maturity capsule",
+            f"- self_verdict: {maturity_verdict}",
+            f"- recommended_next_handoff_method: {recommended_handoff_method}",
+            f"- limitations_count: {len(continuity_limitations)}",
+            "",
+        ]
+    )
+    for limitation in continuity_limitations:
+        summary_lines.append(f"- limitation: {limitation}")
+    summary_lines.append("")
+    summary_path.write_text("\n".join(summary_lines), encoding="utf-8")
+
+    pack_verdict = "PASS_WITH_WARNINGS" if continuity_limitations else "PASS"
     report = {
         "report_type": "CONTINUITY_PACK_REPORT",
         "agent_id": "ADMINISTRATUM_AGENT",
@@ -1629,10 +1728,14 @@ def collect_continuity_pack(
         "private_context_safety_report_path": str(private_safety_path),
         "metrics_summary_path": str(metrics_summary_path),
         "kpd_score_path": str(kpd_path),
+        "maturity_capsule_path": str(maturity_capsule_path),
         "continuity_pack_receipt_path": str(pack_receipt_path),
         "pack_quality": pack_quality,
         "included_refs_count": len(included_refs),
-        "verdict": "PASS",
+        "context_export_policy": "METADATA_ONLY_NO_GIT_EXPORT",
+        "continuity_maturity_capsule": maturity_capsule,
+        "warnings": continuity_limitations,
+        "verdict": pack_verdict,
     }
     report_path = run_dir / "reports" / "continuity_pack_report.json"
     write_json(report_path, report)
@@ -1640,9 +1743,17 @@ def collect_continuity_pack(
         run_id=run_id,
         skill_id="collect_continuity_pack",
         input_refs=[str(repo_root)],
-        outputs=[str(report_path), str(manifest_path), str(summary_path), str(owner_brief_path), str(handoff_brief_path), str(pack_receipt_path)],
-        verdict="PASS",
-        warnings=[],
+        outputs=[
+            str(report_path),
+            str(manifest_path),
+            str(summary_path),
+            str(owner_brief_path),
+            str(handoff_brief_path),
+            str(maturity_capsule_path),
+            str(pack_receipt_path),
+        ],
+        verdict=pack_verdict,
+        warnings=continuity_limitations,
     )
     receipt_path = write_skill_receipt(run_dir, "collect_continuity_pack", receipt)
     if metrics is not None:
