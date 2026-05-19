@@ -98,6 +98,12 @@ from transfer_gate_core_v0_1 import (  # noqa: E402
     verify_prompt_pack,
 )
 
+COMMON_AGENT_CLI_ROOT = NEW_GENERATION_ROOT / "COMMON_AGENT_CLI"
+if str(COMMON_AGENT_CLI_ROOT) not in sys.path:
+    sys.path.insert(0, str(COMMON_AGENT_CLI_ROOT))
+
+from tool_registry_reader import build_organ_tool_view, default_tool_index_path  # noqa: E402
+
 
 class UserFacingError(RuntimeError):
     """Error with operator guidance."""
@@ -126,7 +132,7 @@ ADMITTED_DIRTY_PREFIXES = (
     "IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT/",
 )
 BASE_HALF_TASK_ID = "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1"
-BASE_HALF_REQUIRED_COMMANDS = ["status", "check", "where", "identity", "pack", "shell", "help"]
+BASE_HALF_REQUIRED_COMMANDS = ["status", "check", "where", "identity", "tools", "pack", "shell", "help"]
 BASE_HALF_REQUIRED_FILES = [
     "README.md",
     "AGENT_PROFILE.md",
@@ -1582,6 +1588,34 @@ def command_help(args: argparse.Namespace, renderer: Renderer) -> int:
         input_refs=[],
         warnings=[],
         details={"commands": BASE_HALF_REQUIRED_COMMANDS},
+    )
+
+
+def command_tools(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("tools", args.out)
+    index_path = default_tool_index_path(REPO_ROOT)
+    payload = build_organ_tool_view(organ_id="ADMINISTRATUM_AGENT", index_path=index_path)
+    report_path = ctx.run_dir / "reports" / "tools_report.json"
+    write_json(report_path, payload)
+    warnings = [str(item) for item in payload.get("warnings", []) if str(item).strip()]
+    verdict_token = str(payload.get("verdict", "PASS")).upper()
+    if verdict_token.startswith("BLOCKED"):
+        verdict = "BLOCKED"
+    elif warnings:
+        verdict = "WARN"
+    else:
+        verdict = "PASS"
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: TOOLS",
+        verdict=verdict,
+        summary="Organ-specific tool capability view generated from Mechanicus registry.",
+        outputs=[report_path],
+        input_refs=[str(index_path)],
+        warnings=warnings,
+        details=payload,
+        next_actions=["Use `shell --once tools` for shell-mode smoke check."],
     )
 
 
@@ -3450,6 +3484,7 @@ def _shell_commands_reference() -> List[str]:
         "/help",
         "/help <command>",
         "/status",
+        "/tools",
         "/inventory",
         "/doctor-rich",
         "/doctor-oss",
@@ -3601,6 +3636,7 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
         topic = args[0].lower() if args else ""
         command_help = {
             "/status": "Read-only truth snapshot. Dirty state becomes WARN.",
+            "/tools": "Show Administratum-relevant tools from Mechanicus registry with availability truth.",
             "/check-all": "Heavy verification rite. Dirty pre-state outside admitted scope returns OWNER_DECISION_REQUIRED.",
             "/build-dossier": "Build default MD+JSON no-PDF dossier ZIP.",
             "/verify-dossier": "Verify dossier hashes, required files, and no-PDF default policy.",
@@ -3644,6 +3680,8 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
 
     if cmd == "/status":
         return command_status(argparse.Namespace(out=None), renderer)
+    if cmd == "/tools":
+        return command_tools(argparse.Namespace(out=None), renderer)
     if cmd == "/identity":
         return command_identity(argparse.Namespace(out=None), renderer)
     if cmd == "/inventory":
@@ -3842,7 +3880,10 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
 def command_shell(args: argparse.Namespace, renderer: Renderer) -> int:
     _show_shell_welcome(renderer)
     if args.once:
-        return_code = _shell_dispatch_line(args.once, renderer)
+        once_line = str(args.once).strip()
+        if once_line and not once_line.startswith("/"):
+            once_line = f"/{once_line}"
+        return_code = _shell_dispatch_line(once_line, renderer)
         return 0 if return_code in {0, 99} else return_code
 
     prompt = "ADMINISTRATUM://LOCAL > "
@@ -4080,6 +4121,7 @@ COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "check": command_check,
     "where": command_where,
     "identity": command_identity,
+    "tools": command_tools,
     "pack": command_pack,
     "help": command_help,
     "inventory": command_inventory,
@@ -4150,6 +4192,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_identity = sub.add_parser("identity", help="Show Administratum identity/profile baseline.")
     p_identity.add_argument("--out", default=None)
     p_identity.set_defaults(func=command_identity)
+
+    p_tools = sub.add_parser("tools", help="Show Administratum-relevant tool capability view.")
+    p_tools.add_argument("--out", default=None)
+    p_tools.set_defaults(func=command_tools)
 
     p_pack_base = sub.add_parser("pack", help="Build Base Half continuity pack under local context.")
     p_pack_base.add_argument("--out", default=None)

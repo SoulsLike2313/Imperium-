@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple
 
+from tool_registry_reader import build_organ_tool_view, default_tool_index_path
+
 try:
     from rich.console import Console
     from rich.layout import Layout
@@ -27,7 +29,7 @@ TASK_ID_BASE_HALF = "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1"
 TASK_ID_IDENTITY_RICH = "TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1"
 VISUAL_WARN = "WARN_VISUAL_NOT_REFERENCE"
 
-BASE_COMMANDS = ["status", "check", "where", "identity", "pack", "shell", "help"]
+BASE_COMMANDS = ["status", "check", "where", "identity", "tools", "pack", "shell", "help"]
 BASE_REQUIRED_FILES = [
     "README.md",
     "AGENT_PROFILE.md",
@@ -394,6 +396,17 @@ def command_pack(config: OrganConfig) -> Tuple[int, Path]:
     return 0, pack_root
 
 
+def command_tools(config: OrganConfig) -> int:
+    ensure_base_layout(config)
+    repo_root = _repo_root(config.root)
+    index_path = default_tool_index_path(repo_root)
+    payload = build_organ_tool_view(organ_id=config.organ_name, index_path=index_path)
+    payload["tool_registry_reader"] = str(Path(__file__).resolve().parent / "tool_registry_reader.py")
+    print(json.dumps(payload, ensure_ascii=True, indent=2))
+    verdict = str(payload.get("verdict", "PASS"))
+    return 0 if verdict in {"PASS", "WARN"} else 1
+
+
 def _json_validity_report(config: OrganConfig) -> Dict[str, Any]:
     identity_dir = config.root / "IDENTITY"
     targets = [identity_dir / "identity_profile.json", identity_dir / "lore_functions.json", identity_dir / "domain_commands.json"]
@@ -602,6 +615,9 @@ def _shell_dispatch(config: OrganConfig, raw: str) -> Tuple[int, bool]:
     if token in {"identity", "/identity"}:
         command_identity(config)
         return 0, False
+    if token in {"tools", "/tools"}:
+        command_tools(config)
+        return 0, False
     if token in {"pack", "/pack"}:
         command_pack(config)
         return 0, False
@@ -624,7 +640,7 @@ def command_shell(config: OrganConfig, once: Optional[str]) -> int:
         return code
 
     _render_shell_header(config, warnings)
-    print("Type: help, status, check, where, identity, pack, <domain-command>, exit")
+    print("Type: help, status, check, where, identity, tools, pack, <domain-command>, exit")
     while True:
         try:
             raw = input(f"{config.organ_slug}> ")
@@ -659,6 +675,7 @@ def run_cli(config: OrganConfig, argv: Optional[Sequence[str]] = None) -> int:
     sub.add_parser("check")
     sub.add_parser("where")
     sub.add_parser("identity")
+    sub.add_parser("tools")
     sub.add_parser("pack")
     shell = sub.add_parser("shell")
     shell.add_argument("--once", default=None)
@@ -676,6 +693,8 @@ def run_cli(config: OrganConfig, argv: Optional[Sequence[str]] = None) -> int:
         return command_where(config)
     if args.command == "identity":
         return command_identity(config)
+    if args.command == "tools":
+        return command_tools(config)
     if args.command == "pack":
         return command_pack(config)[0]
     if args.command == "shell":

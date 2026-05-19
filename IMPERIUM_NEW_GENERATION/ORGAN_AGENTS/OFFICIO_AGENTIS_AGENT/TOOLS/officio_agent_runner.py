@@ -34,6 +34,11 @@ DEFAULT_RUNTIME_ROOT = Path(r"E:\IMPERIUM_CONTEXT\LOCAL\OFFICIO_AGENTIS\RUNS")
 ROOT = Path(__file__).resolve().parent.parent
 REPO_ROOT = ROOT.parent.parent.parent
 COMMON_CLI_ROOT = REPO_ROOT / "IMPERIUM_NEW_GENERATION" / "COMMON_AGENT_CLI"
+if str(COMMON_CLI_ROOT) not in sys.path:
+    sys.path.insert(0, str(COMMON_CLI_ROOT))
+
+from tool_registry_reader import build_organ_tool_view, default_tool_index_path
+
 ROLE_REGISTRY = ROOT / "ROLE_REGISTRY"
 MODE_REGISTRY = ROOT / "MODE_REGISTRY"
 SETTINGS_REGISTRY = ROOT / "SETTINGS_REGISTRY"
@@ -1001,32 +1006,125 @@ def load_task_pack_payload(task_pack_path: Path) -> dict[str, Any]:
     return {}
 
 
+def _list_of_strings(value: Any) -> list[str]:
+    if isinstance(value, list):
+        return [str(x).strip() for x in value if str(x).strip()]
+    if isinstance(value, str) and value.strip():
+        return [value.strip()]
+    return []
+
+
 def normalize_scope_values(payload: dict[str, Any]) -> list[str]:
     values: list[str] = []
-    if isinstance(payload.get("allowed_scope"), list):
-        values.extend([str(x) for x in payload["allowed_scope"]])
+    values.extend(_list_of_strings(payload.get("allowed_scope")))
     scope = payload.get("scope")
-    if isinstance(scope, dict) and isinstance(scope.get("allowed_paths"), list):
-        values.extend([str(x) for x in scope["allowed_paths"]])
-    return values
+    if isinstance(scope, dict):
+        values.extend(_list_of_strings(scope.get("allowed_paths")))
+        values.extend(_list_of_strings(scope.get("paths")))
+    dedup: list[str] = []
+    seen: set[str] = set()
+    for item in values:
+        if item not in seen:
+            seen.add(item)
+            dedup.append(item)
+    return dedup
+
+
+def normalize_forbidden_scope_values(payload: dict[str, Any]) -> list[str]:
+    values: list[str] = []
+    values.extend(_list_of_strings(payload.get("forbidden_scope")))
+    values.extend(_list_of_strings(payload.get("forbidden_scope_markers")))
+    scope = payload.get("scope")
+    if isinstance(scope, dict):
+        values.extend(_list_of_strings(scope.get("forbidden_paths")))
+        values.extend(_list_of_strings(scope.get("forbidden_scope")))
+    dedup: list[str] = []
+    seen: set[str] = set()
+    for item in values:
+        if item not in seen:
+            seen.add(item)
+            dedup.append(item)
+    return dedup
+
+
+def normalize_expected_heads(payload: dict[str, Any]) -> list[str]:
+    values: list[str] = []
+    for key in ("expected_base_head", "expected_head", "baseline_head", "base_head"):
+        values.extend(_list_of_strings(payload.get(key)))
+    repo_obj = payload.get("repo")
+    if isinstance(repo_obj, dict):
+        for key in ("expected_base_head", "expected_head", "baseline_head", "base_head", "head"):
+            values.extend(_list_of_strings(repo_obj.get(key)))
+    dedup: list[str] = []
+    seen: set[str] = set()
+    for item in values:
+        if item not in seen:
+            seen.add(item)
+            dedup.append(item)
+    return dedup
+
+
+def normalize_required_outputs(payload: dict[str, Any]) -> list[str]:
+    values: list[str] = []
+    values.extend(_list_of_strings(payload.get("required_outputs")))
+    values.extend(_list_of_strings(payload.get("required_reports")))
+    values.extend(_list_of_strings(payload.get("expected_receipts")))
+    outputs = payload.get("outputs")
+    if isinstance(outputs, dict):
+        values.extend(_list_of_strings(outputs.get("required")))
+    dedup: list[str] = []
+    seen: set[str] = set()
+    for item in values:
+        if item not in seen:
+            seen.add(item)
+            dedup.append(item)
+    return dedup
+
+
+def normalize_commit_push_default(payload: dict[str, Any]) -> bool | None:
+    value = payload.get("commit_push_default")
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        token = value.strip().lower()
+        if token in {"true", "1", "yes"}:
+            return True
+        if token in {"false", "0", "no"}:
+            return False
+
+    commit_cfg = payload.get("commit_push")
+    if isinstance(commit_cfg, dict):
+        nested = commit_cfg.get("default")
+        if isinstance(nested, bool):
+            return nested
+        if isinstance(nested, str):
+            token = nested.strip().lower()
+            if token in {"true", "1", "yes"}:
+                return True
+            if token in {"false", "0", "no"}:
+                return False
+    return None
 
 
 def infer_required_reports(payload: dict[str, Any]) -> list[str]:
-    if isinstance(payload.get("required_reports"), list):
-        return [str(x) for x in payload["required_reports"]]
-    if isinstance(payload.get("expected_receipts"), list):
-        return [str(x) for x in payload["expected_receipts"]]
-    return []
+    return normalize_required_outputs(payload)
 
 
 def has_required_task_field(field: str, payload: dict[str, Any], task_pack_path: Path) -> bool:
     if field in payload:
         return True
     if field == "expected_base_head":
-        repo_obj = payload.get("repo")
-        return "baseline_head" in payload or (isinstance(repo_obj, dict) and "expected_base_head" in repo_obj)
+        return len(normalize_expected_heads(payload)) > 0
+    if field == "expected_head":
+        return len(normalize_expected_heads(payload)) > 0
     if field == "allowed_scope":
         return len(normalize_scope_values(payload)) > 0
+    if field == "forbidden_scope":
+        return len(normalize_forbidden_scope_values(payload)) > 0
+    if field == "required_outputs":
+        return len(normalize_required_outputs(payload)) > 0
+    if field == "commit_push_default":
+        return normalize_commit_push_default(payload) is not None
     if field == "requirements_file":
         if isinstance(payload.get("requirements"), list):
             return True
@@ -1044,6 +1142,8 @@ def has_required_task_field(field: str, payload: dict[str, Any], task_pack_path:
             if (task_pack_path / "ACCEPTANCE_MATRIX.md").exists():
                 return True
         return False
+    if field == "schema_version":
+        return str(payload.get("schema_version", "")).strip() != ""
     return False
 
 
@@ -1058,6 +1158,14 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
     policy = read_json(SETTINGS_REGISTRY / "task_acceptance" / "task_acceptance_policy.json")
     required_fields = policy.get("machine_rule", {}).get("required_task_fields", [])
     missing_fields = [field for field in required_fields if not has_required_task_field(str(field), payload, task_pack_path)]
+    schema_value = str(payload.get("schema_version", "")).strip()
+    supported_schema_versions = {"IMPERIUM_TASK_CONTRACT_V0_2", "IMPERIUM_TASK_CONTRACT_V0_1"}
+    schema_supported = (not schema_value) or (schema_value in supported_schema_versions)
+    expected_heads = normalize_expected_heads(payload)
+    allowed_scope = normalize_scope_values(payload)
+    forbidden_scope = normalize_forbidden_scope_values(payload)
+    required_outputs = normalize_required_outputs(payload)
+    commit_push_default = normalize_commit_push_default(payload)
 
     decision = "ACCEPT"
     reasons: list[str] = []
@@ -1065,10 +1173,18 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
         decision = "CLARIFICATION_REQUIRED"
         reasons.append("missing required fields: " + ", ".join(missing_fields))
 
-    if decision == "ACCEPT":
+    if decision == "ACCEPT" and not schema_supported:
+        decision = "ACCEPT_WITH_WARNINGS"
+        reasons.append(f"unsupported schema_version: {schema_value}")
+
+    if decision in {"ACCEPT", "ACCEPT_WITH_WARNINGS"} and not expected_heads:
+        decision = "CLARIFICATION_REQUIRED"
+        reasons.append("missing expected head fields")
+
+    if decision in {"ACCEPT", "ACCEPT_WITH_WARNINGS"}:
         forbidden_markers = payload.get("forbidden_scope_markers", ["THRONE", "CUSTODES"])
         marker_values = [str(marker).upper() for marker in forbidden_markers] if isinstance(forbidden_markers, list) else ["THRONE", "CUSTODES"]
-        for scope in normalize_scope_values(payload):
+        for scope in allowed_scope:
             upper_scope = scope.upper()
             if any(marker in upper_scope for marker in marker_values):
                 decision = "BLOCKED_OUT_OF_SCOPE"
@@ -1076,13 +1192,21 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
                 break
 
     text_blob = json.dumps(payload, ensure_ascii=False).lower()
-    if decision == "ACCEPT" and any(k in text_blob for k in ["rm -rf", "wipe all", "delete all", "format disk"]):
+    if decision in {"ACCEPT", "ACCEPT_WITH_WARNINGS"} and any(k in text_blob for k in ["rm -rf", "wipe all", "delete all", "format disk"]):
         decision = "BLOCKED_UNSAFE"
         reasons.append("unsafe keyword detected")
 
-    if decision == "ACCEPT" and isinstance(payload.get("requirements"), list) and len(payload["requirements"]) > 80:
+    if decision in {"ACCEPT", "ACCEPT_WITH_WARNINGS"} and isinstance(payload.get("requirements"), list) and len(payload["requirements"]) > 80:
         decision = "SPLIT_REQUIRED"
         reasons.append("too many requirements for a single bounded execution")
+
+    if decision == "ACCEPT" and commit_push_default is None:
+        decision = "ACCEPT_WITH_WARNINGS"
+        reasons.append("commit_push_default unresolved")
+
+    if decision == "ACCEPT" and not required_outputs:
+        decision = "ACCEPT_WITH_WARNINGS"
+        reasons.append("required_outputs unresolved")
 
     if decision == "ACCEPT" and not has_required_task_field("evidence_policy_file", payload, task_pack_path):
         decision = "ACCEPT_WITH_WARNINGS"
@@ -1091,11 +1215,63 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
     out_dir = ctx.run_root / "task_acceptance_check"
     out_json = out_dir / "task_acceptance_check.json"
     out_txt = out_dir / "task_acceptance_check_output.txt"
-    write_json(out_json, {"task_pack_path": str(task_pack_path), "checked_at_utc": utc_now(), "decision": decision, "reasons": reasons, "missing_fields": missing_fields})
+    write_json(
+        out_json,
+        {
+            "task_pack_path": str(task_pack_path),
+            "checked_at_utc": utc_now(),
+            "decision": decision,
+            "reasons": reasons,
+            "missing_fields": missing_fields,
+            "contract_field_support": {
+                "schema_version": schema_value,
+                "schema_supported": schema_supported,
+                "expected_heads": expected_heads,
+                "allowed_scope_count": len(allowed_scope),
+                "forbidden_scope_count": len(forbidden_scope),
+                "required_outputs_count": len(required_outputs),
+                "commit_push_default": commit_push_default,
+                "supports_modern_fields": {
+                    "expected_base_head": has_required_task_field("expected_base_head", payload, task_pack_path),
+                    "expected_head": has_required_task_field("expected_head", payload, task_pack_path),
+                    "allowed_scope": has_required_task_field("allowed_scope", payload, task_pack_path),
+                    "forbidden_scope": has_required_task_field("forbidden_scope", payload, task_pack_path),
+                    "required_outputs": has_required_task_field("required_outputs", payload, task_pack_path),
+                    "commit_push_default": has_required_task_field("commit_push_default", payload, task_pack_path),
+                },
+            },
+        },
+    )
     write_text(out_txt, f"task_pack_path={task_pack_path}\ndecision={decision}\nreasons={'; '.join(reasons) if reasons else '<none>'}\n")
     receipt = emit_receipt(ctx, "task_acceptance_check_receipt.json", {"command": "task-acceptance-check", "timestamp_utc": utc_now(), "verdict": "PASS", "decision": decision, "outputs": [str(out_json), str(out_txt)]})
     print_artifacts({"TASK_ACCEPTANCE_JSON": out_json, "TASK_ACCEPTANCE_OUTPUT": out_txt, "RECEIPT": receipt})
     return 0
+
+
+def cmd_tools(_args: argparse.Namespace) -> int:
+    ctx = create_context("tools")
+    out_dir = ctx.run_root / "tools"
+    out_json = out_dir / "officio_tools_report.json"
+    index_path = default_tool_index_path(REPO_ROOT)
+    payload = build_organ_tool_view(organ_id="OFFICIO_AGENTIS_AGENT", index_path=index_path)
+    payload["task_id"] = TASK_ID_DEFAULT
+    payload["checked_at_utc"] = utc_now()
+    write_json(out_json, payload)
+    verdict = str(payload.get("verdict", "PASS"))
+    receipt = emit_receipt(
+        ctx,
+        "tools_receipt.json",
+        {
+            "command": "tools",
+            "timestamp_utc": utc_now(),
+            "verdict": verdict,
+            "outputs": [str(out_json)],
+            "registry_source": str(index_path),
+        },
+    )
+    print(json.dumps(payload, ensure_ascii=False, indent=2))
+    print_artifacts({"TOOLS_REPORT": out_json, "RECEIPT": receipt})
+    return 0 if verdict in {"PASS", "WARN"} else 1
 
 
 def cmd_recent(args: argparse.Namespace) -> int:
@@ -1255,6 +1431,7 @@ def load_primary_commands() -> list[str]:
         "/pack <agent>",
         "/prompt-check <zip_path>",
         "/task-check <task_pack_path>",
+        "/tools",
         "/recent",
         "/where",
         "/exit",
@@ -1420,6 +1597,7 @@ def render_shell_view(
         "/mode IMPLEMENT",
         "/role SERVITOR",
         "/settings SERVITOR EXECUTOR",
+        "/tools",
         "/pack LOGOS_PRIME",
         "/where",
     ]
@@ -1486,7 +1664,11 @@ def cmd_shell(args: argparse.Namespace) -> int:
                 if line:
                     command_lines.append(line)
     if args.once:
-        command_lines.append(args.once.strip())
+        once_value = args.once.strip()
+        if once_value and not once_value.startswith("/"):
+            once_value = f"/{once_value}"
+        if once_value:
+            command_lines.append(once_value)
 
     primary_commands = load_primary_commands()
     boundary_patterns = load_shell_boundary_patterns()
@@ -1549,7 +1731,7 @@ def cmd_shell(args: argparse.Namespace) -> int:
                 + "\n".join(primary_commands)
                 + "\n\nAliases:\n"
                 "/role-get /settings-get /setting-list /setting-show /setting-validate "
-                "/check-all /pack-build-role /prompt-pack-validate /task-acceptance-check"
+                "/check-all /pack-build-role /prompt-pack-validate /task-acceptance-check /tools"
             )
             transcript_rows.append(latest_output)
             next_action = "/status"
@@ -1708,6 +1890,9 @@ def cmd_shell(args: argparse.Namespace) -> int:
             task_pack = " ".join(parts[1:])
             return run_runner_command(raw, ["task-acceptance-check", "--task-pack", task_pack], "/recent")
 
+        if command == "/tools":
+            return run_runner_command(raw, ["tools"], "/check")
+
         if command == "/recent":
             return run_runner_command(raw, ["recent"], "/where")
 
@@ -1820,6 +2005,7 @@ def build_parser() -> argparse.ArgumentParser:
     prompt_validate.add_argument("--zip-path", required=True)
     acceptance = sub.add_parser("task-acceptance-check")
     acceptance.add_argument("--task-pack", required=True)
+    sub.add_parser("tools")
     recent = sub.add_parser("recent")
     recent.add_argument("--limit", default="20")
     shell = sub.add_parser("shell")
@@ -1856,6 +2042,8 @@ def main(argv: list[str]) -> int:
         return cmd_prompt_pack_validate(args)
     if args.command == "task-acceptance-check":
         return cmd_task_acceptance_check(args)
+    if args.command == "tools":
+        return cmd_tools(args)
     if args.command == "recent":
         return cmd_recent(args)
     if args.command == "shell":

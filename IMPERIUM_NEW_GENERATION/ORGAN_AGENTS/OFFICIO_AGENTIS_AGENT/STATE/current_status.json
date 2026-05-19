@@ -1,0 +1,66 @@
+{
+  "schema_version": "ORGAN_IDENTITY_RICH_STATUS_V0_1",
+  "task_id": "TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1",
+  "base_half_task_id": "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1",
+  "organ": "OFFICIO_AGENTIS_AGENT",
+  "runner": "officio_agentis_agent_runner.py",
+  "timestamp_utc": "2026-05-19T22:35:33.247773+00:00",
+  "status": "READY",
+  "visual_status": "PASS_RICH",
+  "supported_commands": [
+    "status",
+    "check",
+    "where",
+    "identity",
+    "tools",
+    "pack",
+    "shell",
+    "help"
+  ],
+  "active_command_list": [
+    "status",
+    "check",
+    "where",
+    "identity",
+    "tools",
+    "pack",
+    "shell",
+    "help"
+  ],
+  "identity_summary": "Roles, modes, permissions, stop conditions, and response contracts.",
+  "paths": {
+    "organ_root": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT",
+    "runner": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/TOOLS/officio_agentis_agent_runner.py",
+    "launcher": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/LAUNCHERS/run_officio_agentis_pc.ps1",
+    "identity_baseline_md": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/IDENTITY_BASELINE.md",
+    "identity_profile_md": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/IDENTITY/IDENTITY_PROFILE.md",
+    "identity_profile_json": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/IDENTITY/identity_profile.json",
+    "lore_functions_json": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/IDENTITY/lore_functions.json",
+    "domain_commands_json": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/IDENTITY/domain_commands.json",
+    "profile_md": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/AGENT_PROFILE.md",
+    "profile_json": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/agent_profile.json",
+    "state_json": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/STATE/current_status.json",
+    "check_json": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/REPORTS/base_half_check_report.json",
+    "runtime_root": "/tmp/IMPERIUM_CONTEXT/LOCAL/ORGAN_AGENT_IDENTITY_RICH_SHELL_RUNS/TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1/ORGANS/OFFICIO_AGENTIS_AGENT"
+  },
+  "git": {
+    "head": "821561a8bf642c3f3c2fce2cb9bf3a45a770646b",
+    "branch": "master",
+    "dirty": "M IMPERIUM_NEW_GENERATION/COMMON_AGENT_CLI/base_half_cli.py\n M IMPERIUM_NEW_GENERATION/COMMON_AGENT_CLI/command_palette_policy.json\n M IMPERIUM_NEW_GENERATION/COMMON_AGENT_CLI/tool_registry_reader.py\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT/STATE/current_status.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT/TOOLS/administratum_agent_runner.py\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ASTRONOMICON_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ASTRONOMICON_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ASTRONOMICON_AGENT/STATE/current_status.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/DOCTRINARIUM_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/DOCTRINARIUM_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/DOCTRINARIUM_AGENT/STATE/current_status.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/INQUISITION_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/INQUISITION_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/INQUISITION_AGENT/STATE/current_status.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/STATE/current_status.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/TOOLS/officio_agent_runner.py\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/TOOLS/officio_agentis_agent_runner.py\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/SCHOLA_IMPERIALIS_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/SCHOLA_IMPERIALIS_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/SCHOLA_IMPERIALIS_AGENT/STATE/current_status.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/STRATEGIUM_AGENT/REPORTS/base_half_check_report.json\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/STRATEGIUM_AGENT/REPORTS/base_half_check_report.md\n M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/STRATEGIUM_AGENT/STATE/current_status.json\n?? \"E:\\\\IMPERIUM_CONTEXT\\\\LOCAL\\\\OFFICIO_AGENTIS\\\\RUNS/\"\n?? IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/RECEIPTS/\n?? IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/STATE/\n?? IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260519-WARN-DEBT-RICH-SHELL-HARDENING-8-ORGANS-V0_1/\n?? IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260520-MECHANICUS-TOOL-REGISTRY-INTEGRATION-VM2-V0_2/"
+  },
+  "backend_truth": {
+    "head": "821561a8bf642c3f3c2fce2cb9bf3a45a770646b",
+    "branch": "master",
+    "dirty_state": "yes"
+  },
+  "latest_report_path": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT/REPORTS/base_half_check_report.json",
+  "latest_receipt_path": "",
+  "warn_error_blocker": "none",
+  "renderer_status": {
+    "renderer": "rich",
+    "rich_renderer_available": true,
+    "visual_status": "PASS_RICH",
+    "fallback_reason": []
+  },
+  "rich_renderer_available": true
+}

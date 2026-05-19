@@ -14,6 +14,7 @@
     "/pack <agent>",
     "/prompt-check <zip_path>",
     "/task-check <task_pack_path>",
+    "/tools",
     "/recent",
     "/where",
     "/exit"
@@ -27,7 +28,8 @@
     "/check-all": "/check",
     "/pack-build-role": "/pack",
     "/prompt-pack-validate": "/prompt-check",
-    "/task-acceptance-check": "/task-check"
+    "/task-acceptance-check": "/task-check",
+    "/tool-list": "/tools"
   },
   "help_policy": {
     "show_primary_first": true,

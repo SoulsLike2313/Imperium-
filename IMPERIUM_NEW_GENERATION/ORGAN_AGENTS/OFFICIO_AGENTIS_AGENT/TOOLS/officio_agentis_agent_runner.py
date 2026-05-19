@@ -15,6 +15,7 @@ CONFIG = OrganConfig(
     organ_slug="officio_agentis",
     root=HERE.parents[1],
     identity_summary="Roles, modes, permissions, stop conditions, and response contracts.",
+    domain_commands={},
 )
 
 
