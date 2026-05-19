@@ -1,9 +1,9 @@
-# INQUISITION_AGENT Base Half Check Report
+# INQUISITION_AGENT Identity Rich Shell Check Report
 
-- task_id: `TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1`
+- task_id: `TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1`
 - verdict: `PASS`
-- visual_status: `WARN`
-- timestamp_utc: `2026-05-19T18:39:45.936333+00:00`
+- visual_status: `PASS_RICH`
+- timestamp_utc: `2026-05-19T19:31:34.688680+00:00`
 
 ## Missing
 - none
@@ -16,3 +16,7 @@
 - pack
 - shell
 - help
+- fake-green-check
+- scope-drift-check
+- hygiene-scan
+- audit-claims

@@ -15,6 +15,16 @@ CONFIG = OrganConfig(
     organ_slug="strategium",
     root=HERE.parents[1],
     identity_summary="Strategy, priorities, campaigns, and risk-aware planning.",
+    domain_commands={
+        "priority-matrix": "Emit a compact priority matrix for execution focus.",
+        "campaign-plan-outline": "Outline phased campaign sequence for task delivery.",
+        "resource-estimate": "Estimate resource footprint from current organ state.",
+        "freeze-list": "List frozen/forbidden paths and no-touch boundaries.",
+    },
+    domain_aliases={
+        "priority_matrix": "priority-matrix",
+        "campaign_plan_outline": "campaign-plan-outline",
+    },
 )
 
 

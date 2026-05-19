@@ -15,6 +15,16 @@ CONFIG = OrganConfig(
     organ_slug="astronomicon",
     root=HERE.parents[1],
     identity_summary="Task intake, decomposition, stage maps, and route readiness.",
+    domain_commands={
+        "task-route": "Outline canonical intake-to-delivery route stages.",
+        "stage-map-outline": "Emit a compact stage map for current task flow.",
+        "ready-for-agent-check": "Check readiness of identity artifacts for handoff.",
+        "route-report": "Produce route summary with backend path references.",
+    },
+    domain_aliases={
+        "task_route": "task-route",
+        "stage_map_outline": "stage-map-outline",
+    },
 )
 
 

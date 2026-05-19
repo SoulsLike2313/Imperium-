@@ -15,6 +15,16 @@ CONFIG = OrganConfig(
     organ_slug="schola_imperialis",
     root=HERE.parents[1],
     identity_summary="Lessons, training packs, examples, and skill growth loops.",
+    domain_commands={
+        "lesson-register": "List lesson/example anchors for current Schola scope.",
+        "training-pack-outline": "Outline required training-pack components.",
+        "skill-map": "Map currently visible skills/resources for training flow.",
+        "example-check": "Verify domain example files are present and readable.",
+    },
+    domain_aliases={
+        "lesson_register": "lesson-register",
+        "training_pack_outline": "training-pack-outline",
+    },
 )
 
 

@@ -1,9 +1,9 @@
-# STRATEGIUM_AGENT Base Half Check Report
+# STRATEGIUM_AGENT Identity Rich Shell Check Report
 
-- task_id: `TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1`
+- task_id: `TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1`
 - verdict: `PASS`
-- visual_status: `WARN`
-- timestamp_utc: `2026-05-19T18:39:55.656780+00:00`
+- visual_status: `PASS_RICH`
+- timestamp_utc: `2026-05-19T19:31:44.106083+00:00`
 
 ## Missing
 - none
@@ -16,3 +16,7 @@
 - pack
 - shell
 - help
+- priority-matrix
+- campaign-plan-outline
+- resource-estimate
+- freeze-list

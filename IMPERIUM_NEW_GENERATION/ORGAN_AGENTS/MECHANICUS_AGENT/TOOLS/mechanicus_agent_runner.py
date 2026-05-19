@@ -15,6 +15,17 @@ CONFIG = OrganConfig(
     organ_slug="mechanicus",
     root=HERE.parents[1],
     identity_summary="Tools, scripts, validators, and capability machinery.",
+    domain_commands={
+        "tool-list": "List local Mechanicus toolchain artifacts from TOOLS.",
+        "validator-check": "Validate Identity Half JSON payload integrity.",
+        "capability-map": "Show base and domain capability map for this organ.",
+        "script-receipt-check": "Report receipt coverage for script-oriented runs.",
+    },
+    domain_aliases={
+        "tool_list": "tool-list",
+        "validator_check": "validator-check",
+        "capability_map": "capability-map",
+    },
 )
 
 

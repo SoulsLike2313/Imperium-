@@ -15,6 +15,16 @@ CONFIG = OrganConfig(
     organ_slug="inquisition",
     root=HERE.parents[1],
     identity_summary="Audit, anti-fake-green, scope integrity, and evidence truth enforcement.",
+    domain_commands={
+        "fake-green-check": "Detect unsupported PASS claims and missing evidence links.",
+        "scope-drift-check": "Surface changed paths and highlight potential scope drift.",
+        "hygiene-scan": "Scan Identity Half required files and report missing artifacts.",
+        "audit-claims": "Summarize claim/evidence anchors for current organ status.",
+    },
+    domain_aliases={
+        "fake_green_check": "fake-green-check",
+        "scope_drift_check": "scope-drift-check",
+    },
 )
 
 
