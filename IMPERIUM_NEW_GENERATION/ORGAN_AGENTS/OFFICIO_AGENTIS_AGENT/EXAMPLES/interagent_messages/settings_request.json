@@ -1,10 +1,15 @@
 {
   "message_type": "SETTINGS_REQUEST",
-  "from_agent": "SERVITOR",
-  "to_agent": "OFFICIO_AGENTIS_AGENT",
-  "payload": {
-    "agent": "SERVITOR",
-    "mode": "EXECUTOR"
-  }
+  "requesting_agent": "SERVITOR-PC-EXAMPLE",
+  "role_name": "SERVITOR_PRIME",
+  "mode": "EXECUTOR",
+  "task_id": "TASK-EXAMPLE-001",
+  "needs": [
+    "permissions",
+    "forbidden_actions",
+    "task_acceptance",
+    "prompt_intake",
+    "evidence_requirements",
+    "response_contract"
+  ]
 }
-

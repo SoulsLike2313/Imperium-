@@ -1,21 +1,36 @@
-# Role and Settings ACK Protocol
+# ROLE SETTINGS ACK PROTOCOL
 
-1. Agent calls `role-get --agent <AGENT>`.
-2. Agent reads generated `ROLE_PROFILE.md` and `role_profile.json`.
-3. Agent emits role ACK message with timestamp and profile hash.
-4. Agent calls `settings-get --agent <AGENT> --mode <MODE>`.
-5. Agent reads generated settings files.
-6. Agent emits settings ACK message.
-7. Agent may start task execution only after both ACKs.
+## Purpose
+Before serious Officio-controlled work, an agent must be able to acknowledge which role, mode, settings, restrictions, stop conditions, and response contract it received.
 
-ACK message skeleton:
-
-```text
-ACK:
-- agent:
-- stage: role | settings
-- artifact_hash:
+## ACK_ROLE Shape
+ACK_ROLE:
+- agent_id:
+- role_name:
+- role_family:
+- operating_nature:
+- default_mode:
+- role_profile_path:
+- role_profile_hash:
 - timestamp_utc:
-- verdict: ACCEPTED
-```
 
+## ACK_SETTINGS Shape
+ACK_SETTINGS:
+- agent_id:
+- role_name:
+- active_mode:
+- permissions_ref:
+- forbidden_actions_ref:
+- stop_conditions_ref:
+- evidence_policy_ref:
+- response_contract_ref:
+- settings_hash:
+- timestamp_utc:
+
+## Failure Rule
+If role/settings ACK is required but missing, Servitor must stop with:
+
+VERDICT: BLOCKED_OFFICIO_ACK_MISSING
+
+## Evidence Rule
+ACK files should be saved into the task run evidence folder when execution is launched through Officio.

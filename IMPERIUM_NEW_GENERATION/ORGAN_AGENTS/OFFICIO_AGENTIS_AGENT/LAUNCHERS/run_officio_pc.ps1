@@ -11,8 +11,23 @@ $RepoRoot = Resolve-Path (Join-Path $LauncherDir "..\\..\\..\\..")
 $RunnerPath = Join-Path $RepoRoot "IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\OFFICIO_AGENTIS_AGENT\\TOOLS\\officio_agent_runner.py"
 $RuntimeRoot = "E:\\IMPERIUM_CONTEXT\\LOCAL\\OFFICIO_AGENTIS\\RUNS"
 $env:OFFICIO_RUNTIME_ROOT = $RuntimeRoot
+$CallerCwd = (Get-Location).Path
+
+$ResolvedCommandsFile = ""
+if ($CommandsFile -ne "") {
+  if ([System.IO.Path]::IsPathRooted($CommandsFile)) {
+    $ResolvedCommandsFile = $CommandsFile
+  } else {
+    $ResolvedCommandsFile = Join-Path $CallerCwd $CommandsFile
+  }
+  if (-not (Test-Path -LiteralPath $ResolvedCommandsFile)) {
+    Write-Error "[OFFICIO] commands file missing: $ResolvedCommandsFile"
+    exit 1
+  }
+}
 
 Write-Host "[OFFICIO] launcher_path=$LauncherPath"
+Write-Host "[OFFICIO] caller_cwd=$CallerCwd"
 Write-Host "[OFFICIO] repo_root=$RepoRoot"
 Write-Host "[OFFICIO] runner_path=$RunnerPath"
 Write-Host "[OFFICIO] runtime_root=$RuntimeRoot"
@@ -33,13 +48,13 @@ if (Get-Command py -ErrorAction SilentlyContinue) {
 }
 
 Write-Host "[OFFICIO] python_cmd=$($PythonCmd -join ' ')"
-Write-Host "[OFFICIO] rich_hint=runner will write rich_color_diagnostic.txt"
+Write-Host "[OFFICIO] renderer_hint=runner will write renderer_diagnostic.json"
 
 Push-Location $RepoRoot
 try {
   $cmd = @($PythonCmd + @($RunnerPath, "shell"))
-  if ($CommandsFile -ne "") {
-    $cmd += @("--commands-file", $CommandsFile)
+  if ($ResolvedCommandsFile -ne "") {
+    $cmd += @("--commands-file", $ResolvedCommandsFile)
   }
   if ($NonInteractive) {
     $cmd += "--non-interactive"
@@ -52,4 +67,3 @@ try {
 finally {
   Pop-Location
 }
-

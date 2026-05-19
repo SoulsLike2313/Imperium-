@@ -5,6 +5,7 @@ import hashlib
 import json
 import os
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -26,12 +27,13 @@ except Exception:
     Layout = None  # type: ignore[assignment]
     Panel = None  # type: ignore[assignment]
 
-TASK_ID_DEFAULT = "TASK-20260518-OFFICIO-SETTINGS-GOVERNANCE-RICH-CLI-V0_1"
+TASK_ID_DEFAULT = "TASK-20260519-COMMON-AGENT-CLI-KILO-LIKE-HERALDRY-V0_1"
 STATUS_READY = "FOUNDATION_V0_1_READY_FOR_REVIEW"
 DEFAULT_RUNTIME_ROOT = Path(r"E:\IMPERIUM_CONTEXT\LOCAL\OFFICIO_AGENTIS\RUNS")
 
 ROOT = Path(__file__).resolve().parent.parent
 REPO_ROOT = ROOT.parent.parent.parent
+COMMON_CLI_ROOT = REPO_ROOT / "IMPERIUM_NEW_GENERATION" / "COMMON_AGENT_CLI"
 ROLE_REGISTRY = ROOT / "ROLE_REGISTRY"
 MODE_REGISTRY = ROOT / "MODE_REGISTRY"
 SETTINGS_REGISTRY = ROOT / "SETTINGS_REGISTRY"
@@ -40,11 +42,29 @@ EVIDENCE_POLICY_DIR = ROOT / "EVIDENCE_POLICY"
 SCHEMAS_DIR = ROOT / "SCHEMAS"
 EXAMPLES_DIR = ROOT / "EXAMPLES"
 
+SHELL_MODES = ["ASK", "ARCHITECT", "IMPLEMENT", "DEBUG", "AUDIT", "ORCHESTRATE"]
+DEFAULT_SHELL_MODE = "ASK"
+BOUNDARY_MESSAGE = (
+    "This is IMPERIUM agent shell, not PowerShell. "
+    "Use /exit for PowerShell, or /run <command> only if the current mode permits command execution."
+)
+RUN_ALLOWED_SHELL_MODES = {"IMPLEMENT", "DEBUG", "ORCHESTRATE"}
+
 ROLE_RESPONSE_CONTRACT_FILE = {
     "SERVITOR": "SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md",
+    "SERVITOR_PRIME": "SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md",
+    "SERVITOR_SPECULUM": "SERVITOR_SPECULUM_AUDIT_RESPONSE_CONTRACT.md",
+    "LOGOS": "LOGOS_PRIME_RESPONSE_CONTRACT.md",
     "LOGOS_PRIME": "LOGOS_PRIME_RESPONSE_CONTRACT.md",
     "LOGOS_SPECULUM": "LOGOS_SPECULUM_RESPONSE_CONTRACT.md",
 }
+
+ROLE_FALLBACK_ALIASES = {
+    "SERVITOR": "SERVITOR_PRIME",
+    "LOGOS": "LOGOS_PRIME",
+}
+
+OFFICIO_ROLE_USAGE = "SERVITOR|SERVITOR_PRIME|SERVITOR_SPECULUM|LOGOS|LOGOS_PRIME|LOGOS_SPECULUM"
 
 OFFICIO_SETTING_REQUIRED_FIELDS = [
     "setting_id",
@@ -91,7 +111,10 @@ def write_text(path: Path, content: str) -> None:
 
 
 def read_json(path: Path) -> Any:
-    with path.open("r", encoding="utf-8") as handle:
+    with path.open("r", encoding="utf-8-sig") as handle:
+        return json.load(handle)
+
+
         return json.load(handle)
 
 
@@ -159,12 +182,55 @@ def git_info() -> dict[str, str]:
     }
 
 
-def valid_agent(value: str) -> str:
+def load_role_aliases() -> dict[str, str]:
+    aliases: dict[str, str] = dict(ROLE_FALLBACK_ALIASES)
+    alias_path = ROLE_REGISTRY / "ROLE_ALIASES.json"
+    if alias_path.exists():
+        try:
+            payload = read_json(alias_path)
+            raw_aliases = payload.get("aliases", {}) if isinstance(payload, dict) else {}
+            if isinstance(raw_aliases, dict):
+                for key, value in raw_aliases.items():
+                    aliases[str(key).strip().upper()] = str(value).strip().upper()
+        except Exception:
+            pass
+    return aliases
+
+
+def available_agents() -> list[str]:
+    roles: set[str] = set(ROLE_RESPONSE_CONTRACT_FILE.keys())
+    index_path = ROLE_REGISTRY / "ROLE_INDEX.json"
+    if index_path.exists():
+        try:
+            payload = read_json(index_path)
+            for item in payload.get("canonical_roles", []):
+                if isinstance(item, dict) and item.get("role_id"):
+                    roles.add(str(item["role_id"]).strip().upper())
+            for key, value in payload.get("legacy_aliases", {}).items():
+                roles.add(str(key).strip().upper())
+                roles.add(str(value).strip().upper())
+        except Exception:
+            pass
+    for child in ROLE_REGISTRY.iterdir() if ROLE_REGISTRY.exists() else []:
+        if child.is_dir() and (child / "role_profile.json").exists():
+            roles.add(child.name.upper())
+    roles.update(load_role_aliases().keys())
+    return sorted(roles)
+
+
+def resolve_agent_id(value: str) -> str:
     normalized = value.strip().upper()
-    if normalized not in ROLE_RESPONSE_CONTRACT_FILE:
-        allowed = ", ".join(sorted(ROLE_RESPONSE_CONTRACT_FILE.keys()))
-        raise ValueError(f"Unsupported agent '{value}'. Allowed: {allowed}")
-    return normalized
+    aliases = load_role_aliases()
+    return aliases.get(normalized, normalized)
+
+
+def valid_agent(value: str) -> str:
+    resolved = resolve_agent_id(value)
+    role_json = ROLE_REGISTRY / resolved / "role_profile.json"
+    if not role_json.exists():
+        allowed = ", ".join(available_agents())
+        raise ValueError(f"Unsupported agent '{value}'. Resolved='{resolved}'. Allowed: {allowed}")
+    return resolved
 
 
 def valid_mode(value: str) -> str:
@@ -184,7 +250,8 @@ def safe_list(obj: dict[str, Any], key: str) -> list[str]:
 
 
 def load_role_profile(agent: str) -> dict[str, Any]:
-    return read_json(ROLE_REGISTRY / agent / "role_profile.json")
+    canonical = valid_agent(agent)
+    return read_json(ROLE_REGISTRY / canonical / "role_profile.json")
 
 
 def load_mode_profile(mode: str) -> dict[str, Any]:
@@ -212,7 +279,22 @@ def load_settings_index() -> dict[str, Any]:
 
 
 def response_contract_path_for(agent: str) -> Path:
-    return RESPONSE_CONTRACTS / ROLE_RESPONSE_CONTRACT_FILE[agent]
+    canonical = valid_agent(agent)
+    ref_path = ROLE_REGISTRY / canonical / "response_contract_ref.json"
+    if ref_path.exists():
+        try:
+            ref = read_json(ref_path)
+            rel = ref.get("response_contract_path")
+            if rel:
+                candidate = ROOT / str(rel)
+                if candidate.exists():
+                    return candidate
+        except Exception:
+            pass
+    filename = ROLE_RESPONSE_CONTRACT_FILE.get(canonical)
+    if filename:
+        return RESPONSE_CONTRACTS / filename
+    raise ValueError(f"No response contract mapped for agent '{agent}' resolved as '{canonical}'")
 
 
 def build_execution_settings(agent: str, mode: str) -> tuple[dict[str, Any], str]:
@@ -503,6 +585,34 @@ def create_sha256s_txt(files: list[Path], base_dir: Path) -> str:
     return "\n".join(lines) + "\n"
 
 
+def role_family_from_profile(agent: str, role_profile: dict[str, Any]) -> str:
+    family = role_profile.get("role_family") or role_profile.get("family")
+    if family:
+        return str(family).strip().upper()
+    if agent.startswith("LOGOS"):
+        return "LOGOS"
+    if agent.startswith("SERVITOR"):
+        return "SERVITOR"
+    return agent.split("_")[0]
+
+
+def role_source_folder(agent: str) -> Path:
+    canonical = valid_agent(agent)
+    return ROLE_REGISTRY / canonical
+
+
+def optional_json(path: Path) -> Any:
+    if path.exists():
+        return read_json(path)
+    return None
+
+
+def optional_text(path: Path) -> str:
+    if path.exists():
+        return read_text(path)
+    return ""
+
+
 def cmd_pack_build_role(args: argparse.Namespace) -> int:
     try:
         agent = valid_agent(args.agent)
@@ -528,15 +638,71 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
     manifest = pack_root / "MANIFEST.json"
     sha256s = pack_root / "SHA256SUMS.txt"
 
-    write_text(role_pack_md, f"# Role Pack: {agent}\n\n- generated_at_utc: {utc_now()}\n- default_mode: {mode}\n")
-    write_json(role_pack_json, {"agent": agent, "role_profile": role_profile, "default_mode": mode, "status": STATUS_READY, "generated_at_utc": utc_now()})
+    src_dir = role_source_folder(agent)
+    family = role_family_from_profile(agent, role_profile)
+    family_dir = ROLE_REGISTRY / family
+    role_profile_md_source = optional_text(src_dir / "ROLE_PROFILE.md")
+    family_profile_md_source = optional_text(family_dir / "FAMILY_PROFILE.md")
+    family_profile_json_source = optional_json(family_dir / "family_profile.json")
+    read_order_source = optional_json(src_dir / "read_order.json")
+    response_ref_source = optional_json(src_dir / "response_contract_ref.json")
+
+    role_profile_source_md = pack_root / "ROLE_PROFILE_SOURCE.md"
+    family_profile_source_md = pack_root / "FAMILY_PROFILE_SOURCE.md"
+    read_order_json = pack_root / "READ_ORDER.json"
+    response_contract_ref_json = pack_root / "RESPONSE_CONTRACT_REF.json"
+    family_profile_json = pack_root / "family_profile.json"
+
+    write_text(role_profile_source_md, role_profile_md_source or f"# Missing ROLE_PROFILE.md for {agent}\n")
+    write_text(family_profile_source_md, family_profile_md_source or f"# Missing FAMILY_PROFILE.md for {family}\n")
+    write_json(read_order_json, read_order_source if read_order_source is not None else {"warning": "missing read_order.json"})
+    write_json(response_contract_ref_json, response_ref_source if response_ref_source is not None else {"warning": "missing response_contract_ref.json"})
+    write_json(family_profile_json, family_profile_json_source if family_profile_json_source is not None else {"warning": "missing family_profile.json"})
+
+    write_text(
+        role_pack_md,
+        "\n".join(
+            [
+                f"# Role Pack: {agent}",
+                "",
+                f"- generated_at_utc: {utc_now()}",
+                f"- role_family: {family}",
+                f"- default_mode: {mode}",
+                f"- status: {STATUS_READY}",
+                "",
+                "## Family Profile",
+                family_profile_md_source or "MISSING FAMILY_PROFILE.md",
+                "",
+                "## Role Profile",
+                role_profile_md_source or "MISSING ROLE_PROFILE.md",
+                "",
+                "## Execution Settings",
+                settings_md,
+            ]
+        )
+        + "\n",
+    )
+    write_json(
+        role_pack_json,
+        {
+            "agent": agent,
+            "role_family": family,
+            "role_profile": role_profile,
+            "family_profile": family_profile_json_source,
+            "read_order": read_order_source,
+            "response_contract_ref": response_ref_source,
+            "default_mode": mode,
+            "status": STATUS_READY,
+            "generated_at_utc": utc_now(),
+        },
+    )
     write_text(response_contract, read_text(response_contract_path_for(agent)))
     write_text(execution_settings, settings_md + "\n")
     write_json(stop_conditions, load_stop_conditions())
     write_text(evidence_policy, read_text(EVIDENCE_POLICY_DIR / "EVIDENCE_POLICY.md"))
-    write_text(start_message, f"You are entering role: {agent}.\nRead ROLE_PACK.md first.\n")
+    write_text(start_message, f"You are entering role: {agent}. Read ROLE_PACK.md, ROLE_PROFILE_SOURCE.md, READ_ORDER.json, RESPONSE_CONTRACT.md, EXECUTION_SETTINGS.md.\n")
 
-    pre_manifest_files = [role_pack_md, role_pack_json, response_contract, execution_settings, stop_conditions, evidence_policy, start_message]
+    pre_manifest_files = [role_pack_md, role_pack_json, role_profile_source_md, family_profile_source_md, family_profile_json, read_order_json, response_contract_ref_json, response_contract, execution_settings, stop_conditions, evidence_policy, start_message]
     write_json(manifest, build_pack_manifest(pre_manifest_files, pack_root, agent))
     all_files = pre_manifest_files + [manifest]
     write_text(sha256s, create_sha256s_txt(all_files, pack_root))
@@ -891,92 +1057,223 @@ def cmd_check_all(_args: argparse.Namespace) -> int:
     return 0 if verdict == "PASS" else 1
 
 
-def map_slash_to_runner_args(raw: str) -> list[str] | None:
-    parts = raw.strip().split()
-    if not parts:
-        return None
-    cmd = parts[0]
-    if cmd == "/status":
-        return ["status"]
-    if cmd == "/check-all":
-        return ["check-all"]
-    if cmd == "/role-get" and len(parts) == 2:
-        return ["role-get", "--agent", parts[1]]
-    if cmd == "/settings-get" and len(parts) == 3:
-        return ["settings-get", "--agent", parts[1], "--mode", parts[2]]
-    if cmd == "/setting-list":
-        return ["setting-list"]
-    if cmd == "/setting-show" and len(parts) >= 2:
-        return ["setting-show", "--setting-id", " ".join(parts[1:])]
-    if cmd == "/setting-validate":
-        return ["setting-validate"]
-    if cmd == "/prompt-pack-validate" and len(parts) >= 2:
-        return ["prompt-pack-validate", "--zip-path", " ".join(parts[1:])]
-    if cmd == "/task-acceptance-check" and len(parts) >= 2:
-        return ["task-acceptance-check", "--task-pack", " ".join(parts[1:])]
-    if cmd == "/pack-build-role" and len(parts) == 2:
-        return ["pack-build-role", "--agent", parts[1]]
-    if cmd == "/compliance-check" and len(parts) >= 2:
-        return ["compliance-check", "--input", " ".join(parts[1:])]
-    if cmd == "/recent":
-        return ["recent"]
-    return None
-
-
-def render_shell_view(console: Any, latest_output: str, warnings: list[str], run_id: str, artifacts: list[str]) -> None:
-    command_list = [
+def load_primary_commands() -> list[str]:
+    fallback = [
         "/help",
         "/status",
-        "/check-all",
-        "/role-get <AGENT>",
-        "/settings-get <AGENT> <MODE>",
-        "/setting-list",
-        "/setting-show <setting_id>",
-        "/setting-validate",
-        "/prompt-pack-validate <zip_path>",
-        "/task-acceptance-check <task_pack_path>",
-        "/pack-build-role <AGENT>",
-        "/compliance-check <bundle_or_matrix_path>",
+        "/modes",
+        "/mode <name>",
+        "/role <agent>",
+        "/settings <agent> <mode>",
+        "/settings-list",
+        "/settings-show <setting_id>",
+        "/validate",
+        "/check",
+        "/pack <agent>",
+        "/prompt-check <zip_path>",
+        "/task-check <task_pack_path>",
         "/recent",
+        "/where",
         "/exit",
     ]
+    policy_path = COMMON_CLI_ROOT / "command_palette_policy.json"
+    try:
+        payload = read_json(policy_path)
+        values = payload.get("primary_commands", [])
+        if isinstance(values, list):
+            commands = [str(item).strip() for item in values if str(item).strip()]
+            if commands:
+                return commands
+    except Exception:
+        pass
+    return fallback
+
+
+def load_shell_boundary_patterns() -> list[str]:
+    fallback = [
+        r"^cd\s+",
+        r"^\$[A-Za-z_][A-Za-z0-9_]*\s*=",
+        r"^(py|python|pwsh|powershell|cmd)(\s+|$)",
+        r"^(dir|ls|git|npm|pip|where|type)(\s+|$)",
+    ]
+    policy_path = COMMON_CLI_ROOT / "shell_behavior_policy.json"
+    try:
+        payload = read_json(policy_path)
+        boundary = payload.get("boundary_detection", {})
+        patterns = boundary.get("os_command_patterns", []) if isinstance(boundary, dict) else []
+        if isinstance(patterns, list):
+            parsed = [str(item) for item in patterns if str(item).strip()]
+            if parsed:
+                return parsed
+    except Exception:
+        pass
+    return fallback
+
+
+def load_officio_crest() -> str:
+    crest_registry = COMMON_CLI_ROOT / "HERALDRY" / "organ_crest_registry.json"
+    try:
+        payload = read_json(crest_registry)
+        organs = payload.get("organs", [])
+        if isinstance(organs, list):
+            for entry in organs:
+                if isinstance(entry, dict) and str(entry.get("organ_id", "")).upper() == "OFFICIO_AGENTIS":
+                    crest = str(entry.get("ascii_compact", "")).strip()
+                    if crest:
+                        return crest
+    except Exception:
+        pass
+    return "[=] <||> (o) {O} ->"
+
+
+def count_settings() -> int:
+    try:
+        payload = load_settings_index()
+        settings = payload.get("settings", [])
+        if isinstance(settings, list):
+            return len(settings)
+    except Exception:
+        return 0
+    return 0
+
+
+def count_roles() -> int:
+    return sum(1 for child in ROLE_REGISTRY.iterdir() if child.is_dir())
+
+
+def supports_unicode_output() -> bool:
+    encoding = (sys.stdout.encoding or "").lower()
+    return "utf" in encoding or "unicode" in encoding
+
+
+def renderer_diagnostic(console_obj: Any) -> dict[str, Any]:
+    width = shutil.get_terminal_size(fallback=(120, 40)).columns
+    color_enabled = bool(HAVE_RICH and console_obj is not None and getattr(console_obj, "color_system", None) is not None)
+    renderer = "rich" if HAVE_RICH and console_obj is not None else "ansi_fallback"
+    return {
+        "rich_installed": bool(HAVE_RICH),
+        "renderer": renderer,
+        "color_enabled": color_enabled,
+        "terminal_width": int(width),
+        "supports_unicode": supports_unicode_output(),
+        "python_version": sys.version,
+        "runtime_root": str(get_runtime_root()),
+        "timestamp_utc": utc_now(),
+    }
+
+
+def color_diagnostic_payload(renderer_payload: dict[str, Any]) -> dict[str, Any]:
+    theme_path = COMMON_CLI_ROOT / "color_theme_imperium.json"
+    palette_name = "imperium_origin_terminal"
+    try:
+        payload = read_json(theme_path)
+        palette_name = str(payload.get("theme_id", palette_name))
+    except Exception:
+        pass
+    return {
+        "palette_name": palette_name,
+        "accent_available": bool(renderer_payload.get("color_enabled", False)),
+        "warning_available": bool(renderer_payload.get("color_enabled", False)),
+        "blocker_available": bool(renderer_payload.get("color_enabled", False)),
+        "renderer": renderer_payload.get("renderer", "ansi_fallback"),
+        "timestamp_utc": utc_now(),
+    }
+
+
+def is_shell_boundary_input(raw: str, patterns: list[str]) -> bool:
+    stripped = raw.strip()
+    if not stripped or stripped.startswith("/"):
+        return False
+    for pattern in patterns:
+        try:
+            if re.match(pattern, stripped, flags=re.IGNORECASE):
+                return True
+        except re.error:
+            continue
+    return True
+
+
+def collect_artifact_paths(output_text: str) -> list[str]:
+    paths: list[str] = []
+    for line in output_text.splitlines():
+        if ": " not in line:
+            continue
+        _, maybe_path = line.split(": ", 1)
+        maybe_path = maybe_path.strip()
+        if re.match(r"^[A-Za-z]:\\", maybe_path):
+            paths.append(maybe_path)
+    return paths
+
+
+def render_shell_view(
+    console: Any,
+    latest_output: str,
+    warnings: list[str],
+    run_id: str,
+    artifacts: list[str],
+    shell_mode: str,
+    active_role: str,
+    primary_commands: list[str],
+    crest: str,
+    renderer: str,
+    next_action: str,
+    visual_status: str,
+) -> None:
     g = git_info()
-    header_text = "\n".join(
-        [
-            f"Officio Agentis | {STATUS_READY}",
-            f"HEAD: {g['head']}",
-            f"Dirty: {g['dirty']}",
-            f"Runtime: {get_runtime_root()}",
-            "Role count: 3 | Mode count: 4",
-        ]
-    )
-    right_text = "\n".join(command_list)
-    bottom_text = "\n".join(
-        [
-            f"run_id: {run_id}",
-            "warnings: " + (", ".join(warnings) if warnings else "none"),
-            "artifacts: " + (", ".join(artifacts[-3:]) if artifacts else "none"),
-        ]
-    )
+    header_lines = [
+        "OFFICIO AGENTIS",
+        f"mode: {shell_mode}",
+        f"head: {g['head']}",
+        f"dirty_state: {g['dirty']}",
+        f"runtime_root: {get_runtime_root()}",
+        f"role_count: {count_roles()}",
+        f"setting_count: {count_settings()}",
+        f"last_run_id: {run_id}",
+        f"renderer: {renderer} | visual_status: {visual_status}",
+        f"active_role: {active_role}",
+        f"crest: {crest}",
+    ]
+    command_examples = [
+        "/mode IMPLEMENT",
+        "/role SERVITOR",
+        "/settings SERVITOR EXECUTOR",
+        "/pack LOGOS_PRIME",
+        "/where",
+    ]
+    right_lines = ["Primary commands:"] + primary_commands + ["", "Examples:"] + command_examples + ["", f"Next: {next_action}"]
+    bottom_lines = [
+        f"last_run_id: {run_id}",
+        "artifacts_written: " + (", ".join(artifacts[-3:]) if artifacts else "none"),
+        "latest_warning_or_blocker: " + (warnings[-1] if warnings else "none"),
+        f"next_action: {next_action}",
+    ]
+    header_text = "\n".join(header_lines)
+    right_text = "\n".join(right_lines)
+    bottom_text = "\n".join(bottom_lines)
+    left_text = latest_output or "No output yet."
 
     if HAVE_RICH and console is not None:
         layout = Layout()
-        layout.split_column(Layout(name="header", size=6), Layout(name="body"), Layout(name="bottom", size=5))
-        layout["body"].split_row(Layout(name="main"), Layout(name="right", size=45))
-        layout["header"].update(Panel(header_text, title="HEADER"))
-        layout["main"].update(Panel(latest_output or "No output yet.", title="LEFT MAIN ZONE"))
-        layout["right"].update(Panel(right_text, title="RIGHT COMMAND ZONE"))
-        layout["bottom"].update(Panel(bottom_text, title="BOTTOM STATUS ZONE"))
+        layout.split_column(Layout(name="header", size=12), Layout(name="body"), Layout(name="bottom", size=5))
+        layout["body"].split_row(Layout(name="main"), Layout(name="right", size=48))
+        layout["header"].update(Panel(header_text, title="TOP STATUS BAR", border_style="#3A2B52"))
+        layout["main"].update(Panel(left_text, title="LEFT WORK ZONE", border_style="#2B5B84"))
+        layout["right"].update(Panel(right_text, title="RIGHT COMMAND ZONE", border_style="#7D8596"))
+        layout["bottom"].update(Panel(bottom_text, title="BOTTOM EVENT BAR", border_style="#3E8A5A"))
         console.clear()
         console.print(layout)
     else:
-        print("=== HEADER ===")
+        print()
+        print("TOP STATUS BAR")
         print(header_text)
-        print("=== LEFT MAIN ZONE ===")
-        print(latest_output or "No output yet.")
-        print("=== RIGHT COMMAND ZONE ===")
+        print()
+        print("LEFT WORK ZONE")
+        print(left_text)
+        print()
+        print("RIGHT COMMAND ZONE")
         print(right_text)
-        print("=== BOTTOM STATUS ZONE ===")
+        print()
+        print("BOTTOM EVENT BAR")
         print(bottom_text)
 
 
@@ -985,90 +1282,326 @@ def cmd_shell(args: argparse.Namespace) -> int:
     shell_dir = ctx.run_root / "shell"
     shell_dir.mkdir(parents=True, exist_ok=True)
     transcript_path = shell_dir / "shell_transcript.txt"
-    color_diag_path = shell_dir / "rich_color_diagnostic.txt"
+    renderer_diag_path = shell_dir / "renderer_diagnostic.json"
+    color_diag_path = shell_dir / "color_diagnostic.json"
 
-    color_diag = {"rich_available": HAVE_RICH, "python": sys.version, "runtime_root": str(ctx.runtime_root), "timestamp_utc": utc_now()}
+    console_obj: Any = None
     if HAVE_RICH:
-        c = Console()  # type: ignore[misc]
-        color_diag["color_system"] = str(c.color_system)
-        console_obj = c
-    else:
-        color_diag["color_system"] = "none"
-        console_obj = None
-    write_text(color_diag_path, json.dumps(color_diag, ensure_ascii=False, indent=2) + "\n")
+        console_obj = Console()  # type: ignore[misc]
+
+    renderer_payload = renderer_diagnostic(console_obj)
+    color_payload = color_diagnostic_payload(renderer_payload)
+    write_json(renderer_diag_path, renderer_payload)
+    write_json(color_diag_path, color_payload)
 
     command_lines: list[str] = []
     if args.commands_file:
-        command_lines.extend([line.strip() for line in Path(args.commands_file).read_text(encoding="utf-8").splitlines()])
+        command_file = Path(args.commands_file)
+        if command_file.exists():
+            for raw_line in command_file.read_text(encoding="utf-8").splitlines():
+                line = raw_line.strip()
+                if line:
+                    command_lines.append(line)
 
+    primary_commands = load_primary_commands()
+    boundary_patterns = load_shell_boundary_patterns()
+    crest = load_officio_crest()
+    shell_mode = DEFAULT_SHELL_MODE
+    active_role = "SERVITOR_PRIME"
+    next_action = "/help"
+    visual_status = "PASS" if bool(renderer_payload.get("color_enabled", False)) else "WARN"
     latest_output = "Use /help to list commands."
     warnings: list[str] = []
-    artifacts: list[str] = [str(color_diag_path)]
-    transcript_rows: list[str] = [f"shell_run={ctx.run_root}"]
+    artifacts: list[str] = [str(renderer_diag_path), str(color_diag_path)]
+    transcript_rows: list[str] = [
+        f"shell_run={ctx.run_root}",
+        f"renderer={renderer_payload.get('renderer', 'ansi_fallback')}",
+        f"visual_status={visual_status}",
+    ]
     run_id = ctx.run_root.name
 
-    def execute_slash(raw: str) -> bool:
-        nonlocal latest_output
+    def run_runner_command(raw_command: str, mapped_args: list[str], recommended: str) -> bool:
+        nonlocal latest_output, next_action
+        completed = subprocess.run([sys.executable, str(Path(__file__).resolve()), *mapped_args], capture_output=True, text=True)
+        output = (completed.stdout + "\n" + completed.stderr).strip()
+        latest_output = output if output else "<no output>"
+        transcript_rows.append(latest_output)
+        artifacts.extend(collect_artifact_paths(completed.stdout))
+        if completed.returncode != 0:
+            warn_msg = f"command_failed:{raw_command}:code={completed.returncode}"
+            warnings.append(warn_msg)
+            next_action = "/check"
+        else:
+            next_action = recommended
+        return True
+
+    def execute_shell_command(raw: str) -> bool:
+        nonlocal latest_output, shell_mode, active_role, next_action
         raw = raw.strip()
         if not raw:
             return True
         transcript_rows.append(f"> {raw}")
-        if raw == "/help":
+        if is_shell_boundary_input(raw, boundary_patterns):
+            latest_output = BOUNDARY_MESSAGE
+            transcript_rows.append(latest_output)
+            next_action = "/help"
+            return True
+        try:
+            parts = shlex.split(raw, posix=False)
+        except ValueError as error:
+            latest_output = f"Invalid command syntax: {error}"
+            warnings.append(latest_output)
+            transcript_rows.append(latest_output)
+            next_action = "/help"
+            return True
+        if not parts:
+            return True
+        command = parts[0].lower()
+
+        if command == "/help":
             latest_output = (
-                "Commands:\n"
-                "/help\n/status\n/check-all\n/role-get SERVITOR|LOGOS_PRIME|LOGOS_SPECULUM\n"
-                "/settings-get <AGENT> <MODE>\n/setting-list\n/setting-show <setting_id>\n/setting-validate\n"
-                "/prompt-pack-validate <zip_path>\n/task-acceptance-check <task_pack_path>\n"
-                "/pack-build-role <AGENT>\n/compliance-check <bundle_or_matrix_path>\n/recent\n/exit"
+                "Primary commands:\n"
+                + "\n".join(primary_commands)
+                + "\n\nAliases:\n"
+                "/role-get /settings-get /setting-list /setting-show /setting-validate "
+                "/check-all /pack-build-role /prompt-pack-validate /task-acceptance-check"
             )
             transcript_rows.append(latest_output)
+            next_action = "/status"
             return True
-        if raw == "/exit":
+        if command == "/exit":
             latest_output = "exit requested"
             transcript_rows.append(latest_output)
             return False
-        mapped = map_slash_to_runner_args(raw)
-        if mapped is None:
-            latest_output = f"Unknown or malformed command: {raw}"
-            warnings.append(latest_output)
+        if command == "/status":
+            return run_runner_command(raw, ["status"], "/modes")
+        if command == "/modes":
+            latest_output = "Modes:\n" + "\n".join(SHELL_MODES)
             transcript_rows.append(latest_output)
+            next_action = "/mode IMPLEMENT"
             return True
-        completed = subprocess.run([sys.executable, str(Path(__file__).resolve()), *mapped], capture_output=True, text=True)
-        output = (completed.stdout + "\n" + completed.stderr).strip()
-        latest_output = output if output else "<no output>"
+        if command == "/mode":
+            if len(parts) != 2:
+                latest_output = "Usage: /mode <ASK|ARCHITECT|IMPLEMENT|DEBUG|AUDIT|ORCHESTRATE>"
+                transcript_rows.append(latest_output)
+                next_action = "/modes"
+                return True
+            candidate = parts[1].strip().upper()
+            if candidate not in SHELL_MODES:
+                latest_output = f"Unsupported shell mode '{parts[1]}'."
+                warnings.append(latest_output)
+                transcript_rows.append(latest_output)
+                next_action = "/modes"
+                return True
+            shell_mode = candidate
+            latest_output = f"Mode changed: {shell_mode}"
+            transcript_rows.append(latest_output)
+            next_action = "/check"
+            return True
+        if command == "/where":
+            latest_output = "\n".join(
+                [
+                    f"repo_root={REPO_ROOT}",
+                    f"officio_root={ROOT}",
+                    f"runner={Path(__file__).resolve()}",
+                    f"runtime_root={ctx.runtime_root}",
+                    f"cwd={Path.cwd()}",
+                ]
+            )
+            transcript_rows.append(latest_output)
+            next_action = "/status"
+            return True
+        if command == "/run":
+            if len(parts) < 2:
+                latest_output = "Usage: /run <command>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            if shell_mode not in RUN_ALLOWED_SHELL_MODES:
+                latest_output = f"/run is blocked in mode {shell_mode}. Switch to IMPLEMENT, DEBUG, or ORCHESTRATE."
+                warnings.append(latest_output)
+                transcript_rows.append(latest_output)
+                next_action = "/mode IMPLEMENT"
+                return True
+            proc = subprocess.run(" ".join(parts[1:]), shell=True, capture_output=True, text=True, cwd=REPO_ROOT)
+            output = (proc.stdout + "\n" + proc.stderr).strip()
+            latest_output = output if output else "<no output>"
+            transcript_rows.append(latest_output)
+            if proc.returncode != 0:
+                warnings.append(f"run_failed:code={proc.returncode}")
+                next_action = "/check"
+            else:
+                next_action = "/recent"
+            return True
+
+        if command in {"/role", "/role-get"}:
+            if len(parts) != 2:
+                latest_output = "Usage: /role <SERVITOR|SERVITOR_PRIME|SERVITOR_SPECULUM|LOGOS|LOGOS_PRIME|LOGOS_SPECULUM>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            try:
+                active_role = valid_agent(parts[1])
+            except ValueError as error:
+                latest_output = str(error)
+                warnings.append(latest_output)
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            return run_runner_command(raw, ["role-get", "--agent", active_role], f"/settings {active_role} EXECUTOR")
+
+        if command in {"/settings", "/settings-get"}:
+            if len(parts) != 3:
+                latest_output = "Usage: /settings <AGENT> <EXECUTOR|AUDITOR|ARCHITECT|REPAIRER>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            try:
+                agent = valid_agent(parts[1])
+                mode = valid_mode(parts[2])
+                active_role = agent
+            except ValueError as error:
+                latest_output = str(error)
+                warnings.append(latest_output)
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            return run_runner_command(raw, ["settings-get", "--agent", agent, "--mode", mode], f"/pack {agent}")
+
+        if command in {"/settings-list", "/setting-list"}:
+            return run_runner_command(raw, ["setting-list"], "/settings-show response_formats")
+
+        if command in {"/settings-show", "/setting-show"}:
+            if len(parts) < 2:
+                latest_output = "Usage: /settings-show <setting_id>"
+                transcript_rows.append(latest_output)
+                next_action = "/settings-list"
+                return True
+            setting_id = " ".join(parts[1:])
+            return run_runner_command(raw, ["setting-show", "--setting-id", setting_id], "/validate")
+
+        if command in {"/validate", "/setting-validate"}:
+            return run_runner_command(raw, ["setting-validate"], "/check")
+
+        if command in {"/check", "/check-all"}:
+            return run_runner_command(raw, ["check-all"], "/pack LOGOS_PRIME")
+
+        if command in {"/pack", "/pack-build-role"}:
+            if len(parts) != 2:
+                latest_output = "Usage: /pack <SERVITOR|SERVITOR_PRIME|SERVITOR_SPECULUM|LOGOS|LOGOS_PRIME|LOGOS_SPECULUM>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            try:
+                agent = valid_agent(parts[1])
+            except ValueError as error:
+                latest_output = str(error)
+                warnings.append(latest_output)
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            return run_runner_command(raw, ["pack-build-role", "--agent", agent], "/recent")
+
+        if command in {"/prompt-check", "/prompt-pack-validate"}:
+            if len(parts) < 2:
+                latest_output = "Usage: /prompt-check <zip_path>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            zip_path = " ".join(parts[1:])
+            return run_runner_command(raw, ["prompt-pack-validate", "--zip-path", zip_path], "/task-check <task_pack_path>")
+
+        if command in {"/task-check", "/task-acceptance-check"}:
+            if len(parts) < 2:
+                latest_output = "Usage: /task-check <task_pack_path>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            task_pack = " ".join(parts[1:])
+            return run_runner_command(raw, ["task-acceptance-check", "--task-pack", task_pack], "/recent")
+
+        if command == "/recent":
+            return run_runner_command(raw, ["recent"], "/where")
+
+        if command == "/compliance-check":
+            if len(parts) < 2:
+                latest_output = "Usage: /compliance-check <bundle_or_matrix_path>"
+                transcript_rows.append(latest_output)
+                next_action = "/help"
+                return True
+            matrix_input = " ".join(parts[1:])
+            return run_runner_command(raw, ["compliance-check", "--input", matrix_input], "/recent")
+
+        latest_output = f"Unknown command: {parts[0]}\nUse /help."
+        warnings.append(latest_output)
         transcript_rows.append(latest_output)
-        for line in completed.stdout.splitlines():
-            if ": " in line:
-                _, p = line.split(": ", 1)
-                if p.startswith("E:\\") or p.startswith("C:\\"):
-                    artifacts.append(p)
-        if completed.returncode != 0:
-            warnings.append(f"command_failed:{raw}:code={completed.returncode}")
+        next_action = "/help"
         return True
 
     if command_lines:
         for line in command_lines:
-            if not execute_slash(line):
+            if not execute_shell_command(line):
                 break
-            render_shell_view(console_obj, latest_output, warnings, run_id, artifacts)
+            render_shell_view(
+                console_obj,
+                latest_output,
+                warnings,
+                run_id,
+                artifacts,
+                shell_mode,
+                active_role,
+                primary_commands,
+                crest,
+                str(renderer_payload.get("renderer", "ansi_fallback")),
+                next_action,
+                visual_status,
+            )
 
     if not args.non_interactive:
         while True:
-            render_shell_view(console_obj, latest_output, warnings, run_id, artifacts)
+            render_shell_view(
+                console_obj,
+                latest_output,
+                warnings,
+                run_id,
+                artifacts,
+                shell_mode,
+                active_role,
+                primary_commands,
+                crest,
+                str(renderer_payload.get("renderer", "ansi_fallback")),
+                next_action,
+                visual_status,
+            )
             try:
                 raw = input("officio> ").strip()
             except EOFError:
                 break
-            if not execute_slash(raw):
+            if not execute_shell_command(raw):
                 break
 
     write_text(transcript_path, "\n".join(transcript_rows) + "\n")
+    verdict = "PASS" if visual_status == "PASS" else "WARN"
     receipt = emit_receipt(
         ctx,
         "shell_receipt.json",
-        {"command": "shell", "timestamp_utc": utc_now(), "verdict": "PASS", "warnings": warnings, "outputs": [str(transcript_path), str(color_diag_path)]},
+        {
+            "command": "shell",
+            "timestamp_utc": utc_now(),
+            "verdict": verdict,
+            "visual_status": visual_status,
+            "warnings": warnings,
+            "outputs": [str(transcript_path), str(renderer_diag_path), str(color_diag_path)],
+        },
     )
-    print_artifacts({"SHELL_TRANSCRIPT": transcript_path, "RICH_COLOR_DIAGNOSTIC": color_diag_path, "RECEIPT": receipt})
+    print_artifacts(
+        {
+            "SHELL_TRANSCRIPT": transcript_path,
+            "RENDERER_DIAGNOSTIC": renderer_diag_path,
+            "COLOR_DIAGNOSTIC": color_diag_path,
+            "RECEIPT": receipt,
+        }
+    )
     return 0
 
 
