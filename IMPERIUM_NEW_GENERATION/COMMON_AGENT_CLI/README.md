@@ -11,3 +11,7 @@ Goals:
 
 This layer is reference-first and reusable by Officio and future organ agents.
 No external logo, no Kilo dependency, no copied assets.
+
+## Included Utilities
+
+- `run_eight_organ_sweep.py`: reusable eight-organ sweep runner that executes help/status/check/identity/shell-smoke/domain commands and emits Markdown/JSON/CSV evidence bundles.

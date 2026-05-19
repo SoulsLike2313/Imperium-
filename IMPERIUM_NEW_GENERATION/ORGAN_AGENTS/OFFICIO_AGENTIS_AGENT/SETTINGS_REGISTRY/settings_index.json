@@ -13,6 +13,11 @@
       "path": "SETTINGS_REGISTRY/communication/servitor_communication_contract.json"
     },
     {
+      "setting_id": "SET-OFFICIO-BOOTSTRAP-DIRECTIVE-V0_1",
+      "state": "ACTIVE",
+      "path": "SETTINGS_REGISTRY/communication/officio_bootstrap_execution_directive.json"
+    },
+    {
       "setting_id": "SET-ACCEPTANCE-POLICY-V0_1",
       "state": "ACTIVE",
       "path": "SETTINGS_REGISTRY/task_acceptance/task_acceptance_policy.json"

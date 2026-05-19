@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -12,12 +13,14 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 
 try:
     from rich.console import Console
+    from rich.layout import Layout
     from rich.panel import Panel
 
     HAVE_RICH = True
 except Exception:
     HAVE_RICH = False
     Console = None  # type: ignore[assignment]
+    Layout = None  # type: ignore[assignment]
     Panel = None  # type: ignore[assignment]
 
 TASK_ID_BASE_HALF = "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1"
@@ -59,7 +62,14 @@ class OrganConfig:
 
     @property
     def runtime_root(self) -> Path:
-        return Path("E:/IMPERIUM_CONTEXT/LOCAL/ORGAN_AGENT_IDENTITY_RICH_SHELL_RUNS") / TASK_ID_IDENTITY_RICH / "ORGANS" / self.organ_name
+        runtime_base = os.environ.get("IMPERIUM_ORGAN_RUNTIME_ROOT")
+        if runtime_base:
+            base = Path(runtime_base)
+        elif os.name == "nt":
+            base = Path(r"E:\IMPERIUM_CONTEXT\LOCAL\ORGAN_AGENT_IDENTITY_RICH_SHELL_RUNS")
+        else:
+            base = Path("/tmp/IMPERIUM_CONTEXT/LOCAL/ORGAN_AGENT_IDENTITY_RICH_SHELL_RUNS")
+        return base / TASK_ID_IDENTITY_RICH / "ORGANS" / self.organ_name
 
 
 def _utc_now() -> str:
@@ -159,9 +169,56 @@ def important_paths(config: OrganConfig) -> Dict[str, str]:
     }
 
 
+def _latest_receipt_path(config: OrganConfig) -> str:
+    receipts = sorted(
+        [p for p in (config.root / "RECEIPTS").glob("*.json") if p.is_file()],
+        key=lambda p: p.stat().st_mtime,
+        reverse=True,
+    )
+    return str(receipts[0]) if receipts else ""
+
+
+def _latest_report_path(config: OrganConfig) -> str:
+    report = config.root / "REPORTS" / "base_half_check_report.json"
+    return str(report) if report.exists() else ""
+
+
+def _shell_zone_payload(config: OrganConfig, warnings: List[str], latest_output: str = "Shell ready.") -> Dict[str, List[str]]:
+    command_preview = ", ".join(_all_supported_commands(config))
+    latest_report_path = _latest_report_path(config) or "none"
+    latest_receipt_path = _latest_receipt_path(config) or "none"
+    git = _git_info(_repo_root(config.root))
+    renderer = "rich" if HAVE_RICH else "ansi_fallback"
+    top = [
+        f"organ: {config.organ_name}",
+        f"identity/lore: {config.identity_summary}",
+        f"backend_truth: head={git.get('head', '')} branch={git.get('branch', '')} dirty={'yes' if bool(git.get('dirty', '').strip()) else 'no'}",
+        f"visual_status: {_visual_status()} | renderer: {renderer}",
+    ]
+    left = [
+        "latest_output:",
+        latest_output,
+    ]
+    right = [
+        "active_command_list:",
+        command_preview,
+    ]
+    bottom = [
+        f"latest_report_path: {latest_report_path}",
+        f"latest_receipt_path: {latest_receipt_path}",
+        f"warn_error_blocker: {warnings[-1] if warnings else 'none'}",
+    ]
+    return {"top": top, "left": left, "right": right, "bottom": bottom}
+
+
 def command_status(config: OrganConfig) -> Tuple[int, Path]:
     ensure_base_layout(config)
     repo = _repo_root(config.root)
+    git = _git_info(repo)
+    active_commands = _all_supported_commands(config)
+    latest_report_path = _latest_report_path(config)
+    latest_receipt_path = _latest_receipt_path(config)
+    warning_code = VISUAL_WARN if not HAVE_RICH else "none"
     state_path = config.root / "STATE" / "current_status.json"
     payload: Dict[str, Any] = {
         "schema_version": "ORGAN_IDENTITY_RICH_STATUS_V0_1",
@@ -172,10 +229,25 @@ def command_status(config: OrganConfig) -> Tuple[int, Path]:
         "timestamp_utc": _utc_now(),
         "status": "READY",
         "visual_status": _visual_status(),
-        "supported_commands": _all_supported_commands(config),
+        "supported_commands": active_commands,
+        "active_command_list": active_commands,
         "identity_summary": config.identity_summary,
         "paths": important_paths(config),
-        "git": _git_info(repo),
+        "git": git,
+        "backend_truth": {
+            "head": git.get("head", ""),
+            "branch": git.get("branch", ""),
+            "dirty_state": "yes" if bool(git.get("dirty", "").strip()) else "no",
+        },
+        "latest_report_path": latest_report_path,
+        "latest_receipt_path": latest_receipt_path,
+        "warn_error_blocker": warning_code,
+        "renderer_status": {
+            "renderer": "rich" if HAVE_RICH else "ansi_fallback",
+            "rich_renderer_available": HAVE_RICH,
+            "visual_status": _visual_status(),
+            "fallback_reason": [] if HAVE_RICH else [VISUAL_WARN],
+        },
         "rich_renderer_available": HAVE_RICH,
     }
     if not HAVE_RICH:
@@ -478,21 +550,34 @@ def command_domain(config: OrganConfig, command: str) -> int:
     return 0
 
 
-def _render_shell_header(config: OrganConfig, warnings: List[str]) -> None:
-    lines = [
-        f"organ: {config.organ_name}",
-        f"identity: {config.identity_summary}",
-        f"visual_status: {_visual_status()}",
-        f"backend_truth: head={_git_info(_repo_root(config.root)).get('head', '')}",
-        f"command_count: {len(_all_supported_commands(config))}",
-        f"warn_error_blocker: {warnings[-1] if warnings else 'none'}",
-    ]
-    if HAVE_RICH and Console is not None and Panel is not None:
+def _render_shell_header(config: OrganConfig, warnings: List[str], latest_output: str = "Shell ready.") -> None:
+    zones = _shell_zone_payload(config, warnings, latest_output=latest_output)
+    if HAVE_RICH and Console is not None and Panel is not None and Layout is not None:
         console = Console()
-        console.print(Panel("\n".join(lines), title=f"{config.organ_name} RICH SHELL"))
+        layout = Layout()
+        layout.split_column(
+            Layout(name="top", size=7),
+            Layout(name="middle"),
+            Layout(name="bottom", size=5),
+        )
+        layout["middle"].split_row(Layout(name="left"), Layout(name="right"))
+        layout["top"].update(Panel("\n".join(zones["top"]), title="TOP STATUS BAR"))
+        layout["left"].update(Panel("\n".join(zones["left"]), title="LEFT WORK ZONE"))
+        layout["right"].update(Panel("\n".join(zones["right"]), title="RIGHT COMMAND ZONE"))
+        layout["bottom"].update(Panel("\n".join(zones["bottom"]), title="BOTTOM EVENT BAR"))
+        console.print(layout)
     else:
-        print(f"{config.organ_name} RICH SHELL")
-        for row in lines:
+        print("TOP STATUS BAR")
+        for row in zones["top"]:
+            print(f"- {row}")
+        print("LEFT WORK ZONE")
+        for row in zones["left"]:
+            print(f"- {row}")
+        print("RIGHT COMMAND ZONE")
+        for row in zones["right"]:
+            print(f"- {row}")
+        print("BOTTOM EVENT BAR")
+        for row in zones["bottom"]:
             print(f"- {row}")
 
 
@@ -534,6 +619,7 @@ def command_shell(config: OrganConfig, once: Optional[str]) -> int:
     ensure_base_layout(config)
     warnings: List[str] = [VISUAL_WARN] if not HAVE_RICH else []
     if once:
+        _render_shell_header(config, warnings, latest_output=f"once_mode_command={once}")
         code, _ = _shell_dispatch(config, once)
         return code
 
@@ -611,4 +697,3 @@ __all__ = [
     "ensure_base_layout",
     "run_cli",
 ]
-

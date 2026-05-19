@@ -3644,6 +3644,8 @@ def _shell_dispatch_line(line: str, renderer: Renderer) -> int:
 
     if cmd == "/status":
         return command_status(argparse.Namespace(out=None), renderer)
+    if cmd == "/identity":
+        return command_identity(argparse.Namespace(out=None), renderer)
     if cmd == "/inventory":
         return command_inventory(argparse.Namespace(repo_root=str(REPO_ROOT), out=None), renderer)
     if cmd == "/doctor-rich":

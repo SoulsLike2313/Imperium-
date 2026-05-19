@@ -24,6 +24,12 @@ ACK_SETTINGS:
 - stop_conditions_ref:
 - evidence_policy_ref:
 - response_contract_ref:
+- communication_contract_ref:
+- bootstrap_execution_directive_ref:
+- owner_live_commentary_language_after_officio_ack:
+- owner_final_comments_language_after_officio_ack:
+- machine_artifact_language:
+- language_violation_codes:
 - settings_hash:
 - timestamp_utc:
 

@@ -41,6 +41,10 @@ RESPONSE_CONTRACTS = ROOT / "RESPONSE_CONTRACTS"
 EVIDENCE_POLICY_DIR = ROOT / "EVIDENCE_POLICY"
 SCHEMAS_DIR = ROOT / "SCHEMAS"
 EXAMPLES_DIR = ROOT / "EXAMPLES"
+COMMUNICATION_CONTRACT_MD = SETTINGS_REGISTRY / "communication" / "SERVITOR_COMMUNICATION_CONTRACT.md"
+COMMUNICATION_CONTRACT_JSON = SETTINGS_REGISTRY / "communication" / "servitor_communication_contract.json"
+BOOTSTRAP_EXECUTION_DIRECTIVE_MD = SETTINGS_REGISTRY / "communication" / "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md"
+BOOTSTRAP_EXECUTION_DIRECTIVE_JSON = SETTINGS_REGISTRY / "communication" / "officio_bootstrap_execution_directive.json"
 
 SHELL_MODES = ["ASK", "ARCHITECT", "IMPLEMENT", "DEBUG", "AUDIT", "ORCHESTRATE"]
 DEFAULT_SHELL_MODE = "ASK"
@@ -112,9 +116,6 @@ def write_text(path: Path, content: str) -> None:
 
 def read_json(path: Path) -> Any:
     with path.open("r", encoding="utf-8-sig") as handle:
-        return json.load(handle)
-
-
         return json.load(handle)
 
 
@@ -433,12 +434,20 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
     stop_conditions_path = out_dir / "STOP_CONDITIONS.json"
     response_contract_path = out_dir / "RESPONSE_CONTRACT.md"
     evidence_policy_path = out_dir / "EVIDENCE_POLICY.md"
+    communication_contract_md_path = out_dir / "COMMUNICATION_CONTRACT.md"
+    communication_contract_json_path = out_dir / "communication_contract.json"
+    bootstrap_directive_md_path = out_dir / "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md"
+    bootstrap_directive_json_path = out_dir / "officio_bootstrap_execution_directive.json"
 
     write_text(settings_md_path, settings_md + "\n")
     write_json(settings_json_path, settings)
     write_json(stop_conditions_path, load_stop_conditions())
     write_text(response_contract_path, read_text(response_contract_path_for(agent)))
     write_text(evidence_policy_path, read_text(EVIDENCE_POLICY_DIR / "EVIDENCE_POLICY.md"))
+    write_text(communication_contract_md_path, read_text(COMMUNICATION_CONTRACT_MD))
+    write_json(communication_contract_json_path, read_json(COMMUNICATION_CONTRACT_JSON))
+    write_text(bootstrap_directive_md_path, read_text(BOOTSTRAP_EXECUTION_DIRECTIVE_MD))
+    write_json(bootstrap_directive_json_path, read_json(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON))
 
     receipt = emit_receipt(
         ctx,
@@ -455,6 +464,10 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
                 str(stop_conditions_path),
                 str(response_contract_path),
                 str(evidence_policy_path),
+                str(communication_contract_md_path),
+                str(communication_contract_json_path),
+                str(bootstrap_directive_md_path),
+                str(bootstrap_directive_json_path),
             ],
         },
     )
@@ -465,6 +478,10 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
             "STOP_CONDITIONS_JSON": stop_conditions_path,
             "RESPONSE_CONTRACT_MD": response_contract_path,
             "EVIDENCE_POLICY_MD": evidence_policy_path,
+            "COMMUNICATION_CONTRACT_MD": communication_contract_md_path,
+            "COMMUNICATION_CONTRACT_JSON": communication_contract_json_path,
+            "BOOTSTRAP_EXECUTION_DIRECTIVE_MD": bootstrap_directive_md_path,
+            "BOOTSTRAP_EXECUTION_DIRECTIVE_JSON": bootstrap_directive_json_path,
             "RECEIPT": receipt,
         }
     )
@@ -634,6 +651,10 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
     execution_settings = pack_root / "EXECUTION_SETTINGS.md"
     stop_conditions = pack_root / "STOP_CONDITIONS.json"
     evidence_policy = pack_root / "EVIDENCE_POLICY.md"
+    communication_contract_md = pack_root / "COMMUNICATION_CONTRACT.md"
+    communication_contract_json = pack_root / "communication_contract.json"
+    bootstrap_directive_md = pack_root / "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md"
+    bootstrap_directive_json = pack_root / "officio_bootstrap_execution_directive.json"
     start_message = pack_root / "START_MESSAGE.txt"
     manifest = pack_root / "MANIFEST.json"
     sha256s = pack_root / "SHA256SUMS.txt"
@@ -646,6 +667,10 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
     family_profile_json_source = optional_json(family_dir / "family_profile.json")
     read_order_source = optional_json(src_dir / "read_order.json")
     response_ref_source = optional_json(src_dir / "response_contract_ref.json")
+    communication_contract_md_source = optional_text(COMMUNICATION_CONTRACT_MD)
+    communication_contract_json_source = optional_json(COMMUNICATION_CONTRACT_JSON)
+    bootstrap_directive_md_source = optional_text(BOOTSTRAP_EXECUTION_DIRECTIVE_MD)
+    bootstrap_directive_json_source = optional_json(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON)
 
     role_profile_source_md = pack_root / "ROLE_PROFILE_SOURCE.md"
     family_profile_source_md = pack_root / "FAMILY_PROFILE_SOURCE.md"
@@ -678,6 +703,12 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
                 "",
                 "## Execution Settings",
                 settings_md,
+                "",
+                "## Communication Contract",
+                communication_contract_md_source or "MISSING SERVITOR_COMMUNICATION_CONTRACT.md",
+                "",
+                "## Officio Bootstrap Execution Directive",
+                bootstrap_directive_md_source or "MISSING OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md",
             ]
         )
         + "\n",
@@ -691,6 +722,8 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
             "family_profile": family_profile_json_source,
             "read_order": read_order_source,
             "response_contract_ref": response_ref_source,
+            "communication_contract": communication_contract_json_source,
+            "bootstrap_execution_directive": bootstrap_directive_json_source,
             "default_mode": mode,
             "status": STATUS_READY,
             "generated_at_utc": utc_now(),
@@ -700,9 +733,43 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
     write_text(execution_settings, settings_md + "\n")
     write_json(stop_conditions, load_stop_conditions())
     write_text(evidence_policy, read_text(EVIDENCE_POLICY_DIR / "EVIDENCE_POLICY.md"))
-    write_text(start_message, f"You are entering role: {agent}. Read ROLE_PACK.md, ROLE_PROFILE_SOURCE.md, READ_ORDER.json, RESPONSE_CONTRACT.md, EXECUTION_SETTINGS.md.\n")
+    write_text(communication_contract_md, communication_contract_md_source or "# Missing communication contract\n")
+    write_json(
+        communication_contract_json,
+        communication_contract_json_source if communication_contract_json_source is not None else {"warning": "missing communication contract json"},
+    )
+    write_text(bootstrap_directive_md, bootstrap_directive_md_source or "# Missing bootstrap execution directive\n")
+    write_json(
+        bootstrap_directive_json,
+        bootstrap_directive_json_source if bootstrap_directive_json_source is not None else {"warning": "missing bootstrap execution directive json"},
+    )
+    write_text(
+        start_message,
+        (
+            f"You are entering role: {agent}. Read ROLE_PACK.md, ROLE_PROFILE_SOURCE.md, READ_ORDER.json, "
+            "RESPONSE_CONTRACT.md, EXECUTION_SETTINGS.md, COMMUNICATION_CONTRACT.md, "
+            "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md.\n"
+        ),
+    )
 
-    pre_manifest_files = [role_pack_md, role_pack_json, role_profile_source_md, family_profile_source_md, family_profile_json, read_order_json, response_contract_ref_json, response_contract, execution_settings, stop_conditions, evidence_policy, start_message]
+    pre_manifest_files = [
+        role_pack_md,
+        role_pack_json,
+        role_profile_source_md,
+        family_profile_source_md,
+        family_profile_json,
+        read_order_json,
+        response_contract_ref_json,
+        response_contract,
+        execution_settings,
+        stop_conditions,
+        evidence_policy,
+        communication_contract_md,
+        communication_contract_json,
+        bootstrap_directive_md,
+        bootstrap_directive_json,
+        start_message,
+    ]
     write_json(manifest, build_pack_manifest(pre_manifest_files, pack_root, agent))
     all_files = pre_manifest_files + [manifest]
     write_text(sha256s, create_sha256s_txt(all_files, pack_root))
@@ -911,11 +978,20 @@ def cmd_prompt_pack_validate(args: argparse.Namespace) -> int:
 
 
 def load_task_pack_payload(task_pack_path: Path) -> dict[str, Any]:
+    if task_pack_path.is_dir():
+        for candidate in ("task_contract.json", "task_pack.json", "MANIFEST.json"):
+            path = task_pack_path / candidate
+            if path.exists():
+                payload = read_json(path)
+                if isinstance(payload, dict):
+                    return payload
+        return {}
     if task_pack_path.suffix.lower() == ".zip":
         with zipfile.ZipFile(task_pack_path, "r") as archive:
-            if "task_pack.json" not in archive.namelist():
-                return {}
-            return json.loads(archive.read("task_pack.json").decode("utf-8"))
+            for candidate in ("task_pack.json", "task_contract.json", "MANIFEST.json"):
+                if candidate in archive.namelist():
+                    return json.loads(archive.read(candidate).decode("utf-8"))
+            return {}
     if task_pack_path.suffix.lower() == ".json":
         return read_json(task_pack_path)
     if task_pack_path.suffix.lower() == ".md":
@@ -935,6 +1011,42 @@ def normalize_scope_values(payload: dict[str, Any]) -> list[str]:
     return values
 
 
+def infer_required_reports(payload: dict[str, Any]) -> list[str]:
+    if isinstance(payload.get("required_reports"), list):
+        return [str(x) for x in payload["required_reports"]]
+    if isinstance(payload.get("expected_receipts"), list):
+        return [str(x) for x in payload["expected_receipts"]]
+    return []
+
+
+def has_required_task_field(field: str, payload: dict[str, Any], task_pack_path: Path) -> bool:
+    if field in payload:
+        return True
+    if field == "expected_base_head":
+        repo_obj = payload.get("repo")
+        return "baseline_head" in payload or (isinstance(repo_obj, dict) and "expected_base_head" in repo_obj)
+    if field == "allowed_scope":
+        return len(normalize_scope_values(payload)) > 0
+    if field == "requirements_file":
+        if isinstance(payload.get("requirements"), list):
+            return True
+        if infer_required_reports(payload):
+            return True
+        if task_pack_path.is_dir():
+            for candidate in ("WARN_DEBT_TARGETS.json", "WARN_DEBT_TARGETS.md", "ACCEPTANCE_MATRIX.md"):
+                if (task_pack_path / candidate).exists():
+                    return True
+        return False
+    if field == "evidence_policy_file":
+        if infer_required_reports(payload):
+            return True
+        if task_pack_path.is_dir():
+            if (task_pack_path / "ACCEPTANCE_MATRIX.md").exists():
+                return True
+        return False
+    return False
+
+
 def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
     ctx = create_context("task_acceptance_check")
     task_pack_path = Path(args.task_pack).resolve()
@@ -945,15 +1057,7 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
     payload = load_task_pack_payload(task_pack_path)
     policy = read_json(SETTINGS_REGISTRY / "task_acceptance" / "task_acceptance_policy.json")
     required_fields = policy.get("machine_rule", {}).get("required_task_fields", [])
-    def has_required_field(field: str, obj: dict[str, Any]) -> bool:
-        if field in obj:
-            return True
-        if field == "expected_base_head":
-            repo_obj = obj.get("repo")
-            return isinstance(repo_obj, dict) and "expected_base_head" in repo_obj
-        return False
-
-    missing_fields = [field for field in required_fields if not has_required_field(field, payload)]
+    missing_fields = [field for field in required_fields if not has_required_task_field(str(field), payload, task_pack_path)]
 
     decision = "ACCEPT"
     reasons: list[str] = []
@@ -962,10 +1066,13 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
         reasons.append("missing required fields: " + ", ".join(missing_fields))
 
     if decision == "ACCEPT":
+        forbidden_markers = payload.get("forbidden_scope_markers", ["THRONE", "CUSTODES"])
+        marker_values = [str(marker).upper() for marker in forbidden_markers] if isinstance(forbidden_markers, list) else ["THRONE", "CUSTODES"]
         for scope in normalize_scope_values(payload):
-            if any(marker in scope for marker in ["ORGANS/", "SANCTUM/", "IMPERIUM_TEST_VERSION/", "ADMINISTRATUM_AGENT/"]):
+            upper_scope = scope.upper()
+            if any(marker in upper_scope for marker in marker_values):
                 decision = "BLOCKED_OUT_OF_SCOPE"
-                reasons.append(f"forbidden scope marker in: {scope}")
+                reasons.append(f"forbidden scope marker in allowed_scope: {scope}")
                 break
 
     text_blob = json.dumps(payload, ensure_ascii=False).lower()
@@ -973,11 +1080,11 @@ def cmd_task_acceptance_check(args: argparse.Namespace) -> int:
         decision = "BLOCKED_UNSAFE"
         reasons.append("unsafe keyword detected")
 
-    if decision == "ACCEPT" and isinstance(payload.get("requirements"), list) and len(payload["requirements"]) > 40:
+    if decision == "ACCEPT" and isinstance(payload.get("requirements"), list) and len(payload["requirements"]) > 80:
         decision = "SPLIT_REQUIRED"
         reasons.append("too many requirements for a single bounded execution")
 
-    if decision == "ACCEPT" and "evidence_policy_file" not in payload:
+    if decision == "ACCEPT" and not has_required_task_field("evidence_policy_file", payload, task_pack_path):
         decision = "ACCEPT_WITH_WARNINGS"
         reasons.append("explicit evidence_policy_file not found")
 
@@ -997,6 +1104,55 @@ def cmd_recent(args: argparse.Namespace) -> int:
     for item in sorted(runs, key=lambda i: i.name, reverse=True)[: max(1, int(args.limit))]:
         print(item)
     return 0
+
+
+def language_contract_checks() -> tuple[list[str], list[str], dict[str, Any]]:
+    warnings: list[str] = []
+    errors: list[str] = []
+    details: dict[str, Any] = {
+        "communication_contract_json": str(COMMUNICATION_CONTRACT_JSON),
+        "bootstrap_directive_json": str(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON),
+        "response_contract_md": str(RESPONSE_CONTRACTS / "SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md"),
+        "required_violation_codes": ["WARN_RESPONSE_LANGUAGE_CONTRACT", "FAIL_RESPONSE_CONTRACT"],
+    }
+
+    try:
+        comm = read_json(COMMUNICATION_CONTRACT_JSON)
+    except Exception as error:
+        errors.append(f"language_contract_json_unreadable:{error}")
+        return warnings, errors, details
+    try:
+        directive = read_json(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON)
+    except Exception as error:
+        errors.append(f"bootstrap_directive_json_unreadable:{error}")
+        return warnings, errors, details
+
+    comm_rule = comm.get("machine_rule", {}) if isinstance(comm, dict) else {}
+    directive_rule = directive.get("machine_rule", {}) if isinstance(directive, dict) else {}
+    details["communication_machine_rule"] = comm_rule
+    details["bootstrap_machine_rule"] = directive_rule
+
+    required_codes = {"WARN_RESPONSE_LANGUAGE_CONTRACT", "FAIL_RESPONSE_CONTRACT"}
+    comm_codes = set(str(x) for x in comm_rule.get("language_violation_codes", [])) if isinstance(comm_rule.get("language_violation_codes", []), list) else set()
+    directive_codes = set(str(x) for x in directive_rule.get("language_violation_codes", [])) if isinstance(directive_rule.get("language_violation_codes", []), list) else set()
+    missing_codes = sorted(list(required_codes - (comm_codes | directive_codes)))
+    if missing_codes:
+        errors.append("missing_language_violation_codes:" + ",".join(missing_codes))
+
+    if str(comm_rule.get("owner_live_commentary_language_after_officio_ack", "")).lower() != "russian":
+        errors.append("missing_owner_live_commentary_language_rule")
+    if str(comm_rule.get("owner_final_comments_language_after_officio_ack", "")).lower() != "russian":
+        errors.append("missing_owner_final_comments_language_rule")
+    if str(comm_rule.get("machine_artifact_language", "")).lower() != "english":
+        errors.append("missing_machine_artifact_language_rule")
+
+    response_contract_text = read_text(RESPONSE_CONTRACTS / "SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md")
+    if "OWNER COMMENTS" not in response_contract_text:
+        errors.append("response_contract_missing_owner_comments_section")
+    if "Russian" not in response_contract_text and "russian" not in response_contract_text:
+        warnings.append("response_contract_missing_explicit_russian_hint")
+
+    return warnings, errors, details
 
 
 def cmd_check_all(_args: argparse.Namespace) -> int:
@@ -1021,6 +1177,10 @@ def cmd_check_all(_args: argparse.Namespace) -> int:
         EXAMPLES_DIR / "rejected_tasks" / "rejected_task_out_of_scope.json",
         EXAMPLES_DIR / "valid_prompt_packs" / "valid_prompt_pack_manifest.json",
         EXAMPLES_DIR / "invalid_prompt_packs" / "missing_required_files.json",
+        COMMUNICATION_CONTRACT_MD,
+        COMMUNICATION_CONTRACT_JSON,
+        BOOTSTRAP_EXECUTION_DIRECTIVE_MD,
+        BOOTSTRAP_EXECUTION_DIRECTIVE_JSON,
     ]
     missing_files = [str(path) for path in required_files if not path.exists()]
 
@@ -1046,12 +1206,35 @@ def cmd_check_all(_args: argparse.Namespace) -> int:
     except Exception as error:
         settings_index_errors.append(f"settings_index_error:{error}")
 
-    verdict = "PASS" if not missing_files and not invalid_json and not settings_index_errors else "FAIL"
+    language_warnings, language_errors, language_details = language_contract_checks()
+    verdict = "PASS" if not missing_files and not invalid_json and not settings_index_errors and not language_errors else "FAIL"
     out_dir = ctx.run_root / "check_all"
     report_json = out_dir / "check_all_report.json"
     report_txt = out_dir / "check_all_output.txt"
-    write_json(report_json, {"checked_at_utc": utc_now(), "verdict": verdict, "missing_files": missing_files, "invalid_json": invalid_json, "settings_index_errors": settings_index_errors})
-    write_text(report_txt, f"verdict={verdict}\nmissing_files={len(missing_files)}\ninvalid_json={len(invalid_json)}\nsettings_index_errors={len(settings_index_errors)}\n")
+    write_json(
+        report_json,
+        {
+            "checked_at_utc": utc_now(),
+            "verdict": verdict,
+            "missing_files": missing_files,
+            "invalid_json": invalid_json,
+            "settings_index_errors": settings_index_errors,
+            "language_contract_warnings": language_warnings,
+            "language_contract_errors": language_errors,
+            "language_contract_details": language_details,
+        },
+    )
+    write_text(
+        report_txt,
+        (
+            f"verdict={verdict}\n"
+            f"missing_files={len(missing_files)}\n"
+            f"invalid_json={len(invalid_json)}\n"
+            f"settings_index_errors={len(settings_index_errors)}\n"
+            f"language_contract_warnings={len(language_warnings)}\n"
+            f"language_contract_errors={len(language_errors)}\n"
+        ),
+    )
     receipt = emit_receipt(ctx, "check_all_receipt.json", {"command": "check-all", "timestamp_utc": utc_now(), "verdict": verdict, "outputs": [str(report_json), str(report_txt)]})
     print_artifacts({"CHECK_ALL_JSON": report_json, "CHECK_ALL_OUTPUT": report_txt, "RECEIPT": receipt})
     return 0 if verdict == "PASS" else 1
@@ -1302,6 +1485,8 @@ def cmd_shell(args: argparse.Namespace) -> int:
                 line = raw_line.strip()
                 if line:
                     command_lines.append(line)
+    if args.once:
+        command_lines.append(args.once.strip())
 
     primary_commands = load_primary_commands()
     boundary_patterns = load_shell_boundary_patterns()
@@ -1450,6 +1635,9 @@ def cmd_shell(args: argparse.Namespace) -> int:
                 return True
             return run_runner_command(raw, ["role-get", "--agent", active_role], f"/settings {active_role} EXECUTOR")
 
+        if command == "/identity":
+            return run_runner_command(raw, ["role-get", "--agent", active_role], f"/settings {active_role} EXECUTOR")
+
         if command in {"/settings", "/settings-get"}:
             if len(parts) != 3:
                 latest_output = "Usage: /settings <AGENT> <EXECUTOR|AUDITOR|ARCHITECT|REPAIRER>"
@@ -1557,7 +1745,8 @@ def cmd_shell(args: argparse.Namespace) -> int:
                 visual_status,
             )
 
-    if not args.non_interactive:
+    interactive_enabled = (not args.non_interactive) and (not bool(args.once))
+    if interactive_enabled:
         while True:
             render_shell_view(
                 console_obj,
@@ -1636,6 +1825,7 @@ def build_parser() -> argparse.ArgumentParser:
     shell = sub.add_parser("shell")
     shell.add_argument("--commands-file", required=False, default=None)
     shell.add_argument("--non-interactive", action="store_true")
+    shell.add_argument("--once", required=False, default=None)
     return parser
 
 

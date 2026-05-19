@@ -1,6 +1,6 @@
 {
   "contract_name": "ROLE_SETTINGS_ACK_PROTOCOL",
-  "schema_version": "0.1",
+  "schema_version": "0.2",
   "markdown_path": "RESPONSE_CONTRACTS/ROLE_SETTINGS_ACK_PROTOCOL.md",
   "status": "baseline_candidate_owner_review_required"
 }
