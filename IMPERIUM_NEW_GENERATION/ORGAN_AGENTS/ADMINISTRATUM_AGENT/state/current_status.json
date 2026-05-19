@@ -1,8 +1,34 @@
 {
-  "agent_id": "ADMINISTRATUM_AGENT",
-  "status": "REFERENCE_READY_WITH_PC_TRANSFER_PUSH_SHELL_REPAIR_V0_1",
-  "runtime_mode": "RUNS_LAYER_ONLY",
-  "mutated_canon": false,
-  "deleted_files": false,
-  "note": "Runtime command outputs are routed to IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT by default; manual PC-to-VM2 transfer payloads are routed to ADMINISTRATUM_TRANSFER outside Git; transfer-push-vm2 requires remote SHA256/size proof before PASS."
+  "schema_version": "ORGAN_BASE_HALF_STATUS_V0_1",
+  "task_id": "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1",
+  "organ": "ADMINISTRATUM_AGENT",
+  "timestamp_utc": "2026-05-19T18:39:51.745421Z",
+  "status": "READY",
+  "visual_status": "WARN",
+  "supported_commands": [
+    "status",
+    "check",
+    "where",
+    "identity",
+    "pack",
+    "shell",
+    "help"
+  ],
+  "identity_summary": "Addresses, continuity, chronicle, and evidence packaging.",
+  "paths": {
+    "organ_root": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT",
+    "runner": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\TOOLS\\administratum_agent_runner.py",
+    "launcher": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\LAUNCHERS\\run_administratum_pc.ps1",
+    "profile_md": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\AGENT_PROFILE.md",
+    "profile_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\agent_profile.json",
+    "identity_md": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\IDENTITY_BASELINE.md",
+    "state_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\STATE\\current_status.json",
+    "check_report_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\ADMINISTRATUM_AGENT\\REPORTS\\base_half_check_report.json",
+    "runtime_root": "E:\\IMPERIUM_CONTEXT\\LOCAL\\ORGAN_AGENT_BASE_HALF_RUNS\\TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1\\ORGANS\\ADMINISTRATUM_AGENT"
+  },
+  "git": {
+    "head": "43d2727de6d38c3ad8f392db29dcfe8a718dddf9",
+    "branch": "master",
+    "dirty": true
+  }
 }

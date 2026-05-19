@@ -125,6 +125,31 @@ ADMITTED_DIRTY_PREFIXES = (
     "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT/",
     "IMPERIUM_NEW_GENERATION/RUNS/ADMINISTRATUM_AGENT/",
 )
+BASE_HALF_TASK_ID = "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1"
+BASE_HALF_REQUIRED_COMMANDS = ["status", "check", "where", "identity", "pack", "shell", "help"]
+BASE_HALF_REQUIRED_FILES = [
+    "README.md",
+    "AGENT_PROFILE.md",
+    "agent_profile.json",
+    "IDENTITY_BASELINE.md",
+    "TOOLS/administratum_agent_runner.py",
+    "LAUNCHERS/run_administratum_pc.ps1",
+    "SHELL/SHELL_CONTRACT.md",
+    "STATE/current_status.json",
+    "REPORTS/base_half_check_report.json",
+    "REPORTS/base_half_check_report.md",
+    "EXAMPLES/README.md",
+    "TESTS/README.md",
+]
+BASE_HALF_STATE_PATH = AGENT_ROOT / "STATE" / "current_status.json"
+BASE_HALF_REPORT_JSON_PATH = AGENT_ROOT / "REPORTS" / "base_half_check_report.json"
+BASE_HALF_REPORT_MD_PATH = AGENT_ROOT / "REPORTS" / "base_half_check_report.md"
+BASE_HALF_RUNTIME_ROOT = (
+    Path("E:/IMPERIUM_CONTEXT/LOCAL/ORGAN_AGENT_BASE_HALF_RUNS")
+    / BASE_HALF_TASK_ID
+    / "ORGANS"
+    / "ADMINISTRATUM_AGENT"
+)
 
 
 @dataclass
@@ -1265,12 +1290,116 @@ def _context_progress_hook(rail: ProgressRail) -> Callable[[Dict[str, Any]], Non
     return _hook
 
 
+def _base_half_paths() -> Dict[str, str]:
+    return {
+        "organ_root": str(AGENT_ROOT),
+        "runner": str(AGENT_ROOT / "TOOLS" / "administratum_agent_runner.py"),
+        "launcher": str(AGENT_ROOT / "LAUNCHERS" / "run_administratum_pc.ps1"),
+        "profile_md": str(AGENT_ROOT / "AGENT_PROFILE.md"),
+        "profile_json": str(AGENT_ROOT / "agent_profile.json"),
+        "identity_md": str(AGENT_ROOT / "IDENTITY_BASELINE.md"),
+        "state_json": str(BASE_HALF_STATE_PATH),
+        "check_report_json": str(BASE_HALF_REPORT_JSON_PATH),
+        "runtime_root": str(BASE_HALF_RUNTIME_ROOT),
+    }
+
+
+def _base_half_identity_summary() -> str:
+    profile_path = AGENT_ROOT / "agent_profile.json"
+    profile = read_json(profile_path)
+    if isinstance(profile, dict):
+        summary = str(profile.get("summary", "")).strip()
+        if summary:
+            return summary
+    return "Addresses, continuity, chronicle, and evidence packaging."
+
+
+def _base_half_git_branch() -> str:
+    completed = subprocess.run(
+        ["git", "branch", "--show-current"],
+        cwd=str(REPO_ROOT),
+        capture_output=True,
+        text=True,
+    )
+    if completed.returncode != 0:
+        return str((completed.stderr or completed.stdout).strip())
+    return str(completed.stdout.strip())
+
+
+def _write_base_half_state() -> Path:
+    BASE_HALF_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "schema_version": "ORGAN_BASE_HALF_STATUS_V0_1",
+        "task_id": BASE_HALF_TASK_ID,
+        "organ": "ADMINISTRATUM_AGENT",
+        "timestamp_utc": now_utc(),
+        "status": "READY",
+        "visual_status": "WARN",
+        "supported_commands": BASE_HALF_REQUIRED_COMMANDS,
+        "identity_summary": _base_half_identity_summary(),
+        "paths": _base_half_paths(),
+        "git": {
+            "head": git_head(REPO_ROOT),
+            "branch": _base_half_git_branch(),
+            "dirty": git_is_dirty(REPO_ROOT),
+        },
+    }
+    write_json(BASE_HALF_STATE_PATH, payload)
+    return BASE_HALF_STATE_PATH
+
+
+def _write_base_half_reports() -> Tuple[Path, Path, List[str]]:
+    BASE_HALF_REPORT_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+    missing = [rel for rel in BASE_HALF_REQUIRED_FILES if not (AGENT_ROOT / rel).exists()]
+    verdict = "PASS" if not missing else "WARN"
+    report = {
+        "schema_version": "ORGAN_BASE_HALF_CHECK_REPORT_V0_1",
+        "task_id": BASE_HALF_TASK_ID,
+        "organ": "ADMINISTRATUM_AGENT",
+        "timestamp_utc": now_utc(),
+        "verdict": verdict,
+        "visual_status": "WARN",
+        "supported_commands": BASE_HALF_REQUIRED_COMMANDS,
+        "checks": [{"file": rel, "exists": rel not in missing} for rel in BASE_HALF_REQUIRED_FILES],
+        "missing": missing,
+        "notes": [
+            "Base Half shell is minimal by design.",
+            "Identity/profile depth is intentionally compact for first scaffold pass.",
+        ],
+    }
+    write_json(BASE_HALF_REPORT_JSON_PATH, report)
+    md_lines = [
+        "# Administratum Base Half Check Report",
+        "",
+        f"- task_id: {BASE_HALF_TASK_ID}",
+        f"- verdict: {verdict}",
+        "- visual_status: WARN",
+        f"- timestamp_utc: {report['timestamp_utc']}",
+        "",
+        "## Missing",
+    ]
+    if missing:
+        md_lines.extend([f"- {item}" for item in missing])
+    else:
+        md_lines.append("- none")
+    md_lines.extend(["", "## Commands", *[f"- {cmd}" for cmd in BASE_HALF_REQUIRED_COMMANDS], ""])
+    BASE_HALF_REPORT_MD_PATH.write_text("\n".join(md_lines), encoding="utf-8")
+    return BASE_HALF_REPORT_JSON_PATH, BASE_HALF_REPORT_MD_PATH, missing
+
+
+def _base_half_pack_root() -> Path:
+    stamp = re.sub(r"[^0-9]", "", now_utc())
+    return BASE_HALF_RUNTIME_ROOT / "PACKS" / f"run_{stamp}"
+
+
 def command_status(args: argparse.Namespace, renderer: Renderer) -> int:
     ctx = _start_command("status", args.out)
     snap = status_snapshot()
+    base_state_path = _write_base_half_state()
     runtime_gitignore = RUNS_ROOT / ".gitignore"
     iso_ok = runtime_gitignore.exists() and "RUN-*/" in runtime_gitignore.read_text(encoding="utf-8")
     snap["runtime_isolation_status"] = "PASS" if iso_ok else "BLOCKED"
+    snap["base_half_state_path"] = str(base_state_path)
     report_path = ctx.run_dir / "reports" / "status_report.json"
     write_json(report_path, snap)
     warnings: List[str] = []
@@ -1285,11 +1414,174 @@ def command_status(args: argparse.Namespace, renderer: Renderer) -> int:
         header="ADMINISTRATUM AGENT :: STATUS",
         verdict=verdict,
         summary="Status snapshot created.",
-        outputs=[report_path],
+        outputs=[report_path, base_state_path],
         input_refs=[],
         warnings=warnings,
         details=snap,
         next_actions=["Run `check-all` before Owner handoff."],
+    )
+
+
+def command_check(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("check", args.out)
+    state_path = _write_base_half_state()
+    report_json, report_md, missing = _write_base_half_reports()
+    warnings = [f"missing required file: {item}" for item in missing]
+    verdict = "PASS_WITH_WARNINGS" if warnings else "PASS"
+    details = {
+        "task_id": BASE_HALF_TASK_ID,
+        "required_commands": BASE_HALF_REQUIRED_COMMANDS,
+        "state_path": str(state_path),
+        "report_json": str(report_json),
+        "report_md": str(report_md),
+        "missing": missing,
+    }
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: CHECK (BASE HALF)",
+        verdict=verdict,
+        summary="Base Half check report refreshed.",
+        outputs=[state_path, report_json, report_md],
+        input_refs=[],
+        warnings=warnings,
+        details=details,
+        next_actions=["Run `where`, `identity`, and `pack` for continuity outputs."],
+    )
+
+
+def command_where(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("where", args.out)
+    paths = _base_half_paths()
+    report_path = ctx.run_dir / "reports" / "where_report.json"
+    write_json(
+        report_path,
+        {
+            "schema_version": "ORGAN_BASE_HALF_WHERE_REPORT_V0_1",
+            "task_id": BASE_HALF_TASK_ID,
+            "organ": "ADMINISTRATUM_AGENT",
+            "timestamp_utc": now_utc(),
+            "paths": paths,
+        },
+    )
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: WHERE (BASE HALF)",
+        verdict="PASS",
+        summary="Important path map emitted.",
+        outputs=[report_path],
+        input_refs=[],
+        warnings=[],
+        details={"paths": paths},
+    )
+
+
+def command_identity(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("identity", args.out)
+    profile_path = AGENT_ROOT / "agent_profile.json"
+    identity_path = AGENT_ROOT / "IDENTITY_BASELINE.md"
+    profile = read_json(profile_path)
+    identity_text = identity_path.read_text(encoding="utf-8") if identity_path.exists() else ""
+    report_path = ctx.run_dir / "reports" / "identity_report.json"
+    write_json(
+        report_path,
+        {
+            "schema_version": "ORGAN_BASE_HALF_IDENTITY_REPORT_V0_1",
+            "task_id": BASE_HALF_TASK_ID,
+            "organ": "ADMINISTRATUM_AGENT",
+            "timestamp_utc": now_utc(),
+            "summary": _base_half_identity_summary(),
+            "profile": profile,
+            "identity_baseline_excerpt": identity_text[:2000],
+        },
+    )
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: IDENTITY (BASE HALF)",
+        verdict="PASS",
+        summary="Identity baseline and profile references emitted.",
+        outputs=[report_path],
+        input_refs=[str(profile_path), str(identity_path)],
+        warnings=[],
+        details={"summary": _base_half_identity_summary()},
+    )
+
+
+def command_pack(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("pack", args.out)
+    state_path = _write_base_half_state()
+    report_json, report_md, _missing = _write_base_half_reports()
+    pack_root = _base_half_pack_root()
+    pack_root.mkdir(parents=True, exist_ok=True)
+    copies = [
+        ("AGENT_PROFILE.md", AGENT_ROOT / "AGENT_PROFILE.md"),
+        ("agent_profile.json", AGENT_ROOT / "agent_profile.json"),
+        ("IDENTITY_BASELINE.md", AGENT_ROOT / "IDENTITY_BASELINE.md"),
+        ("STATE/current_status.json", state_path),
+        ("REPORTS/base_half_check_report.json", report_json),
+        ("REPORTS/base_half_check_report.md", report_md),
+        ("SHELL/SHELL_CONTRACT.md", AGENT_ROOT / "SHELL" / "SHELL_CONTRACT.md"),
+    ]
+    copied: List[str] = []
+    for rel, src in copies:
+        if not src.exists():
+            continue
+        dst = pack_root / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(src, dst)
+        copied.append(rel)
+    manifest_path = pack_root / "pack_manifest.json"
+    write_json(
+        manifest_path,
+        {
+            "schema_version": "ORGAN_BASE_HALF_PACK_V0_1",
+            "task_id": BASE_HALF_TASK_ID,
+            "organ": "ADMINISTRATUM_AGENT",
+            "timestamp_utc": now_utc(),
+            "pack_root": str(pack_root),
+            "copied": copied,
+            "required_commands": BASE_HALF_REQUIRED_COMMANDS,
+        },
+    )
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: PACK (BASE HALF)",
+        verdict="PASS",
+        summary="Base Half continuity pack generated under local context.",
+        outputs=[manifest_path],
+        input_refs=[str(state_path), str(report_json), str(report_md)],
+        warnings=[],
+        details={"pack_root": str(pack_root), "copied": copied},
+    )
+
+
+def command_help(args: argparse.Namespace, renderer: Renderer) -> int:
+    ctx = _start_command("help", args.out)
+    help_report = ctx.run_dir / "reports" / "help_report.json"
+    write_json(
+        help_report,
+        {
+            "schema_version": "ORGAN_BASE_HALF_HELP_REPORT_V0_1",
+            "task_id": BASE_HALF_TASK_ID,
+            "organ": "ADMINISTRATUM_AGENT",
+            "timestamp_utc": now_utc(),
+            "commands": BASE_HALF_REQUIRED_COMMANDS,
+            "note": "Use shell --once <command> for shell-smoke checks.",
+        },
+    )
+    return _finalize_command(
+        ctx,
+        renderer,
+        header="ADMINISTRATUM AGENT :: HELP (BASE HALF)",
+        verdict="PASS",
+        summary="Base Half command contract listed.",
+        outputs=[help_report],
+        input_refs=[],
+        warnings=[],
+        details={"commands": BASE_HALF_REQUIRED_COMMANDS},
     )
 
 
@@ -3783,6 +4075,11 @@ def command_transfer_status(args: argparse.Namespace, renderer: Renderer) -> int
 
 COMMAND_HANDLERS: Dict[str, Callable[[argparse.Namespace, Renderer], int]] = {
     "status": command_status,
+    "check": command_check,
+    "where": command_where,
+    "identity": command_identity,
+    "pack": command_pack,
+    "help": command_help,
     "inventory": command_inventory,
     "classify-path": command_classify_path,
     "provenance-index": command_provenance,
@@ -3839,6 +4136,26 @@ def build_parser() -> argparse.ArgumentParser:
     p_status = sub.add_parser("status", help="Show agent status snapshot.")
     p_status.add_argument("--out", default=None, help="Optional output run directory.")
     p_status.set_defaults(func=command_status)
+
+    p_check_base = sub.add_parser("check", help="Run Base Half required check/report refresh.")
+    p_check_base.add_argument("--out", default=None)
+    p_check_base.set_defaults(func=command_check)
+
+    p_where = sub.add_parser("where", help="Show important Administratum base paths.")
+    p_where.add_argument("--out", default=None)
+    p_where.set_defaults(func=command_where)
+
+    p_identity = sub.add_parser("identity", help="Show Administratum identity/profile baseline.")
+    p_identity.add_argument("--out", default=None)
+    p_identity.set_defaults(func=command_identity)
+
+    p_pack_base = sub.add_parser("pack", help="Build Base Half continuity pack under local context.")
+    p_pack_base.add_argument("--out", default=None)
+    p_pack_base.set_defaults(func=command_pack)
+
+    p_help_base = sub.add_parser("help", help="Show Base Half compact command contract.")
+    p_help_base.add_argument("--out", default=None)
+    p_help_base.set_defaults(func=command_help)
 
     p_inventory = sub.add_parser("inventory", help="Build repository inventory report.")
     p_inventory.add_argument("--repo-root", default=str(REPO_ROOT))
