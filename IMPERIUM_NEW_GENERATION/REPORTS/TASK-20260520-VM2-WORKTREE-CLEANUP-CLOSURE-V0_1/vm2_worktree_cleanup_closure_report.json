@@ -89,5 +89,15 @@
     "Cleanup targets were archived with hash evidence before removal.",
     "No code files under forbidden scope were modified by this cleanup task.",
     "Only current task report directory remains untracked before commit."
-  ]
+  ],
+  "observed_head_post_commit": "1eb057af147d1b74e8aad44cbe061640ad0a32b2",
+  "remote_head": "1eb057af147d1b74e8aad44cbe061640ad0a32b2",
+  "remote_sync": true,
+  "final_git_status_short": [],
+  "verdict_post_commit": "PASS_CLEANUP_REPORT_COMMITTED",
+  "final_verdicts": [
+    "PASS_CLEAN_WORKTREE",
+    "PASS_CLEANUP_REPORT_COMMITTED"
+  ],
+  "updated_at_utc": "2026-05-19T23:18:16.230906Z"
 }
