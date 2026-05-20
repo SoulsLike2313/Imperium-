@@ -1,11 +1,38 @@
 const SAFE_MECHANICUS_ORGAN = "MECHANICUS_AGENT";
+const BRAIN_LINKS = [
+  ["ADMINISTRATUM_AGENT", "OFFICIO_AGENTIS_AGENT"],
+  ["OFFICIO_AGENTIS_AGENT", "ASTRONOMICON_AGENT"],
+  ["ASTRONOMICON_AGENT", "INQUISITION_AGENT"],
+  ["INQUISITION_AGENT", "DOCTRINARIUM_AGENT"],
+  ["DOCTRINARIUM_AGENT", "MECHANICUS_AGENT"],
+  ["MECHANICUS_AGENT", "STRATEGIUM_AGENT"],
+  ["STRATEGIUM_AGENT", "SCHOLA_IMPERIALIS_AGENT"],
+  ["SCHOLA_IMPERIALIS_AGENT", "CUSTODES"],
+  ["CUSTODES", "THRONE"],
+  ["THRONE", "MECHANICUS_AGENT"],
+  ["OFFICIO_AGENTIS_AGENT", "MECHANICUS_AGENT"],
+  ["ADMINISTRATUM_AGENT", "MECHANICUS_AGENT"],
+];
+
+const BRAIN_LAYOUT = {
+  ADMINISTRATUM_AGENT: { x: 19, y: 30 },
+  OFFICIO_AGENTIS_AGENT: { x: 32, y: 19 },
+  ASTRONOMICON_AGENT: { x: 47, y: 15 },
+  INQUISITION_AGENT: { x: 64, y: 17 },
+  DOCTRINARIUM_AGENT: { x: 78, y: 29 },
+  MECHANICUS_AGENT: { x: 52, y: 38 },
+  STRATEGIUM_AGENT: { x: 74, y: 49 },
+  SCHOLA_IMPERIALIS_AGENT: { x: 62, y: 63 },
+  CUSTODES: { x: 40, y: 67 },
+  THRONE: { x: 27, y: 52 },
+};
 
 const I18N = {
   en: {
     brandSub: "Mechanicus Live Terminal V0.3",
     actionsTitle: "Owner Actions",
     leftNote: "Action buttons run allowlisted Mechanicus actions and stream output to LIVE terminal.",
-    organTitle: "Organs",
+    organTitle: "Brain Zones",
     truthTitle: "Global Truth",
     logTitle: "Micro Log",
     tabLive: "LIVE",
@@ -52,6 +79,15 @@ const I18N = {
     freshness: "Freshness reference",
     realPlaceholder: "Real vs placeholder",
     fakeGreenNote: "Truth mode: only Mechanicus is connected. Other organs are explicit placeholders/locked.",
+    brainLegendTitle: "Sanctum Brain Truth Zones",
+    brainLegendReal: "Real link",
+    brainLegendPlaceholder: "Placeholder cortex",
+    brainLegendLocked: "Locked nuclei",
+    brainNeuralFlow: "Neural flow",
+    truthModeLabel: "truth-mode",
+    truthModeReal: "REAL",
+    truthModePlaceholder: "PLACEHOLDER",
+    truthModeLocked: "LOCKED",
     fetchError: "API fetch failed",
     source: "source",
     status: "status",
@@ -64,7 +100,7 @@ const I18N = {
     brandSub: "Mechanicus Live Terminal V0.3",
     actionsTitle: "Действия владельца",
     leftNote: "Кнопки слева запускают allowlisted-действия Mechanicus, полный вывод идёт в LIVE-терминал по центру.",
-    organTitle: "Органы",
+    organTitle: "Зоны мозга",
     truthTitle: "Блок истины",
     logTitle: "Микро-лог",
     tabLive: "LIVE",
@@ -111,6 +147,15 @@ const I18N = {
     freshness: "Референс свежести",
     realPlaceholder: "Реальные данные vs placeholder",
     fakeGreenNote: "Режим истины: подключён только Mechanicus. Остальные органы явно placeholder/locked.",
+    brainLegendTitle: "Зоны истины Sanctum Brain",
+    brainLegendReal: "Реальный контур",
+    brainLegendPlaceholder: "Placeholder-кортекс",
+    brainLegendLocked: "Заблокированные ядра",
+    brainNeuralFlow: "Нейросигнал",
+    truthModeLabel: "режим",
+    truthModeReal: "REAL",
+    truthModePlaceholder: "PLACEHOLDER",
+    truthModeLocked: "LOCKED",
     fetchError: "Ошибка API-запроса",
     source: "источник",
     status: "статус",
@@ -146,6 +191,8 @@ const el = {
   headerMetrics: document.getElementById("headerMetrics"),
   actionList: document.getElementById("actionList"),
   organGrid: document.getElementById("organGrid"),
+  brainLegend: document.getElementById("brainLegend"),
+  brainLinksSvg: document.getElementById("brainLinksSvg"),
   centerTabButtons: Array.from(document.querySelectorAll(".center-tab")),
   centerPanels: Array.from(document.querySelectorAll(".center-panel")),
   liveHeaderTitle: document.getElementById("liveHeaderTitle"),
@@ -182,6 +229,26 @@ function escapeHtml(value) {
 
 function localLabel(organ) {
   return locale === "ru" ? organ.label_ru : organ.label_en;
+}
+
+function truthModeLabel(status) {
+  if (status === "CONNECTED") {
+    return t("truthModeReal");
+  }
+  if (status === "LOCKED") {
+    return t("truthModeLocked");
+  }
+  return t("truthModePlaceholder");
+}
+
+function linkClassByStatus(statusA, statusB) {
+  if (statusA === "CONNECTED" || statusB === "CONNECTED") {
+    return "is-real";
+  }
+  if (statusA === "LOCKED" || statusB === "LOCKED") {
+    return "is-locked";
+  }
+  return "is-placeholder";
 }
 
 function shortValue(value) {
@@ -316,15 +383,79 @@ async function runTerminalCommand(commandText) {
   }
 }
 
+function renderBrainLegend() {
+  if (!el.brainLegend) {
+    return;
+  }
+  el.brainLegend.innerHTML = `
+    <div class="brain-legend-title">${escapeHtml(t("brainLegendTitle"))}</div>
+    <div class="brain-legend-items">
+      <span class="legend-chip is-real">${escapeHtml(t("brainLegendReal"))}</span>
+      <span class="legend-chip is-placeholder">${escapeHtml(t("brainLegendPlaceholder"))}</span>
+      <span class="legend-chip is-locked">${escapeHtml(t("brainLegendLocked"))}</span>
+      <span class="legend-flow">${escapeHtml(t("brainNeuralFlow"))}</span>
+    </div>
+  `;
+}
+
+function renderBrainLinks(state) {
+  if (!el.brainLinksSvg) {
+    return;
+  }
+  const organMap = {};
+  (state.organs || []).forEach((organ) => {
+    organMap[organ.id] = organ;
+  });
+
+  const centerX = 52;
+  const centerY = 41;
+  const paths = BRAIN_LINKS.map(([fromId, toId], idx) => {
+    const from = BRAIN_LAYOUT[fromId];
+    const to = BRAIN_LAYOUT[toId];
+    if (!from || !to) {
+      return "";
+    }
+    const organA = organMap[fromId] || {};
+    const organB = organMap[toId] || {};
+    const cls = linkClassByStatus(organA.status, organB.status);
+
+    const x1 = from.x * 10;
+    const y1 = from.y * 5.6;
+    const x2 = to.x * 10;
+    const y2 = to.y * 5.6;
+    const midX = (x1 + x2) / 2;
+    const midY = (y1 + y2) / 2;
+    const pull = idx % 2 === 0 ? 24 : -24;
+    const cx = midX + (centerX * 10 - midX) * 0.13;
+    const cy = midY + (centerY * 5.6 - midY) * 0.13 + pull;
+    return `<path class="brain-link ${cls}" d="M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}" />`;
+  })
+    .filter(Boolean)
+    .join("");
+
+  el.brainLinksSvg.innerHTML = paths;
+}
+
 function renderOrgans(state) {
   const organs = state.organs || [];
+  renderBrainLegend();
+  renderBrainLinks(state);
   el.organGrid.innerHTML = organs
     .map((organ) => {
       const isActive = organ.id === selectedOrganId;
+      const pos = BRAIN_LAYOUT[organ.id] || { x: 50, y: 50 };
+      const truthMode = truthModeLabel(organ.status);
       return `
-      <article class="organ-card ${isActive ? "active" : ""}" data-organ-id="${escapeHtml(organ.id)}">
+      <article
+        class="organ-card brain-zone ${isActive ? "active" : ""}"
+        data-organ-id="${escapeHtml(organ.id)}"
+        style="--zone-x:${pos.x}%; --zone-y:${pos.y}%;"
+      >
+        <span class="zone-pulse" aria-hidden="true"></span>
         <h3>${escapeHtml(localLabel(organ))}</h3>
+        <div class="zone-id">${escapeHtml(organ.id)}</div>
         <span class="status-badge status-${escapeHtml(organ.status)}">${escapeHtml(organ.status)}</span>
+        <span class="truth-mode-chip">${escapeHtml(t("truthModeLabel"))}: ${escapeHtml(truthMode)}</span>
       </article>
     `;
     })

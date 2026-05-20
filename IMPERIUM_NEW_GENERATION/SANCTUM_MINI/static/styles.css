@@ -196,42 +196,169 @@ body {
   grid-area: center;
   padding: 12px;
   display: grid;
-  grid-template-rows: auto auto auto 1fr;
+  grid-template-rows: auto auto auto auto 1fr;
   gap: 10px;
 }
 
 .organ-grid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(110px, 1fr));
-  gap: 8px;
+  position: relative;
 }
 
-.organ-card {
+.brain-map-shell {
+  position: relative;
+  min-height: 360px;
   border: 1px solid var(--line-soft);
-  border-radius: 10px;
-  background: rgba(10, 18, 30, 0.88);
+  border-radius: 14px;
+  overflow: hidden;
+  background:
+    radial-gradient(260px 190px at 34% 52%, rgba(118, 211, 255, 0.1), transparent 72%),
+    radial-gradient(280px 220px at 70% 42%, rgba(137, 130, 255, 0.11), transparent 74%),
+    radial-gradient(closest-side at 52% 50%, rgba(30, 56, 90, 0.55), rgba(10, 17, 28, 0.96) 74%);
+}
+
+.brain-map-shell::before,
+.brain-map-shell::after {
+  content: "";
+  position: absolute;
+  width: 46%;
+  height: 78%;
+  top: 11%;
+  border: 1px solid rgba(122, 201, 255, 0.22);
+  border-radius: 50%;
+  filter: blur(0.1px);
+}
+
+.brain-map-shell::before {
+  left: 7%;
+  transform: rotate(-8deg);
+}
+
+.brain-map-shell::after {
+  right: 7%;
+  transform: rotate(8deg);
+}
+
+.brain-links-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.brain-link {
+  fill: none;
+  stroke-width: 1.7;
+  stroke-dasharray: 8 8;
+  opacity: 0.6;
+  animation: neuralPulse 5.3s linear infinite;
+}
+
+.brain-link.is-real {
+  stroke: rgba(132, 247, 201, 0.9);
+}
+
+.brain-link.is-placeholder {
+  stroke: rgba(136, 187, 244, 0.58);
+}
+
+.brain-link.is-locked {
+  stroke: rgba(166, 172, 194, 0.56);
+}
+
+@keyframes neuralPulse {
+  from {
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+
+.brain-zone-map {
+  position: relative;
+  min-height: 360px;
+  z-index: 2;
+}
+
+.organ-card.brain-zone {
+  position: absolute;
+  left: var(--zone-x);
+  top: var(--zone-y);
+  transform: translate(-50%, -50%);
+  width: 158px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: linear-gradient(160deg, rgba(14, 25, 40, 0.95), rgba(7, 15, 26, 0.94));
   padding: 8px;
   cursor: pointer;
-  min-height: 72px;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  min-height: 82px;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+  box-shadow: inset 0 0 20px rgba(112, 183, 255, 0.08);
 }
 
-.organ-card:hover {
-  transform: translateY(-1px);
+.zone-pulse {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(111, 214, 255, 0.7);
+  box-shadow: 0 0 0 0 rgba(111, 214, 255, 0.45);
+  animation: zonePulse 2.6s ease-out infinite;
+}
+
+@keyframes zonePulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(111, 214, 255, 0.42);
+  }
+  70% {
+    box-shadow: 0 0 0 11px rgba(111, 214, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(111, 214, 255, 0);
+  }
+}
+
+.organ-card.brain-zone:hover {
+  transform: translate(-50%, -50%) scale(1.02);
   border-color: rgba(126, 201, 255, 0.62);
+  box-shadow: inset 0 0 24px rgba(113, 197, 255, 0.14), 0 0 18px rgba(113, 197, 255, 0.16);
 }
 
-.organ-card h3 {
-  margin: 0 0 6px 0;
-  font-size: 0.74rem;
+.organ-card.brain-zone h3 {
+  margin: 0;
+  font-size: 0.76rem;
+  letter-spacing: 0.03em;
+}
+
+.zone-id {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.05em;
+}
+
+.truth-mode-chip {
+  margin-top: 6px;
+  display: inline-flex;
+  border: 1px solid rgba(137, 181, 221, 0.45);
+  border-radius: 999px;
+  padding: 2px 7px;
+  font-size: 0.58rem;
+  color: var(--muted);
 }
 
 .status-badge {
-  display: inline-block;
+  display: inline-flex;
+  margin-top: 7px;
   font-size: 0.64rem;
   border-radius: 999px;
   padding: 3px 7px;
   border: 1px solid var(--line);
+  background: rgba(8, 15, 25, 0.6);
 }
 
 .status-CONNECTED {
@@ -256,9 +383,66 @@ body {
   border-color: rgba(255, 141, 152, 0.62);
 }
 
-.organ-card.active {
+.organ-card.brain-zone.active {
   border-color: rgba(130, 204, 255, 0.88);
-  box-shadow: 0 0 0 1px rgba(117, 191, 247, 0.45) inset, 0 0 14px rgba(104, 188, 249, 0.32);
+  transform: translate(-50%, -50%) scale(1.04);
+  box-shadow: 0 0 0 1px rgba(117, 191, 247, 0.45) inset, 0 0 16px rgba(104, 188, 249, 0.36);
+}
+
+.organ-card.brain-zone[data-organ-id="MECHANICUS_AGENT"] {
+  border-color: rgba(120, 242, 198, 0.65);
+  box-shadow: inset 0 0 24px rgba(126, 245, 206, 0.15), 0 0 16px rgba(126, 245, 206, 0.2);
+}
+
+.brain-legend {
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: rgba(9, 16, 28, 0.88);
+}
+
+.brain-legend-title {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-bottom: 7px;
+  letter-spacing: 0.05em;
+}
+
+.brain-legend-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.legend-chip,
+.legend-flow {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.66rem;
+  border: 1px solid rgba(122, 170, 211, 0.46);
+  color: var(--text);
+}
+
+.legend-chip.is-real {
+  border-color: rgba(132, 247, 201, 0.66);
+  color: var(--ok);
+}
+
+.legend-chip.is-placeholder {
+  border-color: rgba(136, 187, 244, 0.62);
+  color: var(--accent);
+}
+
+.legend-chip.is-locked {
+  border-color: rgba(168, 178, 208, 0.62);
+  color: var(--locked);
+}
+
+.legend-flow {
+  border-style: dashed;
+  border-color: rgba(144, 200, 255, 0.56);
 }
 
 .center-tabs {
@@ -635,8 +819,8 @@ body {
     grid-template-columns: 300px 1fr 320px;
   }
 
-  .organ-grid {
-    grid-template-columns: repeat(4, minmax(110px, 1fr));
+  .organ-card.brain-zone {
+    width: 146px;
   }
 }
 
@@ -652,8 +836,34 @@ body {
       "bottom";
   }
 
-  .organ-grid {
-    grid-template-columns: repeat(2, minmax(128px, 1fr));
+  .brain-map-shell {
+    min-height: 0;
+    padding: 10px;
+  }
+
+  .brain-links-svg {
+    display: none;
+  }
+
+  .brain-zone-map {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 8px;
+    min-height: 0;
+  }
+
+  .organ-card.brain-zone {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: none;
+    width: auto;
+    min-height: 88px;
+  }
+
+  .organ-card.brain-zone:hover,
+  .organ-card.brain-zone.active {
+    transform: scale(1.01);
   }
 
   .terminal-input-row {
