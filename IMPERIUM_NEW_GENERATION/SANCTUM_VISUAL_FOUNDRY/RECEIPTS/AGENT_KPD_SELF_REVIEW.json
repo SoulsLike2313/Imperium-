@@ -1,0 +1,41 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1",
+    "agent_role": "Codex PC Servitor (big-model lane)",
+    "useful_outputs": [
+      "Visual Foundry scaffold with structured pipeline directories",
+      "Owner intake, visual contract, design tokens, and component state manifest",
+      "Runnable isolated lab with bilingual UI and secondary raw mode",
+      "Playwright screenshot automation and screenshot index",
+      "Validation report, scope truth report, final owner report, and final receipt"
+    ],
+    "waste_points": [
+      "Additional upfront gate-route reading created overhead but improved compliance confidence."
+    ],
+    "missing_tools": [
+      "Unified built-in JSON schema validator utility for Visual Foundry artifacts"
+    ],
+    "generated_tools_to_preserve": [
+      "PLAYWRIGHT/capture_screenshots.mjs",
+      "PLAYWRIGHT/validate_artifacts.py"
+    ],
+    "recommended_script_absorption": [
+      "Promote capture_screenshots.mjs as reusable Visual Foundry screenshot baseline generator",
+      "Promote validate_artifacts.py after optional strict-schema extension"
+    ],
+    "recommended_narrow_agent_profiles": [
+      "visual_foundry_slice_builder_pc",
+      "visual_evidence_playwright_runner_pc"
+    ],
+    "future_prompt_improvements": [
+      "Provide explicit required starting HEAD inside taskpack to remove admission ambiguity",
+      "Include mandatory report filename map in task spec JSON for less naming drift"
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Add dedicated gate for 'raw panel secondary by default' visual assertion",
+      "Add reusable scope-truth checker command for pre-existing dirty baseline classification"
+    ],
+    "kpd_verdict": "GOOD"
+  }
+}
+

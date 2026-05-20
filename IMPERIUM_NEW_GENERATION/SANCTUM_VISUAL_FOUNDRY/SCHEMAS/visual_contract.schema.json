@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMPERIUM Visual Contract",
+  "type": "object",
+  "required": [
+    "contract_id",
+    "target_slice",
+    "purpose",
+    "layout_regions",
+    "interaction_rules",
+    "viewport_targets",
+    "style_constraints",
+    "truth_rules"
+  ],
+  "properties": {
+    "contract_id": {"type": "string"},
+    "target_slice": {"type": "string"},
+    "purpose": {"type": "string"},
+    "layout_regions": {"type": "array", "items": {"type": "string"}},
+    "interaction_rules": {"type": "array", "items": {"type": "string"}},
+    "viewport_targets": {"type": "array", "items": {"type": "string"}},
+    "style_constraints": {"type": "array", "items": {"type": "string"}},
+    "truth_rules": {"type": "array", "items": {"type": "string"}},
+    "known_gaps": {"type": "array", "items": {"type": "string"}}
+  }
+}

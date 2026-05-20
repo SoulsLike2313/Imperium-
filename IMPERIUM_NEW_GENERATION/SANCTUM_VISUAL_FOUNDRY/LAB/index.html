@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Foundry - Mechanicus Console Slice</title>
+    <link rel="stylesheet" href="../TOKENS/tokens.css" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="atmo-layer" aria-hidden="true"></div>
+    <div class="mesh-layer" aria-hidden="true"></div>
+
+    <div class="shell">
+      <header class="truth-strip">
+        <div class="title-group">
+          <div class="title-eyebrow">IMPERIUM VISUAL FOUNDRY</div>
+          <h1 id="mainTitle">MECHANICUS OPERATOR CONSOLE</h1>
+          <p id="missionLine" class="mission-line"></p>
+        </div>
+        <div class="truth-chips" id="truthChips"></div>
+        <div class="header-actions">
+          <button id="langSwitch" class="pill-btn" type="button">EN</button>
+          <button id="rawToggle" class="pill-btn pill-btn-secondary" type="button">RAW OFF</button>
+        </div>
+      </header>
+
+      <main class="console-grid">
+        <aside class="panel work-zone" id="workZoneCard">
+          <h2 id="workZoneTitle"></h2>
+          <p id="workZoneNote" class="panel-note"></p>
+          <div class="work-feed" id="workFeed"></div>
+        </aside>
+
+        <section class="panel center-stack">
+          <div class="section-header-row">
+            <h2 id="registryTitle"></h2>
+            <div id="registrySummary" class="summary-badges"></div>
+          </div>
+          <div class="tool-table" id="toolTable"></div>
+
+          <div class="section-header-row">
+            <h2 id="eventsTitle"></h2>
+          </div>
+          <div class="event-grid" id="eventGrid"></div>
+        </section>
+
+        <aside class="panel command-rail" id="commandRail">
+          <h2 id="commandTitle"></h2>
+          <p id="commandNote" class="panel-note"></p>
+          <div class="command-grid" id="commandGrid"></div>
+
+          <div class="raw-panel is-hidden" id="rawPanel">
+            <div class="raw-title" id="rawTitle"></div>
+            <pre id="rawText"></pre>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="footer-strip" id="footerStrip"></footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
+

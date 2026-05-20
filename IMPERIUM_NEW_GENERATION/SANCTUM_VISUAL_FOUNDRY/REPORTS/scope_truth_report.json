@@ -1,0 +1,16 @@
+{
+  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1",
+  "allowed_scope_root": "IMPERIUM_NEW_GENERATION/**",
+  "forbidden_roots": [
+    "ORGANS/**",
+    "SANCTUM/**",
+    "IMPERIUM_TEST_VERSION/**"
+  ],
+  "touched_scope_prefix": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/**",
+  "pre_existing_dirty_paths": [
+    "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/state/current_status.json"
+  ],
+  "forbidden_scope_findings": [],
+  "verdict": "PASS_WITH_PREEXISTING_DIRTY_BASELINE"
+}
+
