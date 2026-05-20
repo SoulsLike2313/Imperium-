@@ -1,41 +1,47 @@
 {
-  "task_id": "TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1",
-  "generated_at_utc": "2026-05-20T18:43:06Z",
+  "task_id": "TASK-20260520-NEWGEN-VISUAL-FOUNDRY-BRAIN-FORGE-ITERATION-TOKEN-REPAIR-PC-V0_1",
+  "generated_at_utc": "2026-05-20T19:01:03Z",
   "validator": "validate_artifacts.py",
   "checks": [
     {
-      "name": "owner_intake_schema_min",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake_v0_1.json",
+      "name": "tokens_v0_2_schema_min",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_2.json",
       "ok": true,
       "errors": []
     },
     {
-      "name": "visual_contract_schema_min",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\visual_contract_mechanicus_console_v0_1.json",
+      "name": "tokens_v0_2_css_export",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_2.css",
       "ok": true,
       "errors": []
     },
     {
-      "name": "design_tokens_schema_min",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.json",
+      "name": "token_usage_report_exists",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\token_usage_report.md",
       "ok": true,
       "errors": []
     },
     {
-      "name": "design_tokens_css_export",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.css",
+      "name": "lab_links_tokens_v0_2",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\LAB\\index.html",
       "ok": true,
       "errors": []
     },
     {
-      "name": "component_manifest_schema_min",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\COMPONENTS\\component_state_manifest_mechanicus_console_v0_1.json",
+      "name": "lab_consumes_token_variables",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\LAB\\styles.css",
       "ok": true,
       "errors": []
     },
     {
-      "name": "screenshot_evidence_set",
+      "name": "required_screenshot_evidence",
       "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\SCREENSHOTS\\screenshot_index.json",
+      "ok": true,
+      "errors": []
+    },
+    {
+      "name": "before_after_review_exists",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\before_after_review.md",
       "ok": true,
       "errors": []
     }

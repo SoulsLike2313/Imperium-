@@ -1,15 +1,15 @@
 {
-  "task_id": "TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1",
-  "timestamp_utc": "2026-05-20T18:42:55Z",
+  "task_id": "TASK-20260520-NEWGEN-VISUAL-FOUNDRY-BRAIN-FORGE-ITERATION-TOKEN-REPAIR-PC-V0_1",
+  "timestamp_utc": "2026-05-20T19:00:04Z",
   "agent_role": "Codex PC Servitor",
   "verdict": "PASS",
   "gates": {
-    "GATE-U00-GIT-TRUTH": "PASS_WITH_PREEXISTING_DIRTY_BASELINE",
+    "GATE-U00-GIT-TRUTH": "PASS",
     "GATE-U01-ROLE-ACK": "PASS",
     "GATE-U02-SCOPE-BOUNDARY": "PASS",
     "GATE-U04-EVIDENCE-RECEIPT": "PASS",
     "GATE-U05-STOP-CONDITIONS": "PASS",
-    "GATE-U08-REPO-PURITY": "PASS_WITH_WARNING",
+    "GATE-U08-REPO-PURITY": "PASS",
     "GATE-U09-NO-FAKE-GREEN": "PASS",
     "GATE-U12-REPORT-OUTPUT-BUDGET": "PASS",
     "GATE-U16-BILINGUAL-UI": "PASS",
@@ -18,27 +18,26 @@
     "GATE-U21-COMMAND-CHUNKING": "PASS"
   },
   "required_outputs": {
-    "owner_intake_md": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake_v0_1.md",
-    "owner_intake_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake_v0_1.json",
-    "visual_contract": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\visual_contract_mechanicus_console_v0_1.json",
-    "reference_card": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\reference_interpretation_card_v0_1.md",
-    "tokens_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.json",
-    "tokens_css": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.css",
-    "component_manifest": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\COMPONENTS\\component_state_manifest_mechanicus_console_v0_1.json",
+    "tokens_json_v0_2": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_2.json",
+    "tokens_css_v0_2": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_2.css",
+    "token_usage_report": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\token_usage_report.md",
     "lab_entry": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\LAB\\index.html",
+    "before_after_review": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\before_after_review.md",
+    "visual_evidence_index": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\visual_evidence_index.md",
     "validation_report": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\validation_report.json",
-    "owner_report_ru": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\OWNER_REPORT_RU.md"
+    "owner_report_ru": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\OWNER_REPORT_RU.md",
+    "manual_open_instructions": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\manual_open_instructions.md"
   },
   "screenshot_files": [
-    "mechanicus_slice_full_1366x768.png",
-    "mechanicus_slice_full_1920x1080.png",
-    "mechanicus_slice_top_truth_strip.png",
-    "mechanicus_slice_right_panel_visible.png",
-    "mechanicus_slice_raw_secondary.png"
+    "brain_forge_iter_full_1366x768.png",
+    "brain_forge_iter_full_1920x1080.png",
+    "brain_forge_iter_brain_focus.png",
+    "brain_forge_iter_right_panel_focus.png",
+    "brain_forge_iter_raw_secondary.png"
   ],
   "warnings": [
-    "Worktree was already dirty before task start due to current_status.json outside this task scope.",
-    "This is a prototype visual lab and does not claim full live backend integration."
+    "Visual layer is prototype-grade and not wired to live backend truth streams.",
+    "Ambient pulse is controlled and moderate, but partly illustrative."
   ],
   "scope_truth": {
     "allowed_root": "IMPERIUM_NEW_GENERATION",

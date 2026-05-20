@@ -6,8 +6,8 @@
    `E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\LAB\index.html`
 
 2. First checks:
-   - top truth strip is visible
-   - split-screen layout is active (brain field left/center, panel right)
+   - brain field dominates left/center area (large pulsing core + neural halos)
+   - split-screen layout is active (brain dominion left, cockpit panel right)
    - right panel updates when clicking organ zones
    - raw mode stays hidden until `RAW OFF/RAW ON` toggle
 

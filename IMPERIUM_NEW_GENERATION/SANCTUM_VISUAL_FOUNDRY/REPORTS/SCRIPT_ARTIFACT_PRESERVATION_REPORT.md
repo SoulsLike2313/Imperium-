@@ -2,20 +2,20 @@
 
 Task:
 
-- `TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1`
+- `TASK-20260520-NEWGEN-VISUAL-FOUNDRY-BRAIN-FORGE-ITERATION-TOKEN-REPAIR-PC-V0_1`
 
-Generated tools:
+Generated/updated tools:
 
 1. `PLAYWRIGHT/capture_screenshots.mjs`
-   - purpose: capture required visual proof screenshots
+   - purpose: capture iteration proof set (full views, brain focus, right panel focus, raw secondary)
    - result: WORKED
    - recommendation: `BUFFER_FOR_SCRIPTORIUM_REVIEW`
 
 2. `PLAYWRIGHT/validate_artifacts.py`
-   - purpose: validate seed/contract/tokens/manifest/screenshot artifact set
+   - purpose: validate explicit token layer, token usage, and required screenshot evidence
    - result: WORKED
    - recommendation: `BUFFER_FOR_SCRIPTORIUM_REVIEW`
 
 Preservation verdict:
 
-PASS: generated tools are preserved in repository scope and linked from receipts/reports.
+PASS: task scripts are preserved and referenced from reports/receipts.

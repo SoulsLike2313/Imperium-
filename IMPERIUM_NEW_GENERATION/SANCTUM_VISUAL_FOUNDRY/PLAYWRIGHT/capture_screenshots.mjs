@@ -21,36 +21,36 @@ async function capture() {
   const labUrl = pathToFileURL(labPath).href;
 
   await page.goto(labUrl);
-  await page.waitForTimeout(700);
+  await page.waitForTimeout(800);
 
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.waitForTimeout(350);
-  await page.screenshot({ path: out("mechanicus_slice_full_1366x768.png"), fullPage: true });
+  await page.screenshot({ path: out("brain_forge_iter_full_1366x768.png"), fullPage: true });
 
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.waitForTimeout(350);
-  await page.screenshot({ path: out("mechanicus_slice_full_1920x1080.png"), fullPage: true });
+  await page.screenshot({ path: out("brain_forge_iter_full_1920x1080.png"), fullPage: true });
 
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.waitForTimeout(250);
 
-  await page.locator(".truth-strip").screenshot({ path: out("mechanicus_slice_top_truth_strip.png") });
-  await page.locator(".mechanicus-side").screenshot({ path: out("mechanicus_slice_right_panel_visible.png") });
+  await page.locator(".brain-dominion").screenshot({ path: out("brain_forge_iter_brain_focus.png") });
+  await page.locator(".cockpit-sector").screenshot({ path: out("brain_forge_iter_right_panel_focus.png") });
 
   await page.click("#rawToggle");
   await page.waitForTimeout(250);
-  await page.locator(".mechanicus-side").screenshot({ path: out("mechanicus_slice_raw_secondary.png") });
+  await page.locator(".cockpit-sector").screenshot({ path: out("brain_forge_iter_raw_secondary.png") });
 
   const indexPath = path.join(screenshotsDir, "screenshot_index.json");
   const index = {
     generated_at_utc: new Date().toISOString(),
     viewport_targets: ["1366x768", "1920x1080"],
     files: [
-      "mechanicus_slice_full_1366x768.png",
-      "mechanicus_slice_full_1920x1080.png",
-      "mechanicus_slice_top_truth_strip.png",
-      "mechanicus_slice_right_panel_visible.png",
-      "mechanicus_slice_raw_secondary.png"
+      "brain_forge_iter_full_1366x768.png",
+      "brain_forge_iter_full_1920x1080.png",
+      "brain_forge_iter_brain_focus.png",
+      "brain_forge_iter_right_panel_focus.png",
+      "brain_forge_iter_raw_secondary.png"
     ]
   };
   await fs.writeFile(indexPath, `${JSON.stringify(index, null, 2)}\n`, "utf8");
