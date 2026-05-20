@@ -2,7 +2,7 @@
 
 Reference operator shell for Mechanicus must expose real operator context, not help-only smoke output.
 
-Visual Shell V0.3 is summary-first with fullscreen Textual mode:
+Visual Shell V0.5 is summary-first with polished fullscreen Textual mode:
 - compact operator cards by default;
 - raw JSON only on explicit detail requests;
 - Mechanicus identity accents and operator palette;
@@ -12,22 +12,29 @@ Visual Shell V0.3 is summary-first with fullscreen Textual mode:
 ## Supported Shell Commands
 - help
 - status
+- dashboard
 - check
 - where
 - identity
 - tools
 - pack
+- raw
+- screenshot
 - shell --once help
-- shell --once status / visual-status
+- shell --once status / dashboard / visual-status
 - shell --once tools / visual-tools
 - shell --once identity / visual-identity
 - shell --once check / visual-check
+- shell --once raw
 - shell --once raw-status
 - shell --once raw-tools
 - shell --once raw-identity
 - shell --once raw-check
 - F1..F7 in Textual mode (status/tools/identity/check/where/pack/help)
-- R in Textual mode for raw detail toggle
+- R in Textual mode for explicit raw/detail mode
+- S in Textual mode for screenshot save
+- shell --screenshot <mode> for SVG export in noninteractive flow
+- shell --screenshot all for batch export (dashboard/tools/identity/check/raw)
 - ESC in Textual mode for exit
 - exit
 

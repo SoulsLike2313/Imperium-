@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any, Callable, Tuple
 
-from operator_shell_skin import MECHANICUS_COLORS, SHELL_VERSION_V0_3
+from operator_shell_skin import MECHANICUS_COLORS, SHELL_VERSION_V0_5
 from operator_shell_widgets import (
     activity_panel,
     bottom_event_panel,
@@ -66,7 +68,9 @@ if HAVE_TEXTUAL:
             Binding("f5", "show_where", "Where"),
             Binding("f6", "show_pack", "Pack"),
             Binding("f7", "show_help", "Help"),
+            Binding("d", "show_status", "Dashboard"),
             Binding("r", "toggle_raw", "Raw"),
+            Binding("s", "save_screenshot", "Screenshot"),
             Binding("escape", "quit_shell", "Exit"),
         ]
 
@@ -76,13 +80,15 @@ if HAVE_TEXTUAL:
             organ_name: str,
             mission: str,
             payload_loader: PayloadLoader,
-            shell_version: str = SHELL_VERSION_V0_3,
+            shell_version: str = SHELL_VERSION_V0_5,
+            screenshot_dir: str | None = None,
         ) -> None:
             super().__init__()
             self.organ_name = organ_name
             self.mission = mission
             self.payload_loader = payload_loader
             self.shell_version = shell_version
+            self.screenshot_dir = Path(screenshot_dir) if screenshot_dir else (Path.cwd() / "SCREENSHOTS")
             self.active_command = "status"
             self.detail_mode = False
 
@@ -126,7 +132,7 @@ if HAVE_TEXTUAL:
                 raw_node.update("")
 
         def _switch(self, command: str) -> None:
-            self._render(command, detail=self.detail_mode)
+            self._render(command, detail=False)
 
         def action_show_status(self) -> None:
             self._switch("status")
@@ -150,7 +156,26 @@ if HAVE_TEXTUAL:
             self._switch("help")
 
         def action_toggle_raw(self) -> None:
-            self._render(self.active_command, detail=(not self.detail_mode))
+            self._render(self.active_command, detail=True)
+
+        def _mode_token(self) -> str:
+            if self.detail_mode:
+                return "raw"
+            if self.active_command == "status":
+                return "dashboard"
+            return self.active_command
+
+        def action_save_screenshot(self) -> None:
+            mode = self._mode_token()
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S%fZ")
+            filename = f"mechanicus_{mode}_{self.shell_version}_{stamp}.svg".replace(" ", "_")
+            target = self.screenshot_dir / filename
+            target.parent.mkdir(parents=True, exist_ok=True)
+            try:
+                saved = self.save_screenshot(str(target))
+                self.notify(f"Screenshot saved: {saved}")
+            except Exception as exc:
+                self.notify(f"Screenshot failed: {exc}", severity="error")
 
         def action_quit_shell(self) -> None:
             self.exit()
@@ -170,7 +195,8 @@ def launch_textual_operator_shell(
     organ_name: str,
     mission: str,
     payload_loader: PayloadLoader,
-    shell_version: str = SHELL_VERSION_V0_3,
+    shell_version: str = SHELL_VERSION_V0_5,
+    screenshot_dir: str | None = None,
 ) -> Tuple[bool, str]:
     if not HAVE_TEXTUAL:
         return False, "textual_runtime_unavailable"
@@ -180,6 +206,7 @@ def launch_textual_operator_shell(
             mission=mission,
             payload_loader=payload_loader,
             shell_version=shell_version,
+            screenshot_dir=screenshot_dir,
         )
         app.run()
         return True, "textual_runtime_ok"
