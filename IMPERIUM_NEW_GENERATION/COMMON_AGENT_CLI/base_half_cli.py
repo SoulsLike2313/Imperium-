@@ -16,6 +16,14 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 from tool_registry_reader import build_organ_tool_view, default_tool_index_path
 
 try:
+    from textual_operator_shell import launch_textual_operator_shell, textual_runtime_available
+except Exception:
+    launch_textual_operator_shell = None  # type: ignore[assignment]
+
+    def textual_runtime_available() -> bool:
+        return False
+
+try:
     from rich import box
     from rich.console import Console
     from rich.layout import Layout
@@ -40,7 +48,17 @@ VISUAL_PASS_PLAIN = "PASS_PLAIN_OPERATOR_SHELL"
 VISUAL_WARN_PLAIN_FALLBACK = "WARN_PLAIN_FALLBACK"
 VISUAL_BLOCKED_NOT_IMPLEMENTED = "BLOCKED_SHELL_NOT_IMPLEMENTED"
 VISUAL_FAIL_FAKE = "FAIL_FAKE_SHELL"
-VISUAL_SHELL_VERSION = "v0.2"
+VISUAL_SHELL_VERSION = "v0.3"
+
+SHELL_FUNCTION_KEY_MAP = {
+    "f1": "status",
+    "f2": "tools",
+    "f3": "identity",
+    "f4": "check",
+    "f5": "where",
+    "f6": "pack",
+    "f7": "help",
+}
 
 BASE_COMMANDS = ["status", "check", "where", "identity", "tools", "pack", "shell", "help"]
 BASE_REQUIRED_FILES = [
@@ -662,6 +680,7 @@ def _command_descriptions(config: OrganConfig) -> Dict[str, str]:
         "help": "Show command palette and shell usage.",
         "where": "Show important paths and runtime roots.",
         "pack": "Build and export runtime package.",
+        "raw": "Toggle explicit raw/detail mode in interactive shell.",
         "raw-status": "Show full JSON status payload.",
         "raw-tools": "Show full JSON tools payload.",
         "raw-identity": "Show full JSON identity payload.",
@@ -673,14 +692,21 @@ def _command_descriptions(config: OrganConfig) -> Dict[str, str]:
 
 
 def _command_palette_rows(config: OrganConfig) -> List[Tuple[str, str, str]]:
-    order = ["status", "tools", "identity", "check", "where", "pack", "help", "raw-status", "raw-tools", "exit"]
+    order = [
+        ("status", "F1"),
+        ("tools", "F2"),
+        ("identity", "F3"),
+        ("check", "F4"),
+        ("where", "F5"),
+        ("pack", "F6"),
+        ("help", "F7"),
+    ]
     descriptions = _command_descriptions(config)
     rows: List[Tuple[str, str, str]] = []
-    for idx, cmd in enumerate(order, start=1):
-        if cmd == "exit":
-            rows.append((cmd, "Close the operator shell.", "ESC"))
-            continue
-        rows.append((cmd, descriptions.get(cmd, ""), f"F{idx}"))
+    for cmd, key in order:
+        rows.append((cmd, descriptions.get(cmd, ""), key))
+    rows.append(("raw", "Toggle explicit raw/detail mode for active view.", "R"))
+    rows.append(("exit", "Close the operator shell.", "ESC"))
     for cmd in sorted(config.domain_commands.keys()):
         rows.append((cmd, descriptions.get(cmd, ""), "DOMAIN"))
     return rows
@@ -695,6 +721,12 @@ def _parse_shell_token(raw: str) -> Tuple[str, bool]:
     token = raw.strip().lstrip("/").lower()
     if not token:
         return "", False
+    if token in SHELL_FUNCTION_KEY_MAP:
+        return SHELL_FUNCTION_KEY_MAP[token], False
+    if token in {"r", "raw"}:
+        return "status", True
+    if token.startswith("visual-"):
+        return token.replace("visual-", "", 1), False
     if token.startswith("details"):
         parts = token.split()
         target = parts[1] if len(parts) > 1 else "status"
@@ -784,6 +816,27 @@ def _visual_payload_for_command(config: OrganConfig, command: str, detail: bool)
         ]
         warn_count += len(warnings)
         block_count += len(missing)
+    elif command == "where":
+        raw_payload = {"organ": config.organ_name, "paths": important_paths(config), "timestamp_utc": _utc_now()}
+        paths = raw_payload.get("paths", {}) if isinstance(raw_payload.get("paths"), dict) else {}
+        activity_rows = [
+            (now, "Organ Root", _clip_text(str(paths.get("organ_root", "")), 96), "READY"),
+            (now, "Runner", _clip_text(str(paths.get("runner", "")), 96), "READY"),
+            (now, "Runtime Root", _clip_text(str(paths.get("runtime_root", "")), 96), "READY"),
+            (now, "Worktree", "dirty" if dirty else "clean", "WARN" if dirty else "OK"),
+        ]
+        warn_count += 1 if dirty else 0
+    elif command == "pack":
+        _, pack_root = _suppress_stdout_call(command_pack, config)
+        manifest = _read_json(pack_root / "pack_manifest.json")
+        raw_payload = manifest
+        copied = manifest.get("copied", []) if isinstance(manifest.get("copied"), list) else []
+        activity_rows = [
+            (now, "Pack Root", _clip_text(str(pack_root), 96), "WRITTEN"),
+            (now, "Copied Artifacts", str(len(copied)), "OK"),
+            (now, "Visual Status", str(manifest.get("visual_status", "UNKNOWN")), "IN_SYNC"),
+            (now, "Commands In Pack", str(len(manifest.get("commands", []))), "READY"),
+        ]
     elif command == "help":
         payload = {
             "organ": config.organ_name,
@@ -961,7 +1014,7 @@ def _shell_dispatch(config: OrganConfig, raw: str) -> Tuple[int, bool]:
     token = raw.strip()
     if not token:
         return 0, False
-    if token.lower() in {"exit", "quit", "/exit", "/quit"}:
+    if token.lower() in {"exit", "quit", "/exit", "/quit", "esc", "/esc"}:
         return 0, True
 
     parsed, detail = _parse_shell_token(token)
@@ -980,8 +1033,18 @@ def _shell_dispatch(config: OrganConfig, raw: str) -> Tuple[int, bool]:
         command_domain(config, domain)
         return 0, False
 
-    print("Unknown shell command. Use help, status, tools, identity, check, raw-*, or exit.")
+    print("Unknown shell command. Use help, status, tools, identity, check, visual-*, raw-*, or exit.")
     return 2, False
+
+
+def _can_launch_textual_shell(config: OrganConfig) -> bool:
+    if config.organ_name != "MECHANICUS_AGENT":
+        return False
+    if not textual_runtime_available():
+        return False
+    if os.environ.get("IMPERIUM_DISABLE_TEXTUAL_SHELL", "").strip() == "1":
+        return False
+    return bool(sys.stdin.isatty() and sys.stdout.isatty())
 
 
 def command_shell(config: OrganConfig, once: Optional[str]) -> int:
@@ -990,8 +1053,19 @@ def command_shell(config: OrganConfig, once: Optional[str]) -> int:
         code, _ = _shell_dispatch(config, once)
         return code
 
+    if _can_launch_textual_shell(config) and launch_textual_operator_shell is not None:
+        launched, reason = launch_textual_operator_shell(
+            organ_name=config.organ_name,
+            mission=config.identity_summary,
+            payload_loader=lambda command, detail: _visual_payload_for_command(config, command, detail),
+            shell_version=VISUAL_SHELL_VERSION,
+        )
+        if launched:
+            return 0
+        print(f"textual_shell_fallback_reason: {reason}")
+
     _render_shell_command_view(config, "status", detail=False)
-    print("Type: help, status, tools, identity, check, raw-status/raw-tools/raw-identity/raw-check, exit")
+    print("Type: help, status, tools, identity, check, visual-*, raw-*, f1..f7, r, exit")
     while True:
         try:
             raw = input(f"{config.organ_slug}> ")
