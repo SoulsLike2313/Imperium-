@@ -26,10 +26,12 @@ ACK_SETTINGS:
 - response_contract_ref:
 - communication_contract_ref:
 - bootstrap_execution_directive_ref:
+- language_execution_contract_ref:
+- role_settings_ack_protocol_ref:
 - owner_live_commentary_language_after_officio_ack:
 - owner_final_comments_language_after_officio_ack:
 - machine_artifact_language:
-- language_violation_codes:
+- violation_codes:
 - settings_hash:
 - timestamp_utc:
 
@@ -38,5 +40,13 @@ If role/settings ACK is required but missing, Servitor must stop with:
 
 VERDICT: BLOCKED_OFFICIO_ACK_MISSING
 
+If role pack authority files are missing, stop with:
+
+VERDICT: BLOCKED_ROLE_PACK_AUTHORITY_MISSING
+
 ## Evidence Rule
 ACK files should be saved into the task run evidence folder when execution is launched through Officio.
+
+## Anti-crutch Rule
+Owner-facing language requirements must be acknowledged from Officio-owned contracts.
+Taskpack-only wording is not sufficient authority.

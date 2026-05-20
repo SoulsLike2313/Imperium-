@@ -50,6 +50,10 @@ COMMUNICATION_CONTRACT_MD = SETTINGS_REGISTRY / "communication" / "SERVITOR_COMM
 COMMUNICATION_CONTRACT_JSON = SETTINGS_REGISTRY / "communication" / "servitor_communication_contract.json"
 BOOTSTRAP_EXECUTION_DIRECTIVE_MD = SETTINGS_REGISTRY / "communication" / "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md"
 BOOTSTRAP_EXECUTION_DIRECTIVE_JSON = SETTINGS_REGISTRY / "communication" / "officio_bootstrap_execution_directive.json"
+LANGUAGE_EXECUTION_CONTRACT_MD = SETTINGS_REGISTRY / "communication" / "LANGUAGE_EXECUTION_CONTRACT.md"
+LANGUAGE_EXECUTION_CONTRACT_JSON = SETTINGS_REGISTRY / "communication" / "language_execution_contract.json"
+ROLE_SETTINGS_ACK_PROTOCOL_MD = RESPONSE_CONTRACTS / "ROLE_SETTINGS_ACK_PROTOCOL.md"
+ROLE_SETTINGS_ACK_PROTOCOL_JSON = RESPONSE_CONTRACTS / "ROLE_SETTINGS_ACK_PROTOCOL.json"
 
 SHELL_MODES = ["ASK", "ARCHITECT", "IMPLEMENT", "DEBUG", "AUDIT", "ORCHESTRATE"]
 DEFAULT_SHELL_MODE = "ASK"
@@ -443,6 +447,10 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
     communication_contract_json_path = out_dir / "communication_contract.json"
     bootstrap_directive_md_path = out_dir / "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md"
     bootstrap_directive_json_path = out_dir / "officio_bootstrap_execution_directive.json"
+    language_execution_contract_md_path = out_dir / "LANGUAGE_EXECUTION_CONTRACT.md"
+    language_execution_contract_json_path = out_dir / "language_execution_contract.json"
+    role_settings_ack_protocol_md_path = out_dir / "ROLE_SETTINGS_ACK_PROTOCOL.md"
+    role_settings_ack_protocol_json_path = out_dir / "ROLE_SETTINGS_ACK_PROTOCOL.json"
 
     write_text(settings_md_path, settings_md + "\n")
     write_json(settings_json_path, settings)
@@ -453,6 +461,10 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
     write_json(communication_contract_json_path, read_json(COMMUNICATION_CONTRACT_JSON))
     write_text(bootstrap_directive_md_path, read_text(BOOTSTRAP_EXECUTION_DIRECTIVE_MD))
     write_json(bootstrap_directive_json_path, read_json(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON))
+    write_text(language_execution_contract_md_path, read_text(LANGUAGE_EXECUTION_CONTRACT_MD))
+    write_json(language_execution_contract_json_path, read_json(LANGUAGE_EXECUTION_CONTRACT_JSON))
+    write_text(role_settings_ack_protocol_md_path, read_text(ROLE_SETTINGS_ACK_PROTOCOL_MD))
+    write_json(role_settings_ack_protocol_json_path, read_json(ROLE_SETTINGS_ACK_PROTOCOL_JSON))
 
     receipt = emit_receipt(
         ctx,
@@ -473,6 +485,10 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
                 str(communication_contract_json_path),
                 str(bootstrap_directive_md_path),
                 str(bootstrap_directive_json_path),
+                str(language_execution_contract_md_path),
+                str(language_execution_contract_json_path),
+                str(role_settings_ack_protocol_md_path),
+                str(role_settings_ack_protocol_json_path),
             ],
         },
     )
@@ -487,6 +503,10 @@ def cmd_settings_get(args: argparse.Namespace) -> int:
             "COMMUNICATION_CONTRACT_JSON": communication_contract_json_path,
             "BOOTSTRAP_EXECUTION_DIRECTIVE_MD": bootstrap_directive_md_path,
             "BOOTSTRAP_EXECUTION_DIRECTIVE_JSON": bootstrap_directive_json_path,
+            "LANGUAGE_EXECUTION_CONTRACT_MD": language_execution_contract_md_path,
+            "LANGUAGE_EXECUTION_CONTRACT_JSON": language_execution_contract_json_path,
+            "ROLE_SETTINGS_ACK_PROTOCOL_MD": role_settings_ack_protocol_md_path,
+            "ROLE_SETTINGS_ACK_PROTOCOL_JSON": role_settings_ack_protocol_json_path,
             "RECEIPT": receipt,
         }
     )
@@ -660,6 +680,10 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
     communication_contract_json = pack_root / "communication_contract.json"
     bootstrap_directive_md = pack_root / "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md"
     bootstrap_directive_json = pack_root / "officio_bootstrap_execution_directive.json"
+    language_execution_contract_md = pack_root / "LANGUAGE_EXECUTION_CONTRACT.md"
+    language_execution_contract_json = pack_root / "language_execution_contract.json"
+    role_settings_ack_protocol_md = pack_root / "ROLE_SETTINGS_ACK_PROTOCOL.md"
+    role_settings_ack_protocol_json = pack_root / "ROLE_SETTINGS_ACK_PROTOCOL.json"
     start_message = pack_root / "START_MESSAGE.txt"
     manifest = pack_root / "MANIFEST.json"
     sha256s = pack_root / "SHA256SUMS.txt"
@@ -676,6 +700,10 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
     communication_contract_json_source = optional_json(COMMUNICATION_CONTRACT_JSON)
     bootstrap_directive_md_source = optional_text(BOOTSTRAP_EXECUTION_DIRECTIVE_MD)
     bootstrap_directive_json_source = optional_json(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON)
+    language_execution_contract_md_source = optional_text(LANGUAGE_EXECUTION_CONTRACT_MD)
+    language_execution_contract_json_source = optional_json(LANGUAGE_EXECUTION_CONTRACT_JSON)
+    role_settings_ack_protocol_md_source = optional_text(ROLE_SETTINGS_ACK_PROTOCOL_MD)
+    role_settings_ack_protocol_json_source = optional_json(ROLE_SETTINGS_ACK_PROTOCOL_JSON)
 
     role_profile_source_md = pack_root / "ROLE_PROFILE_SOURCE.md"
     family_profile_source_md = pack_root / "FAMILY_PROFILE_SOURCE.md"
@@ -714,6 +742,12 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
                 "",
                 "## Officio Bootstrap Execution Directive",
                 bootstrap_directive_md_source or "MISSING OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md",
+                "",
+                "## Language Execution Contract",
+                language_execution_contract_md_source or "MISSING LANGUAGE_EXECUTION_CONTRACT.md",
+                "",
+                "## Role Settings ACK Protocol",
+                role_settings_ack_protocol_md_source or "MISSING ROLE_SETTINGS_ACK_PROTOCOL.md",
             ]
         )
         + "\n",
@@ -729,6 +763,8 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
             "response_contract_ref": response_ref_source,
             "communication_contract": communication_contract_json_source,
             "bootstrap_execution_directive": bootstrap_directive_json_source,
+            "language_execution_contract": language_execution_contract_json_source,
+            "role_settings_ack_protocol": role_settings_ack_protocol_json_source,
             "default_mode": mode,
             "status": STATUS_READY,
             "generated_at_utc": utc_now(),
@@ -748,12 +784,23 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
         bootstrap_directive_json,
         bootstrap_directive_json_source if bootstrap_directive_json_source is not None else {"warning": "missing bootstrap execution directive json"},
     )
+    write_text(language_execution_contract_md, language_execution_contract_md_source or "# Missing language execution contract\n")
+    write_json(
+        language_execution_contract_json,
+        language_execution_contract_json_source if language_execution_contract_json_source is not None else {"warning": "missing language execution contract json"},
+    )
+    write_text(role_settings_ack_protocol_md, role_settings_ack_protocol_md_source or "# Missing role settings ACK protocol\n")
+    write_json(
+        role_settings_ack_protocol_json,
+        role_settings_ack_protocol_json_source if role_settings_ack_protocol_json_source is not None else {"warning": "missing role settings ACK protocol json"},
+    )
     write_text(
         start_message,
         (
             f"You are entering role: {agent}. Read ROLE_PACK.md, ROLE_PROFILE_SOURCE.md, READ_ORDER.json, "
             "RESPONSE_CONTRACT.md, EXECUTION_SETTINGS.md, COMMUNICATION_CONTRACT.md, "
-            "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md.\n"
+            "OFFICIO_BOOTSTRAP_EXECUTION_DIRECTIVE.md, LANGUAGE_EXECUTION_CONTRACT.md, "
+            "ROLE_SETTINGS_ACK_PROTOCOL.md.\n"
         ),
     )
 
@@ -773,6 +820,10 @@ def cmd_pack_build_role(args: argparse.Namespace) -> int:
         communication_contract_json,
         bootstrap_directive_md,
         bootstrap_directive_json,
+        language_execution_contract_md,
+        language_execution_contract_json,
+        role_settings_ack_protocol_md,
+        role_settings_ack_protocol_json,
         start_message,
     ]
     write_json(manifest, build_pack_manifest(pre_manifest_files, pack_root, agent))
@@ -1288,32 +1339,63 @@ def language_contract_checks() -> tuple[list[str], list[str], dict[str, Any]]:
     details: dict[str, Any] = {
         "communication_contract_json": str(COMMUNICATION_CONTRACT_JSON),
         "bootstrap_directive_json": str(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON),
+        "language_execution_contract_json": str(LANGUAGE_EXECUTION_CONTRACT_JSON),
+        "role_settings_ack_protocol_json": str(ROLE_SETTINGS_ACK_PROTOCOL_JSON),
         "response_contract_md": str(RESPONSE_CONTRACTS / "SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md"),
-        "required_violation_codes": ["WARN_RESPONSE_LANGUAGE_CONTRACT", "FAIL_RESPONSE_CONTRACT"],
+        "required_violation_codes": [
+            "WARN_RESPONSE_LANGUAGE_CONTRACT",
+            "FAIL_RESPONSE_CONTRACT",
+            "BLOCKED_OFFICIO_ACK_MISSING",
+            "BLOCKED_ROLE_PACK_AUTHORITY_MISSING",
+            "WARN_TASKPACK_ONLY_WORKAROUND_DETECTED",
+        ],
     }
 
     try:
         comm = read_json(COMMUNICATION_CONTRACT_JSON)
     except Exception as error:
-        errors.append(f"language_contract_json_unreadable:{error}")
+        errors.append(f"communication_contract_json_unreadable:{error}")
         return warnings, errors, details
     try:
         directive = read_json(BOOTSTRAP_EXECUTION_DIRECTIVE_JSON)
     except Exception as error:
         errors.append(f"bootstrap_directive_json_unreadable:{error}")
         return warnings, errors, details
+    try:
+        language_contract = read_json(LANGUAGE_EXECUTION_CONTRACT_JSON)
+    except Exception as error:
+        errors.append(f"language_execution_contract_json_unreadable:{error}")
+        return warnings, errors, details
+    try:
+        ack_protocol = read_json(ROLE_SETTINGS_ACK_PROTOCOL_JSON)
+    except Exception as error:
+        errors.append(f"role_settings_ack_protocol_json_unreadable:{error}")
+        return warnings, errors, details
 
     comm_rule = comm.get("machine_rule", {}) if isinstance(comm, dict) else {}
     directive_rule = directive.get("machine_rule", {}) if isinstance(directive, dict) else {}
+    language_rule = language_contract.get("machine_rule", {}) if isinstance(language_contract, dict) else {}
+    ack_rule = ack_protocol.get("machine_rule", {}) if isinstance(ack_protocol, dict) else {}
+    surface_rules = language_rule.get("surface_language_rules", {}) if isinstance(language_rule.get("surface_language_rules", {}), dict) else {}
     details["communication_machine_rule"] = comm_rule
     details["bootstrap_machine_rule"] = directive_rule
+    details["language_execution_machine_rule"] = language_rule
+    details["ack_protocol_machine_rule"] = ack_rule
 
-    required_codes = {"WARN_RESPONSE_LANGUAGE_CONTRACT", "FAIL_RESPONSE_CONTRACT"}
-    comm_codes = set(str(x) for x in comm_rule.get("language_violation_codes", [])) if isinstance(comm_rule.get("language_violation_codes", []), list) else set()
-    directive_codes = set(str(x) for x in directive_rule.get("language_violation_codes", [])) if isinstance(directive_rule.get("language_violation_codes", []), list) else set()
-    missing_codes = sorted(list(required_codes - (comm_codes | directive_codes)))
+    def collect_codes(rule: dict[str, Any]) -> set[str]:
+        collected: set[str] = set()
+        for key in ("violation_codes", "language_violation_codes", "authority_violation_codes", "required_violation_codes"):
+            value = rule.get(key, [])
+            if isinstance(value, list):
+                for entry in value:
+                    collected.add(str(entry))
+        return collected
+
+    required_codes = set(details["required_violation_codes"])
+    all_codes = collect_codes(comm_rule) | collect_codes(directive_rule) | collect_codes(language_rule) | collect_codes(ack_rule)
+    missing_codes = sorted(list(required_codes - all_codes))
     if missing_codes:
-        errors.append("missing_language_violation_codes:" + ",".join(missing_codes))
+        errors.append("missing_violation_codes:" + ",".join(missing_codes))
 
     if str(comm_rule.get("owner_live_commentary_language_after_officio_ack", "")).lower() != "russian":
         errors.append("missing_owner_live_commentary_language_rule")
@@ -1322,11 +1404,31 @@ def language_contract_checks() -> tuple[list[str], list[str], dict[str, Any]]:
     if str(comm_rule.get("machine_artifact_language", "")).lower() != "english":
         errors.append("missing_machine_artifact_language_rule")
 
+    if str(surface_rules.get("owner_live_commentary_after_officio_ack", "")).lower() != "russian":
+        errors.append("language_execution_missing_owner_live_commentary_rule")
+    if str(surface_rules.get("owner_final_comments_after_officio_ack", "")).lower() != "russian":
+        errors.append("language_execution_missing_owner_final_comments_rule")
+    if str(surface_rules.get("machine_artifacts", "")).lower() != "english":
+        errors.append("language_execution_missing_machine_artifact_rule")
+
+    required_ack_fields = {"language_execution_contract_ref", "role_settings_ack_protocol_ref", "violation_codes"}
+    ack_settings_fields = set(str(x) for x in ack_rule.get("required_ack_settings_fields", [])) if isinstance(ack_rule.get("required_ack_settings_fields", []), list) else set()
+    missing_ack_fields = sorted(list(required_ack_fields - ack_settings_fields))
+    if missing_ack_fields:
+        errors.append("ack_protocol_missing_required_settings_fields:" + ",".join(missing_ack_fields))
+
     response_contract_text = read_text(RESPONSE_CONTRACTS / "SERVITOR_EXECUTOR_RESPONSE_CONTRACT.md")
     if "OWNER COMMENTS" not in response_contract_text:
         errors.append("response_contract_missing_owner_comments_section")
     if "Russian" not in response_contract_text and "russian" not in response_contract_text:
-        warnings.append("response_contract_missing_explicit_russian_hint")
+        errors.append("response_contract_missing_explicit_russian_requirement")
+    if "FAIL_RESPONSE_CONTRACT" not in response_contract_text:
+        errors.append("response_contract_missing_fail_response_contract_code")
+    if "WARN_RESPONSE_LANGUAGE_CONTRACT" not in response_contract_text:
+        warnings.append("response_contract_missing_warn_response_language_contract_code")
+
+    if not bool(language_rule.get("anti_taskpack_only_workaround", False)):
+        warnings.append("language_execution_contract_missing_anti_taskpack_only_workaround_flag")
 
     return warnings, errors, details
 
@@ -1357,6 +1459,10 @@ def cmd_check_all(_args: argparse.Namespace) -> int:
         COMMUNICATION_CONTRACT_JSON,
         BOOTSTRAP_EXECUTION_DIRECTIVE_MD,
         BOOTSTRAP_EXECUTION_DIRECTIVE_JSON,
+        LANGUAGE_EXECUTION_CONTRACT_MD,
+        LANGUAGE_EXECUTION_CONTRACT_JSON,
+        ROLE_SETTINGS_ACK_PROTOCOL_MD,
+        ROLE_SETTINGS_ACK_PROTOCOL_JSON,
     ]
     missing_files = [str(path) for path in required_files if not path.exists()]
 
