@@ -1,13 +1,13 @@
 {
   "schema_version": "TASK_RECEIPT_V0_1",
   "task_id": "TASK-20260520-SANCTUM-PLAYWRIGHT-TRUTH-BRAIN-STRIKE-PC-V0_1",
-  "generated_at_utc": "2026-05-20T13:29:00Z",
+  "generated_at_utc": "2026-05-20T14:10:00Z",
   "repo_root": "E:\\IMPERIUM",
   "branch": "master",
-  "head": "a1c5b9eda55a6507157a9becd5d281141c2ac48a",
+  "head": "473ae295aa13528497640dd3b8007c2b2a9aa76e",
   "no_commit": false,
   "no_push": false,
-  "verdict": "PASS_PENDING_COMMIT_PUSH_RECEIPT_CONFIRMATION",
+  "verdict": "PASS",
   "required_artifacts_present": [
     "SANCTUM_PLAYWRIGHT_TRUTH_BRAIN_STRIKE_REPORT.md",
     "PLAYWRIGHT_TRUTH_AUDIT_SUMMARY.json",
@@ -30,6 +30,6 @@
     "Baseline Playwright audit failed on missing brain-zone layout as expected.",
     "Post-implementation Playwright audit passed with zero failed checks.",
     "Brain-zone foundation shipped with truthful real/placeholder/locked separation.",
-    "Commit/push values are emitted in final owner response and can be mirrored to receipt in next maintenance pass if needed."
+    "Commit/push evidence hardened with real final values during TASK-20260520-SANCTUM-BRAIN-HARDENING-VISUAL-POLISH-PC-V0_2."
   ]
 }

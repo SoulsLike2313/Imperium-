@@ -15,16 +15,16 @@ const BRAIN_LINKS = [
 ];
 
 const BRAIN_LAYOUT = {
-  ADMINISTRATUM_AGENT: { x: 19, y: 30 },
-  OFFICIO_AGENTIS_AGENT: { x: 32, y: 19 },
-  ASTRONOMICON_AGENT: { x: 47, y: 15 },
-  INQUISITION_AGENT: { x: 64, y: 17 },
-  DOCTRINARIUM_AGENT: { x: 78, y: 29 },
-  MECHANICUS_AGENT: { x: 52, y: 38 },
-  STRATEGIUM_AGENT: { x: 74, y: 49 },
-  SCHOLA_IMPERIALIS_AGENT: { x: 62, y: 63 },
-  CUSTODES: { x: 40, y: 67 },
-  THRONE: { x: 27, y: 52 },
+  ADMINISTRATUM_AGENT: { x: 16, y: 26 },
+  OFFICIO_AGENTIS_AGENT: { x: 31, y: 14 },
+  ASTRONOMICON_AGENT: { x: 50, y: 10 },
+  INQUISITION_AGENT: { x: 69, y: 14 },
+  DOCTRINARIUM_AGENT: { x: 84, y: 26 },
+  STRATEGIUM_AGENT: { x: 84, y: 56 },
+  SCHOLA_IMPERIALIS_AGENT: { x: 69, y: 74 },
+  CUSTODES: { x: 50, y: 82 },
+  THRONE: { x: 31, y: 74 },
+  MECHANICUS_AGENT: { x: 16, y: 56 },
 };
 
 const I18N = {
@@ -84,6 +84,13 @@ const I18N = {
     brainLegendPlaceholder: "Placeholder cortex",
     brainLegendLocked: "Locked nuclei",
     brainNeuralFlow: "Neural flow",
+    brainCoreTitle: "Neural Core",
+    brainCoreSubtitle: "Internal communication nexus",
+    brainCoreSignal: "Signal bus",
+    brainCoreConnected: "Connected lanes",
+    brainCorePlaceholder: "Placeholder lanes",
+    brainCoreLocked: "Locked lanes",
+    brainCoreActive: "Active anchor",
     truthModeLabel: "truth-mode",
     truthModeReal: "REAL",
     truthModePlaceholder: "PLACEHOLDER",
@@ -152,6 +159,13 @@ const I18N = {
     brainLegendPlaceholder: "Placeholder-кортекс",
     brainLegendLocked: "Заблокированные ядра",
     brainNeuralFlow: "Нейросигнал",
+    brainCoreTitle: "Нейроядро",
+    brainCoreSubtitle: "Зона внутренней связности",
+    brainCoreSignal: "Сигнальная шина",
+    brainCoreConnected: "Реальные линии",
+    brainCorePlaceholder: "Placeholder-линии",
+    brainCoreLocked: "Locked-линии",
+    brainCoreActive: "Активный якорь",
     truthModeLabel: "режим",
     truthModeReal: "REAL",
     truthModePlaceholder: "PLACEHOLDER",
@@ -193,6 +207,7 @@ const el = {
   organGrid: document.getElementById("organGrid"),
   brainLegend: document.getElementById("brainLegend"),
   brainLinksSvg: document.getElementById("brainLinksSvg"),
+  brainCoreZone: document.getElementById("brainCoreZone"),
   centerTabButtons: Array.from(document.querySelectorAll(".center-tab")),
   centerPanels: Array.from(document.querySelectorAll(".center-panel")),
   liveHeaderTitle: document.getElementById("liveHeaderTitle"),
@@ -398,6 +413,35 @@ function renderBrainLegend() {
   `;
 }
 
+function renderBrainCore(state) {
+  if (!el.brainCoreZone) {
+    return;
+  }
+  const truth = state.global_truth || {};
+  const connected = truth.connected_organs_count ?? 0;
+  const placeholders = truth.placeholders_count ?? 0;
+  const locked = truth.locked_count ?? 0;
+  const activeAnchor = state.server?.active_organ || SAFE_MECHANICUS_ORGAN;
+
+  el.brainCoreZone.innerHTML = `
+    <div class="brain-core-gridline"></div>
+    <div class="brain-core-ring brain-core-ring-a"></div>
+    <div class="brain-core-ring brain-core-ring-b"></div>
+    <div class="brain-core-ring brain-core-ring-c"></div>
+    <div class="brain-core-node brain-core-node-a"></div>
+    <div class="brain-core-node brain-core-node-b"></div>
+    <div class="brain-core-node brain-core-node-c"></div>
+    <div class="brain-core-title">${escapeHtml(t("brainCoreTitle"))}</div>
+    <div class="brain-core-subtitle">${escapeHtml(t("brainCoreSubtitle"))}</div>
+    <div class="brain-core-chip-row">
+      <span class="brain-core-chip is-real">${escapeHtml(t("brainCoreConnected"))}: ${escapeHtml(String(connected))}</span>
+      <span class="brain-core-chip is-placeholder">${escapeHtml(t("brainCorePlaceholder"))}: ${escapeHtml(String(placeholders))}</span>
+      <span class="brain-core-chip is-locked">${escapeHtml(t("brainCoreLocked"))}: ${escapeHtml(String(locked))}</span>
+    </div>
+    <div class="brain-core-footer">${escapeHtml(t("brainCoreSignal"))} :: ${escapeHtml(t("brainCoreActive"))} = ${escapeHtml(activeAnchor)}</div>
+  `;
+}
+
 function renderBrainLinks(state) {
   if (!el.brainLinksSvg) {
     return;
@@ -407,8 +451,8 @@ function renderBrainLinks(state) {
     organMap[organ.id] = organ;
   });
 
-  const centerX = 52;
-  const centerY = 41;
+  const centerX = 50;
+  const centerY = 48;
   const paths = BRAIN_LINKS.map(([fromId, toId], idx) => {
     const from = BRAIN_LAYOUT[fromId];
     const to = BRAIN_LAYOUT[toId];
@@ -439,6 +483,7 @@ function renderBrainLinks(state) {
 function renderOrgans(state) {
   const organs = state.organs || [];
   renderBrainLegend();
+  renderBrainCore(state);
   renderBrainLinks(state);
   el.organGrid.innerHTML = organs
     .map((organ) => {
