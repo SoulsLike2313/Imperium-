@@ -27,7 +27,11 @@ except Exception:
 
 TASK_ID_BASE_HALF = "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1"
 TASK_ID_IDENTITY_RICH = "TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1"
-VISUAL_WARN = "WARN_VISUAL_NOT_REFERENCE"
+VISUAL_PASS_RICH = "PASS_RICH_OPERATOR_SHELL"
+VISUAL_PASS_PLAIN = "PASS_PLAIN_OPERATOR_SHELL"
+VISUAL_WARN_PLAIN_FALLBACK = "WARN_PLAIN_FALLBACK"
+VISUAL_BLOCKED_NOT_IMPLEMENTED = "BLOCKED_SHELL_NOT_IMPLEMENTED"
+VISUAL_FAIL_FAKE = "FAIL_FAKE_SHELL"
 
 BASE_COMMANDS = ["status", "check", "where", "identity", "tools", "pack", "shell", "help"]
 BASE_REQUIRED_FILES = [
@@ -122,7 +126,49 @@ def _git_info(repo_root: Path) -> Dict[str, Any]:
 
 
 def _visual_status() -> str:
-    return "PASS_RICH" if HAVE_RICH else VISUAL_WARN
+    return VISUAL_PASS_RICH if HAVE_RICH else VISUAL_WARN_PLAIN_FALLBACK
+
+
+def _renderer_mode() -> str:
+    return "rich" if HAVE_RICH else "plain_fallback"
+
+
+def _tool_registry_summary(config: OrganConfig) -> Dict[str, Any]:
+    repo_root = _repo_root(config.root)
+    try:
+        view = build_organ_tool_view(organ_id=config.organ_name, index_path=default_tool_index_path(repo_root))
+    except Exception as exc:
+        return {
+            "registry_source": str(default_tool_index_path(repo_root)),
+            "registered_tool_count": 0,
+            "available_tool_count": 0,
+            "missing_tool_count": 0,
+            "preview": [],
+            "warnings": [f"tool_registry_summary_error:{exc}"],
+        }
+
+    relevant = view.get("relevant_tools", []) if isinstance(view.get("relevant_tools", []), list) else []
+    available = view.get("available_tools", []) if isinstance(view.get("available_tools", []), list) else []
+    missing = view.get("missing_tools", []) if isinstance(view.get("missing_tools", []), list) else []
+    preview: List[str] = []
+    for item in relevant[:6]:
+        if isinstance(item, dict):
+            tool_id = str(item.get("tool_id", "")).strip() or "UNKNOWN"
+            status = str(item.get("availability_status", "")).strip() or "UNKNOWN"
+            preview.append(f"{tool_id}:{status}")
+
+    warnings: List[str] = []
+    for warning in view.get("warnings", []) if isinstance(view.get("warnings", []), list) else []:
+        warnings.append(str(warning))
+
+    return {
+        "registry_source": str(view.get("registry_source", default_tool_index_path(repo_root))),
+        "registered_tool_count": len(relevant),
+        "available_tool_count": len(available),
+        "missing_tool_count": len(missing),
+        "preview": preview,
+        "warnings": warnings,
+    }
 
 
 def _all_supported_commands(config: OrganConfig) -> List[str]:
@@ -190,10 +236,13 @@ def _shell_zone_payload(config: OrganConfig, warnings: List[str], latest_output:
     latest_report_path = _latest_report_path(config) or "none"
     latest_receipt_path = _latest_receipt_path(config) or "none"
     git = _git_info(_repo_root(config.root))
-    renderer = "rich" if HAVE_RICH else "ansi_fallback"
+    renderer = _renderer_mode()
+    tool_summary = _tool_registry_summary(config)
+    merged_warnings = list(warnings) + list(tool_summary.get("warnings", []))
+    primary_warning = merged_warnings[-1] if merged_warnings else "none"
     top = [
         f"organ: {config.organ_name}",
-        f"identity/lore: {config.identity_summary}",
+        f"organ_mission: {config.identity_summary}",
         f"backend_truth: head={git.get('head', '')} branch={git.get('branch', '')} dirty={'yes' if bool(git.get('dirty', '').strip()) else 'no'}",
         f"visual_status: {_visual_status()} | renderer: {renderer}",
     ]
@@ -204,11 +253,21 @@ def _shell_zone_payload(config: OrganConfig, warnings: List[str], latest_output:
     right = [
         "active_command_list:",
         command_preview,
+        "tool_registry:",
+        f"path={tool_summary.get('registry_source', '')}",
+        (
+            "counts: registered="
+            f"{tool_summary.get('registered_tool_count', 0)} "
+            f"available={tool_summary.get('available_tool_count', 0)} "
+            f"missing={tool_summary.get('missing_tool_count', 0)}"
+        ),
+        "tool_preview:",
+        ", ".join(tool_summary.get("preview", [])) if tool_summary.get("preview") else "none",
     ]
     bottom = [
         f"latest_report_path: {latest_report_path}",
         f"latest_receipt_path: {latest_receipt_path}",
-        f"warn_error_blocker: {warnings[-1] if warnings else 'none'}",
+        f"warn_error_blocker: {primary_warning}",
     ]
     return {"top": top, "left": left, "right": right, "bottom": bottom}
 
@@ -220,7 +279,10 @@ def command_status(config: OrganConfig) -> Tuple[int, Path]:
     active_commands = _all_supported_commands(config)
     latest_report_path = _latest_report_path(config)
     latest_receipt_path = _latest_receipt_path(config)
-    warning_code = VISUAL_WARN if not HAVE_RICH else "none"
+    tool_summary = _tool_registry_summary(config)
+    warning_code = VISUAL_WARN_PLAIN_FALLBACK if not HAVE_RICH else "none"
+    if warning_code == "none" and tool_summary.get("warnings"):
+        warning_code = str(tool_summary["warnings"][0])
     state_path = config.root / "STATE" / "current_status.json"
     payload: Dict[str, Any] = {
         "schema_version": "ORGAN_IDENTITY_RICH_STATUS_V0_1",
@@ -243,17 +305,18 @@ def command_status(config: OrganConfig) -> Tuple[int, Path]:
         },
         "latest_report_path": latest_report_path,
         "latest_receipt_path": latest_receipt_path,
+        "tool_registry": tool_summary,
         "warn_error_blocker": warning_code,
         "renderer_status": {
-            "renderer": "rich" if HAVE_RICH else "ansi_fallback",
+            "renderer": _renderer_mode(),
             "rich_renderer_available": HAVE_RICH,
             "visual_status": _visual_status(),
-            "fallback_reason": [] if HAVE_RICH else [VISUAL_WARN],
+            "fallback_reason": [] if HAVE_RICH else [VISUAL_WARN_PLAIN_FALLBACK],
         },
         "rich_renderer_available": HAVE_RICH,
     }
     if not HAVE_RICH:
-        payload["warnings"] = [VISUAL_WARN]
+        payload["warnings"] = [VISUAL_WARN_PLAIN_FALLBACK]
     _write_json(state_path, payload)
     print(json.dumps(payload, ensure_ascii=True, indent=2))
     return 0, state_path
@@ -276,7 +339,7 @@ def command_check(config: OrganConfig) -> Tuple[int, Path, Path]:
     _, state_path = command_status(config)
     check_rows = _check_required_files(config)
     missing = [row["file"] for row in check_rows if not bool(row.get("exists"))]
-    warnings = [VISUAL_WARN] if not HAVE_RICH else []
+    warnings = [VISUAL_WARN_PLAIN_FALLBACK] if not HAVE_RICH else []
     verdict = "PASS" if (not missing and not warnings) else "WARN"
     report = {
         "schema_version": "ORGAN_IDENTITY_RICH_CHECK_REPORT_V0_1",
@@ -292,7 +355,7 @@ def command_check(config: OrganConfig) -> Tuple[int, Path, Path]:
         "warnings": warnings,
         "notes": [
             "Identity Half + Rich Shell uses shared common CLI layer.",
-            "Visual fallback must report WARN_VISUAL_NOT_REFERENCE if rich is unavailable.",
+            "Visual fallback must report WARN_PLAIN_FALLBACK if rich is unavailable.",
         ],
     }
     json_path = config.root / "REPORTS" / "base_half_check_report.json"
@@ -330,10 +393,22 @@ def command_where(config: OrganConfig) -> int:
 
 def command_identity(config: OrganConfig) -> int:
     ensure_base_layout(config)
+    profile = _read_json(config.root / "agent_profile.json")
+    if isinstance(profile, dict):
+        allowed_statuses = {
+            VISUAL_PASS_RICH,
+            VISUAL_PASS_PLAIN,
+            VISUAL_WARN_PLAIN_FALLBACK,
+            VISUAL_BLOCKED_NOT_IMPLEMENTED,
+            VISUAL_FAIL_FAKE,
+        }
+        profile_visual_status = str(profile.get("visual_status", "")).strip()
+        if profile_visual_status and profile_visual_status not in allowed_statuses:
+            profile["visual_status"] = _visual_status()
     payload = {
         "organ": config.organ_name,
         "summary": config.identity_summary,
-        "profile": _read_json(config.root / "agent_profile.json"),
+        "profile": profile,
         "identity_profile": _read_json(config.root / "IDENTITY" / "identity_profile.json"),
         "lore_functions": _read_json(config.root / "IDENTITY" / "lore_functions.json"),
         "domain_commands": _read_json(config.root / "IDENTITY" / "domain_commands.json"),
@@ -458,7 +533,7 @@ def _domain_output(config: OrganConfig, command: str) -> Dict[str, Any]:
         "git": _git_info(repo_root),
         "lore_function_count": len(lore_defs.get("functions", [])) if isinstance(lore_defs, dict) else 0,
     }
-    warnings = [VISUAL_WARN] if not HAVE_RICH else []
+    warnings = [VISUAL_WARN_PLAIN_FALLBACK] if not HAVE_RICH else []
 
     if command == "fake-green-check":
         details["audit"] = {
@@ -592,6 +667,8 @@ def _render_shell_header(config: OrganConfig, warnings: List[str], latest_output
         print("BOTTOM EVENT BAR")
         for row in zones["bottom"]:
             print(f"- {row}")
+        print(f"RENDERER_MODE: {_renderer_mode()}")
+        print(f"VISUAL_STATUS: {_visual_status()}")
 
 
 def _shell_dispatch(config: OrganConfig, raw: str) -> Tuple[int, bool]:
@@ -633,7 +710,7 @@ def _shell_dispatch(config: OrganConfig, raw: str) -> Tuple[int, bool]:
 
 def command_shell(config: OrganConfig, once: Optional[str]) -> int:
     ensure_base_layout(config)
-    warnings: List[str] = [VISUAL_WARN] if not HAVE_RICH else []
+    warnings: List[str] = [VISUAL_WARN_PLAIN_FALLBACK] if not HAVE_RICH else []
     if once:
         _render_shell_header(config, warnings, latest_output=f"once_mode_command={once}")
         code, _ = _shell_dispatch(config, once)
@@ -662,7 +739,7 @@ def command_help(config: OrganConfig) -> int:
         "domain_commands": config.domain_commands,
         "shell_usage": f"py -3 TOOLS/{config.organ_slug}_agent_runner.py shell",
         "visual_status": _visual_status(),
-        "warnings": [VISUAL_WARN] if not HAVE_RICH else [],
+        "warnings": [VISUAL_WARN_PLAIN_FALLBACK] if not HAVE_RICH else [],
     }
     print(json.dumps(payload, ensure_ascii=True, indent=2))
     return 0
