@@ -1,6 +1,6 @@
 {
   "schema_version": "MECHANICUS_TOOL_INDEX_V0_1",
-  "task_id": "TASK-20260519-MECHANICUS-OSS-ARSENAL-ADMISSION-VM2-V0_1",
+  "task_id": "TASK-20260520-MECHANICUS-VISUAL-SHELL-V0_2",
   "generated_at_utc": "2026-05-19T22:06:55.328178Z",
   "registry_owner": "MECHANICUS_AGENT",
   "install_policy": "NO_INSTALL_WITHOUT_OWNER_GATE",
@@ -221,13 +221,66 @@
       "pc_status": "AVAILABLE_PC",
       "vm2_status": "AVAILABLE_VM2",
       "tool_card_path": "TOOLS/npm.json"
+    },
+    {
+      "tool_id": "rich",
+      "display_name": "rich",
+      "owner_organ": "MECHANICUS_AGENT",
+      "consumer_organs": [
+        "MECHANICUS_AGENT",
+        "SERVITOR"
+      ],
+      "combined_status": "AVAILABLE_VM2",
+      "pc_status": "UNKNOWN_NEEDS_PROBE",
+      "vm2_status": "AVAILABLE_VM2",
+      "tool_card_path": "TOOLS/rich.json"
+    },
+    {
+      "tool_id": "textual",
+      "display_name": "textual",
+      "owner_organ": "MECHANICUS_AGENT",
+      "consumer_organs": [
+        "MECHANICUS_AGENT",
+        "SERVITOR"
+      ],
+      "combined_status": "AVAILABLE_VM2",
+      "pc_status": "UNKNOWN_NEEDS_PROBE",
+      "vm2_status": "AVAILABLE_VM2",
+      "tool_card_path": "TOOLS/textual.json"
+    },
+    {
+      "tool_id": "prompt_toolkit",
+      "display_name": "prompt_toolkit",
+      "owner_organ": "MECHANICUS_AGENT",
+      "consumer_organs": [
+        "MECHANICUS_AGENT",
+        "SERVITOR"
+      ],
+      "combined_status": "AVAILABLE_VM2",
+      "pc_status": "UNKNOWN_NEEDS_PROBE",
+      "vm2_status": "AVAILABLE_VM2",
+      "tool_card_path": "TOOLS/prompt_toolkit.json"
+    },
+    {
+      "tool_id": "pyfiglet",
+      "display_name": "pyfiglet",
+      "owner_organ": "MECHANICUS_AGENT",
+      "consumer_organs": [
+        "MECHANICUS_AGENT",
+        "SERVITOR"
+      ],
+      "combined_status": "AVAILABLE_VM2",
+      "pc_status": "UNKNOWN_NEEDS_PROBE",
+      "vm2_status": "AVAILABLE_VM2",
+      "tool_card_path": "TOOLS/pyfiglet.json"
     }
   ],
   "counts": {
-    "tools_total": 16,
+    "tools_total": 20,
     "available_both": 7,
-    "available_vm2_only": 2,
+    "available_vm2_only": 6,
     "available_pc_only": 2,
     "known_not_installed": 5
-  }
+  },
+  "updated_at_utc": "2026-05-20T02:05:36.489924Z"
 }

@@ -2,6 +2,11 @@
 
 Reference operator shell for Mechanicus must expose real operator context, not help-only smoke output.
 
+Visual Shell V0.2 is summary-first:
+- compact operator cards by default;
+- raw JSON only on explicit detail requests;
+- Mechanicus identity accents and operator palette.
+
 ## Supported Shell Commands
 - help
 - status
@@ -15,6 +20,10 @@ Reference operator shell for Mechanicus must expose real operator context, not h
 - shell --once tools
 - shell --once identity
 - shell --once check
+- shell --once raw-status
+- shell --once raw-tools
+- shell --once raw-identity
+- shell --once raw-check
 - exit
 
 ## Visual Status
@@ -28,6 +37,8 @@ Reference operator shell for Mechanicus must expose real operator context, not h
 - TOP STATUS BAR
 - LEFT WORK ZONE
 - RIGHT COMMAND ZONE
+- TOOL REGISTRY
 - BOTTOM EVENT BAR
 - renderer mode visibility
 - tool registry summary visibility
+- command palette visibility

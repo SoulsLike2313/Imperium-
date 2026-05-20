@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import argparse
+import contextlib
+import io
 import json
 import os
 import shutil
@@ -14,16 +16,22 @@ from typing import Any, Dict, List, Optional, Sequence, Tuple
 from tool_registry_reader import build_organ_tool_view, default_tool_index_path
 
 try:
+    from rich import box
     from rich.console import Console
     from rich.layout import Layout
     from rich.panel import Panel
+    from rich.table import Table
+    from rich.text import Text
 
     HAVE_RICH = True
 except Exception:
     HAVE_RICH = False
+    box = None  # type: ignore[assignment]
     Console = None  # type: ignore[assignment]
     Layout = None  # type: ignore[assignment]
     Panel = None  # type: ignore[assignment]
+    Table = None  # type: ignore[assignment]
+    Text = None  # type: ignore[assignment]
 
 TASK_ID_BASE_HALF = "TASK-20260519-ORGAN-AGENT-BASE-HALF-8-ORGANS-V0_1"
 TASK_ID_IDENTITY_RICH = "TASK-20260519-ORGAN-AGENT-IDENTITY-HALF-RICH-SHELL-8-ORGANS-V0_1"
@@ -32,6 +40,7 @@ VISUAL_PASS_PLAIN = "PASS_PLAIN_OPERATOR_SHELL"
 VISUAL_WARN_PLAIN_FALLBACK = "WARN_PLAIN_FALLBACK"
 VISUAL_BLOCKED_NOT_IMPLEMENTED = "BLOCKED_SHELL_NOT_IMPLEMENTED"
 VISUAL_FAIL_FAKE = "FAIL_FAKE_SHELL"
+VISUAL_SHELL_VERSION = "v0.2"
 
 BASE_COMMANDS = ["status", "check", "where", "identity", "tools", "pack", "shell", "help"]
 BASE_REQUIRED_FILES = [
@@ -638,86 +647,351 @@ def command_domain(config: OrganConfig, command: str) -> int:
     return 0
 
 
-def _render_shell_header(config: OrganConfig, warnings: List[str], latest_output: str = "Shell ready.") -> None:
-    zones = _shell_zone_payload(config, warnings, latest_output=latest_output)
-    if HAVE_RICH and Console is not None and Panel is not None and Layout is not None:
+def _suppress_stdout_call(fn: Any, *args: Any, **kwargs: Any) -> Any:
+    buffer = io.StringIO()
+    with contextlib.redirect_stdout(buffer):
+        return fn(*args, **kwargs)
+
+
+def _command_descriptions(config: OrganConfig) -> Dict[str, str]:
+    desc: Dict[str, str] = {
+        "status": "Show organ status and backend truth.",
+        "tools": "Show compact tool registry capabilities.",
+        "identity": "Show organ identity and mission.",
+        "check": "Run integrity checks and summary verdict.",
+        "help": "Show command palette and shell usage.",
+        "where": "Show important paths and runtime roots.",
+        "pack": "Build and export runtime package.",
+        "raw-status": "Show full JSON status payload.",
+        "raw-tools": "Show full JSON tools payload.",
+        "raw-identity": "Show full JSON identity payload.",
+        "raw-check": "Show full JSON check payload.",
+    }
+    for cmd, cmd_desc in config.domain_commands.items():
+        desc.setdefault(cmd, cmd_desc)
+    return desc
+
+
+def _command_palette_rows(config: OrganConfig) -> List[Tuple[str, str, str]]:
+    order = ["status", "tools", "identity", "check", "where", "pack", "help", "raw-status", "raw-tools", "exit"]
+    descriptions = _command_descriptions(config)
+    rows: List[Tuple[str, str, str]] = []
+    for idx, cmd in enumerate(order, start=1):
+        if cmd == "exit":
+            rows.append((cmd, "Close the operator shell.", "ESC"))
+            continue
+        rows.append((cmd, descriptions.get(cmd, ""), f"F{idx}"))
+    for cmd in sorted(config.domain_commands.keys()):
+        rows.append((cmd, descriptions.get(cmd, ""), "DOMAIN"))
+    return rows
+
+
+def _clip_text(value: str, limit: int = 120) -> str:
+    text = value.strip()
+    return text if len(text) <= limit else text[: limit - 3] + "..."
+
+
+def _parse_shell_token(raw: str) -> Tuple[str, bool]:
+    token = raw.strip().lstrip("/").lower()
+    if not token:
+        return "", False
+    if token.startswith("details"):
+        parts = token.split()
+        target = parts[1] if len(parts) > 1 else "status"
+        return target, True
+    if token.startswith("raw-"):
+        return token.replace("raw-", "", 1), True
+    return token, False
+
+
+def _visual_payload_for_command(config: OrganConfig, command: str, detail: bool) -> Dict[str, Any]:
+    ensure_base_layout(config)
+    repo_root = _repo_root(config.root)
+    git = _git_info(repo_root)
+    tool_summary = _tool_registry_summary(config)
+    palette = _command_palette_rows(config)
+    now = datetime.now(timezone.utc).strftime("%H:%M:%S")
+    latest_report_path = _latest_report_path(config) or "none"
+    latest_receipt_path = _latest_receipt_path(config) or "none"
+    head_short = str(git.get("head", ""))[:7] if str(git.get("head", "")).strip() else "UNKNOWN"
+    branch = str(git.get("branch", "")).strip() or "UNKNOWN"
+    dirty = bool(str(git.get("dirty", "")).strip())
+    visual_status = _visual_status()
+
+    activity_rows: List[Tuple[str, str, str, str]] = []
+    tool_rows: List[Tuple[str, str, str]] = []
+    raw_payload: Dict[str, Any] = {}
+    warn_count = len(tool_summary.get("warnings", []))
+    error_count = 0
+    block_count = 0
+    latest_output = f"once_mode_command={command}"
+
+    if command == "status":
+        _, state_path = _suppress_stdout_call(command_status, config)
+        state = _read_json(state_path)
+        raw_payload = state
+        backend = state.get("backend_truth", {}) if isinstance(state, dict) else {}
+        activity_rows = [
+            (now, "Repository", str(repo_root), "OK"),
+            (now, "Backend Truth", f"HEAD {backend.get('head', '')[:7]} | {backend.get('branch', '')}", "VERIFIED"),
+            (now, "Worktree", "dirty" if dirty else "clean", "WARN" if dirty else "READY"),
+            (now, "Visual Status", visual_status, "IN_SYNC"),
+        ]
+        warn_count += 1 if dirty else 0
+    elif command == "tools":
+        view = build_organ_tool_view(organ_id=config.organ_name, index_path=default_tool_index_path(repo_root))
+        raw_payload = view
+        relevant = view.get("relevant_tools", []) if isinstance(view.get("relevant_tools", []), list) else []
+        for item in relevant[:10]:
+            if isinstance(item, dict):
+                tool_rows.append(
+                    (
+                        str(item.get("tool_id", "UNKNOWN")),
+                        str(item.get("owner_organ", "UNKNOWN")),
+                        str(item.get("availability_status", "UNKNOWN")),
+                    )
+                )
+        activity_rows = [
+            (now, "Registry Path", _clip_text(str(view.get("registry_source", "")), 90), "LOADED"),
+            (now, "Registered", str(len(relevant)), "OK"),
+            (now, "Available", str(len(view.get("available_tools", []))), "OK"),
+            (now, "Missing", str(len(view.get("missing_tools", []))), "WARN" if len(view.get("missing_tools", [])) else "OK"),
+        ]
+        warn_count += len(view.get("warnings", [])) if isinstance(view.get("warnings", []), list) else 0
+    elif command == "identity":
+        profile = _read_json(config.root / "agent_profile.json")
+        identity_profile = _read_json(config.root / "IDENTITY" / "identity_profile.json")
+        raw_payload = {"profile": profile, "identity_profile": identity_profile}
+        mission = str(identity_profile.get("mission", config.identity_summary)) if isinstance(identity_profile, dict) else config.identity_summary
+        activity_rows = [
+            (now, "Organ", config.organ_name, "OK"),
+            (now, "Mission", _clip_text(mission, 96), "FOCUS"),
+            (now, "Domain Commands", str(len(config.domain_commands)), "READY"),
+            (now, "Identity Summary", _clip_text(config.identity_summary, 96), "SYNC"),
+        ]
+    elif command == "check":
+        _, report_json, _ = _suppress_stdout_call(command_check, config)
+        report = _read_json(report_json)
+        raw_payload = report
+        missing = report.get("missing", []) if isinstance(report.get("missing", []), list) else []
+        warnings = report.get("warnings", []) if isinstance(report.get("warnings", []), list) else []
+        verdict = str(report.get("verdict", "UNKNOWN"))
+        activity_rows = [
+            (now, "Check Verdict", verdict, "OK" if verdict == "PASS" else "WARN"),
+            (now, "Missing Files", str(len(missing)), "BLOCK" if missing else "OK"),
+            (now, "Warnings", str(len(warnings)), "WARN" if warnings else "OK"),
+            (now, "Report", _clip_text(str(report_json), 96), "WRITTEN"),
+        ]
+        warn_count += len(warnings)
+        block_count += len(missing)
+    elif command == "help":
+        payload = {
+            "organ": config.organ_name,
+            "commands": [row[0] for row in palette],
+            "shell_usage": f"py -3 TOOLS/{config.organ_slug}_agent_runner.py shell",
+            "visual_status": visual_status,
+        }
+        raw_payload = payload
+        activity_rows = [
+            (now, "Shell", "Visual Shell V0.2 summary-first mode", "READY"),
+            (now, "Detail Mode", "Use raw-status/raw-tools/raw-identity/raw-check", "INFO"),
+            (now, "Renderer", _renderer_mode(), "ACTIVE"),
+            (now, "Command Count", str(len(palette)), "READY"),
+        ]
+    else:
+        activity_rows = [
+            (now, "Command", command, "UNKNOWN"),
+            (now, "Hint", "Use help for available commands.", "WARN"),
+        ]
+        warn_count += 1
+
+    bottom = [
+        f"latest_report: {latest_report_path}",
+        f"latest_receipt: {latest_receipt_path}",
+        f"event_summary: WARN={warn_count} ERROR={error_count} BLOCK={block_count}",
+    ]
+    if detail and raw_payload:
+        bottom.append("detail_mode: raw payload enabled by explicit request")
+
+    return {
+        "command": command,
+        "detail": detail,
+        "palette": palette,
+        "activity_rows": activity_rows,
+        "tool_rows": tool_rows,
+        "raw_payload": raw_payload,
+        "warn_count": warn_count,
+        "error_count": error_count,
+        "block_count": block_count,
+        "git_head_short": head_short,
+        "git_branch": branch,
+        "git_dirty": dirty,
+        "visual_status": visual_status,
+        "renderer": _renderer_mode(),
+        "latest_output": latest_output,
+        "bottom": bottom,
+        "tool_summary": tool_summary,
+    }
+
+
+def _render_shell_command_view(config: OrganConfig, command: str, detail: bool) -> None:
+    payload = _visual_payload_for_command(config, command, detail)
+    tool_summary = payload["tool_summary"]
+    palette = payload["palette"]
+    activity_rows = payload["activity_rows"]
+    tool_rows = payload["tool_rows"]
+    bottom = payload["bottom"]
+    visual_status = payload["visual_status"]
+    renderer = payload["renderer"]
+    warn_count = int(payload["warn_count"])
+    error_count = int(payload["error_count"])
+    block_count = int(payload["block_count"])
+
+    top_lines = [
+        f"[=COG=] {config.organ_name} :: MECHANICUS VISUAL SHELL {VISUAL_SHELL_VERSION}",
+        f"mission: {config.identity_summary}",
+        (
+            f"backend_truth: head={payload['git_head_short']} branch={payload['git_branch']} "
+            f"dirty={'yes' if payload['git_dirty'] else 'no'}"
+        ),
+        (
+            f"visual_status: {visual_status} | renderer: {renderer} | commands: {len(palette)} "
+            f"| warn: {warn_count} | error: {error_count} | block: {block_count}"
+        ),
+    ]
+
+    if HAVE_RICH and Console is not None and Panel is not None and Table is not None and box is not None:
         console = Console()
-        layout = Layout()
-        layout.split_column(
-            Layout(name="top", size=7),
-            Layout(name="middle"),
-            Layout(name="bottom", size=5),
+
+        activity_table = Table(box=box.SIMPLE_HEAVY, show_header=True, expand=True)
+        activity_table.add_column("TIME", style="cyan", width=9)
+        activity_table.add_column("ITEM", style="bold white", width=20)
+        activity_table.add_column("DETAIL", style="white")
+        activity_table.add_column("STATE", style="bold green", width=10)
+        for row in activity_rows:
+            activity_table.add_row(row[0], row[1], row[2], row[3])
+
+        command_table = Table(box=box.SIMPLE_HEAVY, show_header=True, expand=True)
+        command_table.add_column("CMD", style="bold cyan", width=14)
+        command_table.add_column("SUMMARY", style="white")
+        command_table.add_column("KEY", style="yellow", width=8)
+        for cmd, summary, key in palette[:12]:
+            command_table.add_row(cmd, _clip_text(summary, 60), key)
+
+        registry_table = Table(box=box.SIMPLE_HEAVY, show_header=True, expand=True)
+        registry_table.add_column("TOOL", style="cyan", width=24)
+        registry_table.add_column("OWNER", style="white", width=22)
+        registry_table.add_column("STATUS", style="bold green", width=18)
+        if tool_rows:
+            for row in tool_rows[:10]:
+                registry_table.add_row(row[0], row[1], row[2])
+        else:
+            preview = tool_summary.get("preview", []) if isinstance(tool_summary.get("preview", []), list) else []
+            for item in preview[:8]:
+                registry_table.add_row(str(item), "MECHANICUS", "SUMMARY")
+
+        registry_summary_lines = [
+            f"path: {_clip_text(str(tool_summary.get('registry_source', '')), 110)}",
+            (
+                "counts: registered="
+                f"{tool_summary.get('registered_tool_count', 0)} "
+                f"available={tool_summary.get('available_tool_count', 0)} "
+                f"missing={tool_summary.get('missing_tool_count', 0)}"
+            ),
+        ]
+
+        raw_json_text = json.dumps(payload.get("raw_payload", {}), ensure_ascii=True, indent=2)
+        raw_json_text = raw_json_text if len(raw_json_text) <= 3500 else raw_json_text[:3500] + "\n...<truncated>..."
+
+        console.print(Panel("\n".join(top_lines), title="TOP STATUS BAR", border_style="bright_red"))
+        console.print(Panel(activity_table, title="LEFT WORK ZONE // CURRENT ACTIVITY", border_style="bright_red"))
+        console.print(
+            Panel(
+                "MISSION FOCUS\nMaintain code purity and tooling truth.\nValidate. Automate. Forge forward.",
+                title="LEFT WORK ZONE // MISSION FOCUS",
+                border_style="bright_red",
+            )
         )
-        layout["middle"].split_row(Layout(name="left"), Layout(name="right"))
-        layout["top"].update(Panel("\n".join(zones["top"]), title="TOP STATUS BAR"))
-        layout["left"].update(Panel("\n".join(zones["left"]), title="LEFT WORK ZONE"))
-        layout["right"].update(Panel("\n".join(zones["right"]), title="RIGHT COMMAND ZONE"))
-        layout["bottom"].update(Panel("\n".join(zones["bottom"]), title="BOTTOM EVENT BAR"))
-        console.print(layout)
+        console.print(Panel(command_table, title="RIGHT COMMAND ZONE // OPERATOR PALETTE", border_style="bright_red"))
+        console.print(
+            Panel(
+                "\n".join(registry_summary_lines) + "\n",
+                title="TOOL REGISTRY // CAPABILITY OVERVIEW",
+                border_style="bright_red",
+                subtitle=f"rows={len(tool_rows) if tool_rows else len(tool_summary.get('preview', []))}",
+            )
+        )
+        console.print(registry_table)
+        console.print(Panel("\n".join(bottom), title="BOTTOM EVENT BAR", border_style="bright_red"))
+        if detail:
+            console.print(Panel(raw_json_text, title="DETAIL RAW PAYLOAD", border_style="yellow"))
     else:
         print("TOP STATUS BAR")
-        for row in zones["top"]:
-            print(f"- {row}")
+        for line in top_lines:
+            print(f"- {line}")
         print("LEFT WORK ZONE")
-        for row in zones["left"]:
-            print(f"- {row}")
+        for row in activity_rows:
+            print(f"- {row[0]} | {row[1]} | {row[2]} | {row[3]}")
         print("RIGHT COMMAND ZONE")
-        for row in zones["right"]:
-            print(f"- {row}")
+        for cmd, summary, key in palette[:12]:
+            print(f"- {cmd} :: {_clip_text(summary, 72)} :: [{key}]")
+        print("TOOL REGISTRY")
+        print(f"- path={tool_summary.get('registry_source', '')}")
+        print(
+            "- counts: registered="
+            f"{tool_summary.get('registered_tool_count', 0)} "
+            f"available={tool_summary.get('available_tool_count', 0)} "
+            f"missing={tool_summary.get('missing_tool_count', 0)}"
+        )
+        for row in tool_rows[:10]:
+            print(f"- tool={row[0]} owner={row[1]} status={row[2]}")
         print("BOTTOM EVENT BAR")
-        for row in zones["bottom"]:
-            print(f"- {row}")
+        for line in bottom:
+            print(f"- {line}")
         print(f"RENDERER_MODE: {_renderer_mode()}")
         print(f"VISUAL_STATUS: {_visual_status()}")
+        if detail:
+            raw_json_text = json.dumps(payload.get("raw_payload", {}), ensure_ascii=True, indent=2)
+            raw_json_text = raw_json_text if len(raw_json_text) <= 3500 else raw_json_text[:3500] + "\n...<truncated>..."
+            print("DETAIL RAW PAYLOAD")
+            print(raw_json_text)
 
 
 def _shell_dispatch(config: OrganConfig, raw: str) -> Tuple[int, bool]:
     token = raw.strip()
     if not token:
         return 0, False
-    if token in {"exit", "quit", "/exit", "/quit"}:
+    if token.lower() in {"exit", "quit", "/exit", "/quit"}:
         return 0, True
-    if token in {"help", "/help"}:
-        command_help(config)
+
+    parsed, detail = _parse_shell_token(token)
+    if parsed in {"status", "tools", "identity", "check", "help"}:
+        _render_shell_command_view(config, parsed, detail)
         return 0, False
-    if token in {"status", "/status"}:
-        command_status(config)
-        return 0, False
-    if token in {"check", "/check"}:
-        command_check(config)
-        return 0, False
-    if token in {"where", "/where"}:
-        command_where(config)
-        return 0, False
-    if token in {"identity", "/identity"}:
-        command_identity(config)
-        return 0, False
-    if token in {"tools", "/tools"}:
-        command_tools(config)
-        return 0, False
-    if token in {"pack", "/pack"}:
-        command_pack(config)
+    if parsed in {"where", "pack"} and not detail:
+        if parsed == "where":
+            command_where(config)
+        else:
+            command_pack(config)
         return 0, False
 
-    domain = _canonical_domain_command(config, token)
-    if domain:
+    domain = _canonical_domain_command(config, parsed)
+    if domain and not detail:
         command_domain(config, domain)
         return 0, False
 
-    print("Unknown shell command. Use help.")
+    print("Unknown shell command. Use help, status, tools, identity, check, raw-*, or exit.")
     return 2, False
 
 
 def command_shell(config: OrganConfig, once: Optional[str]) -> int:
     ensure_base_layout(config)
-    warnings: List[str] = [VISUAL_WARN_PLAIN_FALLBACK] if not HAVE_RICH else []
     if once:
-        _render_shell_header(config, warnings, latest_output=f"once_mode_command={once}")
         code, _ = _shell_dispatch(config, once)
         return code
 
-    _render_shell_header(config, warnings)
-    print("Type: help, status, check, where, identity, tools, pack, <domain-command>, exit")
+    _render_shell_command_view(config, "status", detail=False)
+    print("Type: help, status, tools, identity, check, raw-status/raw-tools/raw-identity/raw-check, exit")
     while True:
         try:
             raw = input(f"{config.organ_slug}> ")

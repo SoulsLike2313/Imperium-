@@ -1,0 +1,60 @@
+error: externally-managed-environment
+
+× This environment is externally managed
+╰─> To install Python packages system-wide, try apt install
+    python3-xyz, where xyz is the package you are trying to
+    install.
+    
+    If you wish to install a non-Debian-packaged Python package,
+    create a virtual environment using python3 -m venv path/to/venv.
+    Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make
+    sure you have python3-full installed.
+    
+    If you wish to install a non-Debian packaged Python application,
+    it may be easiest to use pipx install xyz, which will manage a
+    virtual environment for you. Make sure you have pipx installed.
+    
+    See /usr/share/doc/python3.12/README.venv for more information.
+
+note: If you believe this is a mistake, please contact your Python installation or OS distribution provider. You can override this, at the risk of breaking your Python installation or OS, by passing --break-system-packages.
+hint: See PEP 668 for the detailed specification.
+Collecting textual
+  Downloading textual-8.2.7-py3-none-any.whl.metadata (9.1 kB)
+Collecting prompt_toolkit
+  Downloading prompt_toolkit-3.0.52-py3-none-any.whl.metadata (6.4 kB)
+Collecting pyfiglet
+  Downloading pyfiglet-1.0.4-py3-none-any.whl.metadata (7.4 kB)
+Requirement already satisfied: markdown-it-py>=2.1.0 in /usr/lib/python3/dist-packages (from markdown-it-py[linkify]>=2.1.0->textual) (3.0.0)
+Collecting mdit-py-plugins (from textual)
+  Downloading mdit_py_plugins-0.6.1-py3-none-any.whl.metadata (2.9 kB)
+Requirement already satisfied: platformdirs<5,>=3.6.0 in /usr/lib/python3/dist-packages (from textual) (4.2.0)
+Collecting pygments<3.0.0,>=2.19.2 (from textual)
+  Downloading pygments-2.20.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting rich>=14.2.0 (from textual)
+  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: typing-extensions<5.0.0,>=4.4.0 in /usr/lib/python3/dist-packages (from textual) (4.10.0)
+Collecting wcwidth (from prompt_toolkit)
+  Downloading wcwidth-0.7.0-py3-none-any.whl.metadata (36 kB)
+Requirement already satisfied: mdurl~=0.1 in /usr/lib/python3/dist-packages (from markdown-it-py>=2.1.0->markdown-it-py[linkify]>=2.1.0->textual) (0.1.2)
+Collecting linkify-it-py<3,>=1 (from markdown-it-py[linkify]>=2.1.0->textual)
+  Downloading linkify_it_py-2.1.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting uc-micro-py (from linkify-it-py<3,>=1->markdown-it-py[linkify]>=2.1.0->textual)
+  Downloading uc_micro_py-2.0.0-py3-none-any.whl.metadata (2.2 kB)
+Downloading textual-8.2.7-py3-none-any.whl (731 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 731.1/731.1 kB 2.0 MB/s eta 0:00:00
+Downloading prompt_toolkit-3.0.52-py3-none-any.whl (391 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.4/391.4 kB 9.1 MB/s eta 0:00:00
+Downloading pyfiglet-1.0.4-py3-none-any.whl (1.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 10.0 MB/s eta 0:00:00
+Downloading pygments-2.20.0-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 30.7 MB/s eta 0:00:00
+Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.7/310.7 kB 15.3 MB/s eta 0:00:00
+Downloading mdit_py_plugins-0.6.1-py3-none-any.whl (66 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.7/66.7 kB 13.3 MB/s eta 0:00:00
+Downloading wcwidth-0.7.0-py3-none-any.whl (110 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.8/110.8 kB 19.2 MB/s eta 0:00:00
+Downloading linkify_it_py-2.1.0-py3-none-any.whl (19 kB)
+Downloading uc_micro_py-2.0.0-py3-none-any.whl (6.4 kB)
+Installing collected packages: wcwidth, uc-micro-py, pygments, pyfiglet, rich, prompt_toolkit, mdit-py-plugins, linkify-it-py, textual
+Successfully installed linkify-it-py-2.1.0 mdit-py-plugins-0.6.1 prompt_toolkit-3.0.52 pyfiglet-1.0.4 pygments-2.20.0 rich-15.0.0 textual-8.2.7 uc-micro-py-2.0.0 wcwidth-0.7.0
