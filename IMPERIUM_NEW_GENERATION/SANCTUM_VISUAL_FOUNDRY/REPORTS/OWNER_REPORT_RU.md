@@ -20,9 +20,9 @@ SUMMARY:
 - Custodes/Throne сохранены как `locked`, без fake-real статусов; часть веток честно оставлена `stub`/`unknown`.
 
 GIT:
-HEAD: `PENDING_COMMIT`
-STATUS: `dirty (task changes in admitted scope pending commit)`
-COMMIT: `pending`
+HEAD: `971ed8f (hardening commit)`
+STATUS: `post-commit status recorded in task artifact GIT_STATUS_AFTER.txt`
+COMMIT: `https://github.com/SoulsLike2313/Imperium-/commit/971ed8f`
 
 NEXT ALLOWED TASK:
 `Implement one concrete visual unit through this hardened topology after Owner review.`

@@ -32,3 +32,8 @@
 - Updated `VALIDATORS/validate_visual_topology.py` to include Officio ACK gate and semantic coverage checks.
 - Validator report: `REPORTS/validator_v0_2_report.json`
 - Final validator result: PASS (81/81 checks).
+
+## Phase 8 — Commit/push (hardening)
+- Commit created: `971ed8f`.
+- Push result: `origin/master updated successfully`.
+- Inherited forbidden-scope dirty files remain untouched.
