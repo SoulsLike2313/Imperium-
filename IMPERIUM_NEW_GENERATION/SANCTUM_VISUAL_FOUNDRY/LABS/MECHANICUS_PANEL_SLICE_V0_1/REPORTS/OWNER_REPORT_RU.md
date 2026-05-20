@@ -1,19 +1,22 @@
 # FINAL OWNER REPORT
 
 STEP:
-`TASK-20260520-NEWGEN-MECHANICUS-PANEL-VISUAL-SLICE-VM3-V0_1`
+`TASK-20260520-NEWGEN-MECHANICUS-PANEL-NEURO-FORGE-ANIMATION-VM3-V0_2`
 
 VERDICT:
-`MECHANICUS_PANEL_SLICE_V0_1_ACCEPTED_FOR_OWNER_REVIEW`
+`MECHANICUS_PANEL_NEURO_FORGE_V0_2_ACCEPTED_FOR_OWNER_REVIEW`
 
 SUMMARY:
-- Реализован один изолированный slice: `SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL`.
-- Построены все 5 обязательных зон: header, work zone, command palette, tool registry, footer/evidence.
-- Использованы все reference-assets как grounding (стиль ближе к `01_TARGET...`, семантика из `02_CURRENT...` и `03_CURRENT...`).
-- `UNKNOWN`, `STUB`, `LOCKED` показаны явно и честно, fake-статусы не выставлены.
-- Результат уже не generic-dashboard: есть выраженная mechanicus-композиция, фордж-акценты, иерархия оператора.
+- Форма среза заметно подтянута к целевому референсу: усилен shell-контур, командная зона, плотность иерархии.
+- Добавлены restrained ambient-анимации (edge breathing, scan drift, sigil pulse, neural lattice, particle drift).
+- Добавлен явный neuro memory-zone слой (memory field + нейросеточная подложка), чтобы панель ощущалась как зона памяти инструментов.
+- Truth-дисциплина сохранена: `UNKNOWN`/`STUB`/`LOCKED` не скрыты, fake backend-активность не имитируется.
+- Получился не generic dark dashboard, а более цельная нейро-механическая капсула Operator/Mechanicus.
 
 GIT:
-HEAD: `da0a04d39a747dc1ca09bf791e149e10ab511f92`
-STATUS: dirty with inherited pre-existing changes outside task scope; slice/task outputs are isolated in allowed roots
+HEAD: `138c2dfc3cc78540a6f9d72dacc7ae5933487b9d`
+STATUS: dirty with inherited pre-existing changes outside scope; current task writes are bounded
 COMMIT: pending at report generation stage
+
+NEXT ALLOWED TASK:
+Integrate this V0_2 slice into Sanctum shell entrypoint with the same truth-safe semantics (no scope spill).

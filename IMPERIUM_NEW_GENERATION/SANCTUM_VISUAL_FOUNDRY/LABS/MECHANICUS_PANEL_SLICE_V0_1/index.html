@@ -3,11 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mechanicus Panel Slice V0.1</title>
+  <title>Mechanicus Panel Slice V0.2 Neuro Forge</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="state-active">
-  <div class="scanline"></div>
+  <div class="neuro-haze" aria-hidden="true"></div>
+  <div class="neural-grid" aria-hidden="true"></div>
+  <div class="charge-field" id="chargeField" aria-hidden="true"></div>
+  <div class="scanline" aria-hidden="true"></div>
+
   <div class="slice-shell">
     <header id="zone-header" class="panel-header zone-frame">
       <div class="identity-wrap">
@@ -15,6 +19,7 @@
           <svg viewBox="0 0 120 120" role="img">
             <circle cx="60" cy="60" r="42" class="sigil-ring"></circle>
             <circle cx="60" cy="60" r="24" class="sigil-core"></circle>
+            <circle cx="60" cy="60" r="7" class="sigil-core-dot"></circle>
             <g class="sigil-cogs">
               <rect x="58" y="8" width="4" height="18"></rect>
               <rect x="58" y="94" width="4" height="18"></rect>
@@ -30,19 +35,21 @@
         <div>
           <p class="eyebrow">SANCTUM.RIGHT_CONTEXT_DOCK</p>
           <h1>MECHANICUS_PANEL</h1>
-          <p class="subtitle">Forge-side operator capsule for validated commands and capability truth.</p>
+          <p class="subtitle">Neuro-forge memory capsule for tool memory, bounded operators, and truth-safe command lanes.</p>
           <div class="truth-pills">
             <span class="pill neutral">BACKEND SOURCE: CANDIDATE</span>
             <span id="statePill" class="pill">STATE: ACTIVE</span>
             <span class="pill warn">SSE: STUB</span>
             <span class="pill unknown">LIVE TRANSPORT: UNKNOWN</span>
+            <span class="pill accent">AMBIENT LAYER: COSMETIC</span>
           </div>
         </div>
       </div>
+
       <div class="header-metrics">
         <article>
           <h2>HEAD</h2>
-          <p>da0a04d</p>
+          <p>138c2df</p>
         </article>
         <article>
           <h2>ALLOWLIST</h2>
@@ -50,14 +57,40 @@
         </article>
         <article>
           <h2>VISUAL TIER</h2>
-          <p>CHEAP MOTION</p>
+          <p>NEURO_FORGE_V0_2</p>
         </article>
         <article>
-          <h2>GROUNDING</h2>
-          <p>ASSET + TOPOLOGY</p>
+          <h2>CMDS</h2>
+          <p id="metricCmds">0</p>
+        </article>
+        <article>
+          <h2>WARN</h2>
+          <p id="metricWarn">0</p>
+        </article>
+        <article>
+          <h2>BLOCK</h2>
+          <p id="metricBlock">0</p>
         </article>
       </div>
     </header>
+
+    <section id="zone-memory" class="zone-frame memory-zone">
+      <div class="zone-title">NEURO MEMORY FIELD // TOOL INTELLIGENCE LATTICE</div>
+      <div class="memory-grid">
+        <article>
+          <h2>ARCHIVE SPINE</h2>
+          <p>Tools, validators, and registries are represented as memory threads, not fake runtime signals.</p>
+        </article>
+        <article>
+          <h2>COGNITION BAND</h2>
+          <p>Ambient neural flow is decorative only. Truth statuses remain bound to explicit static/mock-safe values.</p>
+        </article>
+        <article>
+          <h2>SAFETY ANCHOR</h2>
+          <p>Unknown lanes are kept visible: <code>UNKNOWN</code>, <code>STUB</code>, <code>LOCKED</code>.</p>
+        </article>
+      </div>
+    </section>
 
     <section id="zone-work" class="zone-frame work-zone">
       <div class="zone-title">WORK ZONE // CURRENT ACTIVITY</div>
@@ -66,7 +99,7 @@
 
     <section id="zone-command" class="zone-frame command-zone">
       <div class="zone-title">COMMAND ZONE // OPERATOR PALETTE</div>
-      <p class="zone-note">Only allowlisted commands are executable. Unknown lanes remain explicitly blocked.</p>
+      <p class="zone-note">Allowlisted commands only. Ambient motion is not command execution telemetry.</p>
       <div class="command-grid" id="commandGrid"></div>
       <div class="state-controls">
         <span>Slice state</span>
@@ -80,6 +113,7 @@
 
     <section id="zone-registry" class="zone-frame registry-zone">
       <div class="zone-title">TOOL REGISTRY // CAPABILITY OVERVIEW</div>
+      <p class="registry-path">PATH: ..\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\MECHANICUS_AGENT\\TOOLS</p>
       <div class="registry-counters">
         <article><h2>Registered</h2><p id="countRegistered">0</p></article>
         <article><h2>Available (PC)</h2><p id="countAvailable">0</p></article>
@@ -98,20 +132,24 @@
     <footer id="zone-footer" class="zone-frame panel-footer">
       <div>
         <h2>MISSION FOCUS</h2>
-        <p>Validate command integrity, preserve truth binding, and expose uncertainty explicitly.</p>
+        <p>Preserve command truth boundaries, maintain machine-capsule hierarchy, and expose uncertainty explicitly.</p>
       </div>
       <div>
         <h2>EVIDENCE</h2>
         <p>Latest report: <code>REPORTS/IMPLEMENTATION_REPORT_EN.md</code></p>
-        <p>Latest receipt: <code>RECEIPTS/FINAL_RECEIPT.json</code></p>
+        <p>Latest receipt: <code>RECEIPTS/FINAL_RECEIPT_V0_2.json</code></p>
       </div>
       <div>
         <h2>HONEST LANES</h2>
         <ul>
-          <li><strong>UNKNOWN:</strong> SSE live stream in this isolated slice.</li>
+          <li><strong>UNKNOWN:</strong> live payload certainty in isolated lab.</li>
           <li><strong>STUB:</strong> realtime backend transport hook.</li>
-          <li><strong>LOCKED:</strong> privileged command lanes outside allowlist.</li>
+          <li><strong>LOCKED:</strong> privileged commands outside allowlist.</li>
         </ul>
+      </div>
+      <div>
+        <h2>ANIMATION TRUTH NOTE</h2>
+        <p>All neuro-forge motion is atmospheric only and does not imply backend command execution.</p>
       </div>
       <div class="motion-toggle">
         <button id="motionToggle" type="button">Reduced Motion: OFF</button>
