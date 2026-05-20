@@ -1,0 +1,47 @@
+{
+  "visual_unit_id": "SANCTUM.SHELL.GLOBAL_FRAME",
+  "parent": "SANCTUM.SHELL",
+  "type": "shell_frame",
+  "owner_group": "SANCTUM",
+  "owner_organ": "OFFICIO_AGENTIS_AGENT",
+  "purpose": "Top-level shell container that keeps primary topology and cockpit zones consistent.",
+  "backend_source": {
+    "paths": [
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/index.html",
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/styles.css"
+    ],
+    "mode": "static_layout"
+  },
+  "allowed_states": [
+    "idle",
+    "active",
+    "warn",
+    "error",
+    "unknown"
+  ],
+  "truth_rules": [
+    "Frame-level status chips must come from /api/state-derived data.",
+    "Missing data renders UNKNOWN, never synthetic green."
+  ],
+  "visual_tokens": "sanctum_shell_tokens",
+  "texture": "forge_metal_dark",
+  "glow": {
+    "enabled": false
+  },
+  "motion": {
+    "enabled": true,
+    "animation": "panel_slide_right",
+    "perf_tier": "CHEAP",
+    "disable_in_reduced_motion": true
+  },
+  "perf_tier": "CHEAP",
+  "accessibility_rules": [
+    "Shell structure remains readable at 1366x768 without horizontal scroll."
+  ],
+  "proof_requirements": [
+    "Screen capture of full shell with top/main/right/footer segmentation.",
+    "Mapping proof to index.html layout zones."
+  ],
+  "change_safety": "Frame spacing or borders may change without mutating organ semantics.",
+  "integration_status": "real"
+}

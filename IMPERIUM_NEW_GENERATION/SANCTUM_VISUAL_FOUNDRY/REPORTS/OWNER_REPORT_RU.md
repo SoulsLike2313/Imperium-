@@ -1,36 +1,25 @@
-# OWNER REPORT (RU)
-
 STEP:
-
-`TASK-20260520-NEWGEN-VISUAL-FOUNDRY-BRAIN-FORGE-ITERATION-TOKEN-REPAIR-PC-V0_1`
+`TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1`
 
 BUNDLE / REPORT PATH:
-
-`E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\REPORTS`
+`E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\REPORTS\`
 
 VERDICT:
-
-PASS
+`VISUAL_TOPOLOGY_SKELETON_READY`
 
 SUMMARY:
-
-- Усилен brain field: увеличена визуальная масса neural core, добавлены halo-слои и neural links, brain-домен стал центром сцены.
-- Усилен forge/holograph характер: материализована смесь 60/20/20 через палитру, световые акценты и более глубокие поверхности.
-- Правая панель переведена в cockpit-язык: rail-структура, модульные блоки и action switchboard вместо плоских карточек.
-- Создан отдельный token layer v0.2: `design_tokens_mechanicus_console_v0_2.json`, `design_tokens_mechanicus_console_v0_2.css`, `token_usage_report.md`.
-- LAB явно потребляет `TOKENS v0.2` (подтверждено `validation_report.json`).
-- Сняты новые proof-скриншоты: full 1366/1920, brain focus, right panel focus, raw secondary mode.
+- Проведен полный аудит frontend-контуров внутри `IMPERIUM_NEW_GENERATION` (SANCTUM_MINI + SANCTUM_VISUAL_FOUNDRY + ORGAN_AGENTS truth paths).
+- Создан адресный skeleton: visual address registry, unit passports, organ profiles, token/texture/motion registries, backend-frontend truth map.
+- Введен явный статусный слой `real/stub/locked`, чтобы исключить fake-ready для неактивных орган-веток.
+- Добавлен validator topology, результат: `PASS` (см. `REPORTS/validation_report.json`).
 
 GIT:
-
-HEAD: `66ebf5b079d9c9bc4129a39cee91befa731ab4bd`
-STATUS: dirty (task artifacts in `IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY`)
-COMMIT: not created in this run
+HEAD: `c35532aa38bccbba34e056c48e2e3322d5099c0f` (before task commit)
+STATUS: dirty (task changes staged for this step)
+COMMIT: pending push in current task cycle
 
 MANUAL CHECK:
-
-- open: `E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\LAB\index.html`
-- compare against previous iteration:
-  1. brain dominance and neural mass
-  2. cockpit quality of right panel vs flat-card baseline
-  3. raw mode remains secondary and hidden by default
+- открыть `REGISTRY/visual_address_registry.json`
+- открыть `REPORTS/visual_unit_inventory.md`
+- открыть `REPORTS/backend_frontend_mapping_report.md`
+- открыть `REPORTS/next_frontend_workflow_ru.md`

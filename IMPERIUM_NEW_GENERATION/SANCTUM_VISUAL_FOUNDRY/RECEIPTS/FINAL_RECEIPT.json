@@ -1,8 +1,9 @@
 {
-  "task_id": "TASK-20260520-NEWGEN-VISUAL-FOUNDRY-BRAIN-FORGE-ITERATION-TOKEN-REPAIR-PC-V0_1",
-  "timestamp_utc": "2026-05-20T19:00:04Z",
+  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1",
+  "timestamp_utc": "2026-05-20T20:05:00Z",
   "agent_role": "Codex PC Servitor",
-  "verdict": "PASS",
+  "verdict": "VISUAL_TOPOLOGY_SKELETON_READY",
+  "scope": "IMPERIUM_NEW_GENERATION_ONLY",
   "gates": {
     "GATE-U00-GIT-TRUTH": "PASS",
     "GATE-U01-ROLE-ACK": "PASS",
@@ -12,35 +13,36 @@
     "GATE-U08-REPO-PURITY": "PASS",
     "GATE-U09-NO-FAKE-GREEN": "PASS",
     "GATE-U12-REPORT-OUTPUT-BUDGET": "PASS",
+    "GATE-U13-PYTHON-TYPE-SAFETY": "PASS_TASK_LOCAL_VALIDATOR",
+    "GATE-U14-WHOLE-REPO-SCOPE-RECON": "PASS",
+    "GATE-U15-OPERATIONALITY-IMPACT": "PASS",
     "GATE-U16-BILINGUAL-UI": "PASS",
+    "GATE-U17-DELIVERABLE-PACKAGE": "N/A",
+    "GATE-U18-AGENT-FACTORY-COMPLIANCE": "N/A",
     "GATE-U19-SCRIPT-ARTIFACT-PRESERVATION": "PASS",
     "GATE-U20-AGENT-KPD-SELF-REVIEW": "PASS",
     "GATE-U21-COMMAND-CHUNKING": "PASS"
   },
+  "visual_address_registry": "created",
+  "visual_unit_passports_count": 12,
+  "organ_profiles_count": 11,
+  "validator_result": "PASS",
+  "validator_report_path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\validation_report.json",
   "required_outputs": {
-    "tokens_json_v0_2": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_2.json",
-    "tokens_css_v0_2": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_2.css",
-    "token_usage_report": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\token_usage_report.md",
-    "lab_entry": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\LAB\\index.html",
-    "before_after_review": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\before_after_review.md",
-    "visual_evidence_index": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\visual_evidence_index.md",
-    "validation_report": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\validation_report.json",
-    "owner_report_ru": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\OWNER_REPORT_RU.md",
-    "manual_open_instructions": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\manual_open_instructions.md"
+    "registry_visual_address": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REGISTRY\\visual_address_registry.json",
+    "registry_backend_frontend_map": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REGISTRY\\backend_frontend_truth_map.json",
+    "visual_units": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\VISUAL_UNITS\\*.json",
+    "organ_profiles": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\ORGAN_VISUAL_PROFILES\\*.json",
+    "token_map": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\token_map_v0_1.json",
+    "texture_registry": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TEXTURES\\texture_registry_v0_1.json",
+    "motion_registry": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\MOTION\\motion_registry_v0_1.json",
+    "motion_budget": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\MOTION\\motion_budget_v0_1.json",
+    "validator": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\VALIDATORS\\validate_visual_topology.py",
+    "reports": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\"
   },
-  "screenshot_files": [
-    "brain_forge_iter_full_1366x768.png",
-    "brain_forge_iter_full_1920x1080.png",
-    "brain_forge_iter_brain_focus.png",
-    "brain_forge_iter_right_panel_focus.png",
-    "brain_forge_iter_raw_secondary.png"
+  "fake_green_notes": [
+    "Stub and locked organ lanes are explicitly labeled and not promoted to real.",
+    "Truth strip and evidence layers are STATIC and source-bound."
   ],
-  "warnings": [
-    "Visual layer is prototype-grade and not wired to live backend truth streams.",
-    "Ambient pulse is controlled and moderate, but partly illustrative."
-  ],
-  "scope_truth": {
-    "allowed_root": "IMPERIUM_NEW_GENERATION",
-    "forbidden_root_touched": false
-  }
+  "next_allowed_task": "Implement exactly one visual unit through this topology after Owner review."
 }

@@ -1,38 +1,36 @@
 {
   "agent_kpd_self_review": {
-    "task_id": "TASK-20260520-NEWGEN-VISUAL-FOUNDRY-BRAIN-FORGE-ITERATION-TOKEN-REPAIR-PC-V0_1",
+    "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1",
     "agent_role": "Codex PC Servitor (big-model lane)",
     "useful_outputs": [
-      "Brain-dominant lab iteration with stronger forge/holograph visual identity",
-      "Cockpit-grade right panel replacing flat card feel",
-      "Explicit token layer v0.2 (JSON + CSS) and token usage report",
-      "Updated screenshot evidence set including brain focus and cockpit focus",
-      "Validation/report/receipt package updated for this task"
+      "Visual topology skeleton with addressable registry and 12 unit passports",
+      "Organ visual profiles split into real/stub/locked lanes",
+      "Explicit token-texture-motion registries with performance budget and hero expensive rule",
+      "Backend-frontend truth map with fake-green risk notes",
+      "Reusable topology validator and machine-readable validation report"
     ],
     "waste_points": [
-      "One parallel read of validation report occurred before file rewrite and required a sequential rerun for final truth capture."
+      "Initial taskpack extraction inside repo created temporary dirty state and required cleanup before admission."
     ],
     "missing_tools": [
-      "Optional helper that enforces serialized screenshot->validation->report ordering"
+      "Repository-level utility to scaffold visual topology task outputs from a taskpack schema"
     ],
     "generated_tools_to_preserve": [
-      "PLAYWRIGHT/capture_screenshots.mjs",
-      "PLAYWRIGHT/validate_artifacts.py"
+      "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VALIDATORS/validate_visual_topology.py"
     ],
     "recommended_script_absorption": [
-      "Promote validate_artifacts.py as Visual Foundry token-usage compliance checker",
-      "Promote capture_screenshots.mjs as reusable iteration proof runner"
+      "Promote validate_visual_topology.py as baseline checker for future Visual Foundry topology tasks."
     ],
     "recommended_narrow_agent_profiles": [
-      "visual_foundry_brain_forge_iter_agent_pc",
-      "visual_token_layer_proof_agent_pc"
+      "sanctum_visual_topology_registry_builder_pc",
+      "sanctum_visual_truth_map_auditor_pc"
     ],
     "future_prompt_improvements": [
-      "Add explicit required naming for updated screenshot files to reduce ambiguity.",
-      "Include expected validation checks list in taskpack JSON for stricter parity."
+      "Include explicit schema for validation_report fields in taskpack to reduce format ambiguity.",
+      "Provide canonical organ status source registry in taskpack for faster mapping."
     ],
     "future_gate_or_checklist_recommendations": [
-      "Add checklist entry for explicit token-link assertion in LAB index before screenshot capture."
+      "Add a dedicated gate check for required visual unit filename parity against registry addresses."
     ],
     "kpd_verdict": "GOOD"
   }

@@ -1,0 +1,56 @@
+{
+  "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
+  "parent": "SANCTUM.RIGHT_CONTEXT_DOCK",
+  "type": "organ_panel",
+  "owner_group": "SANCTUM",
+  "owner_organ": "MECHANICUS_AGENT",
+  "purpose": "Active operator cockpit for Mechanicus actions, command stream, and tool registry.",
+  "backend_source": {
+    "paths": [
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/actions.py",
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
+      "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/TOOL_REGISTRY/TOOL_INDEX.json"
+    ],
+    "mode": "api_bound"
+  },
+  "allowed_states": [
+    "idle",
+    "active",
+    "blocked",
+    "error",
+    "unknown"
+  ],
+  "truth_rules": [
+    "Live command execution allowed only for MECHANICUS_AGENT.",
+    "Blocked commands must remain visible as BLOCK with reason."
+  ],
+  "visual_tokens": "mechanicus_panel_tokens",
+  "texture": "glass_holograph_panel",
+  "glow": {
+    "enabled": true,
+    "color_token": "accent_forge_red",
+    "intensity_by_state": {
+      "idle": 0.25,
+      "active": 0.55,
+      "blocked": 0.82,
+      "error": 1.0,
+      "unknown": 0.3
+    }
+  },
+  "motion": {
+    "enabled": true,
+    "animation": "panel_slide_right",
+    "perf_tier": "CHEAP",
+    "disable_in_reduced_motion": true
+  },
+  "perf_tier": "CHEAP",
+  "accessibility_rules": [
+    "Command buttons require text labels and keyboard access."
+  ],
+  "proof_requirements": [
+    "Allowlist evidence from api/actions.py.",
+    "Action history evidence from state action history payload."
+  ],
+  "change_safety": "Panel skin may evolve, but allowlist and terminal safety checks must stay unchanged.",
+  "integration_status": "real"
+}

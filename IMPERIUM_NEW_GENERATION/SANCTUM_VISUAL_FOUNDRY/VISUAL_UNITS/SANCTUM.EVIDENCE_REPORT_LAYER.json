@@ -1,0 +1,46 @@
+{
+  "visual_unit_id": "SANCTUM.EVIDENCE_REPORT_LAYER",
+  "parent": "SANCTUM.CONTROL_SURFACES",
+  "type": "evidence_layer",
+  "owner_group": "SANCTUM",
+  "owner_organ": "ADMINISTRATUM_AGENT",
+  "purpose": "Evidence/report viewport and links to latest report, receipt, and screenshot paths.",
+  "backend_source": {
+    "paths": [
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/mechanicus_adapter.py",
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
+      "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/SCREENSHOTS/screenshot_index.json"
+    ],
+    "mode": "api_bound"
+  },
+  "allowed_states": [
+    "available",
+    "missing",
+    "stale",
+    "unknown"
+  ],
+  "truth_rules": [
+    "Evidence links are valid paths or explicit MISSING values.",
+    "Layer cannot display synthetic readiness when artifact path is missing."
+  ],
+  "visual_tokens": "evidence_layer_tokens",
+  "texture": "archive_blue_cold",
+  "glow": {
+    "enabled": false
+  },
+  "motion": {
+    "enabled": false,
+    "animation": "ambient_disabled",
+    "perf_tier": "STATIC",
+    "disable_in_reduced_motion": true
+  },
+  "perf_tier": "STATIC",
+  "accessibility_rules": [
+    "Evidence list is text-first and screen-reader friendly."
+  ],
+  "proof_requirements": [
+    "Existing report/receipt/screenshot paths resolve on disk."
+  ],
+  "change_safety": "Visual changes must preserve explicit artifact path rendering behavior.",
+  "integration_status": "real"
+}

@@ -1,0 +1,144 @@
+{
+  "registry_id": "VISUAL_ADDRESS_REGISTRY_V0_1",
+  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1",
+  "root": "VISUAL_SYSTEM.SANCTUM_SHELL",
+  "groups": [
+    {
+      "group_id": "SANCTUM.SHELL",
+      "parent": "VISUAL_SYSTEM.SANCTUM_SHELL",
+      "role": "global_container",
+      "status": "real",
+      "units": [
+        "SANCTUM.SHELL.GLOBAL_FRAME"
+      ]
+    },
+    {
+      "group_id": "SANCTUM.BRAIN_FIELD",
+      "parent": "VISUAL_SYSTEM.SANCTUM_SHELL",
+      "role": "brain_topology",
+      "status": "real",
+      "units": [
+        "SANCTUM.BRAIN_FIELD.NEURAL_CORE",
+        "SANCTUM.BRAIN_FIELD.ORGAN_RING",
+        "SANCTUM.BRAIN_FIELD.NEURAL_LINKS",
+        "SANCTUM.BRAIN_FIELD.ACTIVITY_PULSE_LAYER"
+      ]
+    },
+    {
+      "group_id": "SANCTUM.RIGHT_CONTEXT_DOCK",
+      "parent": "VISUAL_SYSTEM.SANCTUM_SHELL",
+      "role": "operator_cockpit",
+      "status": "real_with_stubs",
+      "units": [
+        "SANCTUM.RIGHT_CONTEXT_DOCK",
+        "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
+        "SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB"
+      ]
+    },
+    {
+      "group_id": "SANCTUM.CONTROL_SURFACES",
+      "parent": "VISUAL_SYSTEM.SANCTUM_SHELL",
+      "role": "truth_and_control",
+      "status": "real",
+      "units": [
+        "SANCTUM.TRUTH_STATUS_STRIP",
+        "SANCTUM.COMMAND_SURFACE",
+        "SANCTUM.EVIDENCE_REPORT_LAYER"
+      ]
+    }
+  ],
+  "units": [
+    {
+      "visual_unit_id": "SANCTUM.SHELL.GLOBAL_FRAME",
+      "parent": "SANCTUM.SHELL",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.SHELL.GLOBAL_FRAME.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.NEURAL_CORE",
+      "parent": "SANCTUM.BRAIN_FIELD",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.NEURAL_CORE.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING",
+      "parent": "SANCTUM.BRAIN_FIELD",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE",
+      "parent": "SANCTUM.BRAIN_FIELD.ORGAN_RING",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.NEURAL_LINKS",
+      "parent": "SANCTUM.BRAIN_FIELD",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.NEURAL_LINKS.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ACTIVITY_PULSE_LAYER",
+      "parent": "SANCTUM.BRAIN_FIELD",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ACTIVITY_PULSE_LAYER.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK",
+      "parent": "VISUAL_SYSTEM.SANCTUM_SHELL",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
+      "parent": "SANCTUM.RIGHT_CONTEXT_DOCK",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB",
+      "parent": "SANCTUM.RIGHT_CONTEXT_DOCK",
+      "status": "stub",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.TRUTH_STATUS_STRIP",
+      "parent": "SANCTUM.CONTROL_SURFACES",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.TRUTH_STATUS_STRIP.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.COMMAND_SURFACE",
+      "parent": "SANCTUM.CONTROL_SURFACES",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.COMMAND_SURFACE.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.EVIDENCE_REPORT_LAYER",
+      "parent": "SANCTUM.CONTROL_SURFACES",
+      "status": "real",
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.EVIDENCE_REPORT_LAYER.json"
+    }
+  ],
+  "address_rules": [
+    "Address format is DOT notation: SANCTUM.<GROUP>.<UNIT>[.<SUBUNIT>].",
+    "Every address must map to exactly one passport file and one owner group.",
+    "real/stub/locked status must be explicit and must not be inferred from color.",
+    "Backend truth sources must be declared per unit; UNKNOWN is allowed and must remain explicit.",
+    "Only one hero layer may be EXPENSIVE in motion budget; all other layers stay CHEAP or STATIC."
+  ],
+  "required_hierarchy_snapshot": [
+    "VISUAL_SYSTEM.SANCTUM_SHELL",
+    "SANCTUM.SHELL.GLOBAL_FRAME",
+    "SANCTUM.BRAIN_FIELD.NEURAL_CORE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE",
+    "SANCTUM.BRAIN_FIELD.NEURAL_LINKS",
+    "SANCTUM.RIGHT_CONTEXT_DOCK",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
+    "SANCTUM.TRUTH_STATUS_STRIP",
+    "SANCTUM.COMMAND_SURFACE",
+    "SANCTUM.EVIDENCE_REPORT_LAYER"
+  ]
+}

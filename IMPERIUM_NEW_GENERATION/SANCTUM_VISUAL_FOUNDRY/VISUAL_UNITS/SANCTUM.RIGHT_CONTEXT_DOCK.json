@@ -1,0 +1,52 @@
+{
+  "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK",
+  "parent": "VISUAL_SYSTEM.SANCTUM_SHELL",
+  "type": "context_dock",
+  "owner_group": "SANCTUM",
+  "owner_organ": "OFFICIO_AGENTIS_AGENT",
+  "purpose": "Operator cockpit container for live, command, and tool modules.",
+  "backend_source": {
+    "paths": [
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/index.html",
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/styles.css"
+    ],
+    "mode": "static_layout"
+  },
+  "allowed_states": [
+    "collapsed",
+    "expanded",
+    "focus",
+    "unknown"
+  ],
+  "truth_rules": [
+    "Dock visual readiness must not imply organ readiness.",
+    "Dock modules must keep explicit source links in reports."
+  ],
+  "visual_tokens": "right_dock_tokens",
+  "texture": "glass_holograph_panel",
+  "glow": {
+    "enabled": true,
+    "color_token": "accent_holo_cyan",
+    "intensity_by_state": {
+      "collapsed": 0.1,
+      "expanded": 0.35,
+      "focus": 0.5,
+      "unknown": 0.15
+    }
+  },
+  "motion": {
+    "enabled": true,
+    "animation": "panel_slide_right",
+    "perf_tier": "CHEAP",
+    "disable_in_reduced_motion": true
+  },
+  "perf_tier": "CHEAP",
+  "accessibility_rules": [
+    "Focus order must remain linear across right-dock controls."
+  ],
+  "proof_requirements": [
+    "Dock open state text and selected organ trace in UI."
+  ],
+  "change_safety": "Dock shell updates must not alter backend allowlist or command execution paths.",
+  "integration_status": "real"
+}
