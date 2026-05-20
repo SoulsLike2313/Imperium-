@@ -1,43 +1,36 @@
-# Animation Note
+# Animation Note (V0_3)
 
-- name: `edge_breathing_glow`
-  location: all `.zone-frame` containers
-  intent: subtle panel life pulse
+- name: `neuro_canvas_raf_field`
+  location: `#neuroCanvas` (fixed canvas layer)
+  intent: visible high-density neuro motion and luxury machine atmosphere
   purely ambient: yes
-  reduced-motion behavior: fully disabled via `prefers-reduced-motion` and manual toggle
-  truth-safety: no data/status values are animated to imply backend work
+  reduced-motion behavior: engine draw loop remains active for UI sync but visual draw is disabled
+  truth-safety: no backend coupling; generated from local deterministic/random motion vectors only
 
-- name: `scanline_drift`
-  location: `.scanline` overlay
-  intent: terminal-like atmospheric depth
+- name: `pressure_chamber_wave`
+  location: `#pressureBars` in memory zone
+  intent: communicate "neuro pressure" and richer mechanical intelligence texture
   purely ambient: yes
-  reduced-motion behavior: disabled under reduced motion
-  truth-safety: does not represent command execution or telemetry
+  reduced-motion behavior: bars stay static at baseline values
+  truth-safety: values are synthetic local oscillation, not command or transport metrics
 
-- name: `sigil_pulse`
-  location: header sigil block
-  intent: organ identity heartbeat cue
+- name: `shell_parallax_tilt`
+  location: `.slice-shell` (`--tilt-x`, `--tilt-y`)
+  intent: deepen premium capsule feel and visual depth under pointer movement
   purely ambient: yes
-  reduced-motion behavior: disabled under reduced motion
-  truth-safety: visual identity only, not state proof
+  reduced-motion behavior: tilt target is forced to zero
+  truth-safety: camera-like atmosphere only, no state encoding
 
-- name: `neural_lattice_flow`
-  location: `.neural-grid` background layer
-  intent: neuro memory-zone identity
+- name: `ring_orbit_layers`
+  location: `.charge-ring.ring-a/.ring-b/.ring-c`
+  intent: reinforce neuro reactor identity around the panel shell
   purely ambient: yes
-  reduced-motion behavior: disabled under reduced motion
-  truth-safety: no runtime value coupling
+  reduced-motion behavior: disabled via reduced motion class
+  truth-safety: ornamental motion only
 
-- name: `particle_drift`
-  location: `.charge-field` generated nodes
-  intent: low-intensity machine cognition atmosphere
-  purely ambient: yes
-  reduced-motion behavior: disabled under reduced motion
-  truth-safety: random decorative drift, explicitly not telemetry
-
-- name: `haze_pulse`
-  location: `.neuro-haze` background depth layer
-  intent: soft volumetric breathing around panel
+- name: `frame_breath_haze_scan`
+  location: `.zone-frame`, `.neuro-haze`, `.neural-grid`, `.scanline`, `.sigil`
+  intent: maintain restrained cinematic life across layers
   purely ambient: yes
   reduced-motion behavior: disabled under reduced motion
-  truth-safety: no false activity implication
+  truth-safety: does not represent backend command execution, success, or connectivity

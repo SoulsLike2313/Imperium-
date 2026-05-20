@@ -1,20 +1,22 @@
 # Before / After Note
 
-## Before (V0_1)
-- Good: clear five-zone structure, stronger than generic dashboards, truth-safe labels in place.
-- Gaps: form still less aligned with target shell language; ambient life cues were limited; neuro-memory identity was weak.
+## Before (V0_2 baseline)
+- Good: stronger structure than V0_1, clear command/work/registry hierarchy, safe truth labels already present.
+- Gaps from target:
+  - panel still looked flatter than premium reference shell;
+  - materials lacked "expensive" texture density;
+  - neuro motion existed but was still not dominant enough.
 
-## After (V0_2)
+## After (V0_3 luxury neuro texture pressure)
 - Closer to reference:
-  - stronger shell framing and edge treatment;
-  - denser command lane and hierarchy language;
-  - sharper mechanicus capsule silhouette.
-- Ambient life added:
-  - restrained breathing glow, scan drift, sigil pulse, neural lattice flow, particle drift.
-- Neuro-memory cues added:
-  - dedicated memory field band;
-  - neural lattice/background depth layer;
-  - cognition/memory wording integrated into panel semantics.
+  - heavier shell framing with bracket pressure and deeper capsule silhouette;
+  - stronger premium material language (metal gradients, haze, lattice, scan skin);
+  - more serious operator-capsule identity.
+- Neuro motion visibility upgrade:
+  - local RAF canvas neuro-field with linked nodes;
+  - pointer-reactive pressure glow;
+  - pressure chamber bars with dynamic wave rhythm;
+  - subtle shell parallax tilt.
 - Truth-safe boundaries preserved:
-  - `UNKNOWN`, `STUB`, `LOCKED` still explicit;
-  - animation explicitly atmospheric, not backend state simulation.
+  - `UNKNOWN`, `STUB`, `LOCKED` remain explicit;
+  - motion remains labeled atmospheric and not backend execution telemetry.

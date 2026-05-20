@@ -1,11 +1,12 @@
-# MECHANICUS_PANEL_SLICE_V0_1 (Enhanced to V0_2)
+# MECHANICUS_PANEL_SLICE_V0_1 (Enhanced to V0_3)
 
 Isolated visual lab slice for:
 `SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL`
 
 ## Current Stage
 - Base implementation: V0_1
-- Enhancement pass: V0_2 neuro-forge animation pressure pass
+- Enhancement pass: V0_2 neuro-forge
+- Enhancement pass: V0_3 luxury neuro texture pressure
 - Mode: static/mock-safe UI with explicit truth boundaries
 
 ## Scope
@@ -13,22 +14,21 @@ Isolated visual lab slice for:
 - Stack: plain HTML/CSS/JS only
 - No external CDN or framework runtime dependency
 
-## What Was Strengthened in V0_2
-1. Shell form moved closer to target reference language.
-2. New neuro-memory field introduced as panel identity layer.
-3. Ambient life animation system added (cosmetic-only):
-   - edge breathing glow
-   - scanline drift
-   - sigil pulse
-   - neural lattice flow
-   - particle drift
-4. Command zone received stronger terminal-lane hierarchy.
-5. Work zone and footer styling density increased while preserving readability.
+## What Was Strengthened in V0_3
+1. Shell language moved closer to target reference with richer premium plating and bracketed frame pressure.
+2. Visual material depth increased: layered haze, neural lattice, scanline skin, metallic gradients, and pressure chamber treatment.
+3. Visible neuro-motion upgraded with a local `requestAnimationFrame` canvas engine:
+   - node field synthesis with dynamic links
+   - pointer-reactive neural pressure glow
+   - pressure chamber bars with live ambient wave
+   - subtle parallax shell tilt
+4. Header now exposes local motion observability (`FPS (LOCAL)` + motion mode).
+5. Tool registry was updated to include installed `node` and `npm`.
 
 ## Truth Discipline
 - `UNKNOWN`, `STUB`, and `LOCKED` remain explicit.
-- No fake `CONNECTED`/`PASS` claims were introduced by animation.
-- Ambient effects are explicitly marked as atmospheric only.
+- No fake `CONNECTED`/`PASS` claims were introduced.
+- Neuro motion remains explicitly atmospheric and not backend telemetry.
 
 ## State Behavior
 `app.js` includes:
@@ -39,13 +39,14 @@ Isolated visual lab slice for:
 - `unknown`
 
 Reduced-motion support:
-- `prefers-reduced-motion` CSS fallback
+- `prefers-reduced-motion` fallback
 - manual UI toggle `Reduced Motion: ON/OFF`
+- motion engine scales down when reduced mode is active
 
 ## Evidence
-- Screenshots in `SCREENSHOTS/`
+- Screenshots in `SCREENSHOTS/` (including `01_full.png` and `02_detail_*.png`)
 - Reports in `REPORTS/`
-- V0_2 receipt in `RECEIPTS/FINAL_RECEIPT_V0_2.json`
+- V0_3 receipt in `RECEIPTS/FINAL_RECEIPT_V0_3.json`
 
 ## Open Locally
 Open `index.html` in browser (no build step required).

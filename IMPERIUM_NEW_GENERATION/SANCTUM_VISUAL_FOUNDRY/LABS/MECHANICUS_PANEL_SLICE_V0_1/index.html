@@ -3,16 +3,23 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mechanicus Panel Slice V0.2 Neuro Forge</title>
+  <title>Mechanicus Panel Slice V0.3 Luxury Neuro Texture Pressure</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="state-active">
+  <canvas id="neuroCanvas" class="neuro-canvas" aria-hidden="true"></canvas>
   <div class="neuro-haze" aria-hidden="true"></div>
   <div class="neural-grid" aria-hidden="true"></div>
-  <div class="charge-field" id="chargeField" aria-hidden="true"></div>
   <div class="scanline" aria-hidden="true"></div>
+  <div class="charge-field" aria-hidden="true">
+    <span class="charge-ring ring-a"></span>
+    <span class="charge-ring ring-b"></span>
+    <span class="charge-ring ring-c"></span>
+  </div>
 
   <div class="slice-shell">
+    <div class="shell-brackets" aria-hidden="true"></div>
+
     <header id="zone-header" class="panel-header zone-frame">
       <div class="identity-wrap">
         <div class="sigil" aria-hidden="true">
@@ -33,15 +40,15 @@
           </svg>
         </div>
         <div>
-          <p class="eyebrow">SANCTUM.RIGHT_CONTEXT_DOCK</p>
+          <p class="eyebrow">SANCTUM.RIGHT_CONTEXT_DOCK / ПРАВАЯ ПАНЕЛЬ</p>
           <h1>MECHANICUS_PANEL</h1>
-          <p class="subtitle">Neuro-forge memory capsule for tool memory, bounded operators, and truth-safe command lanes.</p>
+          <p class="subtitle">Luxury neuro-texture command capsule for tool memory, bounded operators, and truth-safe command lanes.</p>
           <div class="truth-pills">
             <span class="pill neutral">BACKEND SOURCE: CANDIDATE</span>
             <span id="statePill" class="pill">STATE: ACTIVE</span>
             <span class="pill warn">SSE: STUB</span>
             <span class="pill unknown">LIVE TRANSPORT: UNKNOWN</span>
-            <span class="pill accent">AMBIENT LAYER: COSMETIC</span>
+            <span class="pill accent">MOTION ENGINE: LOCAL RAF</span>
           </div>
         </div>
       </div>
@@ -49,7 +56,7 @@
       <div class="header-metrics">
         <article>
           <h2>HEAD</h2>
-          <p>138c2df</p>
+          <p>de732c2</p>
         </article>
         <article>
           <h2>ALLOWLIST</h2>
@@ -57,7 +64,11 @@
         </article>
         <article>
           <h2>VISUAL TIER</h2>
-          <p>NEURO_FORGE_V0_2</p>
+          <p>LUXURY_NEURO_V0_3</p>
+        </article>
+        <article>
+          <h2>FPS (LOCAL)</h2>
+          <p id="metricFps">--</p>
         </article>
         <article>
           <h2>CMDS</h2>
@@ -71,11 +82,15 @@
           <h2>BLOCK</h2>
           <p id="metricBlock">0</p>
         </article>
+        <article>
+          <h2>MOTION</h2>
+          <p id="metricMotion">RUN</p>
+        </article>
       </div>
     </header>
 
     <section id="zone-memory" class="zone-frame memory-zone">
-      <div class="zone-title">NEURO MEMORY FIELD // TOOL INTELLIGENCE LATTICE</div>
+      <div class="zone-title">NEURO MEMORY FIELD // ПАМЯТЬ ИНСТРУМЕНТОВ</div>
       <div class="memory-grid">
         <article>
           <h2>ARCHIVE SPINE</h2>
@@ -83,22 +98,27 @@
         </article>
         <article>
           <h2>COGNITION BAND</h2>
-          <p>Ambient neural flow is decorative only. Truth statuses remain bound to explicit static/mock-safe values.</p>
+          <p>Neuro motion remains decorative. Truth statuses are still bound to explicit static/mock-safe values.</p>
         </article>
         <article>
           <h2>SAFETY ANCHOR</h2>
-          <p>Unknown lanes are kept visible: <code>UNKNOWN</code>, <code>STUB</code>, <code>LOCKED</code>.</p>
+          <p>Uncertainty is not hidden: <code>UNKNOWN</code>, <code>STUB</code>, <code>LOCKED</code>.</p>
         </article>
+      </div>
+      <div class="pressure-lattice">
+        <div class="pressure-head">PRESSURE CHAMBER // КАМЕРА НЕЙРО-НАПРЯЖЕНИЯ</div>
+        <div id="pressureBars" class="pressure-bars"></div>
+        <p class="pressure-note">Waveforms are local ambient synthesis only. They do not represent backend command execution.</p>
       </div>
     </section>
 
     <section id="zone-work" class="zone-frame work-zone">
-      <div class="zone-title">WORK ZONE // CURRENT ACTIVITY</div>
+      <div class="zone-title">WORK ZONE // РАБОЧАЯ ЛЕНТА</div>
       <ol id="activityList" class="activity-list"></ol>
     </section>
 
     <section id="zone-command" class="zone-frame command-zone">
-      <div class="zone-title">COMMAND ZONE // OPERATOR PALETTE</div>
+      <div class="zone-title">COMMAND ZONE // ПАЛИТРА ОПЕРАТОРА</div>
       <p class="zone-note">Allowlisted commands only. Ambient motion is not command execution telemetry.</p>
       <div class="command-grid" id="commandGrid"></div>
       <div class="state-controls">
@@ -112,7 +132,7 @@
     </section>
 
     <section id="zone-registry" class="zone-frame registry-zone">
-      <div class="zone-title">TOOL REGISTRY // CAPABILITY OVERVIEW</div>
+      <div class="zone-title">TOOL REGISTRY // РЕЕСТР ВОЗМОЖНОСТЕЙ</div>
       <p class="registry-path">PATH: ..\\IMPERIUM_NEW_GENERATION\\ORGAN_AGENTS\\MECHANICUS_AGENT\\TOOLS</p>
       <div class="registry-counters">
         <article><h2>Registered</h2><p id="countRegistered">0</p></article>
@@ -132,12 +152,12 @@
     <footer id="zone-footer" class="zone-frame panel-footer">
       <div>
         <h2>MISSION FOCUS</h2>
-        <p>Preserve command truth boundaries, maintain machine-capsule hierarchy, and expose uncertainty explicitly.</p>
+        <p>Preserve command truth boundaries, keep machine-capsule hierarchy, and expose uncertainty explicitly.</p>
       </div>
       <div>
         <h2>EVIDENCE</h2>
         <p>Latest report: <code>REPORTS/IMPLEMENTATION_REPORT_EN.md</code></p>
-        <p>Latest receipt: <code>RECEIPTS/FINAL_RECEIPT_V0_2.json</code></p>
+        <p>Latest receipt: <code>RECEIPTS/FINAL_RECEIPT_V0_3.json</code></p>
       </div>
       <div>
         <h2>HONEST LANES</h2>
@@ -149,7 +169,7 @@
       </div>
       <div>
         <h2>ANIMATION TRUTH NOTE</h2>
-        <p>All neuro-forge motion is atmospheric only and does not imply backend command execution.</p>
+        <p>All neuro motion is atmospheric only and does not imply backend command execution.</p>
       </div>
       <div class="motion-toggle">
         <button id="motionToggle" type="button">Reduced Motion: OFF</button>
