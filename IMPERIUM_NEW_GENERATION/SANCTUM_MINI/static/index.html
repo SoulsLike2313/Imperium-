@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanctum Mini V0.3</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="background-grid"></div>
+    <div class="app-shell">
+      <header class="zone top-zone">
+        <div class="brand">
+          <span class="brand-mark">SANCTUM MINI</span>
+          <span class="brand-sub" id="brandSub">Mechanicus Live Terminal V0.3</span>
+        </div>
+        <div class="header-metrics" id="headerMetrics"></div>
+        <button class="lang-switch" id="langSwitch" type="button">RU</button>
+      </header>
+
+      <aside class="zone left-zone">
+        <h2 id="actionsTitle">Owner Actions</h2>
+        <p class="left-note" id="leftNote"></p>
+        <div class="action-list" id="actionList"></div>
+      </aside>
+
+      <main class="zone center-zone">
+        <h2 id="organTitle">Organs</h2>
+        <div class="organ-grid" id="organGrid"></div>
+
+        <div class="center-tabs" id="centerTabs">
+          <button class="center-tab is-active" type="button" data-center-tab="live" id="tabLive">LIVE</button>
+          <button class="center-tab" type="button" data-center-tab="evidence" id="tabEvidence">EVIDENCE</button>
+          <button class="center-tab" type="button" data-center-tab="reports" id="tabReports">REPORTS</button>
+          <button class="center-tab" type="button" data-center-tab="raw" id="tabRaw">RAW JSON</button>
+          <button class="center-tab" type="button" data-center-tab="action-history" id="tabActionHistory">ACTION HISTORY</button>
+        </div>
+
+        <section class="center-panels" id="centerPanels">
+          <div class="center-panel is-active" data-center-panel="live">
+            <div class="live-header">
+              <div class="live-title" id="liveHeaderTitle">MECHANICUS_AGENT :: LIVE TERMINAL</div>
+              <div class="live-meta" id="liveHeaderMeta"></div>
+            </div>
+            <div class="terminal-stream" id="terminalStream"></div>
+            <form class="terminal-input-row" id="terminalForm">
+              <label class="terminal-prompt" for="terminalInput" id="terminalPromptLabel">Command</label>
+              <input id="terminalInput" type="text" autocomplete="off" spellcheck="false" />
+              <button class="terminal-btn" id="terminalRunBtn" type="submit">Run</button>
+              <button class="terminal-btn secondary" id="terminalClearBtn" type="button">Clear</button>
+            </form>
+          </div>
+
+          <div class="center-panel" data-center-panel="evidence">
+            <div class="viewport-zone">
+              <div class="viewport-header" id="evidenceViewportHeader"></div>
+              <div class="viewport-frame">
+                <img id="evidenceViewportImage" alt="mechanicus evidence viewport" />
+                <div class="viewport-empty" id="evidenceViewportEmpty"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="center-panel" data-center-panel="reports">
+            <div class="report-panel" id="reportsPanel"></div>
+          </div>
+
+          <div class="center-panel" data-center-panel="raw">
+            <div class="raw-panel" id="rawPanel"></div>
+          </div>
+
+          <div class="center-panel" data-center-panel="action-history">
+            <div class="history-panel" id="actionHistoryPanel"></div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="zone right-zone">
+        <h2 id="truthTitle">Global Truth</h2>
+        <div id="truthBlock" class="truth-block"></div>
+      </aside>
+
+      <footer class="zone bottom-zone">
+        <h2 id="logTitle">Micro Log</h2>
+        <div id="microLog" class="micro-log"></div>
+      </footer>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
