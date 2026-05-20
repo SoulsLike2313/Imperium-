@@ -1,11 +1,17 @@
 {
-  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1",
-  "generated_at_utc": "2026-05-20T18:06:00Z",
+  "task_id": "TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1",
+  "generated_at_utc": "2026-05-20T18:43:06Z",
   "validator": "validate_artifacts.py",
   "checks": [
     {
+      "name": "owner_intake_schema_min",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake_v0_1.json",
+      "ok": true,
+      "errors": []
+    },
+    {
       "name": "visual_contract_schema_min",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\visual_contract.json",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\visual_contract_mechanicus_console_v0_1.json",
       "ok": true,
       "errors": []
     },
@@ -16,19 +22,19 @@
       "errors": []
     },
     {
+      "name": "design_tokens_css_export",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.css",
+      "ok": true,
+      "errors": []
+    },
+    {
       "name": "component_manifest_schema_min",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\COMPONENTS\\component_state_manifest.json",
+      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\COMPONENTS\\component_state_manifest_mechanicus_console_v0_1.json",
       "ok": true,
       "errors": []
     },
     {
-      "name": "owner_intake_shape",
-      "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake.json",
-      "ok": true,
-      "errors": []
-    },
-    {
-      "name": "screenshot_index_presence",
+      "name": "screenshot_evidence_set",
       "path": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\SCREENSHOTS\\screenshot_index.json",
       "ok": true,
       "errors": []

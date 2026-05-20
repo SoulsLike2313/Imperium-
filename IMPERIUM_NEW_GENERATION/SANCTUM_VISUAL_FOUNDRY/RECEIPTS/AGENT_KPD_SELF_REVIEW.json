@@ -1,41 +1,39 @@
 {
   "agent_kpd_self_review": {
-    "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1",
+    "task_id": "TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1",
     "agent_role": "Codex PC Servitor (big-model lane)",
     "useful_outputs": [
-      "Visual Foundry scaffold with structured pipeline directories",
-      "Owner intake, visual contract, design tokens, and component state manifest",
-      "Runnable isolated lab with bilingual UI and secondary raw mode",
-      "Playwright screenshot automation and screenshot index",
-      "Validation report, scope truth report, final owner report, and final receipt"
+      "Seed intake/contract materialized to required Foundry paths",
+      "Token JSON and token CSS export aligned with style mix",
+      "Split-screen brain-left/panel-right lab implementation",
+      "Playwright screenshot evidence set and schema-driven validation report",
+      "Final owner report and receipt package"
     ],
     "waste_points": [
-      "Additional upfront gate-route reading created overhead but improved compliance confidence."
+      "One validation pass ran concurrently with screenshot generation and produced a temporary false BLOCK before sequential rerun."
     ],
     "missing_tools": [
-      "Unified built-in JSON schema validator utility for Visual Foundry artifacts"
+      "Single command that enforces phase ordering for screenshot->validation to avoid race conditions"
     ],
     "generated_tools_to_preserve": [
       "PLAYWRIGHT/capture_screenshots.mjs",
       "PLAYWRIGHT/validate_artifacts.py"
     ],
     "recommended_script_absorption": [
-      "Promote capture_screenshots.mjs as reusable Visual Foundry screenshot baseline generator",
-      "Promote validate_artifacts.py after optional strict-schema extension"
+      "Absorb validate_artifacts.py as reusable Visual Foundry minimal schema checker",
+      "Absorb capture_screenshots.mjs as baseline proof runner"
     ],
     "recommended_narrow_agent_profiles": [
-      "visual_foundry_slice_builder_pc",
-      "visual_evidence_playwright_runner_pc"
+      "newgen_visual_contract_to_tokens_executor_pc",
+      "visual_slice_evidence_runner_pc"
     ],
     "future_prompt_improvements": [
-      "Provide explicit required starting HEAD inside taskpack to remove admission ambiguity",
-      "Include mandatory report filename map in task spec JSON for less naming drift"
+      "Explicitly state whether pre-existing artifacts from previous task in same folder should be preserved or replaced.",
+      "Include required screenshot filenames in task spec json to reduce naming ambiguity."
     ],
     "future_gate_or_checklist_recommendations": [
-      "Add dedicated gate for 'raw panel secondary by default' visual assertion",
-      "Add reusable scope-truth checker command for pre-existing dirty baseline classification"
+      "Add explicit checklist item: do not run validation in parallel with screenshot generation."
     ],
     "kpd_verdict": "GOOD"
   }
 }
-

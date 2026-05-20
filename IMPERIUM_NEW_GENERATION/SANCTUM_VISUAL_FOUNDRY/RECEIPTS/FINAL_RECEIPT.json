@@ -1,6 +1,6 @@
 {
-  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1",
-  "timestamp_utc": "2026-05-20T18:03:33Z",
+  "task_id": "TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1",
+  "timestamp_utc": "2026-05-20T18:42:55Z",
   "agent_role": "Codex PC Servitor",
   "verdict": "PASS",
   "gates": {
@@ -17,31 +17,31 @@
     "GATE-U20-AGENT-KPD-SELF-REVIEW": "PASS",
     "GATE-U21-COMMAND-CHUNKING": "PASS"
   },
-  "deliverables": {
-    "owner_intake": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake.json",
-    "visual_contract": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\visual_contract.json",
-    "design_tokens": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.json",
-    "component_manifest": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\COMPONENTS\\component_state_manifest.json",
+  "required_outputs": {
+    "owner_intake_md": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake_v0_1.md",
+    "owner_intake_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\OWNER_INTAKE\\owner_visual_intake_v0_1.json",
+    "visual_contract": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\visual_contract_mechanicus_console_v0_1.json",
+    "reference_card": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\CONTRACTS\\reference_interpretation_card_v0_1.md",
+    "tokens_json": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.json",
+    "tokens_css": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\TOKENS\\design_tokens_mechanicus_console_v0_1.css",
+    "component_manifest": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\COMPONENTS\\component_state_manifest_mechanicus_console_v0_1.json",
     "lab_entry": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\LAB\\index.html",
     "validation_report": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\validation_report.json",
-    "owner_report_ru": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\OWNER_REPORT_RU.md",
-    "visual_evidence_index": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\visual_evidence_index.md"
+    "owner_report_ru": "E:\\IMPERIUM\\IMPERIUM_NEW_GENERATION\\SANCTUM_VISUAL_FOUNDRY\\REPORTS\\OWNER_REPORT_RU.md"
   },
-  "screenshots": [
-    "mechanicus_console_full_1366x768.png",
-    "mechanicus_console_full_1920x1080.png",
-    "mechanicus_console_top_strip_detail.png",
-    "mechanicus_console_work_zone_detail.png",
-    "mechanicus_console_command_zone_detail.png",
-    "mechanicus_console_raw_secondary_mode.png"
+  "screenshot_files": [
+    "mechanicus_slice_full_1366x768.png",
+    "mechanicus_slice_full_1920x1080.png",
+    "mechanicus_slice_top_truth_strip.png",
+    "mechanicus_slice_right_panel_visible.png",
+    "mechanicus_slice_raw_secondary.png"
   ],
   "warnings": [
-    "Worktree was dirty before task start due to pre-existing current_status.json outside task write scope.",
-    "Prototype uses static sample state and does not claim live backend integration."
+    "Worktree was already dirty before task start due to current_status.json outside this task scope.",
+    "This is a prototype visual lab and does not claim full live backend integration."
   ],
   "scope_truth": {
     "allowed_root": "IMPERIUM_NEW_GENERATION",
     "forbidden_root_touched": false
   }
 }
-

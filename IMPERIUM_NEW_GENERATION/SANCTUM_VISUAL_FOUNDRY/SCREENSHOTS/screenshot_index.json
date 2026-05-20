@@ -1,15 +1,14 @@
 {
-  "generated_at_utc": "2026-05-20T18:02:52.170Z",
+  "generated_at_utc": "2026-05-20T18:42:27.283Z",
   "viewport_targets": [
     "1366x768",
     "1920x1080"
   ],
   "files": [
-    "mechanicus_console_full_1366x768.png",
-    "mechanicus_console_full_1920x1080.png",
-    "mechanicus_console_top_strip_detail.png",
-    "mechanicus_console_work_zone_detail.png",
-    "mechanicus_console_command_zone_detail.png",
-    "mechanicus_console_raw_secondary_mode.png"
+    "mechanicus_slice_full_1366x768.png",
+    "mechanicus_slice_full_1920x1080.png",
+    "mechanicus_slice_top_truth_strip.png",
+    "mechanicus_slice_right_panel_visible.png",
+    "mechanicus_slice_raw_secondary.png"
   ]
 }

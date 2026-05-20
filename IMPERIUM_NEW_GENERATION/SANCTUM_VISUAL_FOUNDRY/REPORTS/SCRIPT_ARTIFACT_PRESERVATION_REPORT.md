@@ -2,21 +2,20 @@
 
 Task:
 
-- `TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1`
+- `TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1`
 
-## Generated tools
+Generated tools:
 
 1. `PLAYWRIGHT/capture_screenshots.mjs`
-   - purpose: produce required screenshot evidence
+   - purpose: capture required visual proof screenshots
    - result: WORKED
    - recommendation: `BUFFER_FOR_SCRIPTORIUM_REVIEW`
 
 2. `PLAYWRIGHT/validate_artifacts.py`
-   - purpose: validate artifact shape and evidence presence
+   - purpose: validate seed/contract/tokens/manifest/screenshot artifact set
    - result: WORKED
    - recommendation: `BUFFER_FOR_SCRIPTORIUM_REVIEW`
 
-## Preservation verdict
+Preservation verdict:
 
-PASS: generated tools are kept in repository scope and referenced in receipts/reports.
-
+PASS: generated tools are preserved in repository scope and linked from receipts/reports.

@@ -25,34 +25,32 @@ async function capture() {
 
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.waitForTimeout(350);
-  await page.screenshot({ path: out("mechanicus_console_full_1366x768.png"), fullPage: true });
+  await page.screenshot({ path: out("mechanicus_slice_full_1366x768.png"), fullPage: true });
 
   await page.setViewportSize({ width: 1920, height: 1080 });
   await page.waitForTimeout(350);
-  await page.screenshot({ path: out("mechanicus_console_full_1920x1080.png"), fullPage: true });
+  await page.screenshot({ path: out("mechanicus_slice_full_1920x1080.png"), fullPage: true });
 
   await page.setViewportSize({ width: 1366, height: 768 });
   await page.waitForTimeout(250);
 
-  await page.locator(".truth-strip").screenshot({ path: out("mechanicus_console_top_strip_detail.png") });
-  await page.locator(".work-zone").screenshot({ path: out("mechanicus_console_work_zone_detail.png") });
-  await page.locator(".command-rail").screenshot({ path: out("mechanicus_console_command_zone_detail.png") });
+  await page.locator(".truth-strip").screenshot({ path: out("mechanicus_slice_top_truth_strip.png") });
+  await page.locator(".mechanicus-side").screenshot({ path: out("mechanicus_slice_right_panel_visible.png") });
 
   await page.click("#rawToggle");
   await page.waitForTimeout(250);
-  await page.locator(".command-rail").screenshot({ path: out("mechanicus_console_raw_secondary_mode.png") });
+  await page.locator(".mechanicus-side").screenshot({ path: out("mechanicus_slice_raw_secondary.png") });
 
   const indexPath = path.join(screenshotsDir, "screenshot_index.json");
   const index = {
     generated_at_utc: new Date().toISOString(),
     viewport_targets: ["1366x768", "1920x1080"],
     files: [
-      "mechanicus_console_full_1366x768.png",
-      "mechanicus_console_full_1920x1080.png",
-      "mechanicus_console_top_strip_detail.png",
-      "mechanicus_console_work_zone_detail.png",
-      "mechanicus_console_command_zone_detail.png",
-      "mechanicus_console_raw_secondary_mode.png"
+      "mechanicus_slice_full_1366x768.png",
+      "mechanicus_slice_full_1920x1080.png",
+      "mechanicus_slice_top_truth_strip.png",
+      "mechanicus_slice_right_panel_visible.png",
+      "mechanicus_slice_raw_secondary.png"
     ]
   };
   await fs.writeFile(indexPath, `${JSON.stringify(index, null, 2)}\n`, "utf8");
@@ -64,4 +62,3 @@ capture().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
-

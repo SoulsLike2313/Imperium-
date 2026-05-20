@@ -1,25 +1,27 @@
 # Manual Open Instructions
 
-## Fast preview (no server)
+## Direct local open
 
 1. Open file:
    `E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\LAB\index.html`
-2. Verify:
+
+2. First checks:
    - top truth strip is visible
-   - work zone is left
-   - command rail is right
-   - tool registry and events are centered
-3. Click language switch (`EN`/`RU`) in top-right.
-4. Click `RAW OFF` to open secondary technical panel and confirm it appears inside command rail only.
+   - split-screen layout is active (brain field left/center, panel right)
+   - right panel updates when clicking organ zones
+   - raw mode stays hidden until `RAW OFF/RAW ON` toggle
+
+3. Optional language check:
+   - click `EN/RU` toggle in top-right corner
 
 ## Screenshot regeneration
 
 1. `cd E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\PLAYWRIGHT`
 2. `npm install`
-3. `npx playwright install chromium`
-4. `npm run screenshots`
+3. `npm run screenshots`
+4. `python validate_artifacts.py`
 
-Outputs are written into:
+Outputs:
 
-- `E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\SCREENSHOTS`
-
+- screenshots: `E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\SCREENSHOTS`
+- validation: `E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\REPORTS\validation_report.json`

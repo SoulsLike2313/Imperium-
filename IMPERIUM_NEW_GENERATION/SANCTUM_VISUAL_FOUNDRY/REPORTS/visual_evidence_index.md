@@ -2,27 +2,24 @@
 
 Task:
 
-- `TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1`
+- `TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1`
 
-Generated screenshots (`SCREENSHOTS/`):
+Evidence screenshots (`SCREENSHOTS/`):
 
-1. `mechanicus_console_full_1366x768.png`
-2. `mechanicus_console_full_1920x1080.png`
-3. `mechanicus_console_top_strip_detail.png`
-4. `mechanicus_console_work_zone_detail.png`
-5. `mechanicus_console_command_zone_detail.png`
-6. `mechanicus_console_raw_secondary_mode.png`
+1. `mechanicus_slice_full_1366x768.png`
+2. `mechanicus_slice_full_1920x1080.png`
+3. `mechanicus_slice_top_truth_strip.png`
+4. `mechanicus_slice_right_panel_visible.png`
+5. `mechanicus_slice_raw_secondary.png`
+
+Coverage mapping:
+
+1. Full layout at 1366x768 and 1920x1080: items 1 and 2
+2. Top truth strip visible: item 3
+3. Right-side contextual organ panel visible: item 4
+4. Raw mode secondary proof: item 5
 
 Generation method:
 
-- Playwright script: `PLAYWRIGHT/capture_screenshots.mjs`
-- Index file: `SCREENSHOTS/screenshot_index.json`
-
-Acceptance mapping:
-
-1. Responsive full view at 1366x768 and 1920x1080: items 1 and 2
-2. Top strip detail: item 3
-3. Work zone detail: item 4
-4. Command zone detail: item 5
-5. Raw/technical secondary mode proof: item 6
-
+- script: `PLAYWRIGHT/capture_screenshots.mjs`
+- index file: `SCREENSHOTS/screenshot_index.json`

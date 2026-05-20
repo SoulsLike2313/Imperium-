@@ -1,5 +1,5 @@
 {
-  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-FOUNDRY-MECHANICUS-CONSOLE-SLICE-V0_1",
+  "task_id": "TASK-20260520-NEWGEN-VISUAL-CONTRACT-TO-TOKENS-AND-MECHANICUS-SLICE-PC-V0_1",
   "allowed_scope_root": "IMPERIUM_NEW_GENERATION/**",
   "forbidden_roots": [
     "ORGANS/**",
@@ -13,4 +13,3 @@
   "forbidden_scope_findings": [],
   "verdict": "PASS_WITH_PREEXISTING_DIRTY_BASELINE"
 }
-
