@@ -53,6 +53,12 @@ const I18N = {
     overviewTitle: "SANCTUM OVERVIEW // BRAIN SHELL",
     liveTitle: "LIVE OPERATOR CONSOLE",
     rawStreamTitle: "RAW / TECHNICAL MODE",
+    rawModeOn: "RAW MODE ON",
+    rawModeOff: "RAW MODE OFF",
+    panelIdle: "Panel state: waiting for organ selection.",
+    panelOpenedMechanicus: "Mechanicus operator panel opened from brain node click.",
+    panelOpenedPlaceholder: "Placeholder organ selected. Operator panel remains Mechanicus-only.",
+    panelOpenedLocked: "Locked organ selected. Operator panel remains inaccessible for locked lanes.",
     terminalPrompt: "Command",
     terminalPlaceholder: "status | tools | identity | check | where | pack | help | raw | screenshot | clear",
     terminalRun: "Run",
@@ -123,6 +129,12 @@ const I18N = {
     overviewTitle: "SANCTUM OVERVIEW // BRAIN SHELL",
     liveTitle: "LIVE OPERATOR CONSOLE",
     rawStreamTitle: "RAW / TECHNICAL MODE",
+    rawModeOn: "RAW MODE ON",
+    rawModeOff: "RAW MODE OFF",
+    panelIdle: "Состояние панели: ожидание выбора органа.",
+    panelOpenedMechanicus: "Панель Mechanicus открыта по клику на узел мозга.",
+    panelOpenedPlaceholder: "Выбран placeholder-орган. Рабочая панель доступна только для Mechanicus.",
+    panelOpenedLocked: "Выбран locked-орган. Рабочая панель для locked-линий недоступна.",
     terminalPrompt: "Команда",
     terminalPlaceholder: "status | tools | identity | check | where | pack | help | raw | screenshot | clear",
     terminalRun: "Запуск",
@@ -192,6 +204,8 @@ let refreshTimer = null;
 let sse = null;
 let sseEverConnected = false;
 let sseStatusCode = "fallback";
+let rawModeVisible = false;
+let panelOpenStateMessage = "";
 const eventCounters = {};
 
 const el = {
@@ -219,6 +233,10 @@ const el = {
   truthBlock: document.getElementById("truthBlock"),
   liveHeaderTitle: document.getElementById("liveHeaderTitle"),
   liveHeaderMeta: document.getElementById("liveHeaderMeta"),
+  livePanelOpenState: document.getElementById("livePanelOpenState"),
+  rawModeToggleBtn: document.getElementById("rawModeToggleBtn"),
+  liveColumns: document.getElementById("liveColumns"),
+  rawStreamWrap: document.getElementById("rawStreamWrap"),
   liveStatusChips: document.getElementById("liveStatusChips"),
   liveOperatorStream: document.getElementById("liveOperatorStream"),
   rawStreamTitle: document.getElementById("rawStreamTitle"),
@@ -279,6 +297,36 @@ function setActiveTab(tabId) {
   el.panels.forEach((panel) => {
     panel.classList.toggle("is-active", panel.dataset.panel === tabId);
   });
+}
+
+function setRawMode(visible) {
+  rawModeVisible = Boolean(visible);
+  if (el.rawStreamWrap) {
+    el.rawStreamWrap.classList.toggle("is-hidden", !rawModeVisible);
+  }
+  if (el.liveColumns) {
+    el.liveColumns.classList.toggle("raw-hidden", !rawModeVisible);
+  }
+  if (el.rawModeToggleBtn) {
+    el.rawModeToggleBtn.textContent = rawModeVisible ? t("rawModeOn") : t("rawModeOff");
+  }
+}
+
+function setPanelOpenStateByOrgan(organ) {
+  if (!organ) {
+    panelOpenStateMessage = t("panelIdle");
+    return;
+  }
+  if (organ.id === SAFE_MECHANICUS_ORGAN) {
+    panelOpenStateMessage = t("panelOpenedMechanicus");
+    setActiveTab("live");
+    return;
+  }
+  if (organ.status === "LOCKED") {
+    panelOpenStateMessage = t("panelOpenedLocked");
+    return;
+  }
+  panelOpenStateMessage = t("panelOpenedPlaceholder");
 }
 
 function formatTime(timestamp) {
@@ -537,12 +585,14 @@ function renderStaticLabels() {
   el.tabActionHistory.textContent = t("tabActionHistory");
   el.overviewOrganTitle.textContent = t("overviewTitle");
   el.liveHeaderTitle.textContent = t("liveTitle");
+  el.livePanelOpenState.textContent = panelOpenStateMessage || t("panelIdle");
   el.rawStreamTitle.textContent = t("rawStreamTitle");
   el.terminalPromptLabel.textContent = t("terminalPrompt");
   el.terminalInput.placeholder = t("terminalPlaceholder");
   el.terminalRunBtn.textContent = t("terminalRun");
   el.terminalClearBtn.textContent = t("terminalClear");
   el.langSwitch.textContent = locale === "ru" ? "EN" : "RU";
+  setRawMode(rawModeVisible);
   setSseStatus(sseStatusCode);
 }
 
@@ -672,9 +722,16 @@ function renderOrgans(state) {
 
   el.organGrid.querySelectorAll(".organ-card").forEach((card) => {
     card.addEventListener("click", () => {
-      selectedOrganId = card.dataset.organId || SAFE_MECHANICUS_ORGAN;
+      const selectedId = card.dataset.organId || SAFE_MECHANICUS_ORGAN;
+      selectedOrganId = selectedId;
+      const organ = (state.organs || []).find((item) => item.id === selectedId) || null;
+      setPanelOpenStateByOrgan(organ);
+      if (selectedId === SAFE_MECHANICUS_ORGAN) {
+        setRawMode(false);
+      }
       renderOrgans(state);
       renderTruth(state);
+      renderLivePanel(state);
       renderEvidencePanel(state);
       renderReportsPanel(state);
       renderRawPanel(state);
@@ -730,6 +787,8 @@ function renderLivePanel(state) {
       } | ${t("duration")}: ${latest.duration_ms}ms`
     : `${t("status")}: ${t("unknown")} | ${t("commandsCount")}: ${terminalAllowlist.length}`;
   el.liveHeaderMeta.textContent = `${latestMeta} | ${t("sseStatus")}: ${el.sseStatusPill.textContent}`;
+  el.livePanelOpenState.textContent = panelOpenStateMessage || t("panelIdle");
+  setRawMode(rawModeVisible);
 
   const chips = [
     `${t("head")}: ${shortValue(state.repo?.head, 18)}`,
@@ -1067,11 +1126,18 @@ function bindEvents() {
   el.terminalClearBtn.addEventListener("click", async () => {
     await runTerminalCommand("clear");
   });
+
+  el.rawModeToggleBtn.addEventListener("click", () => {
+    setRawMode(!rawModeVisible);
+    setActiveTab("live");
+  });
 }
 
 function bootstrap() {
   bindEvents();
+  panelOpenStateMessage = t("panelIdle");
   renderStaticLabels();
+  setRawMode(false);
   setActiveTab("overview");
   connectSse();
   refreshAll("init");

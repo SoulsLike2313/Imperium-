@@ -55,11 +55,15 @@
               <div class="live-header">
                 <div class="live-title" id="liveHeaderTitle">LIVE OPERATOR CONSOLE</div>
                 <div class="live-meta" id="liveHeaderMeta"></div>
+                <div class="live-panel-open-state" id="livePanelOpenState"></div>
+                <div class="live-raw-toggle-row">
+                  <button class="raw-toggle-btn" id="rawModeToggleBtn" type="button">RAW MODE OFF</button>
+                </div>
               </div>
               <div class="live-status-chips" id="liveStatusChips"></div>
-              <div class="live-columns">
+              <div class="live-columns raw-hidden" id="liveColumns">
                 <div class="operator-stream" id="liveOperatorStream"></div>
-                <div class="raw-stream-wrap">
+                <div class="raw-stream-wrap is-hidden" id="rawStreamWrap">
                   <div class="raw-stream-title" id="rawStreamTitle">RAW / TECHNICAL MODE</div>
                   <pre class="raw-stream" id="rawTerminalStream"></pre>
                 </div>
