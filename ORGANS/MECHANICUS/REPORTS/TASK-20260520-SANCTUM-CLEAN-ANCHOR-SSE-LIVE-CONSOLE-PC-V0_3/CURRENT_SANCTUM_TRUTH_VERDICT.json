@@ -1,0 +1,88 @@
+{
+  "schema_version": "CURRENT_SANCTUM_TRUTH_VERDICT_V0_3R",
+  "task_id": "TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3",
+  "generated_at_utc": "2026-05-20T15:18:59.9437528Z",
+  "audited_head": "670f1a1dc53d5c2f34805a09736676e3c03e83f3",
+  "audited_branch": "master",
+  "real_organs": [
+    "MECHANICUS_AGENT"
+  ],
+  "placeholder_organs": [
+    "ADMINISTRATUM_AGENT",
+    "OFFICIO_AGENTIS_AGENT",
+    "ASTRONOMICON_AGENT",
+    "INQUISITION_AGENT",
+    "DOCTRINARIUM_AGENT",
+    "STRATEGIUM_AGENT",
+    "SCHOLA_IMPERIALIS_AGENT"
+  ],
+  "locked_organs": [
+    "CUSTODES",
+    "THRONE"
+  ],
+  "active_backend_commands": [
+    "refresh_state",
+    "mechanicus_visual_status",
+    "mechanicus_visual_tools",
+    "mechanicus_visual_check",
+    "mechanicus_visual_identity",
+    "mechanicus_screenshot_all",
+    "mechanicus_screenshot_command",
+    "open_or_show_latest_report",
+    "open_or_show_screenshots_folder",
+    "show_pack_summary",
+    "show_api_state_json",
+    "show_api_mechanicus_json"
+  ],
+  "unavailable_commands": [],
+  "dirty_clean_state": {
+    "worktree_state": "DIRTY",
+    "git_status_short": [
+      " M IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/state/current_status.json",
+      " M IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/actions.py",
+      " M IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
+      " M IMPERIUM_NEW_GENERATION/SANCTUM_MINI/server.py",
+      " M IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js",
+      " M IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/index.html",
+      " M IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/styles.css",
+      "?? IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/event_stream.py",
+      "?? ORGANS/MECHANICUS/REPORTS/"
+    ],
+    "reconciliation_ref": "00_git_dirty_reconciliation.md",
+    "admitted_dirty_reason": "task-owned source/report changes before final commit"
+  },
+  "sse_status": {
+    "endpoint": "/api/events",
+    "backend": "PRESENT",
+    "frontend_visible": "SSE CONNECTED",
+    "tested": true,
+    "proof_path": "sse_proof_report.json"
+  },
+  "visual_status": {
+    "live_operator_console": "IMPLEMENTED",
+    "raw_technical_mode": "PRESENT",
+    "screenshots_captured": 9,
+    "screenshot_report": "playwright_capture_report.json"
+  },
+  "performance_status": {
+    "verdict": "WARN_BELOW_50_FPS",
+    "average_fps": 48.96,
+    "fps_1pct_low": 20,
+    "dom_nodes": 347,
+    "svg_elements": 10,
+    "source": "playwright_capture_report.json"
+  },
+  "fake_green_risks": [
+    "Only MECHANICUS_AGENT is real; placeholders/locked lanes remain non-operational by design",
+    "Worktree is DIRTY during task execution until final commit",
+    "Performance is WARN when average FPS below 50"
+  ],
+  "evidence_paths": [
+    "POST_api_health.json",
+    "POST_api_state.json",
+    "POST_api_actions.json",
+    "POST_api_terminal_history.json",
+    "sse_proof_report.json",
+    "playwright_capture_report.json"
+  ]
+}

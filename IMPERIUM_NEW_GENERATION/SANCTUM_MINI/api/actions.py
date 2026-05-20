@@ -11,6 +11,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+from .event_stream import publish_event
+
 
 MAX_ACTION_TIMEOUT_SECONDS = 30
 MAX_HISTORY_ITEMS = 120
@@ -21,6 +23,7 @@ _TERMINAL_COMMAND_ALLOWLIST = (
     "check",
     "identity",
     "where",
+    "pack",
     "help",
     "raw",
     "screenshot",
@@ -61,6 +64,10 @@ def _runner_path(repo_root: Path) -> Path:
         / "TOOLS"
         / "mechanicus_agent_runner.py"
     )
+
+
+def _report_bundle_root(repo_root: Path) -> Path:
+    return repo_root / "ORGANS" / "MECHANICUS" / "REPORTS"
 
 
 def _allowed_actions() -> list[ActionDefinition]:
@@ -125,6 +132,13 @@ def _allowed_actions() -> list[ActionDefinition]:
             action_id="open_or_show_screenshots_folder",
             title_en="Open/show screenshots path",
             title_ru="Открыть/показать путь скриншотов",
+            safety="DISPLAY_ONLY_SAFE_FALLBACK",
+            mode="display",
+        ),
+        ActionDefinition(
+            action_id="show_pack_summary",
+            title_en="Show task pack summary",
+            title_ru="Показать сводку task pack",
             safety="DISPLAY_ONLY_SAFE_FALLBACK",
             mode="display",
         ),
@@ -218,6 +232,8 @@ def list_actions(repo_root: Path, state: dict[str, Any]) -> list[dict[str, Any]]
             display_value = latest_report or "MISSING"
         elif action.action_id == "open_or_show_screenshots_folder":
             display_value = latest_screenshot or "MISSING"
+        elif action.action_id == "show_pack_summary":
+            display_value = str(_report_bundle_root(repo_root))
         elif action.action_id == "show_api_state_json":
             display_value = "/api/state"
         elif action.action_id == "show_api_mechanicus_json":
@@ -312,7 +328,83 @@ def _record_result(result: dict[str, Any], started_perf: float) -> dict[str, Any
     finalized = _finalize_result(result, started_perf)
     _append_action_history(dict(finalized))
     _append_terminal_history(dict(finalized))
+    _emit_terminal_events(finalized)
     return finalized
+
+
+def _emit_terminal_events(result: dict[str, Any]) -> None:
+    status = str(result.get("status", "UNKNOWN")).upper()
+    action_id = str(result.get("action_id", "") or "")
+    command = str(result.get("command", "") or "")
+    organ = str(result.get("organ", "") or "MECHANICUS_AGENT")
+    source = str(result.get("source", "") or "sanctum_actions")
+    details = {
+        "status": status,
+        "exit_code": result.get("exit_code"),
+        "duration_ms": result.get("duration_ms"),
+        "safety": result.get("safety"),
+        "stdout_summary": result.get("stdout_summary"),
+        "stderr_summary": result.get("stderr_summary"),
+    }
+
+    publish_event(
+        event_type="terminal_entry_added",
+        source=source,
+        truth_status=status,
+        action_id=action_id or None,
+        command=command or None,
+        organ=organ,
+        details=details,
+    )
+
+    if status in {"ERROR", "BLOCK"}:
+        publish_event(
+            event_type="command_failed",
+            source=source,
+            truth_status=status,
+            action_id=action_id or None,
+            command=command or None,
+            organ=organ,
+            details=details,
+        )
+        publish_event(
+            event_type="error",
+            source=source,
+            truth_status=status,
+            action_id=action_id or None,
+            command=command or None,
+            organ=organ,
+            details=details,
+        )
+        return
+
+    publish_event(
+        event_type="command_finished",
+        source=source,
+        truth_status=status,
+        action_id=action_id or None,
+        command=command or None,
+        organ=organ,
+        details=details,
+    )
+
+
+def _emit_command_started(
+    *,
+    action_id: str,
+    command: str,
+    source: str,
+    organ: str,
+) -> None:
+    publish_event(
+        event_type="command_started",
+        source=source,
+        truth_status="PENDING",
+        action_id=action_id,
+        command=command,
+        organ=organ,
+        details={},
+    )
 
 
 def _display_result(
@@ -367,6 +459,20 @@ def _where_summary(repo_root: Path, state: dict[str, Any]) -> str:
     )
 
 
+def _pack_summary(repo_root: Path, state: dict[str, Any]) -> str:
+    truth = state.get("global_truth", {}) if isinstance(state.get("global_truth"), dict) else {}
+    report_root = _report_bundle_root(repo_root)
+    return "\n".join(
+        [
+            "TASK PACK / REPORT SURFACE",
+            f"report_bundle_root: {report_root}",
+            f"latest_report_path: {truth.get('latest_report_path') or 'MISSING'}",
+            f"latest_screenshot_path: {truth.get('latest_screenshot_path') or 'MISSING'}",
+            "note: pack command is display-only; execution remains allowlisted.",
+        ]
+    )
+
+
 def _help_text() -> str:
     return (
         "Allowed terminal commands:\n"
@@ -375,6 +481,7 @@ def _help_text() -> str:
         "- check\n"
         "- identity\n"
         "- where\n"
+        "- pack\n"
         "- help\n"
         "- raw\n"
         "- screenshot\n"
@@ -397,6 +504,13 @@ def run_action(
     started_at = _utc_now()
     started_perf = time.perf_counter()
     command = command_label or action_id
+
+    _emit_command_started(
+        action_id=action_id,
+        command=command,
+        source=source,
+        organ=organ,
+    )
 
     if action_id not in allowed:
         return _display_result(
@@ -523,6 +637,23 @@ def run_action(
             stderr="",
             command_or_path=command_display,
             evidence_path=None,
+        )
+
+    if action_id == "show_pack_summary":
+        return _display_result(
+            action_id=action_id,
+            command=command,
+            safety=definition.safety,
+            source=source,
+            organ=organ,
+            started_at=started_at,
+            started_perf=started_perf,
+            status="PASS",
+            exit_code=0,
+            stdout=_pack_summary(repo_root, state),
+            stderr="",
+            command_or_path=str(_report_bundle_root(repo_root)),
+            evidence_path=state.get("global_truth", {}).get("latest_report_path"),
         )
 
     mapped_command = commands.get(action_id)
@@ -717,6 +848,7 @@ def execute_terminal_command(
         "check": "mechanicus_visual_check",
         "identity": "mechanicus_visual_identity",
         "raw": "show_api_mechanicus_json",
+        "pack": "show_pack_summary",
     }.get(normalized)
 
     if normalized == "screenshot":

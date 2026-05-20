@@ -1,0 +1,68 @@
+{
+  "schema_version": "SANCTUM_SSE_LIVE_CONSOLE_PLAYWRIGHT_CAPTURE_V0_1",
+  "generated_at_utc": "2026-05-20T15:18:25.485Z",
+  "base_url": "http://127.0.0.1:18765",
+  "sse_status_text": "SSE CONNECTED",
+  "screenshots": [
+    {
+      "file_name": "01_sanctum_overview_brain_shell.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\01_sanctum_overview_brain_shell.png",
+      "note": "overview tab default"
+    },
+    {
+      "file_name": "02_live_operator_console_redesign.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\02_live_operator_console_redesign.png",
+      "note": "live operator console baseline"
+    },
+    {
+      "file_name": "03_live_operator_console_after_status.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\03_live_operator_console_after_status.png",
+      "note": "after status command"
+    },
+    {
+      "file_name": "04_sse_connection_visible_state.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\04_sse_connection_visible_state.png",
+      "note": "sse indicator pill"
+    },
+    {
+      "file_name": "05_raw_terminal_technical_view.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\05_raw_terminal_technical_view.png",
+      "note": "raw technical mode panel"
+    },
+    {
+      "file_name": "06_evidence_tab.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\06_evidence_tab.png",
+      "note": ""
+    },
+    {
+      "file_name": "07_reports_tab.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\07_reports_tab.png",
+      "note": ""
+    },
+    {
+      "file_name": "08_raw_json_tab.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\08_raw_json_tab.png",
+      "note": ""
+    },
+    {
+      "file_name": "09_action_history_tab.png",
+      "path": "E:\\IMPERIUM\\ORGANS\\MECHANICUS\\REPORTS\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3\\SCREENSHOTS\\09_action_history_tab.png",
+      "note": ""
+    }
+  ],
+  "performance_probe": {
+    "load_to_domcontentloaded_ms": 132,
+    "load_to_load_event_ms": 132,
+    "dom_nodes": 347,
+    "svg_elements": 10,
+    "renderer": "DOM_CSS",
+    "sample_duration_ms": 2200,
+    "frame_count": 96,
+    "average_fps": 48.96,
+    "fps_1pct_low": 20,
+    "long_task_count": "UNPROVEN",
+    "console_errors": 0,
+    "failed_requests": 0,
+    "console_error_samples": []
+  }
+}

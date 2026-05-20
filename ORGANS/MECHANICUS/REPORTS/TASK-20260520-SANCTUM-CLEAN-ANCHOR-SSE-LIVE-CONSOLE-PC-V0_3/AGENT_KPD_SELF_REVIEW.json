@@ -1,0 +1,39 @@
+{
+  "agent_kpd_self_review": {
+    "task_id": "TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3",
+    "agent_role": "Codex big-model servitor",
+    "useful_outputs": [
+      "Real SSE endpoint with event taxonomy and proof",
+      "LIVE operator console redesign with RAW technical mode preserved",
+      "Required screenshot evidence set and validation/performance receipts"
+    ],
+    "waste_points": [
+      "Port collision on 8777 required rerun on isolated 18765",
+      "Initial validation report generation bug (empty check array) required regeneration"
+    ],
+    "missing_tools": [
+      "Reusable built-in Sanctum SSE verifier script in Scriptorium",
+      "Reusable Sanctum visual evidence index generator"
+    ],
+    "generated_tools_to_preserve": [
+      "sse_proof_check.py",
+      "playwright_capture_and_probe.mjs"
+    ],
+    "recommended_script_absorption": [
+      "playwright_capture_and_probe.mjs -> Sanctum visual/performance runner template"
+    ],
+    "recommended_narrow_agent_profiles": [
+      "SANCTUM_SSE_GATE_SERVITOR",
+      "SANCTUM_VISUAL_EVIDENCE_AUDITOR"
+    ],
+    "future_prompt_improvements": [
+      "Provide explicit reserved runtime test port in taskpack",
+      "Provide mandatory report filenames for U19/U20 artifacts directly in required outputs"
+    ],
+    "future_gate_or_checklist_recommendations": [
+      "Add preflight port-collision gate check before runtime audits",
+      "Add mandatory compact-output check for SSE payload artifacts"
+    ],
+    "kpd_verdict": "GOOD"
+  }
+}

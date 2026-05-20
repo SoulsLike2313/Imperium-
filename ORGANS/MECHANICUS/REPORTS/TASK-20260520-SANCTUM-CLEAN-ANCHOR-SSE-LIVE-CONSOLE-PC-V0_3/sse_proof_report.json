@@ -1,0 +1,118 @@
+{
+  "checked_at_utc": "2026-05-20T15:16:12.485624Z",
+  "timeout_sec": 35.0,
+  "sse_url": "http://127.0.0.1:18765/api/events",
+  "flags": {
+    "heartbeat": true,
+    "state_snapshot": true,
+    "command_event": true
+  },
+  "command_response": {
+    "status": "PASS",
+    "action_id": "mechanicus_visual_status",
+    "command": "status",
+    "source": "terminal_manual",
+    "safety": "ALLOWLISTED_LOCAL_READ_ONLY",
+    "exit_code": 0,
+    "duration_ms": 690,
+    "stdout_summary": "+------------------------------ TOP STATUS BAR -------------------------------+\n| [COG-SIGIL] MECHANICUS_AGENT // OPERATOR_CONSOLE // shell v0.5              |\n| MECHANICUS_AGENT :: Tools, scripts, validators, registry intelligence, and  |\n| premium Textual operator-console m...                                       |\n| +-------------------------------------...[truncated]",
+    "stderr_summary": ""
+  },
+  "events_sample": [
+    {
+      "event_type": "state_snapshot",
+      "timestamp_utc": "2026-05-20T15:16:04.671797Z",
+      "source": "sanctum_state_builder",
+      "truth_status": "PASS",
+      "action_id": null,
+      "command": null,
+      "details": {
+        "status": null,
+        "exit_code": null,
+        "duration_ms": null,
+        "safety": null,
+        "stdout_summary": "",
+        "stderr_summary": "",
+        "heartbeat_interval_sec": null,
+        "head": "670f1a1dc53d5c2f34805a09736676e3c03e83f3",
+        "worktree_state": "DIRTY"
+      }
+    },
+    {
+      "event_type": "command_started",
+      "timestamp_utc": "2026-05-20T15:16:04.864788Z",
+      "source": "terminal_manual",
+      "truth_status": "PENDING",
+      "action_id": "mechanicus_visual_status",
+      "command": "status",
+      "details": {
+        "status": null,
+        "exit_code": null,
+        "duration_ms": null,
+        "safety": null,
+        "stdout_summary": "",
+        "stderr_summary": "",
+        "heartbeat_interval_sec": null,
+        "head": null,
+        "worktree_state": null
+      }
+    },
+    {
+      "event_type": "terminal_entry_added",
+      "timestamp_utc": "2026-05-20T15:16:05.556140Z",
+      "source": "terminal_manual",
+      "truth_status": "PASS",
+      "action_id": "mechanicus_visual_status",
+      "command": "status",
+      "details": {
+        "status": "PASS",
+        "exit_code": 0,
+        "duration_ms": 690,
+        "safety": "ALLOWLISTED_LOCAL_READ_ONLY",
+        "stdout_summary": "+------------------------------ TOP STATUS BAR -------------------------------+\n| [COG-SIGIL] MECHANICUS_AGENT // OPERATOR_CONSOLE // shell v0.5              |\n| MECHANICUS_AGENT :: Tools, scripts, validators, registry intelligence, and  |\n| premium Textual operator-console m...                                       |\n| +-------------------------------------...[truncated]",
+        "stderr_summary": "",
+        "heartbeat_interval_sec": null,
+        "head": null,
+        "worktree_state": null
+      }
+    },
+    {
+      "event_type": "command_finished",
+      "timestamp_utc": "2026-05-20T15:16:05.556140Z",
+      "source": "terminal_manual",
+      "truth_status": "PASS",
+      "action_id": "mechanicus_visual_status",
+      "command": "status",
+      "details": {
+        "status": "PASS",
+        "exit_code": 0,
+        "duration_ms": 690,
+        "safety": "ALLOWLISTED_LOCAL_READ_ONLY",
+        "stdout_summary": "+------------------------------ TOP STATUS BAR -------------------------------+\n| [COG-SIGIL] MECHANICUS_AGENT // OPERATOR_CONSOLE // shell v0.5              |\n| MECHANICUS_AGENT :: Tools, scripts, validators, registry intelligence, and  |\n| premium Textual operator-console m...                                       |\n| +-------------------------------------...[truncated]",
+        "stderr_summary": "",
+        "heartbeat_interval_sec": null,
+        "head": null,
+        "worktree_state": null
+      }
+    },
+    {
+      "event_type": "heartbeat",
+      "timestamp_utc": "2026-05-20T15:16:12.485624Z",
+      "source": "sanctum_sse_gateway",
+      "truth_status": "PASS",
+      "action_id": null,
+      "command": null,
+      "details": {
+        "status": null,
+        "exit_code": null,
+        "duration_ms": null,
+        "safety": null,
+        "stdout_summary": "",
+        "stderr_summary": "",
+        "heartbeat_interval_sec": 8.0,
+        "head": null,
+        "worktree_state": null
+      }
+    }
+  ]
+}

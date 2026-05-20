@@ -1,0 +1,114 @@
+{
+  "schema_version": "SANCTUM_VALIDATION_REPORT_V0_1",
+  "generated_at_utc": "2026-05-20T15:25:06.7452521Z",
+  "base_url": "http://127.0.0.1:18765",
+  "checks": [
+    {
+      "check_id": "py_compile_server",
+      "command": "python -m py_compile IMPERIUM_NEW_GENERATION/SANCTUM_MINI/server.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/server.py",
+      "limitation": "Syntax/import-time check only"
+    },
+    {
+      "check_id": "py_compile_actions",
+      "command": "python -m py_compile IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/actions.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/actions.py",
+      "limitation": "Syntax/import-time check only"
+    },
+    {
+      "check_id": "py_compile_state_builder",
+      "command": "python -m py_compile IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
+      "limitation": "Syntax/import-time check only"
+    },
+    {
+      "check_id": "py_compile_event_stream",
+      "command": "python -m py_compile IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/event_stream.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/event_stream.py",
+      "limitation": "Syntax/import-time check only"
+    },
+    {
+      "check_id": "node_check_app_js",
+      "command": "node --check IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js",
+      "limitation": "No runtime DOM assertions"
+    },
+    {
+      "check_id": "api_health",
+      "command": "GET /api/health",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "POST_api_health.json",
+      "limitation": "Runtime checked on local port 18765"
+    },
+    {
+      "check_id": "api_state",
+      "command": "GET /api/state",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "POST_api_state.json",
+      "limitation": "Runtime checked on local port 18765"
+    },
+    {
+      "check_id": "api_actions",
+      "command": "GET /api/actions",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "POST_api_actions.json",
+      "limitation": "Runtime checked on local port 18765"
+    },
+    {
+      "check_id": "json_verdict",
+      "command": "python -m json.tool CURRENT_SANCTUM_TRUTH_VERDICT.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "CURRENT_SANCTUM_TRUTH_VERDICT.json",
+      "limitation": "Format/parse check only"
+    },
+    {
+      "check_id": "json_sse_report",
+      "command": "python -m json.tool sse_proof_report.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "sse_proof_report.json",
+      "limitation": "Format/parse check only"
+    },
+    {
+      "check_id": "json_performance_report",
+      "command": "python -m json.tool performance_probe_report.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "performance_probe_report.json",
+      "limitation": "Format/parse check only"
+    },
+    {
+      "check_id": "json_playwright_report",
+      "command": "python -m json.tool playwright_capture_report.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "playwright_capture_report.json",
+      "limitation": "Format/parse check only"
+    },
+    {
+      "check_id": "json_post_api_state",
+      "command": "python -m json.tool POST_api_state.json",
+      "exit_code": 0,
+      "status": "PASS",
+      "evidence_path": "POST_api_state.json",
+      "limitation": "Format/parse check only"
+    }
+  ],
+  "pass_count": 13,
+  "fail_count": 0,
+  "overall": "PASS"
+}

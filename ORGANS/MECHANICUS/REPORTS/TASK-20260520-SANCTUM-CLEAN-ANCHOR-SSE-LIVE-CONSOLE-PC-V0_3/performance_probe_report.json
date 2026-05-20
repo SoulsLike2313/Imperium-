@@ -1,0 +1,35 @@
+{
+  "schema_version": "SANCTUM_PERFORMANCE_PROBE_REPORT_V0_1",
+  "generated_at_utc": "2026-05-20T15:19:32.2611781Z",
+  "source": "playwright_capture_report.json",
+  "base_url": "http://127.0.0.1:18765",
+  "metrics": {
+    "load_to_domcontentloaded_ms": 132,
+    "load_to_load_event_ms": 132,
+    "dom_nodes": 347,
+    "svg_elements": 10,
+    "average_fps": 48.96,
+    "fps_1pct_low": 20,
+    "long_task_count": "UNPROVEN",
+    "console_errors": 0,
+    "failed_requests": 0
+  },
+  "thresholds": {
+    "fps_warn_below": 50,
+    "fps_target": 55,
+    "dom_nodes_blocker": 3200,
+    "svg_elements_blocker": 1500,
+    "console_errors_allowed": 0,
+    "failed_requests_allowed": 0
+  },
+  "verdict": {
+    "fps": "WARN_BELOW_50",
+    "console_errors": "PASS",
+    "failed_requests": "PASS",
+    "overall": "WARN"
+  },
+  "limitations": [
+    "Headless Playwright sampling, not full interactive owner session.",
+    "long_task_count currently UNPROVEN in this probe."
+  ]
+}

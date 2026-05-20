@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import json
 import mimetypes
+import queue
+import time
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -18,6 +20,7 @@ from api.actions import (
     run_action,
     terminal_allowlist,
 )
+from api.event_stream import encode_sse, make_event, subscribe_events, unsubscribe_events
 from api.state_builder import build_health, build_state
 
 
@@ -34,7 +37,7 @@ def _is_within(path: Path, root: Path) -> bool:
 
 
 class SanctumMiniHandler(BaseHTTPRequestHandler):
-    server_version = "SanctumMiniHTTP/0.3"
+    server_version = "SanctumMiniHTTP/0.4"
 
     def _write_json(self, payload: dict, status: HTTPStatus = HTTPStatus.OK) -> None:
         body = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
@@ -113,9 +116,74 @@ class SanctumMiniHandler(BaseHTTPRequestHandler):
         content_type = mimetypes.guess_type(str(file_path))[0] or "application/octet-stream"
         self._write_bytes(content=content, content_type=content_type)
 
+    def _serve_sse_events(self) -> None:
+        self.send_response(HTTPStatus.OK)
+        self.send_header("Content-Type", "text/event-stream; charset=utf-8")
+        self.send_header("Cache-Control", "no-cache, no-store, must-revalidate")
+        self.send_header("Connection", "keep-alive")
+        self.send_header("X-Accel-Buffering", "no")
+        self.end_headers()
+
+        subscriber_id, buffer = subscribe_events()
+        heartbeat_interval = 8.0
+        last_heartbeat = time.monotonic()
+        try:
+            state = build_state(repo_root=REPO_ROOT)
+            snapshot_event = make_event(
+                event_type="state_snapshot",
+                source="sanctum_state_builder",
+                truth_status=str(state.get("server", {}).get("status", "UNKNOWN")),
+                organ=state.get("server", {}).get("active_organ"),
+                details={
+                    "head": state.get("repo", {}).get("head"),
+                    "worktree_state": state.get("repo", {}).get("worktree_state"),
+                    "warnings_count": state.get("global_truth", {}).get("warnings_count"),
+                    "errors_count": state.get("global_truth", {}).get("errors_count"),
+                    "blockers_count": state.get("global_truth", {}).get("blockers_count"),
+                },
+            )
+            self.wfile.write(encode_sse(snapshot_event))
+            self.wfile.flush()
+
+            while True:
+                timeout = max(0.2, heartbeat_interval - (time.monotonic() - last_heartbeat))
+                try:
+                    event = buffer.get(timeout=timeout)
+                    self.wfile.write(encode_sse(event))
+                    self.wfile.flush()
+                except queue.Empty:
+                    heartbeat = make_event(
+                        event_type="heartbeat",
+                        source="sanctum_sse_gateway",
+                        truth_status="PASS",
+                        details={"heartbeat_interval_sec": heartbeat_interval},
+                    )
+                    self.wfile.write(encode_sse(heartbeat))
+                    self.wfile.flush()
+                    last_heartbeat = time.monotonic()
+        except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+            return
+        except Exception as exc:  # noqa: BLE001
+            error_event = make_event(
+                event_type="error",
+                source="sanctum_sse_gateway",
+                truth_status="ERROR",
+                details={"error": str(exc)},
+            )
+            try:
+                self.wfile.write(encode_sse(error_event))
+                self.wfile.flush()
+            except (BrokenPipeError, ConnectionResetError, ConnectionAbortedError):
+                pass
+        finally:
+            unsubscribe_events(subscriber_id)
+
     def do_GET(self) -> None:  # noqa: N802
         path = urlparse(self.path).path
 
+        if path == "/api/events":
+            self._serve_sse_events()
+            return
         if path == "/api/health":
             self._write_json(build_health(repo_root=REPO_ROOT))
             return

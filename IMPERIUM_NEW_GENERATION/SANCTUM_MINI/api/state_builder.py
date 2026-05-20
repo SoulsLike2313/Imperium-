@@ -273,13 +273,18 @@ def build_state(repo_root: Path | None = None) -> dict[str, Any]:
     )
 
     return {
-        "schema_version": "SANCTUM_MINI_STATE_V0_3",
+        "schema_version": "SANCTUM_MINI_STATE_V0_4",
         "generated_at_utc": generated_at_utc,
         "server": {
             "status": "PASS",
             "api_status": "PASS",
             "active_organ": "MECHANICUS_AGENT",
             "connection_quality": mechanicus.get("connection_quality", "UNKNOWN"),
+            "sse": {
+                "endpoint": "/api/events",
+                "status": "BACKEND_ENABLED",
+                "fallback_poll_ms": 20000,
+            },
         },
         "repo": {
             "repo_root": str(root),
@@ -319,10 +324,10 @@ def build_state(repo_root: Path | None = None) -> dict[str, Any]:
         "actions": actions,
         "viewport": {
             "active_organ": "MECHANICUS_AGENT",
-            "mode": "LIVE_TERMINAL_PRIMARY",
+            "mode": "LIVE_OPERATOR_CONSOLE_WITH_RAW_MODE",
             "live_terminal_allowlist": terminal_allowlist(),
             "mechanicus_latest_screenshot_url": "/api/mechanicus/screenshot/latest",
-            "fallback_note": "Default center tab is LIVE terminal; screenshot preview is in the EVIDENCE tab.",
+            "fallback_note": "LIVE operator console uses SSE when available and polling fallback when needed; RAW/technical mode is preserved.",
         },
         "micro_log": micro_log[-20:],
         "truth_notes": [
@@ -330,7 +335,7 @@ def build_state(repo_root: Path | None = None) -> dict[str, Any]:
             "Other organs are explicit placeholders.",
             "Throne and Custodes are locked placeholders.",
             "Actions are allowlisted API actions; no arbitrary shell execution.",
-            "Primary center focus must remain LIVE terminal viewport for the active organ.",
+            "LIVE operator console is the primary viewport; RAW terminal mode remains available.",
         ],
     }
 
@@ -345,7 +350,7 @@ def build_health(repo_root: Path | None = None) -> dict[str, Any]:
         verdict = "WARN"
 
     return {
-        "schema_version": "SANCTUM_MINI_HEALTH_V0_3",
+        "schema_version": "SANCTUM_MINI_HEALTH_V0_4",
         "generated_at_utc": state["generated_at_utc"],
         "status": verdict,
         "api_status": "PASS",

@@ -1,0 +1,81 @@
+{
+  "schema_version": "AGENT_GATE_ACK_V0_1",
+  "task_id": "TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3",
+  "generated_at_utc": "2026-05-20T14:59:53.6219689Z",
+  "current_head": "670f1a1dc53d5c2f34805a09736676e3c03e83f3",
+  "gatepack_path": "C:\\Users\\PC\\Downloads\\TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3_TASKPACK.zip",
+  "gatepack_sha256": "35C6405C5E74B1384A7052F26CDCCBAC6F2FE233EBAC819DB73FE22433659098",
+  "read_gates": [
+    "GATE-U00-GIT-TRUTH",
+    "GATE-U01-ROLE-ACK",
+    "GATE-U02-SCOPE-BOUNDARY",
+    "GATE-U04-EVIDENCE-RECEIPT",
+    "GATE-U05-STOP-CONDITIONS",
+    "GATE-U08-REPO-PURITY",
+    "GATE-U09-NO-FAKE-GREEN",
+    "GATE-U12-REPORT-OUTPUT-BUDGET",
+    "GATE-U14-WHOLE-REPO-SCOPE-RECON",
+    "GATE-U15-OPERATIONALITY-IMPACT",
+    "GATE-U16-BILINGUAL-UI",
+    "GATE-U19-SCRIPT-ARTIFACT-PRESERVATION",
+    "GATE-U20-AGENT-KPD-SELF-REVIEW",
+    "GATE-U21-COMMAND-CHUNKING",
+    "GATE-UI00-TRUTH-BINDING",
+    "GATE-VIS00-PERFORMANCE-BUDGET",
+    "GATE-VIS01-DECORATIVE-SEMANTIC-SPLIT"
+  ],
+  "accepted_stop_conditions": [
+    "BLOCKED_HEAD_OR_BRANCH_MISMATCH",
+    "BLOCKED_SANCTUM_ENTRYPOINT_MISSING",
+    "BLOCKED_SCOPE_VIOLATION",
+    "BLOCKED_FORBIDDEN_PATH_TOUCH",
+    "BLOCKED_SSE_CLAIM_WITHOUT_REAL_PROOF",
+    "BLOCKED_UI_TRUTH_MISLEADING",
+    "BLOCKED_REPORT_CONTRADICTION",
+    "BLOCKED_OUTPUT_BUDGET_EXCEEDED",
+    "BLOCKED_FINAL_GIT_STATE_UNKNOWN",
+    "BLOCKED_PUSH_FAILURE"
+  ],
+  "scope_boundary": {
+    "allowed_write_paths": [
+      "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/",
+      "ORGANS/MECHANICUS/REPORTS/TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3/"
+    ],
+    "forbidden_paths": [
+      ".git/",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/",
+      "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/",
+      "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/*/RUNS/"
+    ]
+  },
+  "touched_paths": [
+    "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/",
+    "ORGANS/MECHANICUS/REPORTS/TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3/"
+  ],
+  "forbidden_paths": [
+    ".git/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/MEMORY_ZONES/",
+    "IMPERIUM_TEST_VERSION/SECOND_BRAIN/RUNTIME/",
+    "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/*/RUNS/"
+  ],
+  "expected_receipts": [
+    "00_git_dirty_reconciliation.md",
+    "CURRENT_SANCTUM_TRUTH_VERDICT.json",
+    "sse_proof_report.json",
+    "sse_proof_report.md",
+    "visual_evidence_index.md",
+    "performance_probe_report.json",
+    "performance_probe_report.md",
+    "validation_report.json",
+    "validation_report.md",
+    "FINAL_RECEIPT.json",
+    "OWNER_REPORT_RU.md"
+  ],
+  "repo_recon_required": true,
+  "script_absorption_required": true,
+  "clarification_needed": [
+    "read_first_missing: 06_NEW_LOGOS_PRIME_HANDOFF_SUMMARY.md, 00_GIT_TRUTH, 01_GUIDING_PLAN/IMPERIUM_LAPTOP_THRONE_CORE_PLAN_RU.pdf, 04_OFFICIO_ROLE_PACK_SNAPSHOT",
+    "contour=PC_ONLY vm2=forbidden_unless_owner_explicit"
+  ],
+  "verdict": "PASS"
+}

@@ -1,0 +1,42 @@
+{
+  "task_id": "TASK-20260520-SANCTUM-CLEAN-ANCHOR-SSE-LIVE-CONSOLE-PC-V0_3",
+  "verdict": "WARN",
+  "head_before": "670f1a1dc53d5c2f34805a09736676e3c03e83f3",
+  "head_after": "PENDING_POST_COMMIT_HASH",
+  "git_status_final": "PENDING_POST_COMMIT_STATUS",
+  "sse_status": "TESTED_PASS",
+  "visual_status": "OPERATOR_CONSOLE_PASS",
+  "performance_status": "WARN_BELOW_50_FPS",
+  "real_lanes": [
+    "MECHANICUS_AGENT"
+  ],
+  "placeholder_lanes": [
+    "ADMINISTRATUM_AGENT",
+    "OFFICIO_AGENTIS_AGENT",
+    "ASTRONOMICON_AGENT",
+    "INQUISITION_AGENT",
+    "DOCTRINARIUM_AGENT",
+    "STRATEGIUM_AGENT",
+    "SCHOLA_IMPERIALIS_AGENT"
+  ],
+  "locked_lanes": [
+    "CUSTODES",
+    "THRONE"
+  ],
+  "evidence_paths": [
+    "CURRENT_SANCTUM_TRUTH_VERDICT.json",
+    "sse_proof_report.json",
+    "sse_proof_report.md",
+    "playwright_capture_report.json",
+    "visual_evidence_index.md",
+    "performance_probe_report.json",
+    "performance_probe_report.md",
+    "validation_report.json",
+    "validation_report.md"
+  ],
+  "limitations": [
+    "Average FPS measured below 50 in headless probe (WARN).",
+    "Only MECHANICUS_AGENT is real in this phase; other lanes remain placeholder/locked by contract.",
+    "Receipt commit metadata placeholders are resolved in final owner response after push."
+  ]
+}
