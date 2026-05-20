@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mechanicus Panel Slice V0.1</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="state-active">
+  <div class="scanline"></div>
+  <div class="slice-shell">
+    <header id="zone-header" class="panel-header zone-frame">
+      <div class="identity-wrap">
+        <div class="sigil" aria-hidden="true">
+          <svg viewBox="0 0 120 120" role="img">
+            <circle cx="60" cy="60" r="42" class="sigil-ring"></circle>
+            <circle cx="60" cy="60" r="24" class="sigil-core"></circle>
+            <g class="sigil-cogs">
+              <rect x="58" y="8" width="4" height="18"></rect>
+              <rect x="58" y="94" width="4" height="18"></rect>
+              <rect x="94" y="58" width="18" height="4"></rect>
+              <rect x="8" y="58" width="18" height="4"></rect>
+              <rect x="85" y="20" width="4" height="16" transform="rotate(45 87 28)"></rect>
+              <rect x="31" y="84" width="4" height="16" transform="rotate(45 33 92)"></rect>
+              <rect x="84" y="84" width="4" height="16" transform="rotate(-45 86 92)"></rect>
+              <rect x="32" y="20" width="4" height="16" transform="rotate(-45 34 28)"></rect>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">SANCTUM.RIGHT_CONTEXT_DOCK</p>
+          <h1>MECHANICUS_PANEL</h1>
+          <p class="subtitle">Forge-side operator capsule for validated commands and capability truth.</p>
+          <div class="truth-pills">
+            <span class="pill neutral">BACKEND SOURCE: CANDIDATE</span>
+            <span id="statePill" class="pill">STATE: ACTIVE</span>
+            <span class="pill warn">SSE: STUB</span>
+            <span class="pill unknown">LIVE TRANSPORT: UNKNOWN</span>
+          </div>
+        </div>
+      </div>
+      <div class="header-metrics">
+        <article>
+          <h2>HEAD</h2>
+          <p>da0a04d</p>
+        </article>
+        <article>
+          <h2>ALLOWLIST</h2>
+          <p>LOCAL_READ_ONLY</p>
+        </article>
+        <article>
+          <h2>VISUAL TIER</h2>
+          <p>CHEAP MOTION</p>
+        </article>
+        <article>
+          <h2>GROUNDING</h2>
+          <p>ASSET + TOPOLOGY</p>
+        </article>
+      </div>
+    </header>
+
+    <section id="zone-work" class="zone-frame work-zone">
+      <div class="zone-title">WORK ZONE // CURRENT ACTIVITY</div>
+      <ol id="activityList" class="activity-list"></ol>
+    </section>
+
+    <section id="zone-command" class="zone-frame command-zone">
+      <div class="zone-title">COMMAND ZONE // OPERATOR PALETTE</div>
+      <p class="zone-note">Only allowlisted commands are executable. Unknown lanes remain explicitly blocked.</p>
+      <div class="command-grid" id="commandGrid"></div>
+      <div class="state-controls">
+        <span>Slice state</span>
+        <button data-state="idle">IDLE</button>
+        <button data-state="active">ACTIVE</button>
+        <button data-state="warn">WARN</button>
+        <button data-state="blocked">BLOCKED</button>
+        <button data-state="unknown">UNKNOWN</button>
+      </div>
+    </section>
+
+    <section id="zone-registry" class="zone-frame registry-zone">
+      <div class="zone-title">TOOL REGISTRY // CAPABILITY OVERVIEW</div>
+      <div class="registry-counters">
+        <article><h2>Registered</h2><p id="countRegistered">0</p></article>
+        <article><h2>Available (PC)</h2><p id="countAvailable">0</p></article>
+        <article><h2>Warnings</h2><p id="countWarnings">0</p></article>
+        <article><h2>Errors</h2><p id="countErrors">0</p></article>
+      </div>
+      <p class="registry-note">Snapshot rows are partial and explicitly bounded to avoid fake fullness.</p>
+      <div class="tool-table-wrap">
+        <table class="tool-table">
+          <thead><tr><th>ID</th><th>Owner</th><th>PC</th><th>Status</th></tr></thead>
+          <tbody id="toolRows"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer id="zone-footer" class="zone-frame panel-footer">
+      <div>
+        <h2>MISSION FOCUS</h2>
+        <p>Validate command integrity, preserve truth binding, and expose uncertainty explicitly.</p>
+      </div>
+      <div>
+        <h2>EVIDENCE</h2>
+        <p>Latest report: <code>REPORTS/IMPLEMENTATION_REPORT_EN.md</code></p>
+        <p>Latest receipt: <code>RECEIPTS/FINAL_RECEIPT.json</code></p>
+      </div>
+      <div>
+        <h2>HONEST LANES</h2>
+        <ul>
+          <li><strong>UNKNOWN:</strong> SSE live stream in this isolated slice.</li>
+          <li><strong>STUB:</strong> realtime backend transport hook.</li>
+          <li><strong>LOCKED:</strong> privileged command lanes outside allowlist.</li>
+        </ul>
+      </div>
+      <div class="motion-toggle">
+        <button id="motionToggle" type="button">Reduced Motion: OFF</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
