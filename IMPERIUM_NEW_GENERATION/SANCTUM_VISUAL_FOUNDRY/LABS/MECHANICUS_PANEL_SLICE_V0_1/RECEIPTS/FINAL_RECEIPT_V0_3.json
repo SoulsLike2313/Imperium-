@@ -66,6 +66,8 @@
   },
   "commit": {
     "required_if_gates_pass": true,
-    "status": "PENDING"
+    "status": "CREATED_AND_PUSHED",
+    "hash": "52c9a46412b7c28ebe5d3924a4908d0512670b05",
+    "url": "https://github.com/SoulsLike2313/Imperium-/commit/52c9a46412b7c28ebe5d3924a4908d0512670b05"
   }
 }

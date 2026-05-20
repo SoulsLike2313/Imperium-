@@ -15,9 +15,9 @@ SUMMARY:
 - UX-зоны сознательно не переписывались «в ноль»: фокус именно на visual/material/motion pressure-pass.
 
 GIT:
-HEAD: `de732c2c13beac251c79c798fcd7e7f80999e109`
+HEAD: `52c9a46412b7c28ebe5d3924a4908d0512670b05`
 STATUS: dirty with inherited pre-existing changes outside scope; current task writes are bounded
-COMMIT: pending at report generation stage
+COMMIT: `https://github.com/SoulsLike2313/Imperium-/commit/52c9a46412b7c28ebe5d3924a4908d0512670b05`
 
 NEXT ALLOWED TASK:
 V0_4: command-lane UX hardening and interaction polish on top of this V0_3 shell without breaking truth-safe semantics.
