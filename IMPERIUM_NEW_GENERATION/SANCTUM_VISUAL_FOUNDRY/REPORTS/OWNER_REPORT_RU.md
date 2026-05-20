@@ -1,25 +1,28 @@
 STEP:
-`TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1`
+`TASK-20260520-NEWGEN-VISUAL-TOPOLOGY-HARDEN-10-ORGAN-COVERAGE-VM3-V0_2R`
 
-BUNDLE / REPORT PATH:
-`E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_VISUAL_FOUNDRY\REPORTS\`
+REPORT PATH:
+`/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/REPORTS/`
 
 VERDICT:
-`VISUAL_TOPOLOGY_SKELETON_READY`
+`VISUAL_TOPOLOGY_V0_2_HARDENED`
+
+OFFICIO:
+- ACK found: `IMPERIUM_NEW_GENERATION/TASKS/VM3_ASSIGNED/TASK-20260520-NEWGEN-VISUAL-TOPOLOGY-HARDEN-10-ORGAN-COVERAGE-VM3-V0_2R/OFFICIO_ROLE_ACK_VM3_SERVITOR.json`
+- canonical role/settings/response authority sources were read before implementation
+- taskpack treated only as task-scope contract, not role authority
 
 SUMMARY:
-- Проведен полный аудит frontend-контуров внутри `IMPERIUM_NEW_GENERATION` (SANCTUM_MINI + SANCTUM_VISUAL_FOUNDRY + ORGAN_AGENTS truth paths).
-- Создан адресный skeleton: visual address registry, unit passports, organ profiles, token/texture/motion registries, backend-frontend truth map.
-- Введен явный статусный слой `real/stub/locked`, чтобы исключить fake-ready для неактивных орган-веток.
-- Добавлен validator topology, результат: `PASS` (см. `REPORTS/validation_report.json`).
+- Добавлено полное покрытие 10/10 organ nodes в `VISUAL_UNITS`.
+- Добавлено полное покрытие 10/10 right-context panels (включая stub/locked ветки).
+- Ownership model нормализована: `visual_owner`, `truth_owner`, `data_source_owner`, `organ_subject`, `implementation_owner`.
+- Обновлены `visual_address_registry.json`, `backend_frontend_truth_map.json` и validator V0.2 с semantic checks.
+- Custodes/Throne сохранены как `locked`, без fake-real статусов; часть веток честно оставлена `stub`/`unknown`.
 
 GIT:
-HEAD: `c35532aa38bccbba34e056c48e2e3322d5099c0f` (before task commit)
-STATUS: dirty (task changes staged for this step)
-COMMIT: pending push in current task cycle
+HEAD: `PENDING_COMMIT`
+STATUS: `dirty (task changes in admitted scope pending commit)`
+COMMIT: `pending`
 
-MANUAL CHECK:
-- открыть `REGISTRY/visual_address_registry.json`
-- открыть `REPORTS/visual_unit_inventory.md`
-- открыть `REPORTS/backend_frontend_mapping_report.md`
-- открыть `REPORTS/next_frontend_workflow_ru.md`
+NEXT ALLOWED TASK:
+`Implement one concrete visual unit through this hardened topology after Owner review.`

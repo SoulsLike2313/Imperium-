@@ -2,37 +2,38 @@
   "visual_unit_id": "SANCTUM.BRAIN_FIELD.NEURAL_LINKS",
   "parent": "SANCTUM.BRAIN_FIELD",
   "type": "connector_layer",
-  "owner_group": "SANCTUM",
-  "owner_organ": "ASTRONOMICON_AGENT",
-  "purpose": "Visual connectors between organ nodes for topology readability.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "ASTRONOMICON_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "SYSTEM",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Connector topology linking organ nodes in non-authoritative visual layer.",
   "backend_source": {
+    "type": "frontend_logic",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
     ],
-    "mode": "frontend_render_state",
     "key_bindings": [
-      "BRAIN_LINKS"
+      "BRAIN_LINKS",
+      "renderBrainLinks"
     ]
   },
+  "backend_source_status": "candidate",
   "allowed_states": [
-    "static",
-    "highlighted",
-    "disabled_low_power"
+    "idle",
+    "active_path",
+    "degraded",
+    "unknown"
   ],
   "truth_rules": [
-    "Links represent topology only and do not claim runtime health.",
-    "No autonomous PASS signaling on link color."
+    "Links are structural hints and must not fabricate live transport."
   ],
   "visual_tokens": "neural_link_tokens",
-  "texture": "purple_nebula_depth",
+  "texture": "archive_blue_cold",
   "glow": {
     "enabled": true,
-    "color_token": "archive_blue_cold",
-    "intensity_by_state": {
-      "static": 0.3,
-      "highlighted": 0.6,
-      "disabled_low_power": 0.1
-    }
+    "color_token": "accent_holo_cyan",
+    "default_intensity": 0.2
   },
   "motion": {
     "enabled": true,
@@ -41,12 +42,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "CHEAP",
-  "accessibility_rules": [
-    "Selected link needs non-color cue (width or dash pattern)."
-  ],
   "proof_requirements": [
-    "List of link source pairs from BRAIN_LINKS constant."
+    "Link endpoints map to known ring node unit IDs."
   ],
-  "change_safety": "Link styling must not mutate organ ownership mapping.",
-  "integration_status": "real"
+  "integration_status": "candidate",
+  "fake_green_risks": [
+    "Animated links imply live data flow without evidence."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "ASTRONOMICON_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

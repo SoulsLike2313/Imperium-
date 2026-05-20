@@ -1,6 +1,6 @@
 {
-  "map_id": "BACKEND_FRONTEND_TRUTH_MAP_V0_1",
-  "task_id": "TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1",
+  "map_id": "BACKEND_FRONTEND_TRUTH_MAP_V0_2",
+  "task_id": "TASK-20260520-NEWGEN-VISUAL-TOPOLOGY-HARDEN-10-ORGAN-COVERAGE-VM3-V0_2R",
   "entries": [
     {
       "visual_unit_id": "SANCTUM.SHELL.GLOBAL_FRAME",
@@ -11,27 +11,19 @@
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/styles.css"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "OFFICIO_AGENTIS_AGENT",
+      "backend_source_status": "real",
       "status": "real",
-      "states": [
-        "idle",
-        "active",
-        "warn",
-        "error",
-        "unknown"
-      ],
-      "tokens": "sanctum_shell_tokens",
-      "motion": "panel_slide_right",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "Rendered shell must include top/main/right/footer zones.",
-        "No fake PASS labels without receipt source."
-      ],
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "OFFICIO_AGENTIS_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Hardcoded green cards disconnected from /api/state."
+        "Decorative frame can look healthy while backend is disconnected."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Shell zones map to static layout files."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.SHELL.GLOBAL_FRAME.json"
     },
     {
       "visual_unit_id": "SANCTUM.BRAIN_FIELD.NEURAL_CORE",
@@ -45,27 +37,19 @@
           "selectedOrganId"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "MECHANICUS_AGENT",
-      "status": "real",
-      "states": [
-        "idle",
-        "active",
-        "warn",
-        "error",
-        "unknown"
-      ],
-      "tokens": "brain_core_tokens",
-      "motion": "pulse_breath",
-      "perf_tier": "EXPENSIVE",
-      "proof_requirements": [
-        "Only one hero layer is EXPENSIVE.",
-        "Reduced-motion mode must disable heavy pulse."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "UNKNOWN",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Core glow looks healthy while backend is disconnected."
+        "Core pulse can be mistaken as health confirmation."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Exactly one EXPENSIVE hero layer in motion budget."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.NEURAL_CORE.json"
     },
     {
       "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING",
@@ -79,24 +63,55 @@
           "renderOrganGrid"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "OFFICIO_AGENTIS_AGENT",
-      "status": "real",
-      "states": [
-        "real",
-        "placeholder",
-        "locked"
-      ],
-      "tokens": "organ_ring_tokens",
-      "motion": "neural_flow_line",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "real/placeholder/locked marks must match organ truth labels."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "OFFICIO_AGENTIS_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Placeholder organs styled as production-ready."
+        "Unimplemented organs can look active without explicit stub labels."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Registry and inventory must list 10 organ nodes."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.ADMINISTRATUM_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "ADMINISTRATUM_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "ADMINISTRATUM_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.ADMINISTRATUM_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.ASTRONOMICON_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "ASTRONOMICON_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "ASTRONOMICON_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.ASTRONOMICON_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
     },
     {
       "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE",
@@ -108,26 +123,145 @@
           "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/state/current_status.json"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "MECHANICUS_AGENT",
+      "backend_source_status": "real",
       "status": "real",
-      "states": [
-        "connected",
-        "warn",
-        "error",
-        "unknown"
-      ],
-      "tokens": "mechanicus_node_tokens",
-      "motion": "pulse_breath",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "Node status follows /api/state organ status.",
-        "Node selection opens Mechanicus panel only."
-      ],
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "MECHANICUS_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "MECHANICUS_AGENT",
       "fake_green_risks": [
-        "CONNECTED visual state when current_status.json is missing."
+        "Connected style while state source missing."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Mechanicus state source path must exist in truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE.json"
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.OFFICIO_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "OFFICIO_AGENTIS_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "OFFICIO_AGENTIS_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.OFFICIO_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.INQUISITION_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "INQUISITION_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "INQUISITION_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.INQUISITION_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.DOCTRINARIUM_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "DOCTRINARIUM_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "DOCTRINARIUM_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.DOCTRINARIUM_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.STRATEGIUM_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "STRATEGIUM_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "STRATEGIUM_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.STRATEGIUM_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.SCHOLA_NODE",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "SCHOLA_IMPERIALIS_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "SCHOLA_IMPERIALIS_AGENT",
+      "fake_green_risks": [
+        "Stub node shown as real organ cockpit."
+      ],
+      "proof_required": [
+        "Stub status must be reflected in inventory and truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.SCHOLA_NODE.json",
+      "backend_source_unknown_reason": "Dedicated backend status lane is not integrated in this V0.2 topology hardening slice."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.CUSTODES_NODE_LOCKED",
+      "backend_source": "OWNER_GATE_REQUIRED",
+      "backend_source_status": "locked",
+      "status": "locked",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "CUSTODES_AGENT",
+      "data_source_owner": "OWNER_GATE_REQUIRED",
+      "organ_subject": "CUSTODES_AGENT",
+      "fake_green_risks": [
+        "Locked lane represented as implementable-ready without owner gate."
+      ],
+      "proof_required": [
+        "Locked status and owner-gate requirement shown in reports."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.CUSTODES_NODE_LOCKED.json",
+      "backend_source_unknown_reason": "Locked governance lane; no active backend binding in current stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.THRONE_NODE_LOCKED",
+      "backend_source": "OWNER_GATE_REQUIRED",
+      "backend_source_status": "locked",
+      "status": "locked",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "THRONE_AGENT",
+      "data_source_owner": "OWNER_GATE_REQUIRED",
+      "organ_subject": "THRONE_AGENT",
+      "fake_green_risks": [
+        "Locked lane represented as implementable-ready without owner gate."
+      ],
+      "proof_required": [
+        "Locked status and owner-gate requirement shown in reports."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ORGAN_RING.THRONE_NODE_LOCKED.json",
+      "backend_source_unknown_reason": "Locked governance lane; no active backend binding in current stage."
     },
     {
       "visual_unit_id": "SANCTUM.BRAIN_FIELD.NEURAL_LINKS",
@@ -141,24 +275,19 @@
           "renderBrainLinks"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "ASTRONOMICON_AGENT",
-      "status": "real",
-      "states": [
-        "idle",
-        "active_path",
-        "degraded"
-      ],
-      "tokens": "neural_link_tokens",
-      "motion": "neural_flow_line",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "Link endpoints map to declared organ nodes."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "ASTRONOMICON_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Animated links imply live flow without backend event proof."
+        "Animated links imply live data flow without evidence."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Link endpoints map to known ring node unit IDs."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.NEURAL_LINKS.json"
     },
     {
       "visual_unit_id": "SANCTUM.BRAIN_FIELD.ACTIVITY_PULSE_LAYER",
@@ -169,53 +298,42 @@
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "INQUISITION_AGENT",
-      "status": "real",
-      "states": [
-        "idle",
-        "event_pulse",
-        "degraded",
-        "fallback"
-      ],
-      "tokens": "activity_pulse_tokens",
-      "motion": "warning_flicker_limited",
-      "perf_tier": "MEDIUM",
-      "proof_requirements": [
-        "Pulse must fall back to static if SSE is disconnected."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "INQUISITION_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Constant pulse even with zero events."
+        "Activity pulse can imply healthy execution while backend stalled."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Event-disconnected state falls back to static/unknown."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.BRAIN_FIELD.ACTIVITY_PULSE_LAYER.json"
     },
     {
       "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK",
       "backend_source": {
-        "type": "layout_shell",
+        "type": "static_ui_shell",
         "paths": [
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/index.html",
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/styles.css"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "OFFICIO_AGENTIS_AGENT",
+      "backend_source_status": "real",
       "status": "real",
-      "states": [
-        "collapsed",
-        "expanded",
-        "focus"
-      ],
-      "tokens": "right_dock_tokens",
-      "motion": "panel_slide_right",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "Dock remains operator-readable at 1366x768."
-      ],
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "OFFICIO_AGENTIS_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Dock cards claim readiness without source path."
+        "Dock cards can appear ready while child panels are stub."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Panel unit IDs resolve through visual address registry."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.json"
     },
     {
       "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
@@ -227,52 +345,181 @@
           "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/TOOL_REGISTRY/TOOL_INDEX.json"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "MECHANICUS_AGENT",
-      "status": "real",
-      "states": [
-        "idle",
-        "active",
-        "blocked",
-        "error"
-      ],
-      "tokens": "mechanicus_panel_tokens",
-      "motion": "panel_slide_right",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "Commands are allowlisted by backend.",
-        "Terminal command for non-Mechanicus organs stays blocked."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "MECHANICUS_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "MECHANICUS_AGENT",
       "fake_green_risks": [
-        "Action buttons present while backend returns BLOCK."
+        "UI action lane visible while backend execution blocked."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "api/actions allowlist evidence and state binding."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL.json"
     },
     {
       "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB",
-      "backend_source": {
-        "type": "stub",
-        "paths": [
-          "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
-        ]
-      },
-      "owner_group": "SANCTUM",
-      "owner_organ": "ADMINISTRATUM_AGENT",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
       "status": "stub",
-      "states": [
-        "stub",
-        "hidden"
-      ],
-      "tokens": "stub_panel_tokens",
-      "motion": "ambient_disabled",
-      "perf_tier": "STATIC",
-      "proof_requirements": [
-        "Must be labeled STUB in UI copy and reports."
-      ],
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "ADMINISTRATUM_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "ADMINISTRATUM_AGENT",
       "fake_green_risks": [
-        "Stub panel presented as implemented organ cockpit."
+        "Stub panel represented as real cockpit lane."
       ],
-      "implementation_status": "stub"
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.ASTRONOMICON_PANEL_STUB",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "ASTRONOMICON_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "ASTRONOMICON_AGENT",
+      "fake_green_risks": [
+        "Stub panel represented as real cockpit lane."
+      ],
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.ASTRONOMICON_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.OFFICIO_PANEL_STUB",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "OFFICIO_AGENTIS_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "OFFICIO_AGENTIS_AGENT",
+      "fake_green_risks": [
+        "Stub panel represented as real cockpit lane."
+      ],
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.OFFICIO_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.INQUISITION_PANEL_STUB",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "INQUISITION_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "INQUISITION_AGENT",
+      "fake_green_risks": [
+        "Stub panel represented as real cockpit lane."
+      ],
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.INQUISITION_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.DOCTRINARIUM_PANEL_STUB",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "DOCTRINARIUM_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "DOCTRINARIUM_AGENT",
+      "fake_green_risks": [
+        "Stub panel represented as real cockpit lane."
+      ],
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.DOCTRINARIUM_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.STRATEGIUM_PANEL_STUB",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "STRATEGIUM_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "STRATEGIUM_AGENT",
+      "fake_green_risks": [
+        "Stub panel represented as real cockpit lane."
+      ],
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.STRATEGIUM_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.SCHOLA_PANEL_STUB",
+      "backend_source": "UNKNOWN",
+      "backend_source_status": "unknown",
+      "status": "stub",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "SCHOLA_IMPERIALIS_AGENT",
+      "data_source_owner": "UNKNOWN",
+      "organ_subject": "SCHOLA_IMPERIALIS_AGENT",
+      "fake_green_risks": [
+        "Stub panel represented as real cockpit lane."
+      ],
+      "proof_required": [
+        "Stub panels listed in inventory/map with non-real status."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.SCHOLA_PANEL_STUB.json",
+      "backend_source_unknown_reason": "Panel backend integration is not implemented in this topology hardening stage."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.CUSTODES_PANEL_LOCKED",
+      "backend_source": "OWNER_GATE_REQUIRED",
+      "backend_source_status": "locked",
+      "status": "locked",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "CUSTODES_AGENT",
+      "data_source_owner": "OWNER_GATE_REQUIRED",
+      "organ_subject": "CUSTODES_AGENT",
+      "fake_green_risks": [
+        "Locked panel displayed as operable cockpit."
+      ],
+      "proof_required": [
+        "Locked panel status shown in truth map and reports."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.CUSTODES_PANEL_LOCKED.json",
+      "backend_source_unknown_reason": "Panel lane is locked by governance and has no active backend mapping."
+    },
+    {
+      "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.THRONE_PANEL_LOCKED",
+      "backend_source": "OWNER_GATE_REQUIRED",
+      "backend_source_status": "locked",
+      "status": "locked",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "THRONE_AGENT",
+      "data_source_owner": "OWNER_GATE_REQUIRED",
+      "organ_subject": "THRONE_AGENT",
+      "fake_green_risks": [
+        "Locked panel displayed as operable cockpit."
+      ],
+      "proof_required": [
+        "Locked panel status shown in truth map and reports."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.RIGHT_CONTEXT_DOCK.THRONE_PANEL_LOCKED.json",
+      "backend_source_unknown_reason": "Panel lane is locked by governance and has no active backend mapping."
     },
     {
       "visual_unit_id": "SANCTUM.TRUTH_STATUS_STRIP",
@@ -288,26 +535,19 @@
           "server.connection_quality"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "INQUISITION_AGENT",
-      "status": "real",
-      "states": [
-        "pass",
-        "warn",
-        "error",
-        "unknown"
-      ],
-      "tokens": "truth_strip_tokens",
-      "motion": "ambient_disabled",
-      "perf_tier": "STATIC",
-      "proof_requirements": [
-        "HEAD, branch, and worktree values derive from /api/state only.",
-        "No green default when API payload is missing."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "INQUISITION_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
         "Cached PASS chip after backend failure."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "/api/state binding for head/worktree truth fields."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.TRUTH_STATUS_STRIP.json"
     },
     {
       "visual_unit_id": "SANCTUM.COMMAND_SURFACE",
@@ -318,25 +558,19 @@
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "OFFICIO_AGENTIS_AGENT",
-      "status": "real",
-      "states": [
-        "ready",
-        "pending",
-        "blocked",
-        "error"
-      ],
-      "tokens": "command_surface_tokens",
-      "motion": "panel_slide_right",
-      "perf_tier": "CHEAP",
-      "proof_requirements": [
-        "Allowlist from backend defines executable commands."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "OFFICIO_AGENTIS_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Unallowlisted command appears executable in UI."
+        "Command appears executable despite backend block."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Backend allowlist source referenced in truth map."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.COMMAND_SURFACE.json"
     },
     {
       "visual_unit_id": "SANCTUM.EVIDENCE_REPORT_LAYER",
@@ -346,37 +580,26 @@
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
           "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/mechanicus_adapter.py",
           "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/SCREENSHOTS/screenshot_index.json"
-        ],
-        "key_bindings": [
-          "latest_report_path",
-          "latest_screenshot_path",
-          "latest_evidence_path"
         ]
       },
-      "owner_group": "SANCTUM",
-      "owner_organ": "ADMINISTRATUM_AGENT",
-      "status": "real",
-      "states": [
-        "available",
-        "missing",
-        "stale"
-      ],
-      "tokens": "evidence_layer_tokens",
-      "motion": "ambient_disabled",
-      "perf_tier": "STATIC",
-      "proof_requirements": [
-        "Displayed artifact links must resolve to real files.",
-        "Missing evidence must render as MISSING, never PASS."
-      ],
+      "backend_source_status": "candidate",
+      "status": "candidate",
+      "visual_owner": "SANCTUM_SHELL",
+      "truth_owner": "ADMINISTRATUM_AGENT",
+      "data_source_owner": "SANCTUM_STATE_BUILDER",
+      "organ_subject": "SYSTEM",
       "fake_green_risks": [
-        "Showing latest screenshot widget with null path."
+        "Null evidence path displayed as valid report."
       ],
-      "implementation_status": "real"
+      "proof_required": [
+        "Artifact paths resolve to existing files or explicit missing state."
+      ],
+      "passport_path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY/VISUAL_UNITS/SANCTUM.EVIDENCE_REPORT_LAYER.json"
     }
   ],
   "global_rules": [
-    "UNKNOWN backend source is allowed only with explicit unknown flag and risk note.",
-    "No status can be rendered as PASS unless corresponding source payload exists.",
-    "Placeholders and locked organs must preserve explicit label semantics."
+    "No PASS/readiness rendering without explicit backend/source binding.",
+    "Stub and locked lanes must be explicit and non-real.",
+    "UNKNOWN backend source is allowed only with explicit reason."
   ]
 }

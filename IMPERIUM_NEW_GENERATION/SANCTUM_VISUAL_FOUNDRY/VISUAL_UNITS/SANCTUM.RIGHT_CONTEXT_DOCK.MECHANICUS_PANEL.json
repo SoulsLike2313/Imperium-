@@ -2,17 +2,21 @@
   "visual_unit_id": "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
   "parent": "SANCTUM.RIGHT_CONTEXT_DOCK",
   "type": "organ_panel",
-  "owner_group": "SANCTUM",
-  "owner_organ": "MECHANICUS_AGENT",
-  "purpose": "Active operator cockpit for Mechanicus actions, command stream, and tool registry.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "MECHANICUS_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "MECHANICUS_AGENT",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Mechanicus operator panel with constrained candidate readiness.",
   "backend_source": {
+    "type": "api_actions_and_state",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/actions.py",
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
       "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/TOOL_REGISTRY/TOOL_INDEX.json"
-    ],
-    "mode": "api_bound"
+    ]
   },
+  "backend_source_status": "candidate",
   "allowed_states": [
     "idle",
     "active",
@@ -21,21 +25,15 @@
     "unknown"
   ],
   "truth_rules": [
-    "Live command execution allowed only for MECHANICUS_AGENT.",
-    "Blocked commands must remain visible as BLOCK with reason."
+    "Panel actions require backend allowlist confirmation.",
+    "Blocked actions must render explicit reason, not synthetic green."
   ],
   "visual_tokens": "mechanicus_panel_tokens",
   "texture": "glass_holograph_panel",
   "glow": {
     "enabled": true,
     "color_token": "accent_forge_red",
-    "intensity_by_state": {
-      "idle": 0.25,
-      "active": 0.55,
-      "blocked": 0.82,
-      "error": 1.0,
-      "unknown": 0.3
-    }
+    "default_intensity": 0.3
   },
   "motion": {
     "enabled": true,
@@ -44,13 +42,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "CHEAP",
-  "accessibility_rules": [
-    "Command buttons require text labels and keyboard access."
-  ],
   "proof_requirements": [
-    "Allowlist evidence from api/actions.py.",
-    "Action history evidence from state action history payload."
+    "api/actions allowlist evidence and state binding."
   ],
-  "change_safety": "Panel skin may evolve, but allowlist and terminal safety checks must stay unchanged.",
-  "integration_status": "real"
+  "integration_status": "candidate",
+  "fake_green_risks": [
+    "UI action lane visible while backend execution blocked."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "MECHANICUS_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

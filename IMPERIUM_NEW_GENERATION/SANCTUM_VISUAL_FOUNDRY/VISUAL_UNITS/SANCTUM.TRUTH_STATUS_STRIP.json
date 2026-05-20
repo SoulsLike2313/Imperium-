@@ -2,16 +2,25 @@
   "visual_unit_id": "SANCTUM.TRUTH_STATUS_STRIP",
   "parent": "SANCTUM.CONTROL_SURFACES",
   "type": "truth_strip",
-  "owner_group": "SANCTUM",
-  "owner_organ": "INQUISITION_AGENT",
-  "purpose": "Explicit truth strip for HEAD/worktree/SSE and warning counters.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "INQUISITION_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "SYSTEM",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Explicit truth strip for head/worktree/runtime state chips.",
   "backend_source": {
+    "type": "api_state",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
     ],
-    "mode": "api_bound"
+    "key_bindings": [
+      "repo.head",
+      "repo.worktree_state",
+      "server.connection_quality"
+    ]
   },
+  "backend_source_status": "candidate",
   "allowed_states": [
     "pass",
     "warn",
@@ -19,8 +28,8 @@
     "unknown"
   ],
   "truth_rules": [
-    "No chip can display PASS when source value is null or stale.",
-    "Truth strip always preferred over decorative status cues."
+    "PASS chip requires backend payload.",
+    "Missing payload must show UNKNOWN, never default green."
   ],
   "visual_tokens": "truth_strip_tokens",
   "texture": "law_seal_amber",
@@ -34,12 +43,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "STATIC",
-  "accessibility_rules": [
-    "Status chips include text labels and not color alone."
-  ],
   "proof_requirements": [
-    "Mapping between chip values and /api/state fields."
+    "/api/state binding for head/worktree truth fields."
   ],
-  "change_safety": "Visual restyle cannot alter source binding semantics.",
-  "integration_status": "real"
+  "integration_status": "candidate",
+  "fake_green_risks": [
+    "Cached PASS chip after backend failure."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "INQUISITION_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

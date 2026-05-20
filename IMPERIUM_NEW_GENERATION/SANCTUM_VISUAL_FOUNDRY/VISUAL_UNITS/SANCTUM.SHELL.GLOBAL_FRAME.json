@@ -2,16 +2,20 @@
   "visual_unit_id": "SANCTUM.SHELL.GLOBAL_FRAME",
   "parent": "SANCTUM.SHELL",
   "type": "shell_frame",
-  "owner_group": "SANCTUM",
-  "owner_organ": "OFFICIO_AGENTIS_AGENT",
-  "purpose": "Top-level shell container that keeps primary topology and cockpit zones consistent.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "OFFICIO_AGENTIS_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "SYSTEM",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Global Sanctum shell frame for stable operator layout lanes.",
   "backend_source": {
+    "type": "static_ui_shell",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/index.html",
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/styles.css"
-    ],
-    "mode": "static_layout"
+    ]
   },
+  "backend_source_status": "real",
   "allowed_states": [
     "idle",
     "active",
@@ -20,8 +24,8 @@
     "unknown"
   ],
   "truth_rules": [
-    "Frame-level status chips must come from /api/state-derived data.",
-    "Missing data renders UNKNOWN, never synthetic green."
+    "Frame styling must not imply system PASS by itself.",
+    "Operator state chips must come from explicit truth surfaces."
   ],
   "visual_tokens": "sanctum_shell_tokens",
   "texture": "forge_metal_dark",
@@ -35,13 +39,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "CHEAP",
-  "accessibility_rules": [
-    "Shell structure remains readable at 1366x768 without horizontal scroll."
-  ],
   "proof_requirements": [
-    "Screen capture of full shell with top/main/right/footer segmentation.",
-    "Mapping proof to index.html layout zones."
+    "Shell zones map to static layout files."
   ],
-  "change_safety": "Frame spacing or borders may change without mutating organ semantics.",
-  "integration_status": "real"
+  "integration_status": "real",
+  "fake_green_risks": [
+    "Decorative frame can look healthy while backend is disconnected."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "OFFICIO_AGENTIS_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

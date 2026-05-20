@@ -2,37 +2,35 @@
   "visual_unit_id": "SANCTUM.BRAIN_FIELD.ACTIVITY_PULSE_LAYER",
   "parent": "SANCTUM.BRAIN_FIELD",
   "type": "activity_overlay",
-  "owner_group": "SANCTUM",
-  "owner_organ": "INQUISITION_AGENT",
-  "purpose": "Ambient activity pulse linked to SSE event transport.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "INQUISITION_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "SYSTEM",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Ambient activity overlay bound to event stream signals with fallback modes.",
   "backend_source": {
+    "type": "sse_events",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/event_stream.py",
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
-    ],
-    "mode": "event_bound"
+    ]
   },
+  "backend_source_status": "candidate",
   "allowed_states": [
     "idle",
     "event_pulse",
     "fallback",
-    "disabled_low_power"
+    "unknown"
   ],
   "truth_rules": [
-    "Pulse intensity must be throttled and tied to event counters.",
-    "Fallback mode must remain explicit when SSE is disconnected."
+    "Continuous pulse without events is fake-green risk and must be avoided."
   ],
   "visual_tokens": "activity_pulse_tokens",
-  "texture": "archive_blue_cold",
+  "texture": "glass_holograph_panel",
   "glow": {
     "enabled": true,
-    "color_token": "accent_holo_cyan",
-    "intensity_by_state": {
-      "idle": 0.15,
-      "event_pulse": 0.55,
-      "fallback": 0.2,
-      "disabled_low_power": 0.05
-    }
+    "color_token": "warning_amber",
+    "default_intensity": 0.25
   },
   "motion": {
     "enabled": true,
@@ -41,13 +39,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "MEDIUM",
-  "accessibility_rules": [
-    "Pulse effect cannot be the only event indicator."
-  ],
   "proof_requirements": [
-    "SSE status evidence in top strip and activity feed.",
-    "Reduced motion path defined."
+    "Event-disconnected state falls back to static/unknown."
   ],
-  "change_safety": "Overlay can be tuned only if event truth labels remain unchanged.",
-  "integration_status": "real"
+  "integration_status": "candidate",
+  "fake_green_risks": [
+    "Activity pulse can imply healthy execution while backend stalled."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "INQUISITION_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

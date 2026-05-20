@@ -2,37 +2,36 @@
   "visual_unit_id": "SANCTUM.COMMAND_SURFACE",
   "parent": "SANCTUM.CONTROL_SURFACES",
   "type": "command_surface",
-  "owner_group": "SANCTUM",
-  "owner_organ": "OFFICIO_AGENTIS_AGENT",
-  "purpose": "Operator command palette and terminal input corridor with allowlist enforcement.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "OFFICIO_AGENTIS_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "SYSTEM",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Command dispatch surface with backend allowlist enforcement.",
   "backend_source": {
+    "type": "api_actions",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/actions.py",
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
-    ],
-    "mode": "api_bound"
+    ]
   },
+  "backend_source_status": "candidate",
   "allowed_states": [
     "ready",
     "pending",
     "blocked",
-    "error"
+    "error",
+    "unknown"
   ],
   "truth_rules": [
-    "Only backend allowlisted commands are executable.",
-    "Unknown command attempts must produce explicit BLOCK feedback."
+    "Unallowlisted commands must render BLOCKED with reason."
   ],
   "visual_tokens": "command_surface_tokens",
-  "texture": "imperial_gold_edge",
+  "texture": "glass_holograph_panel",
   "glow": {
     "enabled": true,
-    "color_token": "accent_holo_cyan",
-    "intensity_by_state": {
-      "ready": 0.3,
-      "pending": 0.4,
-      "blocked": 0.8,
-      "error": 1.0
-    }
+    "color_token": "law_seal_amber",
+    "default_intensity": 0.25
   },
   "motion": {
     "enabled": true,
@@ -41,13 +40,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "CHEAP",
-  "accessibility_rules": [
-    "Keyboard operation is mandatory for command input and buttons."
-  ],
   "proof_requirements": [
-    "Allowlist command sequence evidence in actions.py.",
-    "Action history entries include status and source."
+    "Backend allowlist source referenced in truth map."
   ],
-  "change_safety": "Command UI changes must preserve backend safety policy and stop conditions.",
-  "integration_status": "real"
+  "integration_status": "candidate",
+  "fake_green_risks": [
+    "Command appears executable despite backend block."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "OFFICIO_AGENTIS_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

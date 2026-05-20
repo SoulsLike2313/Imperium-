@@ -1,55 +1,98 @@
 from __future__ import annotations
 
 import json
-import sys
+import re
+import subprocess
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 
-TASK_ID = "TASK-20260520-NEWGEN-SANCTUM-VISUAL-TOPOLOGY-ADDRESS-REGISTRY-PC-V0_1"
-REQUIRED_VISUAL_UNITS = [
-    "SANCTUM.SHELL.GLOBAL_FRAME",
-    "SANCTUM.BRAIN_FIELD.NEURAL_CORE",
-    "SANCTUM.BRAIN_FIELD.ORGAN_RING",
+TASK_ID = "TASK-20260520-NEWGEN-VISUAL-TOPOLOGY-HARDEN-10-ORGAN-COVERAGE-VM3-V0_2R"
+
+REQUIRED_ORGAN_NODE_UNITS = [
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.ADMINISTRATUM_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.ASTRONOMICON_NODE",
     "SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE",
-    "SANCTUM.BRAIN_FIELD.NEURAL_LINKS",
-    "SANCTUM.RIGHT_CONTEXT_DOCK",
-    "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
-    "SANCTUM.TRUTH_STATUS_STRIP",
-    "SANCTUM.COMMAND_SURFACE",
-    "SANCTUM.EVIDENCE_REPORT_LAYER",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.OFFICIO_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.INQUISITION_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.DOCTRINARIUM_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.STRATEGIUM_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.SCHOLA_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.CUSTODES_NODE_LOCKED",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.THRONE_NODE_LOCKED",
 ]
+
+REQUIRED_RIGHT_PANEL_UNITS = [
+    "SANCTUM.RIGHT_CONTEXT_DOCK.MECHANICUS_PANEL",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.ASTRONOMICON_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.OFFICIO_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.INQUISITION_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.DOCTRINARIUM_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.STRATEGIUM_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.SCHOLA_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.CUSTODES_PANEL_LOCKED",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.THRONE_PANEL_LOCKED",
+]
+
+LOCKED_UNITS = {
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.CUSTODES_NODE_LOCKED",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.THRONE_NODE_LOCKED",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.CUSTODES_PANEL_LOCKED",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.THRONE_PANEL_LOCKED",
+}
+
+STUB_UNITS = {
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.ADMINISTRATUM_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.ASTRONOMICON_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.OFFICIO_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.INQUISITION_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.DOCTRINARIUM_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.STRATEGIUM_NODE",
+    "SANCTUM.BRAIN_FIELD.ORGAN_RING.SCHOLA_NODE",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.ADMINISTRATUM_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.ASTRONOMICON_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.OFFICIO_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.INQUISITION_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.DOCTRINARIUM_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.STRATEGIUM_PANEL_STUB",
+    "SANCTUM.RIGHT_CONTEXT_DOCK.SCHOLA_PANEL_STUB",
+}
+
 PASSPORT_REQUIRED_FIELDS = [
     "visual_unit_id",
     "parent",
     "type",
-    "owner_group",
+    "visual_owner",
+    "truth_owner",
+    "data_source_owner",
+    "organ_subject",
+    "implementation_owner",
     "purpose",
     "backend_source",
+    "backend_source_status",
     "allowed_states",
     "truth_rules",
     "visual_tokens",
     "texture",
+    "glow",
     "motion",
     "perf_tier",
     "proof_requirements",
     "integration_status",
+    "fake_green_risks",
 ]
-REQUIRED_PROFILE_FILES = [
-    "sanctum_shell_visual_profile.json",
-    "mechanicus_visual_profile.json",
-    "administratum_visual_profile.stub.json",
-    "astronomicon_visual_profile.stub.json",
-    "officio_visual_profile.stub.json",
-    "inquisition_visual_profile.stub.json",
-    "doctrinarium_visual_profile.stub.json",
-    "strategium_visual_profile.stub.json",
-    "schola_visual_profile.stub.json",
-    "custodes_visual_profile.locked.json",
-    "throne_visual_profile.locked.json",
+
+REQUIRED_OWNERSHIP_FIELDS = [
+    "visual_owner",
+    "truth_owner",
+    "data_source_owner",
+    "organ_subject",
+    "implementation_owner",
 ]
+
 FORBIDDEN_ROOT_MARKERS = [
     "ORGANS/",
     "ORGANS\\",
@@ -87,186 +130,284 @@ def collect_keyed_strings(node: Any, keys: set[str], out: list[str]) -> None:
             collect_keyed_strings(item, keys, out)
 
 
+def get_git_head(repo_root: Path) -> str:
+    completed = subprocess.run(
+        ["git", "-C", str(repo_root), "rev-parse", "HEAD"],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return completed.stdout.strip()
+
+
+def read_owner_report_head(owner_report_path: Path) -> str | None:
+    if not owner_report_path.exists():
+        return None
+    content = owner_report_path.read_text(encoding="utf-8", errors="replace")
+    match = re.search(r"HEAD:\s*`?([0-9a-f]{40})`?", content, flags=re.IGNORECASE)
+    if not match:
+        return None
+    return match.group(1)
+
+
 def main() -> int:
     base_dir = Path(__file__).resolve().parent.parent
-    registry_dir = base_dir / "REGISTRY"
+    repo_root = base_dir.parent.parent
     units_dir = base_dir / "VISUAL_UNITS"
-    profiles_dir = base_dir / "ORGAN_VISUAL_PROFILES"
-    tokens_dir = base_dir / "TOKENS"
-    textures_dir = base_dir / "TEXTURES"
-    motion_dir = base_dir / "MOTION"
-    reports_dir = base_dir / "REPORTS"
-    report_path = reports_dir / "validation_report.json"
+    registry_path = base_dir / "REGISTRY" / "visual_address_registry.json"
+    truth_map_path = base_dir / "REGISTRY" / "backend_frontend_truth_map.json"
+    motion_budget_path = base_dir / "MOTION" / "motion_budget_v0_1.json"
+    report_path = base_dir / "REPORTS" / "validator_v0_2_report.json"
+    owner_report_path = base_dir / "REPORTS" / "OWNER_REPORT_RU.md"
+
+    task_dir = (
+        repo_root
+        / "IMPERIUM_NEW_GENERATION"
+        / "TASKS"
+        / "VM3_ASSIGNED"
+        / "TASK-20260520-NEWGEN-VISUAL-TOPOLOGY-HARDEN-10-ORGAN-COVERAGE-VM3-V0_2R"
+    )
+    officio_ack = task_dir / "OFFICIO_ROLE_ACK_VM3_SERVITOR.json"
+    officio_warn = task_dir / "OFFICIO_ROLE_AUTHORITY_MISSING_WARN.json"
 
     checks: list[CheckResult] = []
 
-    required_files = {
-        "visual_address_registry": registry_dir / "visual_address_registry.json",
-        "backend_frontend_truth_map": registry_dir / "backend_frontend_truth_map.json",
-        "token_map": tokens_dir / "token_map_v0_1.json",
-        "texture_registry": textures_dir / "texture_registry_v0_1.json",
-        "motion_registry": motion_dir / "motion_registry_v0_1.json",
-        "motion_budget": motion_dir / "motion_budget_v0_1.json",
-    }
-
-    loaded: dict[str, Any] = {}
-    for name, path in required_files.items():
-        if path.exists():
-            try:
-                loaded[name] = load_json(path)
-                checks.append(CheckResult(name=f"{name}_exists_and_parseable", ok=True, details="ok", path=str(path)))
-            except Exception as exc:  # noqa: BLE001
-                checks.append(CheckResult(name=f"{name}_exists_and_parseable", ok=False, details=f"invalid json: {exc}", path=str(path)))
-        else:
-            checks.append(CheckResult(name=f"{name}_exists_and_parseable", ok=False, details="missing file", path=str(path)))
-
-    registry = loaded.get("visual_address_registry", {})
-    registry_units = {u.get("visual_unit_id") for u in registry.get("units", []) if isinstance(u, dict)}
-    missing_required_units = [unit for unit in REQUIRED_VISUAL_UNITS if unit not in registry_units]
+    # Officio intake gate
+    ack_exists = officio_ack.exists()
+    warn_exists = officio_warn.exists()
     checks.append(
         CheckResult(
-            name="required_visual_units_in_registry",
-            ok=not missing_required_units,
-            details="all required units found" if not missing_required_units else f"missing: {missing_required_units}",
-            path=str(required_files["visual_address_registry"]),
+            name="officio_ack_or_warn_exists",
+            ok=ack_exists or warn_exists,
+            details="ack found" if ack_exists else "warn found" if warn_exists else "missing both officio ack and warn",
+            path=str(task_dir),
         )
     )
 
-    passports = sorted(units_dir.glob("*.json"))
+    if ack_exists:
+        try:
+            ack_data = load_json(officio_ack)
+            ok = (
+                ack_data.get("authority_status") == "FOUND"
+                and ack_data.get("taskpack_rules_are_task_specific_not_role_authority") is True
+            )
+            checks.append(
+                CheckResult(
+                    name="officio_ack_authority_fields",
+                    ok=ok,
+                    details="authority_status/taskpack authority fields validated" if ok else "invalid authority fields in officio ack",
+                    path=str(officio_ack),
+                )
+            )
+        except Exception as exc:  # noqa: BLE001
+            checks.append(
+                CheckResult(
+                    name="officio_ack_parseable",
+                    ok=False,
+                    details=f"invalid json: {exc}",
+                    path=str(officio_ack),
+                )
+            )
+
+    # Load core artifacts
+    loaded: dict[str, Any] = {}
+    for label, path in [
+        ("registry", registry_path),
+        ("truth_map", truth_map_path),
+        ("motion_budget", motion_budget_path),
+    ]:
+        if not path.exists():
+            checks.append(CheckResult(name=f"{label}_exists", ok=False, details="missing file", path=str(path)))
+            continue
+        try:
+            loaded[label] = load_json(path)
+            checks.append(CheckResult(name=f"{label}_parseable", ok=True, details="ok", path=str(path)))
+        except Exception as exc:  # noqa: BLE001
+            checks.append(CheckResult(name=f"{label}_parseable", ok=False, details=f"invalid json: {exc}", path=str(path)))
+
+    registry = loaded.get("registry", {})
+    truth_map = loaded.get("truth_map", {})
+    motion_budget = loaded.get("motion_budget", {})
+
+    # Collect passports
+    passport_files = {p.stem: p for p in units_dir.glob("*.json")}
+    required_unit_ids = REQUIRED_ORGAN_NODE_UNITS + REQUIRED_RIGHT_PANEL_UNITS
+
+    # Coverage checks
+    missing_nodes = [unit for unit in REQUIRED_ORGAN_NODE_UNITS if unit not in passport_files]
     checks.append(
         CheckResult(
-            name="passport_count_minimum",
-            ok=len(passports) >= 10,
-            details=f"passport_count={len(passports)}",
+            name="all_10_organ_nodes_exist",
+            ok=not missing_nodes,
+            details="ok" if not missing_nodes else f"missing nodes: {missing_nodes}",
             path=str(units_dir),
         )
     )
 
-    token_map = loaded.get("token_map", {})
-    texture_registry = loaded.get("texture_registry", {})
-    motion_registry = loaded.get("motion_registry", {})
-    motion_budget = loaded.get("motion_budget", {})
+    missing_panels = [unit for unit in REQUIRED_RIGHT_PANEL_UNITS if unit not in passport_files]
+    checks.append(
+        CheckResult(
+            name="all_10_right_panels_exist",
+            ok=not missing_panels,
+            details="ok" if not missing_panels else f"missing panels: {missing_panels}",
+            path=str(units_dir),
+        )
+    )
 
-    token_sets = set(token_map.get("token_sets", {}).keys())
-    texture_ids = {t.get("texture_id") for t in texture_registry.get("textures", []) if isinstance(t, dict)}
-    motion_ids = {m.get("motion_id") for m in motion_registry.get("motions", []) if isinstance(m, dict)}
-    perf_tiers = set(motion_budget.get("performance_tiers", []))
-
-    for passport_path in passports:
+    passports: dict[str, Any] = {}
+    for unit_id, file_path in passport_files.items():
         try:
-            passport = load_json(passport_path)
+            passports[unit_id] = load_json(file_path)
         except Exception as exc:  # noqa: BLE001
-            checks.append(
-                CheckResult(
-                    name=f"passport_parse_{passport_path.name}",
-                    ok=False,
-                    details=f"invalid json: {exc}",
-                    path=str(passport_path),
-                )
-            )
+            checks.append(CheckResult(name=f"passport_parse_{unit_id}", ok=False, details=f"invalid json: {exc}", path=str(file_path)))
+
+    # Required fields + ownership checks
+    for unit_id in required_unit_ids:
+        passport = passports.get(unit_id)
+        if not isinstance(passport, dict):
             continue
 
         missing_fields = [field for field in PASSPORT_REQUIRED_FIELDS if field not in passport]
         checks.append(
             CheckResult(
-                name=f"passport_required_fields_{passport_path.name}",
+                name=f"passport_required_fields_{unit_id}",
                 ok=not missing_fields,
-                details="ok" if not missing_fields else f"missing: {missing_fields}",
-                path=str(passport_path),
+                details="ok" if not missing_fields else f"missing fields: {missing_fields}",
+                path=str(passport_files[unit_id]),
             )
         )
 
-        token_ref = passport.get("visual_tokens")
+        missing_owner_fields = [
+            field for field in REQUIRED_OWNERSHIP_FIELDS if not isinstance(passport.get(field), str) or not passport.get(field).strip()
+        ]
         checks.append(
             CheckResult(
-                name=f"passport_token_ref_{passport_path.name}",
-                ok=isinstance(token_ref, str) and token_ref in token_sets,
-                details=f"token_ref={token_ref}",
-                path=str(passport_path),
+                name=f"passport_ownership_fields_{unit_id}",
+                ok=not missing_owner_fields,
+                details="ok" if not missing_owner_fields else f"missing/empty ownership fields: {missing_owner_fields}",
+                path=str(passport_files[unit_id]),
             )
         )
 
-        texture_ref = passport.get("texture")
+    # Locked/stub semantics
+    for locked_unit in sorted(LOCKED_UNITS):
+        status = passports.get(locked_unit, {}).get("integration_status")
         checks.append(
             CheckResult(
-                name=f"passport_texture_ref_{passport_path.name}",
-                ok=isinstance(texture_ref, str) and texture_ref in texture_ids,
-                details=f"texture_ref={texture_ref}",
-                path=str(passport_path),
+                name=f"locked_unit_not_real_{locked_unit}",
+                ok=status not in {"real", "candidate"},
+                details=f"integration_status={status}",
+                path=str(passport_files.get(locked_unit, "")),
             )
         )
 
-        motion_ref: str | None = None
-        motion_value = passport.get("motion")
-        if isinstance(motion_value, dict):
-            raw_motion = motion_value.get("animation")
-            if isinstance(raw_motion, str):
-                motion_ref = raw_motion
-        elif isinstance(motion_value, str):
-            motion_ref = motion_value
+    for stub_unit in sorted(STUB_UNITS):
+        status = passports.get(stub_unit, {}).get("integration_status")
         checks.append(
             CheckResult(
-                name=f"passport_motion_ref_{passport_path.name}",
-                ok=motion_ref in motion_ids,
-                details=f"motion_ref={motion_ref}",
-                path=str(passport_path),
+                name=f"stub_unit_is_stub_{stub_unit}",
+                ok=status == "stub",
+                details=f"integration_status={status}",
+                path=str(passport_files.get(stub_unit, "")),
             )
         )
 
-        tier = passport.get("perf_tier")
-        checks.append(
-            CheckResult(
-                name=f"passport_perf_tier_{passport_path.name}",
-                ok=isinstance(tier, str) and tier in perf_tiers,
-                details=f"perf_tier={tier}",
-                path=str(passport_path),
-            )
-        )
-
-    for profile_file in REQUIRED_PROFILE_FILES:
-        profile_path = profiles_dir / profile_file
-        if not profile_path.exists():
-            checks.append(CheckResult(name=f"profile_exists_{profile_file}", ok=False, details="missing file", path=str(profile_path)))
+    # Backend source rule for real/candidate
+    for unit_id, passport in passports.items():
+        if not isinstance(passport, dict):
+            continue
+        status = passport.get("integration_status")
+        if status not in {"real", "candidate"}:
             continue
 
-        try:
-            profile = load_json(profile_path)
-        except Exception as exc:  # noqa: BLE001
-            checks.append(CheckResult(name=f"profile_parse_{profile_file}", ok=False, details=f"invalid json: {exc}", path=str(profile_path)))
-            continue
+        backend_source = passport.get("backend_source")
+        unknown_reason = passport.get("backend_source_unknown_reason")
 
-        profile_status = profile.get("profile_status")
-        expected_status = "real"
-        if profile_file.endswith(".stub.json"):
-            expected_status = "stub"
-        elif profile_file.endswith(".locked.json"):
-            expected_status = "locked"
+        unknown_backend = False
+        if isinstance(backend_source, str):
+            unknown_backend = backend_source.strip() in {"", "UNKNOWN", "OWNER_GATE_REQUIRED"}
+        elif backend_source is None:
+            unknown_backend = True
+
+        ok = True
+        if unknown_backend and (not isinstance(unknown_reason, str) or not unknown_reason.strip()):
+            ok = False
+
         checks.append(
             CheckResult(
-                name=f"profile_status_{profile_file}",
-                ok=profile_status == expected_status,
-                details=f"profile_status={profile_status}, expected={expected_status}",
-                path=str(profile_path),
+                name=f"real_candidate_backend_source_rule_{unit_id}",
+                ok=ok,
+                details=(
+                    "backend source present"
+                    if ok and not unknown_backend
+                    else "unknown backend has explicit reason"
+                    if ok
+                    else "real/candidate unit has unknown backend without reason"
+                ),
+                path=str(passport_files.get(unit_id, "")),
             )
         )
 
-    expensive_units = [
-        row.get("visual_unit_id")
-        for row in motion_budget.get("unit_tiers", [])
-        if isinstance(row, dict) and row.get("perf_tier") == "EXPENSIVE"
-    ]
+    # Registry references existing passport files
+    registry_units = registry.get("units", []) if isinstance(registry, dict) else []
+    missing_registry_passports: list[str] = []
+    for item in registry_units:
+        if not isinstance(item, dict):
+            continue
+        unit_id = item.get("visual_unit_id")
+        path_raw = item.get("passport_path")
+        if not isinstance(unit_id, str) or not isinstance(path_raw, str):
+            continue
+        passport_path = repo_root / path_raw
+        if not passport_path.exists() or unit_id not in passports:
+            missing_registry_passports.append(unit_id)
     checks.append(
         CheckResult(
-            name="single_expensive_unit_rule",
-            ok=len(expensive_units) == 1,
-            details=f"expensive_units={expensive_units}",
-            path=str(required_files["motion_budget"]),
+            name="registry_references_existing_passports",
+            ok=not missing_registry_passports,
+            details="ok" if not missing_registry_passports else f"missing refs: {missing_registry_passports}",
+            path=str(registry_path),
         )
     )
 
+    # Truth map references existing passports
+    truth_entries = truth_map.get("entries", []) if isinstance(truth_map, dict) else []
+    missing_truth_refs: list[str] = []
+    for entry in truth_entries:
+        if not isinstance(entry, dict):
+            continue
+        unit_id = entry.get("visual_unit_id")
+        if isinstance(unit_id, str) and unit_id not in passports:
+            missing_truth_refs.append(unit_id)
+    checks.append(
+        CheckResult(
+            name="truth_map_references_existing_units",
+            ok=not missing_truth_refs,
+            details="ok" if not missing_truth_refs else f"missing refs: {missing_truth_refs}",
+            path=str(truth_map_path),
+        )
+    )
+
+    # Performance tier checks
+    perf_tiers = set(motion_budget.get("performance_tiers", [])) if isinstance(motion_budget, dict) else set()
+    bad_perf_tiers = []
+    for unit_id, passport in passports.items():
+        tier = passport.get("perf_tier") if isinstance(passport, dict) else None
+        if not isinstance(tier, str) or tier not in perf_tiers:
+            bad_perf_tiers.append(f"{unit_id}:{tier}")
+    checks.append(
+        CheckResult(
+            name="required_performance_tiers_exist",
+            ok=not bad_perf_tiers,
+            details="ok" if not bad_perf_tiers else f"invalid perf_tier refs: {bad_perf_tiers}",
+            path=str(motion_budget_path),
+        )
+    )
+
+    # Forbidden write-target roots
     write_target_values: list[str] = []
     write_target_keys = {"write_target", "write_path", "output_path", "target_root", "destination"}
-    for document in loaded.values():
+    for document in [registry, truth_map, *passports.values()]:
         collect_keyed_strings(document, write_target_keys, write_target_values)
     forbidden_hits = [value for value in write_target_values if any(marker in value for marker in FORBIDDEN_ROOT_MARKERS)]
     checks.append(
@@ -274,6 +415,24 @@ def main() -> int:
             name="forbidden_write_targets_absent",
             ok=not forbidden_hits,
             details="none" if not forbidden_hits else f"hits={forbidden_hits}",
+            path=str(base_dir),
+        )
+    )
+
+    # Owner report HEAD staleness check
+    current_head = get_git_head(repo_root)
+    owner_head = read_owner_report_head(owner_report_path)
+    head_check_ok = owner_head is None or owner_head == current_head
+    checks.append(
+        CheckResult(
+            name="owner_report_head_not_stale_if_present",
+            ok=head_check_ok,
+            details=(
+                "no HEAD hash present in owner report (check skipped)"
+                if owner_head is None
+                else f"owner_head={owner_head}, current_head={current_head}"
+            ),
+            path=str(owner_report_path),
         )
     )
 
@@ -303,11 +462,12 @@ def main() -> int:
         "verdict": verdict,
     }
 
-    reports_dir.mkdir(parents=True, exist_ok=True)
+    report_path.parent.mkdir(parents=True, exist_ok=True)
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     print(f"validation_report: {report_path}")
     print(f"verdict: {verdict} ({passed}/{len(checks)} passed)")
+
     return 0 if verdict == "PASS" else 1
 
 

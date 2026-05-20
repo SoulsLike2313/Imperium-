@@ -2,15 +2,23 @@
   "visual_unit_id": "SANCTUM.BRAIN_FIELD.NEURAL_CORE",
   "parent": "SANCTUM.BRAIN_FIELD",
   "type": "hero_core",
-  "owner_group": "SANCTUM",
-  "owner_organ": "MECHANICUS_AGENT",
-  "purpose": "Dominant central brain hero layer anchoring organ topology.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "UNKNOWN",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "SYSTEM",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Central hero brain core used as structural anchor, not as readiness truth lane.",
   "backend_source": {
+    "type": "frontend_logic",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/static/app.js"
     ],
-    "mode": "frontend_render_state"
+    "key_bindings": [
+      "BRAIN_LAYOUT",
+      "selectedOrganId"
+    ]
   },
+  "backend_source_status": "candidate",
   "allowed_states": [
     "idle",
     "active",
@@ -19,20 +27,15 @@
     "unknown"
   ],
   "truth_rules": [
-    "Hero pulse does not imply PASS; truth is shown in explicit status strip.",
-    "Reduced-motion profile downgrades this unit to DISABLED_LOW_POWER."
+    "Core glow never means PASS or READY.",
+    "If state payload is absent, core must remain UNKNOWN-neutral."
   ],
   "visual_tokens": "brain_core_tokens",
   "texture": "purple_nebula_depth",
   "glow": {
     "enabled": true,
     "color_token": "accent_holo_cyan",
-    "intensity_by_state": {
-      "idle": 0.32,
-      "active": 0.72,
-      "warn": 0.86,
-      "error": 1.0
-    }
+    "default_intensity": 0.35
   },
   "motion": {
     "enabled": true,
@@ -41,12 +44,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "EXPENSIVE",
-  "accessibility_rules": [
-    "No state may be encoded by glow color only; paired text proof is mandatory."
-  ],
   "proof_requirements": [
-    "Evidence that only this hero layer is EXPENSIVE in motion budget."
+    "Exactly one EXPENSIVE hero layer in motion budget."
   ],
-  "change_safety": "Core art changes must not modify organ node truth semantics.",
-  "integration_status": "real"
+  "integration_status": "candidate",
+  "fake_green_risks": [
+    "Core pulse can be mistaken as health confirmation."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "OFFICIO_AGENTIS_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }

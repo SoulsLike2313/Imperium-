@@ -2,17 +2,21 @@
   "visual_unit_id": "SANCTUM.BRAIN_FIELD.ORGAN_RING.MECHANICUS_NODE",
   "parent": "SANCTUM.BRAIN_FIELD.ORGAN_RING",
   "type": "organ_node",
-  "owner_group": "SANCTUM",
-  "owner_organ": "MECHANICUS_AGENT",
-  "purpose": "Mechanicus brain node that opens operator cockpit context.",
+  "visual_owner": "SANCTUM_SHELL",
+  "truth_owner": "MECHANICUS_AGENT",
+  "data_source_owner": "SANCTUM_STATE_BUILDER",
+  "organ_subject": "MECHANICUS_AGENT",
+  "implementation_owner": "VISUAL_FOUNDRY",
+  "purpose": "Live Mechanicus organ node with backend-bound state mapping.",
   "backend_source": {
+    "type": "api_state_and_agent_status",
     "paths": [
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/state_builder.py",
       "IMPERIUM_NEW_GENERATION/SANCTUM_MINI/api/mechanicus_adapter.py",
       "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT/state/current_status.json"
-    ],
-    "mode": "api_bound"
+    ]
   },
+  "backend_source_status": "real",
   "allowed_states": [
     "connected",
     "warn",
@@ -21,21 +25,15 @@
     "unknown"
   ],
   "truth_rules": [
-    "CONNECTED may appear only with available Mechanicus root and tool index.",
-    "If status source is unreadable, unit must render UNKNOWN."
+    "Connected is allowed only when declared backend source resolves.",
+    "Unreadable source forces UNKNOWN."
   ],
   "visual_tokens": "mechanicus_node_tokens",
   "texture": "red_forge_warning",
   "glow": {
     "enabled": true,
     "color_token": "mechanicus_red_glow",
-    "intensity_by_state": {
-      "connected": 0.65,
-      "warn": 0.82,
-      "error": 1.0,
-      "blocked": 0.9,
-      "unknown": 0.45
-    }
+    "default_intensity": 0.45
   },
   "motion": {
     "enabled": true,
@@ -44,13 +42,18 @@
     "disable_in_reduced_motion": true
   },
   "perf_tier": "CHEAP",
-  "accessibility_rules": [
-    "State must be readable by label and icon, not only color."
-  ],
   "proof_requirements": [
-    "State mapping proof between /api/state and node class.",
-    "Panel-open behavior proof for Mechanicus-only live panel."
+    "Mechanicus state source path must exist in truth map."
   ],
-  "change_safety": "This node may change style without altering allowlist command policy.",
-  "integration_status": "real"
+  "integration_status": "real",
+  "fake_green_risks": [
+    "Connected style while state source missing."
+  ],
+  "owner_group": "SANCTUM",
+  "owner_organ": "MECHANICUS_AGENT",
+  "accessibility_rules": [
+    "State must not be encoded by color alone.",
+    "RU/EN labels must remain explicit for status tags."
+  ],
+  "change_safety": "Topology hardening scope only; no final UI readiness claims."
 }
