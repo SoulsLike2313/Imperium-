@@ -33,5 +33,6 @@ PASS (FOUNDATION_ONLY)
 
 ## Git closure
 - Implementation commit: `cf3d6608ed42ff3055fa3267b60bbe6736aafc76`
-- Commit URL: `https://github.com/SoulsLike2313/Imperium-/commit/cf3d6608ed42ff3055fa3267b60bbe6736aafc76`
-- Closure metadata commit: `REPORT_METADATA_UPDATE_COMMIT`
+- Implementation URL: `https://github.com/SoulsLike2313/Imperium-/commit/cf3d6608ed42ff3055fa3267b60bbe6736aafc76`
+- Closure metadata commit: `4431d5660be5d64fdc45ed083bf9a695a6d42409`
+- Closure URL: `https://github.com/SoulsLike2313/Imperium-/commit/4431d5660be5d64fdc45ed083bf9a695a6d42409`
