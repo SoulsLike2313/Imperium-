@@ -1,0 +1,629 @@
+#!/usr/bin/env python3
+"""Local file-backed allowlisted action server for Sanctum NG foundation layer."""
+
+from __future__ import annotations
+
+import argparse
+import datetime as dt
+import json
+import subprocess
+import uuid
+from http import HTTPStatus
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+from typing import Any
+from urllib.parse import unquote, urlparse
+
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+REQUIRED_STARTING_HEAD_DEFAULT = "904ff5f5e47f470293b5857682702d4086240a4e"
+APP_DIR_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP"
+STATE_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.generated.json"
+PHASE_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
+ACTION_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_ACTION_REGISTRY_V0_1.json"
+VALIDATOR_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_validator.py"
+REFRESH_RUNNER_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_refresh_runner.py"
+STATE_SCHEMA_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/sanctum_ng_state.schema.json"
+
+FORBIDDEN_PATHS = [
+    "ORGANS/**",
+    "SANCTUM/**",
+    "IMPERIUM_TEST_VERSION/**",
+    "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/**",
+    ".git/**",
+]
+
+
+def utc_now() -> str:
+    return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def load_json(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(payload, dict):
+        return None
+    return payload
+
+
+def write_json(path: Path, payload: dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+
+
+def relpath(path: Path, repo_root: Path) -> str:
+    return path.resolve().relative_to(repo_root.resolve()).as_posix()
+
+
+class ActionLayer:
+    def __init__(
+        self,
+        repo_root: Path,
+        task_id: str,
+        required_starting_head: str,
+        report_dir: Path,
+        action_log_dir: Path,
+    ) -> None:
+        self.repo_root = repo_root.resolve()
+        self.task_id = task_id
+        self.required_starting_head = required_starting_head
+        self.report_dir = report_dir.resolve()
+        self.action_log_dir = action_log_dir.resolve()
+        self.app_dir = (self.repo_root / APP_DIR_REL).resolve()
+        self.report_dir.mkdir(parents=True, exist_ok=True)
+        self.action_log_dir.mkdir(parents=True, exist_ok=True)
+
+    def state_payload(self) -> dict[str, Any]:
+        state = load_json(self.repo_root / STATE_PATH_REL)
+        if state is None:
+            return {
+                "schema_id": "SANCTUM_NG_STATE_V0_1",
+                "task_id": self.task_id,
+                "mode": "READ_ONLY_FOUNDATION",
+                "generated_at_utc": "UNKNOWN",
+                "warnings": ["STATE_FILE_MISSING_OR_INVALID"],
+            }
+        return state
+
+    def action_registry(self) -> dict[str, Any]:
+        registry = load_json(self.repo_root / ACTION_REGISTRY_REL)
+        if registry is None:
+            return {
+                "schema_id": "SANCTUM_NG_ACTION_REGISTRY_V0_1",
+                "task_id": self.task_id,
+                "mode": "ACTION_LAYER_FOUNDATION_ONLY",
+                "actions": [],
+                "warnings": ["ACTION_REGISTRY_MISSING_OR_INVALID"],
+            }
+        return registry
+
+    def action_map(self) -> dict[str, dict[str, Any]]:
+        registry = self.action_registry()
+        actions = registry.get("actions", [])
+        out: dict[str, dict[str, Any]] = {}
+        if isinstance(actions, list):
+            for action in actions:
+                if isinstance(action, dict):
+                    action_id = str(action.get("action_id", "")).strip()
+                    if action_id:
+                        out[action_id] = action
+        return out
+
+    def _run_command(self, cmd: list[str], timeout_seconds: int = 240) -> dict[str, Any]:
+        proc = subprocess.run(
+            cmd,
+            cwd=self.repo_root,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            text=True,
+            check=False,
+            timeout=timeout_seconds,
+        )
+        return {
+            "command": cmd,
+            "returncode": proc.returncode,
+            "stdout": proc.stdout.strip(),
+            "stderr": proc.stderr.strip(),
+        }
+
+    def _request_record(self, action_id: str, requester: str, dry_run: bool, input_payload: dict[str, Any]) -> tuple[str, Path]:
+        request_id = f"{utc_now().replace(':', '').replace('-', '')}_{uuid.uuid4().hex[:10]}"
+        request_path = self.report_dir / "ACTION_LOGS" / "REQUESTS" / f"{request_id}.json"
+        request_payload = {
+            "schema_id": "SANCTUM_NG_ACTION_REQUEST_V0_1",
+            "task_id": self.task_id,
+            "request_id": request_id,
+            "action_id": action_id,
+            "requested_at_utc": utc_now(),
+            "requester": requester,
+            "dry_run": dry_run,
+            "input": input_payload,
+        }
+        write_json(request_path, request_payload)
+        return request_id, request_path
+
+    def _result_record_path(self, request_id: str) -> Path:
+        return self.report_dir / "ACTION_LOGS" / "RESULTS" / f"{request_id}.json"
+
+    def _run_refresh(self) -> dict[str, Any]:
+        runner_path = self.repo_root / REFRESH_RUNNER_PATH_REL
+        cmd = [
+            "python3",
+            str(runner_path),
+            "--repo-root",
+            str(self.repo_root),
+            "--task-id",
+            self.task_id,
+            "--required-starting-head",
+            self.required_starting_head,
+            "--report-dir",
+            str(self.report_dir),
+        ]
+        run = self._run_command(cmd)
+        runner_report = load_json(self.report_dir / "SANCTUM_NG_REFRESH_RUNNER_REPORT.json") or {}
+        verdict = str(runner_report.get("verdict", "UNKNOWN"))
+        if run["returncode"] != 0:
+            status = "BLOCK"
+        elif verdict == "PASS":
+            status = "PASS"
+        else:
+            status = "WARN"
+
+        return {
+            "status": status,
+            "executed_command": cmd,
+            "output_summary": f"refresh_returncode={run['returncode']} runner_verdict={verdict}",
+            "payload": {
+                "runner": run,
+                "runner_report": runner_report,
+            },
+            "evidence_refs": [
+                STATE_PATH_REL,
+                relpath(self.report_dir / "SANCTUM_NG_REFRESH_RUNNER_REPORT.json", self.repo_root),
+                relpath(self.report_dir / "VALIDATOR_REPORT.json", self.repo_root),
+            ],
+            "known_limitations": [
+                "Runs bounded local refresh flow only.",
+                "No production backend claim."
+            ],
+        }
+
+    def _run_validate(self) -> dict[str, Any]:
+        validator_path = self.repo_root / VALIDATOR_PATH_REL
+        state_path = self.repo_root / STATE_PATH_REL
+        schema_path = self.repo_root / STATE_SCHEMA_REL
+        output_path = self.report_dir / "VALIDATOR_REPORT.json"
+
+        cmd = [
+            "python3",
+            str(validator_path),
+            "--repo-root",
+            str(self.repo_root),
+            "--state",
+            str(state_path),
+            "--schema",
+            str(schema_path),
+            "--report-dir",
+            str(self.report_dir),
+            "--output",
+            str(output_path),
+            "--task-id",
+            self.task_id,
+        ]
+        run = self._run_command(cmd)
+        validator_report = load_json(output_path) or {}
+        verdict = str(validator_report.get("verdict", "UNKNOWN"))
+        if run["returncode"] != 0:
+            status = "BLOCK"
+        elif verdict == "PASS":
+            status = "PASS"
+        else:
+            status = "WARN"
+
+        return {
+            "status": status,
+            "executed_command": cmd,
+            "output_summary": f"validator_returncode={run['returncode']} validator_verdict={verdict}",
+            "payload": {
+                "validator": run,
+                "validator_report": validator_report,
+            },
+            "evidence_refs": [relpath(output_path, self.repo_root)],
+            "known_limitations": [
+                "Validator covers bounded Sanctum NG foundation checks.",
+                "No production readiness claim."
+            ],
+        }
+
+    def _read_fixed_json(self, rel: str) -> dict[str, Any]:
+        payload = load_json(self.repo_root / rel)
+        if payload is None:
+            return {
+                "status": "WARN",
+                "payload": {"path": rel, "exists": False},
+                "evidence_refs": [rel],
+                "output_summary": f"missing_or_invalid:{rel}",
+                "known_limitations": ["File is missing or not a JSON object."],
+            }
+        return {
+            "status": "PASS",
+            "payload": {"path": rel, "exists": True, "content": payload},
+            "evidence_refs": [rel],
+            "output_summary": f"read_ok:{rel}",
+            "known_limitations": ["Read scope is bounded to fixed path."],
+        }
+
+    def _read_latest_report_summary(self) -> dict[str, Any]:
+        file_names = [
+            "SANCTUM_NG_REFRESH_RUNNER_REPORT.json",
+            "VALIDATOR_REPORT.json",
+            "ACTION_LAYER_SMOKE_REPORT.json",
+            "FINAL_RECEIPT.json",
+            "POST_COMMIT_CLOSURE_RECEIPT.json",
+        ]
+
+        summaries: list[dict[str, Any]] = []
+        missing: list[str] = []
+        for file_name in file_names:
+            report_path = self.report_dir / file_name
+            rel = relpath(report_path, self.repo_root)
+            payload = load_json(report_path)
+            if payload is None:
+                missing.append(rel)
+                summaries.append({"path": rel, "exists": False, "verdict": "MISSING"})
+                continue
+            verdict = str(payload.get("verdict", payload.get("status", "UNKNOWN")))
+            summaries.append({"path": rel, "exists": True, "verdict": verdict})
+
+        status = "PASS" if not missing else "WARN"
+        known_limitations = [
+            "Only fixed known report files are readable.",
+            "Missing files are surfaced as WARN and not auto-generated.",
+        ]
+
+        return {
+            "status": status,
+            "payload": {
+                "reports": summaries,
+                "missing": missing,
+            },
+            "evidence_refs": [item["path"] for item in summaries],
+            "output_summary": f"summary_count={len(summaries)} missing={len(missing)}",
+            "known_limitations": known_limitations,
+        }
+
+    def execute_action(self, action_id: str, requester: str, dry_run: bool, input_payload: dict[str, Any]) -> dict[str, Any]:
+        started_at = utc_now()
+        action_map = self.action_map()
+        action_def = action_map.get(action_id)
+
+        if action_def is None:
+            result = {
+                "schema_id": "SANCTUM_NG_ACTION_RESULT_V0_1",
+                "task_id": self.task_id,
+                "request_id": "NOT_CREATED",
+                "action_id": action_id,
+                "action_status": "BLOCKED",
+                "status": "NOT_ALLOWED",
+                "started_at_utc": started_at,
+                "finished_at_utc": utc_now(),
+                "request_record_path": "N/A",
+                "result_record_path": "N/A",
+                "executed_command": [],
+                "output_summary": "Action ID is not allowlisted.",
+                "payload": {"known_actions": sorted(action_map.keys())},
+                "evidence_refs": [ACTION_REGISTRY_REL],
+                "known_limitations": [
+                    "Only allowlisted actions can be executed.",
+                    "Arbitrary action IDs are blocked.",
+                ],
+            }
+            return result
+
+        request_id, request_path = self._request_record(action_id, requester, dry_run, input_payload)
+        action_status = str(action_def.get("status", "BLOCKED"))
+
+        base_result = {
+            "schema_id": "SANCTUM_NG_ACTION_RESULT_V0_1",
+            "task_id": self.task_id,
+            "request_id": request_id,
+            "action_id": action_id,
+            "action_status": action_status,
+            "started_at_utc": started_at,
+            "request_record_path": relpath(request_path, self.repo_root),
+            "executed_command": [],
+        }
+
+        result_path = self._result_record_path(request_id)
+
+        if action_status != "WIRED":
+            status_map = {
+                "PREVIEW_ONLY": "PREVIEW_ONLY",
+                "NOT_WIRED": "BLOCK",
+                "BLOCKED": "BLOCK",
+            }
+            result = {
+                **base_result,
+                "status": status_map.get(action_status, "BLOCK"),
+                "finished_at_utc": utc_now(),
+                "result_record_path": relpath(result_path, self.repo_root),
+                "output_summary": f"Action status {action_status} is not executable.",
+                "payload": {
+                    "action": action_def,
+                    "dry_run": dry_run,
+                },
+                "evidence_refs": [ACTION_REGISTRY_REL],
+                "known_limitations": [
+                    "Only WIRED actions are executable from the server.",
+                    "Non-WIRED actions are surfaced for transparency only.",
+                ],
+            }
+            write_json(result_path, result)
+            return result
+
+        if dry_run:
+            result = {
+                **base_result,
+                "status": "PASS",
+                "finished_at_utc": utc_now(),
+                "result_record_path": relpath(result_path, self.repo_root),
+                "output_summary": "Dry run completed; no action routine executed.",
+                "payload": {"action": action_def, "dry_run": True},
+                "evidence_refs": [ACTION_REGISTRY_REL],
+                "known_limitations": ["Dry run does not produce runtime side effects."],
+            }
+            write_json(result_path, result)
+            return result
+
+        dispatch = {
+            "REFRESH_TRUTH_STATE": self._run_refresh,
+            "VALIDATE_TRUTH_STATE": self._run_validate,
+            "READ_PHASE_REGISTRY": lambda: self._read_fixed_json(PHASE_REGISTRY_REL),
+            "READ_ACTION_REGISTRY": lambda: self._read_fixed_json(ACTION_REGISTRY_REL),
+            "READ_LATEST_REPORT_SUMMARY": self._read_latest_report_summary,
+        }
+        routine = dispatch.get(action_id)
+
+        if routine is None:
+            result = {
+                **base_result,
+                "status": "BLOCK",
+                "finished_at_utc": utc_now(),
+                "result_record_path": relpath(result_path, self.repo_root),
+                "output_summary": "Action is allowlisted but routine is not implemented.",
+                "payload": {"action": action_def},
+                "evidence_refs": [ACTION_REGISTRY_REL],
+                "known_limitations": ["Routine mapping is missing for this action."],
+            }
+            write_json(result_path, result)
+            return result
+
+        try:
+            payload = routine()
+            status = str(payload.get("status", "WARN"))
+            result = {
+                **base_result,
+                "status": status,
+                "finished_at_utc": utc_now(),
+                "result_record_path": relpath(result_path, self.repo_root),
+                "executed_command": payload.get("executed_command", []),
+                "output_summary": str(payload.get("output_summary", "")),
+                "payload": payload.get("payload", {}),
+                "evidence_refs": payload.get("evidence_refs", []),
+                "known_limitations": payload.get("known_limitations", []),
+            }
+        except Exception as exc:  # defensive guard
+            result = {
+                **base_result,
+                "status": "ERROR",
+                "finished_at_utc": utc_now(),
+                "result_record_path": relpath(result_path, self.repo_root),
+                "output_summary": f"Action execution error: {exc}",
+                "payload": {"error": str(exc)},
+                "evidence_refs": [ACTION_REGISTRY_REL],
+                "known_limitations": ["Unexpected exception while running allowlisted action."],
+            }
+
+        write_json(result_path, result)
+        latest_path = self.action_log_dir / "latest_action_result.json"
+        write_json(latest_path, result)
+        return result
+
+
+class SanctumHandler(SimpleHTTPRequestHandler):
+    layer: ActionLayer
+
+    def __init__(self, *args: Any, layer: ActionLayer, **kwargs: Any) -> None:
+        self.layer = layer
+        super().__init__(*args, directory=str(layer.app_dir), **kwargs)
+
+    def log_message(self, fmt: str, *args: Any) -> None:
+        # Keep stdout concise for task receipts while preserving default server behavior.
+        print(f"[sanctum-ng-action-server] {fmt % args}")
+
+    def _send_json(self, payload: dict[str, Any], status: HTTPStatus = HTTPStatus.OK) -> None:
+        body = json.dumps(payload, indent=2, ensure_ascii=False).encode("utf-8")
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Cache-Control", "no-store")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+        self.wfile.write(body)
+
+    def do_OPTIONS(self) -> None:  # noqa: N802
+        self.send_response(HTTPStatus.NO_CONTENT)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.send_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
+        self.end_headers()
+
+    def do_GET(self) -> None:  # noqa: N802
+        parsed = urlparse(self.path)
+        path = parsed.path
+
+        if path == "/api/health":
+            self._send_json(
+                {
+                    "status": "OK",
+                    "service": "sanctum_ng_action_server",
+                    "task_id": self.layer.task_id,
+                    "generated_at_utc": utc_now(),
+                }
+            )
+            return
+
+        if path == "/api/state":
+            self._send_json(
+                {
+                    "status": "CONNECTED",
+                    "task_id": self.layer.task_id,
+                    "state": self.layer.state_payload(),
+                }
+            )
+            return
+
+        if path == "/api/actions":
+            registry = self.layer.action_registry()
+            actions = registry.get("actions", [])
+            self._send_json(
+                {
+                    "status": "CONNECTED",
+                    "task_id": self.layer.task_id,
+                    "registry": {
+                        "schema_id": registry.get("schema_id", "SANCTUM_NG_ACTION_REGISTRY_V0_1"),
+                        "mode": registry.get("mode", "ACTION_LAYER_FOUNDATION_ONLY"),
+                    },
+                    "actions": actions if isinstance(actions, list) else [],
+                    "forbidden_paths": FORBIDDEN_PATHS,
+                }
+            )
+            return
+
+        if path == "/":
+            self.path = "/index.html"
+        super().do_GET()
+
+    def do_POST(self) -> None:  # noqa: N802
+        parsed = urlparse(self.path)
+        path = parsed.path
+
+        if not path.startswith("/api/actions/"):
+            self._send_json(
+                {
+                    "error": "not_found",
+                    "details": "Only /api/actions/<ACTION_ID> is supported for POST.",
+                },
+                status=HTTPStatus.NOT_FOUND,
+            )
+            return
+
+        action_id = unquote(path.split("/api/actions/", 1)[1]).strip()
+        if not action_id:
+            self._send_json(
+                {
+                    "error": "invalid_action_id",
+                    "details": "Action ID is missing in URL.",
+                },
+                status=HTTPStatus.BAD_REQUEST,
+            )
+            return
+
+        length_header = self.headers.get("Content-Length", "0")
+        try:
+            content_length = int(length_header)
+        except ValueError:
+            content_length = 0
+
+        raw_body = self.rfile.read(content_length) if content_length > 0 else b"{}"
+        try:
+            body = json.loads(raw_body.decode("utf-8")) if raw_body else {}
+        except json.JSONDecodeError:
+            self._send_json(
+                {
+                    "error": "invalid_json",
+                    "details": "Request body must be valid JSON.",
+                },
+                status=HTTPStatus.BAD_REQUEST,
+            )
+            return
+
+        if not isinstance(body, dict):
+            body = {}
+
+        requester = str(body.get("requester", "API_CLIENT"))
+        dry_run = bool(body.get("dry_run", False))
+        input_payload = body.get("input", {})
+        if not isinstance(input_payload, dict):
+            input_payload = {}
+
+        result = self.layer.execute_action(action_id, requester, dry_run, input_payload)
+
+        status = str(result.get("status", "ERROR"))
+        http_status = HTTPStatus.OK
+        if status in {"NOT_ALLOWED", "BLOCK", "ERROR"}:
+            http_status = HTTPStatus.BAD_REQUEST
+
+        self._send_json(result, status=http_status)
+
+
+def parse_args() -> argparse.Namespace:
+    script_path = Path(__file__).resolve()
+    default_repo_root = script_path.parents[3]
+    default_report_dir = default_repo_root / (
+        "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+    )
+    default_action_log_dir = default_repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/action_logs"
+
+    parser = argparse.ArgumentParser(description="Sanctum NG file-backed action layer server.")
+    parser.add_argument("--repo-root", type=Path, default=default_repo_root)
+    parser.add_argument("--host", default="127.0.0.1")
+    parser.add_argument("--port", type=int, default=8787)
+    parser.add_argument("--task-id", default=TASK_ID_DEFAULT)
+    parser.add_argument("--required-starting-head", default=REQUIRED_STARTING_HEAD_DEFAULT)
+    parser.add_argument("--report-dir", type=Path, default=default_report_dir)
+    parser.add_argument("--action-log-dir", type=Path, default=default_action_log_dir)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    repo_root = args.repo_root.resolve()
+
+    if args.host not in {"127.0.0.1", "localhost"}:
+        print("error=localhost_only host must be 127.0.0.1 or localhost")
+        return 1
+
+    layer = ActionLayer(
+        repo_root=repo_root,
+        task_id=str(args.task_id),
+        required_starting_head=str(args.required_starting_head),
+        report_dir=args.report_dir.resolve(),
+        action_log_dir=args.action_log_dir.resolve(),
+    )
+
+    def handler_factory(*handler_args: Any, **handler_kwargs: Any) -> SanctumHandler:
+        return SanctumHandler(*handler_args, layer=layer, **handler_kwargs)
+
+    server = ThreadingHTTPServer((args.host, int(args.port)), handler_factory)
+    print(f"server_status=STARTING host={args.host} port={args.port}")
+    print(f"app_dir={relpath(layer.app_dir, repo_root)}")
+    print(f"action_registry={ACTION_REGISTRY_REL}")
+
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        server.server_close()
+
+    print("server_status=STOPPED")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

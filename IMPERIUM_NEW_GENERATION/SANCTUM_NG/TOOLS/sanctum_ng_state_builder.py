@@ -10,8 +10,8 @@ import subprocess
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1"
-REQUIRED_STARTING_HEAD_DEFAULT = "257a9332f926c31cffcc419851b0f87da1e0fab5"
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+REQUIRED_STARTING_HEAD_DEFAULT = "904ff5f5e47f470293b5857682702d4086240a4e"
 MODE = "READ_ONLY_FOUNDATION"
 REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 OFFICIO_DRAFT_REL = "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md"
@@ -299,11 +299,11 @@ def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> d
             "LIVE_ORGAN_DIALOGUE",
         ],
         "actions": {
-            "refresh_truth": "RUN_CLI_SANCTUM_NG_REFRESH_RUNNER",
-            "open_reports": "PREVIEW_ONLY",
-            "validate": "RUN_CLI_NOT_FROM_BROWSER",
-            "create_task": "NOT_WIRED",
-            "consult_organs": "NOT_WIRED",
+            "REFRESH_TRUTH_STATE": "WIRED",
+            "VALIDATE_TRUTH_STATE": "WIRED",
+            "READ_PHASE_REGISTRY": "WIRED",
+            "READ_ACTION_REGISTRY": "WIRED",
+            "READ_LATEST_REPORT_SUMMARY": "WIRED",
         },
     }
 

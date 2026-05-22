@@ -262,26 +262,26 @@
     "actions": {
       "type": "object",
       "required": [
-        "refresh_truth",
-        "open_reports",
-        "validate",
-        "create_task",
-        "consult_organs"
+        "REFRESH_TRUTH_STATE",
+        "VALIDATE_TRUTH_STATE",
+        "READ_PHASE_REGISTRY",
+        "READ_ACTION_REGISTRY",
+        "READ_LATEST_REPORT_SUMMARY"
       ],
       "properties": {
-        "refresh_truth": {
+        "REFRESH_TRUTH_STATE": {
           "type": "string"
         },
-        "open_reports": {
+        "VALIDATE_TRUTH_STATE": {
           "type": "string"
         },
-        "validate": {
+        "READ_PHASE_REGISTRY": {
           "type": "string"
         },
-        "create_task": {
+        "READ_ACTION_REGISTRY": {
           "type": "string"
         },
-        "consult_organs": {
+        "READ_LATEST_REPORT_SUMMARY": {
           "type": "string"
         }
       }

@@ -1,13 +1,13 @@
 {
   "schema_id": "SANCTUM_NG_STATE_V0_1",
-  "task_id": "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1",
+  "task_id": "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1",
   "mode": "READ_ONLY_FOUNDATION",
-  "generated_at_utc": "2026-05-22T13:25:01Z",
+  "generated_at_utc": "2026-05-22T15:49:07Z",
   "git": {
-    "head": "257a9332f926c31cffcc419851b0f87da1e0fab5",
+    "head": "904ff5f5e47f470293b5857682702d4086240a4e",
     "branch": "master",
     "worktree_dirty": true,
-    "required_starting_head": "257a9332f926c31cffcc419851b0f87da1e0fab5",
+    "required_starting_head": "904ff5f5e47f470293b5857682702d4086240a4e",
     "head_matches_required_start": true
   },
   "truth_flags": {
@@ -30,7 +30,7 @@
     "AUTHORITY_SOURCE": [
       "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md",
       "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json",
-      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
+      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
     ],
     "STATUS": "WARN_FOUNDATION_ONLY",
     "KNOWN_LIMITATION": "Live language compliance is foundation-level receipt discipline, not runtime hard-block enforcement.",
@@ -366,10 +366,10 @@
     "LIVE_ORGAN_DIALOGUE"
   ],
   "actions": {
-    "refresh_truth": "RUN_CLI_SANCTUM_NG_REFRESH_RUNNER",
-    "open_reports": "PREVIEW_ONLY",
-    "validate": "RUN_CLI_NOT_FROM_BROWSER",
-    "create_task": "NOT_WIRED",
-    "consult_organs": "NOT_WIRED"
+    "REFRESH_TRUTH_STATE": "WIRED",
+    "VALIDATE_TRUTH_STATE": "WIRED",
+    "READ_PHASE_REGISTRY": "WIRED",
+    "READ_ACTION_REGISTRY": "WIRED",
+    "READ_LATEST_REPORT_SUMMARY": "WIRED"
   }
 }
