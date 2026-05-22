@@ -2,22 +2,27 @@
   "schema_id": "FINAL_RECEIPT_V0_1",
   "task_id": "TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1",
   "contour": "VM2",
-  "generated_at_utc": "PENDING",
-  "status": "PENDING_COMMIT_PUSH",
+  "generated_at_utc": "2026-05-22T21:15:05Z",
+  "status": "PASS",
   "starting_head": "7070fd33074cdf4853ec5aaf929d692332c95a82",
-  "ending_head": "PENDING",
-  "implementation_commit": "PENDING",
-  "implementation_commit_url": "PENDING",
-  "pushed": false,
-  "worktree_clean": false,
+  "ending_head": "f1c3ff13d21f56476d83fc5255fa0f426826bc6f",
+  "implementation_commit": "f1c3ff13d21f56476d83fc5255fa0f426826bc6f",
+  "implementation_commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/f1c3ff13d21f56476d83fc5255fa0f426826bc6f",
+  "pushed": true,
+  "worktree_clean": true,
   "checks": {
     "builder": "PASS",
-    "validator": "PENDING",
-    "smoke": "PENDING",
-    "push_verify": "PENDING"
+    "validator": "PASS",
+    "smoke": "PASS",
+    "push_verify": "PASS"
   },
   "allowed_paths_touched_only": true,
   "forbidden_claims_avoided": true,
   "context_window_discipline": "OK",
-  "authoritative_post_commit_receipt": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1/POST_COMMIT_CLOSURE_RECEIPT.json"
+  "authoritative_post_commit_receipt": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1/POST_COMMIT_CLOSURE_RECEIPT.json",
+  "closure_metadata_commit_pending": false,
+  "notes": [
+    "Implementation commit carries all foundation Organ Dialogue payload changes.",
+    "Receipt bundle confirms deterministic file-backed dialogue proof, not live autonomy."
+  ]
 }
