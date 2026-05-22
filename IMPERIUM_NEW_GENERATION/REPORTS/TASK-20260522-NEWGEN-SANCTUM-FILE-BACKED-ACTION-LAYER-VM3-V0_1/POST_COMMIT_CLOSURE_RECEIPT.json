@@ -2,16 +2,17 @@
   "receipt_type": "POST_COMMIT_CLOSURE_RECEIPT",
   "task_id": "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1",
   "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
-  "final_commit": "PENDING",
-  "commit_url": "PENDING",
+  "final_commit": "acbca13f2dc67caf9f43eba2b01bd3fd642f6401",
+  "commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/acbca13f2dc67caf9f43eba2b01bd3fd642f6401",
   "branch": "master",
-  "pushed": false,
-  "push_verify": false,
+  "pushed": true,
+  "push_verify": true,
   "remote_ref": "refs/heads/master",
-  "worktree_clean": "pending",
-  "authoritative_closure_receipt": false,
-  "supersedes_pre_commit_final_receipt_pending_fields": false,
+  "worktree_clean": "pending_closure_commit_push",
+  "authoritative_closure_receipt": true,
+  "supersedes_pre_commit_final_receipt_pending_fields": true,
+  "timestamp_utc": "2026-05-22T15:51:40Z",
   "limitations": [
-    "Will be finalized after commit and push verification."
+    "Receipt targets implementation commit; closure metadata itself is committed in a tiny follow-up closure commit."
   ]
 }
