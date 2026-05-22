@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewGen Sanctum Truth Shell V0.1</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="truth-bar">
+    <div class="truth-bar__main">
+      <p class="kicker" id="app-kicker">IMPERIUM NEW GENERATION</p>
+      <h1 id="app-title">Sanctum Truth Shell V0.1</h1>
+      <p class="subtitle" id="app-subtitle">Read-only foundation truth surface over phases 1-10.</p>
+    </div>
+    <div class="truth-bar__meta">
+      <button id="lang-toggle" class="btn" type="button">RU</button>
+      <div class="truth-grid">
+        <div><span class="label" id="label-task">Task</span><strong id="truth-task">-</strong></div>
+        <div><span class="label" id="label-head">HEAD</span><strong id="truth-head">-</strong></div>
+        <div><span class="label" id="label-mode">Mode</span><strong id="truth-mode">-</strong></div>
+        <div><span class="label" id="label-worktree">Worktree</span><strong id="truth-worktree">-</strong></div>
+        <div><span class="label" id="label-generated">Generated</span><strong id="truth-generated">-</strong></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel rail">
+      <h2 id="rail-title">Pipeline Zones</h2>
+      <ul id="phase-rail" class="phase-rail"></ul>
+      <section class="warnings">
+        <h3 id="warnings-title">Known Warnings</h3>
+        <ul id="warnings-list"></ul>
+      </section>
+    </aside>
+
+    <section class="panel pipeline">
+      <h2 id="pipeline-title">Foundation Pipeline 1-10</h2>
+      <div id="pipeline-list" class="pipeline-list"></div>
+    </section>
+
+    <aside class="panel inspector">
+      <h2 id="inspector-title">Phase Inspector</h2>
+      <div id="inspector-empty" class="placeholder">Select a phase to inspect details.</div>
+      <div id="inspector-body" class="hidden">
+        <h3 id="inspector-phase-name"></h3>
+        <p id="inspector-summary"></p>
+        <h4 id="inspector-paths-label">Paths</h4>
+        <ul id="inspector-paths"></ul>
+        <h4 id="inspector-reports-label">Report paths</h4>
+        <ul id="inspector-reports"></ul>
+        <h4 id="inspector-limits-label">Limitations</h4>
+        <ul id="inspector-limits"></ul>
+        <h4 id="inspector-snapshot-label">JSON snapshot</h4>
+        <pre id="inspector-json"></pre>
+      </div>
+    </aside>
+  </main>
+
+  <section class="panel action-strip">
+    <h2 id="actions-title">Action Strip</h2>
+    <div id="action-buttons" class="action-buttons"></div>
+  </section>
+
+  <script src="./app.js"></script>
+</body>
+</html>

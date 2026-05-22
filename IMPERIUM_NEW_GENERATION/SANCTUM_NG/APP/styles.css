@@ -1,0 +1,265 @@
+:root {
+  --bg-main: #f4f2ec;
+  --bg-accent: #e6dfd1;
+  --ink-main: #1d2b2a;
+  --ink-soft: #4a5d5c;
+  --panel: #fffefb;
+  --line: #cbc3b2;
+  --focus: #a15e2e;
+  --ok: #2f6b3e;
+  --foundation: #2b5d9a;
+  --warn: #b36d20;
+  --missing: #9e3030;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink-main);
+  font-family: "IBM Plex Sans", "Space Grotesk", "Trebuchet MS", sans-serif;
+  background: radial-gradient(circle at 15% 15%, #efe8da, transparent 38%),
+    radial-gradient(circle at 85% 10%, #e7efe7, transparent 34%),
+    linear-gradient(170deg, var(--bg-main), var(--bg-accent));
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--focus);
+  margin-bottom: 0.4rem;
+}
+
+.subtitle {
+  margin-top: 0.5rem;
+  color: var(--ink-soft);
+}
+
+.truth-bar,
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(17, 28, 27, 0.08);
+}
+
+.truth-bar {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.truth-bar__meta {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+}
+
+.truth-grid {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.label {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+}
+
+.btn {
+  justify-self: end;
+  border: 1px solid var(--focus);
+  background: #fff5ee;
+  color: var(--ink-main);
+  border-radius: 10px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+
+.layout {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 280px 1fr 1fr;
+  gap: 1rem;
+}
+
+.panel {
+  padding: 1rem;
+}
+
+.rail,
+.pipeline,
+.inspector {
+  min-height: 520px;
+}
+
+.phase-rail,
+#warnings-list,
+#inspector-paths,
+#inspector-reports,
+#inspector-limits {
+  margin: 0.7rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.pipeline-list {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.phase-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.65rem;
+  background: #fffcf7;
+  cursor: pointer;
+}
+
+.phase-card:hover,
+.phase-card:focus-visible {
+  outline: none;
+  border-color: var(--focus);
+  transform: translateY(-1px);
+}
+
+.phase-card__top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.phase-name {
+  font-weight: 700;
+}
+
+.status-pill {
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-proved {
+  color: var(--ok);
+  background: #e8f5eb;
+}
+
+.status-foundation {
+  color: var(--foundation);
+  background: #e8effa;
+}
+
+.status-partial,
+.status-warn {
+  color: var(--warn);
+  background: #fdf1e4;
+}
+
+.status-missing {
+  color: var(--missing);
+  background: #fde8e8;
+}
+
+.phase-summary {
+  margin-top: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.placeholder {
+  margin-top: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.hidden {
+  display: none;
+}
+
+#inspector-body {
+  margin-top: 0.8rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+#inspector-body h4 {
+  margin-top: 0.55rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+#inspector-json {
+  max-height: 220px;
+  overflow: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.7rem;
+  background: #f7f4ee;
+  font-size: 0.78rem;
+}
+
+.action-strip {
+  margin-top: 1rem;
+}
+
+.action-buttons {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(130px, 1fr));
+  gap: 0.6rem;
+}
+
+.action-card {
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 0.55rem;
+  background: #fbf7ef;
+}
+
+.action-card strong {
+  display: block;
+}
+
+.action-card span {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 1100px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .rail,
+  .pipeline,
+  .inspector {
+    min-height: auto;
+  }
+
+  .action-buttons {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+  }
+
+  .truth-bar {
+    grid-template-columns: 1fr;
+  }
+}
