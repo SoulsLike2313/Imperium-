@@ -269,7 +269,8 @@
     "Unified evidence map/freshness layer is foundation-only and intentionally conservative.",
     "Partial acceptance semantics are foundation-only and no fake-green upgrades are allowed.",
     "SSH matrix/alias policy is read-only documentation and does not imply global host installation.",
-    "Action rollback contract layer is defined but not yet destructive-tested."
+    "Action rollback contract layer is defined but not yet destructive-tested.",
+    "Negative test mutation check references are foundation-only and synthetic-only."
   ],
   "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
   "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
@@ -331,5 +332,24 @@
       "No autonomous mutation execution is introduced by this contract slice."
     ],
     "updated_at_utc": "2026-05-22T21:00:00Z"
+  },
+  "negative_test_case_catalog_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_CASE_CATALOG_V0_1.json",
+  "mutation_check_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/MUTATION_CHECK_POLICY_V0_1.json",
+  "fake_green_rejection_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/FAKE_GREEN_REJECTION_RULES_V0_1.json",
+  "negative_test_result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
+  "negative_test_mutation_check_layer": {
+    "status": "FOUNDATION_ONLY",
+    "task_id": "TASK-20260523-NEWGEN-PQG-NEGATIVE-TEST-MUTATION-CHECK-VM2-V0_1",
+    "contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_MUTATION_CHECK_V0_1.md",
+    "case_catalog_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_CASE_CATALOG_V0_1.json",
+    "mutation_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/MUTATION_CHECK_POLICY_V0_1.json",
+    "fake_green_rejection_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/FAKE_GREEN_REJECTION_RULES_V0_1.json",
+    "result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
+    "validator_path": "IMPERIUM_NEW_GENERATION/TRUTH/TOOLS/validate_negative_test_mutation_check_v0_1.py",
+    "known_limitations": [
+      "Synthetic mutants only; production destructive testing is not claimed.",
+      "This layer proves rejection/classification discipline, not autonomous mutation execution."
+    ],
+    "updated_at_utc": "2026-05-22T20:48:00Z"
   }
 }

@@ -360,7 +360,8 @@
     "No autonomous organ dialogue or production readiness is claimed.",
     "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation.",
     "SSH matrix and rollback references are foundation-only visibility surfaces.",
-    "No claim of destructive rollback runtime proof is made by this update."
+    "No claim of destructive rollback runtime proof is made by this update.",
+    "Negative test mutation check foundation is integrated as read-only truth visibility only."
   ],
   "forbidden_claims": [
     "LIVE_BACKEND_READY",
@@ -394,11 +395,18 @@
       "UNKNOWN/MISSING/STALE boundaries remain explicit and non-green.",
       "Owner or contract basis is required for PARTIAL_ACCEPTED continuation.",
       "SSH matrix reference is read-only visibility only; alias installation is not claimed.",
-      "Rollback layer reference is policy-first and not destructive-tested."
+      "Rollback layer reference is policy-first and not destructive-tested.",
+      "Negative test mutation check visibility is synthetic-only and does not imply destructive runtime readiness."
     ],
     "mechanicus_ssh_connection_registry_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_CONNECTION_MATRIX_V0_1.json",
     "action_rollback_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
-    "rollback_layer_status": "FOUNDATION_ONLY"
+    "rollback_layer_status": "FOUNDATION_ONLY",
+    "negative_test_case_catalog_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_CASE_CATALOG_V0_1.json",
+    "mutation_check_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/MUTATION_CHECK_POLICY_V0_1.json",
+    "fake_green_rejection_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/FAKE_GREEN_REJECTION_RULES_V0_1.json",
+    "negative_test_result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
+    "negative_test_layer_status": "FOUNDATION_ONLY",
+    "negative_test_last_sync_utc": "2026-05-22T20:48:00Z"
   },
   "foundation_safety_layers": {
     "status": "FOUNDATION_ONLY",
@@ -408,8 +416,14 @@
     "action_rollback_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
     "known_limitations": [
       "Read-only truth visibility layer; no live connectivity claims for offline contours.",
-      "Rollback layer contract exists, but destructive mutation runtime tests remain pending."
+      "Rollback layer contract exists, but destructive mutation runtime tests remain pending.",
+      "Negative test layer is safe synthetic-only; production destructive testing remains out of scope."
     ],
-    "updated_at_utc": "2026-05-22T21:00:00Z"
+    "updated_at_utc": "2026-05-22T21:00:00Z",
+    "negative_test_mutation_check_status": "FOUNDATION_ONLY",
+    "negative_test_mutation_check_task_id": "TASK-20260523-NEWGEN-PQG-NEGATIVE-TEST-MUTATION-CHECK-VM2-V0_1",
+    "negative_test_mutation_check_contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_MUTATION_CHECK_V0_1.md",
+    "negative_test_result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
+    "negative_test_updated_at_utc": "2026-05-22T20:48:00Z"
   }
 }

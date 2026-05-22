@@ -1,0 +1,26 @@
+{
+  "schema_id": "FINAL_RECEIPT_V0_1",
+  "task_id": "TASK-20260523-NEWGEN-PQG-NEGATIVE-TEST-MUTATION-CHECK-VM2-V0_1",
+  "contour": "VM2",
+  "generated_at_utc": "2026-05-22T20:49:00Z",
+  "status": "PASS",
+  "starting_head": "2cc45dea6afd30e23809451903d2d6f33af4c87b",
+  "ending_head": "TO_BE_FILLED_AFTER_COMMIT_PUSH",
+  "implementation_commit": "TO_BE_FILLED_AFTER_COMMIT_PUSH",
+  "implementation_commit_url": "TO_BE_FILLED_AFTER_COMMIT_PUSH",
+  "pushed": false,
+  "worktree_clean": false,
+  "checks": {
+    "negative_test_validator": "PASS",
+    "negative_test_run_report": "PASS",
+    "push_verify": "PENDING"
+  },
+  "allowed_paths_touched_only": true,
+  "forbidden_claims_avoided": true,
+  "context_window_discipline": "OK",
+  "authoritative_post_commit_receipt": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-NEGATIVE-TEST-MUTATION-CHECK-VM2-V0_1/POST_COMMIT_CLOSURE_RECEIPT.json",
+  "notes": [
+    "Synthetic mutants only were used in this foundation task.",
+    "Final git metadata is filled after commit/push verification."
+  ]
+}
