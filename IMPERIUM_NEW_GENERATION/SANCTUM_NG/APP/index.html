@@ -133,6 +133,41 @@
     </p>
   </section>
 
+  <section class="panel owner-question-gate" id="owner-question-gate">
+    <div class="owner-question-gate__head">
+      <h2 id="owner-questions-title">Owner Question Gate</h2>
+      <span id="owner-gate-pill" class="status-pill status-foundation">FOUNDATION_ONLY</span>
+    </div>
+
+    <p class="owner-question-note" id="owner-questions-note">
+      Read-only owner decision queue backed by NewGen files.
+    </p>
+
+    <div class="owner-question-meta">
+      <div><span class="label" id="label-owner-total">Total</span><strong id="owner-total">-</strong></div>
+      <div><span class="label" id="label-owner-open">Open</span><strong id="owner-open">-</strong></div>
+      <div><span class="label" id="label-owner-blocking">Blocking</span><strong id="owner-blocking">-</strong></div>
+      <div><span class="label" id="label-owner-deferred">Deferred</span><strong id="owner-deferred">-</strong></div>
+      <div><span class="label" id="label-owner-warn">Warn-only</span><strong id="owner-warn-only">-</strong></div>
+      <div><span class="label" id="label-owner-required">Owner required</span><strong id="owner-required">-</strong></div>
+    </div>
+
+    <div class="owner-question-state">
+      <div><span class="label" id="label-owner-derived">Derived Gate</span><strong id="owner-derived-status">-</strong></div>
+      <div><span class="label" id="label-owner-next">Next Step</span><strong id="owner-next-step">-</strong></div>
+    </div>
+
+    <h3 id="owner-question-card-title">Question Cards</h3>
+    <div id="owner-question-cards" class="owner-question-cards"></div>
+
+    <h3 id="owner-question-warnings-title">Gate Warnings</h3>
+    <ul id="owner-question-warnings-list"></ul>
+
+    <p class="foundation-note" id="owner-boundary-note">
+      FOUNDATION_ONLY / NOT LIVE OWNER CHANNEL
+    </p>
+  </section>
+
   <section class="panel action-layer">
     <div class="action-layer__head">
       <h2 id="actions-title">Action Layer</h2>

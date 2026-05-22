@@ -21,6 +21,9 @@ STATE_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.gener
 SERVITOR_SESSION_VIEW_STATE_REL = (
     "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/servitor_session_view_state.generated.json"
 )
+OWNER_QUESTION_GATE_STATE_REL = (
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/owner_question_gate_state.generated.json"
+)
 PHASE_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 ACTION_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_ACTION_REGISTRY_V0_1.json"
 VALIDATOR_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_validator.py"
@@ -117,6 +120,29 @@ class ActionLayer:
                 "known_limitations": [
                     "Servitor Session View state file is missing or invalid.",
                     "No live autonomy claim is made."
+                ],
+            }
+        return payload
+
+    def owner_question_gate_payload(self) -> dict[str, Any]:
+        payload = load_json(self.repo_root / OWNER_QUESTION_GATE_STATE_REL)
+        if payload is None:
+            return {
+                "schema_id": "OWNER_QUESTION_GATE_STATE_V0_1",
+                "task_id": self.task_id,
+                "mode": "FOUNDATION_READ_ONLY_OWNER_QUESTION_GATE",
+                "status": "MISSING",
+                "warnings": ["OWNER_QUESTION_GATE_STATE_MISSING_OR_INVALID"],
+                "truth_flags": {
+                    "read_only": True,
+                    "foundation_only": True,
+                    "live_owner_channel": False,
+                    "owner_answer_write_path": False,
+                    "production_ready": False,
+                },
+                "known_limitations": [
+                    "Owner Question Gate state file is missing or invalid.",
+                    "No live owner answer channel is claimed.",
                 ],
             }
         return payload
@@ -734,6 +760,7 @@ class SanctumHandler(SimpleHTTPRequestHandler):
                     "task_id": self.layer.task_id,
                     "state": self.layer.state_payload(),
                     "servitor_session_view": self.layer.servitor_session_view_payload(),
+                    "owner_question_gate": self.layer.owner_question_gate_payload(),
                     "action_layer_state_model": self.layer.connection_state_model(),
                     "latest_action_result": latest_action_result,
                     "latest_report_summary": self.layer.latest_report_summary(),

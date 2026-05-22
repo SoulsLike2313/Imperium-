@@ -84,6 +84,23 @@
       sessionWarningsTitle: "Session Warnings",
       sessionBoundaryNote: "Foundation-only view. No live autonomous execution claim.",
       sessionNoData: "Session view state is not available yet.",
+      ownerQuestionTitle: "Owner Question Gate",
+      ownerQuestionNote: "Read-only owner decision queue backed by NewGen files.",
+      ownerQuestionLabels: {
+        total: "Total",
+        open: "Open",
+        blocking: "Blocking",
+        deferred: "Deferred",
+        warnOnly: "Warn-only",
+        ownerRequired: "Owner required",
+        derivedGate: "Derived Gate",
+        nextStep: "Next Step"
+      },
+      ownerQuestionCardTitle: "Question Cards",
+      ownerQuestionWarningsTitle: "Gate Warnings",
+      ownerQuestionBoundary: "FOUNDATION_ONLY / NOT LIVE OWNER CHANNEL",
+      ownerQuestionNoData: "Owner Question Gate state is not available yet.",
+      ownerQuestionNotWired: "Answer channel: NOT_WIRED",
       actionsTitle: "Action Layer",
       lastActionJsonTitle: "Last Action Result JSON",
       foundationNote: "Foundation-only layer. No production/autonomous claim.",
@@ -169,6 +186,23 @@
       sessionWarningsTitle: "Предупреждения сессии",
       sessionBoundaryNote: "Только foundation-view. Без claim live autonomous execution.",
       sessionNoData: "Состояние Session View пока недоступно.",
+      ownerQuestionTitle: "Owner Question Gate",
+      ownerQuestionNote: "Read-only очередь Owner-решений на file-backed базе NewGen.",
+      ownerQuestionLabels: {
+        total: "Всего",
+        open: "Открыто",
+        blocking: "Блокирующие",
+        deferred: "Отложено",
+        warnOnly: "Warn-only",
+        ownerRequired: "Требуют Owner",
+        derivedGate: "Производный гейт",
+        nextStep: "Следующий шаг"
+      },
+      ownerQuestionCardTitle: "Карточки вопросов",
+      ownerQuestionWarningsTitle: "Предупреждения гейта",
+      ownerQuestionBoundary: "FOUNDATION_ONLY / NOT LIVE OWNER CHANNEL",
+      ownerQuestionNoData: "Состояние Owner Question Gate пока недоступно.",
+      ownerQuestionNotWired: "Канал ответа: NOT_WIRED",
       actionsTitle: "Слой действий",
       lastActionJsonTitle: "JSON последнего результата",
       foundationNote: "Только foundation-слой. Без production/autonomous claim.",
@@ -312,6 +346,37 @@
     }
   ];
 
+  const FALLBACK_OWNER_QUESTION_GATE = {
+    schema_id: "OWNER_QUESTION_GATE_STATE_V0_1",
+    task_id: "TASK-20260523-NEWGEN-SANCTUM-OWNER-QUESTION-GATE-VM2-V0_1",
+    mode: "FOUNDATION_READ_ONLY_OWNER_QUESTION_GATE",
+    generated_at_utc: "FALLBACK",
+    truth_flags: {
+      read_only: true,
+      foundation_only: true,
+      live_owner_channel: false,
+      owner_answer_write_path: false,
+      production_ready: false
+    },
+    summary: {
+      total_questions: 0,
+      open_count: 0,
+      blocking_count: 0,
+      deferred_count: 0,
+      warn_only_count: 0,
+      answered_count: 0,
+      stale_count: 0,
+      foundation_sample_count: 0,
+      owner_answer_required_count: 0,
+      derived_gate_status: "FOUNDATION_SAMPLE_ONLY"
+    },
+    questions: [],
+    events: [],
+    warnings: ["OWNER_QUESTION_GATE_STATE_NOT_LOADED"],
+    boundary_note: "FOUNDATION_ONLY / NOT LIVE OWNER CHANNEL",
+    next_required_step: "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM2-OR-VM3-V0_1"
+  };
+
   const state = {
     lang: "en",
     data: null,
@@ -325,7 +390,8 @@
     reportSummaryReason: "-",
     lastActionModelState: "ACTION_RESULT_WARN",
     actionLayerStateModel: null,
-    sessionView: null
+    sessionView: null,
+    ownerQuestionGate: null
   };
 
   function byOrder(actions) {
@@ -382,6 +448,16 @@
       }));
 
     return byOrder(actions);
+  }
+
+  function normalizeOwnerQuestionGate(rawGate) {
+    const gate = rawGate && typeof rawGate === "object" ? rawGate : FALLBACK_OWNER_QUESTION_GATE;
+    const out = { ...FALLBACK_OWNER_QUESTION_GATE, ...gate };
+    const summary = gate.summary && typeof gate.summary === "object" ? gate.summary : {};
+    out.summary = { ...FALLBACK_OWNER_QUESTION_GATE.summary, ...summary };
+    out.questions = Array.isArray(gate.questions) ? gate.questions.filter((q) => q && typeof q === "object") : [];
+    out.warnings = Array.isArray(gate.warnings) ? gate.warnings.map((w) => String(w)) : [];
+    return out;
   }
 
   function applyReportSummary(summaryPayload) {
@@ -466,6 +542,20 @@
     setText("session-timeline-title", t.sessionTimelineTitle);
     setText("session-warnings-title", t.sessionWarningsTitle);
     setText("session-boundary-note", t.sessionBoundaryNote);
+
+    setText("owner-questions-title", t.ownerQuestionTitle);
+    setText("owner-questions-note", t.ownerQuestionNote);
+    setText("label-owner-total", t.ownerQuestionLabels.total);
+    setText("label-owner-open", t.ownerQuestionLabels.open);
+    setText("label-owner-blocking", t.ownerQuestionLabels.blocking);
+    setText("label-owner-deferred", t.ownerQuestionLabels.deferred);
+    setText("label-owner-warn", t.ownerQuestionLabels.warnOnly);
+    setText("label-owner-required", t.ownerQuestionLabels.ownerRequired);
+    setText("label-owner-derived", t.ownerQuestionLabels.derivedGate);
+    setText("label-owner-next", t.ownerQuestionLabels.nextStep);
+    setText("owner-question-card-title", t.ownerQuestionCardTitle);
+    setText("owner-question-warnings-title", t.ownerQuestionWarningsTitle);
+    setText("owner-boundary-note", t.ownerQuestionBoundary);
 
     setText("actions-title", t.actionsTitle);
     setText("label-registry-status", t.labels.registryStatus);
@@ -759,6 +849,119 @@
     }
   }
 
+  function ownerGateStatusClass(derivedStatus) {
+    const value = String(derivedStatus || "");
+    if (value.includes("BLOCKING")) {
+      return "status-block";
+    }
+    if (value.includes("WARN")) {
+      return "status-warn";
+    }
+    return "status-foundation";
+  }
+
+  function blockingLevelStatusClass(level) {
+    const value = String(level || "");
+    if (value === "BLOCKING") {
+      return "status-block";
+    }
+    if (value === "WARN_ONLY") {
+      return "status-warn";
+    }
+    return "status-foundation";
+  }
+
+  function pickQuestionText(question) {
+    if (state.lang === "ru") {
+      return String(question.question_text_ru || "-");
+    }
+    return String(question.question_text_en_optional || question.question_text_ru || "-");
+  }
+
+  function renderOwnerQuestionGate() {
+    const t = I18N[state.lang];
+    const gate = state.ownerQuestionGate;
+
+    if (!gate || typeof gate !== "object") {
+      const pill = document.getElementById("owner-gate-pill");
+      pill.textContent = "NOT_READY";
+      pill.className = "status-pill status-not-ready";
+      setText("owner-total", "-");
+      setText("owner-open", "-");
+      setText("owner-blocking", "-");
+      setText("owner-deferred", "-");
+      setText("owner-warn-only", "-");
+      setText("owner-required", "-");
+      setText("owner-derived-status", "NOT_READY");
+      setText("owner-next-step", "-");
+      setText("owner-boundary-note", t.ownerQuestionBoundary);
+      renderSessionLines("owner-question-warnings-list", [t.ownerQuestionNoData]);
+      const cardsNode = document.getElementById("owner-question-cards");
+      cardsNode.innerHTML = `<p class=\"placeholder\">${t.ownerQuestionNoData}</p>`;
+      return;
+    }
+
+    const summary = gate.summary && typeof gate.summary === "object" ? gate.summary : {};
+    const derivedStatus = String(summary.derived_gate_status || "FOUNDATION_SAMPLE_ONLY");
+    const pill = document.getElementById("owner-gate-pill");
+    pill.textContent = derivedStatus;
+    pill.className = `status-pill ${ownerGateStatusClass(derivedStatus)}`;
+
+    setText("owner-total", String(summary.total_questions ?? 0));
+    setText("owner-open", String(summary.open_count ?? 0));
+    setText("owner-blocking", String(summary.blocking_count ?? 0));
+    setText("owner-deferred", String(summary.deferred_count ?? 0));
+    setText("owner-warn-only", String(summary.warn_only_count ?? 0));
+    setText("owner-required", String(summary.owner_answer_required_count ?? 0));
+    setText("owner-derived-status", derivedStatus);
+    setText("owner-next-step", String(gate.next_required_step || "-"));
+    setText("owner-boundary-note", String(gate.boundary_note || t.ownerQuestionBoundary));
+
+    const warnings = Array.isArray(gate.warnings) ? gate.warnings : [];
+    renderSessionLines("owner-question-warnings-list", warnings.length > 0 ? warnings : ["-"]);
+
+    const cardsNode = document.getElementById("owner-question-cards");
+    cardsNode.innerHTML = "";
+    const questions = Array.isArray(gate.questions) ? gate.questions : [];
+    if (questions.length === 0) {
+      cardsNode.innerHTML = `<p class=\"placeholder\">${t.ownerQuestionNoData}</p>`;
+      return;
+    }
+
+    questions.slice(0, 8).forEach((question) => {
+      const evidenceRefs = Array.isArray(question.evidence_refs) ? question.evidence_refs : [];
+      const card = document.createElement("article");
+      card.className = "owner-question-card";
+      card.innerHTML = `
+        <div class="owner-question-card__top">
+          <strong>${String(question.question_id || "-")}</strong>
+          <span class="status-pill ${statusClass(question.status)}">${String(question.status || "UNKNOWN")}</span>
+        </div>
+        <div class="owner-question-card__meta">
+          <span class="status-pill ${blockingLevelStatusClass(question.blocking_level)}">${String(question.blocking_level || "-")}</span>
+          <span>${String(question.source || "-")} :: ${String(question.decision_type || "-")}</span>
+        </div>
+        <p class="owner-question-card__question">${pickQuestionText(question)}</p>
+        <p class="owner-question-card__why">${String(question.why_needed_ru || "-")}</p>
+        <p class="owner-question-card__meta">${t.ownerQuestionNotWired}</p>
+        <ul class="owner-question-card__evidence"></ul>
+      `;
+      const evidenceNode = card.querySelector(".owner-question-card__evidence");
+      if (evidenceRefs.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "-";
+        evidenceNode.appendChild(li);
+      } else {
+        evidenceRefs.slice(0, 3).forEach((item) => {
+          const li = document.createElement("li");
+          li.textContent = String(item);
+          evidenceNode.appendChild(li);
+        });
+      }
+      cardsNode.appendChild(card);
+    });
+  }
+
   function renderInspector() {
     const phase = state.data.phases.find((item) => item.phase_no === state.selectedPhaseNo);
     const empty = document.getElementById("inspector-empty");
@@ -997,6 +1200,7 @@
     renderTruthIndex();
     renderOrganDialogueDemo();
     renderServitorSessionView();
+    renderOwnerQuestionGate();
     renderPipeline();
     renderInspector();
     renderConnection();
@@ -1014,6 +1218,7 @@
       state.data.warnings.push("ACTION_SERVER_NOT_CONNECTED");
       state.actions = normalizeActions(FALLBACK_ACTIONS);
       state.sessionView = null;
+      state.ownerQuestionGate = normalizeOwnerQuestionGate(FALLBACK_OWNER_QUESTION_GATE);
       state.registryStatus = "ACTION_DISABLED";
       state.reportSummaryState = "NOT_READY";
       state.reportSummaryReason = "file_mode_no_server";
@@ -1039,6 +1244,9 @@
       state.registryStatus = String((((actionsPayload || {}).registry) || {}).status || "UNKNOWN");
       state.actionLayerStateModel = (statePayload || {}).action_layer_state_model || (actionsPayload || {}).action_layer_state_model || null;
       state.sessionView = (statePayload || {}).servitor_session_view || (state.data || {}).servitor_session_view || null;
+      state.ownerQuestionGate = normalizeOwnerQuestionGate(
+        (statePayload || {}).owner_question_gate || (state.data || {}).owner_question_gate || null
+      );
 
       applyReportSummary((statePayload || {}).latest_report_summary || null);
       applyLatestActionResult((statePayload || {}).latest_action_result || null);
@@ -1046,6 +1254,7 @@
       state.data = normalizeData({ ...FALLBACK_STATE });
       state.actions = normalizeActions(FALLBACK_ACTIONS);
       state.sessionView = null;
+      state.ownerQuestionGate = normalizeOwnerQuestionGate(FALLBACK_OWNER_QUESTION_GATE);
       state.serverStatus = "NOT_CONNECTED";
       state.connectionNote = `${t.serverNotConnectedRuntime}; ${String(error)}`;
       state.data.warnings.push(`ACTION_LAYER_API_LOAD_ERROR:${String(error)}`);
