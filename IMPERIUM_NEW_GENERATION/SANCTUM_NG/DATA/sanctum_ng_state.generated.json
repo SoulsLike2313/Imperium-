@@ -1,13 +1,13 @@
 {
   "schema_id": "SANCTUM_NG_STATE_V0_1",
-  "task_id": "TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1",
+  "task_id": "TASK-20260523-NEWGEN-PQG-PARTIAL-ACCEPTANCE-MAP-VM3-V0_1",
   "mode": "READ_ONLY_FOUNDATION",
-  "generated_at_utc": "2026-05-22T18:59:13Z",
+  "generated_at_utc": "2026-05-22T19:40:34Z",
   "git": {
-    "head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
+    "head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
     "branch": "master",
     "worktree_dirty": true,
-    "required_starting_head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
+    "required_starting_head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
     "head_matches_required_start": true
   },
   "truth_flags": {
@@ -30,10 +30,10 @@
     "AUTHORITY_SOURCE": [
       "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md",
       "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json",
-      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
+      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-PARTIAL-ACCEPTANCE-MAP-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
     ],
-    "STATUS": "WARN_FOUNDATION_ONLY",
-    "KNOWN_LIMITATION": "Live language compliance is foundation-level receipt discipline, not runtime hard-block enforcement.",
+    "STATUS": "WARN_MISSING_AUTHORITY",
+    "KNOWN_LIMITATION": "Communication authority artifacts are incomplete in bounded scope.",
     "VIOLATIONS": [],
     "SELF_CORRECTIONS": []
   },
@@ -351,7 +351,8 @@
     }
   ],
   "warnings": [
-    "PHASE_5_WARN"
+    "PHASE_5_WARN",
+    "COMMUNICATION_GATE_MISSING_AUTHORITY_REFS"
   ],
   "limitations": [
     "Truth shell reflects bounded local artifacts and foundation phase evidence only.",
@@ -378,11 +379,18 @@
     "evidence_source_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json",
     "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
     "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
+    "partial_acceptance_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/PARTIAL_ACCEPTANCE_MAP_V0_1.json",
+    "acceptance_decision_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_RULES_V0_1.json",
+    "acceptance_decision_samples_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_SAMPLES_V0_1.json",
+    "acceptance_layer_status": "FOUNDATION_ONLY",
     "status": "FOUNDATION_ONLY",
     "last_sync_utc": "2026-05-22T18:54:31Z",
     "known_limitations": [
       "Foundation-only evidence unification; no production autonomy claim.",
-      "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1."
+      "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1.",
+      "Partial acceptance is a backend truth interpretation layer, not a production acceptance engine.",
+      "UNKNOWN/MISSING/STALE boundaries remain explicit and non-green.",
+      "Owner or contract basis is required for PARTIAL_ACCEPTED continuation."
     ]
   }
 }

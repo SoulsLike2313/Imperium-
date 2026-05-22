@@ -21,6 +21,9 @@ REPORT_STATUS_INDEX_REL = "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_
 EVIDENCE_SOURCE_MAP_REL = "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json"
 EVIDENCE_MAP_UNIFIED_REL = "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json"
 EVIDENCE_FRESHNESS_INDEX_REL = "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json"
+PARTIAL_ACCEPTANCE_MAP_REL = "IMPERIUM_NEW_GENERATION/TRUTH/PARTIAL_ACCEPTANCE_MAP_V0_1.json"
+ACCEPTANCE_DECISION_RULES_REL = "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_RULES_V0_1.json"
+ACCEPTANCE_DECISION_SAMPLES_REL = "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_SAMPLES_V0_1.json"
 
 
 def run_git(repo_root: Path, *args: str) -> str:
@@ -220,6 +223,10 @@ def build_current_truth_index(repo_root: Path) -> tuple[dict[str, Any], list[str
         "evidence_source_map_path": EVIDENCE_SOURCE_MAP_REL,
         "evidence_map_unified_path": EVIDENCE_MAP_UNIFIED_REL,
         "evidence_freshness_index_path": EVIDENCE_FRESHNESS_INDEX_REL,
+        "partial_acceptance_map_path": PARTIAL_ACCEPTANCE_MAP_REL,
+        "acceptance_decision_rules_path": ACCEPTANCE_DECISION_RULES_REL,
+        "acceptance_decision_samples_path": ACCEPTANCE_DECISION_SAMPLES_REL,
+        "acceptance_layer_status": "UNKNOWN",
         "status": "UNKNOWN",
         "last_sync_utc": "UNKNOWN",
         "known_limitations": [
@@ -240,6 +247,15 @@ def build_current_truth_index(repo_root: Path) -> tuple[dict[str, Any], list[str
     index["evidence_freshness_index_path"] = str(
         current_truth.get("evidence_freshness_index_path", EVIDENCE_FRESHNESS_INDEX_REL)
     )
+    index["partial_acceptance_map_path"] = str(
+        current_truth.get("partial_acceptance_map_path", PARTIAL_ACCEPTANCE_MAP_REL)
+    )
+    index["acceptance_decision_rules_path"] = str(
+        current_truth.get("acceptance_decision_rules_path", ACCEPTANCE_DECISION_RULES_REL)
+    )
+    index["acceptance_decision_samples_path"] = str(
+        current_truth.get("acceptance_decision_samples_path", ACCEPTANCE_DECISION_SAMPLES_REL)
+    )
     index["last_sync_utc"] = str(current_truth.get("generated_at_utc", "UNKNOWN"))
 
     unification = current_truth.get("evidence_unification", {})
@@ -251,6 +267,15 @@ def build_current_truth_index(repo_root: Path) -> tuple[dict[str, Any], list[str
     else:
         index["status"] = "FOUNDATION_ONLY"
 
+    partial_layer = current_truth.get("partial_acceptance_layer", {})
+    if isinstance(partial_layer, dict):
+        index["acceptance_layer_status"] = str(partial_layer.get("status", "FOUNDATION_ONLY"))
+        partial_limitations = partial_layer.get("known_limitations", [])
+        if isinstance(partial_limitations, list):
+            index["known_limitations"] = unique(index["known_limitations"] + [str(item) for item in partial_limitations])
+    else:
+        index["acceptance_layer_status"] = "MISSING"
+
     missing_refs = []
     for key in [
         "current_truth_root_path",
@@ -258,6 +283,9 @@ def build_current_truth_index(repo_root: Path) -> tuple[dict[str, Any], list[str
         "evidence_source_map_path",
         "evidence_map_unified_path",
         "evidence_freshness_index_path",
+        "partial_acceptance_map_path",
+        "acceptance_decision_rules_path",
+        "acceptance_decision_samples_path",
     ]:
         rel_path = str(index.get(key, "")).strip()
         if not rel_path or not (repo_root / rel_path).exists():

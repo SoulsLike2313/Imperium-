@@ -1,14 +1,14 @@
 {
   "schema_id": "CURRENT_TRUTH_ROOT_V0_1",
-  "task_id": "TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1",
+  "task_id": "TASK-20260523-NEWGEN-PQG-PARTIAL-ACCEPTANCE-MAP-VM3-V0_1",
   "generated_at_utc": "2026-05-22T18:54:31Z",
   "newgen_mode": "FOUNDATION_TRUTH_SPINE_V0_1",
   "repo_truth": {
     "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
-    "head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
+    "head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
     "branch": "master",
     "worktree_dirty": true,
-    "head_commit_utc": "2026-05-22T18:16:08+00:00"
+    "head_commit_utc": "2026-05-22T19:04:36+00:00"
   },
   "phase_coverage": {
     "phases": [
@@ -266,7 +266,8 @@
     "UNKNOWN zones are intentionally preserved as UNKNOWN/MISSING/PARTIAL/FOUNDATION_ONLY.",
     "No production autonomy, live backend, or full organ dialogue is claimed.",
     "Strategic PDF is used as compass only; broader tasks are deferred.",
-    "Unified evidence map/freshness layer is foundation-only and intentionally conservative."
+    "Unified evidence map/freshness layer is foundation-only and intentionally conservative.",
+    "Partial acceptance semantics are foundation-only and no fake-green upgrades are allowed."
   ],
   "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
   "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
@@ -281,6 +282,21 @@
     "known_limitations": [
       "Foundation-only evidence unification; no production autonomy claim.",
       "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1."
+    ],
+    "updated_at_utc": "2026-05-22T18:54:31Z"
+  },
+  "partial_acceptance_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/PARTIAL_ACCEPTANCE_MAP_V0_1.json",
+  "acceptance_decision_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_RULES_V0_1.json",
+  "acceptance_decision_samples_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_SAMPLES_V0_1.json",
+  "partial_acceptance_layer": {
+    "status": "FOUNDATION_ONLY",
+    "partial_acceptance_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/PARTIAL_ACCEPTANCE_MAP_V0_1.json",
+    "acceptance_decision_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_RULES_V0_1.json",
+    "acceptance_decision_samples_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACCEPTANCE_DECISION_SAMPLES_V0_1.json",
+    "known_limitations": [
+      "Partial acceptance is a backend truth interpretation layer, not a production acceptance engine.",
+      "UNKNOWN/MISSING/STALE boundaries remain explicit and non-green.",
+      "Owner or contract basis is required for PARTIAL_ACCEPTED continuation."
     ],
     "updated_at_utc": "2026-05-22T18:54:31Z"
   }
