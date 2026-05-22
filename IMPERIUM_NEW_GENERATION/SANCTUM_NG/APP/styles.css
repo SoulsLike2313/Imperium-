@@ -134,6 +134,11 @@ p {
   word-break: break-word;
 }
 
+.organ-dialogue-demo li {
+  font-size: 0.78rem;
+  word-break: break-word;
+}
+
 .pipeline-list {
   margin-top: 0.8rem;
   display: grid;

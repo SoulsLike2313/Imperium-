@@ -1,0 +1,10 @@
+{
+  "schema_id": "POST_COMMIT_CLOSURE_RECEIPT_V0_1",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1",
+  "status": "PENDING_COMMIT_PUSH",
+  "post_commit_head": "PENDING",
+  "remote_master_head": "PENDING",
+  "worktree_clean": false,
+  "remote_sync": false,
+  "generated_at_utc": "PENDING"
+}

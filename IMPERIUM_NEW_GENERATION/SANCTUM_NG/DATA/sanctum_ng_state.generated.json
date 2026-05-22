@@ -1,8 +1,8 @@
 {
   "schema_id": "SANCTUM_NG_STATE_V0_1",
-  "task_id": "TASK-20260523-NEWGEN-PQG-PARTIAL-ACCEPTANCE-MAP-VM3-V0_1",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1",
   "mode": "READ_ONLY_FOUNDATION",
-  "generated_at_utc": "2026-05-22T19:40:34Z",
+  "generated_at_utc": "2026-05-22T21:10:32Z",
   "git": {
     "head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
     "branch": "master",
@@ -352,7 +352,8 @@
   ],
   "warnings": [
     "PHASE_5_WARN",
-    "COMMUNICATION_GATE_MISSING_AUTHORITY_REFS"
+    "COMMUNICATION_GATE_MISSING_AUTHORITY_REFS",
+    "ORGAN_DIALOGUE_DEMO_FOUNDATION_ONLY"
   ],
   "limitations": [
     "Truth shell reflects bounded local artifacts and foundation phase evidence only.",
@@ -361,7 +362,8 @@
     "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation.",
     "SSH matrix and rollback references are foundation-only visibility surfaces.",
     "No claim of destructive rollback runtime proof is made by this update.",
-    "Negative test mutation check foundation is integrated as read-only truth visibility only."
+    "Negative test mutation check foundation is integrated as read-only truth visibility only.",
+    "Organ Dialogue Demo is deterministic foundation-only; no live autonomy is claimed."
   ],
   "forbidden_claims": [
     "LIVE_BACKEND_READY",
@@ -425,5 +427,18 @@
     "negative_test_mutation_check_contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_MUTATION_CHECK_V0_1.md",
     "negative_test_result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
     "negative_test_updated_at_utc": "2026-05-22T20:48:00Z"
+  },
+  "organ_dialogue_demo": {
+    "task_id": "TASK-DEMO-ORGAN-DIALOGUE-V0_1",
+    "thread_id": "THREAD-TASK-DEMO-ORGAN-DIALOGUE-V0_1",
+    "request_count": 8,
+    "response_count": 8,
+    "warnings_count": 6,
+    "last_event": "THREAD_SUMMARY_UPDATED",
+    "last_event_at_utc": "2026-05-22T21:15:32Z",
+    "foundation_only_label": "FOUNDATION_ONLY",
+    "no_live_autonomy_label": "NO_LIVE_AUTONOMY",
+    "thread_path": "IMPERIUM_NEW_GENERATION/ORGAN_DIALOGUE/THREADS/TASK-DEMO-ORGAN-DIALOGUE-V0_1/ORGAN_DIALOGUE_THREAD_V0_1.generated.json",
+    "events_path": "IMPERIUM_NEW_GENERATION/ORGAN_DIALOGUE/THREADS/TASK-DEMO-ORGAN-DIALOGUE-V0_1/ORGAN_DIALOGUE_EVENTS_V0_1.generated.jsonl"
   }
 }

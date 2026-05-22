@@ -48,6 +48,17 @@
         evidenceFreshnessIndex: "EVIDENCE_FRESHNESS_INDEX",
         sync: "SYNC"
       },
+      organDialogueTitle: "Organ Dialogue Demo",
+      organDialogueLabels: {
+        task: "TASK",
+        requests: "REQUESTS",
+        responses: "RESPONSES",
+        warnings: "WARNINGS",
+        lastEvent: "LAST_EVENT",
+        foundation: "FOUNDATION",
+        autonomy: "AUTONOMY"
+      },
+      organDialogueMissing: "No Organ Dialogue demo data yet.",
       pipelineTitle: "Foundation Pipeline 1-10",
       inspectorTitle: "Phase Inspector",
       inspectorEmpty: "Select a phase to inspect details.",
@@ -104,6 +115,17 @@
         evidenceFreshnessIndex: "EVIDENCE_FRESHNESS_INDEX",
         sync: "СИНХРОН"
       },
+      organDialogueTitle: "Демо Диалога Органов",
+      organDialogueLabels: {
+        task: "ДЕМО_ЗАДАЧА",
+        requests: "ЗАПРОСЫ",
+        responses: "ОТВЕТЫ",
+        warnings: "ПРЕДУПРЕЖДЕНИЯ",
+        lastEvent: "ПОСЛЕДНЕЕ_СОБЫТИЕ",
+        foundation: "ГРАНИЦА",
+        autonomy: "АВТОНОМИЯ"
+      },
+      organDialogueMissing: "Пока нет данных демо-диалога органов.",
       pipelineTitle: "Фундаментальный конвейер 1-10",
       inspectorTitle: "Инспектор фазы",
       inspectorEmpty: "Выберите фазу для просмотра деталей.",
@@ -161,6 +183,16 @@
       evidence_freshness_index_path: "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
       status: "UNKNOWN",
       last_sync_utc: "UNKNOWN"
+    },
+    organ_dialogue_demo: {
+      task_id: "TASK-DEMO-ORGAN-DIALOGUE-V0_1",
+      thread_id: "THREAD-TASK-DEMO-ORGAN-DIALOGUE-V0_1",
+      request_count: 0,
+      response_count: 0,
+      warnings_count: 0,
+      last_event: "NOT_READY",
+      foundation_only_label: "FOUNDATION_ONLY",
+      no_live_autonomy_label: "NO_LIVE_AUTONOMY"
     },
     phases: [
       { phase_no: 1, name: "Architecture", status: "FOUNDATION", summary: "Fallback snapshot.", evidence_refs: ["FALLBACK"], paths: [], report_paths: [], limitations: ["State API unavailable."] },
@@ -372,6 +404,7 @@
     setText("warnings-title", t.warningsTitle);
     setText("comm-title", t.commTitle);
     setText("truth-index-title", t.truthIndexTitle);
+    setText("organ-dialogue-title", t.organDialogueTitle);
     setText("pipeline-title", t.pipelineTitle);
 
     setText("inspector-title", t.inspectorTitle);
@@ -507,6 +540,34 @@
       `${t.truthIndexLabels.evidenceFreshnessIndex}: ${String(truthIndex.evidence_freshness_index_path || "-")}`
     );
     setText("truth-sync-utc", `${t.truthIndexLabels.sync}: ${String(truthIndex.last_sync_utc || "-")}`);
+  }
+
+  function renderOrganDialogueDemo() {
+    const t = I18N[state.lang];
+    const data = state.data || {};
+    const labels = t.organDialogueLabels;
+    const demo = data.organ_dialogue_demo && typeof data.organ_dialogue_demo === "object"
+      ? data.organ_dialogue_demo
+      : null;
+
+    if (!demo) {
+      setText("organ-dialogue-task", `${labels.task}: ${t.organDialogueMissing}`);
+      setText("organ-dialogue-requests", `${labels.requests}: -`);
+      setText("organ-dialogue-responses", `${labels.responses}: -`);
+      setText("organ-dialogue-warnings", `${labels.warnings}: -`);
+      setText("organ-dialogue-last-event", `${labels.lastEvent}: -`);
+      setText("organ-dialogue-foundation", `${labels.foundation}: -`);
+      setText("organ-dialogue-autonomy", `${labels.autonomy}: -`);
+      return;
+    }
+
+    setText("organ-dialogue-task", `${labels.task}: ${String(demo.task_id || "-")}`);
+    setText("organ-dialogue-requests", `${labels.requests}: ${String(demo.request_count ?? "-")}`);
+    setText("organ-dialogue-responses", `${labels.responses}: ${String(demo.response_count ?? "-")}`);
+    setText("organ-dialogue-warnings", `${labels.warnings}: ${String(demo.warnings_count ?? "-")}`);
+    setText("organ-dialogue-last-event", `${labels.lastEvent}: ${String(demo.last_event || "-")}`);
+    setText("organ-dialogue-foundation", `${labels.foundation}: ${String(demo.foundation_only_label || "FOUNDATION_ONLY")}`);
+    setText("organ-dialogue-autonomy", `${labels.autonomy}: ${String(demo.no_live_autonomy_label || "NO_LIVE_AUTONOMY")}`);
   }
 
   function renderInspector() {
@@ -745,6 +806,7 @@
     renderRail();
     renderCommunicationGate();
     renderTruthIndex();
+    renderOrganDialogueDemo();
     renderPipeline();
     renderInspector();
     renderConnection();
