@@ -18,6 +18,9 @@ TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
 REQUIRED_STARTING_HEAD_DEFAULT = "573169b9830ecb0322202e33a3e12ca2fc5e3556"
 APP_DIR_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP"
 STATE_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.generated.json"
+SERVITOR_SESSION_VIEW_STATE_REL = (
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/servitor_session_view_state.generated.json"
+)
 PHASE_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 ACTION_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_ACTION_REGISTRY_V0_1.json"
 VALIDATOR_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_validator.py"
@@ -101,6 +104,22 @@ class ActionLayer:
                 "warnings": ["ACTION_REGISTRY_MISSING_OR_INVALID"],
             }
         return registry
+
+    def servitor_session_view_payload(self) -> dict[str, Any]:
+        payload = load_json(self.repo_root / SERVITOR_SESSION_VIEW_STATE_REL)
+        if payload is None:
+            return {
+                "schema_id": "SERVITOR_SESSION_VIEW_STATE_V0_1",
+                "task_id": self.task_id,
+                "mode": "FOUNDATION_READ_ONLY_SERVITOR_SESSION_VIEW",
+                "status": "MISSING",
+                "warnings": ["SERVITOR_SESSION_VIEW_STATE_MISSING_OR_INVALID"],
+                "known_limitations": [
+                    "Servitor Session View state file is missing or invalid.",
+                    "No live autonomy claim is made."
+                ],
+            }
+        return payload
 
     def action_map(self) -> dict[str, dict[str, Any]]:
         registry = self.action_registry()
@@ -714,6 +733,7 @@ class SanctumHandler(SimpleHTTPRequestHandler):
                     "status": "CONNECTED",
                     "task_id": self.layer.task_id,
                     "state": self.layer.state_payload(),
+                    "servitor_session_view": self.layer.servitor_session_view_payload(),
                     "action_layer_state_model": self.layer.connection_state_model(),
                     "latest_action_result": latest_action_result,
                     "latest_report_summary": self.layer.latest_report_summary(),

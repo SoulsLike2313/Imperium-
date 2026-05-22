@@ -86,6 +86,53 @@
     </aside>
   </main>
 
+  <section class="panel servitor-session">
+    <div class="servitor-session__head">
+      <h2 id="session-title">Servitor Session View</h2>
+      <span id="session-status-pill" class="status-pill status-foundation">FOUNDATION_ONLY</span>
+    </div>
+
+    <p class="session-note" id="session-note">Read-only timeline from existing NewGen artifacts.</p>
+
+    <div class="session-meta">
+      <div><span class="label" id="label-session-id">Session</span><strong id="session-id">-</strong></div>
+      <div><span class="label" id="label-session-task">Task</span><strong id="session-task">-</strong></div>
+      <div><span class="label" id="label-session-head">HEAD</span><strong id="session-head">-</strong></div>
+      <div><span class="label" id="label-session-branch">Branch</span><strong id="session-branch">-</strong></div>
+      <div><span class="label" id="label-session-timeline">Timeline</span><strong id="session-timeline-summary">-</strong></div>
+      <div><span class="label" id="label-session-next">Next Step</span><strong id="session-next-step">-</strong></div>
+    </div>
+
+    <div class="servitor-session__grids">
+      <section>
+        <h3 id="session-source-title">Source Reports</h3>
+        <ul id="session-source-list"></ul>
+      </section>
+      <section>
+        <h3 id="session-evidence-title">Evidence Summary</h3>
+        <ul id="session-evidence-list"></ul>
+      </section>
+      <section>
+        <h3 id="session-organ-title">Organ Dialogue</h3>
+        <ul id="session-organ-list"></ul>
+      </section>
+      <section>
+        <h3 id="session-action-title">Action Layer</h3>
+        <ul id="session-action-list"></ul>
+      </section>
+    </div>
+
+    <h3 id="session-timeline-title">Run / Rerun Timeline</h3>
+    <div id="session-timeline-list" class="session-timeline"></div>
+
+    <h3 id="session-warnings-title">Session Warnings</h3>
+    <ul id="session-warnings-list"></ul>
+
+    <p class="foundation-note" id="session-boundary-note">
+      Foundation-only view. No live autonomous execution claim.
+    </p>
+  </section>
+
   <section class="panel action-layer">
     <div class="action-layer__head">
       <h2 id="actions-title">Action Layer</h2>

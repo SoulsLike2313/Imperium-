@@ -1,0 +1,45 @@
+{
+  "schema_id": "SERVITOR_SESSION_VIEW_SMOKE_REPORT_V0_1",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-SERVITOR-SESSION-VIEW-VM2-V0_1",
+  "generated_at_utc": "2026-05-22T22:21:52Z",
+  "verdict": "PASS",
+  "checks": [
+    {
+      "check_id": "state_parse",
+      "status": "PASS",
+      "details": "state parses as object"
+    },
+    {
+      "check_id": "timeline_has_events",
+      "status": "PASS",
+      "details": "timeline has events"
+    },
+    {
+      "check_id": "timeline_run_rerun",
+      "status": "PASS",
+      "details": "run=88 rerun=18"
+    },
+    {
+      "check_id": "no_live_autonomy_claim",
+      "status": "PASS",
+      "details": "live/prod claims disabled"
+    },
+    {
+      "check_id": "ui_session_block_markers",
+      "status": "PASS",
+      "details": "session block markers exist in index.html"
+    },
+    {
+      "check_id": "ui_render_function",
+      "status": "PASS",
+      "details": "renderServitorSessionView exists"
+    },
+    {
+      "check_id": "api_state_session_payload",
+      "status": "PASS",
+      "details": "api/state includes servitor_session_view payload"
+    }
+  ],
+  "warnings": [],
+  "blockers": []
+}

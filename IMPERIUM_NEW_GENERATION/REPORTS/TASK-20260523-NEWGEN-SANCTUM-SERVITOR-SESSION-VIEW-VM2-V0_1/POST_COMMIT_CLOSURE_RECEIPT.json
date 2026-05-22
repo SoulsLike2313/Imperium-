@@ -1,0 +1,14 @@
+{
+  "schema_id": "POST_COMMIT_CLOSURE_RECEIPT_V0_1",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-SERVITOR-SESSION-VIEW-VM2-V0_1",
+  "generated_at_utc": "2026-05-22T22:23:54Z",
+  "status": "PENDING_POST_COMMIT_SYNC",
+  "implementation_commit_hash": "PENDING_POST_COMMIT",
+  "closure_commit_hash": "PENDING_IF_NEEDED",
+  "origin_master": "PENDING_POST_COMMIT",
+  "worktree_clean": false,
+  "notes": [
+    "File will be refreshed after commit/push verification.",
+    "If closure metadata changes are required, a second commit is allowed by task contract."
+  ]
+}

@@ -66,6 +66,24 @@
       inspectorReports: "Report paths",
       inspectorLimits: "Limitations",
       inspectorSnapshot: "JSON snapshot",
+      sessionTitle: "Servitor Session View",
+      sessionNote: "Read-only timeline from existing NewGen artifacts.",
+      sessionLabels: {
+        sessionId: "Session",
+        task: "Task",
+        head: "HEAD",
+        branch: "Branch",
+        timeline: "Timeline",
+        nextStep: "Next Step"
+      },
+      sessionSourceTitle: "Source Reports",
+      sessionEvidenceTitle: "Evidence Summary",
+      sessionOrganTitle: "Organ Dialogue",
+      sessionActionTitle: "Action Layer",
+      sessionTimelineTitle: "Run / Rerun Timeline",
+      sessionWarningsTitle: "Session Warnings",
+      sessionBoundaryNote: "Foundation-only view. No live autonomous execution claim.",
+      sessionNoData: "Session view state is not available yet.",
       actionsTitle: "Action Layer",
       lastActionJsonTitle: "Last Action Result JSON",
       foundationNote: "Foundation-only layer. No production/autonomous claim.",
@@ -133,6 +151,24 @@
       inspectorReports: "Пути отчётов",
       inspectorLimits: "Ограничения",
       inspectorSnapshot: "JSON-снимок",
+      sessionTitle: "Servitor Session View",
+      sessionNote: "Read-only timeline из существующих NewGen артефактов.",
+      sessionLabels: {
+        sessionId: "Сессия",
+        task: "Задача",
+        head: "HEAD",
+        branch: "Ветка",
+        timeline: "Таймлайн",
+        nextStep: "Следующий шаг"
+      },
+      sessionSourceTitle: "Источник отчётов",
+      sessionEvidenceTitle: "Сводка evidence",
+      sessionOrganTitle: "Диалог Органов",
+      sessionActionTitle: "Слой действий",
+      sessionTimelineTitle: "Таймлайн Run / Rerun",
+      sessionWarningsTitle: "Предупреждения сессии",
+      sessionBoundaryNote: "Только foundation-view. Без claim live autonomous execution.",
+      sessionNoData: "Состояние Session View пока недоступно.",
       actionsTitle: "Слой действий",
       lastActionJsonTitle: "JSON последнего результата",
       foundationNote: "Только foundation-слой. Без production/autonomous claim.",
@@ -288,7 +324,8 @@
     reportSummaryState: "UNKNOWN",
     reportSummaryReason: "-",
     lastActionModelState: "ACTION_RESULT_WARN",
-    actionLayerStateModel: null
+    actionLayerStateModel: null,
+    sessionView: null
   };
 
   function byOrder(actions) {
@@ -413,6 +450,22 @@
     setText("inspector-reports-label", t.inspectorReports);
     setText("inspector-limits-label", t.inspectorLimits);
     setText("inspector-snapshot-label", t.inspectorSnapshot);
+
+    setText("session-title", t.sessionTitle);
+    setText("session-note", t.sessionNote);
+    setText("label-session-id", t.sessionLabels.sessionId);
+    setText("label-session-task", t.sessionLabels.task);
+    setText("label-session-head", t.sessionLabels.head);
+    setText("label-session-branch", t.sessionLabels.branch);
+    setText("label-session-timeline", t.sessionLabels.timeline);
+    setText("label-session-next", t.sessionLabels.nextStep);
+    setText("session-source-title", t.sessionSourceTitle);
+    setText("session-evidence-title", t.sessionEvidenceTitle);
+    setText("session-organ-title", t.sessionOrganTitle);
+    setText("session-action-title", t.sessionActionTitle);
+    setText("session-timeline-title", t.sessionTimelineTitle);
+    setText("session-warnings-title", t.sessionWarningsTitle);
+    setText("session-boundary-note", t.sessionBoundaryNote);
 
     setText("actions-title", t.actionsTitle);
     setText("label-registry-status", t.labels.registryStatus);
@@ -568,6 +621,142 @@
     setText("organ-dialogue-last-event", `${labels.lastEvent}: ${String(demo.last_event || "-")}`);
     setText("organ-dialogue-foundation", `${labels.foundation}: ${String(demo.foundation_only_label || "FOUNDATION_ONLY")}`);
     setText("organ-dialogue-autonomy", `${labels.autonomy}: ${String(demo.no_live_autonomy_label || "NO_LIVE_AUTONOMY")}`);
+  }
+
+  function renderSessionLines(id, lines) {
+    const node = document.getElementById(id);
+    node.innerHTML = "";
+
+    if (!Array.isArray(lines) || lines.length === 0) {
+      const li = document.createElement("li");
+      li.textContent = "-";
+      node.appendChild(li);
+      return;
+    }
+
+    lines.forEach((line) => {
+      const li = document.createElement("li");
+      li.textContent = String(line);
+      node.appendChild(li);
+    });
+  }
+
+  function renderServitorSessionView() {
+    const t = I18N[state.lang];
+    const session = state.sessionView;
+    const noData = !session || typeof session !== "object";
+
+    if (noData) {
+      setStatusValue("session-status-pill", "NOT_READY");
+      setText("session-id", "-");
+      setText("session-task", "-");
+      setText("session-head", "-");
+      setText("session-branch", "-");
+      setText("session-timeline-summary", t.sessionNoData);
+      setText("session-next-step", "-");
+      renderSessionLines("session-source-list", []);
+      renderSessionLines("session-evidence-list", []);
+      renderSessionLines("session-organ-list", []);
+      renderSessionLines("session-action-list", []);
+      renderSessionLines("session-warnings-list", []);
+      const timelineNode = document.getElementById("session-timeline-list");
+      timelineNode.innerHTML = "";
+      const placeholder = document.createElement("p");
+      placeholder.className = "placeholder";
+      placeholder.textContent = t.sessionNoData;
+      timelineNode.appendChild(placeholder);
+      return;
+    }
+
+    const sessionStatus = String(session.session_status || "FOUNDATION_ONLY");
+    setStatusValue("session-status-pill", sessionStatus);
+
+    const sessionMeta = session.session || {};
+    const timelineSummary = session.timeline && session.timeline.summary ? session.timeline.summary : {};
+    setText("session-id", String(sessionMeta.session_id || "-"));
+    setText("session-task", String(sessionMeta.view_task_id || session.task_id || "-"));
+    setText("session-head", String(sessionMeta.current_head || "-"));
+    setText("session-branch", String(sessionMeta.branch || "-"));
+    setText(
+      "session-timeline-summary",
+      `events=${String(timelineSummary.total_events || 0)} run=${String(timelineSummary.run_events || 0)} rerun=${String(timelineSummary.rerun_events || 0)}`
+    );
+    setText("session-next-step", String(session.next_required_step || "-"));
+
+    const sourceReports = session.source_reports && typeof session.source_reports === "object"
+      ? session.source_reports
+      : {};
+    const sourceLines = Object.keys(sourceReports).sort().map((key) => {
+      const entry = sourceReports[key] || {};
+      return `${key}: ${String(entry.status || "UNKNOWN")} :: ${String(entry.report_dir || "-")}`;
+    });
+    renderSessionLines("session-source-list", sourceLines);
+
+    const evidence = session.evidence_summary && typeof session.evidence_summary === "object"
+      ? session.evidence_summary
+      : {};
+    const critical = Array.isArray(evidence.critical_refs) ? evidence.critical_refs : [];
+    const evidenceLines = [
+      `records=${String(evidence.evidence_record_count || 0)}`,
+      `report_entries=${String(evidence.report_entry_count || 0)}`,
+      `map=${String(evidence.evidence_map_unified_path || "-")}`,
+      `index=${String(evidence.report_status_index_path || "-")}`,
+      ...critical.slice(0, 4).map((item) => `ref:${String(item)}`),
+    ];
+    renderSessionLines("session-evidence-list", evidenceLines);
+
+    const organ = session.organ_dialogue && typeof session.organ_dialogue === "object"
+      ? session.organ_dialogue
+      : {};
+    const organLines = [
+      `task=${String(organ.task_id || "-")}`,
+      `thread=${String(organ.thread_id || "-")}`,
+      `requests=${String(organ.request_count ?? "-")} responses=${String(organ.response_count ?? "-")}`,
+      `warnings=${String(organ.warnings_count ?? "-")} last=${String(organ.last_event || "-")}`,
+      `live_autonomy=${String(organ.live_autonomy ?? "-")}`,
+    ];
+    renderSessionLines("session-organ-list", organLines);
+
+    const action = session.action_layer && typeof session.action_layer === "object"
+      ? session.action_layer
+      : {};
+    const actionLines = [
+      `overall=${String(action.overall_status || "UNKNOWN")}`,
+      `components=${JSON.stringify(action.component_status || {})}`,
+      `status_counts=${JSON.stringify(action.action_log_status_counts || {})}`,
+      `result_states=${JSON.stringify(action.action_log_result_state_counts || {})}`,
+    ];
+    renderSessionLines("session-action-list", actionLines);
+
+    const warnings = Array.isArray(session.warnings) ? session.warnings : [];
+    renderSessionLines("session-warnings-list", warnings);
+
+    const timelineNode = document.getElementById("session-timeline-list");
+    timelineNode.innerHTML = "";
+    const timeline = session.timeline && Array.isArray(session.timeline.events)
+      ? session.timeline.events
+      : [];
+    const recent = timeline.slice(Math.max(0, timeline.length - 18));
+    if (recent.length === 0) {
+      const placeholder = document.createElement("p");
+      placeholder.className = "placeholder";
+      placeholder.textContent = t.sessionNoData;
+      timelineNode.appendChild(placeholder);
+    } else {
+      recent.forEach((event) => {
+        const card = document.createElement("article");
+        card.className = "session-event";
+        card.innerHTML = `
+          <div class="session-event__top">
+            <span>${String(event.timestamp_utc || "-")}</span>
+            <span class="status-pill ${statusClass(event.status)}">${String(event.status || "UNKNOWN")}</span>
+          </div>
+          <p>${String(event.run_kind || "RUN")} :: ${String(event.summary || "")}</p>
+          <p class="session-event__meta">${String(event.source_path || "-")}</p>
+        `;
+        timelineNode.appendChild(card);
+      });
+    }
   }
 
   function renderInspector() {
@@ -807,6 +996,7 @@
     renderCommunicationGate();
     renderTruthIndex();
     renderOrganDialogueDemo();
+    renderServitorSessionView();
     renderPipeline();
     renderInspector();
     renderConnection();
@@ -823,6 +1013,7 @@
       state.data = normalizeData({ ...FALLBACK_STATE });
       state.data.warnings.push("ACTION_SERVER_NOT_CONNECTED");
       state.actions = normalizeActions(FALLBACK_ACTIONS);
+      state.sessionView = null;
       state.registryStatus = "ACTION_DISABLED";
       state.reportSummaryState = "NOT_READY";
       state.reportSummaryReason = "file_mode_no_server";
@@ -847,12 +1038,14 @@
       state.connectionNote = t.serverConnectedNote;
       state.registryStatus = String((((actionsPayload || {}).registry) || {}).status || "UNKNOWN");
       state.actionLayerStateModel = (statePayload || {}).action_layer_state_model || (actionsPayload || {}).action_layer_state_model || null;
+      state.sessionView = (statePayload || {}).servitor_session_view || (state.data || {}).servitor_session_view || null;
 
       applyReportSummary((statePayload || {}).latest_report_summary || null);
       applyLatestActionResult((statePayload || {}).latest_action_result || null);
     } catch (error) {
       state.data = normalizeData({ ...FALLBACK_STATE });
       state.actions = normalizeActions(FALLBACK_ACTIONS);
+      state.sessionView = null;
       state.serverStatus = "NOT_CONNECTED";
       state.connectionNote = `${t.serverNotConnectedRuntime}; ${String(error)}`;
       state.data.warnings.push(`ACTION_LAYER_API_LOAD_ERROR:${String(error)}`);
