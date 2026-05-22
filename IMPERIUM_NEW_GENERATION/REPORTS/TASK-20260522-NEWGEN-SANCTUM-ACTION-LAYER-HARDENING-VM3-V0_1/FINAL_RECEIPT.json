@@ -1,0 +1,24 @@
+{
+  "schema_id": "FINAL_RECEIPT_V0_1",
+  "task_id": "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1",
+  "contour": "VM3",
+  "generated_at_utc": "2026-05-22T16:52:00Z",
+  "status": "PENDING_CLOSURE",
+  "starting_head": "573169b9830ecb0322202e33a3e12ca2fc5e3556",
+  "ending_head": "TO_FILL_AFTER_COMMIT",
+  "commit": "TO_FILL_AFTER_COMMIT",
+  "pushed": false,
+  "worktree_clean": false,
+  "checks": {
+    "builder": "TO_FILL",
+    "validator": "TO_FILL",
+    "action_layer_validator": "TO_FILL",
+    "smoke": "TO_FILL",
+    "push_verify": "TO_FILL"
+  },
+  "allowed_paths_touched_only": true,
+  "forbidden_claims_avoided": true,
+  "context_window_discipline": "OK",
+  "authoritative_post_commit_receipt": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1/POST_COMMIT_CLOSURE_RECEIPT.json",
+  "closure_metadata_commit_pending": true
+}

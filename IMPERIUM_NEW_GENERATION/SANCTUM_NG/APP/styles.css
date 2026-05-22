@@ -168,9 +168,12 @@ p {
 }
 
 .status-proved,
+.status-found,
 .status-pass,
 .status-connected,
-.status-wired {
+.status-wired,
+.status-action-allowed,
+.status-action-result-pass {
   color: var(--ok);
   background: #e8f5eb;
 }
@@ -181,15 +184,21 @@ p {
 }
 
 .status-partial,
+.status-not-ready,
+.status-stale,
 .status-warn,
 .status-preview-only,
 .status-unknown,
-.status-running {
+.status-running,
+.status-action-result-warn,
+.status-action-result-partial {
   color: var(--warn);
   background: #fdf1e4;
 }
 
 .status-missing,
+.status-action-disabled,
+.status-action-result-block,
 .status-blocked,
 .status-not-wired,
 .status-not-connected,

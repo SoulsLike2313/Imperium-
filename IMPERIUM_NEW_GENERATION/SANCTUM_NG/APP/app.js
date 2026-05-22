@@ -7,6 +7,16 @@
     "READ_LATEST_REPORT_SUMMARY"
   ];
 
+  const ACTION_LAYER_STATE_MODEL = {
+    action: ["ACTION_ALLOWED", "ACTION_DISABLED"],
+    result: [
+      "ACTION_RESULT_PASS",
+      "ACTION_RESULT_WARN",
+      "ACTION_RESULT_BLOCK",
+      "ACTION_RESULT_PARTIAL"
+    ]
+  };
+
   const I18N = {
     en: {
       kicker: "IMPERIUM NEW GENERATION",
@@ -18,6 +28,9 @@
         mode: "Mode",
         worktree: "Worktree",
         generated: "Generated",
+        registryStatus: "Registry Status",
+        reportSummaryStatus: "Report Summary",
+        resultModelState: "Result Model",
         lastActionStatus: "Last Action Status",
         lastActionPath: "Result Path",
         lastActionSummary: "Result Summary"
@@ -61,6 +74,9 @@
         mode: "Режим",
         worktree: "Дерево",
         generated: "Сгенерировано",
+        registryStatus: "Статус реестра",
+        reportSummaryStatus: "Сводка отчётов",
+        resultModelState: "Модель результата",
         lastActionStatus: "Статус последнего действия",
         lastActionPath: "Путь результата",
         lastActionSummary: "Сводка результата"
@@ -98,7 +114,7 @@
 
   const FALLBACK_STATE = {
     schema_id: "SANCTUM_NG_STATE_V0_1",
-    task_id: "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1",
+    task_id: "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1",
     mode: "ACTION_LAYER_FOUNDATION_ONLY",
     generated_at_utc: "FALLBACK",
     git: {
@@ -206,7 +222,12 @@
     selectedPhaseNo: null,
     serverStatus: "UNKNOWN",
     connectionNote: "",
-    lastActionResult: null
+    lastActionResult: null,
+    registryStatus: "UNKNOWN",
+    reportSummaryState: "UNKNOWN",
+    reportSummaryReason: "-",
+    lastActionModelState: "ACTION_RESULT_WARN",
+    actionLayerStateModel: null
   };
 
   function byOrder(actions) {
@@ -252,6 +273,7 @@
         title: String(item.title || item.action_id || "Unknown Action"),
         description: String(item.description || ""),
         status: String(item.status || "NOT_WIRED"),
+        availability_state: String(item.availability_state || "ACTION_DISABLED"),
         safety_level: String(item.safety_level || "UNKNOWN"),
         allowed_commands: Array.isArray(item.allowed_commands) ? item.allowed_commands : [],
         allowed_paths: Array.isArray(item.allowed_paths) ? item.allowed_paths : [],
@@ -264,11 +286,41 @@
     return byOrder(actions);
   }
 
+  function applyReportSummary(summaryPayload) {
+    const payload = summaryPayload && typeof summaryPayload === "object" ? summaryPayload : {};
+    const inner = payload.payload && typeof payload.payload === "object" ? payload.payload : {};
+    state.reportSummaryState = String(inner.summary_state || "UNKNOWN");
+    state.reportSummaryReason = String(inner.reason || "-");
+  }
+
+  function applyLatestActionResult(resultPayload) {
+    if (!resultPayload || typeof resultPayload !== "object") {
+      return;
+    }
+    state.lastActionResult = resultPayload;
+    const model = resultPayload.state_model && typeof resultPayload.state_model === "object" ? resultPayload.state_model : {};
+    state.lastActionModelState = String(model.result_state || "ACTION_RESULT_WARN");
+
+    if (String(resultPayload.action_id || "") === "READ_LATEST_REPORT_SUMMARY") {
+      applyReportSummary(resultPayload);
+    }
+  }
+
   function setText(id, text) {
     const el = document.getElementById(id);
     if (el) {
       el.textContent = text;
     }
+  }
+
+  function setStatusValue(id, value) {
+    const el = document.getElementById(id);
+    if (!el) {
+      return;
+    }
+    const text = String(value || "UNKNOWN");
+    el.textContent = text;
+    el.className = `status-pill ${statusClass(text)}`;
   }
 
   function statusClass(status) {
@@ -300,6 +352,9 @@
     setText("inspector-snapshot-label", t.inspectorSnapshot);
 
     setText("actions-title", t.actionsTitle);
+    setText("label-registry-status", t.labels.registryStatus);
+    setText("label-report-summary-status", t.labels.reportSummaryStatus);
+    setText("label-result-model-state", t.labels.resultModelState);
     setText("label-last-action-status", t.labels.lastActionStatus);
     setText("label-last-action-path", t.labels.lastActionPath);
     setText("label-last-action-summary", t.labels.lastActionSummary);
@@ -478,8 +533,12 @@
     const t = I18N[state.lang];
     const result = state.lastActionResult;
 
+    setStatusValue("registry-status", state.registryStatus || "UNKNOWN");
+    setStatusValue("report-summary-status", state.reportSummaryState || "UNKNOWN");
+    setStatusValue("result-model-state", state.lastActionModelState || "ACTION_RESULT_WARN");
+
     if (!result || typeof result !== "object") {
-      setText("last-action-status", "-");
+      setStatusValue("last-action-status", "UNKNOWN");
       setText("last-action-path", "-");
       setText("last-action-summary", t.noResult);
       setText("last-action-json", "-");
@@ -490,7 +549,7 @@
     const evidence = Array.isArray(result.evidence_refs) ? result.evidence_refs : [];
     const downgrade = String(result.status) === "PASS" && evidence.length === 0;
 
-    setText("last-action-status", safeStatus);
+    setStatusValue("last-action-status", safeStatus);
     setText("last-action-path", String(result.result_record_path || "-"));
     setText(
       "last-action-summary",
@@ -508,7 +567,10 @@
       const card = document.createElement("article");
       card.className = "action-card";
 
-      const runEnabled = state.serverStatus === "CONNECTED" && action.status === "WIRED";
+      const runEnabled =
+        state.serverStatus === "CONNECTED" &&
+        action.status === "WIRED" &&
+        action.availability_state === "ACTION_ALLOWED";
       let buttonLabel = t.unavailable;
       if (action.status === "PREVIEW_ONLY") {
         buttonLabel = t.previewOnly;
@@ -526,6 +588,7 @@
         </div>
         <p class="action-id">${action.action_id}</p>
         <p class="action-desc">${action.description}</p>
+        <p class="action-safety">${action.availability_state}</p>
         <p class="action-safety">${action.safety_level}</p>
         <p class="action-evidence">evidence refs: ${evidence.length}</p>
         <ul class="action-limits"></ul>
@@ -591,19 +654,25 @@
       });
 
       const payload = await response.json();
-      state.lastActionResult = payload && typeof payload === "object" ? payload : {
+      applyLatestActionResult(payload && typeof payload === "object" ? payload : {
         status: "ERROR",
         result_record_path: "-",
         output_summary: "Invalid action response payload.",
-        evidence_refs: []
-      };
+        evidence_refs: [],
+        state_model: {
+          result_state: "ACTION_RESULT_BLOCK"
+        }
+      });
     } catch (error) {
-      state.lastActionResult = {
+      applyLatestActionResult({
         status: "ERROR",
         result_record_path: "-",
         output_summary: `ACTION_REQUEST_ERROR: ${String(error)}`,
-        evidence_refs: []
-      };
+        evidence_refs: [],
+        state_model: {
+          result_state: "ACTION_RESULT_BLOCK"
+        }
+      });
     }
 
     renderLastActionResult();
@@ -630,6 +699,10 @@
       state.data = normalizeData({ ...FALLBACK_STATE });
       state.data.warnings.push("ACTION_SERVER_NOT_CONNECTED");
       state.actions = normalizeActions(FALLBACK_ACTIONS);
+      state.registryStatus = "ACTION_DISABLED";
+      state.reportSummaryState = "NOT_READY";
+      state.reportSummaryReason = "file_mode_no_server";
+      state.lastActionModelState = "ACTION_RESULT_WARN";
       return;
     }
 
@@ -646,14 +719,23 @@
 
       state.data = normalizeData(statePayload && typeof statePayload === "object" ? statePayload.state : null);
       state.actions = normalizeActions(actionsPayload && typeof actionsPayload === "object" ? actionsPayload.actions : null);
-      state.serverStatus = "CONNECTED";
+      state.serverStatus = String((statePayload || {}).status || "CONNECTED");
       state.connectionNote = t.serverConnectedNote;
+      state.registryStatus = String((((actionsPayload || {}).registry) || {}).status || "UNKNOWN");
+      state.actionLayerStateModel = (statePayload || {}).action_layer_state_model || (actionsPayload || {}).action_layer_state_model || null;
+
+      applyReportSummary((statePayload || {}).latest_report_summary || null);
+      applyLatestActionResult((statePayload || {}).latest_action_result || null);
     } catch (error) {
       state.data = normalizeData({ ...FALLBACK_STATE });
       state.actions = normalizeActions(FALLBACK_ACTIONS);
       state.serverStatus = "NOT_CONNECTED";
       state.connectionNote = `${t.serverNotConnectedRuntime}; ${String(error)}`;
       state.data.warnings.push(`ACTION_LAYER_API_LOAD_ERROR:${String(error)}`);
+      state.registryStatus = "ACTION_DISABLED";
+      state.reportSummaryState = "NOT_READY";
+      state.reportSummaryReason = "api_unreachable";
+      state.lastActionModelState = "ACTION_RESULT_WARN";
     }
   }
 

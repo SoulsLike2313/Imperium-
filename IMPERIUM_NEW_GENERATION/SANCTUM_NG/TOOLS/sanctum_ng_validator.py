@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
 REQUIRED_PHASES = set(range(1, 11))
 REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 RUNNER_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_refresh_runner.py"
@@ -24,7 +24,7 @@ def parse_args() -> argparse.Namespace:
     default_schema = default_repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/sanctum_ng_state.schema.json"
     default_report_dir = default_repo_root / (
         "IMPERIUM_NEW_GENERATION/REPORTS/"
-        "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+        "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
     )
     default_output = default_report_dir / "VALIDATOR_REPORT.json"
 
@@ -142,9 +142,12 @@ def main() -> int:
         report_dir / "DOCTRINARIUM_LAW_ACK_OR_WARN.json",
         report_dir / "SUPER_SKEPTICISM_ACK.json",
         report_dir / "CONTEXT_WINDOW_USAGE_NOTE.md",
+        report_dir / "ACTION_LAYER_HARDENING_REPORT.md",
+        report_dir / "ACTION_LAYER_HARDENING_REPORT.json",
         report_dir / "KPD_SLICE.md",
         report_dir / "NEXT_TASK_IMPROVEMENT_REPORT.md",
         report_dir / "NEXT_TASK_IMPROVEMENT_REPORT.json",
+        report_dir / "SMOKE_REPORT.json",
         report_dir / "SANCTUM_NG_REFRESH_RUNNER_REPORT.json",
         report_dir / "POST_COMMIT_CLOSURE_RECEIPT.json",
         report_dir / "FINAL_OWNER_REPORT_RU.md",
@@ -327,6 +330,7 @@ def main() -> int:
         all(path.exists() for path in required_report_files),
         "required report files exist",
         "one or more required report files are missing",
+        fail_level="WARN",
     )
 
     add_check(

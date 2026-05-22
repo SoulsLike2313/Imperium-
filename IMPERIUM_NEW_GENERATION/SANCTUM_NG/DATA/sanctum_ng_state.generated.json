@@ -1,13 +1,13 @@
 {
   "schema_id": "SANCTUM_NG_STATE_V0_1",
-  "task_id": "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1",
+  "task_id": "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1",
   "mode": "READ_ONLY_FOUNDATION",
-  "generated_at_utc": "2026-05-22T15:49:07Z",
+  "generated_at_utc": "2026-05-22T16:53:38Z",
   "git": {
-    "head": "904ff5f5e47f470293b5857682702d4086240a4e",
+    "head": "573169b9830ecb0322202e33a3e12ca2fc5e3556",
     "branch": "master",
     "worktree_dirty": true,
-    "required_starting_head": "904ff5f5e47f470293b5857682702d4086240a4e",
+    "required_starting_head": "573169b9830ecb0322202e33a3e12ca2fc5e3556",
     "head_matches_required_start": true
   },
   "truth_flags": {
@@ -30,7 +30,7 @@
     "AUTHORITY_SOURCE": [
       "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md",
       "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json",
-      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
+      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
     ],
     "STATUS": "WARN_FOUNDATION_ONLY",
     "KNOWN_LIMITATION": "Live language compliance is foundation-level receipt discipline, not runtime hard-block enforcement.",

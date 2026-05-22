@@ -9,7 +9,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
 
 REQUIRED_ACTION_IDS = {
     "REFRESH_TRUTH_STATE",
@@ -77,7 +77,7 @@ def parse_args() -> argparse.Namespace:
     script_path = Path(__file__).resolve()
     default_repo_root = script_path.parents[3]
     default_report_dir = default_repo_root / (
-        "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+        "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
     )
     default_output = default_report_dir / "ACTION_LAYER_VALIDATOR_REPORT.json"
 
@@ -119,8 +119,10 @@ def main() -> int:
         report_dir / "SUPER_SKEPTICISM_ACK.json",
         report_dir / "CONTEXT_WINDOW_USAGE_NOTE.md",
         report_dir / "GATE_ACK.md",
+        report_dir / "ACTION_LAYER_HARDENING_REPORT.md",
+        report_dir / "ACTION_LAYER_HARDENING_REPORT.json",
         report_dir / "VALIDATOR_REPORT.json",
-        report_dir / "ACTION_LAYER_SMOKE_REPORT.json",
+        report_dir / "SMOKE_REPORT.json",
         report_dir / "FINAL_OWNER_REPORT_RU.md",
         report_dir / "FINAL_RECEIPT.json",
         report_dir / "POST_COMMIT_CLOSURE_RECEIPT.json",
@@ -165,6 +167,25 @@ def main() -> int:
         res_schema is not None,
         "result schema parses",
         f"result schema parse failed ({res_schema_err})",
+    )
+    result_statuses: list[str] = []
+    if res_schema is not None:
+        properties = res_schema.get("properties", {})
+        if isinstance(properties, dict):
+            status_field = properties.get("status", {})
+            if isinstance(status_field, dict):
+                enum_values = status_field.get("enum", [])
+                if isinstance(enum_values, list):
+                    result_statuses = [str(item) for item in enum_values]
+
+    add_check(
+        checks,
+        warnings,
+        blockers,
+        "result_schema_has_partial",
+        "PARTIAL" in result_statuses,
+        "result schema includes PARTIAL for explicit expected-partial outcomes",
+        f"result schema missing PARTIAL in enum: {result_statuses}",
     )
 
     reg_schema, reg_schema_err = load_json(reg_schema_path)
@@ -322,6 +343,26 @@ def main() -> int:
         "LIVE_LANGUAGE_COMPLIANCE" in app_js and "communication_gate" in app_js,
         "UI shows Officio live-language gate fields",
         "UI does not visibly bind Officio gate fields",
+    )
+
+    add_check(
+        checks,
+        warnings,
+        blockers,
+        "ui_action_state_model_visible",
+        all(
+            token in app_js
+            for token in [
+                "ACTION_ALLOWED",
+                "ACTION_DISABLED",
+                "ACTION_RESULT_PASS",
+                "ACTION_RESULT_WARN",
+                "ACTION_RESULT_BLOCK",
+                "ACTION_RESULT_PARTIAL",
+            ]
+        ),
+        "UI includes required action/result state model tokens",
+        "UI is missing one or more required action/result state model tokens",
     )
 
     add_check(

@@ -14,8 +14,8 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlparse
 
-TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
-REQUIRED_STARTING_HEAD_DEFAULT = "904ff5f5e47f470293b5857682702d4086240a4e"
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
+REQUIRED_STARTING_HEAD_DEFAULT = "573169b9830ecb0322202e33a3e12ca2fc5e3556"
 APP_DIR_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP"
 STATE_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.generated.json"
 PHASE_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
@@ -31,6 +31,8 @@ FORBIDDEN_PATHS = [
     "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/**",
     ".git/**",
 ]
+
+SUMMARY_STATE_SET = {"FOUND", "MISSING", "PARTIAL", "NOT_READY", "STALE", "ERROR"}
 
 
 def utc_now() -> str:
@@ -111,6 +113,54 @@ class ActionLayer:
                     if action_id:
                         out[action_id] = action
         return out
+
+    def connection_state_model(self) -> dict[str, Any]:
+        return {
+            "connection_state": "CONNECTED",
+            "connection_states": [
+                "CONNECTED",
+                "NOT_CONNECTED",
+                "UNKNOWN",
+                "ACTION_SERVER_NOT_CONNECTED",
+            ],
+            "action_states": [
+                "ACTION_ALLOWED",
+                "ACTION_DISABLED",
+            ],
+            "result_states": [
+                "ACTION_RESULT_PASS",
+                "ACTION_RESULT_WARN",
+                "ACTION_RESULT_BLOCK",
+                "ACTION_RESULT_PARTIAL",
+            ],
+        }
+
+    def _action_availability_state(self, action_status: str) -> str:
+        return "ACTION_ALLOWED" if action_status == "WIRED" else "ACTION_DISABLED"
+
+    def _action_result_state(self, status: str) -> str:
+        status_upper = status.strip().upper()
+        if status_upper == "PASS":
+            return "ACTION_RESULT_PASS"
+        if status_upper in {"PARTIAL"}:
+            return "ACTION_RESULT_PARTIAL"
+        if status_upper in {"BLOCK", "NOT_ALLOWED", "ERROR"}:
+            return "ACTION_RESULT_BLOCK"
+        return "ACTION_RESULT_WARN"
+
+    def _attach_state_model(self, result: dict[str, Any]) -> dict[str, Any]:
+        status = str(result.get("status", "WARN"))
+        action_status = str(result.get("action_status", "BLOCKED"))
+        result["state_model"] = {
+            "connection_state": "CONNECTED",
+            "action_availability": self._action_availability_state(action_status),
+            "result_state": self._action_result_state(status),
+            "known_states": self.connection_state_model(),
+        }
+        return result
+
+    def _load_latest_action_result(self) -> dict[str, Any] | None:
+        return load_json(self.action_log_dir / "latest_action_result.json")
 
     def _run_command(self, cmd: list[str], timeout_seconds: int = 240) -> dict[str, Any]:
         proc = subprocess.run(
@@ -256,44 +306,220 @@ class ActionLayer:
             "known_limitations": ["Read scope is bounded to fixed path."],
         }
 
-    def _read_latest_report_summary(self) -> dict[str, Any]:
-        file_names = [
-            "SANCTUM_NG_REFRESH_RUNNER_REPORT.json",
-            "VALIDATOR_REPORT.json",
-            "ACTION_LAYER_SMOKE_REPORT.json",
-            "FINAL_RECEIPT.json",
-            "POST_COMMIT_CLOSURE_RECEIPT.json",
-        ]
-
-        summaries: list[dict[str, Any]] = []
-        missing: list[str] = []
-        for file_name in file_names:
-            report_path = self.report_dir / file_name
-            rel = relpath(report_path, self.repo_root)
-            payload = load_json(report_path)
-            if payload is None:
-                missing.append(rel)
-                summaries.append({"path": rel, "exists": False, "verdict": "MISSING"})
+    def _parse_any_utc(self, payload: dict[str, Any]) -> dt.datetime | None:
+        timestamp_keys = ["generated_at_utc", "timestamp_utc", "finished_at_utc", "requested_at_utc"]
+        for key in timestamp_keys:
+            raw = payload.get(key)
+            if not isinstance(raw, str):
                 continue
-            verdict = str(payload.get("verdict", payload.get("status", "UNKNOWN")))
-            summaries.append({"path": rel, "exists": True, "verdict": verdict})
+            value = raw.strip()
+            if not value:
+                continue
+            if value.endswith("Z"):
+                value = value[:-1] + "+00:00"
+            try:
+                parsed = dt.datetime.fromisoformat(value)
+            except ValueError:
+                continue
+            if parsed.tzinfo is None:
+                parsed = parsed.replace(tzinfo=dt.timezone.utc)
+            return parsed.astimezone(dt.timezone.utc)
+        return None
 
-        status = "PASS" if not missing else "WARN"
-        known_limitations = [
-            "Only fixed known report files are readable.",
-            "Missing files are surfaced as WARN and not auto-generated.",
+    def _resolve_existing_report(self, primary_name: str, aliases: list[str]) -> tuple[Path | None, str]:
+        candidates = [primary_name, *aliases]
+        for name in candidates:
+            candidate = self.report_dir / name
+            if candidate.exists():
+                return candidate, name
+        return None, ""
+
+    def _read_latest_report_summary(self) -> dict[str, Any]:
+        expected_specs = [
+            {
+                "logical_id": "refresh_runner",
+                "primary": "SANCTUM_NG_REFRESH_RUNNER_REPORT.json",
+                "aliases": [],
+            },
+            {
+                "logical_id": "validator",
+                "primary": "VALIDATOR_REPORT.json",
+                "aliases": [],
+            },
+            {
+                "logical_id": "smoke",
+                "primary": "SMOKE_REPORT.json",
+                "aliases": ["ACTION_LAYER_SMOKE_REPORT.json"],
+            },
+            {
+                "logical_id": "final_receipt",
+                "primary": "FINAL_RECEIPT.json",
+                "aliases": [],
+            },
+            {
+                "logical_id": "post_commit_closure",
+                "primary": "POST_COMMIT_CLOSURE_RECEIPT.json",
+                "aliases": [],
+            },
         ]
+
+        evidence_refs: list[str] = [relpath(self.report_dir, self.repo_root)]
+        expected_files: list[str] = []
+        found_files: list[str] = []
+        missing_files: list[str] = []
+        partial_files: list[str] = []
+        stale_files: list[str] = []
+        error_files: list[str] = []
+        inspected_reports: list[dict[str, Any]] = []
+
+        for spec in expected_specs:
+            primary_name = str(spec["primary"])
+            aliases = [str(item) for item in spec["aliases"]]
+            expected_path = self.report_dir / primary_name
+            expected_rel = relpath(expected_path, self.repo_root)
+            expected_files.append(expected_rel)
+
+            resolved_path, resolved_name = self._resolve_existing_report(primary_name, aliases)
+            if resolved_path is None:
+                missing_files.append(expected_rel)
+                inspected_reports.append(
+                    {
+                        "logical_id": spec["logical_id"],
+                        "expected_path": expected_rel,
+                        "resolved_path": "N/A",
+                        "summary_state": "MISSING",
+                        "reason": "file_not_found",
+                        "exists": False,
+                        "verdict": "UNKNOWN",
+                    }
+                )
+                continue
+
+            resolved_rel = relpath(resolved_path, self.repo_root)
+            payload = load_json(resolved_path)
+            evidence_refs.append(resolved_rel)
+
+            if payload is None:
+                error_files.append(resolved_rel)
+                inspected_reports.append(
+                    {
+                        "logical_id": spec["logical_id"],
+                        "expected_path": expected_rel,
+                        "resolved_path": resolved_rel,
+                        "summary_state": "ERROR",
+                        "reason": "invalid_json_or_not_object",
+                        "exists": True,
+                        "verdict": "UNKNOWN",
+                    }
+                )
+                continue
+
+            file_task_id = str(payload.get("task_id", "")).strip()
+            file_verdict = str(payload.get("verdict", payload.get("status", "UNKNOWN")))
+            summary_state = "FOUND"
+            reason = "ok"
+
+            if file_task_id and file_task_id != self.task_id:
+                summary_state = "STALE"
+                reason = f"task_id_mismatch:{file_task_id}"
+                stale_files.append(resolved_rel)
+            elif resolved_name != primary_name:
+                summary_state = "PARTIAL"
+                reason = f"legacy_alias_used:{resolved_name}"
+                partial_files.append(resolved_rel)
+            elif not file_verdict.strip():
+                summary_state = "PARTIAL"
+                reason = "missing_verdict_or_status"
+                partial_files.append(resolved_rel)
+            else:
+                parsed_time = self._parse_any_utc(payload)
+                if parsed_time is None:
+                    summary_state = "PARTIAL"
+                    reason = "missing_or_invalid_timestamp"
+                    partial_files.append(resolved_rel)
+                else:
+                    found_files.append(resolved_rel)
+
+            inspected_reports.append(
+                {
+                    "logical_id": spec["logical_id"],
+                    "expected_path": expected_rel,
+                    "resolved_path": resolved_rel,
+                    "summary_state": summary_state,
+                    "reason": reason,
+                    "exists": True,
+                    "verdict": file_verdict,
+                }
+            )
+
+        report_dir_items = [path for path in self.report_dir.iterdir()] if self.report_dir.exists() else []
+        summary_state = "FOUND"
+        reason = "all_expected_reports_found"
+
+        if error_files:
+            summary_state = "ERROR"
+            reason = "invalid_or_unreadable_report_detected"
+        elif stale_files:
+            summary_state = "STALE"
+            reason = "stale_report_detected"
+        elif missing_files or partial_files:
+            if not found_files and not partial_files:
+                if not report_dir_items:
+                    summary_state = "NOT_READY"
+                    reason = "report_bundle_not_started"
+                else:
+                    summary_state = "MISSING"
+                    reason = "expected_reports_missing"
+            else:
+                summary_state = "PARTIAL"
+                reason = "report_bundle_incomplete_or_legacy"
+
+        if summary_state not in SUMMARY_STATE_SET:
+            summary_state = "ERROR"
+            reason = "internal_summary_state_violation"
+
+        owner_summary = (
+            f"{summary_state}: found={len(found_files)} "
+            f"missing={len(missing_files)} partial={len(partial_files)} "
+            f"stale={len(stale_files)} error={len(error_files)}"
+        )
+
+        status_map = {
+            "FOUND": "PASS",
+            "MISSING": "PARTIAL",
+            "PARTIAL": "PARTIAL",
+            "NOT_READY": "PARTIAL",
+            "STALE": "PARTIAL",
+            "ERROR": "ERROR",
+        }
+        status = status_map.get(summary_state, "ERROR")
 
         return {
             "status": status,
             "payload": {
-                "reports": summaries,
-                "missing": missing,
+                "summary_state": summary_state,
+                "reason": reason,
+                "owner_summary": owner_summary,
+                "report_folder_inspected": relpath(self.report_dir, self.repo_root),
+                "expected_files": expected_files,
+                "found_files": found_files,
+                "missing_files": missing_files,
+                "partial_files": partial_files,
+                "stale_files": stale_files,
+                "error_files": error_files,
+                "reports": inspected_reports,
             },
-            "evidence_refs": [item["path"] for item in summaries],
-            "output_summary": f"summary_count={len(summaries)} missing={len(missing)}",
-            "known_limitations": known_limitations,
+            "evidence_refs": sorted(set(evidence_refs)),
+            "output_summary": owner_summary,
+            "known_limitations": [
+                "Only fixed known report files are readable.",
+                "Alias support is limited to historical smoke filename compatibility.",
+                "Summary is read-only and does not auto-repair missing files.",
+            ],
         }
+
+    def latest_report_summary(self) -> dict[str, Any]:
+        return self._read_latest_report_summary()
 
     def execute_action(self, action_id: str, requester: str, dry_run: bool, input_payload: dict[str, Any]) -> dict[str, Any]:
         started_at = utc_now()
@@ -321,7 +547,7 @@ class ActionLayer:
                     "Arbitrary action IDs are blocked.",
                 ],
             }
-            return result
+            return self._attach_state_model(result)
 
         request_id, request_path = self._request_record(action_id, requester, dry_run, input_payload)
         action_status = str(action_def.get("status", "BLOCKED"))
@@ -361,6 +587,7 @@ class ActionLayer:
                     "Non-WIRED actions are surfaced for transparency only.",
                 ],
             }
+            result = self._attach_state_model(result)
             write_json(result_path, result)
             return result
 
@@ -375,6 +602,7 @@ class ActionLayer:
                 "evidence_refs": [ACTION_REGISTRY_REL],
                 "known_limitations": ["Dry run does not produce runtime side effects."],
             }
+            result = self._attach_state_model(result)
             write_json(result_path, result)
             return result
 
@@ -398,6 +626,7 @@ class ActionLayer:
                 "evidence_refs": [ACTION_REGISTRY_REL],
                 "known_limitations": ["Routine mapping is missing for this action."],
             }
+            result = self._attach_state_model(result)
             write_json(result_path, result)
             return result
 
@@ -427,6 +656,7 @@ class ActionLayer:
                 "known_limitations": ["Unexpected exception while running allowlisted action."],
             }
 
+        result = self._attach_state_model(result)
         write_json(result_path, result)
         latest_path = self.action_log_dir / "latest_action_result.json"
         write_json(latest_path, result)
@@ -478,11 +708,15 @@ class SanctumHandler(SimpleHTTPRequestHandler):
             return
 
         if path == "/api/state":
+            latest_action_result = self.layer._load_latest_action_result()
             self._send_json(
                 {
                     "status": "CONNECTED",
                     "task_id": self.layer.task_id,
                     "state": self.layer.state_payload(),
+                    "action_layer_state_model": self.layer.connection_state_model(),
+                    "latest_action_result": latest_action_result,
+                    "latest_report_summary": self.layer.latest_report_summary(),
                 }
             )
             return
@@ -490,6 +724,22 @@ class SanctumHandler(SimpleHTTPRequestHandler):
         if path == "/api/actions":
             registry = self.layer.action_registry()
             actions = registry.get("actions", [])
+            action_list: list[dict[str, Any]] = []
+            if isinstance(actions, list):
+                for action in actions:
+                    if not isinstance(action, dict):
+                        continue
+                    status = str(action.get("status", "BLOCKED"))
+                    action_list.append(
+                        {
+                            **action,
+                            "availability_state": self.layer._action_availability_state(status),
+                        }
+                    )
+
+            registry_status = "ACTION_ALLOWED" if any(
+                str(item.get("status", "")) == "WIRED" for item in action_list
+            ) else "ACTION_DISABLED"
             self._send_json(
                 {
                     "status": "CONNECTED",
@@ -497,8 +747,10 @@ class SanctumHandler(SimpleHTTPRequestHandler):
                     "registry": {
                         "schema_id": registry.get("schema_id", "SANCTUM_NG_ACTION_REGISTRY_V0_1"),
                         "mode": registry.get("mode", "ACTION_LAYER_FOUNDATION_ONLY"),
+                        "status": registry_status,
                     },
-                    "actions": actions if isinstance(actions, list) else [],
+                    "actions": action_list,
+                    "action_layer_state_model": self.layer.connection_state_model(),
                     "forbidden_paths": FORBIDDEN_PATHS,
                 }
             )
@@ -575,7 +827,7 @@ def parse_args() -> argparse.Namespace:
     script_path = Path(__file__).resolve()
     default_repo_root = script_path.parents[3]
     default_report_dir = default_repo_root / (
-        "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1"
+        "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1"
     )
     default_action_log_dir = default_repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/action_logs"
 
