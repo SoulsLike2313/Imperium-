@@ -358,7 +358,9 @@
     "Truth shell reflects bounded local artifacts and foundation phase evidence only.",
     "No live backend bridge is wired from browser local file mode.",
     "No autonomous organ dialogue or production readiness is claimed.",
-    "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation."
+    "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation.",
+    "SSH matrix and rollback references are foundation-only visibility surfaces.",
+    "No claim of destructive rollback runtime proof is made by this update."
   ],
   "forbidden_claims": [
     "LIVE_BACKEND_READY",
@@ -390,7 +392,24 @@
       "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1.",
       "Partial acceptance is a backend truth interpretation layer, not a production acceptance engine.",
       "UNKNOWN/MISSING/STALE boundaries remain explicit and non-green.",
-      "Owner or contract basis is required for PARTIAL_ACCEPTED continuation."
-    ]
+      "Owner or contract basis is required for PARTIAL_ACCEPTED continuation.",
+      "SSH matrix reference is read-only visibility only; alias installation is not claimed.",
+      "Rollback layer reference is policy-first and not destructive-tested."
+    ],
+    "mechanicus_ssh_connection_registry_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_CONNECTION_MATRIX_V0_1.json",
+    "action_rollback_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+    "rollback_layer_status": "FOUNDATION_ONLY"
+  },
+  "foundation_safety_layers": {
+    "status": "FOUNDATION_ONLY",
+    "task_id": "TASK-20260523-NEWGEN-MECHANICUS-SSH-MATRIX-AND-ACTION-ROLLBACK-CONTRACT-VM2-V0_1",
+    "ssh_matrix_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_CONNECTION_MATRIX_V0_1.json",
+    "action_rollback_contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_CONTRACT_V0_1.md",
+    "action_rollback_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+    "known_limitations": [
+      "Read-only truth visibility layer; no live connectivity claims for offline contours.",
+      "Rollback layer contract exists, but destructive mutation runtime tests remain pending."
+    ],
+    "updated_at_utc": "2026-05-22T21:00:00Z"
   }
 }

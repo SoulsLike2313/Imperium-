@@ -267,7 +267,9 @@
     "No production autonomy, live backend, or full organ dialogue is claimed.",
     "Strategic PDF is used as compass only; broader tasks are deferred.",
     "Unified evidence map/freshness layer is foundation-only and intentionally conservative.",
-    "Partial acceptance semantics are foundation-only and no fake-green upgrades are allowed."
+    "Partial acceptance semantics are foundation-only and no fake-green upgrades are allowed.",
+    "SSH matrix/alias policy is read-only documentation and does not imply global host installation.",
+    "Action rollback contract layer is defined but not yet destructive-tested."
   ],
   "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
   "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
@@ -299,5 +301,35 @@
       "Owner or contract basis is required for PARTIAL_ACCEPTED continuation."
     ],
     "updated_at_utc": "2026-05-22T18:54:31Z"
+  },
+  "mechanicus_ssh_connection_registry": {
+    "status": "FOUNDATION_ONLY",
+    "task_id": "TASK-20260523-NEWGEN-MECHANICUS-SSH-MATRIX-AND-ACTION-ROLLBACK-CONTRACT-VM2-V0_1",
+    "ssh_matrix_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_CONNECTION_MATRIX_V0_1.json",
+    "alias_policy_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_ALIAS_POLICY_V0_1.md",
+    "command_shortcuts_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/COMMAND_SHORTCUTS_CATALOG_V0_1.md",
+    "validator_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/TOOLS/validate_ssh_connection_matrix_v0_1.py",
+    "private_key_material_allowed_in_repo": false,
+    "known_limitations": [
+      "Alias installation across all host contours is not claimed.",
+      "VM3 and Throne/Core remain registered as offline/not configured.",
+      "No private key material is stored in repo artifacts."
+    ],
+    "updated_at_utc": "2026-05-22T21:00:00Z"
+  },
+  "action_rollback_contract_layer": {
+    "status": "FOUNDATION_ONLY",
+    "task_id": "TASK-20260523-NEWGEN-MECHANICUS-SSH-MATRIX-AND-ACTION-ROLLBACK-CONTRACT-VM2-V0_1",
+    "contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_CONTRACT_V0_1.md",
+    "policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+    "classification_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_MUTATION_CLASSIFICATION_V0_1.json",
+    "decision_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ROLLBACK_DECISION_RULES_V0_1.json",
+    "sample_actions_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/SAMPLES/ACTION_ROLLBACK_SAMPLE_ACTIONS_V0_1.json",
+    "validator_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/TOOLS/validate_action_rollback_contract_v0_1.py",
+    "known_limitations": [
+      "Rollback layer is foundation-only and not destructive-tested.",
+      "No autonomous mutation execution is introduced by this contract slice."
+    ],
+    "updated_at_utc": "2026-05-22T21:00:00Z"
   }
 }
