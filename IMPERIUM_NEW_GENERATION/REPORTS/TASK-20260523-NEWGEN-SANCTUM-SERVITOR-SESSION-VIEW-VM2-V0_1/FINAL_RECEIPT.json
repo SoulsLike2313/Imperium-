@@ -1,14 +1,14 @@
 {
   "schema_id": "FINAL_RECEIPT_V0_1",
   "task_id": "TASK-20260523-NEWGEN-SANCTUM-SERVITOR-SESSION-VIEW-VM2-V0_1",
-  "generated_at_utc": "2026-05-22T22:23:54Z",
+  "generated_at_utc": "2026-05-22T22:25:48Z",
   "status": "PASS",
   "mode": "FOUNDATION_ONLY",
   "read_only": true,
   "no_live_autonomy_claim": true,
   "production_ready": false,
-  "implementation_commit_hash": "PENDING_POST_COMMIT",
-  "remote_master_after_push": "PENDING_POST_COMMIT",
+  "implementation_commit_hash": "bac7ad9b6def0c457eecb70a5ce326bc04c25714",
+  "remote_master_after_push": "bac7ad9b6def0c457eecb70a5ce326bc04c25714",
   "validator_report_path": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-SANCTUM-SERVITOR-SESSION-VIEW-VM2-V0_1/VALIDATOR_REPORT.json",
   "smoke_report_path": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-SANCTUM-SERVITOR-SESSION-VIEW-VM2-V0_1/SMOKE_REPORT.json",
   "built_artifacts": [
@@ -38,5 +38,9 @@
     "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-NEGATIVE-TEST-MUTATION-CHECK-VM2-V0_1",
     "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1"
   ],
-  "next_allowed_task": "TASK-20260523-NEWGEN-SANCTUM-OWNER-QUESTION-GATE-VM2-OR-VM3-V0_1"
+  "next_allowed_task": "TASK-20260523-NEWGEN-SANCTUM-OWNER-QUESTION-GATE-VM2-OR-VM3-V0_1",
+  "notes": [
+    "Implementation payload commit pushed and verified on origin/master.",
+    "Closure metadata update is report-only and does not change implementation scope."
+  ]
 }
