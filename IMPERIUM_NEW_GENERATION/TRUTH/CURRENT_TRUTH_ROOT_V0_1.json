@@ -1,14 +1,14 @@
 {
   "schema_id": "CURRENT_TRUTH_ROOT_V0_1",
-  "task_id": "TASK-20260522-NEWGEN-CURRENT-TRUTH-ROOT-REPORT-INDEX-VM3-V0_1",
-  "generated_at_utc": "2026-05-22T18:10:01Z",
+  "task_id": "TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1",
+  "generated_at_utc": "2026-05-22T18:54:31Z",
   "newgen_mode": "FOUNDATION_TRUTH_SPINE_V0_1",
   "repo_truth": {
     "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
-    "head": "b773317a236ace3f1d20cc90ea333ce416613b69",
+    "head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
     "branch": "master",
     "worktree_dirty": true,
-    "head_commit_utc": "2026-05-22T16:58:19+00:00"
+    "head_commit_utc": "2026-05-22T18:16:08+00:00"
   },
   "phase_coverage": {
     "phases": [
@@ -265,6 +265,23 @@
   "limitations": [
     "UNKNOWN zones are intentionally preserved as UNKNOWN/MISSING/PARTIAL/FOUNDATION_ONLY.",
     "No production autonomy, live backend, or full organ dialogue is claimed.",
-    "Strategic PDF is used as compass only; broader tasks are deferred."
-  ]
+    "Strategic PDF is used as compass only; broader tasks are deferred.",
+    "Unified evidence map/freshness layer is foundation-only and intentionally conservative."
+  ],
+  "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
+  "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
+  "report_status_normalization_table_path": "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_NORMALIZATION_TABLE_V0_1.json",
+  "not_proven_register_path": "IMPERIUM_NEW_GENERATION/TRUTH/NOT_PROVEN_REGISTER_V0_1.json",
+  "evidence_unification": {
+    "status": "FOUNDATION_ONLY",
+    "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
+    "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
+    "report_status_normalization_table_path": "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_NORMALIZATION_TABLE_V0_1.json",
+    "not_proven_register_path": "IMPERIUM_NEW_GENERATION/TRUTH/NOT_PROVEN_REGISTER_V0_1.json",
+    "known_limitations": [
+      "Foundation-only evidence unification; no production autonomy claim.",
+      "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1."
+    ],
+    "updated_at_utc": "2026-05-22T18:54:31Z"
+  }
 }

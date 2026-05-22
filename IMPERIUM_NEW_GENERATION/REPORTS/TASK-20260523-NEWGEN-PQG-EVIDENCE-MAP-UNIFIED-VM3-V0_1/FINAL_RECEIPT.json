@@ -1,0 +1,22 @@
+{
+  "schema_id": "FINAL_RECEIPT_V0_1",
+  "task_id": "TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1",
+  "contour": "VM3",
+  "generated_at_utc": "2026-05-22T19:00:00Z",
+  "status": "PENDING_POST_COMMIT",
+  "starting_head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
+  "ending_head": "PENDING_POST_COMMIT",
+  "commit": "PENDING_POST_COMMIT",
+  "pushed": false,
+  "worktree_clean": false,
+  "checks": {
+    "builder": "PASS",
+    "validator": "PENDING",
+    "push_verify": "PENDING"
+  },
+  "allowed_paths_touched_only": true,
+  "forbidden_claims_avoided": true,
+  "context_window_discipline": "OK",
+  "authoritative_post_commit_receipt": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1/POST_COMMIT_CLOSURE_RECEIPT.json",
+  "closure_metadata_commit_pending": true
+}

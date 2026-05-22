@@ -1,13 +1,13 @@
 {
   "schema_id": "SANCTUM_NG_STATE_V0_1",
-  "task_id": "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1",
+  "task_id": "TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1",
   "mode": "READ_ONLY_FOUNDATION",
-  "generated_at_utc": "2026-05-22T16:53:38Z",
+  "generated_at_utc": "2026-05-22T18:59:13Z",
   "git": {
-    "head": "573169b9830ecb0322202e33a3e12ca2fc5e3556",
+    "head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
     "branch": "master",
     "worktree_dirty": true,
-    "required_starting_head": "573169b9830ecb0322202e33a3e12ca2fc5e3556",
+    "required_starting_head": "3713fc6e8a8d63796fe2f85e5e7777c91b5205d4",
     "head_matches_required_start": true
   },
   "truth_flags": {
@@ -30,7 +30,7 @@
     "AUTHORITY_SOURCE": [
       "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md",
       "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json",
-      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
+      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
     ],
     "STATUS": "WARN_FOUNDATION_ONLY",
     "KNOWN_LIMITATION": "Live language compliance is foundation-level receipt discipline, not runtime hard-block enforcement.",
@@ -376,11 +376,13 @@
     "current_truth_root_path": "IMPERIUM_NEW_GENERATION/TRUTH/CURRENT_TRUTH_ROOT_V0_1.json",
     "report_status_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_1.json",
     "evidence_source_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json",
+    "evidence_map_unified_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
+    "evidence_freshness_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
     "status": "FOUNDATION_ONLY",
-    "last_sync_utc": "2026-05-22T18:10:01Z",
+    "last_sync_utc": "2026-05-22T18:54:31Z",
     "known_limitations": [
-      "Read-only truth reference layer only.",
-      "No live backend synchronization claim."
+      "Foundation-only evidence unification; no production autonomy claim.",
+      "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1."
     ]
   }
 }

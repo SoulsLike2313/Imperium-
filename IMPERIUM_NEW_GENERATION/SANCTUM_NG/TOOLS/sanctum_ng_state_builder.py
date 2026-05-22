@@ -16,6 +16,11 @@ MODE = "READ_ONLY_FOUNDATION"
 REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 OFFICIO_DRAFT_REL = "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md"
 OFFICIO_GATE_SCHEMA_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json"
+CURRENT_TRUTH_REL = "IMPERIUM_NEW_GENERATION/TRUTH/CURRENT_TRUTH_ROOT_V0_1.json"
+REPORT_STATUS_INDEX_REL = "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_1.json"
+EVIDENCE_SOURCE_MAP_REL = "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json"
+EVIDENCE_MAP_UNIFIED_REL = "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json"
+EVIDENCE_FRESHNESS_INDEX_REL = "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json"
 
 
 def run_git(repo_root: Path, *args: str) -> str:
@@ -205,6 +210,66 @@ def build_phases_from_registry(repo_root: Path, registry: dict[str, Any]) -> tup
     return phases, warnings
 
 
+def build_current_truth_index(repo_root: Path) -> tuple[dict[str, Any], list[str]]:
+    warnings: list[str] = []
+    current_truth_path = repo_root / CURRENT_TRUTH_REL
+
+    index: dict[str, Any] = {
+        "current_truth_root_path": CURRENT_TRUTH_REL,
+        "report_status_index_path": REPORT_STATUS_INDEX_REL,
+        "evidence_source_map_path": EVIDENCE_SOURCE_MAP_REL,
+        "evidence_map_unified_path": EVIDENCE_MAP_UNIFIED_REL,
+        "evidence_freshness_index_path": EVIDENCE_FRESHNESS_INDEX_REL,
+        "status": "UNKNOWN",
+        "last_sync_utc": "UNKNOWN",
+        "known_limitations": [
+            "Read-only truth reference layer only.",
+            "No live backend synchronization claim.",
+        ],
+    }
+
+    current_truth = load_json(current_truth_path)
+    if current_truth is None:
+        warnings.append("CURRENT_TRUTH_ROOT_MISSING_OR_INVALID")
+        index["status"] = "MISSING"
+        return index, warnings
+
+    index["report_status_index_path"] = str(current_truth.get("report_status_index_path", REPORT_STATUS_INDEX_REL))
+    index["evidence_source_map_path"] = str(current_truth.get("evidence_source_map_path", EVIDENCE_SOURCE_MAP_REL))
+    index["evidence_map_unified_path"] = str(current_truth.get("evidence_map_unified_path", EVIDENCE_MAP_UNIFIED_REL))
+    index["evidence_freshness_index_path"] = str(
+        current_truth.get("evidence_freshness_index_path", EVIDENCE_FRESHNESS_INDEX_REL)
+    )
+    index["last_sync_utc"] = str(current_truth.get("generated_at_utc", "UNKNOWN"))
+
+    unification = current_truth.get("evidence_unification", {})
+    if isinstance(unification, dict):
+        index["status"] = str(unification.get("status", "FOUNDATION_ONLY"))
+        known_limitations = unification.get("known_limitations", [])
+        if isinstance(known_limitations, list) and known_limitations:
+            index["known_limitations"] = [str(item) for item in known_limitations]
+    else:
+        index["status"] = "FOUNDATION_ONLY"
+
+    missing_refs = []
+    for key in [
+        "current_truth_root_path",
+        "report_status_index_path",
+        "evidence_source_map_path",
+        "evidence_map_unified_path",
+        "evidence_freshness_index_path",
+    ]:
+        rel_path = str(index.get(key, "")).strip()
+        if not rel_path or not (repo_root / rel_path).exists():
+            missing_refs.append(key)
+
+    if missing_refs:
+        index["status"] = "PARTIAL"
+        warnings.append("CURRENT_TRUTH_INDEX_MISSING_REFS_" + "_".join(missing_refs))
+
+    return index, warnings
+
+
 def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> dict[str, Any]:
     warnings: list[str] = []
     registry_path = repo_root / REGISTRY_REL
@@ -253,6 +318,8 @@ def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> d
     phases = sorted(phases, key=lambda item: int(item.get("phase_no", 999)))
     communication_gate, communication_warnings = build_communication_gate(repo_root, task_id)
     warnings.extend(communication_warnings)
+    current_truth_index, truth_index_warnings = build_current_truth_index(repo_root)
+    warnings.extend(truth_index_warnings)
 
     git_truth = get_git_truth(repo_root, required_starting_head)
 
@@ -305,6 +372,7 @@ def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> d
             "READ_ACTION_REGISTRY": "WIRED",
             "READ_LATEST_REPORT_SUMMARY": "WIRED",
         },
+        "current_truth_index": current_truth_index,
     }
 
     return state

@@ -285,6 +285,38 @@
           "type": "string"
         }
       }
+    },
+    "current_truth_index": {
+      "type": "object",
+      "properties": {
+        "current_truth_root_path": {
+          "type": "string"
+        },
+        "report_status_index_path": {
+          "type": "string"
+        },
+        "evidence_source_map_path": {
+          "type": "string"
+        },
+        "evidence_map_unified_path": {
+          "type": "string"
+        },
+        "evidence_freshness_index_path": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        },
+        "last_sync_utc": {
+          "type": "string"
+        },
+        "known_limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

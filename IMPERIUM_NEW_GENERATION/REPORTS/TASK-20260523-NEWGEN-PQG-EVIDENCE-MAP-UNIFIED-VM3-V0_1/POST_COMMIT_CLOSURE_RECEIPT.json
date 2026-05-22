@@ -1,0 +1,12 @@
+{
+  "schema_id": "POST_COMMIT_CLOSURE_RECEIPT_V0_1",
+  "task_id": "TASK-20260523-NEWGEN-PQG-EVIDENCE-MAP-UNIFIED-VM3-V0_1",
+  "status": "PENDING_POST_COMMIT",
+  "implementation_commit": "PENDING_POST_COMMIT",
+  "closure_commit": "PENDING_POST_COMMIT",
+  "remote_head": "PENDING_POST_COMMIT",
+  "worktree_clean": false,
+  "notes": [
+    "This placeholder is finalized after commit/push/verify closure sequence."
+  ]
+}

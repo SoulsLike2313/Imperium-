@@ -44,6 +44,8 @@
         currentTruthRoot: "CURRENT_TRUTH_ROOT",
         reportStatusIndex: "REPORT_STATUS_INDEX",
         evidenceSourceMap: "EVIDENCE_SOURCE_MAP",
+        evidenceMapUnified: "EVIDENCE_MAP_UNIFIED",
+        evidenceFreshnessIndex: "EVIDENCE_FRESHNESS_INDEX",
         sync: "SYNC"
       },
       pipelineTitle: "Foundation Pipeline 1-10",
@@ -98,6 +100,8 @@
         currentTruthRoot: "CURRENT_TRUTH_ROOT",
         reportStatusIndex: "REPORT_STATUS_INDEX",
         evidenceSourceMap: "EVIDENCE_SOURCE_MAP",
+        evidenceMapUnified: "EVIDENCE_MAP_UNIFIED",
+        evidenceFreshnessIndex: "EVIDENCE_FRESHNESS_INDEX",
         sync: "СИНХРОН"
       },
       pipelineTitle: "Фундаментальный конвейер 1-10",
@@ -153,6 +157,8 @@
       current_truth_root_path: "IMPERIUM_NEW_GENERATION/TRUTH/CURRENT_TRUTH_ROOT_V0_1.json",
       report_status_index_path: "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_1.json",
       evidence_source_map_path: "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json",
+      evidence_map_unified_path: "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_MAP_UNIFIED_V0_1.json",
+      evidence_freshness_index_path: "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_FRESHNESS_INDEX_V0_1.json",
       status: "UNKNOWN",
       last_sync_utc: "UNKNOWN"
     },
@@ -491,6 +497,14 @@
     setText(
       "evidence-map-path",
       `${t.truthIndexLabels.evidenceSourceMap}: ${String(truthIndex.evidence_source_map_path || "-")}`
+    );
+    setText(
+      "evidence-map-unified-path",
+      `${t.truthIndexLabels.evidenceMapUnified}: ${String(truthIndex.evidence_map_unified_path || "-")}`
+    );
+    setText(
+      "freshness-index-path",
+      `${t.truthIndexLabels.evidenceFreshnessIndex}: ${String(truthIndex.evidence_freshness_index_path || "-")}`
     );
     setText("truth-sync-utc", `${t.truthIndexLabels.sync}: ${String(truthIndex.last_sync_utc || "-")}`);
   }

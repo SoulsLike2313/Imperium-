@@ -15,7 +15,11 @@
     "forbidden_claims",
     "context_source_mix_snapshot",
     "report_status_index_path",
-    "evidence_source_map_path"
+    "evidence_source_map_path",
+    "evidence_map_unified_path",
+    "evidence_freshness_index_path",
+    "report_status_normalization_table_path",
+    "not_proven_register_path"
   ],
   "properties": {
     "schema_id": {
@@ -199,6 +203,21 @@
     },
     "evidence_source_map_path": {
       "type": "string"
+    },
+    "evidence_map_unified_path": {
+      "type": "string"
+    },
+    "evidence_freshness_index_path": {
+      "type": "string"
+    },
+    "report_status_normalization_table_path": {
+      "type": "string"
+    },
+    "not_proven_register_path": {
+      "type": "string"
+    },
+    "evidence_unification": {
+      "type": "object"
     }
   }
 }
