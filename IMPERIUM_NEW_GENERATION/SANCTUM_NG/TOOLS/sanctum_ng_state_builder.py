@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build read-only NewGen Sanctum truth state from bounded phase artifacts."""
+"""Build Sanctum NG read-only truth state from canonical phase registry."""
 
 from __future__ import annotations
 
@@ -7,23 +7,15 @@ import argparse
 import datetime as dt
 import json
 import subprocess
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-TASK_ID = "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1"
-REQUIRED_STARTING_HEAD = "efe511428dce83e352a41a4d02b41ed618448d29"
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1"
+REQUIRED_STARTING_HEAD_DEFAULT = "257a9332f926c31cffcc419851b0f87da1e0fab5"
 MODE = "READ_ONLY_FOUNDATION"
-
-
-@dataclass(frozen=True)
-class PhaseSpec:
-    phase_no: int
-    name: str
-    summary: str
-    paths: list[str]
-    report_paths: list[str]
-    base_limitations: list[str]
+REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
+OFFICIO_DRAFT_REL = "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md"
+OFFICIO_GATE_SCHEMA_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json"
 
 
 def run_git(repo_root: Path, *args: str) -> str:
@@ -40,7 +32,7 @@ def run_git(repo_root: Path, *args: str) -> str:
     return proc.stdout.strip()
 
 
-def get_git_truth(repo_root: Path) -> dict[str, Any]:
+def get_git_truth(repo_root: Path, required_starting_head: str) -> dict[str, Any]:
     head = run_git(repo_root, "rev-parse", "HEAD")
     branch = run_git(repo_root, "branch", "--show-current")
     status_short = run_git(repo_root, "status", "--short")
@@ -48,8 +40,8 @@ def get_git_truth(repo_root: Path) -> dict[str, Any]:
         "head": head,
         "branch": branch,
         "worktree_dirty": bool(status_short),
-        "required_starting_head": REQUIRED_STARTING_HEAD,
-        "head_matches_required_start": head == REQUIRED_STARTING_HEAD,
+        "required_starting_head": required_starting_head,
+        "head_matches_required_start": head == required_starting_head,
     }
 
 
@@ -57,233 +49,216 @@ def relpath(path: Path, repo_root: Path) -> str:
     return path.relative_to(repo_root).as_posix()
 
 
-def build_phase_specs() -> list[PhaseSpec]:
-    return [
-        PhaseSpec(
-            phase_no=1,
-            name="Architecture",
-            summary="NewGen architecture map exists as foundation planning artifact.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/NEWGEN_ARCHITECTURE_MAP_V0_1.md",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-ARCHITECTURE-SKILL-SPINE-PC-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Architecture map is foundation and migration-language level, not full migration execution.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=2,
-            name="Organ Packets",
-            summary="Organ packet protocol and schemas define bounded 8-organ packet exchange.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/ORGAN_PACKET_PROTOCOL_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/CONTRACTS/ORGAN_PACKETS/ORGAN_PACKET_V0_1.schema.json",
-                "IMPERIUM_NEW_GENERATION/CONTRACTS/ORGAN_PACKETS/ORGAN_PACKET_SET_V0_1.schema.json",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-ORGAN-PACKET-CONTRACT-PC-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Protocol defines contract surfaces; live organ dialogue is not claimed.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=3,
-            name="Task Kernel",
-            summary="Task kernel/registry contract layer is present as deterministic foundation.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/TASK_KERNEL_REGISTRY_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/CONTRACTS/TASK_KERNEL/TASK_KERNEL_V0_1.schema.json",
-                "IMPERIUM_NEW_GENERATION/TASKS/REGISTRY/TASK_INDEX_V0_1.json",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-TASK-KERNEL-REGISTRY-PC-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Foundation contracts exist; live kernel runtime orchestration is not proven.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=4,
-            name="Astronomicon",
-            summary="Astronomicon task-formation contracts and builder foundation are present.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/ASTRONOMICON_TASK_FORMATION_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/CONTRACTS/ASTRONOMICON/TASK_FORMATION_RECORD_V0_1.schema.json",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-ASTRONOMICON-TASK-FORMATION-PC-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Formation is deterministic foundation and does not include autonomous execution loop.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=5,
-            name="Authority Gates",
-            summary="Officio/Doctrinarium ACK artifacts exist with explicit warning boundaries.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json",
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1/DOCTRINARIUM_LAW_ACK_OR_WARN.json",
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1/SUPER_SKEPTICISM_ACK.json",
-                "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/SUPER_SKEPTICISM_MODE_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/DOCTRINARIUM_AGENT/role_contract.md",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SERVITOR-RUN-RERUN-LOOP-PC-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json",
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SERVITOR-RUN-RERUN-LOOP-PC-V0_1/DOCTRINARIUM_LAW_ACK_OR_WARN.json",
-            ],
-            base_limitations=[
-                "Doctrinarium role contract remains skeleton-only and keeps this phase warning-bounded.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=6,
-            name="Servitor Loop",
-            summary="Run/rerun loop architecture and receipts are present as foundation-only execution envelope.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/SERVITOR_RUN_RERUN_LOOP_V0_1.md",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SERVITOR-RUN-RERUN-LOOP-PC-V0_1/FINAL_RECEIPT.json",
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SERVITOR-RUN-RERUN-LOOP-PC-V0_1/VALIDATOR_REPORT.json",
-            ],
-            base_limitations=[
-                "Loop is receipt-driven foundation; no production autonomous executor claim.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=7,
-            name="Evidence Binder",
-            summary="Task state and evidence binder artifacts exist for replay/index foundation.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/TASK_STATE_EVIDENCE_BINDER_V0_1.md",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-TASK-STATE-EVIDENCE-BINDER-PC-V0_1/FINAL_RECEIPT.json",
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-TASK-STATE-EVIDENCE-BINDER-PC-V0_1/VALIDATOR_REPORT.json",
-            ],
-            base_limitations=[
-                "Evidence binder emits proposals and replay indexes, not live state mutation.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=8,
-            name="Visual Brain",
-            summary="Visual brain corridor and generated visual state exist as static truth surface.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/VISUAL_BRAIN_TASK_CORRIDOR_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/VISUAL_BRAIN/TASK_CORRIDOR_V0_1/index.html",
-                "IMPERIUM_NEW_GENERATION/VISUAL_BRAIN/TASK_CORRIDOR_V0_1/data/visual_brain_task_corridor_state.generated.json",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-VISUAL-BRAIN-TASK-CORRIDOR-PC-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Visual corridor is read-only lab/foundation and does not imply backend autonomy.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=9,
-            name="Skill Growth",
-            summary="Skill growth contracts and generated indexes exist for learning-loop foundation.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/SKILL_GROWTH_SYSTEM_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/SKILLS/GROWTH/SKILL_GROWTH_INDEX_V0_1.json",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SKILL-GROWTH-SYSTEM-VM3-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Growth loop is deterministic foundation; no live self-learning autonomy claim.",
-            ],
-        ),
-        PhaseSpec(
-            phase_no=10,
-            name="Tool Admission",
-            summary="Mechanicus tool-admission contracts/indexes exist for controlled candidate-to-decision flow.",
-            paths=[
-                "IMPERIUM_NEW_GENERATION/ARCHITECTURE/MECHANICUS_TOOL_ADMISSION_V0_1.md",
-                "IMPERIUM_NEW_GENERATION/MECHANICUS/TOOL_ADMISSION/TOOL_ADMISSION_INDEX_V0_1.json",
-            ],
-            report_paths=[
-                "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-MECHANICUS-TOOL-ADMISSION-VM3-V0_1/FINAL_RECEIPT.json",
-            ],
-            base_limitations=[
-                "Admission layer is contract/decision foundation and does not imply auto-install autonomy.",
-            ],
-        ),
+def load_json(path: Path) -> dict[str, Any] | None:
+    if not path.exists():
+        return None
+    try:
+        value = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    if not isinstance(value, dict):
+        return None
+    return value
+
+
+def unique(items: list[str]) -> list[str]:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for item in items:
+        if item not in seen:
+            seen.add(item)
+            ordered.append(item)
+    return ordered
+
+
+def registry_refs(entry: dict[str, Any]) -> list[str]:
+    refs: list[str] = []
+    for key in ["architecture_refs", "contract_refs", "report_refs", "validator_refs", "evidence_refs"]:
+        values = entry.get(key, [])
+        if isinstance(values, list):
+            refs.extend(str(value) for value in values if str(value).strip())
+    return unique(refs)
+
+
+def map_status(registry_status: str, has_evidence_refs: bool) -> str:
+    status = registry_status.strip().upper()
+    if status == "PROVED_BY_RECEIPT":
+        return "PROVED" if has_evidence_refs else "WARN"
+    if status in {"FOUNDATION", "PARTIAL", "WARN", "MISSING"}:
+        return status
+    return "WARN"
+
+
+def build_communication_gate(repo_root: Path, task_id: str) -> tuple[dict[str, Any], list[str]]:
+    warnings: list[str] = []
+    report_dir_rel = f"IMPERIUM_NEW_GENERATION/REPORTS/{task_id}"
+    officio_ack_rel = f"{report_dir_rel}/OFFICIO_ROLE_ACK_OR_WARN.json"
+    live_report_json_rel = f"{report_dir_rel}/OFFICIO_LIVE_LANGUAGE_REPAIR_REPORT.json"
+
+    authority_sources = [
+        OFFICIO_DRAFT_REL,
+        OFFICIO_GATE_SCHEMA_REL,
+        officio_ack_rel,
     ]
 
+    missing_authority = [rel for rel in authority_sources if not (repo_root / rel).exists()]
+    if missing_authority:
+        warnings.append("COMMUNICATION_GATE_MISSING_AUTHORITY_REFS")
 
-def status_for_phase(spec: PhaseSpec, existing_paths: list[str]) -> str:
-    existing_set = set(existing_paths)
-    core_found = [path for path in spec.paths if path in existing_set]
-    if spec.phase_no == 5:
-        if len(core_found) >= 3:
-            return "WARN"
-        if core_found:
-            return "PARTIAL"
-        return "MISSING"
-    if len(core_found) == len(spec.paths):
-        return "FOUNDATION"
-    if core_found:
-        return "PARTIAL"
-    return "MISSING"
+    live_report = load_json(repo_root / live_report_json_rel) or {}
+    violations = live_report.get("violations", [])
+    self_corrections = live_report.get("self_corrections", [])
+    if not isinstance(violations, list):
+        violations = []
+    if not isinstance(self_corrections, list):
+        self_corrections = []
+
+    if missing_authority:
+        status = "WARN_MISSING_AUTHORITY"
+        known_limitation = "Communication authority artifacts are incomplete in bounded scope."
+    else:
+        status = "WARN_FOUNDATION_ONLY"
+        known_limitation = "Live language compliance is foundation-level receipt discipline, not runtime hard-block enforcement."
+
+    gate = {
+        "LIVE_LANGUAGE_COMPLIANCE": "RUSSIAN_OWNER_PROGRESS_REQUIRED",
+        "FINAL_REPORT_LANGUAGE": "RUSSIAN_REQUIRED",
+        "TECHNICAL_ARTIFACT_LANGUAGE": "ENGLISH_ALLOWED",
+        "AUTHORITY_SOURCE": authority_sources,
+        "STATUS": status,
+        "KNOWN_LIMITATION": known_limitation,
+        "VIOLATIONS": [str(item) for item in violations],
+        "SELF_CORRECTIONS": [str(item) for item in self_corrections],
+    }
+    return gate, warnings
 
 
-def build_state(repo_root: Path) -> dict[str, Any]:
-    phase_specs = build_phase_specs()
-    phases: list[dict[str, Any]] = []
+def build_phases_from_registry(repo_root: Path, registry: dict[str, Any]) -> tuple[list[dict[str, Any]], list[str]]:
     warnings: list[str] = []
+    phases: list[dict[str, Any]] = []
 
-    for spec in phase_specs:
-        existing_paths: list[str] = []
-        missing_paths: list[str] = []
+    raw_phases = registry.get("phases", [])
+    if not isinstance(raw_phases, list):
+        return [], ["PHASE_REGISTRY_INVALID_SHAPE"]
 
-        for rel in spec.paths:
-            full = repo_root / rel
-            if full.exists():
-                existing_paths.append(rel)
-            else:
-                missing_paths.append(rel)
+    sorted_entries = sorted(
+        [entry for entry in raw_phases if isinstance(entry, dict)],
+        key=lambda item: int(item.get("display_order", 999)),
+    )
 
-        existing_reports: list[str] = []
-        for rel in spec.report_paths:
+    for entry in sorted_entries:
+        phase_no = int(entry.get("display_order", 0))
+        phase_name = str(entry.get("title", f"Phase {phase_no}")).strip() or f"Phase {phase_no}"
+        phase_id = str(entry.get("phase_id", f"PHASE_{phase_no:02d}")).strip()
+        source_commit = str(entry.get("source_commit", "UNKNOWN")).strip() or "UNKNOWN"
+
+        refs = registry_refs(entry)
+        existing_refs: list[str] = []
+        missing_refs: list[str] = []
+        for rel in refs:
             if (repo_root / rel).exists():
-                existing_reports.append(rel)
+                existing_refs.append(rel)
+            else:
+                missing_refs.append(rel)
 
-        status = status_for_phase(spec, existing_paths)
-        if status in {"MISSING", "WARN"}:
-            warnings.append(f"PHASE_{spec.phase_no}_{status}")
+        base_status = map_status(str(entry.get("status", "WARN")), bool(entry.get("evidence_refs", [])))
+        status = base_status
+        if not existing_refs:
+            status = "MISSING"
+        elif missing_refs and status in {"PROVED", "FOUNDATION"}:
+            status = "PARTIAL"
 
-        limitations = list(spec.base_limitations)
-        if missing_paths:
-            limitations.append("Missing expected artifacts: " + ", ".join(missing_paths))
+        if status in {"WARN", "MISSING", "PARTIAL"}:
+            warnings.append(f"PHASE_{phase_no}_{status}")
 
-        evidence_refs = [f"FILE:{path}" for path in existing_paths]
-        evidence_refs.extend(f"REPORT:{path}" for path in existing_reports)
+        evidence_refs = [f"FILE:{path}" for path in existing_refs]
+        evidence_refs.append(f"REGISTRY:{phase_id}")
+
+        report_paths = [path for path in existing_refs if "/REPORTS/" in path]
+        known_warnings = entry.get("known_warnings", [])
+        if not isinstance(known_warnings, list):
+            known_warnings = []
+
+        limitations = [
+            f"Registry phase id: {phase_id}",
+            f"Registry source commit: {source_commit}",
+        ]
+        limitations.extend(str(item) for item in known_warnings)
+        if missing_refs:
+            limitations.append("Missing expected artifacts: " + ", ".join(missing_refs))
+
+        summary = f"{phase_name} foundation mapping from canonical Sanctum NG phase registry."
 
         phases.append(
             {
-                "phase_no": spec.phase_no,
-                "name": spec.name,
+                "phase_no": phase_no,
+                "name": phase_name,
                 "status": status,
-                "summary": spec.summary,
+                "summary": summary,
                 "evidence_refs": evidence_refs,
-                "paths": existing_paths,
-                "report_paths": existing_reports,
+                "paths": existing_refs,
+                "report_paths": report_paths,
                 "limitations": limitations,
             }
         )
 
-    git_truth = get_git_truth(repo_root)
+    return phases, warnings
+
+
+def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> dict[str, Any]:
+    warnings: list[str] = []
+    registry_path = repo_root / REGISTRY_REL
+    registry = load_json(registry_path)
+
+    if registry is None:
+        phases = [
+            {
+                "phase_no": phase_no,
+                "name": f"Phase {phase_no}",
+                "status": "MISSING",
+                "summary": "Phase registry is missing or invalid.",
+                "evidence_refs": ["REGISTRY:MISSING"],
+                "paths": [],
+                "report_paths": [],
+                "limitations": ["Registry not found or invalid JSON."],
+            }
+            for phase_no in range(1, 11)
+        ]
+        warnings.append("PHASE_REGISTRY_MISSING_OR_INVALID")
+        registry_loaded = False
+        registry_source_commit = "UNKNOWN"
+    else:
+        phases, phase_warnings = build_phases_from_registry(repo_root, registry)
+        warnings.extend(phase_warnings)
+        registry_loaded = True
+        registry_source_commit = str(registry.get("source_commit", "UNKNOWN"))
+
+    phase_numbers = {int(phase["phase_no"]) for phase in phases if isinstance(phase.get("phase_no"), int)}
+    for expected in range(1, 11):
+        if expected not in phase_numbers:
+            warnings.append(f"PHASE_{expected}_MISSING_FROM_REGISTRY")
+            phases.append(
+                {
+                    "phase_no": expected,
+                    "name": f"Phase {expected}",
+                    "status": "MISSING",
+                    "summary": "Missing from canonical phase registry.",
+                    "evidence_refs": [f"REGISTRY:PHASE_{expected:02d}_MISSING"],
+                    "paths": [],
+                    "report_paths": [],
+                    "limitations": ["Registry entry missing."],
+                }
+            )
+
+    phases = sorted(phases, key=lambda item: int(item.get("phase_no", 999)))
+    communication_gate, communication_warnings = build_communication_gate(repo_root, task_id)
+    warnings.extend(communication_warnings)
+
+    git_truth = get_git_truth(repo_root, required_starting_head)
 
     state = {
         "schema_id": "SANCTUM_NG_STATE_V0_1",
-        "task_id": TASK_ID,
+        "task_id": task_id,
         "mode": MODE,
         "generated_at_utc": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "git": git_truth,
@@ -294,6 +269,13 @@ def build_state(repo_root: Path) -> dict[str, Any]:
             "live_backend": False,
             "autonomous_execution": False,
         },
+        "phase_registry": {
+            "path": REGISTRY_REL,
+            "loaded": registry_loaded,
+            "phase_count": len(phases),
+            "source_commit": registry_source_commit,
+        },
+        "communication_gate": communication_gate,
         "pipeline_shape": [
             {
                 "phase_no": item["phase_no"],
@@ -303,12 +285,12 @@ def build_state(repo_root: Path) -> dict[str, Any]:
             for item in phases
         ],
         "phases": phases,
-        "warnings": warnings,
+        "warnings": unique(warnings),
         "limitations": [
             "Truth shell reflects bounded local artifacts and foundation phase evidence only.",
             "No live backend bridge is wired from browser local file mode.",
             "No autonomous organ dialogue or production readiness is claimed.",
-            "No phase is shown as PROVED unless explicit evidence refs are present.",
+            "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation.",
         ],
         "forbidden_claims": [
             "LIVE_BACKEND_READY",
@@ -317,7 +299,7 @@ def build_state(repo_root: Path) -> dict[str, Any]:
             "LIVE_ORGAN_DIALOGUE",
         ],
         "actions": {
-            "refresh_truth": "NOT_WIRED_LOCAL_FILE_ONLY",
+            "refresh_truth": "RUN_CLI_SANCTUM_NG_REFRESH_RUNNER",
             "open_reports": "PREVIEW_ONLY",
             "validate": "RUN_CLI_NOT_FROM_BROWSER",
             "create_task": "NOT_WIRED",
@@ -336,6 +318,8 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build Sanctum NG read-only state.")
     parser.add_argument("--repo-root", type=Path, default=default_repo_root)
     parser.add_argument("--output", type=Path, default=default_output)
+    parser.add_argument("--task-id", default=TASK_ID_DEFAULT)
+    parser.add_argument("--required-starting-head", default=REQUIRED_STARTING_HEAD_DEFAULT)
     return parser.parse_args()
 
 
@@ -344,7 +328,7 @@ def main() -> int:
     repo_root = args.repo_root.resolve()
     output = args.output.resolve()
 
-    state = build_state(repo_root)
+    state = build_state(repo_root, str(args.task_id), str(args.required_starting_head))
 
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(state, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

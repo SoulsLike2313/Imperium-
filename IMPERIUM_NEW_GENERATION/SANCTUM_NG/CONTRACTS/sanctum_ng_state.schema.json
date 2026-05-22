@@ -9,6 +9,8 @@
     "generated_at_utc",
     "git",
     "truth_flags",
+    "phase_registry",
+    "communication_gate",
     "pipeline_shape",
     "phases",
     "limitations",
@@ -79,6 +81,74 @@
         },
         "autonomous_execution": {
           "type": "boolean"
+        }
+      }
+    },
+    "phase_registry": {
+      "type": "object",
+      "required": [
+        "path",
+        "loaded",
+        "phase_count"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "loaded": {
+          "type": "boolean"
+        },
+        "phase_count": {
+          "type": "integer"
+        },
+        "source_commit": {
+          "type": "string"
+        }
+      }
+    },
+    "communication_gate": {
+      "type": "object",
+      "required": [
+        "LIVE_LANGUAGE_COMPLIANCE",
+        "FINAL_REPORT_LANGUAGE",
+        "TECHNICAL_ARTIFACT_LANGUAGE",
+        "AUTHORITY_SOURCE",
+        "STATUS",
+        "KNOWN_LIMITATION"
+      ],
+      "properties": {
+        "LIVE_LANGUAGE_COMPLIANCE": {
+          "type": "string"
+        },
+        "FINAL_REPORT_LANGUAGE": {
+          "type": "string"
+        },
+        "TECHNICAL_ARTIFACT_LANGUAGE": {
+          "type": "string"
+        },
+        "AUTHORITY_SOURCE": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "STATUS": {
+          "type": "string"
+        },
+        "KNOWN_LIMITATION": {
+          "type": "string"
+        },
+        "VIOLATIONS": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "SELF_CORRECTIONS": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

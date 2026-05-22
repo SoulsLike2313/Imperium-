@@ -1,0 +1,15 @@
+{
+  "receipt_type": "POST_COMMIT_CLOSURE_RECEIPT",
+  "task_id": "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1",
+  "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
+  "final_commit": "TO_FILL_AFTER_COMMIT",
+  "commit_url": "TO_FILL_AFTER_COMMIT",
+  "branch": "master",
+  "pushed": "TO_FILL_AFTER_PUSH_VERIFY",
+  "push_verify": "TO_FILL_AFTER_PUSH_VERIFY",
+  "remote_ref": "refs/heads/master",
+  "worktree_clean": "TO_FILL_AFTER_FINAL_STATUS",
+  "authoritative_closure_receipt": true,
+  "supersedes_pre_commit_final_receipt_pending_fields": true,
+  "limitations": []
+}

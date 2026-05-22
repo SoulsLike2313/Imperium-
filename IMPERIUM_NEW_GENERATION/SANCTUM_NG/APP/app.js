@@ -15,6 +15,7 @@
       },
       railTitle: "Pipeline Zones",
       warningsTitle: "Known Warnings",
+      commTitle: "Communication Gate",
       pipelineTitle: "Foundation Pipeline 1-10",
       inspectorTitle: "Phase Inspector",
       inspectorEmpty: "Select a phase to inspect details.",
@@ -47,6 +48,7 @@
       },
       railTitle: "Зоны контура",
       warningsTitle: "Известные предупреждения",
+      commTitle: "Гейт коммуникации",
       pipelineTitle: "Фундаментальный конвейер 1-10",
       inspectorTitle: "Инспектор фазы",
       inspectorEmpty: "Выберите фазу для просмотра деталей.",
@@ -70,7 +72,7 @@
 
   const FALLBACK_STATE = {
     schema_id: "SANCTUM_NG_STATE_V0_1",
-    task_id: "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1",
+    task_id: "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1",
     mode: "READ_ONLY_FOUNDATION",
     generated_at_utc: "FALLBACK",
     git: {
@@ -79,6 +81,14 @@
       worktree_dirty: false
     },
     warnings: ["FALLBACK_STATE_ACTIVE"],
+    communication_gate: {
+      LIVE_LANGUAGE_COMPLIANCE: "RUSSIAN_OWNER_PROGRESS_REQUIRED",
+      FINAL_REPORT_LANGUAGE: "RUSSIAN_REQUIRED",
+      TECHNICAL_ARTIFACT_LANGUAGE: "ENGLISH_ALLOWED",
+      AUTHORITY_SOURCE: ["FALLBACK"],
+      STATUS: "WARN_FOUNDATION_ONLY",
+      KNOWN_LIMITATION: "Fallback state is active."
+    },
     phases: [
       { phase_no: 1, name: "Architecture", status: "FOUNDATION", summary: "Fallback snapshot.", evidence_refs: ["FALLBACK"], paths: [], report_paths: [], limitations: ["CLI builder state not loaded."] },
       { phase_no: 2, name: "Organ Packets", status: "FOUNDATION", summary: "Fallback snapshot.", evidence_refs: ["FALLBACK"], paths: [], report_paths: [], limitations: ["CLI builder state not loaded."] },
@@ -125,6 +135,11 @@
       }
     });
 
+    if (!data.communication_gate || typeof data.communication_gate !== "object") {
+      data.communication_gate = { ...FALLBACK_STATE.communication_gate };
+      warnings.push("COMMUNICATION_GATE_FALLBACK_ACTIVE");
+    }
+
     data.phases = phases;
     data.warnings = warnings;
     return data;
@@ -149,6 +164,7 @@
     setText("label-generated", t.labels.generated);
     setText("rail-title", t.railTitle);
     setText("warnings-title", t.warningsTitle);
+    setText("comm-title", t.commTitle);
     setText("pipeline-title", t.pipelineTitle);
     setText("inspector-title", t.inspectorTitle);
     setText("inspector-empty", t.inspectorEmpty);
@@ -218,6 +234,33 @@
     });
   }
 
+  function renderCommunicationGate() {
+    const node = document.getElementById("comm-gate-list");
+    node.innerHTML = "";
+
+    const gate = state.data.communication_gate || {};
+    const ordered = [
+      "STATUS",
+      "LIVE_LANGUAGE_COMPLIANCE",
+      "FINAL_REPORT_LANGUAGE",
+      "TECHNICAL_ARTIFACT_LANGUAGE",
+      "KNOWN_LIMITATION"
+    ];
+
+    ordered.forEach((key) => {
+      const li = document.createElement("li");
+      li.textContent = `${key}: ${String(gate[key] || "-")}`;
+      node.appendChild(li);
+    });
+
+    const sources = Array.isArray(gate.AUTHORITY_SOURCE) ? gate.AUTHORITY_SOURCE : [];
+    if (sources.length > 0) {
+      const li = document.createElement("li");
+      li.textContent = `AUTHORITY_SOURCE: ${sources.join(" | ")}`;
+      node.appendChild(li);
+    }
+  }
+
   function renderInspector() {
     const phase = state.data.phases.find((item) => item.phase_no === state.selectedPhaseNo);
     const empty = document.getElementById("inspector-empty");
@@ -280,6 +323,7 @@
     setLabels();
     renderTruthBar();
     renderRail();
+    renderCommunicationGate();
     renderPipeline();
     renderInspector();
     renderActions();

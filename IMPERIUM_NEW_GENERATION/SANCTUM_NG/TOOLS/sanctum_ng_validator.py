@@ -9,9 +9,12 @@ import json
 from pathlib import Path
 from typing import Any
 
-TASK_ID = "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1"
 REQUIRED_PHASES = set(range(1, 11))
-STATUS_ORDER = {"PASS": 0, "WARN": 1, "BLOCK": 2}
+REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
+RUNNER_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_refresh_runner.py"
+OFFICIO_SCHEMA_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json"
+OFFICIO_DRAFT_REL = "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md"
 
 
 def parse_args() -> argparse.Namespace:
@@ -19,7 +22,10 @@ def parse_args() -> argparse.Namespace:
     default_repo_root = script_path.parents[3]
     default_state = default_repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.generated.json"
     default_schema = default_repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/sanctum_ng_state.schema.json"
-    default_report_dir = default_repo_root / "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1"
+    default_report_dir = default_repo_root / (
+        "IMPERIUM_NEW_GENERATION/REPORTS/"
+        "TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1"
+    )
     default_output = default_report_dir / "VALIDATOR_REPORT.json"
 
     parser = argparse.ArgumentParser(description="Validate Sanctum NG truth shell artifacts.")
@@ -28,6 +34,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--schema", type=Path, default=default_schema)
     parser.add_argument("--report-dir", type=Path, default=default_report_dir)
     parser.add_argument("--output", type=Path, default=default_output)
+    parser.add_argument("--task-id", default=TASK_ID_DEFAULT)
     return parser.parse_args()
 
 
@@ -64,6 +71,44 @@ def load_json(path: Path) -> tuple[dict[str, Any] | None, str | None]:
     return value, None
 
 
+def validate_registry(registry_obj: dict[str, Any]) -> tuple[bool, str]:
+    phases = registry_obj.get("phases", [])
+    if not isinstance(phases, list):
+        return False, "registry phases is not list"
+
+    seen_orders = set()
+    for item in phases:
+        if not isinstance(item, dict):
+            return False, "registry phase item is not object"
+
+        required_fields = {
+            "phase_id",
+            "display_order",
+            "title",
+            "status",
+            "source_commit",
+            "architecture_refs",
+            "contract_refs",
+            "report_refs",
+            "validator_refs",
+            "evidence_refs",
+            "known_warnings",
+        }
+        if not required_fields.issubset(item.keys()):
+            return False, "registry phase missing required fields"
+
+        order = item.get("display_order")
+        if not isinstance(order, int):
+            return False, "registry display_order is not int"
+        seen_orders.add(order)
+
+    missing = sorted(REQUIRED_PHASES - seen_orders)
+    if missing:
+        return False, f"registry missing phase orders {missing}"
+
+    return True, "registry covers phases 1..10 with required fields"
+
+
 def main() -> int:
     args = parse_args()
     repo_root = args.repo_root.resolve()
@@ -71,6 +116,7 @@ def main() -> int:
     schema_path = args.schema.resolve()
     report_dir = args.report_dir.resolve()
     output_path = args.output.resolve()
+    task_id = str(args.task_id)
 
     checks: list[dict[str, str]] = []
     warnings: list[str] = []
@@ -82,16 +128,29 @@ def main() -> int:
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/app.js",
     ]
 
+    required_core_files = [
+        repo_root / REGISTRY_REL,
+        repo_root / RUNNER_REL,
+        repo_root / OFFICIO_SCHEMA_REL,
+        repo_root / OFFICIO_DRAFT_REL,
+        state_path,
+        schema_path,
+    ]
+
     required_report_files = [
-        report_dir / "OWNER_REPORT_RU.md",
-        report_dir / "FINAL_RECEIPT.json",
         report_dir / "OFFICIO_ROLE_ACK_OR_WARN.json",
         report_dir / "DOCTRINARIUM_LAW_ACK_OR_WARN.json",
         report_dir / "SUPER_SKEPTICISM_ACK.json",
         report_dir / "CONTEXT_WINDOW_USAGE_NOTE.md",
+        report_dir / "KPD_SLICE.md",
         report_dir / "NEXT_TASK_IMPROVEMENT_REPORT.md",
         report_dir / "NEXT_TASK_IMPROVEMENT_REPORT.json",
-        report_dir / "KPD_SLICE.md",
+        report_dir / "OFFICIO_LIVE_LANGUAGE_REPAIR_REPORT.md",
+        report_dir / "OFFICIO_LIVE_LANGUAGE_REPAIR_REPORT.json",
+        report_dir / "SANCTUM_NG_REFRESH_RUNNER_REPORT.json",
+        report_dir / "POST_COMMIT_CLOSURE_RECEIPT.json",
+        report_dir / "FINAL_OWNER_REPORT_RU.md",
+        report_dir / "FINAL_RECEIPT.json",
         report_dir / "GATE_ACK.md",
     ]
 
@@ -99,10 +158,10 @@ def main() -> int:
         checks,
         warnings,
         blockers,
-        "required_files_exist",
-        state_path.exists() and schema_path.exists(),
-        "state and schema files exist",
-        "state or schema file missing",
+        "core_files_exist",
+        all(path.exists() for path in required_core_files),
+        "core files exist (registry/runner/schemas/state)",
+        "one or more core files are missing",
     )
 
     schema_obj, schema_err = load_json(schema_path)
@@ -112,9 +171,32 @@ def main() -> int:
         blockers,
         "schema_parse",
         schema_obj is not None,
-        "schema parses as JSON object",
-        f"schema parse failed ({schema_err})",
+        "state schema parses as JSON object",
+        f"state schema parse failed ({schema_err})",
     )
+
+    registry_obj, registry_err = load_json(repo_root / REGISTRY_REL)
+    add_check(
+        checks,
+        warnings,
+        blockers,
+        "phase_registry_parse",
+        registry_obj is not None,
+        "phase registry parses as JSON object",
+        f"phase registry parse failed ({registry_err})",
+    )
+
+    if registry_obj is not None:
+        registry_ok, registry_detail = validate_registry(registry_obj)
+        add_check(
+            checks,
+            warnings,
+            blockers,
+            "phase_registry_coverage",
+            registry_ok,
+            registry_detail,
+            registry_detail,
+        )
 
     state_obj, state_err = load_json(state_path)
     add_check(
@@ -129,7 +211,15 @@ def main() -> int:
 
     phases: list[dict[str, Any]] = []
     if state_obj is not None:
-        required_keys = {"schema_id", "task_id", "mode", "phases", "limitations"}
+        required_keys = {
+            "schema_id",
+            "task_id",
+            "mode",
+            "phase_registry",
+            "communication_gate",
+            "phases",
+            "limitations",
+        }
         has_required_keys = required_keys.issubset(state_obj.keys())
         add_check(
             checks,
@@ -137,8 +227,8 @@ def main() -> int:
             blockers,
             "minimum_shape",
             has_required_keys,
-            "minimum required keys are present",
-            "minimum required keys are missing",
+            "minimum required state keys are present",
+            "minimum required state keys are missing",
         )
 
         phases_raw = state_obj.get("phases", [])
@@ -152,8 +242,8 @@ def main() -> int:
             blockers,
             "phase_coverage_1_10",
             REQUIRED_PHASES.issubset(phase_numbers),
-            "all phases 1..10 are present",
-            f"missing phases: {sorted(REQUIRED_PHASES - phase_numbers)}",
+            "all phases 1..10 are present in generated state",
+            f"generated state missing phases: {sorted(REQUIRED_PHASES - phase_numbers)}",
         )
 
         proved_without_evidence = []
@@ -200,6 +290,26 @@ def main() -> int:
             "truth flags violate forbidden claim policy",
         )
 
+        communication_gate = state_obj.get("communication_gate", {})
+        communication_required = {
+            "LIVE_LANGUAGE_COMPLIANCE",
+            "FINAL_REPORT_LANGUAGE",
+            "TECHNICAL_ARTIFACT_LANGUAGE",
+            "AUTHORITY_SOURCE",
+            "STATUS",
+            "KNOWN_LIMITATION",
+        }
+        gate_ok = isinstance(communication_gate, dict) and communication_required.issubset(communication_gate.keys())
+        add_check(
+            checks,
+            warnings,
+            blockers,
+            "communication_gate_shape",
+            gate_ok,
+            "communication gate contains required fields",
+            "communication gate missing required fields",
+        )
+
     add_check(
         checks,
         warnings,
@@ -239,7 +349,7 @@ def main() -> int:
 
     report = {
         "schema_version": "0.1",
-        "task_id": TASK_ID,
+        "task_id": task_id,
         "generated_at_utc": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
         "verdict": verdict,
         "checks": checks,
@@ -247,6 +357,7 @@ def main() -> int:
         "blockers": blockers,
         "state_path": state_path.relative_to(repo_root).as_posix() if state_path.exists() else str(state_path),
         "schema_path": schema_path.relative_to(repo_root).as_posix() if schema_path.exists() else str(schema_path),
+        "registry_path": REGISTRY_REL,
         "report_dir": report_dir.relative_to(repo_root).as_posix() if report_dir.exists() else str(report_dir),
         "no_fake_green_note": "PASS/WARN here validates bounded foundation truth shell only; no production or autonomy claim is made.",
     }
