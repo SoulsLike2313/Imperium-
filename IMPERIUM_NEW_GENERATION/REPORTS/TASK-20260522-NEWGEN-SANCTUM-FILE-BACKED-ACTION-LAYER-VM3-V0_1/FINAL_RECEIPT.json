@@ -7,7 +7,7 @@
   "ending_head": "acbca13f2dc67caf9f43eba2b01bd3fd642f6401",
   "commit": "acbca13f2dc67caf9f43eba2b01bd3fd642f6401",
   "pushed": true,
-  "worktree_clean": false,
+  "worktree_clean": true,
   "checks": {
     "builder": "PASS",
     "validator": "PASS",
@@ -19,5 +19,5 @@
   "forbidden_claims_avoided": true,
   "context_window_discipline": "OK",
   "authoritative_post_commit_receipt": "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1/POST_COMMIT_CLOSURE_RECEIPT.json",
-  "closure_metadata_commit_pending": true
+  "closure_metadata_commit_pending": false
 }

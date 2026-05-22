@@ -8,11 +8,11 @@
   "pushed": true,
   "push_verify": true,
   "remote_ref": "refs/heads/master",
-  "worktree_clean": "pending_closure_commit_push",
+  "worktree_clean": "yes",
   "authoritative_closure_receipt": true,
   "supersedes_pre_commit_final_receipt_pending_fields": true,
-  "timestamp_utc": "2026-05-22T15:51:40Z",
+  "timestamp_utc": "2026-05-22T15:52:43Z",
   "limitations": [
-    "Receipt targets implementation commit; closure metadata itself is committed in a tiny follow-up closure commit."
+    "Implementation truth is anchored to the implementation commit; closure metadata was finalized in tiny follow-up commit(s)."
   ]
 }
