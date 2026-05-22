@@ -24,6 +24,6 @@ PASS (FOUNDATION_ONLY)
 - Не заявляется готовность production destructive testing.
 
 ## Git
-- Implementation commit: `TO_BE_FILLED_AFTER_COMMIT_PUSH`
-- Commit URL: `TO_BE_FILLED_AFTER_COMMIT_PUSH`
-- Push verify: `TO_BE_FILLED_AFTER_COMMIT_PUSH`
+- Implementation commit: `2d5b52c3e5be6c1e3fc266fe4e21d42463f63219`
+- Commit URL: `https://github.com/SoulsLike2313/Imperium-/commit/2d5b52c3e5be6c1e3fc266fe4e21d42463f63219`
+- Push verify: `PASS (origin/master matched implementation hash at verification step)`
