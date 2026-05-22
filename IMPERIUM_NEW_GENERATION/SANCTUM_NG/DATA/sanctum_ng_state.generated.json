@@ -1,14 +1,14 @@
 {
   "schema_id": "SANCTUM_NG_STATE_V0_1",
-  "task_id": "TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1",
   "mode": "READ_ONLY_FOUNDATION",
-  "generated_at_utc": "2026-05-22T21:10:32Z",
+  "generated_at_utc": "2026-05-22T23:47:25Z",
   "git": {
-    "head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
+    "head": "1baa600f35af1dd5f3c49403bbc56557838367e6",
     "branch": "master",
     "worktree_dirty": true,
-    "required_starting_head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
-    "head_matches_required_start": true
+    "required_starting_head": "573169b9830ecb0322202e33a3e12ca2fc5e3556",
+    "head_matches_required_start": false
   },
   "truth_flags": {
     "read_only": true,
@@ -30,7 +30,7 @@
     "AUTHORITY_SOURCE": [
       "IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md",
       "IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json",
-      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-PQG-PARTIAL-ACCEPTANCE-MAP-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
+      "IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json"
     ],
     "STATUS": "WARN_MISSING_AUTHORITY",
     "KNOWN_LIMITATION": "Communication authority artifacts are incomplete in bounded scope.",
@@ -352,18 +352,13 @@
   ],
   "warnings": [
     "PHASE_5_WARN",
-    "COMMUNICATION_GATE_MISSING_AUTHORITY_REFS",
-    "ORGAN_DIALOGUE_DEMO_FOUNDATION_ONLY"
+    "COMMUNICATION_GATE_MISSING_AUTHORITY_REFS"
   ],
   "limitations": [
     "Truth shell reflects bounded local artifacts and foundation phase evidence only.",
     "No live backend bridge is wired from browser local file mode.",
     "No autonomous organ dialogue or production readiness is claimed.",
-    "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation.",
-    "SSH matrix and rollback references are foundation-only visibility surfaces.",
-    "No claim of destructive rollback runtime proof is made by this update.",
-    "Negative test mutation check foundation is integrated as read-only truth visibility only.",
-    "Organ Dialogue Demo is deterministic foundation-only; no live autonomy is claimed."
+    "Communication language compliance is exposed as foundation gate truth, not runtime hard-block automation."
   ],
   "forbidden_claims": [
     "LIVE_BACKEND_READY",
@@ -376,7 +371,13 @@
     "VALIDATE_TRUTH_STATE": "WIRED",
     "READ_PHASE_REGISTRY": "WIRED",
     "READ_ACTION_REGISTRY": "WIRED",
-    "READ_LATEST_REPORT_SUMMARY": "WIRED"
+    "READ_LATEST_REPORT_SUMMARY": "WIRED",
+    "CHECK_CONTOUR_STATUS": "WIRED",
+    "REGISTER_TASKPACK_SEND": "WIRED",
+    "REGISTER_REPORT_BUNDLE_FETCH": "WIRED",
+    "DRY_RUN_TASKPACK_SEND": "WIRED",
+    "DRY_RUN_REPORT_FETCH": "WIRED",
+    "REFRESH_TRANSFER_CONSOLE_VIEW": "WIRED"
   },
   "current_truth_index": {
     "current_truth_root_path": "IMPERIUM_NEW_GENERATION/TRUTH/CURRENT_TRUTH_ROOT_V0_1.json",
@@ -395,50 +396,7 @@
       "Unknown zones remain explicit in NOT_PROVEN_REGISTER_V0_1.",
       "Partial acceptance is a backend truth interpretation layer, not a production acceptance engine.",
       "UNKNOWN/MISSING/STALE boundaries remain explicit and non-green.",
-      "Owner or contract basis is required for PARTIAL_ACCEPTED continuation.",
-      "SSH matrix reference is read-only visibility only; alias installation is not claimed.",
-      "Rollback layer reference is policy-first and not destructive-tested.",
-      "Negative test mutation check visibility is synthetic-only and does not imply destructive runtime readiness."
-    ],
-    "mechanicus_ssh_connection_registry_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_CONNECTION_MATRIX_V0_1.json",
-    "action_rollback_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
-    "rollback_layer_status": "FOUNDATION_ONLY",
-    "negative_test_case_catalog_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_CASE_CATALOG_V0_1.json",
-    "mutation_check_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/MUTATION_CHECK_POLICY_V0_1.json",
-    "fake_green_rejection_rules_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/FAKE_GREEN_REJECTION_RULES_V0_1.json",
-    "negative_test_result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
-    "negative_test_layer_status": "FOUNDATION_ONLY",
-    "negative_test_last_sync_utc": "2026-05-22T20:48:00Z"
-  },
-  "foundation_safety_layers": {
-    "status": "FOUNDATION_ONLY",
-    "task_id": "TASK-20260523-NEWGEN-MECHANICUS-SSH-MATRIX-AND-ACTION-ROLLBACK-CONTRACT-VM2-V0_1",
-    "ssh_matrix_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS/SSH_CONNECTION_MATRIX_V0_1.json",
-    "action_rollback_contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_CONTRACT_V0_1.md",
-    "action_rollback_policy_path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
-    "known_limitations": [
-      "Read-only truth visibility layer; no live connectivity claims for offline contours.",
-      "Rollback layer contract exists, but destructive mutation runtime tests remain pending.",
-      "Negative test layer is safe synthetic-only; production destructive testing remains out of scope."
-    ],
-    "updated_at_utc": "2026-05-22T21:00:00Z",
-    "negative_test_mutation_check_status": "FOUNDATION_ONLY",
-    "negative_test_mutation_check_task_id": "TASK-20260523-NEWGEN-PQG-NEGATIVE-TEST-MUTATION-CHECK-VM2-V0_1",
-    "negative_test_mutation_check_contract_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_MUTATION_CHECK_V0_1.md",
-    "negative_test_result_matrix_path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS/NEGATIVE_TEST_RESULT_MATRIX_V0_1.json",
-    "negative_test_updated_at_utc": "2026-05-22T20:48:00Z"
-  },
-  "organ_dialogue_demo": {
-    "task_id": "TASK-DEMO-ORGAN-DIALOGUE-V0_1",
-    "thread_id": "THREAD-TASK-DEMO-ORGAN-DIALOGUE-V0_1",
-    "request_count": 8,
-    "response_count": 8,
-    "warnings_count": 6,
-    "last_event": "THREAD_SUMMARY_UPDATED",
-    "last_event_at_utc": "2026-05-22T21:15:32Z",
-    "foundation_only_label": "FOUNDATION_ONLY",
-    "no_live_autonomy_label": "NO_LIVE_AUTONOMY",
-    "thread_path": "IMPERIUM_NEW_GENERATION/ORGAN_DIALOGUE/THREADS/TASK-DEMO-ORGAN-DIALOGUE-V0_1/ORGAN_DIALOGUE_THREAD_V0_1.generated.json",
-    "events_path": "IMPERIUM_NEW_GENERATION/ORGAN_DIALOGUE/THREADS/TASK-DEMO-ORGAN-DIALOGUE-V0_1/ORGAN_DIALOGUE_EVENTS_V0_1.generated.jsonl"
+      "Owner or contract basis is required for PARTIAL_ACCEPTED continuation."
+    ]
   }
 }

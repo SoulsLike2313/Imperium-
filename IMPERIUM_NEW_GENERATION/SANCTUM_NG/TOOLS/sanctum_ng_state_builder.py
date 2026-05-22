@@ -399,6 +399,12 @@ def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> d
             "READ_PHASE_REGISTRY": "WIRED",
             "READ_ACTION_REGISTRY": "WIRED",
             "READ_LATEST_REPORT_SUMMARY": "WIRED",
+            "CHECK_CONTOUR_STATUS": "WIRED",
+            "REGISTER_TASKPACK_SEND": "WIRED",
+            "REGISTER_REPORT_BUNDLE_FETCH": "WIRED",
+            "DRY_RUN_TASKPACK_SEND": "WIRED",
+            "DRY_RUN_REPORT_FETCH": "WIRED",
+            "REFRESH_TRANSFER_CONSOLE_VIEW": "WIRED",
         },
         "current_truth_index": current_truth_index,
     }

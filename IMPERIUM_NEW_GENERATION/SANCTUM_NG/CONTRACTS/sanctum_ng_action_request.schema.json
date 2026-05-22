@@ -38,5 +38,21 @@
       "type": "object"
     }
   },
+  "allOf": [
+    {
+      "not": {
+        "anyOf": [
+          { "required": ["command"] },
+          { "required": ["shell"] },
+          { "required": ["exec"] },
+          { "required": ["powershell"] },
+          { "required": ["bash"] },
+          { "required": ["cmd"] },
+          { "required": ["arbitrary_command"] },
+          { "required": ["remote_command"] }
+        ]
+      }
+    }
+  ],
   "additionalProperties": true
 }

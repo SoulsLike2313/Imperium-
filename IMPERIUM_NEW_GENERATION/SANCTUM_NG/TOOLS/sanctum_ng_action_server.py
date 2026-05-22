@@ -24,6 +24,12 @@ SERVITOR_SESSION_VIEW_STATE_REL = (
 OWNER_QUESTION_GATE_STATE_REL = (
     "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/owner_question_gate_state.generated.json"
 )
+TRANSFER_CONSOLE_VIEW_STATE_REL = (
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
+)
+TRANSFER_ACTION_RUNNER_REL = (
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_console_action_runner_v0_1.py"
+)
 PHASE_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 ACTION_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_ACTION_REGISTRY_V0_1.json"
 VALIDATOR_PATH_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_validator.py"
@@ -143,6 +149,40 @@ class ActionLayer:
                 "known_limitations": [
                     "Owner Question Gate state file is missing or invalid.",
                     "No live owner answer channel is claimed.",
+                ],
+            }
+        return payload
+
+    def transfer_console_view_payload(self) -> dict[str, Any]:
+        payload = load_json(self.repo_root / TRANSFER_CONSOLE_VIEW_STATE_REL)
+        if payload is None:
+            return {
+                "schema_id": "TRANSFER_CONSOLE_VIEW_STATE_V0_1",
+                "task_id": self.task_id,
+                "generated_at_utc": "UNKNOWN",
+                "claim_boundary": "FOUNDATION_ONLY",
+                "contour_cards": [],
+                "latest_requests": [],
+                "latest_results": [],
+                "action_ledger": [],
+                "transfer_routes": [],
+                "source_refs": [],
+                "context_source_mix": {
+                    "taskpack_percent": 0,
+                    "existing_newgen_repo_percent": 0,
+                    "owner_handoff_percent": 0,
+                    "organ_registry_percent": 0,
+                    "servitor_inference_percent": 0,
+                    "external_local_private_percent": 0,
+                },
+                "truth_labels": [
+                    "FOUNDATION_ONLY",
+                    "NO_PRODUCTION_REMOTE_ORCHESTRATION",
+                ],
+                "warnings": ["TRANSFER_CONSOLE_VIEW_STATE_MISSING_OR_INVALID"],
+                "known_limitations": [
+                    "Transfer Console view state is missing or invalid.",
+                    "No production remote orchestration claim is made.",
                 ],
             }
         return payload
@@ -330,6 +370,79 @@ class ActionLayer:
             "known_limitations": [
                 "Validator covers bounded Sanctum NG foundation checks.",
                 "No production readiness claim."
+            ],
+        }
+
+    def _parse_kv_from_stdout(self, text: str) -> dict[str, str]:
+        out: dict[str, str] = {}
+        for line in text.splitlines():
+            line = line.strip()
+            if "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            out[key.strip()] = value.strip()
+        return out
+
+    def _run_transfer_console_action(self, action_id: str) -> dict[str, Any]:
+        runner_path = self.repo_root / TRANSFER_ACTION_RUNNER_REL
+        transfer_report_dir = (
+            self.repo_root
+            / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS"
+            / self.task_id
+        )
+        cmd = [
+            "python3",
+            str(runner_path),
+            "--repo-root",
+            str(self.repo_root),
+            "--task-id",
+            self.task_id,
+            "--action-id",
+            action_id,
+            "--requester",
+            "SANCTUM_NG_ACTION_SERVER",
+            "--report-dir",
+            str(transfer_report_dir),
+        ]
+        run = self._run_command(cmd)
+        parsed = self._parse_kv_from_stdout(str(run.get("stdout", "")))
+        transfer_status = parsed.get("transfer_console_action_status", "WARN")
+        report_ref = parsed.get("transfer_console_action_report")
+        view_ref = parsed.get("transfer_console_view_state", TRANSFER_CONSOLE_VIEW_STATE_REL)
+
+        if run["returncode"] != 0:
+            status = "BLOCK"
+        elif transfer_status == "PASS":
+            status = "PASS"
+        elif transfer_status == "BLOCK":
+            status = "BLOCK"
+        else:
+            status = "WARN"
+
+        evidence_refs = [TRANSFER_ACTION_RUNNER_REL, TRANSFER_CONSOLE_VIEW_STATE_REL]
+        if report_ref:
+            evidence_refs.append(report_ref)
+        if view_ref and view_ref not in evidence_refs:
+            evidence_refs.append(view_ref)
+
+        return {
+            "status": status,
+            "executed_command": cmd,
+            "output_summary": (
+                f"transfer_action={action_id} status={transfer_status} "
+                f"returncode={run['returncode']}"
+            ),
+            "payload": {
+                "runner": run,
+                "runner_report_ref": report_ref,
+                "view_state_ref": view_ref,
+                "transfer_action_status": transfer_status,
+                "parsed_stdout": parsed,
+            },
+            "evidence_refs": evidence_refs,
+            "known_limitations": [
+                "Transfer Console actions are file-backed foundation workflows only.",
+                "No production remote orchestration claim is made.",
             ],
         }
 
@@ -657,6 +770,12 @@ class ActionLayer:
             "READ_PHASE_REGISTRY": lambda: self._read_fixed_json(PHASE_REGISTRY_REL),
             "READ_ACTION_REGISTRY": lambda: self._read_fixed_json(ACTION_REGISTRY_REL),
             "READ_LATEST_REPORT_SUMMARY": self._read_latest_report_summary,
+            "CHECK_CONTOUR_STATUS": lambda: self._run_transfer_console_action("CHECK_CONTOUR_STATUS"),
+            "REGISTER_TASKPACK_SEND": lambda: self._run_transfer_console_action("REGISTER_TASKPACK_SEND"),
+            "REGISTER_REPORT_BUNDLE_FETCH": lambda: self._run_transfer_console_action("REGISTER_REPORT_BUNDLE_FETCH"),
+            "DRY_RUN_TASKPACK_SEND": lambda: self._run_transfer_console_action("DRY_RUN_TASKPACK_SEND"),
+            "DRY_RUN_REPORT_FETCH": lambda: self._run_transfer_console_action("DRY_RUN_REPORT_FETCH"),
+            "REFRESH_TRANSFER_CONSOLE_VIEW": lambda: self._run_transfer_console_action("REFRESH_TRANSFER_CONSOLE_VIEW"),
         }
         routine = dispatch.get(action_id)
 
@@ -761,6 +880,7 @@ class SanctumHandler(SimpleHTTPRequestHandler):
                     "state": self.layer.state_payload(),
                     "servitor_session_view": self.layer.servitor_session_view_payload(),
                     "owner_question_gate": self.layer.owner_question_gate_payload(),
+                    "transfer_console_view": self.layer.transfer_console_view_payload(),
                     "action_layer_state_model": self.layer.connection_state_model(),
                     "latest_action_result": latest_action_result,
                     "latest_report_summary": self.layer.latest_report_summary(),

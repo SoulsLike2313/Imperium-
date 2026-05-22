@@ -20,6 +20,12 @@ REQUIRED_ACTIONS = {
     "READ_PHASE_REGISTRY",
     "READ_ACTION_REGISTRY",
     "READ_LATEST_REPORT_SUMMARY",
+    "CHECK_CONTOUR_STATUS",
+    "REGISTER_TASKPACK_SEND",
+    "REGISTER_REPORT_BUNDLE_FETCH",
+    "DRY_RUN_TASKPACK_SEND",
+    "DRY_RUN_REPORT_FETCH",
+    "REFRESH_TRANSFER_CONSOLE_VIEW",
 }
 SUMMARY_STATE_SET = {"FOUND", "MISSING", "PARTIAL", "NOT_READY", "STALE", "ERROR"}
 
@@ -350,6 +356,10 @@ def main() -> int:
             for action_id, step_name in [
                 ("REFRESH_TRUTH_STATE", "refresh_truth_state"),
                 ("VALIDATE_TRUTH_STATE", "validate_truth_state"),
+                ("CHECK_CONTOUR_STATUS", "check_contour_status"),
+                ("DRY_RUN_TASKPACK_SEND", "dry_run_taskpack_send"),
+                ("DRY_RUN_REPORT_FETCH", "dry_run_report_fetch"),
+                ("REFRESH_TRANSFER_CONSOLE_VIEW", "refresh_transfer_console_view"),
             ]:
                 status, result = run_action(base_url, action_id)
                 action_results.append(result)

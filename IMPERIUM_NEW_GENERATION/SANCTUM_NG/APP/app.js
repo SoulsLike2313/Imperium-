@@ -4,7 +4,13 @@
     "VALIDATE_TRUTH_STATE",
     "READ_PHASE_REGISTRY",
     "READ_ACTION_REGISTRY",
-    "READ_LATEST_REPORT_SUMMARY"
+    "READ_LATEST_REPORT_SUMMARY",
+    "CHECK_CONTOUR_STATUS",
+    "REGISTER_TASKPACK_SEND",
+    "REGISTER_REPORT_BUNDLE_FETCH",
+    "DRY_RUN_TASKPACK_SEND",
+    "DRY_RUN_REPORT_FETCH",
+    "REFRESH_TRANSFER_CONSOLE_VIEW"
   ];
 
   const ACTION_LAYER_STATE_MODEL = {
@@ -101,6 +107,23 @@
       ownerQuestionBoundary: "FOUNDATION_ONLY / NOT LIVE OWNER CHANNEL",
       ownerQuestionNoData: "Owner Question Gate state is not available yet.",
       ownerQuestionNotWired: "Answer channel: NOT_WIRED",
+      transferTitle: "Transfer Console",
+      transferNote: "Foundation transfer visibility for PC / VM2 / VM3 and allowlisted transfer records.",
+      transferLabels: {
+        generated: "Generated",
+        claimBoundary: "Claim Boundary",
+        requests: "Requests",
+        results: "Results",
+        ledgerEntries: "Ledger Entries",
+        contextMix: "Context Mix"
+      },
+      transferContoursTitle: "Contour Cards",
+      transferRequestsTitle: "Latest Requests",
+      transferResultsTitle: "Latest Results",
+      transferLedgerTitle: "Action Ledger",
+      transferSourcesTitle: "Source Refs",
+      transferBoundaryNote: "FOUNDATION_ONLY / NO_PRODUCTION_REMOTE_ORCHESTRATION",
+      transferNoData: "Transfer Console state is not available yet.",
       actionsTitle: "Action Layer",
       lastActionJsonTitle: "Last Action Result JSON",
       foundationNote: "Foundation-only layer. No production/autonomous claim.",
@@ -203,6 +226,23 @@
       ownerQuestionBoundary: "FOUNDATION_ONLY / NOT LIVE OWNER CHANNEL",
       ownerQuestionNoData: "Состояние Owner Question Gate пока недоступно.",
       ownerQuestionNotWired: "Канал ответа: NOT_WIRED",
+      transferTitle: "Transfer Console",
+      transferNote: "Foundation-видимость PC / VM2 / VM3 и allowlisted transfer-записей.",
+      transferLabels: {
+        generated: "Сгенерировано",
+        claimBoundary: "Граница claim",
+        requests: "Запросы",
+        results: "Результаты",
+        ledgerEntries: "Записи ledger",
+        contextMix: "Context Mix"
+      },
+      transferContoursTitle: "Карточки контуров",
+      transferRequestsTitle: "Последние запросы",
+      transferResultsTitle: "Последние результаты",
+      transferLedgerTitle: "Action Ledger",
+      transferSourcesTitle: "Source Refs",
+      transferBoundaryNote: "FOUNDATION_ONLY / NO_PRODUCTION_REMOTE_ORCHESTRATION",
+      transferNoData: "Состояние Transfer Console пока недоступно.",
       actionsTitle: "Слой действий",
       lastActionJsonTitle: "JSON последнего результата",
       foundationNote: "Только foundation-слой. Без production/autonomous claim.",
@@ -343,6 +383,84 @@
       writes_files: [],
       evidence_refs: [],
       known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "CHECK_CONTOUR_STATUS",
+      title: "Check Transfer Contours",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_LOCAL_PROBE_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "REGISTER_TASKPACK_SEND",
+      title: "Register Taskpack Send",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_FILE_BACKED_REGISTRATION",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "REGISTER_REPORT_BUNDLE_FETCH",
+      title: "Register Report Fetch",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_FILE_BACKED_REGISTRATION",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "DRY_RUN_TASKPACK_SEND",
+      title: "Dry Run Taskpack Send",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_DRY_RUN_RECORD_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "DRY_RUN_REPORT_FETCH",
+      title: "Dry Run Report Fetch",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_DRY_RUN_RECORD_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "REFRESH_TRANSFER_CONSOLE_VIEW",
+      title: "Refresh Transfer Console View",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_LOCAL_SCRIPT_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
     }
   ];
 
@@ -377,6 +495,67 @@
     next_required_step: "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM2-OR-VM3-V0_1"
   };
 
+  const FALLBACK_TRANSFER_CONSOLE_VIEW = {
+    schema_id: "TRANSFER_CONSOLE_VIEW_STATE_V0_1",
+    task_id: "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1",
+    generated_at_utc: "FALLBACK",
+    claim_boundary: "FOUNDATION_ONLY",
+    contour_cards: [
+      {
+        contour_id: "PC",
+        display_name: "PC",
+        role: "control_contour",
+        status: "NOT_CONFIGURED",
+        status_reason: "No bounded VM3-side route is configured.",
+        route_config_status: "NOT_CONFIGURED",
+        last_probe_receipt_ref: null,
+        last_updated_utc: "UNKNOWN",
+        claim_boundary: "FOUNDATION_ONLY"
+      },
+      {
+        contour_id: "VM2",
+        display_name: "VM2",
+        role: "executor_contour",
+        status: "UNKNOWN",
+        status_reason: "No fresh bounded probe receipt exists.",
+        route_config_status: "CONFIGURED_NOT_VERIFIED",
+        last_probe_receipt_ref: null,
+        last_updated_utc: "UNKNOWN",
+        claim_boundary: "FOUNDATION_ONLY"
+      },
+      {
+        contour_id: "VM3",
+        display_name: "VM3",
+        role: "executor_contour",
+        status: "UNKNOWN",
+        status_reason: "No fresh bounded probe receipt exists.",
+        route_config_status: "CONFIGURED",
+        last_probe_receipt_ref: null,
+        last_updated_utc: "UNKNOWN",
+        claim_boundary: "FOUNDATION_ONLY"
+      }
+    ],
+    latest_requests: [],
+    latest_results: [],
+    action_ledger: [],
+    transfer_routes: [],
+    source_refs: [],
+    context_source_mix: {
+      taskpack_percent: 70,
+      existing_newgen_repo_percent: 22,
+      owner_handoff_percent: 5,
+      organ_registry_percent: 2,
+      servitor_inference_percent: 1,
+      external_local_private_percent: 0
+    },
+    truth_labels: [
+      "FOUNDATION_ONLY",
+      "NO_PRODUCTION_REMOTE_ORCHESTRATION",
+      "NO_ARBITRARY_SHELL",
+      "NO_FAKE_GREEN"
+    ]
+  };
+
   const state = {
     lang: "en",
     data: null,
@@ -391,7 +570,8 @@
     lastActionModelState: "ACTION_RESULT_WARN",
     actionLayerStateModel: null,
     sessionView: null,
-    ownerQuestionGate: null
+    ownerQuestionGate: null,
+    transferConsoleView: null
   };
 
   function byOrder(actions) {
@@ -457,6 +637,36 @@
     out.summary = { ...FALLBACK_OWNER_QUESTION_GATE.summary, ...summary };
     out.questions = Array.isArray(gate.questions) ? gate.questions.filter((q) => q && typeof q === "object") : [];
     out.warnings = Array.isArray(gate.warnings) ? gate.warnings.map((w) => String(w)) : [];
+    return out;
+  }
+
+  function normalizeTransferConsole(rawView) {
+    const view = rawView && typeof rawView === "object" ? rawView : FALLBACK_TRANSFER_CONSOLE_VIEW;
+    const out = { ...FALLBACK_TRANSFER_CONSOLE_VIEW, ...view };
+    out.contour_cards = Array.isArray(view.contour_cards)
+      ? view.contour_cards.filter((item) => item && typeof item === "object")
+      : FALLBACK_TRANSFER_CONSOLE_VIEW.contour_cards;
+    out.latest_requests = Array.isArray(view.latest_requests)
+      ? view.latest_requests.filter((item) => item && typeof item === "object")
+      : [];
+    out.latest_results = Array.isArray(view.latest_results)
+      ? view.latest_results.filter((item) => item && typeof item === "object")
+      : [];
+    out.action_ledger = Array.isArray(view.action_ledger)
+      ? view.action_ledger.filter((item) => item && typeof item === "object")
+      : [];
+    out.transfer_routes = Array.isArray(view.transfer_routes)
+      ? view.transfer_routes.filter((item) => item && typeof item === "object")
+      : [];
+    out.source_refs = Array.isArray(view.source_refs) ? view.source_refs.map((item) => String(item)) : [];
+    const mix = view.context_source_mix && typeof view.context_source_mix === "object"
+      ? view.context_source_mix
+      : {};
+    out.context_source_mix = {
+      ...FALLBACK_TRANSFER_CONSOLE_VIEW.context_source_mix,
+      ...mix
+    };
+    out.truth_labels = Array.isArray(view.truth_labels) ? view.truth_labels.map((item) => String(item)) : [];
     return out;
   }
 
@@ -556,6 +766,21 @@
     setText("owner-question-card-title", t.ownerQuestionCardTitle);
     setText("owner-question-warnings-title", t.ownerQuestionWarningsTitle);
     setText("owner-boundary-note", t.ownerQuestionBoundary);
+
+    setText("transfer-title", t.transferTitle);
+    setText("transfer-note", t.transferNote);
+    setText("label-transfer-generated", t.transferLabels.generated);
+    setText("label-transfer-boundary", t.transferLabels.claimBoundary);
+    setText("label-transfer-requests", t.transferLabels.requests);
+    setText("label-transfer-results", t.transferLabels.results);
+    setText("label-transfer-ledger", t.transferLabels.ledgerEntries);
+    setText("label-transfer-context", t.transferLabels.contextMix);
+    setText("transfer-contours-title", t.transferContoursTitle);
+    setText("transfer-requests-title", t.transferRequestsTitle);
+    setText("transfer-results-title", t.transferResultsTitle);
+    setText("transfer-ledger-title", t.transferLedgerTitle);
+    setText("transfer-sources-title", t.transferSourcesTitle);
+    setText("transfer-boundary-note", t.transferBoundaryNote);
 
     setText("actions-title", t.actionsTitle);
     setText("label-registry-status", t.labels.registryStatus);
@@ -962,6 +1187,90 @@
     });
   }
 
+  function renderTransferConsole() {
+    const t = I18N[state.lang];
+    const view = state.transferConsoleView;
+    const pill = document.getElementById("transfer-pill");
+    const cardNode = document.getElementById("transfer-contour-cards");
+
+    if (!view || typeof view !== "object") {
+      pill.textContent = "NOT_READY";
+      pill.className = "status-pill status-not-ready";
+      setText("transfer-generated", "-");
+      setText("transfer-boundary", "FOUNDATION_ONLY");
+      setText("transfer-request-count", "-");
+      setText("transfer-result-count", "-");
+      setText("transfer-ledger-count", "-");
+      setText("transfer-context-mix", "-");
+      cardNode.innerHTML = `<p class=\"placeholder\">${t.transferNoData}</p>`;
+      renderSessionLines("transfer-request-list", [t.transferNoData]);
+      renderSessionLines("transfer-result-list", [t.transferNoData]);
+      renderSessionLines("transfer-ledger-list", [t.transferNoData]);
+      renderSessionLines("transfer-source-refs", ["-"]);
+      setText("transfer-boundary-note", t.transferBoundaryNote);
+      return;
+    }
+
+    const boundary = String(view.claim_boundary || "FOUNDATION_ONLY");
+    pill.textContent = boundary;
+    pill.className = `status-pill ${statusClass(boundary)}`;
+
+    const requests = Array.isArray(view.latest_requests) ? view.latest_requests : [];
+    const results = Array.isArray(view.latest_results) ? view.latest_results : [];
+    const ledger = Array.isArray(view.action_ledger) ? view.action_ledger : [];
+    const contours = Array.isArray(view.contour_cards) ? view.contour_cards : [];
+    const sourceRefs = Array.isArray(view.source_refs) ? view.source_refs : [];
+    const mix = view.context_source_mix && typeof view.context_source_mix === "object"
+      ? view.context_source_mix
+      : {};
+
+    setText("transfer-generated", String(view.generated_at_utc || "-"));
+    setText("transfer-boundary", boundary);
+    setText("transfer-request-count", String(requests.length));
+    setText("transfer-result-count", String(results.length));
+    setText("transfer-ledger-count", String(ledger.length));
+    setText(
+      "transfer-context-mix",
+      `T${String(mix.taskpack_percent ?? "-")} R${String(mix.existing_newgen_repo_percent ?? "-")} O${String(mix.owner_handoff_percent ?? "-")}`
+    );
+    setText("transfer-boundary-note", t.transferBoundaryNote);
+
+    cardNode.innerHTML = "";
+    if (contours.length === 0) {
+      cardNode.innerHTML = `<p class=\"placeholder\">${t.transferNoData}</p>`;
+    } else {
+      contours.forEach((contour) => {
+        const card = document.createElement("article");
+        card.className = "transfer-contour-card";
+        card.innerHTML = `
+          <div class="transfer-contour-card__top">
+            <strong>${String(contour.contour_id || contour.display_name || "-")}</strong>
+            <span class="status-pill ${statusClass(contour.status)}">${String(contour.status || "UNKNOWN")}</span>
+          </div>
+          <p>${String(contour.status_reason || "-")}</p>
+          <p class="transfer-contour-card__meta">route: ${String(contour.route_config_status || "-")}</p>
+          <p class="transfer-contour-card__meta">probe: ${String(contour.last_probe_receipt_ref || "N/A")}</p>
+        `;
+        cardNode.appendChild(card);
+      });
+    }
+
+    const requestLines = requests.slice(0, 8).map((item) =>
+      `${String(item.request_id || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")}`
+    );
+    const resultLines = results.slice(0, 8).map((item) =>
+      `${String(item.result_id || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")}`
+    );
+    const ledgerLines = ledger.slice(-10).map((item) =>
+      `${String(item.timestamp_utc || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")}`
+    );
+
+    renderSessionLines("transfer-request-list", requestLines.length > 0 ? requestLines : ["-"]);
+    renderSessionLines("transfer-result-list", resultLines.length > 0 ? resultLines : ["-"]);
+    renderSessionLines("transfer-ledger-list", ledgerLines.length > 0 ? ledgerLines : ["-"]);
+    renderSessionLines("transfer-source-refs", sourceRefs.length > 0 ? sourceRefs : ["-"]);
+  }
+
   function renderInspector() {
     const phase = state.data.phases.find((item) => item.phase_no === state.selectedPhaseNo);
     const empty = document.getElementById("inspector-empty");
@@ -1201,6 +1510,7 @@
     renderOrganDialogueDemo();
     renderServitorSessionView();
     renderOwnerQuestionGate();
+    renderTransferConsole();
     renderPipeline();
     renderInspector();
     renderConnection();
@@ -1219,6 +1529,7 @@
       state.actions = normalizeActions(FALLBACK_ACTIONS);
       state.sessionView = null;
       state.ownerQuestionGate = normalizeOwnerQuestionGate(FALLBACK_OWNER_QUESTION_GATE);
+      state.transferConsoleView = normalizeTransferConsole(FALLBACK_TRANSFER_CONSOLE_VIEW);
       state.registryStatus = "ACTION_DISABLED";
       state.reportSummaryState = "NOT_READY";
       state.reportSummaryReason = "file_mode_no_server";
@@ -1247,6 +1558,9 @@
       state.ownerQuestionGate = normalizeOwnerQuestionGate(
         (statePayload || {}).owner_question_gate || (state.data || {}).owner_question_gate || null
       );
+      state.transferConsoleView = normalizeTransferConsole(
+        (statePayload || {}).transfer_console_view || (state.data || {}).transfer_console_view || null
+      );
 
       applyReportSummary((statePayload || {}).latest_report_summary || null);
       applyLatestActionResult((statePayload || {}).latest_action_result || null);
@@ -1255,6 +1569,7 @@
       state.actions = normalizeActions(FALLBACK_ACTIONS);
       state.sessionView = null;
       state.ownerQuestionGate = normalizeOwnerQuestionGate(FALLBACK_OWNER_QUESTION_GATE);
+      state.transferConsoleView = normalizeTransferConsole(FALLBACK_TRANSFER_CONSOLE_VIEW);
       state.serverStatus = "NOT_CONNECTED";
       state.connectionNote = `${t.serverNotConnectedRuntime}; ${String(error)}`;
       state.data.warnings.push(`ACTION_LAYER_API_LOAD_ERROR:${String(error)}`);

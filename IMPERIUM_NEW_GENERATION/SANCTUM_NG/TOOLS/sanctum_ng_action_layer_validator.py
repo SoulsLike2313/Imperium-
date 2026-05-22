@@ -17,6 +17,12 @@ REQUIRED_ACTION_IDS = {
     "READ_PHASE_REGISTRY",
     "READ_ACTION_REGISTRY",
     "READ_LATEST_REPORT_SUMMARY",
+    "CHECK_CONTOUR_STATUS",
+    "REGISTER_TASKPACK_SEND",
+    "REGISTER_REPORT_BUNDLE_FETCH",
+    "DRY_RUN_TASKPACK_SEND",
+    "DRY_RUN_REPORT_FETCH",
+    "REFRESH_TRANSFER_CONSOLE_VIEW",
 }
 
 REQUIRED_ACTION_FIELDS = {
@@ -108,6 +114,9 @@ def main() -> int:
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_action_server.py",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_action_layer_validator.py",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_action_layer_smoke.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_console_action_runner_v0_1.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_console_view_state_v0_1.schema.json",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/index.html",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/app.js",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/styles.css",
@@ -156,6 +165,28 @@ def main() -> int:
         req_schema is not None,
         "request schema parses",
         f"request schema parse failed ({req_schema_err})",
+    )
+    req_schema_text = json.dumps(req_schema, ensure_ascii=False) if req_schema is not None else ""
+    add_check(
+        checks,
+        warnings,
+        blockers,
+        "request_schema_denies_arbitrary_shell_fields",
+        all(
+            token in req_schema_text
+            for token in [
+                "command",
+                "shell",
+                "exec",
+                "powershell",
+                "bash",
+                "cmd",
+                "arbitrary_command",
+                "remote_command",
+            ]
+        ),
+        "request schema includes deny-list for arbitrary shell/command fields",
+        "request schema is missing deny-list tokens for arbitrary shell/command fields",
     )
 
     res_schema, res_schema_err = load_json(res_schema_path)
@@ -363,6 +394,37 @@ def main() -> int:
         ),
         "UI includes required action/result state model tokens",
         "UI is missing one or more required action/result state model tokens",
+    )
+
+    add_check(
+        checks,
+        warnings,
+        blockers,
+        "ui_transfer_console_visible",
+        "renderTransferConsole" in app_js and "transferConsoleView" in app_js,
+        "UI includes Transfer Console visibility and render wiring",
+        "UI is missing Transfer Console visibility or render wiring",
+    )
+
+    add_check(
+        checks,
+        warnings,
+        blockers,
+        "server_transfer_dispatch_mapped",
+        all(
+            token in server_text
+            for token in [
+                "CHECK_CONTOUR_STATUS",
+                "REGISTER_TASKPACK_SEND",
+                "REGISTER_REPORT_BUNDLE_FETCH",
+                "DRY_RUN_TASKPACK_SEND",
+                "DRY_RUN_REPORT_FETCH",
+                "REFRESH_TRANSFER_CONSOLE_VIEW",
+                "transfer_console_view",
+            ]
+        ),
+        "Server dispatch includes transfer console allowlisted actions",
+        "Server dispatch is missing one or more transfer console allowlisted actions",
     )
 
     add_check(
