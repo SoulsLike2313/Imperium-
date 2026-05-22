@@ -371,5 +371,16 @@
     "READ_PHASE_REGISTRY": "WIRED",
     "READ_ACTION_REGISTRY": "WIRED",
     "READ_LATEST_REPORT_SUMMARY": "WIRED"
+  },
+  "current_truth_index": {
+    "current_truth_root_path": "IMPERIUM_NEW_GENERATION/TRUTH/CURRENT_TRUTH_ROOT_V0_1.json",
+    "report_status_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_1.json",
+    "evidence_source_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json",
+    "status": "FOUNDATION_ONLY",
+    "last_sync_utc": "2026-05-22T18:10:01Z",
+    "known_limitations": [
+      "Read-only truth reference layer only.",
+      "No live backend synchronization claim."
+    ]
   }
 }

@@ -1,0 +1,13 @@
+{
+  "schema_id": "POST_COMMIT_CLOSURE_RECEIPT_V0_1",
+  "task_id": "TASK-20260522-NEWGEN-CURRENT-TRUTH-ROOT-REPORT-INDEX-VM3-V0_1",
+  "status": "PENDING_COMMIT_PUSH_VERIFY",
+  "initial_local_head": "b773317a236ace3f1d20cc90ea333ce416613b69",
+  "post_commit_head": null,
+  "origin_master_head": null,
+  "local_equals_remote": false,
+  "worktree_clean_after_push": false,
+  "notes": [
+    "Will be finalized after commit/push/ls-remote verification."
+  ]
+}

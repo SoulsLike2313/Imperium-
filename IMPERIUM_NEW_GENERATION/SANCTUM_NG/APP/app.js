@@ -38,6 +38,14 @@
       railTitle: "Pipeline Zones",
       warningsTitle: "Known Warnings",
       commTitle: "Communication Gate",
+      truthIndexTitle: "Current Truth Index",
+      truthIndexLabels: {
+        status: "STATUS",
+        currentTruthRoot: "CURRENT_TRUTH_ROOT",
+        reportStatusIndex: "REPORT_STATUS_INDEX",
+        evidenceSourceMap: "EVIDENCE_SOURCE_MAP",
+        sync: "SYNC"
+      },
       pipelineTitle: "Foundation Pipeline 1-10",
       inspectorTitle: "Phase Inspector",
       inspectorEmpty: "Select a phase to inspect details.",
@@ -84,6 +92,14 @@
       railTitle: "Зоны контура",
       warningsTitle: "Известные предупреждения",
       commTitle: "Гейт коммуникации",
+      truthIndexTitle: "Индекс текущей правды",
+      truthIndexLabels: {
+        status: "СТАТУС",
+        currentTruthRoot: "CURRENT_TRUTH_ROOT",
+        reportStatusIndex: "REPORT_STATUS_INDEX",
+        evidenceSourceMap: "EVIDENCE_SOURCE_MAP",
+        sync: "СИНХРОН"
+      },
       pipelineTitle: "Фундаментальный конвейер 1-10",
       inspectorTitle: "Инспектор фазы",
       inspectorEmpty: "Выберите фазу для просмотра деталей.",
@@ -132,6 +148,13 @@
       ],
       STATUS: "WARN_FOUNDATION_ONLY",
       KNOWN_LIMITATION: "Fallback state is active; runtime hard-block is not claimed."
+    },
+    current_truth_index: {
+      current_truth_root_path: "IMPERIUM_NEW_GENERATION/TRUTH/CURRENT_TRUTH_ROOT_V0_1.json",
+      report_status_index_path: "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_1.json",
+      evidence_source_map_path: "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json",
+      status: "UNKNOWN",
+      last_sync_utc: "UNKNOWN"
     },
     phases: [
       { phase_no: 1, name: "Architecture", status: "FOUNDATION", summary: "Fallback snapshot.", evidence_refs: ["FALLBACK"], paths: [], report_paths: [], limitations: ["State API unavailable."] },
@@ -342,6 +365,7 @@
     setText("rail-title", t.railTitle);
     setText("warnings-title", t.warningsTitle);
     setText("comm-title", t.commTitle);
+    setText("truth-index-title", t.truthIndexTitle);
     setText("pipeline-title", t.pipelineTitle);
 
     setText("inspector-title", t.inspectorTitle);
@@ -446,6 +470,29 @@
       li.textContent = `AUTHORITY_SOURCE: ${sources.join(" | ")}`;
       node.appendChild(li);
     }
+  }
+
+  function renderTruthIndex() {
+    const t = I18N[state.lang];
+    const data = state.data || {};
+    const truthIndex = data.current_truth_index && typeof data.current_truth_index === "object"
+      ? data.current_truth_index
+      : {};
+
+    setText("truth-root-status", `${t.truthIndexLabels.status}: ${String(truthIndex.status || "-")}`);
+    setText(
+      "truth-root-path",
+      `${t.truthIndexLabels.currentTruthRoot}: ${String(truthIndex.current_truth_root_path || "-")}`
+    );
+    setText(
+      "report-index-path",
+      `${t.truthIndexLabels.reportStatusIndex}: ${String(truthIndex.report_status_index_path || "-")}`
+    );
+    setText(
+      "evidence-map-path",
+      `${t.truthIndexLabels.evidenceSourceMap}: ${String(truthIndex.evidence_source_map_path || "-")}`
+    );
+    setText("truth-sync-utc", `${t.truthIndexLabels.sync}: ${String(truthIndex.last_sync_utc || "-")}`);
   }
 
   function renderInspector() {
@@ -683,6 +730,7 @@
     renderTruthBar();
     renderRail();
     renderCommunicationGate();
+    renderTruthIndex();
     renderPipeline();
     renderInspector();
     renderConnection();

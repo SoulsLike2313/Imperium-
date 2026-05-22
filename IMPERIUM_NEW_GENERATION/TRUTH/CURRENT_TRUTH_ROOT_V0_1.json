@@ -1,0 +1,270 @@
+{
+  "schema_id": "CURRENT_TRUTH_ROOT_V0_1",
+  "task_id": "TASK-20260522-NEWGEN-CURRENT-TRUTH-ROOT-REPORT-INDEX-VM3-V0_1",
+  "generated_at_utc": "2026-05-22T18:10:01Z",
+  "newgen_mode": "FOUNDATION_TRUTH_SPINE_V0_1",
+  "repo_truth": {
+    "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
+    "head": "b773317a236ace3f1d20cc90ea333ce416613b69",
+    "branch": "master",
+    "worktree_dirty": true,
+    "head_commit_utc": "2026-05-22T16:58:19+00:00"
+  },
+  "phase_coverage": {
+    "phases": [
+      {
+        "phase_no": 1,
+        "phase_id": "PHASE_01_ARCHITECTURE_SKILL_SPINE",
+        "name": "Architecture",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/NEWGEN_ARCHITECTURE_MAP_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-ARCHITECTURE-SKILL-SPINE-PC-V0_1/FINAL_RECEIPT.json",
+          "REGISTRY:PHASE_01_ARCHITECTURE_SKILL_SPINE"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 2,
+        "phase_id": "PHASE_02_ORGAN_PACKET_PROTOCOL",
+        "name": "Organ Packets",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/ORGAN_PACKET_PROTOCOL_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/CONTRACTS/ORGAN_PACKETS/ORGAN_PACKET_V0_1.schema.json",
+          "FILE:IMPERIUM_NEW_GENERATION/CONTRACTS/ORGAN_PACKETS/ORGAN_PACKET_SET_V0_1.schema.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-ORGAN-PACKET-CONTRACT-PC-V0_1/FINAL_RECEIPT.json",
+          "REGISTRY:PHASE_02_ORGAN_PACKET_PROTOCOL"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 3,
+        "phase_id": "PHASE_03_TASK_KERNEL_REGISTRY",
+        "name": "Task Kernel",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/TASK_KERNEL_REGISTRY_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/CONTRACTS/TASK_KERNEL/TASK_KERNEL_V0_1.schema.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-TASK-KERNEL-REGISTRY-PC-V0_1/FINAL_RECEIPT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/TASKS/REGISTRY/TASK_INDEX_V0_1.json",
+          "REGISTRY:PHASE_03_TASK_KERNEL_REGISTRY"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 4,
+        "phase_id": "PHASE_04_ASTRONOMICON_FORMATION",
+        "name": "Astronomicon",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/ASTRONOMICON_TASK_FORMATION_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/CONTRACTS/ASTRONOMICON/TASK_FORMATION_RECORD_V0_1.schema.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-ASTRONOMICON-TASK-FORMATION-PC-V0_1/FINAL_RECEIPT.json",
+          "REGISTRY:PHASE_04_ASTRONOMICON_FORMATION"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 5,
+        "phase_id": "PHASE_05_AUTHORITY_GATES",
+        "name": "Authority Gates",
+        "status": "WARN",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/SUPER_SKEPTICISM_MODE_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/AUTHORITY_DRAFTS/OFFICIO_LIVE_COMMUNICATION_ENFORCEMENT_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/SANCTUM_NG/CONTRACTS/officio_live_communication_gate_v0_1.schema.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1/OFFICIO_ROLE_ACK_OR_WARN.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1/DOCTRINARIUM_LAW_ACK_OR_WARN.json",
+          "REGISTRY:PHASE_05_AUTHORITY_GATES"
+        ],
+        "limitations": [
+          "Registry declared status=WARN",
+          "DOCTRINARIUM_ROLE_CONTRACT_MATURITY_LIMIT",
+          "LIVE_LANGUAGE_COMPLIANCE_FOUNDATION_ONLY"
+        ]
+      },
+      {
+        "phase_no": 6,
+        "phase_id": "PHASE_06_SERVITOR_RUN_RERUN_LOOP",
+        "name": "Servitor Loop",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/SERVITOR_RUN_RERUN_LOOP_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SERVITOR-RUN-RERUN-LOOP-PC-V0_1/FINAL_RECEIPT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SERVITOR-RUN-RERUN-LOOP-PC-V0_1/VALIDATOR_REPORT.json",
+          "REGISTRY:PHASE_06_SERVITOR_RUN_RERUN_LOOP"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 7,
+        "phase_id": "PHASE_07_TASK_STATE_EVIDENCE_BINDER",
+        "name": "Evidence Binder",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/TASK_STATE_EVIDENCE_BINDER_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-TASK-STATE-EVIDENCE-BINDER-PC-V0_1/FINAL_RECEIPT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-TASK-STATE-EVIDENCE-BINDER-PC-V0_1/VALIDATOR_REPORT.json",
+          "REGISTRY:PHASE_07_TASK_STATE_EVIDENCE_BINDER"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 8,
+        "phase_id": "PHASE_08_VISUAL_BRAIN_TASK_CORRIDOR",
+        "name": "Visual Brain",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/VISUAL_BRAIN_TASK_CORRIDOR_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-VISUAL-BRAIN-TASK-CORRIDOR-PC-V0_1/FINAL_RECEIPT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/VISUAL_BRAIN/TASK_CORRIDOR_V0_1/data/visual_brain_task_corridor_state.generated.json",
+          "REGISTRY:PHASE_08_VISUAL_BRAIN_TASK_CORRIDOR"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 9,
+        "phase_id": "PHASE_09_SKILL_GROWTH_SYSTEM",
+        "name": "Skill Growth",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/SKILL_GROWTH_SYSTEM_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SKILL-GROWTH-SYSTEM-VM3-V0_1/FINAL_RECEIPT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-SKILL-GROWTH-SYSTEM-VM3-V0_1/VALIDATOR_REPORT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/SKILLS/GROWTH/SKILL_GROWTH_INDEX_V0_1.json",
+          "REGISTRY:PHASE_09_SKILL_GROWTH_SYSTEM"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      },
+      {
+        "phase_no": 10,
+        "phase_id": "PHASE_10_MECHANICUS_TOOL_ADMISSION",
+        "name": "Tool Admission",
+        "status": "FOUNDATION_ONLY",
+        "evidence_refs": [
+          "FILE:IMPERIUM_NEW_GENERATION/ARCHITECTURE/MECHANICUS_TOOL_ADMISSION_V0_1.md",
+          "FILE:IMPERIUM_NEW_GENERATION/CONTRACTS/TOOL_ADMISSION/TOOL_ADMISSION_DECISION.schema.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-MECHANICUS-TOOL-ADMISSION-VM3-V0_1/FINAL_RECEIPT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260521-NEWGEN-MECHANICUS-TOOL-ADMISSION-VM3-V0_1/VALIDATOR_REPORT.json",
+          "FILE:IMPERIUM_NEW_GENERATION/MECHANICUS/TOOL_ADMISSION/TOOL_ADMISSION_INDEX_V0_1.json",
+          "REGISTRY:PHASE_10_MECHANICUS_TOOL_ADMISSION"
+        ],
+        "limitations": [
+          "Registry declared status=FOUNDATION"
+        ]
+      }
+    ],
+    "summary": {
+      "total_phases": 10,
+      "status_counts": {
+        "PASS": 0,
+        "PASS_WITH_WARN": 0,
+        "WARN": 1,
+        "BLOCK": 0,
+        "UNKNOWN": 0,
+        "MISSING": 0,
+        "PARTIAL": 0,
+        "FOUNDATION_ONLY": 9
+      }
+    }
+  },
+  "sanctum_ng_truth_shell": {
+    "state_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.generated.json",
+    "exists": true,
+    "status": "FOUNDATION_ONLY",
+    "mode": "READ_ONLY_FOUNDATION",
+    "communication_gate_status": "WARN_FOUNDATION_ONLY"
+  },
+  "action_layer_status": {
+    "overall_status": "WARN",
+    "components": {
+      "truth_shell": "PASS",
+      "file_backed_action_layer": "WARN",
+      "action_layer_hardening": "PASS"
+    },
+    "evidence_refs": [
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1/FINAL_RECEIPT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1/VALIDATOR_REPORT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1/FINAL_OWNER_REPORT_RU.md",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1/FINAL_RECEIPT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1/VALIDATOR_REPORT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1/FINAL_OWNER_REPORT_RU.md",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1/FINAL_RECEIPT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1/VALIDATOR_REPORT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-RUNNER-AND-OFFICIO-REPAIR-VM3-V0_1/FINAL_OWNER_REPORT_RU.md",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1/FINAL_RECEIPT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1/VALIDATOR_REPORT.json",
+      "FILE:IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260522-NEWGEN-SANCTUM-TRUTH-SHELL-VM3-V0_1/OWNER_REPORT_RU.md"
+    ],
+    "known_limitations": [
+      "Action layer is foundation-level and file-backed only.",
+      "No production backend or autonomous action claims are made."
+    ]
+  },
+  "known_warnings": [
+    "PHASE_05_AUTHORITY_GATES_WARN",
+    "TASK-20260522-NEWGEN-SANCTUM-FILE-BACKED-ACTION-LAYER-VM3-V0_1_WARN"
+  ],
+  "forbidden_claims": [
+    "PRODUCTION_READY",
+    "LIVE_BACKEND_READY",
+    "AUTONOMOUS_EXECUTION_READY",
+    "LIVE_ORGAN_DIALOGUE_READY",
+    "FULL_AGENT_AUTONOMY_READY"
+  ],
+  "context_source_mix_snapshot": {
+    "method": "FOUNDATION_ESTIMATE_V0_1",
+    "percentages": {
+      "taskpack": 44,
+      "strategic_pdf": 16,
+      "newgen_reports_registries_contracts": 26,
+      "officio_doctrinarium_authority": 10,
+      "mechanicus_tools_validators": 3,
+      "owner_live_correction": 0,
+      "servitor_inference": 1
+    },
+    "note": "Taskpack-dominant foundation run; percentages are bounded estimates, not telemetry."
+  },
+  "report_status_index_path": "IMPERIUM_NEW_GENERATION/TRUTH/REPORT_STATUS_INDEX_V0_1.json",
+  "evidence_source_map_path": "IMPERIUM_NEW_GENERATION/TRUTH/EVIDENCE_SOURCE_MAP_V0_1.json",
+  "report_index_summary": {
+    "total_entries": 14,
+    "status_counts": {
+      "PASS": 10,
+      "PASS_WITH_WARN": 1,
+      "WARN": 1,
+      "BLOCK": 0,
+      "UNKNOWN": 0,
+      "MISSING": 0,
+      "PARTIAL": 0,
+      "FOUNDATION_ONLY": 2
+    },
+    "freshness_counts": {
+      "CURRENT": 14,
+      "STALE": 0,
+      "UNKNOWN": 0
+    }
+  },
+  "limitations": [
+    "UNKNOWN zones are intentionally preserved as UNKNOWN/MISSING/PARTIAL/FOUNDATION_ONLY.",
+    "No production autonomy, live backend, or full organ dialogue is claimed.",
+    "Strategic PDF is used as compass only; broader tasks are deferred."
+  ]
+}

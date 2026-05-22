@@ -119,6 +119,7 @@ p {
 .phase-rail,
 #warnings-list,
 #comm-gate-list,
+#truth-index-list,
 #inspector-paths,
 #inspector-reports,
 #inspector-limits {
@@ -126,6 +127,11 @@ p {
   padding-left: 1rem;
   display: grid;
   gap: 0.35rem;
+}
+
+.truth-index li {
+  font-size: 0.78rem;
+  word-break: break-word;
 }
 
 .pipeline-list {
