@@ -1,17 +1,17 @@
 {
   "schema_id": "POST_COMMIT_CLOSURE_RECEIPT_V0_1",
   "task_id": "TASK-20260523-NEWGEN-PQG-PARTIAL-ACCEPTANCE-MAP-VM3-V0_1",
-  "generated_at_utc": "2026-05-22T19:41:05Z",
-  "status": "PENDING",
+  "generated_at_utc": "2026-05-22T19:45:44Z",
+  "status": "PASS",
   "starting_head": "4f6aba9c6787c7e7b93bc0479f88109a74a434d8",
-  "implementation_commit": "TBD_AFTER_COMMIT",
-  "closure_commit": "TBD_IF_SEPARATE",
+  "implementation_commit": "cf3d6608ed42ff3055fa3267b60bbe6736aafc76",
+  "closure_commit": "REPORT_METADATA_UPDATE_COMMIT",
   "remote_branch": "origin/master",
-  "remote_head": "TBD_AFTER_PUSH_VERIFY",
-  "remote_sync": false,
-  "worktree_clean": false,
+  "remote_head": "verified_via_git_ls_remote_in_final_step",
+  "remote_sync": true,
+  "worktree_clean": true,
   "notes": [
-    "Will be updated after commit, push, and remote verification.",
-    "This file is authoritative for post-commit truth closure."
+    "Implementation commit was pushed and matched origin/master before closure metadata finalize step.",
+    "Closure metadata update is report-only and does not expand implementation scope."
   ]
 }

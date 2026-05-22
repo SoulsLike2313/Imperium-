@@ -23,7 +23,8 @@ PASS (FOUNDATION_ONLY)
 - `python3 -m py_compile` для новых/изменённых Python файлов: PASS.
 - Builder partial acceptance: PASS.
 - JSON parse checks (partial map/rules/samples + Sanctum state): PASS.
-- Validator partial acceptance: PASS (после финализации receipt-бандла).
+- Validator partial acceptance: PASS.
+- `git push` + `git ls-remote` verify: PASS.
 
 ## Claim boundary
 - Это foundation-only слой backend truth semantics.
@@ -31,6 +32,6 @@ PASS (FOUNDATION_ONLY)
 - Production/autonomy/live-organ claims не заявляются.
 
 ## Git closure
-- Implementation commit: `TBD_AFTER_COMMIT`
-- Commit URL: `TBD_AFTER_COMMIT`
-- Push verify: `TBD_AFTER_PUSH_VERIFY`
+- Implementation commit: `cf3d6608ed42ff3055fa3267b60bbe6736aafc76`
+- Commit URL: `https://github.com/SoulsLike2313/Imperium-/commit/cf3d6608ed42ff3055fa3267b60bbe6736aafc76`
+- Closure metadata commit: `REPORT_METADATA_UPDATE_COMMIT`
