@@ -21,5 +21,6 @@
 
 ## Owner comments
 - implementation commit: `f1c3ff13d21f56476d83fc5255fa0f426826bc6f`
-- commit url: `https://github.com/SoulsLike2313/Imperium-/commit/f1c3ff13d21f56476d83fc5255fa0f426826bc6f`
-- Все claims ограничены foundation-only и подтверждены файловыми evidence-артефактами.
+- closure metadata commit: `fcbaf401f3f7a06927c5d15c194e15d5bc0f2522`
+- implementation url: `https://github.com/SoulsLike2313/Imperium-/commit/f1c3ff13d21f56476d83fc5255fa0f426826bc6f`
+- closure url: `https://github.com/SoulsLike2313/Imperium-/commit/fcbaf401f3f7a06927c5d15c194e15d5bc0f2522`

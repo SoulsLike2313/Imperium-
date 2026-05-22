@@ -1,7 +1,7 @@
 {
   "schema_id": "ORGAN_DIALOGUE_DEMO_SMOKE_REPORT_V0_1",
   "task_id": "TASK-20260523-NEWGEN-SANCTUM-ORGAN-DIALOGUE-DEMO-VM2-V0_1",
-  "generated_at_utc": "2026-05-22T21:15:45Z",
+  "generated_at_utc": "2026-05-22T21:17:06Z",
   "verdict": "PASS",
   "checks": [
     {
