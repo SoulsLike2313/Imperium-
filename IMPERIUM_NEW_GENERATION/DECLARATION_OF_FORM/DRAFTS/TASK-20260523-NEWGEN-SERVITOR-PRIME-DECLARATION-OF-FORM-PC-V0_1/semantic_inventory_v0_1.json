@@ -1,0 +1,604 @@
+{
+  "schema_id": "newgen_semantic_inventory_v0_1",
+  "task_id": "TASK-20260523-NEWGEN-SERVITOR-PRIME-DECLARATION-OF-FORM-PC-V0_1",
+  "generated_at_utc": "2026-05-24T00:00:00Z",
+  "root": "IMPERIUM_NEW_GENERATION",
+  "items": [
+    {
+      "path": "IMPERIUM_NEW_GENERATION/README.md",
+      "type": "file",
+      "semantic_role": "Паспорт верхнего уровня NewGen, фиксирующий первоначальную базовую рамку.",
+      "maturity": "STALE",
+      "owner_value": "Должен быть главным входом для агента.",
+      "risks": [
+        "Содержимое отстает от текущей фактической ширины дерева (Sanctum NG, transfer, truth layers)."
+      ],
+      "next_strengthening": [
+        "Сделать reconciliation с CURRENT_TRUTH_ROOT и актуальным tree snapshot."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/NEW_GENERATION_MANIFEST.json",
+      "type": "file",
+      "semantic_role": "Machine-readable стартовая декларация статуса линии NewGen.",
+      "maturity": "STALE",
+      "owner_value": "Задает внешний claim boundary.",
+      "risks": [
+        "Зафиксирован старый baseline про first-3/skeleton, не отражает новые подсистемы."
+      ],
+      "next_strengthening": [
+        "Обновлять манифест как часть current-truth pipeline, не вручную постфактум."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/AGENT_DIRECTIVES",
+      "type": "folder",
+      "semantic_role": "Стратегический вектор для поведения агентов в NewGen.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Удерживает общую цель и этапность развития.",
+      "risks": [
+        "Без жесткой связи с runtime/gates директивы могут остаться декларативными."
+      ],
+      "next_strengthening": [
+        "Связать директивы с обязательными machine-check points."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/CORE",
+      "type": "subsystem",
+      "semantic_role": "Граница песочницы: где можно писать, где нельзя, что защищено.",
+      "maturity": "PROVED",
+      "owner_value": "Физически ограничивает разрушительный scope drift.",
+      "risks": [
+        "Границы описаны файлами, но не все pipelines автоматически их валидируют."
+      ],
+      "next_strengthening": [
+        "Принудительно проверять core boundaries в каждом closure receipt."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ARCHITECTURE",
+      "type": "subsystem",
+      "semantic_role": "Документированный каркас эволюции (Task Kernel, Organ Packets, Servitor loop, Visual Brain).",
+      "maturity": "FOUNDATION",
+      "owner_value": "Снижает хаос и удерживает общий инженерный язык.",
+      "risks": [
+        "Риск архитектурной инфляции без немедленной операционной интеграции."
+      ],
+      "next_strengthening": [
+        "Каждый архитектурный слой должен давать observable delta в Sanctum."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/CONTRACTS",
+      "type": "subsystem",
+      "semantic_role": "Схемы и контрактные форматы для task/object/scope/session/skill/tool/visual state.",
+      "maturity": "PROVED",
+      "owner_value": "Опора против неявных договоренностей и fake-green.",
+      "risks": [
+        "Есть контракты, для которых нет полного operational lifecycle."
+      ],
+      "next_strengthening": [
+        "Отмечать контракт как STUB, пока нет builder+validator+consumer."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TOOLS",
+      "type": "subsystem",
+      "semantic_role": "Инструментальный слой builder/validator для архитектурных и truth-артефактов.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Позволяет воспроизводимо пересобирать state вместо ручного редактирования.",
+      "risks": [
+        "Часть tooling находится в разных подсистемах без единого tool registry truth."
+      ],
+      "next_strengthening": [
+        "Собрать единый индекс инструментов и их зрелости."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TASK_CONTROL",
+      "type": "subsystem",
+      "semantic_role": "Протоколы объема задач, stage checkpoint и owner decision discipline.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Уменьшает расползание scope и делает частичную приемку явной.",
+      "risks": [
+        "Может остаться бумажным, если не вшит в ежедневный run flow."
+      ],
+      "next_strengthening": [
+        "Показывать task volume/stage checkpoint прямо в Operator Cockpit."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TASK_CONTROL/ANTI_CRUTCH_PROTOCOL",
+      "type": "subsystem",
+      "semantic_role": "Защита от taskpack-only костылей и обхода канонических владельцев правил.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Снижает повторяемость временных workaround как псевдо-решений.",
+      "risks": [
+        "Нужна жесткая связка с admission pipeline, иначе правило останется advisory."
+      ],
+      "next_strengthening": [
+        "Делать BLOCK при canonical authority bypass в closure check."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/COMMON_AGENT_CLI",
+      "type": "subsystem",
+      "semantic_role": "Общий shell и проверочные утилиты для орган-агентов.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Унифицирует UX и снижает случайность поведения агентов.",
+      "risks": [
+        "UI polish без глубокой связки с правдой может дать ложное ощущение зрелости."
+      ],
+      "next_strengthening": [
+        "Связать shell status с current truth indices."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS",
+      "type": "subsystem",
+      "semantic_role": "Ядро органной модели: 10 орган-агентов с разной зрелостью.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Позволяет разносить ответственность по ролям и правилам.",
+      "risks": [
+        "Часть органов имеет rich shell, но semantic power еще не превращен в живой veto/control loop."
+      ],
+      "next_strengthening": [
+        "Переход от декоративной органности к обязательным directive packets."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT",
+      "type": "organ",
+      "semantic_role": "Память/инвентарь/provenance/continuity/transfer gateway NewGen.",
+      "maturity": "PROVED",
+      "owner_value": "Наиболее развитый исполнитель для структурирования фактов и handoff.",
+      "risks": [
+        "Большие объемы runtime outputs в git снижают чистоту ядра."
+      ],
+      "next_strengthening": [
+        "Ввести classifier + quarantine режим для run artifacts."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT",
+      "type": "organ",
+      "semantic_role": "Ролевой и коммуникационный контроллер исполнения (role/settings/response contracts).",
+      "maturity": "FOUNDATION",
+      "owner_value": "Сдерживает агент от неограниченной импровизации.",
+      "risks": [
+        "Не все текущие workflow физически проверяют Officio ACK перед действиями."
+      ],
+      "next_strengthening": [
+        "Сделать Officio ACK обязательным machine gate для запуска task execution."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT",
+      "type": "organ",
+      "semantic_role": "Инженерный орган допусков инструментов и проверок.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Снижает риск неконтролируемых tool/install действий.",
+      "risks": [
+        "Tool admission часто завершаеться candidate/deferred, operational закрытие медленное."
+      ],
+      "next_strengthening": [
+        "Ускорить путь candidate -> bounded operational usage с receipts."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/CUSTODES_AGENT",
+      "type": "organ",
+      "semantic_role": "Базовый gatekeeper для path/core admission checks.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Критичен для защиты core boundaries.",
+      "risks": [
+        "Реализован узко; locked role в более широком organ-cockpit контуре."
+      ],
+      "next_strengthening": [
+        "Расширить Custodes до явного veto-path в Sanctum action model."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ASTRONOMICON_AGENT",
+      "type": "organ",
+      "semantic_role": "Орган маршрутизации задачи и stage-map формирования.",
+      "maturity": "DRAFT",
+      "owner_value": "Должен стабилизировать task intake и decomposition.",
+      "risks": [
+        "Статус mostly skeleton при наличии зрелых архитектурных контрактов."
+      ],
+      "next_strengthening": [
+        "Сделать Astronomicon formation обязательным входом новых задач."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/DOCTRINARIUM_AGENT",
+      "type": "organ",
+      "semantic_role": "Орган закона и доктринальных ограничений.",
+      "maturity": "DRAFT",
+      "owner_value": "Должен устранить множественные источники правил.",
+      "risks": [
+        "Скелетный статус при высокой потребности в едином law root."
+      ],
+      "next_strengthening": [
+        "Сконсолидировать draft laws в единую doctrinal read path."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/INQUISITION_AGENT",
+      "type": "organ",
+      "semantic_role": "Орган аудита и anti-fake-green enforcement.",
+      "maturity": "DRAFT",
+      "owner_value": "Критичен для честных verdicts и контроля риска.",
+      "risks": [
+        "Часть инквизиционных правил реализована вне органа как распределенные скрипты."
+      ],
+      "next_strengthening": [
+        "Собрать Inquisition gatepack и связать с final receipts."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/STRATEGIUM_AGENT",
+      "type": "organ",
+      "semantic_role": "Орган приоритизации, freeze policy и кампаний.",
+      "maturity": "DRAFT",
+      "owner_value": "Нужен для строгого выбора next strike вместо распыления.",
+      "risks": [
+        "Сейчас ограничен skeleton-представлением."
+      ],
+      "next_strengthening": [
+        "Встроить Strategium decision cards в cockpit review."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/SCHOLA_IMPERIALIS_AGENT",
+      "type": "organ",
+      "semantic_role": "Орган обучения, lesson-loop и skill growth.",
+      "maturity": "DRAFT",
+      "owner_value": "Должен превращать ошибки в устойчивый обучающий капитал.",
+      "risks": [
+        "Learning artifacts есть, но автоматическое влияние на preflight слабо."
+      ],
+      "next_strengthening": [
+        "Связать Schola lessons с admission checks будущих задач."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/THRONE_AGENT",
+      "type": "organ",
+      "semantic_role": "Будущий верхний контур управления (пока locked/skeleton).",
+      "maturity": "DRAFT",
+      "owner_value": "Резерв для будущей централизации ежедневного управления.",
+      "risks": [
+        "Ранние ожидания от Throne могут спровоцировать premature autonomy claims."
+      ],
+      "next_strengthening": [
+        "Сохранять locked статус до зрелости clean core."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/EXCHANGE",
+      "type": "subsystem",
+      "semantic_role": "File-based органный bus и Servitor envelope обмен.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Доказывает физическую форму межорганного обмена без магии.",
+      "risks": [
+        "Много демо-наследия, ограниченный operational refresh."
+      ],
+      "next_strengthening": [
+        "Привязать exchange события к актуальным production-like task slices."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/LEDGER",
+      "type": "subsystem",
+      "semantic_role": "Базовые индексы памяти и route/task событий.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Минимальный event backbone для отслеживания истории.",
+      "risks": [
+        "Сильная доля старых демо-событий, слабая нормализация свежести."
+      ],
+      "next_strengthening": [
+        "Разделить historical и current ledger slices."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/RUNS",
+      "type": "subsystem",
+      "semantic_role": "Слой runtime-выгрузок и следов выполнения.",
+      "maturity": "QUARANTINE_CANDIDATE",
+      "owner_value": "Хранит богатую трассу действий и отчуждаемое evidence.",
+      "risks": [
+        "Очень большой объем файлов внутри git осложняет чистое ядро и обзор.",
+        "Смешение долговременного хранения и активного рабочего набора."
+      ],
+      "next_strengthening": [
+        "Ввести lifecycle policy: keep current, archive external, quarantine noisy."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ARCHIVE",
+      "type": "subsystem",
+      "semantic_role": "Постоянный архив Administratum route/task/receipt артефактов.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Сохраняет проверяемую историю решений.",
+      "risks": [
+        "Без freshness flags архив может восприниматься как current truth."
+      ],
+      "next_strengthening": [
+        "Ввести жесткие маркеры historical-only во всех архивных индексах."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/REPORTS",
+      "type": "subsystem",
+      "semantic_role": "Главная evidence-библиотека task-by-task с receipt bundles.",
+      "maturity": "PROVED",
+      "owner_value": "Дает трассируемость и проверяемость claim-ов.",
+      "risks": [
+        "Риск report avalanche и трудность быстрого operator чтения.",
+        "Несколько задач в status index отмечают missing fields/legacy markers."
+      ],
+      "next_strengthening": [
+        "Сделать report status index и freshness ключевыми навигаторами в cockpit."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/RECEIPTS",
+      "type": "subsystem",
+      "semantic_role": "Базовые gate ack/receipt якоря раннего этапа.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Поддерживает принцип evidence-before-claim.",
+      "risks": [
+        "Небольшой и исторический слой; не покрывает новые подсистемы полноценно."
+      ],
+      "next_strengthening": [
+        "Синхронизировать receipt conventions между legacy и новыми задачами."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TRUTH",
+      "type": "subsystem",
+      "semantic_role": "Truth spine: current truth root, report/evidence indices, acceptance semantics.",
+      "maturity": "PROVED",
+      "owner_value": "Сердце no-fake-green политики и state-нормализации.",
+      "risks": [
+        "Часть generated truth отражает исторические head/worktree snapshots, не текущий момент.",
+        "Нужно четкое разделение between historical truth object and live truth object."
+      ],
+      "next_strengthening": [
+        "Добавить reconciliation слой current-vs-historical для автоматической маркировки stale."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TRUTH/OWNER_QUESTIONS",
+      "type": "subsystem",
+      "semantic_role": "Файловая модель owner decision queue и priority/status rule set.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Делает блокирующие вопросы owner-visible.",
+      "risks": [
+        "Live owner answer write path отсутствует в admitted режиме."
+      ],
+      "next_strengthening": [
+        "Реализовать bounded write channel с audit receipts."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK",
+      "type": "subsystem",
+      "semantic_role": "Контракт rollback discipline до расширения write/mutation действий.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Предотвращает безвозвратные мутации под видом progress.",
+      "risks": [
+        "Политика есть, но destructive proof intentionally not performed."
+      ],
+      "next_strengthening": [
+        "Подтянуть controlled rollback drills в безопасной synthetic зоне."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS",
+      "type": "subsystem",
+      "semantic_role": "Синтетический anti-fake-green mutation test слой.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Задает правило NO_NEGATIVE_TEST -> NO_STRICT_PASS.",
+      "risks": [
+        "Synthetic характер может быть ошибочно принят за production destructive readiness."
+      ],
+      "next_strengthening": [
+        "Явно маркировать synthetic/prod boundaries в cockpit state."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI",
+      "type": "subsystem",
+      "semantic_role": "Ранний локальный dashboard/API слой с allowlisted terminal interactions.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Дает первый живой UI-мост к данным.",
+      "risks": [
+        "Единичный connected organ и ограниченный operational охват."
+      ],
+      "next_strengthening": [
+        "Свести роли SANCTUM_MINI и SANCTUM_NG в согласованный evolution path."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG",
+      "type": "subsystem",
+      "semantic_role": "Основной NewGen control-surface каркас: truth shell, action layer, owner gate, session view, transfer console.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Центральный кандидат на operator cockpit ядро.",
+      "risks": [
+        "Много подсрезов, но высокий процент `FOUNDATION_ONLY/PREVIEW_ONLY`.",
+        "Есть признаки несинхрона generated states и текущего git truth."
+      ],
+      "next_strengthening": [
+        "Сделать единый live current-truth builder для Sanctum NG state family."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/OPERATOR_COCKPIT",
+      "type": "subsystem",
+      "semantic_role": "L1 Owner cockpit aggregation layer (overview, transfer, evidence, action strip, continuity preview).",
+      "maturity": "FOUNDATION",
+      "owner_value": "Ключ к переходу от report-hunting к одному рабочему окну.",
+      "risks": [
+        "Read-only scope и preview actions ограничивают оперативное управление.",
+        "Некоторые поля содержат устаревшие или неряшливые path snapshots."
+      ],
+      "next_strengthening": [
+        "Довести до устойчивого truth synchronization + bounded owner write path."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE",
+      "type": "subsystem",
+      "semantic_role": "Контур transfer visibility и bounded route proof между VM contours.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Показывает транспортный слой и доказанные маршруты без fake production claims.",
+      "risks": [
+        "Большой массив historical action records; сложная навигация текущего статуса.",
+        "Нет production orchestration admission."
+      ],
+      "next_strengthening": [
+        "Сократить operator surface до current actionable subset + freshness filters."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGAN_DIALOGUE",
+      "type": "subsystem",
+      "semantic_role": "File-backed request/response packets и thread artifacts для organ dialogue demo.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Показывает физическую форму диалога органа с task context.",
+      "risks": [
+        "Demo semantics может быть переоценена как live organ intelligence."
+      ],
+      "next_strengthening": [
+        "Подключить dialogue packets к реальным directive/veto решениям."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY",
+      "type": "subsystem",
+      "semantic_role": "Визуальный конвейер: owner intake -> contract -> tokens -> lab -> screenshots -> validation.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Защищает от generic dashboard и декоративного самообмана.",
+      "risks": [
+        "Разрыв между Foundry contracts и обязательной admission-проверкой всей Sanctum линии."
+      ],
+      "next_strengthening": [
+        "Сделать Visual Contract Gate жестким блокером для UI acceptance."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/VISUAL_BRAIN",
+      "type": "subsystem",
+      "semantic_role": "Read-only лаборатория corridor visualization из truth artifacts.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Проверяет визуальный язык статусов и evidence binding.",
+      "risks": [
+        "Лабораторный слой без прямого operational control."
+      ],
+      "next_strengthening": [
+        "Связать Visual Brain статусы с актуальным cockpit state."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS",
+      "type": "subsystem",
+      "semantic_role": "SSH/route matrix и политики alias/shortcut с no-private-key-in-repo правилом.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Дает формальную карту контуров и route safety baseline.",
+      "risks": [
+        "Часть контуров обозначены как offline/not configured; неравномерная readiness."
+      ],
+      "next_strengthening": [
+        "Поддерживать live verification stamps с bounded scope и freshness."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/MECHANICUS/TOOL_ADMISSION",
+      "type": "subsystem",
+      "semantic_role": "Каталог решений по внешним инструментам с risk-first подходом.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Предотвращает неуправляемую зависимость от внешних стеков.",
+      "risks": [
+        "Большая доля deferred/candidate состояний задерживает operational uplift."
+      ],
+      "next_strengthening": [
+        "Определить короткий приоритетный список tools для bounded activation."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/SKILLS",
+      "type": "subsystem",
+      "semantic_role": "Skill spine и growth contracts для backend/frontend/visual pipelines.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Дает структуру для накопления компетенций и проверок.",
+      "risks": [
+        "Нужно сильнее связать skills с фактическим task admission."
+      ],
+      "next_strengthening": [
+        "Автоматически привязывать skill requirements к task formation."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/INTAKE",
+      "type": "subsystem",
+      "semantic_role": "Нормализация входных task envelopes.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Упрощает воспроизводимую постановку задач.",
+      "risks": [
+        "Слой тонкий и пока мало используется в широком cockpit контуре."
+      ],
+      "next_strengthening": [
+        "Связать intake normalization с Astronomicon formation по умолчанию."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/TASKS/VM3_ASSIGNED",
+      "type": "folder",
+      "semantic_role": "След handoff-задач по визуальным/санктум-срезам для VM3 контура.",
+      "maturity": "FOUNDATION",
+      "owner_value": "Доказывает контурную декомпозицию работ.",
+      "risks": [
+        "Нужна более строгая связка с единым current truth и completion index."
+      ],
+      "next_strengthening": [
+        "Добавить unified assignment status board в Sanctum NG."
+      ]
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/RESEARCH",
+      "type": "folder",
+      "semantic_role": "Advisory knowledge harvest (без автоматического внедрения OSS).",
+      "maturity": "DRAFT",
+      "owner_value": "Даёт безопасный способ импортировать паттерны без грязного merge.",
+      "risks": [
+        "Может оставаться архивом идей без operational conversion."
+      ],
+      "next_strengthening": [
+        "Любой research-вывод должен иметь explicit promotion task."
+      ]
+    }
+  ],
+  "overall_understanding": {
+    "sees_path": true,
+    "path_summary": "Путь к чистому рабочему ядру виден: contracts + truth + organ packets + sanctum cockpit. Условие успеха: жесткая синхронизация current truth, снижение runtime/report шума в git, и превращение foundation/draft слоев в реальные admission/veto/control механизмы.",
+    "main_blockers": [
+      "Top-level truth declarations and generated states are partially stale versus current HEAD.",
+      "Operational authority is distributed across multiple folders and not yet converged into one enforced gate path.",
+      "Repository contains heavy runtime/report payload that reduces clarity of current working core.",
+      "Sanctum owner interaction remains mostly read-only/preview in critical paths."
+    ],
+    "recommended_next_strikes": [
+      "CURRENT_TRUTH reconciliation against live repository snapshot and freshness labeling.",
+      "Operator Cockpit hard admission gate (evidence/path/screenshot/status consistency).",
+      "Bounded Owner answer write path with full request/result receipts.",
+      "Repo hygiene classifier with quarantine policy for runtime-heavy artifacts.",
+      "Directive/veto upgrade for organ packets from descriptive to executable constraints."
+    ]
+  }
+}
+
