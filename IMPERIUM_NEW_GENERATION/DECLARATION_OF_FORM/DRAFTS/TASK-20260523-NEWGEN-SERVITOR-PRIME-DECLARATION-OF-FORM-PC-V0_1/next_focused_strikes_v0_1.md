@@ -1,4 +1,4 @@
-# NEXT FOCUSED STRIKES V0.1 (DRAFT)
+﻿# NEXT FOCUSED STRIKES V0.1 (DRAFT)
 
 > Цель: короткие локальные удары, которые реально укрепляют clean core, а не расширяют декорации.
 

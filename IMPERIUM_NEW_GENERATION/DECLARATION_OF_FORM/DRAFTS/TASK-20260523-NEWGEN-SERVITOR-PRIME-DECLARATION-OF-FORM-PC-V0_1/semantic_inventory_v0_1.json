@@ -7,354 +7,354 @@
     {
       "path": "IMPERIUM_NEW_GENERATION/README.md",
       "type": "file",
-      "semantic_role": "Паспорт верхнего уровня NewGen, фиксирующий первоначальную базовую рамку.",
+      "semantic_role": "\u041f\u0430\u0441\u043f\u043e\u0440\u0442 \u0432\u0435\u0440\u0445\u043d\u0435\u0433\u043e \u0443\u0440\u043e\u0432\u043d\u044f NewGen, \u0444\u0438\u043a\u0441\u0438\u0440\u0443\u044e\u0449\u0438\u0439 \u043f\u0435\u0440\u0432\u043e\u043d\u0430\u0447\u0430\u043b\u044c\u043d\u0443\u044e \u0431\u0430\u0437\u043e\u0432\u0443\u044e \u0440\u0430\u043c\u043a\u0443.",
       "maturity": "STALE",
-      "owner_value": "Должен быть главным входом для агента.",
+      "owner_value": "\u0414\u043e\u043b\u0436\u0435\u043d \u0431\u044b\u0442\u044c \u0433\u043b\u0430\u0432\u043d\u044b\u043c \u0432\u0445\u043e\u0434\u043e\u043c \u0434\u043b\u044f \u0430\u0433\u0435\u043d\u0442\u0430.",
       "risks": [
-        "Содержимое отстает от текущей фактической ширины дерева (Sanctum NG, transfer, truth layers)."
+        "\u0421\u043e\u0434\u0435\u0440\u0436\u0438\u043c\u043e\u0435 \u043e\u0442\u0441\u0442\u0430\u0435\u0442 \u043e\u0442 \u0442\u0435\u043a\u0443\u0449\u0435\u0439 \u0444\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u0448\u0438\u0440\u0438\u043d\u044b \u0434\u0435\u0440\u0435\u0432\u0430 (Sanctum NG, transfer, truth layers)."
       ],
       "next_strengthening": [
-        "Сделать reconciliation с CURRENT_TRUTH_ROOT и актуальным tree snapshot."
+        "\u0421\u0434\u0435\u043b\u0430\u0442\u044c reconciliation \u0441 CURRENT_TRUTH_ROOT \u0438 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u043c tree snapshot."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/NEW_GENERATION_MANIFEST.json",
       "type": "file",
-      "semantic_role": "Machine-readable стартовая декларация статуса линии NewGen.",
+      "semantic_role": "Machine-readable \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0430\u044f \u0434\u0435\u043a\u043b\u0430\u0440\u0430\u0446\u0438\u044f \u0441\u0442\u0430\u0442\u0443\u0441\u0430 \u043b\u0438\u043d\u0438\u0438 NewGen.",
       "maturity": "STALE",
-      "owner_value": "Задает внешний claim boundary.",
+      "owner_value": "\u0417\u0430\u0434\u0430\u0435\u0442 \u0432\u043d\u0435\u0448\u043d\u0438\u0439 claim boundary.",
       "risks": [
-        "Зафиксирован старый baseline про first-3/skeleton, не отражает новые подсистемы."
+        "\u0417\u0430\u0444\u0438\u043a\u0441\u0438\u0440\u043e\u0432\u0430\u043d \u0441\u0442\u0430\u0440\u044b\u0439 baseline \u043f\u0440\u043e first-3/skeleton, \u043d\u0435 \u043e\u0442\u0440\u0430\u0436\u0430\u0435\u0442 \u043d\u043e\u0432\u044b\u0435 \u043f\u043e\u0434\u0441\u0438\u0441\u0442\u0435\u043c\u044b."
       ],
       "next_strengthening": [
-        "Обновлять манифест как часть current-truth pipeline, не вручную постфактум."
+        "\u041e\u0431\u043d\u043e\u0432\u043b\u044f\u0442\u044c \u043c\u0430\u043d\u0438\u0444\u0435\u0441\u0442 \u043a\u0430\u043a \u0447\u0430\u0441\u0442\u044c current-truth pipeline, \u043d\u0435 \u0432\u0440\u0443\u0447\u043d\u0443\u044e \u043f\u043e\u0441\u0442\u0444\u0430\u043a\u0442\u0443\u043c."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_DIRECTIVES",
       "type": "folder",
-      "semantic_role": "Стратегический вектор для поведения агентов в NewGen.",
+      "semantic_role": "\u0421\u0442\u0440\u0430\u0442\u0435\u0433\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0432\u0435\u043a\u0442\u043e\u0440 \u0434\u043b\u044f \u043f\u043e\u0432\u0435\u0434\u0435\u043d\u0438\u044f \u0430\u0433\u0435\u043d\u0442\u043e\u0432 \u0432 NewGen.",
       "maturity": "FOUNDATION",
-      "owner_value": "Удерживает общую цель и этапность развития.",
+      "owner_value": "\u0423\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 \u043e\u0431\u0449\u0443\u044e \u0446\u0435\u043b\u044c \u0438 \u044d\u0442\u0430\u043f\u043d\u043e\u0441\u0442\u044c \u0440\u0430\u0437\u0432\u0438\u0442\u0438\u044f.",
       "risks": [
-        "Без жесткой связи с runtime/gates директивы могут остаться декларативными."
+        "\u0411\u0435\u0437 \u0436\u0435\u0441\u0442\u043a\u043e\u0439 \u0441\u0432\u044f\u0437\u0438 \u0441 runtime/gates \u0434\u0438\u0440\u0435\u043a\u0442\u0438\u0432\u044b \u043c\u043e\u0433\u0443\u0442 \u043e\u0441\u0442\u0430\u0442\u044c\u0441\u044f \u0434\u0435\u043a\u043b\u0430\u0440\u0430\u0442\u0438\u0432\u043d\u044b\u043c\u0438."
       ],
       "next_strengthening": [
-        "Связать директивы с обязательными machine-check points."
+        "\u0421\u0432\u044f\u0437\u0430\u0442\u044c \u0434\u0438\u0440\u0435\u043a\u0442\u0438\u0432\u044b \u0441 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u043c\u0438 machine-check points."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/CORE",
       "type": "subsystem",
-      "semantic_role": "Граница песочницы: где можно писать, где нельзя, что защищено.",
+      "semantic_role": "\u0413\u0440\u0430\u043d\u0438\u0446\u0430 \u043f\u0435\u0441\u043e\u0447\u043d\u0438\u0446\u044b: \u0433\u0434\u0435 \u043c\u043e\u0436\u043d\u043e \u043f\u0438\u0441\u0430\u0442\u044c, \u0433\u0434\u0435 \u043d\u0435\u043b\u044c\u0437\u044f, \u0447\u0442\u043e \u0437\u0430\u0449\u0438\u0449\u0435\u043d\u043e.",
       "maturity": "PROVED",
-      "owner_value": "Физически ограничивает разрушительный scope drift.",
+      "owner_value": "\u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0440\u0430\u0437\u0440\u0443\u0448\u0438\u0442\u0435\u043b\u044c\u043d\u044b\u0439 scope drift.",
       "risks": [
-        "Границы описаны файлами, но не все pipelines автоматически их валидируют."
+        "\u0413\u0440\u0430\u043d\u0438\u0446\u044b \u043e\u043f\u0438\u0441\u0430\u043d\u044b \u0444\u0430\u0439\u043b\u0430\u043c\u0438, \u043d\u043e \u043d\u0435 \u0432\u0441\u0435 pipelines \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u0438\u0445 \u0432\u0430\u043b\u0438\u0434\u0438\u0440\u0443\u044e\u0442."
       ],
       "next_strengthening": [
-        "Принудительно проверять core boundaries в каждом closure receipt."
+        "\u041f\u0440\u0438\u043d\u0443\u0434\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u043f\u0440\u043e\u0432\u0435\u0440\u044f\u0442\u044c core boundaries \u0432 \u043a\u0430\u0436\u0434\u043e\u043c closure receipt."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ARCHITECTURE",
       "type": "subsystem",
-      "semantic_role": "Документированный каркас эволюции (Task Kernel, Organ Packets, Servitor loop, Visual Brain).",
+      "semantic_role": "\u0414\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u043d\u044b\u0439 \u043a\u0430\u0440\u043a\u0430\u0441 \u044d\u0432\u043e\u043b\u044e\u0446\u0438\u0438 (Task Kernel, Organ Packets, Servitor loop, Visual Brain).",
       "maturity": "FOUNDATION",
-      "owner_value": "Снижает хаос и удерживает общий инженерный язык.",
+      "owner_value": "\u0421\u043d\u0438\u0436\u0430\u0435\u0442 \u0445\u0430\u043e\u0441 \u0438 \u0443\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 \u043e\u0431\u0449\u0438\u0439 \u0438\u043d\u0436\u0435\u043d\u0435\u0440\u043d\u044b\u0439 \u044f\u0437\u044b\u043a.",
       "risks": [
-        "Риск архитектурной инфляции без немедленной операционной интеграции."
+        "\u0420\u0438\u0441\u043a \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u043d\u043e\u0439 \u0438\u043d\u0444\u043b\u044f\u0446\u0438\u0438 \u0431\u0435\u0437 \u043d\u0435\u043c\u0435\u0434\u043b\u0435\u043d\u043d\u043e\u0439 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u043e\u043d\u043d\u043e\u0439 \u0438\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u0438."
       ],
       "next_strengthening": [
-        "Каждый архитектурный слой должен давать observable delta в Sanctum."
+        "\u041a\u0430\u0436\u0434\u044b\u0439 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u043d\u044b\u0439 \u0441\u043b\u043e\u0439 \u0434\u043e\u043b\u0436\u0435\u043d \u0434\u0430\u0432\u0430\u0442\u044c observable delta \u0432 Sanctum."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/CONTRACTS",
       "type": "subsystem",
-      "semantic_role": "Схемы и контрактные форматы для task/object/scope/session/skill/tool/visual state.",
+      "semantic_role": "\u0421\u0445\u0435\u043c\u044b \u0438 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u043d\u044b\u0435 \u0444\u043e\u0440\u043c\u0430\u0442\u044b \u0434\u043b\u044f task/object/scope/session/skill/tool/visual state.",
       "maturity": "PROVED",
-      "owner_value": "Опора против неявных договоренностей и fake-green.",
+      "owner_value": "\u041e\u043f\u043e\u0440\u0430 \u043f\u0440\u043e\u0442\u0438\u0432 \u043d\u0435\u044f\u0432\u043d\u044b\u0445 \u0434\u043e\u0433\u043e\u0432\u043e\u0440\u0435\u043d\u043d\u043e\u0441\u0442\u0435\u0439 \u0438 fake-green.",
       "risks": [
-        "Есть контракты, для которых нет полного operational lifecycle."
+        "\u0415\u0441\u0442\u044c \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u044b, \u0434\u043b\u044f \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043d\u0435\u0442 \u043f\u043e\u043b\u043d\u043e\u0433\u043e operational lifecycle."
       ],
       "next_strengthening": [
-        "Отмечать контракт как STUB, пока нет builder+validator+consumer."
+        "\u041e\u0442\u043c\u0435\u0447\u0430\u0442\u044c \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442 \u043a\u0430\u043a STUB, \u043f\u043e\u043a\u0430 \u043d\u0435\u0442 builder+validator+consumer."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TOOLS",
       "type": "subsystem",
-      "semantic_role": "Инструментальный слой builder/validator для архитектурных и truth-артефактов.",
+      "semantic_role": "\u0418\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u0430\u043b\u044c\u043d\u044b\u0439 \u0441\u043b\u043e\u0439 builder/validator \u0434\u043b\u044f \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u043d\u044b\u0445 \u0438 truth-\u0430\u0440\u0442\u0435\u0444\u0430\u043a\u0442\u043e\u0432.",
       "maturity": "FOUNDATION",
-      "owner_value": "Позволяет воспроизводимо пересобирать state вместо ручного редактирования.",
+      "owner_value": "\u041f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u043c\u043e \u043f\u0435\u0440\u0435\u0441\u043e\u0431\u0438\u0440\u0430\u0442\u044c state \u0432\u043c\u0435\u0441\u0442\u043e \u0440\u0443\u0447\u043d\u043e\u0433\u043e \u0440\u0435\u0434\u0430\u043a\u0442\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f.",
       "risks": [
-        "Часть tooling находится в разных подсистемах без единого tool registry truth."
+        "\u0427\u0430\u0441\u0442\u044c tooling \u043d\u0430\u0445\u043e\u0434\u0438\u0442\u0441\u044f \u0432 \u0440\u0430\u0437\u043d\u044b\u0445 \u043f\u043e\u0434\u0441\u0438\u0441\u0442\u0435\u043c\u0430\u0445 \u0431\u0435\u0437 \u0435\u0434\u0438\u043d\u043e\u0433\u043e tool registry truth."
       ],
       "next_strengthening": [
-        "Собрать единый индекс инструментов и их зрелости."
+        "\u0421\u043e\u0431\u0440\u0430\u0442\u044c \u0435\u0434\u0438\u043d\u044b\u0439 \u0438\u043d\u0434\u0435\u043a\u0441 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0438 \u0438\u0445 \u0437\u0440\u0435\u043b\u043e\u0441\u0442\u0438."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TASK_CONTROL",
       "type": "subsystem",
-      "semantic_role": "Протоколы объема задач, stage checkpoint и owner decision discipline.",
+      "semantic_role": "\u041f\u0440\u043e\u0442\u043e\u043a\u043e\u043b\u044b \u043e\u0431\u044a\u0435\u043c\u0430 \u0437\u0430\u0434\u0430\u0447, stage checkpoint \u0438 owner decision discipline.",
       "maturity": "FOUNDATION",
-      "owner_value": "Уменьшает расползание scope и делает частичную приемку явной.",
+      "owner_value": "\u0423\u043c\u0435\u043d\u044c\u0448\u0430\u0435\u0442 \u0440\u0430\u0441\u043f\u043e\u043b\u0437\u0430\u043d\u0438\u0435 scope \u0438 \u0434\u0435\u043b\u0430\u0435\u0442 \u0447\u0430\u0441\u0442\u0438\u0447\u043d\u0443\u044e \u043f\u0440\u0438\u0435\u043c\u043a\u0443 \u044f\u0432\u043d\u043e\u0439.",
       "risks": [
-        "Может остаться бумажным, если не вшит в ежедневный run flow."
+        "\u041c\u043e\u0436\u0435\u0442 \u043e\u0441\u0442\u0430\u0442\u044c\u0441\u044f \u0431\u0443\u043c\u0430\u0436\u043d\u044b\u043c, \u0435\u0441\u043b\u0438 \u043d\u0435 \u0432\u0448\u0438\u0442 \u0432 \u0435\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u044b\u0439 run flow."
       ],
       "next_strengthening": [
-        "Показывать task volume/stage checkpoint прямо в Operator Cockpit."
+        "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0442\u044c task volume/stage checkpoint \u043f\u0440\u044f\u043c\u043e \u0432 Operator Cockpit."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TASK_CONTROL/ANTI_CRUTCH_PROTOCOL",
       "type": "subsystem",
-      "semantic_role": "Защита от taskpack-only костылей и обхода канонических владельцев правил.",
+      "semantic_role": "\u0417\u0430\u0449\u0438\u0442\u0430 \u043e\u0442 taskpack-only \u043a\u043e\u0441\u0442\u044b\u043b\u0435\u0439 \u0438 \u043e\u0431\u0445\u043e\u0434\u0430 \u043a\u0430\u043d\u043e\u043d\u0438\u0447\u0435\u0441\u043a\u0438\u0445 \u0432\u043b\u0430\u0434\u0435\u043b\u044c\u0446\u0435\u0432 \u043f\u0440\u0430\u0432\u0438\u043b.",
       "maturity": "FOUNDATION",
-      "owner_value": "Снижает повторяемость временных workaround как псевдо-решений.",
+      "owner_value": "\u0421\u043d\u0438\u0436\u0430\u0435\u0442 \u043f\u043e\u0432\u0442\u043e\u0440\u044f\u0435\u043c\u043e\u0441\u0442\u044c \u0432\u0440\u0435\u043c\u0435\u043d\u043d\u044b\u0445 workaround \u043a\u0430\u043a \u043f\u0441\u0435\u0432\u0434\u043e-\u0440\u0435\u0448\u0435\u043d\u0438\u0439.",
       "risks": [
-        "Нужна жесткая связка с admission pipeline, иначе правило останется advisory."
+        "\u041d\u0443\u0436\u043d\u0430 \u0436\u0435\u0441\u0442\u043a\u0430\u044f \u0441\u0432\u044f\u0437\u043a\u0430 \u0441 admission pipeline, \u0438\u043d\u0430\u0447\u0435 \u043f\u0440\u0430\u0432\u0438\u043b\u043e \u043e\u0441\u0442\u0430\u043d\u0435\u0442\u0441\u044f advisory."
       ],
       "next_strengthening": [
-        "Делать BLOCK при canonical authority bypass в closure check."
+        "\u0414\u0435\u043b\u0430\u0442\u044c BLOCK \u043f\u0440\u0438 canonical authority bypass \u0432 closure check."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/COMMON_AGENT_CLI",
       "type": "subsystem",
-      "semantic_role": "Общий shell и проверочные утилиты для орган-агентов.",
+      "semantic_role": "\u041e\u0431\u0449\u0438\u0439 shell \u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u043e\u0447\u043d\u044b\u0435 \u0443\u0442\u0438\u043b\u0438\u0442\u044b \u0434\u043b\u044f \u043e\u0440\u0433\u0430\u043d-\u0430\u0433\u0435\u043d\u0442\u043e\u0432.",
       "maturity": "FOUNDATION",
-      "owner_value": "Унифицирует UX и снижает случайность поведения агентов.",
+      "owner_value": "\u0423\u043d\u0438\u0444\u0438\u0446\u0438\u0440\u0443\u0435\u0442 UX \u0438 \u0441\u043d\u0438\u0436\u0430\u0435\u0442 \u0441\u043b\u0443\u0447\u0430\u0439\u043d\u043e\u0441\u0442\u044c \u043f\u043e\u0432\u0435\u0434\u0435\u043d\u0438\u044f \u0430\u0433\u0435\u043d\u0442\u043e\u0432.",
       "risks": [
-        "UI polish без глубокой связки с правдой может дать ложное ощущение зрелости."
+        "UI polish \u0431\u0435\u0437 \u0433\u043b\u0443\u0431\u043e\u043a\u043e\u0439 \u0441\u0432\u044f\u0437\u043a\u0438 \u0441 \u043f\u0440\u0430\u0432\u0434\u043e\u0439 \u043c\u043e\u0436\u0435\u0442 \u0434\u0430\u0442\u044c \u043b\u043e\u0436\u043d\u043e\u0435 \u043e\u0449\u0443\u0449\u0435\u043d\u0438\u0435 \u0437\u0440\u0435\u043b\u043e\u0441\u0442\u0438."
       ],
       "next_strengthening": [
-        "Связать shell status с current truth indices."
+        "\u0421\u0432\u044f\u0437\u0430\u0442\u044c shell status \u0441 current truth indices."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS",
       "type": "subsystem",
-      "semantic_role": "Ядро органной модели: 10 орган-агентов с разной зрелостью.",
+      "semantic_role": "\u042f\u0434\u0440\u043e \u043e\u0440\u0433\u0430\u043d\u043d\u043e\u0439 \u043c\u043e\u0434\u0435\u043b\u0438: 10 \u043e\u0440\u0433\u0430\u043d-\u0430\u0433\u0435\u043d\u0442\u043e\u0432 \u0441 \u0440\u0430\u0437\u043d\u043e\u0439 \u0437\u0440\u0435\u043b\u043e\u0441\u0442\u044c\u044e.",
       "maturity": "FOUNDATION",
-      "owner_value": "Позволяет разносить ответственность по ролям и правилам.",
+      "owner_value": "\u041f\u043e\u0437\u0432\u043e\u043b\u044f\u0435\u0442 \u0440\u0430\u0437\u043d\u043e\u0441\u0438\u0442\u044c \u043e\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043d\u043d\u043e\u0441\u0442\u044c \u043f\u043e \u0440\u043e\u043b\u044f\u043c \u0438 \u043f\u0440\u0430\u0432\u0438\u043b\u0430\u043c.",
       "risks": [
-        "Часть органов имеет rich shell, но semantic power еще не превращен в живой veto/control loop."
+        "\u0427\u0430\u0441\u0442\u044c \u043e\u0440\u0433\u0430\u043d\u043e\u0432 \u0438\u043c\u0435\u0435\u0442 rich shell, \u043d\u043e semantic power \u0435\u0449\u0435 \u043d\u0435 \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0435\u043d \u0432 \u0436\u0438\u0432\u043e\u0439 veto/control loop."
       ],
       "next_strengthening": [
-        "Переход от декоративной органности к обязательным directive packets."
+        "\u041f\u0435\u0440\u0435\u0445\u043e\u0434 \u043e\u0442 \u0434\u0435\u043a\u043e\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0439 \u043e\u0440\u0433\u0430\u043d\u043d\u043e\u0441\u0442\u0438 \u043a \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u043c directive packets."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ADMINISTRATUM_AGENT",
       "type": "organ",
-      "semantic_role": "Память/инвентарь/provenance/continuity/transfer gateway NewGen.",
+      "semantic_role": "\u041f\u0430\u043c\u044f\u0442\u044c/\u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044c/provenance/continuity/transfer gateway NewGen.",
       "maturity": "PROVED",
-      "owner_value": "Наиболее развитый исполнитель для структурирования фактов и handoff.",
+      "owner_value": "\u041d\u0430\u0438\u0431\u043e\u043b\u0435\u0435 \u0440\u0430\u0437\u0432\u0438\u0442\u044b\u0439 \u0438\u0441\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c \u0434\u043b\u044f \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f \u0444\u0430\u043a\u0442\u043e\u0432 \u0438 handoff.",
       "risks": [
-        "Большие объемы runtime outputs в git снижают чистоту ядра."
+        "\u0411\u043e\u043b\u044c\u0448\u0438\u0435 \u043e\u0431\u044a\u0435\u043c\u044b runtime outputs \u0432 git \u0441\u043d\u0438\u0436\u0430\u044e\u0442 \u0447\u0438\u0441\u0442\u043e\u0442\u0443 \u044f\u0434\u0440\u0430."
       ],
       "next_strengthening": [
-        "Ввести classifier + quarantine режим для run artifacts."
+        "\u0412\u0432\u0435\u0441\u0442\u0438 classifier + quarantine \u0440\u0435\u0436\u0438\u043c \u0434\u043b\u044f run artifacts."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/OFFICIO_AGENTIS_AGENT",
       "type": "organ",
-      "semantic_role": "Ролевой и коммуникационный контроллер исполнения (role/settings/response contracts).",
+      "semantic_role": "\u0420\u043e\u043b\u0435\u0432\u043e\u0439 \u0438 \u043a\u043e\u043c\u043c\u0443\u043d\u0438\u043a\u0430\u0446\u0438\u043e\u043d\u043d\u044b\u0439 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u043b\u0435\u0440 \u0438\u0441\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f (role/settings/response contracts).",
       "maturity": "FOUNDATION",
-      "owner_value": "Сдерживает агент от неограниченной импровизации.",
+      "owner_value": "\u0421\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 \u0430\u0433\u0435\u043d\u0442 \u043e\u0442 \u043d\u0435\u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u043d\u043e\u0439 \u0438\u043c\u043f\u0440\u043e\u0432\u0438\u0437\u0430\u0446\u0438\u0438.",
       "risks": [
-        "Не все текущие workflow физически проверяют Officio ACK перед действиями."
+        "\u041d\u0435 \u0432\u0441\u0435 \u0442\u0435\u043a\u0443\u0449\u0438\u0435 workflow \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u044f\u044e\u0442 Officio ACK \u043f\u0435\u0440\u0435\u0434 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f\u043c\u0438."
       ],
       "next_strengthening": [
-        "Сделать Officio ACK обязательным machine gate для запуска task execution."
+        "\u0421\u0434\u0435\u043b\u0430\u0442\u044c Officio ACK \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u043c machine gate \u0434\u043b\u044f \u0437\u0430\u043f\u0443\u0441\u043a\u0430 task execution."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/MECHANICUS_AGENT",
       "type": "organ",
-      "semantic_role": "Инженерный орган допусков инструментов и проверок.",
+      "semantic_role": "\u0418\u043d\u0436\u0435\u043d\u0435\u0440\u043d\u044b\u0439 \u043e\u0440\u0433\u0430\u043d \u0434\u043e\u043f\u0443\u0441\u043a\u043e\u0432 \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u043e\u0432 \u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u043e\u043a.",
       "maturity": "FOUNDATION",
-      "owner_value": "Снижает риск неконтролируемых tool/install действий.",
+      "owner_value": "\u0421\u043d\u0438\u0436\u0430\u0435\u0442 \u0440\u0438\u0441\u043a \u043d\u0435\u043a\u043e\u043d\u0442\u0440\u043e\u043b\u0438\u0440\u0443\u0435\u043c\u044b\u0445 tool/install \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.",
       "risks": [
-        "Tool admission часто завершаеться candidate/deferred, operational закрытие медленное."
+        "Tool admission \u0447\u0430\u0441\u0442\u043e \u0437\u0430\u0432\u0435\u0440\u0448\u0430\u0435\u0442\u044c\u0441\u044f candidate/deferred, operational \u0437\u0430\u043a\u0440\u044b\u0442\u0438\u0435 \u043c\u0435\u0434\u043b\u0435\u043d\u043d\u043e\u0435."
       ],
       "next_strengthening": [
-        "Ускорить путь candidate -> bounded operational usage с receipts."
+        "\u0423\u0441\u043a\u043e\u0440\u0438\u0442\u044c \u043f\u0443\u0442\u044c candidate -> bounded operational usage \u0441 receipts."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/CUSTODES_AGENT",
       "type": "organ",
-      "semantic_role": "Базовый gatekeeper для path/core admission checks.",
+      "semantic_role": "\u0411\u0430\u0437\u043e\u0432\u044b\u0439 gatekeeper \u0434\u043b\u044f path/core admission checks.",
       "maturity": "FOUNDATION",
-      "owner_value": "Критичен для защиты core boundaries.",
+      "owner_value": "\u041a\u0440\u0438\u0442\u0438\u0447\u0435\u043d \u0434\u043b\u044f \u0437\u0430\u0449\u0438\u0442\u044b core boundaries.",
       "risks": [
-        "Реализован узко; locked role в более широком organ-cockpit контуре."
+        "\u0420\u0435\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043d \u0443\u0437\u043a\u043e; locked role \u0432 \u0431\u043e\u043b\u0435\u0435 \u0448\u0438\u0440\u043e\u043a\u043e\u043c organ-cockpit \u043a\u043e\u043d\u0442\u0443\u0440\u0435."
       ],
       "next_strengthening": [
-        "Расширить Custodes до явного veto-path в Sanctum action model."
+        "\u0420\u0430\u0441\u0448\u0438\u0440\u0438\u0442\u044c Custodes \u0434\u043e \u044f\u0432\u043d\u043e\u0433\u043e veto-path \u0432 Sanctum action model."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/ASTRONOMICON_AGENT",
       "type": "organ",
-      "semantic_role": "Орган маршрутизации задачи и stage-map формирования.",
+      "semantic_role": "\u041e\u0440\u0433\u0430\u043d \u043c\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0446\u0438\u0438 \u0437\u0430\u0434\u0430\u0447\u0438 \u0438 stage-map \u0444\u043e\u0440\u043c\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f.",
       "maturity": "DRAFT",
-      "owner_value": "Должен стабилизировать task intake и decomposition.",
+      "owner_value": "\u0414\u043e\u043b\u0436\u0435\u043d \u0441\u0442\u0430\u0431\u0438\u043b\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c task intake \u0438 decomposition.",
       "risks": [
-        "Статус mostly skeleton при наличии зрелых архитектурных контрактов."
+        "\u0421\u0442\u0430\u0442\u0443\u0441 mostly skeleton \u043f\u0440\u0438 \u043d\u0430\u043b\u0438\u0447\u0438\u0438 \u0437\u0440\u0435\u043b\u044b\u0445 \u0430\u0440\u0445\u0438\u0442\u0435\u043a\u0442\u0443\u0440\u043d\u044b\u0445 \u043a\u043e\u043d\u0442\u0440\u0430\u043a\u0442\u043e\u0432."
       ],
       "next_strengthening": [
-        "Сделать Astronomicon formation обязательным входом новых задач."
+        "\u0421\u0434\u0435\u043b\u0430\u0442\u044c Astronomicon formation \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u044b\u043c \u0432\u0445\u043e\u0434\u043e\u043c \u043d\u043e\u0432\u044b\u0445 \u0437\u0430\u0434\u0430\u0447."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/DOCTRINARIUM_AGENT",
       "type": "organ",
-      "semantic_role": "Орган закона и доктринальных ограничений.",
+      "semantic_role": "\u041e\u0440\u0433\u0430\u043d \u0437\u0430\u043a\u043e\u043d\u0430 \u0438 \u0434\u043e\u043a\u0442\u0440\u0438\u043d\u0430\u043b\u044c\u043d\u044b\u0445 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0438\u0439.",
       "maturity": "DRAFT",
-      "owner_value": "Должен устранить множественные источники правил.",
+      "owner_value": "\u0414\u043e\u043b\u0436\u0435\u043d \u0443\u0441\u0442\u0440\u0430\u043d\u0438\u0442\u044c \u043c\u043d\u043e\u0436\u0435\u0441\u0442\u0432\u0435\u043d\u043d\u044b\u0435 \u0438\u0441\u0442\u043e\u0447\u043d\u0438\u043a\u0438 \u043f\u0440\u0430\u0432\u0438\u043b.",
       "risks": [
-        "Скелетный статус при высокой потребности в едином law root."
+        "\u0421\u043a\u0435\u043b\u0435\u0442\u043d\u044b\u0439 \u0441\u0442\u0430\u0442\u0443\u0441 \u043f\u0440\u0438 \u0432\u044b\u0441\u043e\u043a\u043e\u0439 \u043f\u043e\u0442\u0440\u0435\u0431\u043d\u043e\u0441\u0442\u0438 \u0432 \u0435\u0434\u0438\u043d\u043e\u043c law root."
       ],
       "next_strengthening": [
-        "Сконсолидировать draft laws в единую doctrinal read path."
+        "\u0421\u043a\u043e\u043d\u0441\u043e\u043b\u0438\u0434\u0438\u0440\u043e\u0432\u0430\u0442\u044c draft laws \u0432 \u0435\u0434\u0438\u043d\u0443\u044e doctrinal read path."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/INQUISITION_AGENT",
       "type": "organ",
-      "semantic_role": "Орган аудита и anti-fake-green enforcement.",
+      "semantic_role": "\u041e\u0440\u0433\u0430\u043d \u0430\u0443\u0434\u0438\u0442\u0430 \u0438 anti-fake-green enforcement.",
       "maturity": "DRAFT",
-      "owner_value": "Критичен для честных verdicts и контроля риска.",
+      "owner_value": "\u041a\u0440\u0438\u0442\u0438\u0447\u0435\u043d \u0434\u043b\u044f \u0447\u0435\u0441\u0442\u043d\u044b\u0445 verdicts \u0438 \u043a\u043e\u043d\u0442\u0440\u043e\u043b\u044f \u0440\u0438\u0441\u043a\u0430.",
       "risks": [
-        "Часть инквизиционных правил реализована вне органа как распределенные скрипты."
+        "\u0427\u0430\u0441\u0442\u044c \u0438\u043d\u043a\u0432\u0438\u0437\u0438\u0446\u0438\u043e\u043d\u043d\u044b\u0445 \u043f\u0440\u0430\u0432\u0438\u043b \u0440\u0435\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u043d\u0430 \u0432\u043d\u0435 \u043e\u0440\u0433\u0430\u043d\u0430 \u043a\u0430\u043a \u0440\u0430\u0441\u043f\u0440\u0435\u0434\u0435\u043b\u0435\u043d\u043d\u044b\u0435 \u0441\u043a\u0440\u0438\u043f\u0442\u044b."
       ],
       "next_strengthening": [
-        "Собрать Inquisition gatepack и связать с final receipts."
+        "\u0421\u043e\u0431\u0440\u0430\u0442\u044c Inquisition gatepack \u0438 \u0441\u0432\u044f\u0437\u0430\u0442\u044c \u0441 final receipts."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/STRATEGIUM_AGENT",
       "type": "organ",
-      "semantic_role": "Орган приоритизации, freeze policy и кампаний.",
+      "semantic_role": "\u041e\u0440\u0433\u0430\u043d \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0438\u0437\u0430\u0446\u0438\u0438, freeze policy \u0438 \u043a\u0430\u043c\u043f\u0430\u043d\u0438\u0439.",
       "maturity": "DRAFT",
-      "owner_value": "Нужен для строгого выбора next strike вместо распыления.",
+      "owner_value": "\u041d\u0443\u0436\u0435\u043d \u0434\u043b\u044f \u0441\u0442\u0440\u043e\u0433\u043e\u0433\u043e \u0432\u044b\u0431\u043e\u0440\u0430 next strike \u0432\u043c\u0435\u0441\u0442\u043e \u0440\u0430\u0441\u043f\u044b\u043b\u0435\u043d\u0438\u044f.",
       "risks": [
-        "Сейчас ограничен skeleton-представлением."
+        "\u0421\u0435\u0439\u0447\u0430\u0441 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d skeleton-\u043f\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043b\u0435\u043d\u0438\u0435\u043c."
       ],
       "next_strengthening": [
-        "Встроить Strategium decision cards в cockpit review."
+        "\u0412\u0441\u0442\u0440\u043e\u0438\u0442\u044c Strategium decision cards \u0432 cockpit review."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/SCHOLA_IMPERIALIS_AGENT",
       "type": "organ",
-      "semantic_role": "Орган обучения, lesson-loop и skill growth.",
+      "semantic_role": "\u041e\u0440\u0433\u0430\u043d \u043e\u0431\u0443\u0447\u0435\u043d\u0438\u044f, lesson-loop \u0438 skill growth.",
       "maturity": "DRAFT",
-      "owner_value": "Должен превращать ошибки в устойчивый обучающий капитал.",
+      "owner_value": "\u0414\u043e\u043b\u0436\u0435\u043d \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0442\u044c \u043e\u0448\u0438\u0431\u043a\u0438 \u0432 \u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432\u044b\u0439 \u043e\u0431\u0443\u0447\u0430\u044e\u0449\u0438\u0439 \u043a\u0430\u043f\u0438\u0442\u0430\u043b.",
       "risks": [
-        "Learning artifacts есть, но автоматическое влияние на preflight слабо."
+        "Learning artifacts \u0435\u0441\u0442\u044c, \u043d\u043e \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0435 \u0432\u043b\u0438\u044f\u043d\u0438\u0435 \u043d\u0430 preflight \u0441\u043b\u0430\u0431\u043e."
       ],
       "next_strengthening": [
-        "Связать Schola lessons с admission checks будущих задач."
+        "\u0421\u0432\u044f\u0437\u0430\u0442\u044c Schola lessons \u0441 admission checks \u0431\u0443\u0434\u0443\u0449\u0438\u0445 \u0437\u0430\u0434\u0430\u0447."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_AGENTS/THRONE_AGENT",
       "type": "organ",
-      "semantic_role": "Будущий верхний контур управления (пока locked/skeleton).",
+      "semantic_role": "\u0411\u0443\u0434\u0443\u0449\u0438\u0439 \u0432\u0435\u0440\u0445\u043d\u0438\u0439 \u043a\u043e\u043d\u0442\u0443\u0440 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f (\u043f\u043e\u043a\u0430 locked/skeleton).",
       "maturity": "DRAFT",
-      "owner_value": "Резерв для будущей централизации ежедневного управления.",
+      "owner_value": "\u0420\u0435\u0437\u0435\u0440\u0432 \u0434\u043b\u044f \u0431\u0443\u0434\u0443\u0449\u0435\u0439 \u0446\u0435\u043d\u0442\u0440\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438 \u0435\u0436\u0435\u0434\u043d\u0435\u0432\u043d\u043e\u0433\u043e \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f.",
       "risks": [
-        "Ранние ожидания от Throne могут спровоцировать premature autonomy claims."
+        "\u0420\u0430\u043d\u043d\u0438\u0435 \u043e\u0436\u0438\u0434\u0430\u043d\u0438\u044f \u043e\u0442 Throne \u043c\u043e\u0433\u0443\u0442 \u0441\u043f\u0440\u043e\u0432\u043e\u0446\u0438\u0440\u043e\u0432\u0430\u0442\u044c premature autonomy claims."
       ],
       "next_strengthening": [
-        "Сохранять locked статус до зрелости clean core."
+        "\u0421\u043e\u0445\u0440\u0430\u043d\u044f\u0442\u044c locked \u0441\u0442\u0430\u0442\u0443\u0441 \u0434\u043e \u0437\u0440\u0435\u043b\u043e\u0441\u0442\u0438 clean core."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/EXCHANGE",
       "type": "subsystem",
-      "semantic_role": "File-based органный bus и Servitor envelope обмен.",
+      "semantic_role": "File-based \u043e\u0440\u0433\u0430\u043d\u043d\u044b\u0439 bus \u0438 Servitor envelope \u043e\u0431\u043c\u0435\u043d.",
       "maturity": "FOUNDATION",
-      "owner_value": "Доказывает физическую форму межорганного обмена без магии.",
+      "owner_value": "\u0414\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0444\u043e\u0440\u043c\u0443 \u043c\u0435\u0436\u043e\u0440\u0433\u0430\u043d\u043d\u043e\u0433\u043e \u043e\u0431\u043c\u0435\u043d\u0430 \u0431\u0435\u0437 \u043c\u0430\u0433\u0438\u0438.",
       "risks": [
-        "Много демо-наследия, ограниченный operational refresh."
+        "\u041c\u043d\u043e\u0433\u043e \u0434\u0435\u043c\u043e-\u043d\u0430\u0441\u043b\u0435\u0434\u0438\u044f, \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u043d\u044b\u0439 operational refresh."
       ],
       "next_strengthening": [
-        "Привязать exchange события к актуальным production-like task slices."
+        "\u041f\u0440\u0438\u0432\u044f\u0437\u0430\u0442\u044c exchange \u0441\u043e\u0431\u044b\u0442\u0438\u044f \u043a \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u043c production-like task slices."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/LEDGER",
       "type": "subsystem",
-      "semantic_role": "Базовые индексы памяти и route/task событий.",
+      "semantic_role": "\u0411\u0430\u0437\u043e\u0432\u044b\u0435 \u0438\u043d\u0434\u0435\u043a\u0441\u044b \u043f\u0430\u043c\u044f\u0442\u0438 \u0438 route/task \u0441\u043e\u0431\u044b\u0442\u0438\u0439.",
       "maturity": "FOUNDATION",
-      "owner_value": "Минимальный event backbone для отслеживания истории.",
+      "owner_value": "\u041c\u0438\u043d\u0438\u043c\u0430\u043b\u044c\u043d\u044b\u0439 event backbone \u0434\u043b\u044f \u043e\u0442\u0441\u043b\u0435\u0436\u0438\u0432\u0430\u043d\u0438\u044f \u0438\u0441\u0442\u043e\u0440\u0438\u0438.",
       "risks": [
-        "Сильная доля старых демо-событий, слабая нормализация свежести."
+        "\u0421\u0438\u043b\u044c\u043d\u0430\u044f \u0434\u043e\u043b\u044f \u0441\u0442\u0430\u0440\u044b\u0445 \u0434\u0435\u043c\u043e-\u0441\u043e\u0431\u044b\u0442\u0438\u0439, \u0441\u043b\u0430\u0431\u0430\u044f \u043d\u043e\u0440\u043c\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f \u0441\u0432\u0435\u0436\u0435\u0441\u0442\u0438."
       ],
       "next_strengthening": [
-        "Разделить historical и current ledger slices."
+        "\u0420\u0430\u0437\u0434\u0435\u043b\u0438\u0442\u044c historical \u0438 current ledger slices."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/RUNS",
       "type": "subsystem",
-      "semantic_role": "Слой runtime-выгрузок и следов выполнения.",
+      "semantic_role": "\u0421\u043b\u043e\u0439 runtime-\u0432\u044b\u0433\u0440\u0443\u0437\u043e\u043a \u0438 \u0441\u043b\u0435\u0434\u043e\u0432 \u0432\u044b\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f.",
       "maturity": "QUARANTINE_CANDIDATE",
-      "owner_value": "Хранит богатую трассу действий и отчуждаемое evidence.",
+      "owner_value": "\u0425\u0440\u0430\u043d\u0438\u0442 \u0431\u043e\u0433\u0430\u0442\u0443\u044e \u0442\u0440\u0430\u0441\u0441\u0443 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439 \u0438 \u043e\u0442\u0447\u0443\u0436\u0434\u0430\u0435\u043c\u043e\u0435 evidence.",
       "risks": [
-        "Очень большой объем файлов внутри git осложняет чистое ядро и обзор.",
-        "Смешение долговременного хранения и активного рабочего набора."
+        "\u041e\u0447\u0435\u043d\u044c \u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u043e\u0431\u044a\u0435\u043c \u0444\u0430\u0439\u043b\u043e\u0432 \u0432\u043d\u0443\u0442\u0440\u0438 git \u043e\u0441\u043b\u043e\u0436\u043d\u044f\u0435\u0442 \u0447\u0438\u0441\u0442\u043e\u0435 \u044f\u0434\u0440\u043e \u0438 \u043e\u0431\u0437\u043e\u0440.",
+        "\u0421\u043c\u0435\u0448\u0435\u043d\u0438\u0435 \u0434\u043e\u043b\u0433\u043e\u0432\u0440\u0435\u043c\u0435\u043d\u043d\u043e\u0433\u043e \u0445\u0440\u0430\u043d\u0435\u043d\u0438\u044f \u0438 \u0430\u043a\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0440\u0430\u0431\u043e\u0447\u0435\u0433\u043e \u043d\u0430\u0431\u043e\u0440\u0430."
       ],
       "next_strengthening": [
-        "Ввести lifecycle policy: keep current, archive external, quarantine noisy."
+        "\u0412\u0432\u0435\u0441\u0442\u0438 lifecycle policy: keep current, archive external, quarantine noisy."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ARCHIVE",
       "type": "subsystem",
-      "semantic_role": "Постоянный архив Administratum route/task/receipt артефактов.",
+      "semantic_role": "\u041f\u043e\u0441\u0442\u043e\u044f\u043d\u043d\u044b\u0439 \u0430\u0440\u0445\u0438\u0432 Administratum route/task/receipt \u0430\u0440\u0442\u0435\u0444\u0430\u043a\u0442\u043e\u0432.",
       "maturity": "FOUNDATION",
-      "owner_value": "Сохраняет проверяемую историю решений.",
+      "owner_value": "\u0421\u043e\u0445\u0440\u0430\u043d\u044f\u0435\u0442 \u043f\u0440\u043e\u0432\u0435\u0440\u044f\u0435\u043c\u0443\u044e \u0438\u0441\u0442\u043e\u0440\u0438\u044e \u0440\u0435\u0448\u0435\u043d\u0438\u0439.",
       "risks": [
-        "Без freshness flags архив может восприниматься как current truth."
+        "\u0411\u0435\u0437 freshness flags \u0430\u0440\u0445\u0438\u0432 \u043c\u043e\u0436\u0435\u0442 \u0432\u043e\u0441\u043f\u0440\u0438\u043d\u0438\u043c\u0430\u0442\u044c\u0441\u044f \u043a\u0430\u043a current truth."
       ],
       "next_strengthening": [
-        "Ввести жесткие маркеры historical-only во всех архивных индексах."
+        "\u0412\u0432\u0435\u0441\u0442\u0438 \u0436\u0435\u0441\u0442\u043a\u0438\u0435 \u043c\u0430\u0440\u043a\u0435\u0440\u044b historical-only \u0432\u043e \u0432\u0441\u0435\u0445 \u0430\u0440\u0445\u0438\u0432\u043d\u044b\u0445 \u0438\u043d\u0434\u0435\u043a\u0441\u0430\u0445."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/REPORTS",
       "type": "subsystem",
-      "semantic_role": "Главная evidence-библиотека task-by-task с receipt bundles.",
+      "semantic_role": "\u0413\u043b\u0430\u0432\u043d\u0430\u044f evidence-\u0431\u0438\u0431\u043b\u0438\u043e\u0442\u0435\u043a\u0430 task-by-task \u0441 receipt bundles.",
       "maturity": "PROVED",
-      "owner_value": "Дает трассируемость и проверяемость claim-ов.",
+      "owner_value": "\u0414\u0430\u0435\u0442 \u0442\u0440\u0430\u0441\u0441\u0438\u0440\u0443\u0435\u043c\u043e\u0441\u0442\u044c \u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u044f\u0435\u043c\u043e\u0441\u0442\u044c claim-\u043e\u0432.",
       "risks": [
-        "Риск report avalanche и трудность быстрого operator чтения.",
-        "Несколько задач в status index отмечают missing fields/legacy markers."
+        "\u0420\u0438\u0441\u043a report avalanche \u0438 \u0442\u0440\u0443\u0434\u043d\u043e\u0441\u0442\u044c \u0431\u044b\u0441\u0442\u0440\u043e\u0433\u043e operator \u0447\u0442\u0435\u043d\u0438\u044f.",
+        "\u041d\u0435\u0441\u043a\u043e\u043b\u044c\u043a\u043e \u0437\u0430\u0434\u0430\u0447 \u0432 status index \u043e\u0442\u043c\u0435\u0447\u0430\u044e\u0442 missing fields/legacy markers."
       ],
       "next_strengthening": [
-        "Сделать report status index и freshness ключевыми навигаторами в cockpit."
+        "\u0421\u0434\u0435\u043b\u0430\u0442\u044c report status index \u0438 freshness \u043a\u043b\u044e\u0447\u0435\u0432\u044b\u043c\u0438 \u043d\u0430\u0432\u0438\u0433\u0430\u0442\u043e\u0440\u0430\u043c\u0438 \u0432 cockpit."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/RECEIPTS",
       "type": "subsystem",
-      "semantic_role": "Базовые gate ack/receipt якоря раннего этапа.",
+      "semantic_role": "\u0411\u0430\u0437\u043e\u0432\u044b\u0435 gate ack/receipt \u044f\u043a\u043e\u0440\u044f \u0440\u0430\u043d\u043d\u0435\u0433\u043e \u044d\u0442\u0430\u043f\u0430.",
       "maturity": "FOUNDATION",
-      "owner_value": "Поддерживает принцип evidence-before-claim.",
+      "owner_value": "\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 \u043f\u0440\u0438\u043d\u0446\u0438\u043f evidence-before-claim.",
       "risks": [
-        "Небольшой и исторический слой; не покрывает новые подсистемы полноценно."
+        "\u041d\u0435\u0431\u043e\u043b\u044c\u0448\u043e\u0439 \u0438 \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0439 \u0441\u043b\u043e\u0439; \u043d\u0435 \u043f\u043e\u043a\u0440\u044b\u0432\u0430\u0435\u0442 \u043d\u043e\u0432\u044b\u0435 \u043f\u043e\u0434\u0441\u0438\u0441\u0442\u0435\u043c\u044b \u043f\u043e\u043b\u043d\u043e\u0446\u0435\u043d\u043d\u043e."
       ],
       "next_strengthening": [
-        "Синхронизировать receipt conventions между legacy и новыми задачами."
+        "\u0421\u0438\u043d\u0445\u0440\u043e\u043d\u0438\u0437\u0438\u0440\u043e\u0432\u0430\u0442\u044c receipt conventions \u043c\u0435\u0436\u0434\u0443 legacy \u0438 \u043d\u043e\u0432\u044b\u043c\u0438 \u0437\u0430\u0434\u0430\u0447\u0430\u043c\u0438."
       ]
     },
     {
@@ -362,79 +362,79 @@
       "type": "subsystem",
       "semantic_role": "Truth spine: current truth root, report/evidence indices, acceptance semantics.",
       "maturity": "PROVED",
-      "owner_value": "Сердце no-fake-green политики и state-нормализации.",
+      "owner_value": "\u0421\u0435\u0440\u0434\u0446\u0435 no-fake-green \u043f\u043e\u043b\u0438\u0442\u0438\u043a\u0438 \u0438 state-\u043d\u043e\u0440\u043c\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438.",
       "risks": [
-        "Часть generated truth отражает исторические head/worktree snapshots, не текущий момент.",
-        "Нужно четкое разделение between historical truth object and live truth object."
+        "\u0427\u0430\u0441\u0442\u044c generated truth \u043e\u0442\u0440\u0430\u0436\u0430\u0435\u0442 \u0438\u0441\u0442\u043e\u0440\u0438\u0447\u0435\u0441\u043a\u0438\u0435 head/worktree snapshots, \u043d\u0435 \u0442\u0435\u043a\u0443\u0449\u0438\u0439 \u043c\u043e\u043c\u0435\u043d\u0442.",
+        "\u041d\u0443\u0436\u043d\u043e \u0447\u0435\u0442\u043a\u043e\u0435 \u0440\u0430\u0437\u0434\u0435\u043b\u0435\u043d\u0438\u0435 between historical truth object and live truth object."
       ],
       "next_strengthening": [
-        "Добавить reconciliation слой current-vs-historical для автоматической маркировки stale."
+        "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c reconciliation \u0441\u043b\u043e\u0439 current-vs-historical \u0434\u043b\u044f \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043c\u0430\u0440\u043a\u0438\u0440\u043e\u0432\u043a\u0438 stale."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TRUTH/OWNER_QUESTIONS",
       "type": "subsystem",
-      "semantic_role": "Файловая модель owner decision queue и priority/status rule set.",
+      "semantic_role": "\u0424\u0430\u0439\u043b\u043e\u0432\u0430\u044f \u043c\u043e\u0434\u0435\u043b\u044c owner decision queue \u0438 priority/status rule set.",
       "maturity": "FOUNDATION",
-      "owner_value": "Делает блокирующие вопросы owner-visible.",
+      "owner_value": "\u0414\u0435\u043b\u0430\u0435\u0442 \u0431\u043b\u043e\u043a\u0438\u0440\u0443\u044e\u0449\u0438\u0435 \u0432\u043e\u043f\u0440\u043e\u0441\u044b owner-visible.",
       "risks": [
-        "Live owner answer write path отсутствует в admitted режиме."
+        "Live owner answer write path \u043e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442 \u0432 admitted \u0440\u0435\u0436\u0438\u043c\u0435."
       ],
       "next_strengthening": [
-        "Реализовать bounded write channel с audit receipts."
+        "\u0420\u0435\u0430\u043b\u0438\u0437\u043e\u0432\u0430\u0442\u044c bounded write channel \u0441 audit receipts."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK",
       "type": "subsystem",
-      "semantic_role": "Контракт rollback discipline до расширения write/mutation действий.",
+      "semantic_role": "\u041a\u043e\u043d\u0442\u0440\u0430\u043a\u0442 rollback discipline \u0434\u043e \u0440\u0430\u0441\u0448\u0438\u0440\u0435\u043d\u0438\u044f write/mutation \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.",
       "maturity": "FOUNDATION",
-      "owner_value": "Предотвращает безвозвратные мутации под видом progress.",
+      "owner_value": "\u041f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u0431\u0435\u0437\u0432\u043e\u0437\u0432\u0440\u0430\u0442\u043d\u044b\u0435 \u043c\u0443\u0442\u0430\u0446\u0438\u0438 \u043f\u043e\u0434 \u0432\u0438\u0434\u043e\u043c progress.",
       "risks": [
-        "Политика есть, но destructive proof intentionally not performed."
+        "\u041f\u043e\u043b\u0438\u0442\u0438\u043a\u0430 \u0435\u0441\u0442\u044c, \u043d\u043e destructive proof intentionally not performed."
       ],
       "next_strengthening": [
-        "Подтянуть controlled rollback drills в безопасной synthetic зоне."
+        "\u041f\u043e\u0434\u0442\u044f\u043d\u0443\u0442\u044c controlled rollback drills \u0432 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u043e\u0439 synthetic \u0437\u043e\u043d\u0435."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TRUTH/NEGATIVE_TESTS",
       "type": "subsystem",
-      "semantic_role": "Синтетический anti-fake-green mutation test слой.",
+      "semantic_role": "\u0421\u0438\u043d\u0442\u0435\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u0439 anti-fake-green mutation test \u0441\u043b\u043e\u0439.",
       "maturity": "FOUNDATION",
-      "owner_value": "Задает правило NO_NEGATIVE_TEST -> NO_STRICT_PASS.",
+      "owner_value": "\u0417\u0430\u0434\u0430\u0435\u0442 \u043f\u0440\u0430\u0432\u0438\u043b\u043e NO_NEGATIVE_TEST -> NO_STRICT_PASS.",
       "risks": [
-        "Synthetic характер может быть ошибочно принят за production destructive readiness."
+        "Synthetic \u0445\u0430\u0440\u0430\u043a\u0442\u0435\u0440 \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u043e\u0448\u0438\u0431\u043e\u0447\u043d\u043e \u043f\u0440\u0438\u043d\u044f\u0442 \u0437\u0430 production destructive readiness."
       ],
       "next_strengthening": [
-        "Явно маркировать synthetic/prod boundaries в cockpit state."
+        "\u042f\u0432\u043d\u043e \u043c\u0430\u0440\u043a\u0438\u0440\u043e\u0432\u0430\u0442\u044c synthetic/prod boundaries \u0432 cockpit state."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/SANCTUM_MINI",
       "type": "subsystem",
-      "semantic_role": "Ранний локальный dashboard/API слой с allowlisted terminal interactions.",
+      "semantic_role": "\u0420\u0430\u043d\u043d\u0438\u0439 \u043b\u043e\u043a\u0430\u043b\u044c\u043d\u044b\u0439 dashboard/API \u0441\u043b\u043e\u0439 \u0441 allowlisted terminal interactions.",
       "maturity": "FOUNDATION",
-      "owner_value": "Дает первый живой UI-мост к данным.",
+      "owner_value": "\u0414\u0430\u0435\u0442 \u043f\u0435\u0440\u0432\u044b\u0439 \u0436\u0438\u0432\u043e\u0439 UI-\u043c\u043e\u0441\u0442 \u043a \u0434\u0430\u043d\u043d\u044b\u043c.",
       "risks": [
-        "Единичный connected organ и ограниченный operational охват."
+        "\u0415\u0434\u0438\u043d\u0438\u0447\u043d\u044b\u0439 connected organ \u0438 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u043d\u044b\u0439 operational \u043e\u0445\u0432\u0430\u0442."
       ],
       "next_strengthening": [
-        "Свести роли SANCTUM_MINI и SANCTUM_NG в согласованный evolution path."
+        "\u0421\u0432\u0435\u0441\u0442\u0438 \u0440\u043e\u043b\u0438 SANCTUM_MINI \u0438 SANCTUM_NG \u0432 \u0441\u043e\u0433\u043b\u0430\u0441\u043e\u0432\u0430\u043d\u043d\u044b\u0439 evolution path."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG",
       "type": "subsystem",
-      "semantic_role": "Основной NewGen control-surface каркас: truth shell, action layer, owner gate, session view, transfer console.",
+      "semantic_role": "\u041e\u0441\u043d\u043e\u0432\u043d\u043e\u0439 NewGen control-surface \u043a\u0430\u0440\u043a\u0430\u0441: truth shell, action layer, owner gate, session view, transfer console.",
       "maturity": "FOUNDATION",
-      "owner_value": "Центральный кандидат на operator cockpit ядро.",
+      "owner_value": "\u0426\u0435\u043d\u0442\u0440\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u0430\u043d\u0434\u0438\u0434\u0430\u0442 \u043d\u0430 operator cockpit \u044f\u0434\u0440\u043e.",
       "risks": [
-        "Много подсрезов, но высокий процент `FOUNDATION_ONLY/PREVIEW_ONLY`.",
-        "Есть признаки несинхрона generated states и текущего git truth."
+        "\u041c\u043d\u043e\u0433\u043e \u043f\u043e\u0434\u0441\u0440\u0435\u0437\u043e\u0432, \u043d\u043e \u0432\u044b\u0441\u043e\u043a\u0438\u0439 \u043f\u0440\u043e\u0446\u0435\u043d\u0442 `FOUNDATION_ONLY/PREVIEW_ONLY`.",
+        "\u0415\u0441\u0442\u044c \u043f\u0440\u0438\u0437\u043d\u0430\u043a\u0438 \u043d\u0435\u0441\u0438\u043d\u0445\u0440\u043e\u043d\u0430 generated states \u0438 \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e git truth."
       ],
       "next_strengthening": [
-        "Сделать единый live current-truth builder для Sanctum NG state family."
+        "\u0421\u0434\u0435\u043b\u0430\u0442\u044c \u0435\u0434\u0438\u043d\u044b\u0439 live current-truth builder \u0434\u043b\u044f Sanctum NG state family."
       ]
     },
     {
@@ -442,150 +442,150 @@
       "type": "subsystem",
       "semantic_role": "L1 Owner cockpit aggregation layer (overview, transfer, evidence, action strip, continuity preview).",
       "maturity": "FOUNDATION",
-      "owner_value": "Ключ к переходу от report-hunting к одному рабочему окну.",
+      "owner_value": "\u041a\u043b\u044e\u0447 \u043a \u043f\u0435\u0440\u0435\u0445\u043e\u0434\u0443 \u043e\u0442 report-hunting \u043a \u043e\u0434\u043d\u043e\u043c\u0443 \u0440\u0430\u0431\u043e\u0447\u0435\u043c\u0443 \u043e\u043a\u043d\u0443.",
       "risks": [
-        "Read-only scope и preview actions ограничивают оперативное управление.",
-        "Некоторые поля содержат устаревшие или неряшливые path snapshots."
+        "Read-only scope \u0438 preview actions \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0438\u0432\u0430\u044e\u0442 \u043e\u043f\u0435\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0435 \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435.",
+        "\u041d\u0435\u043a\u043e\u0442\u043e\u0440\u044b\u0435 \u043f\u043e\u043b\u044f \u0441\u043e\u0434\u0435\u0440\u0436\u0430\u0442 \u0443\u0441\u0442\u0430\u0440\u0435\u0432\u0448\u0438\u0435 \u0438\u043b\u0438 \u043d\u0435\u0440\u044f\u0448\u043b\u0438\u0432\u044b\u0435 path snapshots."
       ],
       "next_strengthening": [
-        "Довести до устойчивого truth synchronization + bounded owner write path."
+        "\u0414\u043e\u0432\u0435\u0441\u0442\u0438 \u0434\u043e \u0443\u0441\u0442\u043e\u0439\u0447\u0438\u0432\u043e\u0433\u043e truth synchronization + bounded owner write path."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE",
       "type": "subsystem",
-      "semantic_role": "Контур transfer visibility и bounded route proof между VM contours.",
+      "semantic_role": "\u041a\u043e\u043d\u0442\u0443\u0440 transfer visibility \u0438 bounded route proof \u043c\u0435\u0436\u0434\u0443 VM contours.",
       "maturity": "FOUNDATION",
-      "owner_value": "Показывает транспортный слой и доказанные маршруты без fake production claims.",
+      "owner_value": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0442\u0440\u0430\u043d\u0441\u043f\u043e\u0440\u0442\u043d\u044b\u0439 \u0441\u043b\u043e\u0439 \u0438 \u0434\u043e\u043a\u0430\u0437\u0430\u043d\u043d\u044b\u0435 \u043c\u0430\u0440\u0448\u0440\u0443\u0442\u044b \u0431\u0435\u0437 fake production claims.",
       "risks": [
-        "Большой массив historical action records; сложная навигация текущего статуса.",
-        "Нет production orchestration admission."
+        "\u0411\u043e\u043b\u044c\u0448\u043e\u0439 \u043c\u0430\u0441\u0441\u0438\u0432 historical action records; \u0441\u043b\u043e\u0436\u043d\u0430\u044f \u043d\u0430\u0432\u0438\u0433\u0430\u0446\u0438\u044f \u0442\u0435\u043a\u0443\u0449\u0435\u0433\u043e \u0441\u0442\u0430\u0442\u0443\u0441\u0430.",
+        "\u041d\u0435\u0442 production orchestration admission."
       ],
       "next_strengthening": [
-        "Сократить operator surface до current actionable subset + freshness filters."
+        "\u0421\u043e\u043a\u0440\u0430\u0442\u0438\u0442\u044c operator surface \u0434\u043e current actionable subset + freshness filters."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGAN_DIALOGUE",
       "type": "subsystem",
-      "semantic_role": "File-backed request/response packets и thread artifacts для organ dialogue demo.",
+      "semantic_role": "File-backed request/response packets \u0438 thread artifacts \u0434\u043b\u044f organ dialogue demo.",
       "maturity": "FOUNDATION",
-      "owner_value": "Показывает физическую форму диалога органа с task context.",
+      "owner_value": "\u041f\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0443\u044e \u0444\u043e\u0440\u043c\u0443 \u0434\u0438\u0430\u043b\u043e\u0433\u0430 \u043e\u0440\u0433\u0430\u043d\u0430 \u0441 task context.",
       "risks": [
-        "Demo semantics может быть переоценена как live organ intelligence."
+        "Demo semantics \u043c\u043e\u0436\u0435\u0442 \u0431\u044b\u0442\u044c \u043f\u0435\u0440\u0435\u043e\u0446\u0435\u043d\u0435\u043d\u0430 \u043a\u0430\u043a live organ intelligence."
       ],
       "next_strengthening": [
-        "Подключить dialogue packets к реальным directive/veto решениям."
+        "\u041f\u043e\u0434\u043a\u043b\u044e\u0447\u0438\u0442\u044c dialogue packets \u043a \u0440\u0435\u0430\u043b\u044c\u043d\u044b\u043c directive/veto \u0440\u0435\u0448\u0435\u043d\u0438\u044f\u043c."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/SANCTUM_VISUAL_FOUNDRY",
       "type": "subsystem",
-      "semantic_role": "Визуальный конвейер: owner intake -> contract -> tokens -> lab -> screenshots -> validation.",
+      "semantic_role": "\u0412\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u044b\u0439 \u043a\u043e\u043d\u0432\u0435\u0439\u0435\u0440: owner intake -> contract -> tokens -> lab -> screenshots -> validation.",
       "maturity": "FOUNDATION",
-      "owner_value": "Защищает от generic dashboard и декоративного самообмана.",
+      "owner_value": "\u0417\u0430\u0449\u0438\u0449\u0430\u0435\u0442 \u043e\u0442 generic dashboard \u0438 \u0434\u0435\u043a\u043e\u0440\u0430\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0441\u0430\u043c\u043e\u043e\u0431\u043c\u0430\u043d\u0430.",
       "risks": [
-        "Разрыв между Foundry contracts и обязательной admission-проверкой всей Sanctum линии."
+        "\u0420\u0430\u0437\u0440\u044b\u0432 \u043c\u0435\u0436\u0434\u0443 Foundry contracts \u0438 \u043e\u0431\u044f\u0437\u0430\u0442\u0435\u043b\u044c\u043d\u043e\u0439 admission-\u043f\u0440\u043e\u0432\u0435\u0440\u043a\u043e\u0439 \u0432\u0441\u0435\u0439 Sanctum \u043b\u0438\u043d\u0438\u0438."
       ],
       "next_strengthening": [
-        "Сделать Visual Contract Gate жестким блокером для UI acceptance."
+        "\u0421\u0434\u0435\u043b\u0430\u0442\u044c Visual Contract Gate \u0436\u0435\u0441\u0442\u043a\u0438\u043c \u0431\u043b\u043e\u043a\u0435\u0440\u043e\u043c \u0434\u043b\u044f UI acceptance."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/VISUAL_BRAIN",
       "type": "subsystem",
-      "semantic_role": "Read-only лаборатория corridor visualization из truth artifacts.",
+      "semantic_role": "Read-only \u043b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u0438\u044f corridor visualization \u0438\u0437 truth artifacts.",
       "maturity": "FOUNDATION",
-      "owner_value": "Проверяет визуальный язык статусов и evidence binding.",
+      "owner_value": "\u041f\u0440\u043e\u0432\u0435\u0440\u044f\u0435\u0442 \u0432\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u044b\u0439 \u044f\u0437\u044b\u043a \u0441\u0442\u0430\u0442\u0443\u0441\u043e\u0432 \u0438 evidence binding.",
       "risks": [
-        "Лабораторный слой без прямого operational control."
+        "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u044b\u0439 \u0441\u043b\u043e\u0439 \u0431\u0435\u0437 \u043f\u0440\u044f\u043c\u043e\u0433\u043e operational control."
       ],
       "next_strengthening": [
-        "Связать Visual Brain статусы с актуальным cockpit state."
+        "\u0421\u0432\u044f\u0437\u0430\u0442\u044c Visual Brain \u0441\u0442\u0430\u0442\u0443\u0441\u044b \u0441 \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u043c cockpit state."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/MECHANICUS/CONNECTIONS",
       "type": "subsystem",
-      "semantic_role": "SSH/route matrix и политики alias/shortcut с no-private-key-in-repo правилом.",
+      "semantic_role": "SSH/route matrix \u0438 \u043f\u043e\u043b\u0438\u0442\u0438\u043a\u0438 alias/shortcut \u0441 no-private-key-in-repo \u043f\u0440\u0430\u0432\u0438\u043b\u043e\u043c.",
       "maturity": "FOUNDATION",
-      "owner_value": "Дает формальную карту контуров и route safety baseline.",
+      "owner_value": "\u0414\u0430\u0435\u0442 \u0444\u043e\u0440\u043c\u0430\u043b\u044c\u043d\u0443\u044e \u043a\u0430\u0440\u0442\u0443 \u043a\u043e\u043d\u0442\u0443\u0440\u043e\u0432 \u0438 route safety baseline.",
       "risks": [
-        "Часть контуров обозначены как offline/not configured; неравномерная readiness."
+        "\u0427\u0430\u0441\u0442\u044c \u043a\u043e\u043d\u0442\u0443\u0440\u043e\u0432 \u043e\u0431\u043e\u0437\u043d\u0430\u0447\u0435\u043d\u044b \u043a\u0430\u043a offline/not configured; \u043d\u0435\u0440\u0430\u0432\u043d\u043e\u043c\u0435\u0440\u043d\u0430\u044f readiness."
       ],
       "next_strengthening": [
-        "Поддерживать live verification stamps с bounded scope и freshness."
+        "\u041f\u043e\u0434\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0442\u044c live verification stamps \u0441 bounded scope \u0438 freshness."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/MECHANICUS/TOOL_ADMISSION",
       "type": "subsystem",
-      "semantic_role": "Каталог решений по внешним инструментам с risk-first подходом.",
+      "semantic_role": "\u041a\u0430\u0442\u0430\u043b\u043e\u0433 \u0440\u0435\u0448\u0435\u043d\u0438\u0439 \u043f\u043e \u0432\u043d\u0435\u0448\u043d\u0438\u043c \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u0430\u043c \u0441 risk-first \u043f\u043e\u0434\u0445\u043e\u0434\u043e\u043c.",
       "maturity": "FOUNDATION",
-      "owner_value": "Предотвращает неуправляемую зависимость от внешних стеков.",
+      "owner_value": "\u041f\u0440\u0435\u0434\u043e\u0442\u0432\u0440\u0430\u0449\u0430\u0435\u0442 \u043d\u0435\u0443\u043f\u0440\u0430\u0432\u043b\u044f\u0435\u043c\u0443\u044e \u0437\u0430\u0432\u0438\u0441\u0438\u043c\u043e\u0441\u0442\u044c \u043e\u0442 \u0432\u043d\u0435\u0448\u043d\u0438\u0445 \u0441\u0442\u0435\u043a\u043e\u0432.",
       "risks": [
-        "Большая доля deferred/candidate состояний задерживает operational uplift."
+        "\u0411\u043e\u043b\u044c\u0448\u0430\u044f \u0434\u043e\u043b\u044f deferred/candidate \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0439 \u0437\u0430\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u0435\u0442 operational uplift."
       ],
       "next_strengthening": [
-        "Определить короткий приоритетный список tools для bounded activation."
+        "\u041e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c \u043a\u043e\u0440\u043e\u0442\u043a\u0438\u0439 \u043f\u0440\u0438\u043e\u0440\u0438\u0442\u0435\u0442\u043d\u044b\u0439 \u0441\u043f\u0438\u0441\u043e\u043a tools \u0434\u043b\u044f bounded activation."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/SKILLS",
       "type": "subsystem",
-      "semantic_role": "Skill spine и growth contracts для backend/frontend/visual pipelines.",
+      "semantic_role": "Skill spine \u0438 growth contracts \u0434\u043b\u044f backend/frontend/visual pipelines.",
       "maturity": "FOUNDATION",
-      "owner_value": "Дает структуру для накопления компетенций и проверок.",
+      "owner_value": "\u0414\u0430\u0435\u0442 \u0441\u0442\u0440\u0443\u043a\u0442\u0443\u0440\u0443 \u0434\u043b\u044f \u043d\u0430\u043a\u043e\u043f\u043b\u0435\u043d\u0438\u044f \u043a\u043e\u043c\u043f\u0435\u0442\u0435\u043d\u0446\u0438\u0439 \u0438 \u043f\u0440\u043e\u0432\u0435\u0440\u043e\u043a.",
       "risks": [
-        "Нужно сильнее связать skills с фактическим task admission."
+        "\u041d\u0443\u0436\u043d\u043e \u0441\u0438\u043b\u044c\u043d\u0435\u0435 \u0441\u0432\u044f\u0437\u0430\u0442\u044c skills \u0441 \u0444\u0430\u043a\u0442\u0438\u0447\u0435\u0441\u043a\u0438\u043c task admission."
       ],
       "next_strengthening": [
-        "Автоматически привязывать skill requirements к task formation."
+        "\u0410\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u0438 \u043f\u0440\u0438\u0432\u044f\u0437\u044b\u0432\u0430\u0442\u044c skill requirements \u043a task formation."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/INTAKE",
       "type": "subsystem",
-      "semantic_role": "Нормализация входных task envelopes.",
+      "semantic_role": "\u041d\u043e\u0440\u043c\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u044f \u0432\u0445\u043e\u0434\u043d\u044b\u0445 task envelopes.",
       "maturity": "FOUNDATION",
-      "owner_value": "Упрощает воспроизводимую постановку задач.",
+      "owner_value": "\u0423\u043f\u0440\u043e\u0449\u0430\u0435\u0442 \u0432\u043e\u0441\u043f\u0440\u043e\u0438\u0437\u0432\u043e\u0434\u0438\u043c\u0443\u044e \u043f\u043e\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0443 \u0437\u0430\u0434\u0430\u0447.",
       "risks": [
-        "Слой тонкий и пока мало используется в широком cockpit контуре."
+        "\u0421\u043b\u043e\u0439 \u0442\u043e\u043d\u043a\u0438\u0439 \u0438 \u043f\u043e\u043a\u0430 \u043c\u0430\u043b\u043e \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u0443\u0435\u0442\u0441\u044f \u0432 \u0448\u0438\u0440\u043e\u043a\u043e\u043c cockpit \u043a\u043e\u043d\u0442\u0443\u0440\u0435."
       ],
       "next_strengthening": [
-        "Связать intake normalization с Astronomicon formation по умолчанию."
+        "\u0421\u0432\u044f\u0437\u0430\u0442\u044c intake normalization \u0441 Astronomicon formation \u043f\u043e \u0443\u043c\u043e\u043b\u0447\u0430\u043d\u0438\u044e."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/TASKS/VM3_ASSIGNED",
       "type": "folder",
-      "semantic_role": "След handoff-задач по визуальным/санктум-срезам для VM3 контура.",
+      "semantic_role": "\u0421\u043b\u0435\u0434 handoff-\u0437\u0430\u0434\u0430\u0447 \u043f\u043e \u0432\u0438\u0437\u0443\u0430\u043b\u044c\u043d\u044b\u043c/\u0441\u0430\u043d\u043a\u0442\u0443\u043c-\u0441\u0440\u0435\u0437\u0430\u043c \u0434\u043b\u044f VM3 \u043a\u043e\u043d\u0442\u0443\u0440\u0430.",
       "maturity": "FOUNDATION",
-      "owner_value": "Доказывает контурную декомпозицию работ.",
+      "owner_value": "\u0414\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u0435\u0442 \u043a\u043e\u043d\u0442\u0443\u0440\u043d\u0443\u044e \u0434\u0435\u043a\u043e\u043c\u043f\u043e\u0437\u0438\u0446\u0438\u044e \u0440\u0430\u0431\u043e\u0442.",
       "risks": [
-        "Нужна более строгая связка с единым current truth и completion index."
+        "\u041d\u0443\u0436\u043d\u0430 \u0431\u043e\u043b\u0435\u0435 \u0441\u0442\u0440\u043e\u0433\u0430\u044f \u0441\u0432\u044f\u0437\u043a\u0430 \u0441 \u0435\u0434\u0438\u043d\u044b\u043c current truth \u0438 completion index."
       ],
       "next_strengthening": [
-        "Добавить unified assignment status board в Sanctum NG."
+        "\u0414\u043e\u0431\u0430\u0432\u0438\u0442\u044c unified assignment status board \u0432 Sanctum NG."
       ]
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/RESEARCH",
       "type": "folder",
-      "semantic_role": "Advisory knowledge harvest (без автоматического внедрения OSS).",
+      "semantic_role": "Advisory knowledge harvest (\u0431\u0435\u0437 \u0430\u0432\u0442\u043e\u043c\u0430\u0442\u0438\u0447\u0435\u0441\u043a\u043e\u0433\u043e \u0432\u043d\u0435\u0434\u0440\u0435\u043d\u0438\u044f OSS).",
       "maturity": "DRAFT",
-      "owner_value": "Даёт безопасный способ импортировать паттерны без грязного merge.",
+      "owner_value": "\u0414\u0430\u0451\u0442 \u0431\u0435\u0437\u043e\u043f\u0430\u0441\u043d\u044b\u0439 \u0441\u043f\u043e\u0441\u043e\u0431 \u0438\u043c\u043f\u043e\u0440\u0442\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u043f\u0430\u0442\u0442\u0435\u0440\u043d\u044b \u0431\u0435\u0437 \u0433\u0440\u044f\u0437\u043d\u043e\u0433\u043e merge.",
       "risks": [
-        "Может оставаться архивом идей без operational conversion."
+        "\u041c\u043e\u0436\u0435\u0442 \u043e\u0441\u0442\u0430\u0432\u0430\u0442\u044c\u0441\u044f \u0430\u0440\u0445\u0438\u0432\u043e\u043c \u0438\u0434\u0435\u0439 \u0431\u0435\u0437 operational conversion."
       ],
       "next_strengthening": [
-        "Любой research-вывод должен иметь explicit promotion task."
+        "\u041b\u044e\u0431\u043e\u0439 research-\u0432\u044b\u0432\u043e\u0434 \u0434\u043e\u043b\u0436\u0435\u043d \u0438\u043c\u0435\u0442\u044c explicit promotion task."
       ]
     }
   ],
   "overall_understanding": {
     "sees_path": true,
-    "path_summary": "Путь к чистому рабочему ядру виден: contracts + truth + organ packets + sanctum cockpit. Условие успеха: жесткая синхронизация current truth, снижение runtime/report шума в git, и превращение foundation/draft слоев в реальные admission/veto/control механизмы.",
+    "path_summary": "\u041f\u0443\u0442\u044c \u043a \u0447\u0438\u0441\u0442\u043e\u043c\u0443 \u0440\u0430\u0431\u043e\u0447\u0435\u043c\u0443 \u044f\u0434\u0440\u0443 \u0432\u0438\u0434\u0435\u043d: contracts + truth + organ packets + sanctum cockpit. \u0423\u0441\u043b\u043e\u0432\u0438\u0435 \u0443\u0441\u043f\u0435\u0445\u0430: \u0436\u0435\u0441\u0442\u043a\u0430\u044f \u0441\u0438\u043d\u0445\u0440\u043e\u043d\u0438\u0437\u0430\u0446\u0438\u044f current truth, \u0441\u043d\u0438\u0436\u0435\u043d\u0438\u0435 runtime/report \u0448\u0443\u043c\u0430 \u0432 git, \u0438 \u043f\u0440\u0435\u0432\u0440\u0430\u0449\u0435\u043d\u0438\u0435 foundation/draft \u0441\u043b\u043e\u0435\u0432 \u0432 \u0440\u0435\u0430\u043b\u044c\u043d\u044b\u0435 admission/veto/control \u043c\u0435\u0445\u0430\u043d\u0438\u0437\u043c\u044b.",
     "main_blockers": [
       "Top-level truth declarations and generated states are partially stale versus current HEAD.",
       "Operational authority is distributed across multiple folders and not yet converged into one enforced gate path.",
@@ -601,4 +601,3 @@
     ]
   }
 }
-
