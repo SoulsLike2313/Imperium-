@@ -76,6 +76,6 @@
 
 ## Closure
 
-- final head: `TO_BE_FILLED_AFTER_COMMIT`
-- remote head: `TO_BE_FILLED_AFTER_PUSH`
-- worktree clean: `TO_BE_FILLED_AFTER_COMMIT`
+- final head: `RECORDED_IN_FINAL_OWNER_MESSAGE`
+- remote head: `RECORDED_IN_FINAL_OWNER_MESSAGE`
+- worktree clean: `RECORDED_IN_FINAL_OWNER_MESSAGE`
