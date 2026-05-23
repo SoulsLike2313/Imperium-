@@ -105,6 +105,8 @@ def build_small_continuity_pack(
     pack_inputs = [
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_l1.html",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_l1.css",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_candidate.html",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_candidate.css",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_l1.js",
         state_path,
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/DATA/sanctum_ng_state.generated.json",
@@ -130,8 +132,10 @@ def build_small_continuity_pack(
     start_here_lines = [
         f"# Continuity Pack / {task_id}",
         "",
-        "- Scope: operator cockpit L1 owner overview only.",
-        "- Launch URL (static): http://127.0.0.1:8765/IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_l1.html",
+        "- Scope: operator cockpit L1 stable/candidate owner overview slice.",
+        "- Stable URL (static): http://127.0.0.1:8765/IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_l1.html",
+        "- Candidate URL (static): http://127.0.0.1:8765/IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/operator_cockpit_candidate.html",
+        "- Launch helper: IMPERIUM_NEW_GENERATION/SANCTUM_NG/OPERATOR_COCKPIT/TOOLS/launch_operator_cockpit.ps1",
         "- Launch URL (action server): http://127.0.0.1:8787/operator_cockpit_l1.html",
         "- Claim boundary: no production orchestration / no autonomous execution.",
         "",
