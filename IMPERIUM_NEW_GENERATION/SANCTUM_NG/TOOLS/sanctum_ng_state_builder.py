@@ -405,6 +405,11 @@ def build_state(repo_root: Path, task_id: str, required_starting_head: str) -> d
             "DRY_RUN_TASKPACK_SEND": "WIRED",
             "DRY_RUN_REPORT_FETCH": "WIRED",
             "REFRESH_TRANSFER_CONSOLE_VIEW": "WIRED",
+            "SEND_TASKPACK_ZIP": "WIRED",
+            "FETCH_REPORT_BUNDLE_ZIP": "WIRED",
+            "REGISTER_TRANSFER_RESULT": "WIRED",
+            "VALIDATE_TRANSFER_REQUEST": "WIRED",
+            "DRY_RUN_TRANSFER": "WIRED",
         },
         "current_truth_index": current_truth_index,
     }

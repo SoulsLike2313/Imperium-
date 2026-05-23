@@ -10,7 +10,12 @@
     "REGISTER_REPORT_BUNDLE_FETCH",
     "DRY_RUN_TASKPACK_SEND",
     "DRY_RUN_REPORT_FETCH",
-    "REFRESH_TRANSFER_CONSOLE_VIEW"
+    "REFRESH_TRANSFER_CONSOLE_VIEW",
+    "SEND_TASKPACK_ZIP",
+    "FETCH_REPORT_BUNDLE_ZIP",
+    "REGISTER_TRANSFER_RESULT",
+    "VALIDATE_TRANSFER_REQUEST",
+    "DRY_RUN_TRANSFER"
   ];
 
   const ACTION_LAYER_STATE_MODEL = {
@@ -115,7 +120,9 @@
         requests: "Requests",
         results: "Results",
         ledgerEntries: "Ledger Entries",
-        contextMix: "Context Mix"
+        contextMix: "Context Mix",
+        runnerState: "Runner State",
+        shellSafety: "No Arbitrary Shell"
       },
       transferContoursTitle: "Contour Cards",
       transferRequestsTitle: "Latest Requests",
@@ -123,6 +130,7 @@
       transferLedgerTitle: "Action Ledger",
       transferSourcesTitle: "Source Refs",
       transferBoundaryNote: "FOUNDATION_ONLY / NO_PRODUCTION_REMOTE_ORCHESTRATION",
+      transferRunnerNote: "Transfer action runner state is not available yet.",
       transferNoData: "Transfer Console state is not available yet.",
       actionsTitle: "Action Layer",
       lastActionJsonTitle: "Last Action Result JSON",
@@ -234,7 +242,9 @@
         requests: "Запросы",
         results: "Результаты",
         ledgerEntries: "Записи ledger",
-        contextMix: "Context Mix"
+        contextMix: "Context Mix",
+        runnerState: "Состояние runner",
+        shellSafety: "Без arbitrary shell"
       },
       transferContoursTitle: "Карточки контуров",
       transferRequestsTitle: "Последние запросы",
@@ -242,6 +252,7 @@
       transferLedgerTitle: "Action Ledger",
       transferSourcesTitle: "Source Refs",
       transferBoundaryNote: "FOUNDATION_ONLY / NO_PRODUCTION_REMOTE_ORCHESTRATION",
+      transferRunnerNote: "Состояние transfer action runner пока недоступно.",
       transferNoData: "Состояние Transfer Console пока недоступно.",
       actionsTitle: "Слой действий",
       lastActionJsonTitle: "JSON последнего результата",
@@ -461,6 +472,71 @@
       writes_files: [],
       evidence_refs: [],
       known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "SEND_TASKPACK_ZIP",
+      title: "Send Taskpack ZIP",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_TRANSFER_ALLOWLIST_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "FETCH_REPORT_BUNDLE_ZIP",
+      title: "Fetch Report Bundle ZIP",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_TRANSFER_ALLOWLIST_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "REGISTER_TRANSFER_RESULT",
+      title: "Register Transfer Result",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_FILE_BACKED_REGISTRATION",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "VALIDATE_TRANSFER_REQUEST",
+      title: "Validate Transfer Request",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_REQUEST_VALIDATION_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
+    },
+    {
+      action_id: "DRY_RUN_TRANSFER",
+      title: "Dry Run Transfer",
+      description: "Requires local action server.",
+      status: "NOT_WIRED",
+      safety_level: "SAFE_DRY_RUN_RECORD_ONLY",
+      allowed_commands: [],
+      allowed_paths: [],
+      forbidden_paths: ["*"],
+      writes_files: [],
+      evidence_refs: [],
+      known_limitations: ["ACTION_SERVER_NOT_CONNECTED"]
     }
   ];
 
@@ -553,7 +629,40 @@
       "NO_PRODUCTION_REMOTE_ORCHESTRATION",
       "NO_ARBITRARY_SHELL",
       "NO_FAKE_GREEN"
-    ]
+    ],
+    action_runner_state: {
+      schema_id: "TRANSFER_ACTION_RUNNER_STATE_V0_1",
+      generated_at_utc: "FALLBACK",
+      claim_boundary: "FOUNDATION_ONLY",
+      no_arbitrary_shell_confirmed: true,
+      supported_action_types: [
+        "SEND_TASKPACK_ZIP",
+        "FETCH_REPORT_BUNDLE_ZIP",
+        "REGISTER_TRANSFER_RESULT",
+        "VALIDATE_TRANSFER_REQUEST",
+        "DRY_RUN_TRANSFER"
+      ],
+      allowed_contours: ["PC", "VM2", "VM3"],
+      safe_target_roots: {},
+      latest_action_requests: [],
+      latest_action_results: [],
+      latest_runner_ledger: [],
+      last_action: {
+        action_id: "NOT_READY",
+        request_ref: null,
+        result_ref: null
+      },
+      status_labels: [
+        "DRY_RUN_OK",
+        "SENT",
+        "FETCHED",
+        "REGISTERED",
+        "FAILED",
+        "BLOCKED",
+        "NOT_READY"
+      ],
+      known_limitations: ["ACTION_RUNNER_STATE_NOT_LOADED"]
+    }
   };
 
   const state = {
@@ -667,6 +776,31 @@
       ...mix
     };
     out.truth_labels = Array.isArray(view.truth_labels) ? view.truth_labels.map((item) => String(item)) : [];
+    const runnerState = view.action_runner_state && typeof view.action_runner_state === "object"
+      ? view.action_runner_state
+      : {};
+    out.action_runner_state = {
+      ...FALLBACK_TRANSFER_CONSOLE_VIEW.action_runner_state,
+      ...runnerState,
+      supported_action_types: Array.isArray(runnerState.supported_action_types)
+        ? runnerState.supported_action_types.map((item) => String(item))
+        : FALLBACK_TRANSFER_CONSOLE_VIEW.action_runner_state.supported_action_types,
+      allowed_contours: Array.isArray(runnerState.allowed_contours)
+        ? runnerState.allowed_contours.map((item) => String(item))
+        : FALLBACK_TRANSFER_CONSOLE_VIEW.action_runner_state.allowed_contours,
+      latest_action_requests: Array.isArray(runnerState.latest_action_requests)
+        ? runnerState.latest_action_requests.filter((item) => item && typeof item === "object")
+        : [],
+      latest_action_results: Array.isArray(runnerState.latest_action_results)
+        ? runnerState.latest_action_results.filter((item) => item && typeof item === "object")
+        : [],
+      latest_runner_ledger: Array.isArray(runnerState.latest_runner_ledger)
+        ? runnerState.latest_runner_ledger.filter((item) => item && typeof item === "object")
+        : [],
+      known_limitations: Array.isArray(runnerState.known_limitations)
+        ? runnerState.known_limitations.map((item) => String(item))
+        : []
+    };
     return out;
   }
 
@@ -775,11 +909,14 @@
     setText("label-transfer-results", t.transferLabels.results);
     setText("label-transfer-ledger", t.transferLabels.ledgerEntries);
     setText("label-transfer-context", t.transferLabels.contextMix);
+    setText("label-transfer-runner", t.transferLabels.runnerState);
+    setText("label-transfer-shell", t.transferLabels.shellSafety);
     setText("transfer-contours-title", t.transferContoursTitle);
     setText("transfer-requests-title", t.transferRequestsTitle);
     setText("transfer-results-title", t.transferResultsTitle);
     setText("transfer-ledger-title", t.transferLedgerTitle);
     setText("transfer-sources-title", t.transferSourcesTitle);
+    setText("transfer-runner-note", t.transferRunnerNote);
     setText("transfer-boundary-note", t.transferBoundaryNote);
 
     setText("actions-title", t.actionsTitle);
@@ -1202,11 +1339,14 @@
       setText("transfer-result-count", "-");
       setText("transfer-ledger-count", "-");
       setText("transfer-context-mix", "-");
+      setText("transfer-runner-state", "NOT_READY");
+      setText("transfer-shell-safety", "UNKNOWN");
       cardNode.innerHTML = `<p class=\"placeholder\">${t.transferNoData}</p>`;
       renderSessionLines("transfer-request-list", [t.transferNoData]);
       renderSessionLines("transfer-result-list", [t.transferNoData]);
       renderSessionLines("transfer-ledger-list", [t.transferNoData]);
       renderSessionLines("transfer-source-refs", ["-"]);
+      setText("transfer-runner-note", t.transferRunnerNote);
       setText("transfer-boundary-note", t.transferBoundaryNote);
       return;
     }
@@ -1220,19 +1360,52 @@
     const ledger = Array.isArray(view.action_ledger) ? view.action_ledger : [];
     const contours = Array.isArray(view.contour_cards) ? view.contour_cards : [];
     const sourceRefs = Array.isArray(view.source_refs) ? view.source_refs : [];
+    const runnerState = view.action_runner_state && typeof view.action_runner_state === "object"
+      ? view.action_runner_state
+      : null;
+    const runnerRequests = runnerState && Array.isArray(runnerState.latest_action_requests)
+      ? runnerState.latest_action_requests
+      : [];
+    const runnerResults = runnerState && Array.isArray(runnerState.latest_action_results)
+      ? runnerState.latest_action_results
+      : [];
+    const runnerLedger = runnerState && Array.isArray(runnerState.latest_runner_ledger)
+      ? runnerState.latest_runner_ledger
+      : [];
     const mix = view.context_source_mix && typeof view.context_source_mix === "object"
       ? view.context_source_mix
       : {};
 
+    const requestRows = runnerRequests.length > 0 ? runnerRequests : requests;
+    const resultRows = runnerResults.length > 0 ? runnerResults : results;
+    const ledgerRows = runnerLedger.length > 0 ? runnerLedger : ledger;
+    const runnerLastAction = runnerState && runnerState.last_action && typeof runnerState.last_action === "object"
+      ? runnerState.last_action
+      : null;
+    const shellSafe = runnerState ? Boolean(runnerState.no_arbitrary_shell_confirmed) : false;
+    const runnerStateText = runnerState
+      ? String(runnerLastAction && runnerLastAction.action_id ? runnerLastAction.action_id : "READY")
+      : "NOT_READY";
+
     setText("transfer-generated", String(view.generated_at_utc || "-"));
     setText("transfer-boundary", boundary);
-    setText("transfer-request-count", String(requests.length));
-    setText("transfer-result-count", String(results.length));
-    setText("transfer-ledger-count", String(ledger.length));
+    setText("transfer-request-count", String(requestRows.length));
+    setText("transfer-result-count", String(resultRows.length));
+    setText("transfer-ledger-count", String(ledgerRows.length));
     setText(
       "transfer-context-mix",
       `T${String(mix.taskpack_percent ?? "-")} R${String(mix.existing_newgen_repo_percent ?? "-")} O${String(mix.owner_handoff_percent ?? "-")}`
     );
+    setText("transfer-runner-state", runnerStateText);
+    setText("transfer-shell-safety", shellSafe ? "CONFIRMED" : "UNKNOWN");
+    if (runnerState) {
+      const limitations = Array.isArray(runnerState.known_limitations) ? runnerState.known_limitations : [];
+      const lastRef = runnerLastAction ? String(runnerLastAction.result_ref || "-") : "-";
+      const runnerNote = `${runnerStateText} :: result_ref=${lastRef} :: ${String(limitations[0] || "FOUNDATION_ONLY")}`;
+      setText("transfer-runner-note", runnerNote);
+    } else {
+      setText("transfer-runner-note", t.transferRunnerNote);
+    }
     setText("transfer-boundary-note", t.transferBoundaryNote);
 
     cardNode.innerHTML = "";
@@ -1255,14 +1428,14 @@
       });
     }
 
-    const requestLines = requests.slice(0, 8).map((item) =>
-      `${String(item.request_id || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")}`
+    const requestLines = requestRows.slice(0, 8).map((item) =>
+      `${String(item.request_id || "-")} :: ${String(item.action_type || "-")} :: mode=${String(item.mode || "N/A")} :: ${String(item.status || "-")}`
     );
-    const resultLines = results.slice(0, 8).map((item) =>
-      `${String(item.result_id || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")}`
+    const resultLines = resultRows.slice(0, 8).map((item) =>
+      `${String(item.result_id || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")} :: evidence=${String((Array.isArray(item.evidence_refs) ? item.evidence_refs.length : 0))}`
     );
-    const ledgerLines = ledger.slice(-10).map((item) =>
-      `${String(item.timestamp_utc || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")}`
+    const ledgerLines = ledgerRows.slice(-10).map((item) =>
+      `${String(item.timestamp_utc || "-")} :: ${String(item.action_type || item.action_id || "-")} :: ${String(item.status || item.result_status || "-")}`
     );
 
     renderSessionLines("transfer-request-list", requestLines.length > 0 ? requestLines : ["-"]);

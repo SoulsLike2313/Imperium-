@@ -23,6 +23,11 @@ REQUIRED_ACTION_IDS = {
     "DRY_RUN_TASKPACK_SEND",
     "DRY_RUN_REPORT_FETCH",
     "REFRESH_TRANSFER_CONSOLE_VIEW",
+    "SEND_TASKPACK_ZIP",
+    "FETCH_REPORT_BUNDLE_ZIP",
+    "REGISTER_TRANSFER_RESULT",
+    "VALIDATE_TRANSFER_REQUEST",
+    "DRY_RUN_TRANSFER",
 }
 
 REQUIRED_ACTION_FIELDS = {
@@ -115,6 +120,13 @@ def main() -> int:
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_action_layer_validator.py",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TOOLS/sanctum_ng_action_layer_smoke.py",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_console_action_runner_v0_1.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/build_transfer_action_samples_v0_1.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/validate_transfer_action_runner_v0_1.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/smoke_transfer_action_runner_v0_1.py",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+        repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_console_view_state_v0_1.schema.json",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json",
         repo_root / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/APP/index.html",
@@ -420,11 +432,16 @@ def main() -> int:
                 "DRY_RUN_TASKPACK_SEND",
                 "DRY_RUN_REPORT_FETCH",
                 "REFRESH_TRANSFER_CONSOLE_VIEW",
+                "SEND_TASKPACK_ZIP",
+                "FETCH_REPORT_BUNDLE_ZIP",
+                "REGISTER_TRANSFER_RESULT",
+                "VALIDATE_TRANSFER_REQUEST",
+                "DRY_RUN_TRANSFER",
                 "transfer_console_view",
             ]
         ),
-        "Server dispatch includes transfer console allowlisted actions",
-        "Server dispatch is missing one or more transfer console allowlisted actions",
+        "Server dispatch includes transfer console + transfer action runner allowlisted actions",
+        "Server dispatch is missing one or more transfer console/runner allowlisted actions",
     )
 
     add_check(

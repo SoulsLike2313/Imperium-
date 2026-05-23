@@ -1,7 +1,7 @@
 {
   "schema_id": "TRANSFER_CONSOLE_VIEW_STATE_V0_1",
-  "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1",
-  "generated_at_utc": "2026-05-22T23:55:00Z",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+  "generated_at_utc": "2026-05-23T00:43:55Z",
   "claim_boundary": "FOUNDATION_ONLY",
   "contour_cards": [
     {
@@ -12,7 +12,7 @@
       "status_reason": "No bounded VM3-side probe route configured for PC contour.",
       "route_config_status": "NOT_CONFIGURED",
       "last_probe_receipt_ref": null,
-      "last_updated_utc": "2026-05-22T23:55:00Z",
+      "last_updated_utc": "2026-05-23T00:42:22Z",
       "claim_boundary": "FOUNDATION_ONLY"
     },
     {
@@ -22,8 +22,8 @@
       "status": "OFFLINE",
       "status_reason": "Bounded tcp probe failed: tcp_connect_error:127.0.0.1:2223:[Errno 111] Connection refused",
       "route_config_status": "CONFIGURED_NOT_VERIFIED",
-      "last_probe_receipt_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260522T235500Z-2D69489B.json",
-      "last_updated_utc": "2026-05-22T23:55:00Z",
+      "last_probe_receipt_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260523T004222Z-5DFF3552.json",
+      "last_updated_utc": "2026-05-23T00:42:22Z",
       "claim_boundary": "FOUNDATION_ONLY"
     },
     {
@@ -33,12 +33,50 @@
       "status": "ONLINE",
       "status_reason": "Bounded local probe succeeded.",
       "route_config_status": "CONFIGURED",
-      "last_probe_receipt_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260522T235500Z-66904F7E.json",
-      "last_updated_utc": "2026-05-22T23:55:00Z",
+      "last_probe_receipt_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260523T004222Z-6BCF31F3.json",
+      "last_updated_utc": "2026-05-23T00:42:22Z",
       "claim_boundary": "FOUNDATION_ONLY"
     }
   ],
   "latest_requests": [
+    {
+      "request_id": "TRANSFER-REQ-20260523T004222Z-2A192D59",
+      "action_type": "DRY_RUN_REPORT_FETCH",
+      "source_contour": "VM3",
+      "target_contour": "PC",
+      "artifact_kind": "report_bundle",
+      "artifact_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TRANSFER_CONSOLE_REPORT_BUNDLE_PLACEHOLDER.zip",
+      "requested_by": "SANCTUM_NG_ACTION_SERVER",
+      "created_utc": "2026-05-23T00:42:22Z",
+      "allowlist_verdict": "ALLOWED",
+      "rollback_plan_ref": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+      "status": "DRY_RUN_READY",
+      "claim_boundary": "FOUNDATION_ONLY",
+      "notes": [
+        "Foundation-only transfer registration.",
+        "No arbitrary shell command fields are allowed."
+      ],
+      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260523T004222Z-2A192D59.json"
+    },
+    {
+      "request_id": "TRANSFER-REQ-20260523T004222Z-A41F2D11",
+      "action_type": "DRY_RUN_TASKPACK_SEND",
+      "source_contour": "PC",
+      "target_contour": "VM3",
+      "artifact_kind": "taskpack_zip",
+      "artifact_ref": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1.zip",
+      "requested_by": "SANCTUM_NG_ACTION_SERVER",
+      "created_utc": "2026-05-23T00:42:22Z",
+      "allowlist_verdict": "ALLOWED",
+      "rollback_plan_ref": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+      "status": "DRY_RUN_READY",
+      "claim_boundary": "FOUNDATION_ONLY",
+      "notes": [
+        "Foundation-only transfer registration.",
+        "No arbitrary shell command fields are allowed."
+      ],
+      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260523T004222Z-A41F2D11.json"
+    },
     {
       "request_id": "TRANSFER-REQ-20260522T235500Z-249FD479",
       "action_type": "DRY_RUN_REPORT_FETCH",
@@ -228,47 +266,68 @@
         "No arbitrary shell command fields are allowed."
       ],
       "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234811Z-272766D6.json"
-    },
-    {
-      "request_id": "TRANSFER-REQ-20260522T234726Z-A996B022",
-      "action_type": "DRY_RUN_REPORT_FETCH",
-      "source_contour": "VM3",
-      "target_contour": "PC",
-      "artifact_kind": "report_bundle",
-      "artifact_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1/TRANSFER_CONSOLE_REPORT_BUNDLE_PLACEHOLDER.zip",
-      "requested_by": "SANCTUM_NG_ACTION_SERVER",
-      "created_utc": "2026-05-22T23:47:26Z",
-      "allowlist_verdict": "ALLOWED",
-      "rollback_plan_ref": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
-      "status": "DRY_RUN_READY",
-      "claim_boundary": "FOUNDATION_ONLY",
-      "notes": [
-        "Foundation-only transfer registration.",
-        "No arbitrary shell command fields are allowed."
-      ],
-      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234726Z-A996B022.json"
-    },
-    {
-      "request_id": "TRANSFER-REQ-20260522T234726Z-CADF1C15",
-      "action_type": "DRY_RUN_TASKPACK_SEND",
-      "source_contour": "PC",
-      "target_contour": "VM3",
-      "artifact_kind": "taskpack_zip",
-      "artifact_ref": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-CONSOLE-VM3-V0_1.zip",
-      "requested_by": "SANCTUM_NG_ACTION_SERVER",
-      "created_utc": "2026-05-22T23:47:26Z",
-      "allowlist_verdict": "ALLOWED",
-      "rollback_plan_ref": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
-      "status": "DRY_RUN_READY",
-      "claim_boundary": "FOUNDATION_ONLY",
-      "notes": [
-        "Foundation-only transfer registration.",
-        "No arbitrary shell command fields are allowed."
-      ],
-      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234726Z-CADF1C15.json"
     }
   ],
   "latest_results": [
+    {
+      "result_id": "TRANSFER-RESULT-20260523T004222Z-EF64C05B",
+      "request_id": "TRANSFER-REQ-20260523T004222Z-2A192D59",
+      "action_type": "DRY_RUN_REPORT_FETCH",
+      "status": "DRY_RUN_READY",
+      "started_utc": "2026-05-23T00:42:22Z",
+      "finished_utc": "2026-05-23T00:42:22Z",
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260523T004222Z-2A192D59.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/allowed_routes_v0_1.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/contour_status.latest.json"
+      ],
+      "error": null,
+      "not_proven": [
+        "No live transfer performed.",
+        "SENT/FETCHED states are blocked without explicit result receipt evidence."
+      ],
+      "claim_boundary": "FOUNDATION_ONLY",
+      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260523T004222Z-EF64C05B.json"
+    },
+    {
+      "result_id": "TRANSFER-RESULT-20260523T004222Z-24CA4DFA",
+      "request_id": "TRANSFER-REQ-20260523T004222Z-A41F2D11",
+      "action_type": "DRY_RUN_TASKPACK_SEND",
+      "status": "DRY_RUN_READY",
+      "started_utc": "2026-05-23T00:42:22Z",
+      "finished_utc": "2026-05-23T00:42:22Z",
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260523T004222Z-A41F2D11.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/allowed_routes_v0_1.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/contour_status.latest.json"
+      ],
+      "error": null,
+      "not_proven": [
+        "No live transfer performed.",
+        "SENT/FETCHED states are blocked without explicit result receipt evidence."
+      ],
+      "claim_boundary": "FOUNDATION_ONLY",
+      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260523T004222Z-24CA4DFA.json"
+    },
+    {
+      "result_id": "TRANSFER-RESULT-20260523T004222Z-8E9102F7",
+      "request_id": "CHECK-CONTOUR-STATUS",
+      "action_type": "CHECK_CONTOUR_STATUS",
+      "status": "UNKNOWN",
+      "started_utc": "2026-05-23T00:42:22Z",
+      "finished_utc": "2026-05-23T00:42:22Z",
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/contour_status.latest.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260523T004222Z-5DFF3552.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260523T004222Z-6BCF31F3.json"
+      ],
+      "error": null,
+      "not_proven": [
+        "Contour status reflects bounded probes only; no production orchestration claim."
+      ],
+      "claim_boundary": "FOUNDATION_ONLY",
+      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260523T004222Z-8E9102F7.json"
+    },
     {
       "result_id": "TRANSFER-RESULT-20260522T235500Z-E0891383",
       "request_id": "TRANSFER-REQ-20260522T235500Z-249FD479",
@@ -445,122 +504,9 @@
       ],
       "claim_boundary": "FOUNDATION_ONLY",
       "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234916Z-20FF525C.json"
-    },
-    {
-      "result_id": "TRANSFER-RESULT-20260522T234916Z-DD703E75",
-      "request_id": "TRANSFER-REQ-20260522T234916Z-21A32C28",
-      "action_type": "DRY_RUN_REPORT_FETCH",
-      "status": "DRY_RUN_READY",
-      "started_utc": "2026-05-22T23:49:16Z",
-      "finished_utc": "2026-05-22T23:49:16Z",
-      "evidence_refs": [
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234916Z-21A32C28.json",
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/allowed_routes_v0_1.json",
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/contour_status.latest.json"
-      ],
-      "error": null,
-      "not_proven": [
-        "No live transfer performed.",
-        "SENT/FETCHED states are blocked without explicit result receipt evidence."
-      ],
-      "claim_boundary": "FOUNDATION_ONLY",
-      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234916Z-DD703E75.json"
-    },
-    {
-      "result_id": "TRANSFER-RESULT-20260522T234916Z-2D6279E1",
-      "request_id": "TRANSFER-REQ-20260522T234916Z-A79DC205",
-      "action_type": "DRY_RUN_TASKPACK_SEND",
-      "status": "DRY_RUN_READY",
-      "started_utc": "2026-05-22T23:49:16Z",
-      "finished_utc": "2026-05-22T23:49:16Z",
-      "evidence_refs": [
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234916Z-A79DC205.json",
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/allowed_routes_v0_1.json",
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/contour_status.latest.json"
-      ],
-      "error": null,
-      "not_proven": [
-        "No live transfer performed.",
-        "SENT/FETCHED states are blocked without explicit result receipt evidence."
-      ],
-      "claim_boundary": "FOUNDATION_ONLY",
-      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234916Z-2D6279E1.json"
-    },
-    {
-      "result_id": "TRANSFER-RESULT-20260522T234916Z-8EE04130",
-      "request_id": "CHECK-CONTOUR-STATUS",
-      "action_type": "CHECK_CONTOUR_STATUS",
-      "status": "UNKNOWN",
-      "started_utc": "2026-05-22T23:49:16Z",
-      "finished_utc": "2026-05-22T23:49:16Z",
-      "evidence_refs": [
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/contour_status.latest.json",
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260522T234916Z-D4A6F3B0.json",
-        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/contours/probes/PROBE-20260522T234916Z-E352C2C7.json"
-      ],
-      "error": null,
-      "not_proven": [
-        "Contour status reflects bounded probes only; no production orchestration claim."
-      ],
-      "claim_boundary": "FOUNDATION_ONLY",
-      "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234916Z-8EE04130.json"
     }
   ],
   "action_ledger": [
-    {
-      "entry_id": "LEDGER-20260522T234654Z-E895814B",
-      "action_type": "DRY_RUN_REPORT_FETCH",
-      "status": "PASS",
-      "timestamp_utc": "2026-05-22T23:46:54Z",
-      "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234654Z-8FF268CF.json",
-      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234654Z-2D05E6C9.json",
-      "notes": [
-        "route_ready=True",
-        "result_status=DRY_RUN_READY",
-        "Foundation-only transfer tracking record."
-      ],
-      "claim_boundary": "FOUNDATION_ONLY"
-    },
-    {
-      "entry_id": "LEDGER-20260522T234654Z-D34D1EC6",
-      "action_type": "REFRESH_TRANSFER_CONSOLE_VIEW",
-      "status": "PASS",
-      "timestamp_utc": "2026-05-22T23:46:54Z",
-      "request_ref": null,
-      "result_ref": null,
-      "notes": [
-        "View state refreshed from file-backed transfer records."
-      ],
-      "claim_boundary": "FOUNDATION_ONLY"
-    },
-    {
-      "entry_id": "LEDGER-20260522T234711Z-74764338",
-      "action_type": "CHECK_CONTOUR_STATUS",
-      "status": "WARN",
-      "timestamp_utc": "2026-05-22T23:47:11Z",
-      "request_ref": null,
-      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234711Z-49A595EB.json",
-      "notes": [
-        "PC_NOT_CONFIGURED",
-        "VM2_TCP_PROBE_FAIL",
-        "VM3_PROBE_PASS"
-      ],
-      "claim_boundary": "FOUNDATION_ONLY"
-    },
-    {
-      "entry_id": "LEDGER-20260522T234711Z-5E82FDC5",
-      "action_type": "DRY_RUN_TASKPACK_SEND",
-      "status": "PASS",
-      "timestamp_utc": "2026-05-22T23:47:11Z",
-      "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260522T234711Z-73078550.json",
-      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260522T234711Z-56CC4514.json",
-      "notes": [
-        "route_ready=True",
-        "result_status=DRY_RUN_READY",
-        "Foundation-only transfer tracking record."
-      ],
-      "claim_boundary": "FOUNDATION_ONLY"
-    },
     {
       "entry_id": "LEDGER-20260522T234711Z-87DCA967",
       "action_type": "DRY_RUN_REPORT_FETCH",
@@ -910,6 +856,60 @@
         "View state refreshed from file-backed transfer records."
       ],
       "claim_boundary": "FOUNDATION_ONLY"
+    },
+    {
+      "entry_id": "LEDGER-20260523T004222Z-BF7BF54A",
+      "action_type": "CHECK_CONTOUR_STATUS",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-23T00:42:22Z",
+      "request_ref": null,
+      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260523T004222Z-8E9102F7.json",
+      "notes": [
+        "PC_NOT_CONFIGURED",
+        "VM2_TCP_PROBE_FAIL",
+        "VM3_PROBE_PASS"
+      ],
+      "claim_boundary": "FOUNDATION_ONLY"
+    },
+    {
+      "entry_id": "LEDGER-20260523T004222Z-4E9F851E",
+      "action_type": "DRY_RUN_TASKPACK_SEND",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-23T00:42:22Z",
+      "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260523T004222Z-A41F2D11.json",
+      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260523T004222Z-24CA4DFA.json",
+      "notes": [
+        "route_ready=True",
+        "result_status=DRY_RUN_READY",
+        "Foundation-only transfer tracking record."
+      ],
+      "claim_boundary": "FOUNDATION_ONLY"
+    },
+    {
+      "entry_id": "LEDGER-20260523T004222Z-27463922",
+      "action_type": "DRY_RUN_REPORT_FETCH",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-23T00:42:22Z",
+      "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests/TRANSFER-REQ-20260523T004222Z-2A192D59.json",
+      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results/TRANSFER-RESULT-20260523T004222Z-EF64C05B.json",
+      "notes": [
+        "route_ready=True",
+        "result_status=DRY_RUN_READY",
+        "Foundation-only transfer tracking record."
+      ],
+      "claim_boundary": "FOUNDATION_ONLY"
+    },
+    {
+      "entry_id": "LEDGER-20260523T004222Z-11CABE75",
+      "action_type": "REFRESH_TRANSFER_CONSOLE_VIEW",
+      "status": "PASS",
+      "timestamp_utc": "2026-05-23T00:42:22Z",
+      "request_ref": null,
+      "result_ref": null,
+      "notes": [
+        "View state refreshed from file-backed transfer records."
+      ],
+      "claim_boundary": "FOUNDATION_ONLY"
     }
   ],
   "transfer_routes": [
@@ -956,13 +956,21 @@
     "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
     "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/requests",
     "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/results",
-    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledger/transfer_action_ledger.jsonl"
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledger/transfer_action_ledger.jsonl",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledgers/transfer_action_runner_ledger.jsonl",
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
   ],
   "truth_labels": [
     "FOUNDATION_ONLY",
     "NO_PRODUCTION_REMOTE_ORCHESTRATION",
     "NO_ARBITRARY_SHELL",
-    "NO_FAKE_GREEN"
+    "NO_FAKE_GREEN",
+    "TRANSFER_ACTION_RUNNER_FOUNDATION"
   ],
   "context_source_mix": {
     "taskpack_percent": 67,
@@ -971,5 +979,1256 @@
     "organ_registry_percent": 2,
     "servitor_inference_percent": 2,
     "external_local_private_percent": 0
+  },
+  "action_runner_state": {
+    "schema_id": "TRANSFER_ACTION_RUNNER_STATE_V0_1",
+    "generated_at_utc": "2026-05-23T00:43:55Z",
+    "claim_boundary": "FOUNDATION_ONLY",
+    "no_arbitrary_shell_confirmed": true,
+    "supported_action_types": [
+      "DRY_RUN_TRANSFER",
+      "FETCH_REPORT_BUNDLE_ZIP",
+      "REGISTER_TRANSFER_RESULT",
+      "SEND_TASKPACK_ZIP",
+      "VALIDATE_TRANSFER_REQUEST"
+    ],
+    "allowed_contours": [
+      "PC",
+      "VM2",
+      "VM3"
+    ],
+    "safe_target_roots": {
+      "VM2_TASKPACK_INBOX": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/INBOX/VM2_TASKPACKS/",
+      "VM3_TASKPACK_INBOX": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/",
+      "VM2_REPORT_OUTBOX_CANDIDATE": "/home/vboxuser2/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/",
+      "VM3_REPORT_OUTBOX_CANDIDATE": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/"
+    },
+    "latest_action_requests": [
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004355Z-04E37F56",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": false,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:55Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004355Z-04E37F56.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "VALIDATOR-BAD-PATH",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "bad.zip",
+        "source_path": "/tmp/unsafe_input.zip",
+        "target_path": "/tmp/unsafe_output.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:55Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "VALIDATOR-BAD-CONTOUR",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "source_contour": "VMX",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "bad.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/target.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:55Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "VALIDATOR-BAD-ACTION",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "UNKNOWN_ACTION",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "bad.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/target.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:55Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "SAMPLE-VALID-DRY-RUN",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_RECEIVE_SLOT.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:55Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004316Z-72F0C494",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": false,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:16Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004316Z-72F0C494.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004316Z-2504EAF9",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": false,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:16Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004316Z-2504EAF9.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004315Z-80E9BAB9",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "mode": "EXECUTE",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "PROFILE_NOT_READY",
+        "created_at_utc": "2026-05-23T00:43:15Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-80E9BAB9.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004315Z-6E7DAD91",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "REGISTER_TRANSFER_RESULT",
+        "source_contour": "VM3",
+        "target_contour": "PC",
+        "artifact_type": "report_bundle",
+        "artifact_name": "TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip",
+        "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": false,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:15Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-6E7DAD91.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004315Z-05610BD0",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "FETCH_REPORT_BUNDLE_ZIP",
+        "source_contour": "VM3",
+        "target_contour": "PC",
+        "artifact_type": "report_bundle",
+        "artifact_name": "TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip",
+        "source_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:15Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-05610BD0.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004315Z-2392A4FA",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": true,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:15Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-2392A4FA.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_REQUEST_V0_1",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004315Z-7DD0AA14",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "source_contour": "PC",
+        "target_contour": "VM3",
+        "artifact_type": "taskpack_zip",
+        "artifact_name": "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "source_path": "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "target_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+        "mode": "DRY_RUN",
+        "owner_approval_required": false,
+        "owner_approved": false,
+        "rollback_plan": "IMPERIUM_NEW_GENERATION/TRUTH/ACTION_ROLLBACK/ACTION_ROLLBACK_POLICY_V0_1.json",
+        "allowed_command_profile": "DRY_RUN_ONLY",
+        "created_at_utc": "2026-05-23T00:43:15Z",
+        "status": "REQUESTED",
+        "claim_boundary": "FOUNDATION_ONLY",
+        "requester": "SANCTUM_NG_TRANSFER_ACTION_RUNNER",
+        "no_arbitrary_shell_confirmed": true,
+        "notes": [
+          "Foundation-only transfer action runner request.",
+          "No arbitrary shell command text is accepted."
+        ],
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-7DD0AA14.json"
+      }
+    ],
+    "latest_action_results": [
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004355Z-C7E267A8",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004355Z-04E37F56",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "status": "DRY_RUN_OK",
+        "started_at_utc": "2026-05-23T00:43:55Z",
+        "finished_at_utc": "2026-05-23T00:43:55Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004355Z-04E37F56.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "Dry-run proof only. No live send/fetch executed."
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": null,
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-C7E267A8.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004355Z-18058B7B",
+        "request_id": "VALIDATOR-BAD-PATH",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "status": "BLOCKED",
+        "started_at_utc": "2026-05-23T00:43:55Z",
+        "finished_at_utc": "2026-05-23T00:43:55Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [],
+        "sha256_before_after": {
+          "before": null,
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "error:unsafe_source_path:/tmp/unsafe_input.zip",
+          "error:unsafe_target_path:/tmp/unsafe_output.zip"
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": "unsafe_source_path:/tmp/unsafe_input.zip; unsafe_target_path:/tmp/unsafe_output.zip",
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-18058B7B.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004355Z-32769D46",
+        "request_id": "VALIDATOR-BAD-CONTOUR",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "status": "BLOCKED",
+        "started_at_utc": "2026-05-23T00:43:55Z",
+        "finished_at_utc": "2026-05-23T00:43:55Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/target.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "error:unknown_source_contour:VMX"
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": "unknown_source_contour:VMX",
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-32769D46.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004355Z-A302284B",
+        "request_id": "VALIDATOR-BAD-ACTION",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "UNKNOWN_ACTION",
+        "status": "BLOCKED",
+        "started_at_utc": "2026-05-23T00:43:55Z",
+        "finished_at_utc": "2026-05-23T00:43:55Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/target.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "error:unknown_action_type:UNKNOWN_ACTION"
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": "unknown_action_type:UNKNOWN_ACTION",
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-A302284B.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004355Z-905D3934",
+        "request_id": "SAMPLE-VALID-DRY-RUN",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "status": "DRY_RUN_OK",
+        "started_at_utc": "2026-05-23T00:43:55Z",
+        "finished_at_utc": "2026-05-23T00:43:55Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_RECEIVE_SLOT.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "Dry-run proof only. No live send/fetch executed."
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": null,
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-905D3934.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004355Z-97E62062",
+        "request_id": "SAMPLE-VALID-DRY-RUN",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "status": "DRY_RUN_OK",
+        "started_at_utc": "2026-05-23T00:43:55Z",
+        "finished_at_utc": "2026-05-23T00:43:55Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_RECEIVE_SLOT.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "Dry-run proof only. No live send/fetch executed."
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": null,
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-97E62062.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004316Z-1A7D7F9B",
+        "request_id": "TRANSFER-ACTION-REQ-20260523T004316Z-72F0C494",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "status": "DRY_RUN_OK",
+        "started_at_utc": "2026-05-23T00:43:16Z",
+        "finished_at_utc": "2026-05-23T00:43:16Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004316Z-72F0C494.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "Dry-run proof only. No live send/fetch executed."
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": null,
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-1A7D7F9B.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004316Z-EA965FD3",
+        "request_id": "VALIDATOR-BAD-PATH",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "status": "BLOCKED",
+        "started_at_utc": "2026-05-23T00:43:16Z",
+        "finished_at_utc": "2026-05-23T00:43:16Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [],
+        "sha256_before_after": {
+          "before": null,
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "error:unsafe_source_path:/tmp/unsafe_input.zip",
+          "error:unsafe_target_path:/tmp/unsafe_output.zip"
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": "unsafe_source_path:/tmp/unsafe_input.zip; unsafe_target_path:/tmp/unsafe_output.zip",
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-EA965FD3.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004316Z-A9AB22D0",
+        "request_id": "VALIDATOR-BAD-CONTOUR",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "status": "BLOCKED",
+        "started_at_utc": "2026-05-23T00:43:16Z",
+        "finished_at_utc": "2026-05-23T00:43:16Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/target.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "error:unknown_source_contour:VMX"
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": "unknown_source_contour:VMX",
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-A9AB22D0.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004316Z-31B45A0C",
+        "request_id": "VALIDATOR-BAD-ACTION",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "UNKNOWN_ACTION",
+        "status": "BLOCKED",
+        "started_at_utc": "2026-05-23T00:43:16Z",
+        "finished_at_utc": "2026-05-23T00:43:16Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/target.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "error:unknown_action_type:UNKNOWN_ACTION"
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": "unknown_action_type:UNKNOWN_ACTION",
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-31B45A0C.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004316Z-0A97615D",
+        "request_id": "SAMPLE-VALID-DRY-RUN",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "DRY_RUN_TRANSFER",
+        "status": "DRY_RUN_OK",
+        "started_at_utc": "2026-05-23T00:43:16Z",
+        "finished_at_utc": "2026-05-23T00:43:16Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_RECEIVE_SLOT.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "Dry-run proof only. No live send/fetch executed."
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": null,
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-0A97615D.json"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RESULT_V0_1",
+        "result_id": "TRANSFER-ACTION-RESULT-20260523T004316Z-EB9D0827",
+        "request_id": "SAMPLE-VALID-DRY-RUN",
+        "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
+        "action_type": "SEND_TASKPACK_ZIP",
+        "status": "DRY_RUN_OK",
+        "started_at_utc": "2026-05-23T00:43:16Z",
+        "finished_at_utc": "2026-05-23T00:43:16Z",
+        "evidence_refs": [
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_runner_policy.schema.json",
+          "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/samples/transfer_action_runner_policy.v0_1.json"
+        ],
+        "stdout_log_ref": null,
+        "stderr_log_ref": null,
+        "paths_verified": [
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip",
+          "/home/vboxuser3/IMPERIUM_WORK/Imperium-/INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/TASKPACK_RECEIVE_SLOT.zip"
+        ],
+        "sha256_before_after": {
+          "before": "211e90af99961c61c400a41dabc822b5c3a92faa42d0220d929a87c23e23c357",
+          "after": null
+        },
+        "no_arbitrary_shell_confirmed": true,
+        "limitations": [
+          "Foundation-only transfer action runner.",
+          "No production remote orchestration claim.",
+          "No arbitrary shell execution path is accepted.",
+          "Dry-run proof only. No live send/fetch executed."
+        ],
+        "claim_boundary": "FOUNDATION_ONLY",
+        "error": null,
+        "mode": "DRY_RUN",
+        "source_record_path": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-EB9D0827.json"
+      }
+    ],
+    "latest_runner_ledger": [
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004150Z-3C908632",
+        "timestamp_utc": "2026-05-23T00:41:50Z",
+        "action_id": "REGISTER_TRANSFER_RESULT",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004150Z-A55828E5.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004150Z-FBBCDC74.json",
+        "result_status": "REGISTERED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004150Z-0F67A6FC",
+        "timestamp_utc": "2026-05-23T00:41:50Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004150Z-801C04A3.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004150Z-8CFB0104",
+        "timestamp_utc": "2026-05-23T00:41:50Z",
+        "action_id": "SEND_TASKPACK_ZIP",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004150Z-E2482BEF.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004150Z-C1FFADF9.json",
+        "result_status": "BLOCKED",
+        "mode": "EXECUTE",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-E4A779F0",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004151Z-E0DCAC75.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-DF37F313.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-E0B01535",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-159AD332.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-B2BBA0CF",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-6F7A537D.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-47BE0E36",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-A0794C9D.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-0A620FE0",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-0020C432.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-9EAD2C6D",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-30979567.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004151Z-41620743",
+        "timestamp_utc": "2026-05-23T00:41:51Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004151Z-33D3FE0F.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004151Z-29026243.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004222Z-0BD2B3A7",
+        "timestamp_utc": "2026-05-23T00:42:22Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004222Z-2CF82D9D.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004222Z-137392BC.json",
+        "result_status": "REGISTERED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004222Z-2943E247",
+        "timestamp_utc": "2026-05-23T00:42:22Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004222Z-52536B71.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004222Z-61F52BEC.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004222Z-C7E91FF1",
+        "timestamp_utc": "2026-05-23T00:42:22Z",
+        "action_id": "SEND_TASKPACK_ZIP",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004222Z-1200C5EB.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004222Z-50D80E4E.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004222Z-23A03226",
+        "timestamp_utc": "2026-05-23T00:42:22Z",
+        "action_id": "FETCH_REPORT_BUNDLE_ZIP",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004222Z-18AED71F.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004222Z-809C0B48.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004222Z-C03EB5AB",
+        "timestamp_utc": "2026-05-23T00:42:22Z",
+        "action_id": "REGISTER_TRANSFER_RESULT",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004222Z-1D2BAC11.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004222Z-EF50F749.json",
+        "result_status": "REGISTERED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004302Z-840AD1A7",
+        "timestamp_utc": "2026-05-23T00:43:02Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004302Z-00BADA41.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004302Z-4D2D1CEA.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-BF9A3DC8",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-73FC8515.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-7F52C157.json",
+        "result_status": "REGISTERED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-F80AB30C",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-2EE870A3.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-A3CAB7CE",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-7DD0AA14.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-39D8BDC4.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-39D02C7C",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-58D8209B.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-3BD4B1D4",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "SEND_TASKPACK_ZIP",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-2392A4FA.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-C01C31E2.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-31BE1F9C",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-7280FEC3.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-E287C74F",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "FETCH_REPORT_BUNDLE_ZIP",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-05610BD0.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-19588FF9.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-DFA8E235",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-1F5EE9C2.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-F57DBE03",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "REGISTER_TRANSFER_RESULT",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-6E7DAD91.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-85CBCE31.json",
+        "result_status": "REGISTERED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-32A846F3",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-45FDA2CB.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004315Z-19B154C4",
+        "timestamp_utc": "2026-05-23T00:43:15Z",
+        "action_id": "SEND_TASKPACK_ZIP",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004315Z-80E9BAB9.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004315Z-8C780EA0.json",
+        "result_status": "BLOCKED",
+        "mode": "EXECUTE",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-60E81C6C",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004316Z-2504EAF9.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-95906847.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-AEFF11B9",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-EB9D0827.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-998E25C1",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-0A97615D.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-01A1DDDD",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-31B45A0C.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-C10F6B9F",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-A9AB22D0.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-45AB8D34",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-EA965FD3.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004316Z-026DE316",
+        "timestamp_utc": "2026-05-23T00:43:16Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004316Z-72F0C494.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004316Z-1A7D7F9B.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004355Z-364B855C",
+        "timestamp_utc": "2026-05-23T00:43:55Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-97E62062.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004355Z-E81EE2C2",
+        "timestamp_utc": "2026-05-23T00:43:55Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/SAMPLE-VALID-DRY-RUN.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-905D3934.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004355Z-410C0767",
+        "timestamp_utc": "2026-05-23T00:43:55Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-ACTION.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-A302284B.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004355Z-3FB1D08F",
+        "timestamp_utc": "2026-05-23T00:43:55Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-CONTOUR.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-32769D46.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004355Z-6C6443C5",
+        "timestamp_utc": "2026-05-23T00:43:55Z",
+        "action_id": "VALIDATE_TRANSFER_REQUEST",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/VALIDATOR-BAD-PATH.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-18058B7B.json",
+        "result_status": "BLOCKED",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      },
+      {
+        "schema_id": "TRANSFER_ACTION_RUNNER_LEDGER_ENTRY_V0_1",
+        "entry_id": "TRANSFER-ACTION-LEDGER-20260523T004355Z-EFB1E085",
+        "timestamp_utc": "2026-05-23T00:43:55Z",
+        "action_id": "DRY_RUN_TRANSFER",
+        "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004355Z-04E37F56.json",
+        "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-C7E267A8.json",
+        "result_status": "DRY_RUN_OK",
+        "mode": "DRY_RUN",
+        "claim_boundary": "FOUNDATION_ONLY"
+      }
+    ],
+    "last_action": {
+      "action_id": "DRY_RUN_TRANSFER",
+      "request_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/TRANSFER-ACTION-REQ-20260523T004355Z-04E37F56.json",
+      "result_ref": "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/TRANSFER-ACTION-RESULT-20260523T004355Z-C7E267A8.json"
+    },
+    "status_labels": [
+      "DRY_RUN_OK",
+      "SENT",
+      "FETCHED",
+      "REGISTERED",
+      "FAILED",
+      "BLOCKED",
+      "NOT_READY",
+      "PREVIEW_ONLY",
+      "NOT_WIRED"
+    ],
+    "known_limitations": [
+      "Foundation-only action runner state.",
+      "No production remote orchestration claim.",
+      "Execute path may return NOT_READY without proven contour command profile."
+    ]
   }
 }

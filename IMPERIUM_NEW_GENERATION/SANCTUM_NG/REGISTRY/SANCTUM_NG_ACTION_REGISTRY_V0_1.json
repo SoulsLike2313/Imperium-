@@ -1,8 +1,8 @@
 {
   "schema_id": "SANCTUM_NG_ACTION_REGISTRY_V0_1",
-  "task_id": "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1",
+  "task_id": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
   "mode": "ACTION_LAYER_FOUNDATION_ONLY",
-  "generated_by": "TASK-20260522-NEWGEN-SANCTUM-ACTION-LAYER-HARDENING-VM3-V0_1",
+  "generated_by": "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1",
   "server": {
     "host": "127.0.0.1",
     "default_port": 8787,
@@ -360,6 +360,174 @@
       "known_limitations": [
         "Refresh is read/write for local foundation records only.",
         "No production orchestration claim."
+      ]
+    },
+    {
+      "action_id": "SEND_TASKPACK_ZIP",
+      "title": "Send Taskpack ZIP (Bounded)",
+      "description": "Run bounded allowlisted transfer action runner for taskpack send request/result flow.",
+      "status": "WIRED",
+      "safety_level": "SAFE_TRANSFER_ALLOWLIST_ONLY",
+      "allowed_commands": [
+        "python3 IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py --repo-root <repo-root> --task-id TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1 --action-id SEND_TASKPACK_ZIP --report-dir IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1"
+      ],
+      "allowed_paths": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/**",
+        "INBOX/VM2_TASKPACKS/**",
+        "INBOX/VM3_TASKPACKS/**"
+      ],
+      "forbidden_paths": [
+        "ORGANS/**",
+        "SANCTUM/**",
+        "IMPERIUM_TEST_VERSION/**",
+        ".git/**"
+      ],
+      "writes_files": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledgers/transfer_action_runner_ledger.jsonl",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
+      ],
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results"
+      ],
+      "known_limitations": [
+        "Foundation-only transfer action runner.",
+        "Execute mode requires owner-approved request and may return NOT_READY.",
+        "No production remote orchestration claim."
+      ]
+    },
+    {
+      "action_id": "FETCH_REPORT_BUNDLE_ZIP",
+      "title": "Fetch Report Bundle ZIP (Bounded)",
+      "description": "Run bounded allowlisted transfer action runner for report-bundle fetch request/result flow.",
+      "status": "WIRED",
+      "safety_level": "SAFE_TRANSFER_ALLOWLIST_ONLY",
+      "allowed_commands": [
+        "python3 IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py --repo-root <repo-root> --task-id TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1 --action-id FETCH_REPORT_BUNDLE_ZIP --report-dir IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1"
+      ],
+      "allowed_paths": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/**/REPORTS/**"
+      ],
+      "forbidden_paths": [
+        "ORGANS/**",
+        "SANCTUM/**",
+        "IMPERIUM_TEST_VERSION/**",
+        ".git/**"
+      ],
+      "writes_files": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledgers/transfer_action_runner_ledger.jsonl",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
+      ],
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results"
+      ],
+      "known_limitations": [
+        "Foundation-only transfer action runner.",
+        "Execute mode may return NOT_READY without proven route profile.",
+        "No production remote orchestration claim."
+      ]
+    },
+    {
+      "action_id": "REGISTER_TRANSFER_RESULT",
+      "title": "Register Transfer Result",
+      "description": "Register a bounded transfer result receipt from allowlisted request metadata.",
+      "status": "WIRED",
+      "safety_level": "SAFE_FILE_BACKED_REGISTRATION",
+      "allowed_commands": [
+        "python3 IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py --repo-root <repo-root> --task-id TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1 --action-id REGISTER_TRANSFER_RESULT --report-dir IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1"
+      ],
+      "allowed_paths": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/**"
+      ],
+      "forbidden_paths": [
+        "ORGANS/**",
+        "SANCTUM/**",
+        "IMPERIUM_TEST_VERSION/**",
+        ".git/**"
+      ],
+      "writes_files": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledgers/transfer_action_runner_ledger.jsonl",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
+      ],
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results"
+      ],
+      "known_limitations": [
+        "Registration is receipt-only and does not prove live transfer execution."
+      ]
+    },
+    {
+      "action_id": "VALIDATE_TRANSFER_REQUEST",
+      "title": "Validate Transfer Request",
+      "description": "Validate bounded transfer request schema/allowlist/path safety and emit a result receipt.",
+      "status": "WIRED",
+      "safety_level": "SAFE_REQUEST_VALIDATION_ONLY",
+      "allowed_commands": [
+        "python3 IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py --repo-root <repo-root> --task-id TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1 --action-id VALIDATE_TRANSFER_REQUEST --report-dir IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1"
+      ],
+      "allowed_paths": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/**"
+      ],
+      "forbidden_paths": [
+        "ORGANS/**",
+        "SANCTUM/**",
+        "IMPERIUM_TEST_VERSION/**",
+        ".git/**"
+      ],
+      "writes_files": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledgers/transfer_action_runner_ledger.jsonl",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
+      ],
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_request.schema.json",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/CONTRACTS/transfer_action_result.schema.json"
+      ],
+      "known_limitations": [
+        "Validation is bounded to allowlisted fields, contours, and safe roots only."
+      ]
+    },
+    {
+      "action_id": "DRY_RUN_TRANSFER",
+      "title": "Dry Run Transfer",
+      "description": "Run allowlisted dry-run transfer flow and write request/result/ledger receipts.",
+      "status": "WIRED",
+      "safety_level": "SAFE_DRY_RUN_RECORD_ONLY",
+      "allowed_commands": [
+        "python3 IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py --repo-root <repo-root> --task-id TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1 --action-id DRY_RUN_TRANSFER --report-dir IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1"
+      ],
+      "allowed_paths": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/**",
+        "INBOX/VM2_TASKPACKS/**",
+        "INBOX/VM3_TASKPACKS/**"
+      ],
+      "forbidden_paths": [
+        "ORGANS/**",
+        "SANCTUM/**",
+        "IMPERIUM_TEST_VERSION/**",
+        ".git/**"
+      ],
+      "writes_files": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_requests/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results/**",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/ledgers/transfer_action_runner_ledger.jsonl",
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
+      ],
+      "evidence_refs": [
+        "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/action_results"
+      ],
+      "known_limitations": [
+        "Dry-run records only; no live transfer side-effect is claimed."
       ]
     }
   ],

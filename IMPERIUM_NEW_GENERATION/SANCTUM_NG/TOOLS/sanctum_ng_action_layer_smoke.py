@@ -26,6 +26,11 @@ REQUIRED_ACTIONS = {
     "DRY_RUN_TASKPACK_SEND",
     "DRY_RUN_REPORT_FETCH",
     "REFRESH_TRANSFER_CONSOLE_VIEW",
+    "SEND_TASKPACK_ZIP",
+    "FETCH_REPORT_BUNDLE_ZIP",
+    "REGISTER_TRANSFER_RESULT",
+    "VALIDATE_TRANSFER_REQUEST",
+    "DRY_RUN_TRANSFER",
 }
 SUMMARY_STATE_SET = {"FOUND", "MISSING", "PARTIAL", "NOT_READY", "STALE", "ERROR"}
 
@@ -360,6 +365,11 @@ def main() -> int:
                 ("DRY_RUN_TASKPACK_SEND", "dry_run_taskpack_send"),
                 ("DRY_RUN_REPORT_FETCH", "dry_run_report_fetch"),
                 ("REFRESH_TRANSFER_CONSOLE_VIEW", "refresh_transfer_console_view"),
+                ("VALIDATE_TRANSFER_REQUEST", "validate_transfer_request"),
+                ("DRY_RUN_TRANSFER", "dry_run_transfer"),
+                ("SEND_TASKPACK_ZIP", "send_taskpack_zip"),
+                ("FETCH_REPORT_BUNDLE_ZIP", "fetch_report_bundle_zip"),
+                ("REGISTER_TRANSFER_RESULT", "register_transfer_result"),
             ]:
                 status, result = run_action(base_url, action_id)
                 action_results.append(result)

@@ -27,8 +27,11 @@ OWNER_QUESTION_GATE_STATE_REL = (
 TRANSFER_CONSOLE_VIEW_STATE_REL = (
     "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/DATA/TRANSFER_CONSOLE_VIEW_STATE.generated.json"
 )
-TRANSFER_ACTION_RUNNER_REL = (
+TRANSFER_CONSOLE_ACTION_RUNNER_REL = (
     "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_console_action_runner_v0_1.py"
+)
+TRANSFER_ACTION_RUNNER_REL = (
+    "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/TOOLS/transfer_action_runner_v0_1.py"
 )
 PHASE_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_PHASE_REGISTRY_V0_1.json"
 ACTION_REGISTRY_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/REGISTRY/SANCTUM_NG_ACTION_REGISTRY_V0_1.json"
@@ -384,7 +387,7 @@ class ActionLayer:
         return out
 
     def _run_transfer_console_action(self, action_id: str) -> dict[str, Any]:
-        runner_path = self.repo_root / TRANSFER_ACTION_RUNNER_REL
+        runner_path = self.repo_root / TRANSFER_CONSOLE_ACTION_RUNNER_REL
         transfer_report_dir = (
             self.repo_root
             / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS"
@@ -419,7 +422,7 @@ class ActionLayer:
         else:
             status = "WARN"
 
-        evidence_refs = [TRANSFER_ACTION_RUNNER_REL, TRANSFER_CONSOLE_VIEW_STATE_REL]
+        evidence_refs = [TRANSFER_CONSOLE_ACTION_RUNNER_REL, TRANSFER_CONSOLE_VIEW_STATE_REL]
         if report_ref:
             evidence_refs.append(report_ref)
         if view_ref and view_ref not in evidence_refs:
@@ -442,6 +445,72 @@ class ActionLayer:
             "evidence_refs": evidence_refs,
             "known_limitations": [
                 "Transfer Console actions are file-backed foundation workflows only.",
+                "No production remote orchestration claim is made.",
+            ],
+        }
+
+    def _run_transfer_action_runner_action(self, action_id: str) -> dict[str, Any]:
+        runner_path = self.repo_root / TRANSFER_ACTION_RUNNER_REL
+        transfer_report_dir = (
+            self.repo_root
+            / "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE/REPORTS"
+            / self.task_id
+        )
+        cmd = [
+            "python3",
+            str(runner_path),
+            "--repo-root",
+            str(self.repo_root),
+            "--task-id",
+            self.task_id,
+            "--action-id",
+            action_id,
+            "--requester",
+            "SANCTUM_NG_ACTION_SERVER",
+            "--report-dir",
+            str(transfer_report_dir),
+        ]
+        run = self._run_command(cmd)
+        parsed = self._parse_kv_from_stdout(str(run.get("stdout", "")))
+        runner_status = parsed.get("transfer_action_runner_status", "WARN")
+        report_ref = parsed.get("transfer_action_runner_report")
+        request_ref = parsed.get("transfer_action_request_ref")
+        result_ref = parsed.get("transfer_action_result_ref")
+        view_ref = parsed.get("transfer_console_view_state", TRANSFER_CONSOLE_VIEW_STATE_REL)
+
+        if run["returncode"] != 0:
+            status = "BLOCK"
+        elif runner_status == "PASS":
+            status = "PASS"
+        elif runner_status == "BLOCK":
+            status = "BLOCK"
+        else:
+            status = "WARN"
+
+        evidence_refs = [TRANSFER_ACTION_RUNNER_REL, TRANSFER_CONSOLE_VIEW_STATE_REL]
+        for ref in [report_ref, request_ref, result_ref, view_ref]:
+            if ref and ref not in evidence_refs:
+                evidence_refs.append(ref)
+
+        return {
+            "status": status,
+            "executed_command": cmd,
+            "output_summary": (
+                f"transfer_action_runner={action_id} status={runner_status} "
+                f"returncode={run['returncode']}"
+            ),
+            "payload": {
+                "runner": run,
+                "runner_report_ref": report_ref,
+                "request_ref": request_ref,
+                "result_ref": result_ref,
+                "view_state_ref": view_ref,
+                "transfer_action_runner_status": runner_status,
+                "parsed_stdout": parsed,
+            },
+            "evidence_refs": evidence_refs,
+            "known_limitations": [
+                "Transfer Action Runner is foundation-only allowlisted workflow.",
                 "No production remote orchestration claim is made.",
             ],
         }
@@ -776,6 +845,11 @@ class ActionLayer:
             "DRY_RUN_TASKPACK_SEND": lambda: self._run_transfer_console_action("DRY_RUN_TASKPACK_SEND"),
             "DRY_RUN_REPORT_FETCH": lambda: self._run_transfer_console_action("DRY_RUN_REPORT_FETCH"),
             "REFRESH_TRANSFER_CONSOLE_VIEW": lambda: self._run_transfer_console_action("REFRESH_TRANSFER_CONSOLE_VIEW"),
+            "SEND_TASKPACK_ZIP": lambda: self._run_transfer_action_runner_action("SEND_TASKPACK_ZIP"),
+            "FETCH_REPORT_BUNDLE_ZIP": lambda: self._run_transfer_action_runner_action("FETCH_REPORT_BUNDLE_ZIP"),
+            "REGISTER_TRANSFER_RESULT": lambda: self._run_transfer_action_runner_action("REGISTER_TRANSFER_RESULT"),
+            "VALIDATE_TRANSFER_REQUEST": lambda: self._run_transfer_action_runner_action("VALIDATE_TRANSFER_REQUEST"),
+            "DRY_RUN_TRANSFER": lambda: self._run_transfer_action_runner_action("DRY_RUN_TRANSFER"),
         }
         routine = dispatch.get(action_id)
 
