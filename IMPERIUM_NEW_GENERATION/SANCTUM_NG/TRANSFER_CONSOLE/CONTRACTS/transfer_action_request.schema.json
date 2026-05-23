@@ -67,6 +67,13 @@
     "claim_boundary": { "const": "FOUNDATION_ONLY" },
     "requester": { "type": "string" },
     "no_arbitrary_shell_confirmed": { "type": "boolean" },
+    "route_proof_mode": { "type": "boolean" },
+    "delivery_evidence_file": {
+      "anyOf": [
+        { "type": "string" },
+        { "type": "null" }
+      ]
+    },
     "notes": {
       "type": "array",
       "items": { "type": "string" }

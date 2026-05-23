@@ -14,6 +14,12 @@ from typing import Any
 
 TASK_ID_DEFAULT = "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1"
 BASE_REL = "IMPERIUM_NEW_GENERATION/SANCTUM_NG/TRANSFER_CONSOLE"
+ROUTE_PROOF_TASK_ID = "TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ROUTE-PROOF-PC-TO-VM3-VM3-V0_1"
+ROUTE_PROOF_VERDICT = "PASS_FOR_ONE_CONFIRMED_BOUNDED_PC_TO_VM3_TRANSFER_ROUTE_ONLY"
+ROUTE_PROOF_ACTION = "SEND_TASKPACK_ZIP"
+ROUTE_PROOF_SOURCE_CONTOUR = "PC"
+ROUTE_PROOF_TARGET_CONTOUR = "VM3"
+DEFAULT_DELIVERY_EVIDENCE_NAME = "PC_TO_VM3_DELIVERY_EVIDENCE.json"
 
 REQUEST_SCHEMA_REL = f"{BASE_REL}/CONTRACTS/transfer_action_request.schema.json"
 RESULT_SCHEMA_REL = f"{BASE_REL}/CONTRACTS/transfer_action_result.schema.json"
@@ -198,11 +204,8 @@ def ensure_layout(repo_root: Path) -> dict[str, Path]:
 
 
 def default_artifact(action_id: str, task_id: str) -> tuple[str, str, str, str, str]:
-    taskpack_name = "TASKPACK_TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1.zip"
-    taskpack_rel = (
-        "INBOX/VM3_TASKPACKS/TASK-20260523-NEWGEN-SANCTUM-TRANSFER-ACTION-RUNNER-VM3-V0_1/"
-        f"{taskpack_name}"
-    )
+    taskpack_name = f"TASKPACK_{task_id}.zip"
+    taskpack_rel = f"INBOX/VM3_TASKPACKS/{task_id}/{taskpack_name}"
 
     report_name = "TRANSFER_REPORT_BUNDLE_PLACEHOLDER.zip"
     report_rel = f"{BASE_REL}/REPORTS/{task_id}/{report_name}"
@@ -237,6 +240,9 @@ def build_request_from_args(args: argparse.Namespace, repo_root: Path) -> dict[s
     source_path = str(args.source_path or source_path_default)
     target_path = str(args.target_path or default_target_path(action_type, args.task_id, artifact_name))
     mode = str(args.mode or "DRY_RUN").upper()
+    route_proof_mode = bool(args.route_proof_mode)
+    delivery_evidence_default = f"INBOX/VM3_TASKPACKS/{args.task_id}/{DEFAULT_DELIVERY_EVIDENCE_NAME}"
+    delivery_evidence_file = str(args.delivery_evidence_file or delivery_evidence_default) if route_proof_mode else None
 
     owner_approval_required = action_type in {"SEND_TASKPACK_ZIP", "FETCH_REPORT_BUNDLE_ZIP"}
     owner_approved = bool(args.owner_approved)
@@ -269,11 +275,16 @@ def build_request_from_args(args: argparse.Namespace, repo_root: Path) -> dict[s
         "claim_boundary": "FOUNDATION_ONLY",
         "requester": str(args.requester),
         "no_arbitrary_shell_confirmed": True,
+        "route_proof_mode": route_proof_mode,
+        "delivery_evidence_file": delivery_evidence_file,
         "notes": [
             "Foundation-only transfer action runner request.",
             "No arbitrary shell command text is accepted."
         ],
     }
+
+    if route_proof_mode:
+        request["notes"].append("Route-proof mode is enabled for bounded PC->VM3 verification.")
 
     if args.request_file:
         incoming = load_json(args.request_file.resolve())
@@ -285,6 +296,8 @@ def build_request_from_args(args: argparse.Namespace, repo_root: Path) -> dict[s
             request.setdefault("schema_id", "TRANSFER_ACTION_REQUEST_V0_1")
             request.setdefault("requester", str(args.requester))
             request.setdefault("no_arbitrary_shell_confirmed", True)
+            request.setdefault("route_proof_mode", route_proof_mode)
+            request.setdefault("delivery_evidence_file", delivery_evidence_file)
 
     _ = repo_root
     return request
@@ -374,6 +387,36 @@ def validate_request(request: dict[str, Any], repo_root: Path) -> tuple[list[str
     if profile not in {"DRY_RUN_ONLY", "VM3_LOCAL_COPY", "PROFILE_NOT_READY"}:
         warnings.append(f"unknown_command_profile:{profile}")
 
+    route_proof_mode = bool(request.get("route_proof_mode", False))
+    if route_proof_mode:
+        if action_type != ROUTE_PROOF_ACTION:
+            errors.append(f"route_proof_mode_requires_action:{ROUTE_PROOF_ACTION}")
+        if source_contour != ROUTE_PROOF_SOURCE_CONTOUR or target_contour != ROUTE_PROOF_TARGET_CONTOUR:
+            errors.append(
+                "route_proof_mode_requires_route:"
+                f"{ROUTE_PROOF_SOURCE_CONTOUR}_TO_{ROUTE_PROOF_TARGET_CONTOUR}"
+            )
+        if mode != "DRY_RUN":
+            errors.append("route_proof_mode_requires_mode:DRY_RUN")
+
+        delivery_evidence_file = request.get("delivery_evidence_file")
+        if not isinstance(delivery_evidence_file, str) or not delivery_evidence_file.strip():
+            errors.append("route_proof_mode_missing_delivery_evidence_file")
+        else:
+            evidence_safe, evidence_resolved = is_safe_path(delivery_evidence_file, repo_root)
+            if not evidence_safe:
+                errors.append(f"unsafe_delivery_evidence_file:{delivery_evidence_file}")
+            else:
+                task_id = str(request.get("task_id", "")).strip()
+                expected_inbox_root = (repo_root / f"INBOX/VM3_TASKPACKS/{task_id}").resolve()
+                if not is_under_root(Path(evidence_resolved), expected_inbox_root):
+                    errors.append(
+                        "delivery_evidence_file_outside_task_inbox:"
+                        f"{Path(evidence_resolved).as_posix()}"
+                    )
+                else:
+                    paths_verified.append(Path(evidence_resolved).as_posix())
+
     return errors, warnings, paths_verified
 
 
@@ -398,6 +441,115 @@ def run_local_copy(source: Path, target: Path) -> tuple[bool, str]:
         return True, proc.stdout.strip()
     err = proc.stderr.strip() or proc.stdout.strip() or f"cp_returncode_{proc.returncode}"
     return False, err
+
+
+def confirm_pc_to_vm3_route_proof(request: dict[str, Any], repo_root: Path) -> dict[str, Any]:
+    task_id = str(request.get("task_id", "")).strip()
+    task_inbox_root = (repo_root / f"INBOX/VM3_TASKPACKS/{task_id}").resolve()
+    evidence_candidate = str(request.get("delivery_evidence_file", "")).strip()
+    evidence_path = resolve_candidate_path(evidence_candidate, repo_root) if evidence_candidate else None
+
+    errors: list[str] = []
+    warnings: list[str] = []
+    evidence_refs: list[str] = []
+    paths_verified: list[str] = []
+    operator_evidence_file_missing = False
+
+    evidence_payload: dict[str, Any] | None = None
+    if evidence_path is None:
+        errors.append("route_proof_delivery_evidence_path_missing")
+        operator_evidence_file_missing = True
+    else:
+        if not is_under_root(evidence_path, task_inbox_root):
+            errors.append(f"delivery_evidence_outside_task_inbox:{evidence_path.as_posix()}")
+        if evidence_path.exists():
+            evidence_payload = load_json(evidence_path)
+            if evidence_payload is None:
+                errors.append(f"delivery_evidence_invalid_json:{evidence_path.as_posix()}")
+            else:
+                evidence_refs.append(relpath(evidence_path, repo_root))
+                paths_verified.append(evidence_path.as_posix())
+        else:
+            errors.append(f"delivery_evidence_missing:{evidence_path.as_posix()}")
+            operator_evidence_file_missing = True
+
+    source_path = str(request.get("source_path", ""))
+    source_abs = resolve_candidate_path(source_path, repo_root)
+    zip_path = source_abs
+
+    if evidence_payload is not None and isinstance(evidence_payload.get("remote_zip_path"), str):
+        zip_path = Path(str(evidence_payload["remote_zip_path"])).resolve()
+    if not is_under_root(zip_path, task_inbox_root):
+        errors.append(f"route_proof_zip_outside_task_inbox:{zip_path.as_posix()}")
+
+    if not zip_path.exists() or not zip_path.is_file():
+        errors.append(f"route_proof_zip_missing:{zip_path.as_posix()}")
+
+    actual_zip_hash = sha256_file(zip_path)
+    actual_zip_size = zip_path.stat().st_size if zip_path.exists() and zip_path.is_file() else None
+
+    unpacked_path = (task_inbox_root / f"TASKPACK_{task_id}").resolve()
+    if evidence_payload is not None:
+        route = str(evidence_payload.get("route", ""))
+        action_type = str(evidence_payload.get("action_type", ""))
+        if route != "PC_TO_VM3":
+            errors.append(f"unexpected_evidence_route:{route}")
+        if action_type != ROUTE_PROOF_ACTION:
+            errors.append(f"unexpected_evidence_action_type:{action_type}")
+
+        remote_repo_path = str(evidence_payload.get("remote_repo_path", ""))
+        if remote_repo_path and Path(remote_repo_path).resolve() != repo_root.resolve():
+            errors.append(f"unexpected_remote_repo_path:{remote_repo_path}")
+
+        expected_remote_hash = str(evidence_payload.get("remote_zip_sha256", "")).strip().lower()
+        expected_local_hash = str(evidence_payload.get("local_zip_sha256", "")).strip().lower()
+        expected_remote_size = evidence_payload.get("remote_zip_size_bytes")
+        expected_local_size = evidence_payload.get("local_zip_size_bytes")
+
+        if not expected_remote_hash:
+            errors.append("missing_remote_zip_sha256_in_evidence")
+        if actual_zip_hash is None:
+            errors.append("unable_to_hash_route_proof_zip")
+        elif expected_remote_hash and actual_zip_hash.lower() != expected_remote_hash:
+            errors.append("remote_zip_sha256_mismatch")
+
+        if expected_local_hash and actual_zip_hash is not None and actual_zip_hash.lower() != expected_local_hash:
+            errors.append("local_vs_remote_zip_sha256_mismatch")
+
+        if expected_remote_size is None:
+            errors.append("missing_remote_zip_size_bytes_in_evidence")
+        elif actual_zip_size is None or int(expected_remote_size) != int(actual_zip_size):
+            errors.append("remote_zip_size_mismatch")
+
+        if expected_local_size is not None and actual_zip_size is not None and int(expected_local_size) != int(actual_zip_size):
+            errors.append("local_vs_remote_zip_size_mismatch")
+
+        declared_unpacked = evidence_payload.get("remote_unpacked_path")
+        if isinstance(declared_unpacked, str) and declared_unpacked.strip():
+            declared_path = Path(declared_unpacked).resolve()
+            if declared_path.exists() and declared_path.is_dir():
+                unpacked_path = declared_path
+            else:
+                warnings.append(f"declared_unpacked_path_missing:{declared_path.as_posix()}")
+
+    if not unpacked_path.exists() or not unpacked_path.is_dir():
+        errors.append(f"route_proof_unpacked_path_missing:{unpacked_path.as_posix()}")
+
+    if zip_path.exists():
+        evidence_refs.append(zip_path.as_posix())
+        paths_verified.append(zip_path.as_posix())
+    if unpacked_path.exists():
+        evidence_refs.append(unpacked_path.as_posix())
+        paths_verified.append(unpacked_path.as_posix())
+
+    return {
+        "errors": errors,
+        "warnings": warnings,
+        "evidence_refs": evidence_refs,
+        "paths_verified": paths_verified,
+        "sha256": actual_zip_hash,
+        "operator_evidence_file_missing": operator_evidence_file_missing,
+    }
 
 
 def build_result(
@@ -475,6 +627,47 @@ def run_action_logic(
             sha_after=sha256_file(target_abs),
         )
         return result
+
+    route_proof_mode = bool(request.get("route_proof_mode", False))
+    if route_proof_mode:
+        proof = confirm_pc_to_vm3_route_proof(request, repo_root)
+        proof_refs = list(dict.fromkeys(evidence_refs + [str(item) for item in proof["evidence_refs"]]))
+        proof_paths = list(dict.fromkeys(paths_verified + [str(item) for item in proof["paths_verified"]]))
+        proof_limitations = limitations + [
+            f"route:{ROUTE_PROOF_SOURCE_CONTOUR}->{ROUTE_PROOF_TARGET_CONTOUR}",
+            f"action_type:{ROUTE_PROOF_ACTION}",
+            f"verdict:{ROUTE_PROOF_VERDICT}",
+            "Bounded proof from delivered ZIP evidence only.",
+            "No VM2 route proof is claimed.",
+            "No production remote orchestration is claimed.",
+        ]
+        if proof["operator_evidence_file_missing"]:
+            proof_limitations.append("operator_evidence_file_missing=true")
+        if proof["warnings"]:
+            proof_limitations.extend([f"warn:{item}" for item in proof["warnings"]])
+
+        if proof["errors"]:
+            return build_result(
+                request=request,
+                status="BLOCKED",
+                evidence_refs=proof_refs,
+                paths_verified=proof_paths,
+                limitations=proof_limitations + [f"error:{item}" for item in proof["errors"]],
+                error="; ".join(str(item) for item in proof["errors"]),
+                sha_before=str(proof["sha256"]) if proof["sha256"] else None,
+                sha_after=str(proof["sha256"]) if proof["sha256"] else None,
+            )
+
+        return build_result(
+            request=request,
+            status="CONFIRMED",
+            evidence_refs=proof_refs,
+            paths_verified=proof_paths,
+            limitations=proof_limitations,
+            error=None,
+            sha_before=str(proof["sha256"]) if proof["sha256"] else None,
+            sha_after=str(proof["sha256"]) if proof["sha256"] else None,
+        )
 
     if action_type == "VALIDATE_TRANSFER_REQUEST":
         result = build_result(
@@ -673,10 +866,63 @@ def refresh_view_state(
         latest_action_results.append(clean)
 
     runner_ledger = list_jsonl(layout["ledger_path"])
+    recent_runner_ledger = runner_ledger[-40:]
 
     view["generated_at_utc"] = utc_now()
     view["task_id"] = task_id
     view["claim_boundary"] = "FOUNDATION_ONLY"
+    view["latest_requests"] = latest_action_requests
+    view["latest_results"] = latest_action_results
+    view["action_ledger"] = recent_runner_ledger
+
+    latest_confirmed_result: dict[str, Any] | None = None
+    for item in latest_action_results:
+        if str(item.get("status", "")).upper() == "CONFIRMED":
+            latest_confirmed_result = item
+            break
+
+    latest_confirmed_request: dict[str, Any] | None = None
+    if latest_confirmed_result is not None:
+        confirmed_request_id = str(latest_confirmed_result.get("request_id", ""))
+        for request_item in latest_action_requests:
+            if str(request_item.get("request_id", "")) == confirmed_request_id:
+                latest_confirmed_request = request_item
+                break
+
+    route_proof_status = "NOT_READY"
+    route_proof_verdict: str | None = None
+    route_proof_route: str | None = None
+    route_proof_evidence_count = 0
+    route_proof_limitations: list[str] = []
+    last_action_request_ref = request_ref
+    last_action_result_ref = result_ref
+    if latest_confirmed_result is not None:
+        route_proof_status = "CONFIRMED"
+        limitations = latest_confirmed_result.get("limitations", [])
+        if isinstance(limitations, list):
+            route_proof_limitations = [str(item) for item in limitations]
+            for item in route_proof_limitations:
+                if item.startswith("verdict:"):
+                    route_proof_verdict = item.split(":", 1)[1].strip()
+                    break
+        if route_proof_verdict is None and latest_confirmed_request is not None and bool(latest_confirmed_request.get("route_proof_mode", False)):
+            route_proof_verdict = ROUTE_PROOF_VERDICT
+
+        route_proof_evidence = latest_confirmed_result.get("evidence_refs", [])
+        if isinstance(route_proof_evidence, list):
+            route_proof_evidence_count = len(route_proof_evidence)
+
+        if latest_confirmed_request is not None:
+            source = str(latest_confirmed_request.get("source_contour", ""))
+            target = str(latest_confirmed_request.get("target_contour", ""))
+            if source and target:
+                route_proof_route = f"{source}->{target}"
+            confirmed_request_ref = str(latest_confirmed_request.get("source_record_path", "")).strip()
+            if confirmed_request_ref:
+                last_action_request_ref = confirmed_request_ref
+        confirmed_result_ref = str(latest_confirmed_result.get("source_record_path", "")).strip()
+        if confirmed_result_ref:
+            last_action_result_ref = confirmed_result_ref
 
     action_runner_state = {
         "schema_id": "TRANSFER_ACTION_RUNNER_STATE_V0_1",
@@ -688,16 +934,21 @@ def refresh_view_state(
         "safe_target_roots": SAFE_TARGET_ROOTS,
         "latest_action_requests": latest_action_requests,
         "latest_action_results": latest_action_results,
-        "latest_runner_ledger": runner_ledger[-40:],
+        "latest_runner_ledger": recent_runner_ledger,
         "last_action": {
             "action_id": last_action_id,
-            "request_ref": request_ref,
-            "result_ref": result_ref,
+            "request_ref": last_action_request_ref,
+            "result_ref": last_action_result_ref,
+            "route_proof_status": route_proof_status,
+            "route": route_proof_route,
+            "route_proof_verdict": route_proof_verdict,
+            "route_proof_evidence_count": route_proof_evidence_count,
         },
         "status_labels": [
             "DRY_RUN_OK",
             "SENT",
             "FETCHED",
+            "CONFIRMED",
             "REGISTERED",
             "FAILED",
             "BLOCKED",
@@ -705,13 +956,72 @@ def refresh_view_state(
             "PREVIEW_ONLY",
             "NOT_WIRED",
         ],
-        "known_limitations": [
-            "Foundation-only action runner state.",
-            "No production remote orchestration claim.",
-            "Execute path may return NOT_READY without proven contour command profile."
-        ],
+        "known_limitations": (
+            route_proof_limitations[:5]
+            if route_proof_status == "CONFIRMED"
+            else [
+                "Foundation-only action runner state.",
+                "No production remote orchestration claim.",
+                "Execute path may return NOT_READY without proven contour command profile."
+            ]
+        ),
     }
     view["action_runner_state"] = action_runner_state
+
+    if (
+        route_proof_status == "CONFIRMED"
+        and route_proof_route == f"{ROUTE_PROOF_SOURCE_CONTOUR}->{ROUTE_PROOF_TARGET_CONTOUR}"
+        and route_proof_verdict == ROUTE_PROOF_VERDICT
+    ):
+        now_utc = utc_now()
+        view["contour_cards"] = [
+            {
+                "contour_id": "PC",
+                "display_name": "PC",
+                "role": "control_contour",
+                "status": "CONFIRMED",
+                "status_reason": "Bounded route proof confirmed for PC -> VM3 taskpack delivery.",
+                "route_config_status": "PC_TO_VM3_CONFIRMED_ONLY",
+                "last_probe_receipt_ref": request_ref,
+                "last_updated_utc": now_utc,
+                "claim_boundary": "FOUNDATION_ONLY",
+            },
+            {
+                "contour_id": "VM2",
+                "display_name": "VM2",
+                "role": "executor_contour",
+                "status": "NOT_PROVEN",
+                "status_reason": "VM2 route proof is not included in this bounded task.",
+                "route_config_status": "UNPROVEN",
+                "last_probe_receipt_ref": None,
+                "last_updated_utc": now_utc,
+                "claim_boundary": "FOUNDATION_ONLY",
+            },
+            {
+                "contour_id": "VM3",
+                "display_name": "VM3",
+                "role": "executor_contour",
+                "status": "CONFIRMED",
+                "status_reason": "Received bounded taskpack route proof from PC evidence receipts.",
+                "route_config_status": "PC_TO_VM3_CONFIRMED_ONLY",
+                "last_probe_receipt_ref": result_ref,
+                "last_updated_utc": now_utc,
+                "claim_boundary": "FOUNDATION_ONLY",
+            },
+        ]
+        view["transfer_routes"] = [
+            {
+                "route_id": "PC_TO_VM3",
+                "source_contour": "PC",
+                "target_contour": "VM3",
+                "action_type": ROUTE_PROOF_ACTION,
+                "route_status": "CONFIRMED",
+                "route_verdict": ROUTE_PROOF_VERDICT,
+                "evidence_refs": list(latest_confirmed_result.get("evidence_refs", [])) if latest_confirmed_result is not None else [],
+                "limitations": route_proof_limitations,
+                "claim_boundary": "FOUNDATION_ONLY",
+            }
+        ]
 
     source_refs = view.get("source_refs", [])
     if not isinstance(source_refs, list):
@@ -741,6 +1051,14 @@ def refresh_view_state(
     ]:
         if label not in truth_labels:
             truth_labels.append(label)
+    if route_proof_status == "CONFIRMED":
+        for label in [
+            "ROUTE_PC_TO_VM3_CONFIRMED_BOUNDED_ONLY",
+            ROUTE_PROOF_VERDICT,
+            "NO_VM2_ROUTE_PROOF",
+        ]:
+            if label not in truth_labels:
+                truth_labels.append(label)
     view["truth_labels"] = truth_labels
 
     write_json(view_path, view)
@@ -748,7 +1066,7 @@ def refresh_view_state(
 
 
 def runner_status_from_result_status(result_status: str) -> str:
-    if result_status in {"DRY_RUN_OK", "REGISTERED", "SENT", "FETCHED"}:
+    if result_status in {"DRY_RUN_OK", "REGISTERED", "SENT", "FETCHED", "CONFIRMED"}:
         return "PASS"
     if result_status == "NOT_READY":
         return "WARN"
@@ -780,7 +1098,7 @@ def action_report(
         "known_limitations": list(result.get("limitations", [])),
         "not_proven": [
             "Production remote orchestration is not proven by this foundation action runner.",
-            "SENT/FETCHED states require bounded evidence refs and may be NOT_READY in multi-contour mode."
+            "VM2 route proof and return-fetch route proof are not included in this bounded slice."
         ],
     }
 
@@ -803,6 +1121,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--target-path", default=None)
     parser.add_argument("--mode", default="DRY_RUN", choices=sorted(ALLOWED_MODES))
     parser.add_argument("--owner-approved", action="store_true")
+    parser.add_argument("--route-proof-mode", action="store_true")
+    parser.add_argument("--delivery-evidence-file", default=None)
     parser.add_argument("--requester", default="SANCTUM_NG_TRANSFER_ACTION_RUNNER")
     parser.add_argument("--report-dir", type=Path, default=default_report_dir)
     parser.add_argument("--output-report", type=Path, default=None)

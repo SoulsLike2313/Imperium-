@@ -656,6 +656,7 @@
         "DRY_RUN_OK",
         "SENT",
         "FETCHED",
+        "CONFIRMED",
         "REGISTERED",
         "FAILED",
         "BLOCKED",
@@ -1379,6 +1380,11 @@
     const requestRows = runnerRequests.length > 0 ? runnerRequests : requests;
     const resultRows = runnerResults.length > 0 ? runnerResults : results;
     const ledgerRows = runnerLedger.length > 0 ? runnerLedger : ledger;
+    const requestById = new Map(
+      requestRows
+        .filter((item) => item && typeof item === "object")
+        .map((item) => [String(item.request_id || ""), item])
+    );
     const runnerLastAction = runnerState && runnerState.last_action && typeof runnerState.last_action === "object"
       ? runnerState.last_action
       : null;
@@ -1401,7 +1407,10 @@
     if (runnerState) {
       const limitations = Array.isArray(runnerState.known_limitations) ? runnerState.known_limitations : [];
       const lastRef = runnerLastAction ? String(runnerLastAction.result_ref || "-") : "-";
-      const runnerNote = `${runnerStateText} :: result_ref=${lastRef} :: ${String(limitations[0] || "FOUNDATION_ONLY")}`;
+      const routeProofStatus = runnerLastAction ? String(runnerLastAction.route_proof_status || "-") : "-";
+      const routeProofRoute = runnerLastAction ? String(runnerLastAction.route || "-") : "-";
+      const routeProofVerdict = runnerLastAction ? String(runnerLastAction.route_proof_verdict || "-") : "-";
+      const runnerNote = `${runnerStateText} :: route=${routeProofRoute} :: ${routeProofStatus} :: verdict=${routeProofVerdict} :: result_ref=${lastRef} :: ${String(limitations[0] || "FOUNDATION_ONLY")}`;
       setText("transfer-runner-note", runnerNote);
     } else {
       setText("transfer-runner-note", t.transferRunnerNote);
@@ -1428,12 +1437,20 @@
       });
     }
 
-    const requestLines = requestRows.slice(0, 8).map((item) =>
-      `${String(item.request_id || "-")} :: ${String(item.action_type || "-")} :: mode=${String(item.mode || "N/A")} :: ${String(item.status || "-")}`
-    );
-    const resultLines = resultRows.slice(0, 8).map((item) =>
-      `${String(item.result_id || "-")} :: ${String(item.action_type || "-")} :: ${String(item.status || "-")} :: evidence=${String((Array.isArray(item.evidence_refs) ? item.evidence_refs.length : 0))}`
-    );
+    const requestLines = requestRows.slice(0, 8).map((item) => {
+      const source = String(item.source_contour || "?");
+      const target = String(item.target_contour || "?");
+      const route = `${source}->${target}`;
+      return `${String(item.request_id || "-")} :: ${String(item.action_type || "-")} :: route=${route} :: mode=${String(item.mode || "N/A")} :: ${String(item.status || "-")}`;
+    });
+    const resultLines = resultRows.slice(0, 8).map((item) => {
+      const requestRef = requestById.get(String(item.request_id || ""));
+      const source = requestRef ? String(requestRef.source_contour || "?") : "?";
+      const target = requestRef ? String(requestRef.target_contour || "?") : "?";
+      const route = `${source}->${target}`;
+      const limitations = Array.isArray(item.limitations) ? item.limitations : [];
+      return `${String(item.result_id || "-")} :: ${String(item.action_type || "-")} :: route=${route} :: ${String(item.status || "-")} :: evidence=${String((Array.isArray(item.evidence_refs) ? item.evidence_refs.length : 0))} :: ${String(limitations[0] || "-")}`;
+    });
     const ledgerLines = ledgerRows.slice(-10).map((item) =>
       `${String(item.timestamp_utc || "-")} :: ${String(item.action_type || item.action_id || "-")} :: ${String(item.status || item.result_status || "-")}`
     );

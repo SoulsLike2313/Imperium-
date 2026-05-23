@@ -41,6 +41,7 @@
         "DRY_RUN_OK",
         "SENT",
         "FETCHED",
+        "CONFIRMED",
         "REGISTERED",
         "FAILED",
         "BLOCKED",
