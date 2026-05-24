@@ -2,7 +2,7 @@
   "capability_id": "CAP-DB-SQLITE-FTS5-EVIDENCE",
   "name": "SQLite / FTS5 evidence index candidate",
   "category": "DATABASES",
-  "status": "CANDIDATE",
+  "status": "SANDBOX",
   "owner_organ": "MECHANICUS",
   "purpose": "Candidate local evidence indexing substrate.",
   "what_problem_it_solves": "Could support searchable receipt/report corpus.",
@@ -15,14 +15,15 @@
     "validate:cap-db-sqlite-fts5-evidence"
   ],
   "expected_receipts": [
-    "cap-db-sqlite-fts5-evidence_receipt.json"
+    "cap-db-sqlite-fts5-evidence_receipt.json",
+    "cap-db-sqlite-fts5-evidence_validation_receipt.json"
   ],
   "safety_notes": "Use only in bounded task scope; no blind runtime mutation.",
   "security_notes": "Do not bypass path, command, and evidence gates.",
   "offline_or_network_dependency": "offline_preferred",
-  "promoted_by_receipt": "NOT_PROMOTED",
-  "last_reviewed_utc": "2026-05-24T00:00:00Z",
-  "next_review_reason": "Requires admission, schema design, and receipts.",
+  "promoted_by_receipt": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/RECEIPTS/VALIDATION_BATCH_001/cap-db-sqlite-fts5-evidence_validation_receipt.json",
+  "last_reviewed_utc": "2026-05-24T18:13:23Z",
+  "next_review_reason": "Validated in Batch 001; requires bounded multi-run proof before CANON.",
   "limitations": "No provisioning or validation in this task.",
   "allowed_use_cases": [
     "Bounded task execution under Mechanicus policy",
