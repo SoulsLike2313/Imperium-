@@ -1,0 +1,118 @@
+{
+  "schema_version": "arsenal.intake_queue.v0_1",
+  "generated_at_utc": "2026-05-24T00:00:00Z",
+  "queue": [
+    {
+      "capability_id": "CAP-LANG-PYTHON312-RUNTIME",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Needs cross-host runtime receipts before CANON.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/LANGUAGES/CAP-LANG-PYTHON312-RUNTIME.json"
+    },
+    {
+      "capability_id": "CAP-TOOL-PYTEST",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires install and validation receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/TOOLS/CAP-TOOL-PYTEST.json"
+    },
+    {
+      "capability_id": "CAP-TOOL-JSONSCHEMA",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires host-level install and probe receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/TOOLS/CAP-TOOL-JSONSCHEMA.json"
+    },
+    {
+      "capability_id": "CAP-UTILITY-GIT",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Needs host policy mapping for broader CANON promotion.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/UTILITIES/CAP-UTILITY-GIT.json"
+    },
+    {
+      "capability_id": "CAP-UTILITY-POWERSHELL",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Needs command deny-list maturity for CANON.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/UTILITIES/CAP-UTILITY-POWERSHELL.json"
+    },
+    {
+      "capability_id": "CAP-REF-PATHLIB-DISCIPLINE",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Requires cross-module conformance audit.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/REFERENCE_CODE/CAP-REF-PATHLIB-DISCIPLINE.json"
+    },
+    {
+      "capability_id": "CAP-DB-SQLITE-FTS5-EVIDENCE",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires admission, schema design, and receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/DATABASES/CAP-DB-SQLITE-FTS5-EVIDENCE.json"
+    },
+    {
+      "capability_id": "CAP-VIS-PLAYWRIGHT-REGRESSION",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires explicit admission and install receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/VISUAL_TESTING/CAP-VIS-PLAYWRIGHT-REGRESSION.json"
+    },
+    {
+      "capability_id": "CAP-TOOL-NODE-NPM-NPX",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires controlled provisioning receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/TOOLS/CAP-TOOL-NODE-NPM-NPX.json"
+    },
+    {
+      "capability_id": "CAP-CQ-RUFF",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Needs admitted rule profile and install receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CAP-CQ-RUFF.json"
+    },
+    {
+      "capability_id": "CAP-CQ-PRECOMMIT",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires controlled hook catalog and receipts.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CAP-CQ-PRECOMMIT.json"
+    },
+    {
+      "capability_id": "CAP-CQ-PYRIGHT-MYPY",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Needs tool selection and config admission.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CAP-CQ-PYRIGHT-MYPY.json"
+    },
+    {
+      "capability_id": "CAP-EXAMPLE-LOCAL-HTTP-DASHBOARD-SERVER",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Needs hardened exposure policy before CANON.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/EXAMPLES/CAP-EXAMPLE-LOCAL-HTTP-DASHBOARD-SERVER.json"
+    },
+    {
+      "capability_id": "CAP-PLAYBOOK-VISUAL-SCREENSHOT-GATE",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Needs broader cross-organ compliance audit.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/PLAYBOOKS/CAP-PLAYBOOK-VISUAL-SCREENSHOT-GATE.json"
+    },
+    {
+      "capability_id": "CAP-PLAYBOOK-MECHANICUS-ARSENAL-INTAKE",
+      "current_status": "SANDBOX",
+      "requested_target_status": "CANON",
+      "reason": "Needs follow-up promotion cycle evidence.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/PLAYBOOKS/CAP-PLAYBOOK-MECHANICUS-ARSENAL-INTAKE.json"
+    },
+    {
+      "capability_id": "CAP-PLAYBOOK-OSINT-DEEP-RESEARCH",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Requires legal/privacy and scope policy.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/PLAYBOOKS/CAP-PLAYBOOK-OSINT-DEEP-RESEARCH.json"
+    }
+  ]
+}
