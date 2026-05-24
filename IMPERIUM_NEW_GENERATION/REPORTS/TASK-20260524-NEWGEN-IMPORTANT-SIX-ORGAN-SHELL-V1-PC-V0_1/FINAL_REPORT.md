@@ -105,5 +105,5 @@ Evidence:
 
 ## Interim Closure Status
 
-- closure_receipt: pending commit/push hash injection
+- closure_receipt: commit=32c58702d438ae245ed9474cc078ee3975d53529, remote=32c58702d438ae245ed9474cc078ee3975d53529, clean=true
 - final verdict target: `PASS_FOR_IMPORTANT_SIX_ORGAN_SHELL_V1_PC_V0_1_ONLY`
