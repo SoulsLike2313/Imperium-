@@ -1,0 +1,23 @@
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 58575)
+Traceback (most recent call last):
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 697, in process_request_thread
+    self.finish_request(request, client_address)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 362, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 766, in __init__
+    self.handle()
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 436, in handle
+    self.handle_one_request()
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\http\server.py", line 424, in handle_one_request
+    method()
+  File "E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_NG\IMPORTANT_SIX_TUI_DASHBOARD\important_six_dashboard_server_v0_2.py", line 265, in do_POST
+    self._handle_actions_post(route, body)
+  File "E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_NG\IMPORTANT_SIX_TUI_DASHBOARD\important_six_dashboard_server_v0_2.py", line 215, in _handle_actions_post
+    self._send_json(result, status=status)
+  File "E:\IMPERIUM\IMPERIUM_NEW_GENERATION\SANCTUM_NG\IMPORTANT_SIX_TUI_DASHBOARD\important_six_dashboard_server_v0_2.py", line 74, in _send_json
+    self.wfile.write(data)
+  File "C:\Users\PC\AppData\Local\Programs\Python\Python312\Lib\socketserver.py", line 845, in write
+    self._sock.sendall(b)
+ConnectionAbortedError: [WinError 10053] Программа на вашем хост-компьютере разорвала установленное подключение
+----------------------------------------
