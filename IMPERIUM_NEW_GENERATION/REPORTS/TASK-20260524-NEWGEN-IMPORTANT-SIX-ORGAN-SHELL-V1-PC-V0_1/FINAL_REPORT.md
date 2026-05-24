@@ -105,5 +105,5 @@ Evidence:
 
 ## Interim Closure Status
 
-- closure_receipt: commit=7d828a25b55b5215244eac7025a55f7053135df1, remote=7d828a25b55b5215244eac7025a55f7053135df1, clean=true
+- closure_receipt: git snapshot captured in receipt; final push truth reported in owner response
 - final verdict target: `PASS_FOR_IMPORTANT_SIX_ORGAN_SHELL_V1_PC_V0_1_ONLY`

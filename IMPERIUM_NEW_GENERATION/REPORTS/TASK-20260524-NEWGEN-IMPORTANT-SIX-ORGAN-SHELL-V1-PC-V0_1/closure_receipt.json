@@ -5,10 +5,10 @@
   "verdict": "PASS_FOR_IMPORTANT_SIX_ORGAN_SHELL_V1_PC_V0_1_ONLY",
   "scope": "IMPERIUM_NEW_GENERATION only",
   "commit": {
-    "local_head": "7d828a25b55b5215244eac7025a55f7053135df1",
-    "remote_head": "7d828a25b55b5215244eac7025a55f7053135df1",
-    "local_equals_remote": true,
-    "worktree_clean_after_push": true
+    "observed_head_at_receipt_generation": "7d828a25b55b5215244eac7025a55f7053135df1",
+    "observed_remote_head_at_receipt_generation": "7d828a25b55b5215244eac7025a55f7053135df1",
+    "observed_heads_equal": true,
+    "note": "Observed git truth at receipt generation time; final push truth is reported in final owner response."
   },
   "checks": {
     "smoke_report_verdict": "PASS",
