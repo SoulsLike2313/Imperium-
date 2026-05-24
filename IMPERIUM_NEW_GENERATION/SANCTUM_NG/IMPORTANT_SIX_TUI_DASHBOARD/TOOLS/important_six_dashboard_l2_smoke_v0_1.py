@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""API smoke for Important Six dashboard L2 action surface."""
+"""API smoke for Important Six dashboard L2 action surface.
+
+Default mode is strictly read-only and does not call mutating POST routes.
+Mutation smoke is opt-in via --allow-mutation-smoke.
+"""
 
 from __future__ import annotations
 
@@ -11,11 +15,18 @@ import urllib.request
 from pathlib import Path
 from typing import Any
 
-TASK_ID = "TASK-20260524-NEWGEN-DASHBOARD-L2-CONTROL-ACTION-SURFACE-PC-V0_1"
+TASK_ID = "TASK-NEWGEN-VERIFICATION-SPINE-CONVERGENCE-PC-V0_1"
+
+PASS = "PASS"
+PASS_WITH_WARNINGS = "PASS_WITH_WARNINGS"
+FAIL = "FAIL"
+BLOCKED = "BLOCKED"
+CANONICAL = {PASS, PASS_WITH_WARNINGS, FAIL, BLOCKED}
 
 REQUIRED_ACTIONS = [
     "ADMIN_FULL_NEWGEN_FILE_AUDIT",
     "ADMIN_BUILD_CONTINUITY_PACK",
+    "ADMIN_EVIDENCE_REPORT_MAP",
     "TRANSFER_SEND_TASKPACK_VM2_DRY_RUN",
     "TRANSFER_SEND_TASKPACK_VM3_DRY_RUN",
     "TRANSFER_FETCH_REPORT_VM2_DRY_RUN",
@@ -60,6 +71,24 @@ def utc_now() -> str:
     return dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
+def normalize_verdict(value: str | None) -> str:
+    upper = str(value or "").strip().upper()
+    if upper in {PASS, "OK"}:
+        return PASS
+    if upper in {PASS_WITH_WARNINGS, "WARN", "WARNING", "PARTIAL"}:
+        return PASS_WITH_WARNINGS
+    if upper in {FAIL, "FAILED", "ERROR"}:
+        return FAIL
+    if upper in {BLOCKED, "BLOCK"}:
+        return BLOCKED
+    return BLOCKED
+
+
+def merge_verdict(current: str, incoming: str) -> str:
+    order = {PASS: 0, PASS_WITH_WARNINGS: 1, FAIL: 2, BLOCKED: 3}
+    return incoming if order[incoming] > order[current] else current
+
+
 def parse_args() -> argparse.Namespace:
     script_path = Path(__file__).resolve()
     repo_root = script_path.parents[4]
@@ -67,13 +96,18 @@ def parse_args() -> argparse.Namespace:
         repo_root
         / "IMPERIUM_NEW_GENERATION"
         / "REPORTS"
-        / "TASK-20260524-NEWGEN-DASHBOARD-L2-CONTROL-ACTION-SURFACE-PC-V0_1"
+        / "TASK-NEWGEN-VERIFICATION-SPINE-CONVERGENCE-PC-V0_1"
     )
     parser = argparse.ArgumentParser(description="Run Important Six dashboard L2 API smoke.")
     parser.add_argument("--base-url", default="http://127.0.0.1:8766")
     parser.add_argument("--timeout-sec", type=float, default=70.0)
     parser.add_argument("--report-root", type=Path, default=default_report_root)
     parser.add_argument("--output", type=Path, default=None)
+    parser.add_argument(
+        "--allow-mutation-smoke",
+        action="store_true",
+        help="Opt-in: run mutating POST routes and action runs.",
+    )
     return parser.parse_args()
 
 
@@ -116,40 +150,46 @@ def main() -> int:
     report_root = args.report_root.resolve()
     report_root.mkdir(parents=True, exist_ok=True)
 
-    output_path = args.output.resolve() if args.output else report_root / "dashboard_l2_action_api_smoke_report.json"
+    output_path = args.output.resolve() if args.output else report_root / "read_only_smoke_report.json"
     registry_validation_path = report_root / "action_registry_validation_report.json"
     sample_receipts_index_path = report_root / "sample_action_receipts_index.json"
     json_parse_report_path = report_root / "json_parse_validation_report.json"
 
     steps: list[dict[str, Any]] = []
-    blockers: list[str] = []
-    warnings: list[str] = []
-    receipt_paths: list[str] = []
+    blocked_steps: list[str] = []
+    failed_steps: list[str] = []
+    warning_steps: list[str] = []
+    verdict = PASS
 
     def add_step(name: str, status: str, details: Any) -> None:
-        steps.append({"step": name, "status": status, "details": details})
-        if status == "BLOCK":
-            blockers.append(name)
-        elif status == "WARN":
-            warnings.append(name)
+        nonlocal verdict
+        normalized = normalize_verdict(status)
+        steps.append({"step": name, "status": normalized, "details": details})
+        verdict = merge_verdict(verdict, normalized)
+        if normalized == BLOCKED:
+            blocked_steps.append(name)
+        elif normalized == FAIL:
+            failed_steps.append(name)
+        elif normalized == PASS_WITH_WARNINGS:
+            warning_steps.append(name)
 
-    # Base endpoint checks.
+    # Base endpoint checks (read-only).
     for endpoint in ("/api/status", "/api/actions", "/api/action-history", "/api/owner-questions", "/api/diff/status"):
         url = f"{base_url}{endpoint}"
         try:
             payload = fetch_json(url, args.timeout_sec)
-            add_step(f"get_{endpoint}", "PASS", {"url": url, "json_type": type(payload).__name__})
+            add_step(f"get_{endpoint}", PASS, {"url": url, "json_type": type(payload).__name__})
             if endpoint == "/api/actions" and isinstance(payload, dict):
                 groups = payload.get("groups", {})
                 group_names = set(groups.keys()) if isinstance(groups, dict) else set()
                 missing_groups = sorted(REQUIRED_GROUPS - group_names)
                 add_step(
                     "required_groups_check",
-                    "PASS" if not missing_groups else "BLOCK",
+                    PASS if not missing_groups else FAIL,
                     {"found": sorted(group_names), "missing": missing_groups},
                 )
         except Exception as exc:  # noqa: BLE001
-            add_step(f"get_{endpoint}", "BLOCK", {"url": url, "error": str(exc)})
+            add_step(f"get_{endpoint}", BLOCKED, {"url": url, "error": str(exc)})
 
     # Registry fields and required actions from /api/actions.
     registry_actions: list[dict[str, Any]] = []
@@ -164,146 +204,176 @@ def main() -> int:
                         entry = dict(item)
                         entry["dashboard_button_group"] = entry.get("dashboard_button_group", group)
                         registry_actions.append(entry)
+        add_step("collect_registry_actions", PASS, {"count": len(registry_actions)})
     except Exception as exc:  # noqa: BLE001
-        add_step("collect_registry_actions", "BLOCK", str(exc))
+        add_step("collect_registry_actions", BLOCKED, str(exc))
 
     found_action_ids = {str(entry.get("action_id")) for entry in registry_actions}
     missing_actions = [action_id for action_id in REQUIRED_ACTIONS if action_id not in found_action_ids]
     add_step(
         "required_actions_check",
-        "PASS" if not missing_actions else "BLOCK",
+        PASS if not missing_actions else FAIL,
         {"found_count": len(found_action_ids), "missing_actions": missing_actions},
     )
 
     registry_checks: list[dict[str, Any]] = []
-    registry_has_block = False
+    registry_has_fail = False
     for entry in registry_actions:
         action_id = str(entry.get("action_id", "UNKNOWN"))
         missing_fields = sorted(REGISTRY_REQUIRED_FIELDS - set(entry.keys()))
-        status = "PASS" if not missing_fields else "BLOCK"
-        if status == "BLOCK":
-            registry_has_block = True
+        status = PASS if not missing_fields else FAIL
+        if status == FAIL:
+            registry_has_fail = True
         registry_checks.append({"action_id": action_id, "status": status, "missing_fields": missing_fields})
+
+    read_only_actions = sorted(
+        str(entry.get("action_id"))
+        for entry in registry_actions
+        if entry.get("writes_allowed") is False
+    )
+    write_actions = sorted(
+        str(entry.get("action_id"))
+        for entry in registry_actions
+        if entry.get("writes_allowed") is True
+    )
+
     registry_validation_payload = {
         "schema_id": "important_six_action_registry_validation_report_v0_1",
         "task_id": TASK_ID,
         "generated_at_utc": utc_now(),
-        "verdict": "BLOCK" if registry_has_block else "PASS",
+        "verdict": FAIL if registry_has_fail else PASS,
+        "read_only_actions": read_only_actions,
+        "write_actions": write_actions,
         "checks": registry_checks,
     }
     write_json(registry_validation_path, registry_validation_payload)
 
-    # Run required actions.
+    receipt_paths: list[str] = []
     payloads_by_action = {
-        "OWNER_RECORD_DIFF_DECISION": {"decision": "NEEDS_REWORK", "note_ru": "Smoke: проверка записи решения Owner."},
+        "OWNER_RECORD_DIFF_DECISION": {"decision": "NEEDS_REWORK", "note_ru": "Smoke mutation mode."},
         "OWNER_RECORD_NOTE_OR_DECISION": {
             "organ": "OFFICIO_AGENTIS",
             "severity": "MEDIUM",
-            "question": "Smoke note",
+            "question": "Mutation smoke note",
             "required_decision": "OWNER_REVIEW",
-            "note_ru": "Smoke: проверка owner note записи.",
+            "note_ru": "Smoke mutation mode.",
         },
     }
 
-    for action_id in REQUIRED_ACTIONS:
-        payload = payloads_by_action.get(action_id, {})
-        url = f"{base_url}/api/actions/{action_id}/run"
-        try:
-            status_code, result = post_json(url, payload, args.timeout_sec)
-            if isinstance(result, dict):
-                status = str(result.get("status", "BLOCK")).upper()
-                receipt_path = result.get("receipt_path")
-                if isinstance(receipt_path, str):
-                    receipt_paths.append(receipt_path)
-            else:
-                status = "BLOCK"
-            if status_code >= 400 or status == "BLOCK":
-                add_step(f"run_{action_id}", "BLOCK", {"http_status": status_code, "result": result})
-            elif status == "WARN":
-                add_step(f"run_{action_id}", "WARN", {"http_status": status_code, "result": result})
-            else:
-                add_step(f"run_{action_id}", "PASS", {"http_status": status_code, "result": result})
-        except Exception as exc:  # noqa: BLE001
-            add_step(f"run_{action_id}", "BLOCK", {"error": str(exc)})
-
-        # last-result check
-        try:
-            last_payload = fetch_json(f"{base_url}/api/actions/{action_id}/last-result", args.timeout_sec)
-            ok = isinstance(last_payload, dict) and last_payload.get("action_id") == action_id
-            add_step(f"last_{action_id}", "PASS" if ok else "BLOCK", last_payload)
-        except Exception as exc:  # noqa: BLE001
-            add_step(f"last_{action_id}", "BLOCK", {"error": str(exc)})
-
-    # Direct endpoint check for owner decision record.
-    try:
-        decision_url = f"{base_url}/api/owner-intent/decision"
-        status_code, result = post_json(
-            decision_url,
-            {"decision": "APPROVE", "note_ru": "Smoke: direct endpoint check."},
-            args.timeout_sec,
+    # Mutation mode is explicit; default mode is read-only and skips POST calls.
+    if args.allow_mutation_smoke:
+        add_step(
+            "mutation_mode_enabled",
+            PASS_WITH_WARNINGS,
+            {"note": "Mutating routes enabled explicitly by --allow-mutation-smoke."},
         )
-        if status_code >= 400:
-            add_step("direct_owner_intent_decision_endpoint", "BLOCK", {"http_status": status_code, "result": result})
-        else:
-            add_step("direct_owner_intent_decision_endpoint", "PASS", {"http_status": status_code, "result": result})
-    except Exception as exc:  # noqa: BLE001
-        add_step("direct_owner_intent_decision_endpoint", "BLOCK", {"error": str(exc)})
+        for action_id in REQUIRED_ACTIONS:
+            payload = payloads_by_action.get(action_id, {})
+            url = f"{base_url}/api/actions/{action_id}/run"
+            try:
+                status_code, result = post_json(url, payload, args.timeout_sec)
+                result_status = BLOCKED
+                if isinstance(result, dict):
+                    result_status = normalize_verdict(str(result.get("status", BLOCKED)))
+                    receipt_path = result.get("receipt_path")
+                    if isinstance(receipt_path, str):
+                        receipt_paths.append(receipt_path)
 
-    # Receipts index from action run outputs.
+                if status_code >= 500:
+                    add_step(f"run_{action_id}", FAIL, {"http_status": status_code, "result": result})
+                elif status_code >= 400:
+                    add_step(f"run_{action_id}", BLOCKED, {"http_status": status_code, "result": result})
+                else:
+                    add_step(f"run_{action_id}", result_status, {"http_status": status_code, "result": result})
+            except Exception as exc:  # noqa: BLE001
+                add_step(f"run_{action_id}", BLOCKED, {"error": str(exc)})
+
+            try:
+                last_payload = fetch_json(f"{base_url}/api/actions/{action_id}/last-result", args.timeout_sec)
+                ok = isinstance(last_payload, dict) and last_payload.get("action_id") == action_id
+                add_step(f"last_{action_id}", PASS if ok else FAIL, last_payload)
+            except Exception as exc:  # noqa: BLE001
+                add_step(f"last_{action_id}", BLOCKED, {"error": str(exc)})
+
+        try:
+            decision_url = f"{base_url}/api/owner-intent/decision"
+            status_code, result = post_json(
+                decision_url,
+                {"decision": "APPROVE", "note_ru": "Smoke mutation mode."},
+                args.timeout_sec,
+            )
+            if status_code >= 500:
+                add_step("direct_owner_intent_decision_endpoint", FAIL, {"http_status": status_code, "result": result})
+            elif status_code >= 400:
+                add_step("direct_owner_intent_decision_endpoint", BLOCKED, {"http_status": status_code, "result": result})
+            else:
+                status = PASS
+                if isinstance(result, dict):
+                    status = normalize_verdict(str(result.get("status", PASS)))
+                add_step("direct_owner_intent_decision_endpoint", status, {"http_status": status_code, "result": result})
+        except Exception as exc:  # noqa: BLE001
+            add_step("direct_owner_intent_decision_endpoint", BLOCKED, {"error": str(exc)})
+    else:
+        add_step(
+            "mutation_mode_skipped_default",
+            PASS,
+            {
+                "note": "Default smoke is read-only; all POST action-run and owner decision endpoints were skipped.",
+                "skipped_actions": REQUIRED_ACTIONS,
+                "skipped_direct_endpoints": ["/api/owner-intent/decision"],
+            },
+        )
+
     receipt_records: list[dict[str, Any]] = []
     for rel_path in sorted(set(receipt_paths)):
         abs_path = repo_root / rel_path
-        exists = abs_path.exists()
-        receipt_records.append({"receipt_path": rel_path, "exists": exists})
+        receipt_records.append({"receipt_path": rel_path, "exists": abs_path.exists()})
     sample_receipts_index = {
         "schema_id": "important_six_sample_action_receipts_index_v0_1",
         "task_id": TASK_ID,
         "generated_at_utc": utc_now(),
+        "mutation_mode": bool(args.allow_mutation_smoke),
         "receipts": receipt_records,
     }
     write_json(sample_receipts_index_path, sample_receipts_index)
 
-    verdict = "PASS"
-    if blockers:
-        verdict = "BLOCK"
-    elif warnings:
-        verdict = "WARN"
-
     smoke_report = {
-        "schema_id": "important_six_dashboard_l2_action_api_smoke_report_v0_1",
+        "schema_id": "important_six_dashboard_l2_action_api_smoke_report_v0_2",
         "task_id": TASK_ID,
         "generated_at_utc": utc_now(),
         "base_url": base_url,
+        "mode": "MUTATION_OPT_IN" if args.allow_mutation_smoke else "READ_ONLY_DEFAULT",
         "verdict": verdict,
-        "blockers": blockers,
-        "warnings": warnings,
+        "blocked_steps": blocked_steps,
+        "failed_steps": failed_steps,
+        "warning_steps": warning_steps,
         "steps": steps,
     }
     write_json(output_path, smoke_report)
 
-    # Parse-check generated JSON outputs.
     parse_checks: list[dict[str, Any]] = []
-    for path in (
-        output_path,
-        registry_validation_path,
-        sample_receipts_index_path,
-    ):
+    for path in (output_path, registry_validation_path, sample_receipts_index_path):
         try:
             parsed = json.loads(path.read_text(encoding="utf-8"))
-            parse_checks.append({"path": str(path), "status": "PASS", "json_type": type(parsed).__name__})
+            parse_checks.append({"path": str(path), "status": PASS, "json_type": type(parsed).__name__})
         except Exception as exc:  # noqa: BLE001
-            parse_checks.append({"path": str(path), "status": "BLOCK", "error": str(exc)})
+            parse_checks.append({"path": str(path), "status": FAIL, "error": str(exc)})
+
+    parse_verdict = PASS if all(item["status"] == PASS for item in parse_checks) else FAIL
     parse_report = {
-        "schema_id": "important_six_dashboard_l2_json_parse_validation_report_v0_1",
+        "schema_id": "important_six_dashboard_l2_json_parse_validation_report_v0_2",
         "task_id": TASK_ID,
         "generated_at_utc": utc_now(),
-        "verdict": "PASS" if all(item["status"] == "PASS" for item in parse_checks) else "BLOCK",
+        "verdict": parse_verdict,
         "checks": parse_checks,
     }
     write_json(json_parse_report_path, parse_report)
 
-    return 0 if not blockers else 1
+    if parse_verdict != PASS:
+        return 1
+    return 0 if verdict in {PASS, PASS_WITH_WARNINGS} else 1
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+

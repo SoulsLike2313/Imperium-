@@ -18,8 +18,25 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-TASK_ID = "TASK-20260524-NEWGEN-DASHBOARD-L2-CONTROL-ACTION-SURFACE-PC-V0_1"
-VERDICT_TARGET = "PASS_FOR_DASHBOARD_L2_CONTROL_ACTION_SURFACE_PC_V0_1_ONLY"
+SCRIPT_PATH = Path(__file__).resolve()
+REPO_ROOT_FROM_FILE = SCRIPT_PATH.parents[4]
+SRC_ROOT = REPO_ROOT_FROM_FILE / "src"
+if str(SRC_ROOT) not in sys.path:
+    sys.path.insert(0, str(SRC_ROOT))
+
+from imperium.receipts.model import Verdict
+from imperium.security.command_gateway import run_allowed
+from imperium.security.path_policy import PathPolicyError, require_inside_root, safe_relative_path
+
+
+TASK_ID = "TASK-NEWGEN-VERIFICATION-SPINE-CONVERGENCE-PC-V0_1"
+VERDICT_TARGET = "CANONICAL_VERIFICATION_SPINE_V0_1"
+CANONICAL_VERDICTS = {
+    Verdict.PASS.value,
+    Verdict.PASS_WITH_WARNINGS.value,
+    Verdict.FAIL.value,
+    Verdict.BLOCKED.value,
+}
 
 
 def utc_now() -> str:
@@ -43,9 +60,99 @@ def read_json(path: Path) -> dict[str, Any]:
     return data
 
 
-def write_json(path: Path, payload: dict[str, Any] | list[Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+def normalize_verdict(value: str | None) -> str:
+    upper = str(value or "").strip().upper()
+    if upper in {"PASS", "OK", "SUCCESS"}:
+        return Verdict.PASS.value
+    if upper in {"PASS_WITH_WARNINGS", "WARN", "WARNING", "PARTIAL"}:
+        return Verdict.PASS_WITH_WARNINGS.value
+    if upper in {"FAIL", "FAILED", "ERROR"}:
+        return Verdict.FAIL.value
+    if upper in {"BLOCK", "BLOCKED"}:
+        return Verdict.BLOCKED.value
+    return Verdict.BLOCKED.value
+
+
+def validate_payload_with_schema_subset(payload: Any, schema: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+
+    def _check_type(value: Any, expected: str, path: str) -> None:
+        if expected == "object" and not isinstance(value, dict):
+            errors.append(f"{path}: expected object")
+            return
+        if expected == "array" and not isinstance(value, list):
+            errors.append(f"{path}: expected array")
+            return
+        if expected == "string" and not isinstance(value, str):
+            errors.append(f"{path}: expected string")
+            return
+        if expected == "boolean" and not isinstance(value, bool):
+            errors.append(f"{path}: expected boolean")
+            return
+        if expected == "integer":
+            if isinstance(value, bool) or not isinstance(value, int):
+                errors.append(f"{path}: expected integer")
+            return
+        if expected == "number":
+            if isinstance(value, bool) or not isinstance(value, (int, float)):
+                errors.append(f"{path}: expected number")
+            return
+
+    def _validate(value: Any, node: dict[str, Any], path: str) -> None:
+        expected_type = node.get("type")
+        if isinstance(expected_type, str):
+            _check_type(value, expected_type, path)
+            if errors and errors[-1].startswith(path):
+                if expected_type in {"object", "array", "string", "boolean", "integer", "number"}:
+                    return
+
+        enum_values = node.get("enum")
+        if isinstance(enum_values, list) and value not in enum_values:
+            errors.append(f"{path}: value '{value}' is not in enum {enum_values}")
+
+        min_length = node.get("minLength")
+        if isinstance(min_length, int) and isinstance(value, str) and len(value) < min_length:
+            errors.append(f"{path}: string shorter than minLength={min_length}")
+
+        if isinstance(value, dict):
+            required = node.get("required", [])
+            if isinstance(required, list):
+                for key in required:
+                    if isinstance(key, str) and key not in value:
+                        errors.append(f"{path}: missing required property '{key}'")
+
+            properties = node.get("properties", {})
+            additional_allowed = node.get("additionalProperties", True)
+            if isinstance(properties, dict):
+                for key, child in value.items():
+                    if key in properties and isinstance(properties[key], dict):
+                        _validate(child, properties[key], f"{path}.{key}")
+                    elif additional_allowed is False:
+                        errors.append(f"{path}: additional property '{key}' is not allowed")
+
+        if isinstance(value, list):
+            items_schema = node.get("items")
+            if isinstance(items_schema, dict):
+                for idx, item in enumerate(value):
+                    _validate(item, items_schema, f"{path}[{idx}]")
+
+    _validate(payload, schema, "$")
+    return errors
+
+
+def ensure_inside_any_root(path: Path, roots: list[Path], repo_root: Path) -> Path:
+    resolved = require_inside_root(path, repo_root)
+    for root in roots:
+        root_resolved = require_inside_root(root, repo_root)
+        try:
+            resolved.relative_to(root_resolved)
+            return resolved
+        except ValueError:
+            continue
+    allowed = [safe_relative_path(root, repo_root) for root in roots]
+    raise PathPolicyError(
+        f"Write target is outside allowed roots: target={safe_relative_path(resolved, repo_root)} allowed={allowed}"
+    )
 
 
 def parse_json_payload(raw: bytes) -> dict[str, Any]:
@@ -60,18 +167,98 @@ def parse_json_payload(raw: bytes) -> dict[str, Any]:
     return parsed
 
 
-def run_cmd(command: list[str], cwd: Path, timeout_sec: float = 45.0) -> dict[str, Any]:
+def run_cmd(
+    command: list[str],
+    cwd: Path,
+    timeout_sec: float = 45.0,
+    *,
+    repo_root: Path | None = None,
+    gateway_command_id: str | None = None,
+    gateway_args: list[str] | None = None,
+    allow_read_only_fallback: bool = True,
+) -> dict[str, Any]:
     started = utc_now()
+    resolved_cwd = cwd.resolve(strict=False)
+    if repo_root is not None:
+        resolved_cwd = require_inside_root(resolved_cwd, repo_root)
+
+    fallback_reason: str | None = None
+    gateway_receipt: dict[str, Any] | None = None
+
+    if gateway_command_id and repo_root is not None:
+        gateway_receipt = run_allowed(
+            gateway_command_id,
+            args=gateway_args,
+            dry_run=False,
+            cwd=resolved_cwd,
+            timeout=max(1, int(timeout_sec)),
+            root=repo_root,
+            mode="dev",
+        )
+        gateway_verdict = normalize_verdict(str(gateway_receipt.get("verdict")))
+        gateway_exit = gateway_receipt.get("exit_code")
+        gateway_allowed = bool(gateway_receipt.get("allowed"))
+        gateway_success = gateway_allowed and gateway_verdict in {
+            Verdict.PASS.value,
+            Verdict.PASS_WITH_WARNINGS.value,
+        } and (gateway_exit in (None, 0))
+        if gateway_success:
+            return {
+                "command": command,
+                "exit_code": 0 if gateway_exit is None else int(gateway_exit),
+                "stdout": clip_text(str(gateway_receipt.get("stdout", ""))),
+                "stderr": clip_text(str(gateway_receipt.get("stderr", ""))),
+                "timed_out": False,
+                "started_at_utc": started,
+                "finished_at_utc": utc_now(),
+                "verdict": gateway_verdict,
+                "execution_boundary": "COMMAND_GATEWAY",
+                "gateway_command_id": gateway_command_id,
+                "gateway_receipt": gateway_receipt,
+                "warnings": list(gateway_receipt.get("warnings", [])),
+                "errors": list(gateway_receipt.get("errors", [])),
+            }
+        fallback_reason = (
+            f"Gateway command '{gateway_command_id}' unavailable for this invocation."
+            if allow_read_only_fallback
+            else f"Gateway command '{gateway_command_id}' failed and fallback disabled."
+        )
+        if not allow_read_only_fallback:
+            return {
+                "command": command,
+                "exit_code": gateway_exit if isinstance(gateway_exit, int) else None,
+                "stdout": clip_text(str(gateway_receipt.get("stdout", ""))),
+                "stderr": clip_text(str(gateway_receipt.get("stderr", ""))),
+                "timed_out": False,
+                "started_at_utc": started,
+                "finished_at_utc": utc_now(),
+                "verdict": Verdict.BLOCKED.value,
+                "execution_boundary": "COMMAND_GATEWAY_BLOCKED",
+                "gateway_command_id": gateway_command_id,
+                "gateway_receipt": gateway_receipt,
+                "warnings": list(gateway_receipt.get("warnings", [])),
+                "errors": list(gateway_receipt.get("errors", [])),
+            }
+
+    execution_boundary = "DIRECT_READ_ONLY_CLASSIFIED"
+    if fallback_reason:
+        execution_boundary = "READ_ONLY_FALLBACK_AFTER_GATEWAY"
+
     try:
         proc = subprocess.run(
             command,
-            cwd=cwd,
+            cwd=resolved_cwd,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
             check=False,
             timeout=timeout_sec,
         )
+        verdict = Verdict.PASS.value if int(proc.returncode) == 0 else Verdict.FAIL.value
+        warnings: list[str] = []
+        if fallback_reason and verdict == Verdict.PASS.value:
+            verdict = Verdict.PASS_WITH_WARNINGS.value
+            warnings.append(fallback_reason)
         return {
             "command": command,
             "exit_code": int(proc.returncode),
@@ -80,6 +267,12 @@ def run_cmd(command: list[str], cwd: Path, timeout_sec: float = 45.0) -> dict[st
             "timed_out": False,
             "started_at_utc": started,
             "finished_at_utc": utc_now(),
+            "verdict": verdict,
+            "execution_boundary": execution_boundary,
+            "gateway_command_id": gateway_command_id,
+            "gateway_receipt": gateway_receipt,
+            "warnings": warnings,
+            "errors": [],
         }
     except subprocess.TimeoutExpired as exc:
         return {
@@ -90,6 +283,12 @@ def run_cmd(command: list[str], cwd: Path, timeout_sec: float = 45.0) -> dict[st
             "timed_out": True,
             "started_at_utc": started,
             "finished_at_utc": utc_now(),
+            "verdict": Verdict.FAIL.value,
+            "execution_boundary": execution_boundary,
+            "gateway_command_id": gateway_command_id,
+            "gateway_receipt": gateway_receipt,
+            "warnings": [fallback_reason] if fallback_reason else [],
+            "errors": [f"Command timed out after {timeout_sec}s"],
         }
     except FileNotFoundError as exc:
         return {
@@ -100,14 +299,20 @@ def run_cmd(command: list[str], cwd: Path, timeout_sec: float = 45.0) -> dict[st
             "timed_out": False,
             "started_at_utc": started,
             "finished_at_utc": utc_now(),
+            "verdict": Verdict.FAIL.value,
+            "execution_boundary": execution_boundary,
+            "gateway_command_id": gateway_command_id,
+            "gateway_receipt": gateway_receipt,
+            "warnings": [fallback_reason] if fallback_reason else [],
+            "errors": [f"Executable not found: {exc}"],
         }
 
 
 def safe_rel(path: Path, repo_root: Path) -> str:
     try:
-        return str(path.resolve().relative_to(repo_root.resolve())).replace("\\", "/")
-    except ValueError:
-        return str(path.resolve()).replace("\\", "/")
+        return safe_relative_path(path, repo_root)
+    except Exception:
+        return str(Path(path).expanduser().resolve(strict=False)).replace("\\", "/")
 
 
 def to_utc_iso_from_ts(timestamp: float) -> str:
@@ -150,14 +355,14 @@ class ImportantSixDashboardActions:
         owner_question_schema_path: Path,
         owner_diff_schema_path: Path,
     ) -> None:
-        self.repo_root = repo_root.resolve()
-        self.dashboard_root = dashboard_root.resolve()
-        self.report_root = report_root.resolve()
-        self.registry_path = registry_path.resolve()
-        self.transfer_config_path = transfer_config_path.resolve()
-        self.owner_question_schema_path = owner_question_schema_path.resolve()
-        self.owner_diff_schema_path = owner_diff_schema_path.resolve()
-        self.newgen_root = (self.repo_root / "IMPERIUM_NEW_GENERATION").resolve()
+        self.repo_root = Path(repo_root).expanduser().resolve(strict=False)
+        self.dashboard_root = require_inside_root(dashboard_root, self.repo_root)
+        self.report_root = require_inside_root(report_root, self.repo_root)
+        self.registry_path = require_inside_root(registry_path, self.repo_root)
+        self.transfer_config_path = require_inside_root(transfer_config_path, self.repo_root)
+        self.owner_question_schema_path = require_inside_root(owner_question_schema_path, self.repo_root)
+        self.owner_diff_schema_path = require_inside_root(owner_diff_schema_path, self.repo_root)
+        self.newgen_root = require_inside_root(self.repo_root / "IMPERIUM_NEW_GENERATION", self.repo_root)
 
         self.action_receipts_root = self.report_root / "ACTION_RECEIPTS"
         self.transfer_intents_root = self.report_root / "TRANSFER_INTENTS"
@@ -171,20 +376,63 @@ class ImportantSixDashboardActions:
         self.outbox_continuity_root = self.newgen_root / "OUTBOX" / "CONTINUITY_PACKS"
         self.astronomicon_draft_root = self.newgen_root / "ASTRONOMICON" / "DRAFT_TASK_REGISTRY"
 
-        self.action_receipts_root.mkdir(parents=True, exist_ok=True)
-        self.transfer_intents_root.mkdir(parents=True, exist_ok=True)
-        self.owner_decisions_root.mkdir(parents=True, exist_ok=True)
-        self.owner_notes_root.mkdir(parents=True, exist_ok=True)
-        self.owner_questions_root.mkdir(parents=True, exist_ok=True)
-        self.outbox_continuity_root.mkdir(parents=True, exist_ok=True)
-        self.astronomicon_draft_root.mkdir(parents=True, exist_ok=True)
+        self.action_registry_schema_path = self.dashboard_root / "ACTIONS" / "important_six_dashboard_actions_registry_schema_v0_1.json"
+        self.transfer_intent_schema_path = self.dashboard_root / "TRANSFER_ZONE" / "transfer_intent_schema_v0_1.json"
+        self.action_receipt_schema_path = self.dashboard_root / "ACTIONS" / "important_six_dashboard_action_receipt_schema_v0_1.json"
+        self.action_run_result_schema_path = self.dashboard_root / "ACTIONS" / "important_six_dashboard_action_run_result_schema_v0_1.json"
+
+        self.allowed_write_roots = [
+            self.report_root,
+            self.action_receipts_root,
+            self.transfer_intents_root,
+            self.owner_decisions_root,
+            self.owner_notes_root,
+            self.owner_questions_root,
+            self.outbox_continuity_root,
+            self.astronomicon_draft_root,
+        ]
+
+        for root in self.allowed_write_roots:
+            require_inside_root(root, self.repo_root).mkdir(parents=True, exist_ok=True)
 
         self.registry = read_json(self.registry_path)
         self.transfer_config = read_json(self.transfer_config_path)
         self.owner_question_schema = read_json(self.owner_question_schema_path)
         self.owner_diff_schema = read_json(self.owner_diff_schema_path)
+        self.action_registry_schema = read_json(self.action_registry_schema_path)
+        self.transfer_intent_schema = read_json(self.transfer_intent_schema_path)
+        self.action_receipt_schema = read_json(self.action_receipt_schema_path)
+        self.action_run_result_schema = read_json(self.action_run_result_schema_path)
+
+        self._assert_schema_valid(self.registry, self.action_registry_schema, "action_registry")
+        self._assert_schema_valid(self.transfer_config, {"type": "object"}, "transfer_config")
         self.actions = self._load_actions()
         self.last_results = self._load_last_results()
+
+    def _ensure_write_path(self, path: Path) -> Path:
+        return ensure_inside_any_root(path, self.allowed_write_roots, self.repo_root)
+
+    def _assert_schema_valid(self, payload: Any, schema: dict[str, Any], label: str) -> None:
+        errors = validate_payload_with_schema_subset(payload, schema)
+        if errors:
+            joined = "; ".join(errors[:8])
+            raise ValueError(f"{label} schema validation failed: {joined}")
+
+    def _write_json(self, path: Path, payload: dict[str, Any] | list[Any]) -> None:
+        target = self._ensure_write_path(path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    def _write_text(self, path: Path, text: str) -> None:
+        target = self._ensure_write_path(path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(text, encoding="utf-8")
+
+    def _append_jsonl(self, path: Path, payload: dict[str, Any]) -> None:
+        target = self._ensure_write_path(path)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with target.open("a", encoding="utf-8") as fh:
+            fh.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
     def _load_actions(self) -> dict[str, dict[str, Any]]:
         raw_actions = self.registry.get("actions")
@@ -216,7 +464,7 @@ class ImportantSixDashboardActions:
             return {}
 
     def _save_last_results(self) -> None:
-        write_json(self.last_results_path, self.last_results)
+        self._write_json(self.last_results_path, self.last_results)
 
     def list_actions(self) -> dict[str, Any]:
         groups: dict[str, list[dict[str, Any]]] = {}
@@ -284,7 +532,7 @@ class ImportantSixDashboardActions:
             summary = outcome.summary
             details = outcome.details
         except Exception as exc:  # noqa: BLE001
-            status = "BLOCK"
+            status = Verdict.FAIL.value
             summary = f"Action failed: {exc}"
             details = {"error": str(exc)}
 
@@ -311,7 +559,8 @@ class ImportantSixDashboardActions:
             "details": details,
             "receipt_path": safe_rel(receipt_path, self.repo_root),
         }
-        write_json(receipt_path, receipt)
+        self._assert_schema_valid(receipt, self.action_receipt_schema, "action_receipt")
+        self._write_json(receipt_path, receipt)
 
         history_entry = {
             "timestamp_utc": finished_at,
@@ -324,7 +573,7 @@ class ImportantSixDashboardActions:
         self.last_results[action_id] = history_entry
         self._save_last_results()
 
-        return {
+        run_result = {
             "schema_id": "important_six_dashboard_action_run_result_v0_1",
             "task_id": TASK_ID,
             "action_id": action_id,
@@ -334,35 +583,53 @@ class ImportantSixDashboardActions:
             "details": details,
             "generated_at_utc": finished_at,
         }
+        self._assert_schema_valid(run_result, self.action_run_result_schema, "action_run_result")
+        return run_result
 
     def _append_history(self, item: dict[str, Any]) -> None:
-        self.history_jsonl_path.parent.mkdir(parents=True, exist_ok=True)
-        with self.history_jsonl_path.open("a", encoding="utf-8") as fh:
-            fh.write(json.dumps(item, ensure_ascii=False) + "\n")
+        self._append_jsonl(self.history_jsonl_path, item)
 
     @staticmethod
     def _normalize_status(value: str) -> str:
-        upper = value.strip().upper()
-        if upper in {"PASS", "OK"}:
-            return "PASS"
-        if upper in {"WARN", "WARNING", "PARTIAL"}:
-            return "WARN"
-        return "BLOCK"
+        return normalize_verdict(value)
 
     def _git_status_lines_for_newgen(self) -> list[str]:
-        result = run_cmd(["git", "status", "--porcelain", "--", "IMPERIUM_NEW_GENERATION"], cwd=self.repo_root, timeout_sec=20)
+        result = run_cmd(
+            ["git", "status", "--short"],
+            cwd=self.repo_root,
+            timeout_sec=20,
+            repo_root=self.repo_root,
+            gateway_command_id="git.status",
+            gateway_args=[],
+            allow_read_only_fallback=True,
+        )
         if result["exit_code"] != 0:
             return []
-        return [line for line in result["stdout"].splitlines() if line.strip()]
+        all_lines = [line for line in result["stdout"].splitlines() if line.strip()]
+        return [line for line in all_lines if "IMPERIUM_NEW_GENERATION/" in line.replace("\\", "/")]
 
     def _git_head(self) -> str:
-        result = run_cmd(["git", "rev-parse", "HEAD"], cwd=self.repo_root, timeout_sec=10)
+        result = run_cmd(
+            ["git", "rev-parse", "HEAD"],
+            cwd=self.repo_root,
+            timeout_sec=10,
+            repo_root=self.repo_root,
+            gateway_command_id="git.rev_parse_head",
+            gateway_args=[],
+            allow_read_only_fallback=True,
+        )
         if result["exit_code"] != 0:
             return "UNKNOWN"
         return result["stdout"].strip() or "UNKNOWN"
 
     def _git_remote_master_head(self) -> str:
-        result = run_cmd(["git", "ls-remote", "origin", "refs/heads/master"], cwd=self.repo_root, timeout_sec=20)
+        result = run_cmd(
+            ["git", "ls-remote", "origin", "refs/heads/master"],
+            cwd=self.repo_root,
+            timeout_sec=20,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
+        )
         if result["exit_code"] != 0:
             return "UNKNOWN"
         line = (result["stdout"].splitlines() or [""])[0]
@@ -475,16 +742,24 @@ class ImportantSixDashboardActions:
     def handle_admin_build_continuity_pack(self, _: dict[str, Any]) -> ActionOutcome:
         now = dt.datetime.now(dt.timezone.utc)
         stamp = now.strftime("%Y%m%dT%H%M%SZ")
-        build_dir = self.report_root / "CONTINUITY_BUILD" / stamp
+        build_dir = self._ensure_write_path(self.report_root / "CONTINUITY_BUILD" / stamp)
         build_dir.mkdir(parents=True, exist_ok=True)
 
         local_head = self._git_head()
         remote_head = self._git_remote_master_head()
-        branch = run_cmd(["git", "branch", "--show-current"], cwd=self.repo_root, timeout_sec=10).get("stdout", "").strip()
+        branch = run_cmd(
+            ["git", "branch", "--show-current"],
+            cwd=self.repo_root,
+            timeout_sec=10,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
+        ).get("stdout", "").strip()
         latest_commits = run_cmd(
             ["git", "log", "--pretty=format:%h %ad %s", "--date=iso-strict", "-n", "12"],
             cwd=self.repo_root,
             timeout_sec=15,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
         ).get("stdout", "")
 
         summary_payload = {
@@ -504,9 +779,10 @@ class ImportantSixDashboardActions:
                 "Review diff state before any push/merge decision.",
             ],
         }
-        write_json(build_dir / "continuity_summary.json", summary_payload)
-        (build_dir / "latest_commits.txt").write_text((latest_commits or "").strip() + "\n", encoding="utf-8")
-        (build_dir / "dashboard_commands.md").write_text(
+        self._write_json(build_dir / "continuity_summary.json", summary_payload)
+        self._write_text(build_dir / "latest_commits.txt", (latest_commits or "").strip() + "\n")
+        self._write_text(
+            build_dir / "dashboard_commands.md",
             "\n".join(
                 [
                     "# Dashboard Commands",
@@ -518,26 +794,27 @@ class ImportantSixDashboardActions:
                     "`python IMPERIUM_NEW_GENERATION/SANCTUM_NG/IMPORTANT_SIX_TUI_DASHBOARD/TOOLS/important_six_dashboard_l2_smoke_v0_1.py --base-url http://127.0.0.1:8766`",
                     "",
                     "Playwright proof:",
-                    "`python IMPERIUM_NEW_GENERATION/SANCTUM_NG/IMPORTANT_SIX_TUI_DASHBOARD/TESTS/playwright_dashboard_l2_actions_v0_1.py --base-url http://127.0.0.1:8766 --out-dir IMPERIUM_NEW_GENERATION/REPORTS/TASK-20260524-NEWGEN-DASHBOARD-L2-CONTROL-ACTION-SURFACE-PC-V0_1`",
+                    "`python IMPERIUM_NEW_GENERATION/SANCTUM_NG/IMPORTANT_SIX_TUI_DASHBOARD/TESTS/playwright_dashboard_l2_actions_v0_1.py --base-url http://127.0.0.1:8766 --out-dir IMPERIUM_NEW_GENERATION/REPORTS/TASK-NEWGEN-VERIFICATION-SPINE-CONVERGENCE-PC-V0_1`",
                     "",
                 ]
             )
             + "\n",
-            encoding="utf-8",
         )
 
         zip_name = f"newgen_continuity_pack_{stamp}.zip"
-        zip_path = self.outbox_continuity_root / zip_name
+        zip_path = self._ensure_write_path(self.outbox_continuity_root / zip_name)
         with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as zf:
             for file_path in sorted(build_dir.rglob("*")):
                 if file_path.is_file():
                     zf.write(file_path, arcname=file_path.relative_to(build_dir).as_posix())
 
         sha256 = hashlib.sha256(zip_path.read_bytes()).hexdigest()
-        sha_path = zip_path.with_suffix(".zip.sha256")
-        sha_path.write_text(f"{sha256}  {zip_path.name}\n", encoding="utf-8")
+        sha_path = self._ensure_write_path(zip_path.with_suffix(".zip.sha256"))
+        self._write_text(sha_path, f"{sha256}  {zip_path.name}\n")
 
-        continuity_receipt_path = self.outbox_continuity_root / f"newgen_continuity_pack_{stamp}_receipt.json"
+        continuity_receipt_path = self._ensure_write_path(
+            self.outbox_continuity_root / f"newgen_continuity_pack_{stamp}_receipt.json"
+        )
         continuity_receipt = {
             "schema_id": "newgen_continuity_pack_receipt_v0_1",
             "task_id": TASK_ID,
@@ -548,7 +825,7 @@ class ImportantSixDashboardActions:
             "build_files": [safe_rel(path, self.repo_root) for path in sorted(build_dir.rglob("*")) if path.is_file()],
             "scope": "IMPERIUM_NEW_GENERATION only",
         }
-        write_json(continuity_receipt_path, continuity_receipt)
+        self._write_json(continuity_receipt_path, continuity_receipt)
 
         details = {
             "zip_path": safe_rel(zip_path, self.repo_root),
@@ -594,7 +871,13 @@ class ImportantSixDashboardActions:
             if not ssh_exists:
                 alias_checks.append({"alias": alias, "checked": False, "available": False, "reason": "ssh_not_found"})
                 continue
-            probe = run_cmd(["ssh", "-G", alias], cwd=self.repo_root, timeout_sec=10)
+            probe = run_cmd(
+                ["ssh", "-G", alias],
+                cwd=self.repo_root,
+                timeout_sec=10,
+                repo_root=self.repo_root,
+                allow_read_only_fallback=True,
+            )
             alias_checks.append(
                 {
                     "alias": alias,
@@ -641,10 +924,11 @@ class ImportantSixDashboardActions:
             "config_ref": safe_rel(self.transfer_config_path, self.repo_root),
             "forbidden": self.transfer_config.get("forbidden", {}),
         }
-        write_json(intent_path, intent_payload)
+        self._assert_schema_valid(intent_payload, self.transfer_intent_schema, "transfer_intent")
+        self._write_json(intent_path, intent_payload)
 
         has_available_alias = any(item.get("available") for item in alias_checks)
-        status = "PASS" if has_available_alias else "WARN"
+        status = Verdict.PASS.value if has_available_alias else Verdict.PASS_WITH_WARNINGS.value
         summary = f"Transfer intent saved ({target_key}/{intent_type}), alias_available={has_available_alias}"
         details = dict(intent_payload)
         details["intent_path"] = safe_rel(intent_path, self.repo_root)
@@ -668,7 +952,13 @@ class ImportantSixDashboardActions:
         checks: list[dict[str, Any]] = []
 
         def check_exec(name: str, command: list[str], required: bool) -> None:
-            result = run_cmd(command, cwd=self.repo_root, timeout_sec=15)
+            result = run_cmd(
+                command,
+                cwd=self.repo_root,
+                timeout_sec=15,
+                repo_root=self.repo_root,
+                allow_read_only_fallback=True,
+            )
             checks.append(
                 {
                     "tool": name,
@@ -880,10 +1170,10 @@ class ImportantSixDashboardActions:
                         if not (keys & evidence_keys):
                             risks.append({"path": rel, "reason": "Generic PASS without evidence-like fields"})
                     elif isinstance(verdict, str) and verdict.startswith("PASS_FOR_"):
-                        continue
+                        risks.append({"path": rel, "reason": "Legacy PASS_FOR verdict detected; canonical verdict required"})
             else:
                 upper = text.upper()
-                if "VERDICT" in upper and "PASS_FOR_" not in upper and re.search(r"\bPASS\b", upper):
+                if "VERDICT" in upper and re.search(r"\bPASS\b", upper):
                     if "EVIDENCE" not in upper and "SOURCE" not in upper and "RECEIPT" not in upper:
                         risks.append({"path": rel, "reason": "Markdown contains PASS without evidence/source mentions"})
 
@@ -916,7 +1206,7 @@ class ImportantSixDashboardActions:
             ],
         }
         draft_path = self.astronomicon_draft_root / f"{draft_id}.json"
-        write_json(draft_path, draft_payload)
+        self._write_json(draft_path, draft_payload)
 
         index_path = self.astronomicon_draft_root / "draft_registry_index.json"
         if index_path.exists():
@@ -941,7 +1231,7 @@ class ImportantSixDashboardActions:
             }
         )
         index_payload["updated_at_utc"] = utc_now()
-        write_json(index_path, index_payload)
+        self._write_json(index_path, index_payload)
 
         details = {
             "draft_path": safe_rel(draft_path, self.repo_root),
@@ -955,12 +1245,44 @@ class ImportantSixDashboardActions:
     def _build_diff_status_payload(self) -> dict[str, Any]:
         local_head = self._git_head()
         remote_head = self._git_remote_master_head()
-        previous = run_cmd(["git", "rev-parse", "HEAD~1"], cwd=self.repo_root, timeout_sec=10).get("stdout", "").strip()
-        branch = run_cmd(["git", "branch", "--show-current"], cwd=self.repo_root, timeout_sec=10).get("stdout", "").strip()
-        status_short = run_cmd(["git", "status", "--short"], cwd=self.repo_root, timeout_sec=15).get("stdout", "")
+        previous = run_cmd(
+            ["git", "rev-parse", "HEAD~1"],
+            cwd=self.repo_root,
+            timeout_sec=10,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
+        ).get("stdout", "").strip()
+        branch = run_cmd(
+            ["git", "branch", "--show-current"],
+            cwd=self.repo_root,
+            timeout_sec=10,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
+        ).get("stdout", "").strip()
+        status_short = run_cmd(
+            ["git", "status", "--short"],
+            cwd=self.repo_root,
+            timeout_sec=15,
+            repo_root=self.repo_root,
+            gateway_command_id="git.status",
+            gateway_args=[],
+            allow_read_only_fallback=True,
+        ).get("stdout", "")
         changed_files = [line for line in status_short.splitlines() if line.strip()]
-        diff_stat = run_cmd(["git", "diff", "--stat"], cwd=self.repo_root, timeout_sec=20).get("stdout", "")
-        name_status = run_cmd(["git", "diff", "--name-status"], cwd=self.repo_root, timeout_sec=20).get("stdout", "")
+        diff_stat = run_cmd(
+            ["git", "diff", "--stat"],
+            cwd=self.repo_root,
+            timeout_sec=20,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
+        ).get("stdout", "")
+        name_status = run_cmd(
+            ["git", "diff", "--name-status"],
+            cwd=self.repo_root,
+            timeout_sec=20,
+            repo_root=self.repo_root,
+            allow_read_only_fallback=True,
+        ).get("stdout", "")
         remote_sync = local_head != "UNKNOWN" and local_head == remote_head
 
         payload = {
@@ -1020,8 +1342,9 @@ class ImportantSixDashboardActions:
             "remote_head": diff_payload.get("remote_master_head"),
             "source": source,
         }
+        self._assert_schema_valid(record, self.owner_diff_schema, "owner_diff_decision")
         path = self.owner_decisions_root / f"{decision_id}.json"
-        write_json(path, record)
+        self._write_json(path, record)
         details = {"decision_record_path": safe_rel(path, self.repo_root), "record": record}
         return ActionOutcome(status="PASS", summary=f"Owner diff decision recorded: {decision}", details=details)
 
@@ -1083,10 +1406,9 @@ class ImportantSixDashboardActions:
         if not records:
             defaults = self._default_owner_questions()
             for item in defaults:
-                path = self.owner_questions_root / f"{slug(str(item['question_id']))}.json"
-                write_json(path, item)
                 copy_item = dict(item)
-                copy_item["_path"] = safe_rel(path, self.repo_root)
+                copy_item["_path"] = None
+                copy_item["_virtual_default"] = True
                 records.append(copy_item)
         return records
 
@@ -1139,13 +1461,15 @@ class ImportantSixDashboardActions:
             "required_decision": required_decision or "OWNER_REVIEW",
             "status": status if status in {"OPEN", "ANSWERED", "BLOCKED", "DEFERRED"} else "OPEN",
             "owner_note_ru": note_ru,
-            "decision": decision or None,
             "created_at_utc": utc_now(),
             "updated_at_utc": utc_now(),
         }
+        if decision:
+            record["decision"] = decision
+        self._assert_schema_valid(record, self.owner_question_schema, "owner_question_record")
 
         note_path = self.owner_notes_root / f"{record_id}.json"
-        write_json(note_path, record)
+        self._write_json(note_path, record)
         details = {"note_record_path": safe_rel(note_path, self.repo_root), "record": record}
         return ActionOutcome(status="PASS", summary="Owner note/decision recorded", details=details)
 
@@ -1163,4 +1487,3 @@ def shutil_which(binary: str) -> str | None:
                 if c2.exists():
                     return str(c2)
     return None
-

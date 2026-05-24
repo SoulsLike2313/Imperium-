@@ -165,6 +165,17 @@ function safetyClassTag(safetyClass) {
   return "write";
 }
 
+function normalizeStatus(statusValue) {
+  const status = String(statusValue || "").toUpperCase();
+  if (status === "PASS" || status === "OK") return "PASS";
+  if (status === "PASS_WITH_WARNINGS" || status === "WARN" || status === "WARNING" || status === "PARTIAL") {
+    return "PASS_WITH_WARNINGS";
+  }
+  if (status === "FAIL" || status === "FAILED" || status === "ERROR") return "FAIL";
+  if (status === "BLOCKED" || status === "BLOCK") return "BLOCKED";
+  return "BLOCKED";
+}
+
 function buildPayloadForAction(actionId) {
   if (actionId === "OWNER_RECORD_DIFF_DECISION") {
     return {
@@ -196,7 +207,7 @@ async function runAction(actionId) {
     const result = await apiPost(`/api/actions/${actionId}/run`, payload);
     setBox("resultBox", result);
   } catch (error) {
-    setBox("resultBox", { status: "BLOCK", error: String(error) });
+    setBox("resultBox", { status: "BLOCKED", error: String(error) });
   } finally {
     appState.running.delete(actionId);
     await refreshPanels();
@@ -210,7 +221,7 @@ async function loadLastResult(actionId) {
     const payload = await apiGet(`/api/actions/${actionId}/last-result`);
     setBox("resultBox", payload);
   } catch (error) {
-    setBox("resultBox", { status: "BLOCK", error: String(error) });
+    setBox("resultBox", { status: "BLOCKED", error: String(error) });
   }
 }
 
@@ -253,12 +264,12 @@ function renderGroups(payload) {
       safetyNode.classList.add(safetyClassTag(safety));
 
       const last = action.last_result;
-      const status = last && last.status ? String(last.status).toUpperCase() : "UNKNOWN";
+      const status = last && last.status ? normalizeStatus(last.status) : "UNKNOWN";
       const summary = last && last.summary ? String(last.summary) : "-";
       actionCard.querySelector(".action-last").textContent = `${status}: ${summary}`;
       if (status === "PASS") passLike += 1;
-      else if (status === "WARN") warnLike += 1;
-      else if (status === "BLOCK") blockLike += 1;
+      else if (status === "PASS_WITH_WARNINGS") warnLike += 1;
+      else if (status === "FAIL" || status === "BLOCKED") blockLike += 1;
 
       const runBtn = actionCard.querySelector(".run-btn");
       runBtn.disabled = appState.running.has(action.action_id);
@@ -272,7 +283,7 @@ function renderGroups(payload) {
     root.appendChild(groupNode);
   });
 
-  document.getElementById("statusHint").textContent = `PASS=${passLike} WARN=${warnLike} BLOCK=${blockLike}`;
+  document.getElementById("statusHint").textContent = `PASS=${passLike} PASS_WITH_WARNINGS=${warnLike} FAIL_OR_BLOCKED=${blockLike}`;
 }
 
 async function loadActions() {
@@ -285,7 +296,7 @@ async function loadActions() {
   } catch (error) {
     appState.actionsPayload = null;
     renderGroups(null);
-    setBox("resultBox", { status: "BLOCK", error: String(error) });
+    setBox("resultBox", { status: "BLOCKED", error: String(error) });
   } finally {
     appState.loading = false;
   }
@@ -305,21 +316,21 @@ async function refreshPanels() {
     const diffPayload = await apiGet("/api/diff/status");
     setBox("diffStatusBox", diffPayload);
   } catch (error) {
-    setBox("diffStatusBox", { status: "BLOCK", error: String(error) });
+    setBox("diffStatusBox", { status: "BLOCKED", error: String(error) });
   }
 
   try {
     const ownerPayload = await apiGet("/api/owner-questions");
     setBox("ownerQuestionsBox", ownerPayload);
   } catch (error) {
-    setBox("ownerQuestionsBox", { status: "BLOCK", error: String(error) });
+    setBox("ownerQuestionsBox", { status: "BLOCKED", error: String(error) });
   }
 
   try {
     const historyPayload = await apiGet("/api/action-history?limit=60");
     setBox("historyBox", historyPayload);
   } catch (error) {
-    setBox("historyBox", { status: "BLOCK", error: String(error) });
+    setBox("historyBox", { status: "BLOCKED", error: String(error) });
   }
 }
 
@@ -351,4 +362,3 @@ async function boot() {
 }
 
 window.addEventListener("DOMContentLoaded", boot);
-

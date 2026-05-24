@@ -40,7 +40,7 @@ class ImportantSixDashboardL2Service:
             "task_id": TASK_ID,
             "generated_at_utc": utc_now(),
             "mode": "L2_SAFE_CONTROL_ACTION_SURFACE",
-            "verdict_target": "PASS_FOR_DASHBOARD_L2_CONTROL_ACTION_SURFACE_PC_V0_1_ONLY",
+            "verdict_target": "CANONICAL_VERIFICATION_SPINE_V0_1",
             "safe_rules": [
                 "no arbitrary shell execution",
                 "no destructive actions",
@@ -90,6 +90,15 @@ class DashboardL2RequestHandler(BaseHTTPRequestHandler):
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         self.wfile.write(data)
+
+    @staticmethod
+    def _http_status_from_verdict(verdict: str) -> HTTPStatus:
+        normalized = str(verdict or "").strip().upper()
+        if normalized in {"PASS", "PASS_WITH_WARNINGS"}:
+            return HTTPStatus.OK
+        if normalized == "BLOCKED":
+            return HTTPStatus.BAD_REQUEST
+        return HTTPStatus.INTERNAL_SERVER_ERROR
 
     def _bad_request(self, message: str) -> None:
         self._send_json(
@@ -173,7 +182,7 @@ class DashboardL2RequestHandler(BaseHTTPRequestHandler):
                 self._bad_request(str(exc))
                 return
             result = service.actions_runner.record_owner_diff_decision_from_endpoint(payload)
-            status = HTTPStatus.OK if result.get("status") != "BLOCK" else HTTPStatus.BAD_REQUEST
+            status = self._http_status_from_verdict(str(result.get("status", "BLOCKED")))
             self._send_json(result, status=status)
             return
 
@@ -211,7 +220,7 @@ class DashboardL2RequestHandler(BaseHTTPRequestHandler):
                     status=HTTPStatus.INTERNAL_SERVER_ERROR,
                 )
                 return
-            status = HTTPStatus.OK if result.get("status") != "BLOCK" else HTTPStatus.BAD_REQUEST
+            status = self._http_status_from_verdict(str(result.get("status", "BLOCKED")))
             self._send_json(result, status=status)
             return
 
@@ -279,7 +288,7 @@ def parse_args() -> argparse.Namespace:
         default_repo_root
         / "IMPERIUM_NEW_GENERATION"
         / "REPORTS"
-        / "TASK-20260524-NEWGEN-DASHBOARD-L2-CONTROL-ACTION-SURFACE-PC-V0_1"
+        / "TASK-NEWGEN-VERIFICATION-SPINE-CONVERGENCE-PC-V0_1"
     )
 
     parser = argparse.ArgumentParser(description="Run Important Six dashboard L2 action server.")
@@ -326,4 +335,5 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
 
