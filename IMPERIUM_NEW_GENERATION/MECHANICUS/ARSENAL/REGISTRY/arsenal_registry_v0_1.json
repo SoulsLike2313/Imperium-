@@ -1,12 +1,12 @@
 {
   "schema_version": "arsenal.registry.v0_1",
-  "generated_at_utc": "2026-05-24T18:15:17Z",
-  "task_id": "TASK-NEWGEN-MECHANICUS-ARSENAL-VALIDATION-BATCH-001-PC-V0_1",
+  "generated_at_utc": "2026-05-24T18:54:03Z",
+  "task_id": "TASK-NEWGEN-MECHANICUS-ARSENAL-VALIDATION-FOLLOWUP-PC-V0_1",
   "root_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL",
   "card_count": 136,
   "status_counts": {
-    "CANDIDATE": 112,
-    "SANDBOX": 20,
+    "CANDIDATE": 111,
+    "SANDBOX": 21,
     "CANON": 4,
     "QUARANTINE": 0,
     "REJECTED": 0
@@ -986,7 +986,7 @@
       "capability_id": "CAP-TOOL-NODE-NPM-NPX",
       "name": "Node/npm/npx candidate",
       "category": "TOOLS",
-      "status": "CANDIDATE",
+      "status": "SANDBOX",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/TOOLS/CAP-TOOL-NODE-NPM-NPX.json",
       "owner_organ": "MECHANICUS",
       "source_type": "external_tool",

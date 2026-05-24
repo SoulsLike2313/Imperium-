@@ -1,0 +1,96 @@
+{
+  "task_id": "TASK-NEWGEN-MECHANICUS-ARSENAL-VALIDATION-FOLLOWUP-PC-V0_1",
+  "scope_name": "code_quality",
+  "generated_at_utc": "2026-05-24T18:54:03Z",
+  "summary": {
+    "capability_count": 9,
+    "present_count": 0,
+    "missing_count": 9,
+    "status_counts": {
+      "CANDIDATE": 9
+    }
+  },
+  "capabilities": [
+    {
+      "capability_id": "CAP-TOOL-JSONSCHEMA",
+      "tool_name": "jsonschema",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CODE_QUALITY_JSONSCHEMA",
+      "tool_name": "jsonschema",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CAP-CQ-RUFF",
+      "tool_name": "ruff",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CODE_QUALITY_RUFF",
+      "tool_name": "ruff",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CAP-CQ-PYRIGHT-MYPY",
+      "tool_name": "mypy_or_pyright",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CODE_QUALITY_MYPY",
+      "tool_name": "mypy",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CODE_QUALITY_PYRIGHT",
+      "tool_name": "pyright",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CAP-CQ-PRECOMMIT",
+      "tool_name": "pre-commit",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    },
+    {
+      "capability_id": "CODE_QUALITY_PRE_COMMIT",
+      "tool_name": "pre-commit",
+      "status": "CANDIDATE",
+      "present": false,
+      "validation_verdict": "MISSING",
+      "recommended_action": "OWNER_APPROVAL_REQUIRED",
+      "install_requires_owner_approval": true
+    }
+  ]
+}
