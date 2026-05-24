@@ -1,7 +1,7 @@
 {
   "scope_id": "mechanicus_tool_validation_task",
   "version": "0.1",
-  "generated_at_utc": "2026-05-24T19:59:05Z",
+  "generated_at_utc": "2026-05-24T23:34:05Z",
   "source_registry": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/REGISTRY/arsenal_registry_v0_1.json",
   "purpose": "Validate Arsenal capabilities and produce receipts/status recommendations without fake CANON.",
   "target_task_types": [
@@ -18,7 +18,8 @@
     "CAP-PLAYBOOK-MECHANICUS-ARSENAL-INTAKE",
     "TOOLS_COMMAND_GATEWAY",
     "TOOLS_PATH_POLICY",
-    "TOOLS_RECEIPT_VALIDATOR"
+    "TOOLS_RECEIPT_VALIDATOR",
+    "TOOLS_SCOPE_REVIEW_TOOL"
   ],
   "candidate_context_only": [
     "ALGORITHMS_CAPABILITY_PROMOTION_RULES",
@@ -31,8 +32,7 @@
     "PROMPTING_PATTERNS_NO_FAKE_GREEN_RESPONSE_PATTERN",
     "SEARCH_INDEXING_RECEIPT_PATH_INDEX",
     "SEARCH_INDEXING_REPORT_PATH_INDEX",
-    "TOOLS_CANDIDATE_CHECK_WORKFLOW",
-    "TOOLS_SCOPE_REVIEW_TOOL"
+    "TOOLS_CANDIDATE_CHECK_WORKFLOW"
   ],
   "owner_decision_required": [
     "CLOUD_LLM_ADAPTERS_CLOUD_MODEL_ROUTER_RESERVED",
@@ -112,5 +112,5 @@
     "status changes without receipt",
     "receipt omission for critical validation claim"
   ],
-  "last_generated_from_commit": "edaf291236e1a88dd1ee9715f8431b1d6c3501af"
+  "last_generated_from_commit": "5d22657b2fe8a319c9a4636549c53bfcc2ffa119"
 }

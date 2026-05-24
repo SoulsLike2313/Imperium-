@@ -1,7 +1,7 @@
 {
   "scope_id": "json_schema_validation_task",
   "version": "0.1",
-  "generated_at_utc": "2026-05-24T19:59:05Z",
+  "generated_at_utc": "2026-05-24T23:34:05Z",
   "source_registry": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/REGISTRY/arsenal_registry_v0_1.json",
   "purpose": "Schema-first validation of JSON artifacts: cards, receipts, registry, taskpacks, scope exports.",
   "target_task_types": [
@@ -18,16 +18,16 @@
     "CAP-TOOL-JSONSCHEMA",
     "CODE_QUALITY_JSONSCHEMA",
     "TOOLS_PATH_POLICY",
-    "TOOLS_RECEIPT_VALIDATOR"
+    "TOOLS_RECEIPT_VALIDATOR",
+    "UTILITIES_JQ",
+    "UTILITIES_YQ"
   ],
   "candidate_context_only": [
     "CODE_QUALITY_SCHEMA_FIRST_VALIDATION",
     "REFERENCE_CODE_CAPABILITY_CARD_SCHEMA",
     "REFERENCE_CODE_SAFE_JSON_WRITE_HELPER",
     "REFERENCE_CODE_SCOPE_EXPORT_SCHEMA",
-    "REFERENCE_CODE_VALIDATION_RECEIPT_SCHEMA",
-    "UTILITIES_JQ",
-    "UTILITIES_YQ"
+    "REFERENCE_CODE_VALIDATION_RECEIPT_SCHEMA"
   ],
   "owner_decision_required": [
     "CLOUD_LLM_ADAPTERS_CLOUD_MODEL_ROUTER_RESERVED",
@@ -102,5 +102,5 @@
     "manual-only JSON trust",
     "fake PASS without schema evidence"
   ],
-  "last_generated_from_commit": "edaf291236e1a88dd1ee9715f8431b1d6c3501af"
+  "last_generated_from_commit": "5d22657b2fe8a319c9a4636549c53bfcc2ffa119"
 }

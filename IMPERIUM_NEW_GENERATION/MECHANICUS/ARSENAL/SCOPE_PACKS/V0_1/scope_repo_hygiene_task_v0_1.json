@@ -1,7 +1,7 @@
 {
   "scope_id": "repo_hygiene_task",
   "version": "0.1",
-  "generated_at_utc": "2026-05-24T19:59:05Z",
+  "generated_at_utc": "2026-05-24T23:34:05Z",
   "source_registry": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/REGISTRY/arsenal_registry_v0_1.json",
   "purpose": "NewGen-scoped hygiene checks: dirty-tree/runtime-junk/fake-green under Inquisition oversight.",
   "target_task_types": [
@@ -106,5 +106,5 @@
     "unreviewed deletion",
     "runtime-junk cleanup without evidence receipt"
   ],
-  "last_generated_from_commit": "edaf291236e1a88dd1ee9715f8431b1d6c3501af"
+  "last_generated_from_commit": "5d22657b2fe8a319c9a4636549c53bfcc2ffa119"
 }
