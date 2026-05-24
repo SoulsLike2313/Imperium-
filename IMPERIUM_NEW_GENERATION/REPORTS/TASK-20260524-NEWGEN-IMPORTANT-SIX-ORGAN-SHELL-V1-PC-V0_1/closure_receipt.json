@@ -1,12 +1,12 @@
 {
   "schema_id": "newgen_closure_receipt_v0_1",
   "task_id": "TASK-20260524-NEWGEN-IMPORTANT-SIX-ORGAN-SHELL-V1-PC-V0_1",
-  "generated_at_utc": "2026-05-24T03:17:30Z",
+  "generated_at_utc": "2026-05-24T03:18:30Z",
   "verdict": "PASS_FOR_IMPORTANT_SIX_ORGAN_SHELL_V1_PC_V0_1_ONLY",
   "scope": "IMPERIUM_NEW_GENERATION only",
   "commit": {
-    "local_head": "32c58702d438ae245ed9474cc078ee3975d53529",
-    "remote_head": "32c58702d438ae245ed9474cc078ee3975d53529",
+    "local_head": "7d828a25b55b5215244eac7025a55f7053135df1",
+    "remote_head": "7d828a25b55b5215244eac7025a55f7053135df1",
     "local_equals_remote": true,
     "worktree_clean_after_push": true
   },
