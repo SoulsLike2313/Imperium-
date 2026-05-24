@@ -2,13 +2,14 @@
   "schema_id": "newgen_doctrinarium_gate_registry_v0_1",
   "schema_version": "0.1",
   "task_id": "TASK-20260524-NEWGEN-DOCTRINARIUM-GATE-SPINE-READ-FIRST-VM3-V0_1",
-  "generated_at_utc": "2026-05-23T00:00:00Z",
+  "generated_at_utc": "2026-05-24T01:53:56+00:00",
   "status": "ACTIVE_FOUNDATION",
   "scope": "IMPERIUM_NEW_GENERATION only",
   "source_declarations": [
     "DECLARATION_OF_FORM",
     "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
-    "DECLARATION_OF_VISUAL_POWER"
+    "DECLARATION_OF_VISUAL_POWER",
+    "METAOS_FOCUSING_DOCTRINE"
   ],
   "supported_task_types": [
     "core_task",
@@ -84,6 +85,11 @@
       "pattern_id": "FP-013",
       "pattern": "Production/autonomy claim from bounded demo/foundation output",
       "block_code": "BLOCK_PRODUCTION_OVERCLAIM"
+    },
+    {
+      "pattern_id": "FP-014",
+      "pattern": "Internal IMPERIUM function declared or changed without explicit organ owner",
+      "block_code": "BLOCK_INTERNAL_FUNCTION_OWNER_MISSING"
     }
   ],
   "global_pass_criteria": [
@@ -471,6 +477,37 @@
         "stable_candidate_comparison",
         "promotion_or_rejection_decision"
       ]
+    },
+    {
+      "gate_id": "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER",
+      "severity": "BLOCK",
+      "source_declarations": [
+        "METAOS_FOCUSING_DOCTRINE"
+      ],
+      "applies_to_task_types": [
+        "core_task",
+        "visual_cockpit",
+        "tool_acquisition",
+        "continuity",
+        "repo_hygiene",
+        "organ_directive",
+        "freelance_external"
+      ],
+      "forbidden_patterns": [
+        "FP-014"
+      ],
+      "pass_criteria": [
+        "Internal function changes declare explicit owner organ and route context",
+        "Task route shows organ ownership continuity for created/updated functions"
+      ],
+      "fail_criteria": [
+        "Internal function is introduced or changed with no owner organ binding",
+        "Ownership declaration is missing from scope and evidence chain"
+      ],
+      "evidence_required": [
+        "metaos_focusing_doctrine_reference",
+        "organ_route_plan"
+      ]
     }
   ],
   "task_type_gate_sets": {
@@ -481,7 +518,8 @@
       "GATE_OWNER_POWER_DELTA_REQUIRED",
       "GATE_PAIN_PREFLIGHT_REQUIRED",
       "GATE_REPO_HYGIENE_REQUIRED",
-      "GATE_RESOURCE_KPD_REQUIRED"
+      "GATE_RESOURCE_KPD_REQUIRED",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ],
     "visual_cockpit": [
       "GATE_DOCTRINARIUM_READ_FIRST",
@@ -493,14 +531,16 @@
       "GATE_NO_DEFAULT_DASHBOARD",
       "GATE_SCREENSHOT_EVIDENCE_REQUIRED",
       "GATE_STABLE_CANDIDATE_REQUIRED_FOR_VISUAL_WORK",
-      "GATE_RESOURCE_KPD_REQUIRED"
+      "GATE_RESOURCE_KPD_REQUIRED",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ],
     "tool_acquisition": [
       "GATE_DOCTRINARIUM_READ_FIRST",
       "GATE_NO_GENERIC_PASS",
       "GATE_NO_GREEN_WITHOUT_EVIDENCE",
       "GATE_TOOL_ACQUISITION_REQUIRED",
-      "GATE_RESOURCE_KPD_REQUIRED"
+      "GATE_RESOURCE_KPD_REQUIRED",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ],
     "continuity": [
       "GATE_DOCTRINARIUM_READ_FIRST",
@@ -509,21 +549,24 @@
       "GATE_PAIN_PREFLIGHT_REQUIRED",
       "GATE_CONTINUITY_PACK_REQUIRED",
       "GATE_REPO_HYGIENE_REQUIRED",
-      "GATE_RESOURCE_KPD_REQUIRED"
+      "GATE_RESOURCE_KPD_REQUIRED",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ],
     "repo_hygiene": [
       "GATE_DOCTRINARIUM_READ_FIRST",
       "GATE_NO_GENERIC_PASS",
       "GATE_NO_GREEN_WITHOUT_EVIDENCE",
       "GATE_PAIN_PREFLIGHT_REQUIRED",
-      "GATE_REPO_HYGIENE_REQUIRED"
+      "GATE_REPO_HYGIENE_REQUIRED",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ],
     "organ_directive": [
       "GATE_DOCTRINARIUM_READ_FIRST",
       "GATE_NO_GENERIC_PASS",
       "GATE_NO_GREEN_WITHOUT_EVIDENCE",
       "GATE_PAIN_PREFLIGHT_REQUIRED",
-      "GATE_ORGAN_DIRECTIVE_REQUIRED_WHEN_APPLICABLE"
+      "GATE_ORGAN_DIRECTIVE_REQUIRED_WHEN_APPLICABLE",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ],
     "freelance_external": [
       "GATE_DOCTRINARIUM_READ_FIRST",
@@ -537,7 +580,8 @@
       "GATE_STABLE_CANDIDATE_REQUIRED_FOR_VISUAL_WORK",
       "GATE_CONTINUITY_PACK_REQUIRED",
       "GATE_REPO_HYGIENE_REQUIRED",
-      "GATE_RESOURCE_KPD_REQUIRED"
+      "GATE_RESOURCE_KPD_REQUIRED",
+      "GATE_INTERNAL_FUNCTION_MUST_HAVE_ORGAN_OWNER"
     ]
   },
   "not_proven_boundary": [

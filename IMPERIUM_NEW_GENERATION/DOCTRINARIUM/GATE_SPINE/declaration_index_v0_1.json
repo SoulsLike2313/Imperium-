@@ -2,7 +2,7 @@
   "schema_id": "newgen_doctrinarium_declaration_index_v0_1",
   "schema_version": "0.1",
   "task_id": "TASK-20260524-NEWGEN-DOCTRINARIUM-GATE-SPINE-READ-FIRST-VM3-V0_1",
-  "generated_at_utc": "2026-05-23T00:00:00Z",
+  "generated_at_utc": "2026-05-24T01:53:56+00:00",
   "scope": "IMPERIUM_NEW_GENERATION only",
   "required_task_types": [
     "core_task",
@@ -94,38 +94,70 @@
         "no_visual_fake_green"
       ],
       "source_notes": "Human-readable authority candidate; this task adds machine-readable index/registry binding only."
+    },
+    {
+      "declaration_id": "METAOS_FOCUSING_DOCTRINE",
+      "display_name": "MetaOS Focusing Doctrine",
+      "status": "OWNER_DIRECTED_FOUNDATION",
+      "primary_path": "IMPERIUM_NEW_GENERATION/DOCTRINARIUM/DECLARATIONS/METAOS_FOCUSING_DOCTRINE/metaos_focusing_doctrine_v0_1.json",
+      "sha256": "2277109222e25770d9ab44d8288a80adc61c36268c7a23be786f96b4684e649e",
+      "required_for_task_types": [
+        "core_task",
+        "visual_cockpit",
+        "tool_acquisition",
+        "continuity",
+        "repo_hygiene",
+        "organ_directive",
+        "freelance_external"
+      ],
+      "provides": [
+        "metaos_not_agi_boundary",
+        "organ_function_ownership_law",
+        "external_force_routing_law",
+        "task_through_organ_core_law",
+        "llm_force_focusing_law",
+        "business_evidence_wow_direction"
+      ],
+      "source_notes": "Owner-directed NewGen doctrine for MetaOS focusing and organ ownership."
     }
   ],
   "task_type_read_sets": {
     "core_task": [
       "DECLARATION_OF_FORM",
-      "CORE_SYNTHESIS_DECLARATION_OF_PAIN"
+      "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
+      "METAOS_FOCUSING_DOCTRINE"
     ],
     "visual_cockpit": [
       "DECLARATION_OF_FORM",
       "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
-      "DECLARATION_OF_VISUAL_POWER"
+      "DECLARATION_OF_VISUAL_POWER",
+      "METAOS_FOCUSING_DOCTRINE"
     ],
     "tool_acquisition": [
       "DECLARATION_OF_FORM",
-      "CORE_SYNTHESIS_DECLARATION_OF_PAIN"
+      "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
+      "METAOS_FOCUSING_DOCTRINE"
     ],
     "continuity": [
       "DECLARATION_OF_FORM",
-      "CORE_SYNTHESIS_DECLARATION_OF_PAIN"
+      "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
+      "METAOS_FOCUSING_DOCTRINE"
     ],
     "repo_hygiene": [
       "DECLARATION_OF_FORM",
-      "CORE_SYNTHESIS_DECLARATION_OF_PAIN"
+      "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
+      "METAOS_FOCUSING_DOCTRINE"
     ],
     "organ_directive": [
       "DECLARATION_OF_FORM",
-      "CORE_SYNTHESIS_DECLARATION_OF_PAIN"
+      "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
+      "METAOS_FOCUSING_DOCTRINE"
     ],
     "freelance_external": [
       "DECLARATION_OF_FORM",
       "CORE_SYNTHESIS_DECLARATION_OF_PAIN",
-      "DECLARATION_OF_VISUAL_POWER"
+      "DECLARATION_OF_VISUAL_POWER",
+      "METAOS_FOCUSING_DOCTRINE"
     ]
   },
   "not_proven_boundary": [
