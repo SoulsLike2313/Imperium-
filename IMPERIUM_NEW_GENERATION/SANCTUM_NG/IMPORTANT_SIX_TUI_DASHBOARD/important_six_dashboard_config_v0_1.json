@@ -33,7 +33,7 @@
         "en": "Laws and gate discipline"
       },
       "accent": "#56d79a",
-      "tui_script": "IMPERIUM_NEW_GENERATION/DOCTRINARIUM/TUI/doctrinarium_tui_v0_1.py",
+      "tui_script": "IMPERIUM_NEW_GENERATION/DOCTRINARIUM/TUI/doctrinarium_shell_v0_1.py",
       "query_script": "IMPERIUM_NEW_GENERATION/DOCTRINARIUM/TOOLS/doctrinarium_organ_query_v0_1.py",
       "tui_args": [
         "--smoke",
@@ -54,7 +54,7 @@
         "en": "Role, language, execution contract"
       },
       "accent": "#f4c95d",
-      "tui_script": "IMPERIUM_NEW_GENERATION/OFFICIO_AGENTIS/TUI/officio_tui_v0_1.py",
+      "tui_script": "IMPERIUM_NEW_GENERATION/OFFICIO_AGENTIS/TUI/officio_shell_v0_1.py",
       "query_script": "IMPERIUM_NEW_GENERATION/OFFICIO_AGENTIS/TOOLS/officio_organ_query_v0_1.py",
       "tui_args": [
         "--smoke",
@@ -75,7 +75,7 @@
         "en": "Continuity, reporting, closure"
       },
       "accent": "#7ea8ff",
-      "tui_script": "IMPERIUM_NEW_GENERATION/ADMINISTRATUM/TUI/administratum_tui_v0_1.py",
+      "tui_script": "IMPERIUM_NEW_GENERATION/ADMINISTRATUM/TUI/administratum_shell_v0_1.py",
       "query_script": "IMPERIUM_NEW_GENERATION/ADMINISTRATUM/TOOLS/administratum_organ_query_v0_1.py",
       "tui_args": [
         "--smoke",
@@ -96,7 +96,7 @@
         "en": "Routes, stages, task registration"
       },
       "accent": "#d68cff",
-      "tui_script": "IMPERIUM_NEW_GENERATION/ASTRONOMICON/TUI/astronomicon_tui_v0_1.py",
+      "tui_script": "IMPERIUM_NEW_GENERATION/ASTRONOMICON/TUI/astronomicon_shell_v0_1.py",
       "query_script": "IMPERIUM_NEW_GENERATION/ASTRONOMICON/TOOLS/astronomicon_organ_query_v0_1.py",
       "tui_args": [
         "--smoke",
@@ -117,7 +117,7 @@
         "en": "Tooling and capability safety"
       },
       "accent": "#ff8b8b",
-      "tui_script": "IMPERIUM_NEW_GENERATION/MECHANICUS/TUI/mechanicus_tui_v0_1.py",
+      "tui_script": "IMPERIUM_NEW_GENERATION/MECHANICUS/TUI/mechanicus_shell_v0_1.py",
       "query_script": "IMPERIUM_NEW_GENERATION/MECHANICUS/TOOLS/mechanicus_organ_query_v0_1.py",
       "tui_args": [
         "--smoke",
@@ -138,7 +138,7 @@
         "en": "Anti fake-green and audit rules"
       },
       "accent": "#6de5f2",
-      "tui_script": "IMPERIUM_NEW_GENERATION/INQUISITION/TUI/inquisition_tui_v0_1.py",
+      "tui_script": "IMPERIUM_NEW_GENERATION/INQUISITION/TUI/inquisition_shell_v0_1.py",
       "query_script": "IMPERIUM_NEW_GENERATION/INQUISITION/TOOLS/inquisition_organ_query_v0_1.py",
       "tui_args": [
         "--smoke",
