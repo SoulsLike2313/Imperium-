@@ -1,15 +1,13 @@
 {
   "schema_version": "arsenal.registry.v0_1",
-  "generated_at_utc": "2026-05-24T23:33:55Z",
-  "task_id": "TASK-NEWGEN-MECHANICUS-TOOLS-EXPANSION-BATCH-PC-V0_1",
+  "generated_at_utc": "2026-05-25T21:21:45Z",
+  "task_id": "TASK-NEWGEN-MECHANICUS-OWNER-APPROVED-TOOLS-REGISTRY-NORMALIZATION-PC-V0_1",
   "root_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL",
-  "card_count": 136,
+  "card_count": 139,
   "status_counts": {
-    "CANDIDATE": 95,
+    "CANDIDATE": 98,
     "SANDBOX": 37,
-    "CANON": 4,
-    "QUARANTINE": 0,
-    "REJECTED": 0
+    "CANON": 4
   },
   "cards": [
     {
@@ -183,6 +181,16 @@
       "install_required": true
     },
     {
+      "capability_id": "CHECK_JSONSCHEMA_CLI",
+      "name": "check-jsonschema CLI",
+      "category": "CODE_QUALITY",
+      "status": "CANDIDATE",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CHECK_JSONSCHEMA_CLI/capability_card.json",
+      "owner_organ": "MECHANICUS",
+      "source_type": "external_tool",
+      "install_required": true
+    },
+    {
       "capability_id": "CODE_QUALITY_JSONSCHEMA",
       "name": "jsonschema",
       "category": "CODE_QUALITY",
@@ -258,6 +266,26 @@
       "category": "CODE_QUALITY",
       "status": "CANDIDATE",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CODE_QUALITY_SCHEMA_FIRST_VALIDATION/capability_card.json",
+      "owner_organ": "MECHANICUS",
+      "source_type": "external_tool",
+      "install_required": true
+    },
+    {
+      "capability_id": "MARKDOWNLINT_CLI",
+      "name": "markdownlint CLI",
+      "category": "CODE_QUALITY",
+      "status": "CANDIDATE",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/MARKDOWNLINT_CLI/capability_card.json",
+      "owner_organ": "MECHANICUS",
+      "source_type": "external_tool",
+      "install_required": true
+    },
+    {
+      "capability_id": "YAMLLINT_CLI",
+      "name": "yamllint",
+      "category": "CODE_QUALITY",
+      "status": "CANDIDATE",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/YAMLLINT_CLI/capability_card.json",
       "owner_organ": "MECHANICUS",
       "source_type": "external_tool",
       "install_required": true

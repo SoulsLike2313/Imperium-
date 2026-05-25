@@ -1,6 +1,6 @@
 {
   "schema_version": "arsenal.intake_queue.v0_1",
-  "generated_at_utc": "2026-05-24T16:49:31Z",
+  "generated_at_utc": "2026-05-25T21:22:04Z",
   "queue": [
     {
       "capability_id": "ALGORITHMS_CAPABILITY_PROMOTION_RULES",
@@ -139,6 +139,14 @@
       "category": "CODE_QUALITY"
     },
     {
+      "capability_id": "CHECK_JSONSCHEMA_CLI",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Owner-approved ID normalized; requires local admission/install receipts before SANDBOX promotion.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CHECK_JSONSCHEMA_CLI/capability_card.json",
+      "category": "CODE_QUALITY"
+    },
+    {
       "capability_id": "CODE_QUALITY_JSONSCHEMA",
       "current_status": "CANDIDATE",
       "requested_target_status": "SANDBOX",
@@ -200,6 +208,22 @@
       "requested_target_status": "SANDBOX",
       "reason": "Requires local admission/install receipts before SANDBOX promotion.",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CODE_QUALITY_SCHEMA_FIRST_VALIDATION/capability_card.json",
+      "category": "CODE_QUALITY"
+    },
+    {
+      "capability_id": "MARKDOWNLINT_CLI",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Owner-approved ID normalized; requires local admission/install receipts before SANDBOX promotion.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/MARKDOWNLINT_CLI/capability_card.json",
+      "category": "CODE_QUALITY"
+    },
+    {
+      "capability_id": "YAMLLINT_CLI",
+      "current_status": "CANDIDATE",
+      "requested_target_status": "SANDBOX",
+      "reason": "Owner-approved ID normalized; requires local admission/install receipts before SANDBOX promotion.",
+      "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/YAMLLINT_CLI/capability_card.json",
       "category": "CODE_QUALITY"
     },
     {
