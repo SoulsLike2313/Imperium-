@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import os
@@ -35,6 +36,7 @@ PLAYBOOK_PATH_REL = (
     "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/PLAYBOOKS/"
     "MECHANICUS_CONTROLLED_PROVISION_PLAYBOOK_V0_1.md"
 )
+RUNNER_VERSION = "0.2.0"
 
 
 @dataclass(frozen=True)
@@ -158,6 +160,74 @@ def find_repo_root(start: Path) -> Path:
         if (candidate / "AGENTS.md").exists():
             return candidate
     raise RuntimeError("Cannot find repo root with AGENTS.md")
+
+
+def resolve_output_path(repo_root: Path, value: str) -> Path:
+    path = Path(value)
+    if not path.is_absolute():
+        path = repo_root / path
+    return path.resolve()
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(
+        description=(
+            "Mechanicus controlled provision runner. "
+            "Introspection is read-only unless --execute is provided."
+        ),
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument("--repo-root", default=".", help="Path hint used to resolve repository root.")
+    parser.add_argument(
+        "--report-root",
+        default=REPORT_ROOT_REL,
+        help="Report root path (used only with --execute or --show-config).",
+    )
+    parser.add_argument(
+        "--receipts-root",
+        default=RECEIPTS_ROOT_REL,
+        help="Receipts root path (used only with --execute or --show-config).",
+    )
+    parser.add_argument(
+        "--execute",
+        action="store_true",
+        help="Run mutating controlled provision flow. Without this flag, script remains read-only.",
+    )
+    parser.add_argument(
+        "--list",
+        action="store_true",
+        dest="list_mode",
+        help="List approved tools and exit without writes.",
+    )
+    parser.add_argument(
+        "--show-config",
+        action="store_true",
+        help="Show resolved configuration and exit without writes.",
+    )
+    parser.add_argument("--version", action="version", version=f"%(prog)s {RUNNER_VERSION}")
+    return parser
+
+
+def build_read_only_config(repo_root: Path, report_root: Path, receipts_root: Path) -> dict[str, Any]:
+    return {
+        "task_id": TASK_ID,
+        "runner": "mechanicus_controlled_provision_runner_v0_1.py",
+        "version": RUNNER_VERSION,
+        "mode": "read_only_introspection",
+        "repo_root": repo_root.as_posix(),
+        "report_root": report_root.as_posix(),
+        "receipts_root": receipts_root.as_posix(),
+        "approved_tools": [
+            {
+                "tool": spec.tool,
+                "package": spec.package,
+                "capability_ids": list(spec.capability_ids),
+            }
+            for spec in APPROVED_TOOLS
+        ],
+        "forbidden_checks": [{"item": check.item, "command": check.command} for check in FORBIDDEN_CHECKS],
+        "write_requires_flag": "--execute",
+    }
 
 
 def discover_cards_by_registry(repo_root: Path) -> dict[str, Path]:
@@ -492,10 +562,7 @@ def build_final_report(
     return "\n".join(lines)
 
 
-def main() -> int:
-    repo_root = find_repo_root(Path(__file__))
-    report_root = repo_root / REPORT_ROOT_REL
-    receipts_root = repo_root / RECEIPTS_ROOT_REL
+def run_mutating_execution(repo_root: Path, report_root: Path, receipts_root: Path) -> int:
     report_root.mkdir(parents=True, exist_ok=True)
     receipts_root.mkdir(parents=True, exist_ok=True)
 
@@ -782,7 +849,7 @@ def main() -> int:
     )
 
     scope_validation_input_rel = (
-        f"{REPORT_ROOT_REL}/controlled_provision_results.json"
+        f"{report_root.relative_to(repo_root).as_posix()}/controlled_provision_results.json"
     )
     run_scope_exporter(
         repo_root=repo_root,
@@ -1002,6 +1069,38 @@ def main() -> int:
         )
     )
     return 0 if verdict in {"PASS", "PASS_WITH_WARNINGS"} else 1
+
+
+def main() -> int:
+    args = build_parser().parse_args()
+    repo_root = find_repo_root(Path(args.repo_root).resolve())
+    report_root = resolve_output_path(repo_root, args.report_root)
+    receipts_root = resolve_output_path(repo_root, args.receipts_root)
+
+    config_payload = build_read_only_config(repo_root, report_root, receipts_root)
+
+    if args.list_mode:
+        print(json.dumps(config_payload["approved_tools"], ensure_ascii=False, indent=2))
+        return 0
+
+    if args.show_config:
+        print(json.dumps(config_payload, ensure_ascii=False, indent=2))
+        return 0
+
+    if not args.execute:
+        print(
+            json.dumps(
+                {
+                    "task_id": TASK_ID,
+                    "mode": "read_only",
+                    "message": "No writes executed. Use --execute to run controlled provision flow.",
+                },
+                ensure_ascii=False,
+            )
+        )
+        return 0
+
+    return run_mutating_execution(repo_root, report_root, receipts_root)
 
 
 if __name__ == "__main__":

@@ -1,13 +1,19 @@
 from __future__ import annotations
 
+import argparse
 import json
-import sys
+import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 
-TASK_ID = "TASK-NEWGEN-MECHANICUS-ARSENAL-INTAKE-FOUNDATION-PC-V0_1"
+TASK_ID_DEFAULT = "TASK-NEWGEN-MECHANICUS-ARSENAL-INTAKE-FOUNDATION-PC-V0_1"
+REPORT_ROOT_DEFAULT = (
+    "IMPERIUM_NEW_GENERATION/MECHANICUS/REPORTS/"
+    "TASK-NEWGEN-MECHANICUS-ARSENAL-INTAKE-FOUNDATION-PC-V0_1"
+)
+CHECKER_VERSION = "0.2.0"
 
 REQUIRED_CARD_FIELDS = [
     "capability_id",
@@ -73,17 +79,83 @@ def load_json(path: Path) -> Any:
         return json.load(f)
 
 
-def main() -> int:
-    repo_root = Path(__file__).resolve().parents[3]
-    arsenal_root = repo_root / "IMPERIUM_NEW_GENERATION" / "MECHANICUS" / "ARSENAL"
-    report_root = (
-        repo_root
-        / "IMPERIUM_NEW_GENERATION"
-        / "MECHANICUS"
-        / "REPORTS"
-        / TASK_ID
+def write_json(path: Path, payload: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Check Mechanicus Arsenal foundation artifacts.")
+    parser.add_argument("--task-id", default=TASK_ID_DEFAULT)
+    parser.add_argument("--repo-root", default=".")
+    parser.add_argument("--report-root", default=REPORT_ROOT_DEFAULT)
+    parser.add_argument(
+        "--write-report",
+        action="store_true",
+        help="Allow writing report file (disabled by default for read-only safety).",
     )
-    report_path = report_root / "arsenal_foundation_check_report.json"
+    parser.add_argument(
+        "--report-output",
+        default="",
+        help="Explicit output path for report JSON. Implies write mode.",
+    )
+    parser.add_argument(
+        "--list",
+        action="store_true",
+        dest="list_mode",
+        help="List required directory checks and exit.",
+    )
+    parser.add_argument("--show-config", action="store_true", help="Show resolved config and exit.")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {CHECKER_VERSION}")
+    return parser.parse_args()
+
+
+def resolve_repo_root(path_hint: Path) -> Path:
+    try:
+        top = subprocess.check_output(["git", "rev-parse", "--show-toplevel"], cwd=path_hint, text=True).strip()
+        if top:
+            return Path(top)
+    except Exception:
+        pass
+    return path_hint
+
+
+def resolve_output_path(repo_root: Path, value: str) -> Path:
+    path = Path(value)
+    if not path.is_absolute():
+        path = repo_root / path
+    return path.resolve()
+
+
+def main() -> int:
+    args = parse_args()
+    repo_root = resolve_repo_root(Path(args.repo_root).resolve())
+    task_id = args.task_id
+    arsenal_root = repo_root / "IMPERIUM_NEW_GENERATION" / "MECHANICUS" / "ARSENAL"
+    report_root = resolve_output_path(repo_root, args.report_root)
+    report_path_default = report_root / "arsenal_foundation_check_report.json"
+
+    if args.list_mode:
+        print(json.dumps({"required_dirs": REQUIRED_DIRS}, ensure_ascii=False, indent=2))
+        return 0
+
+    if args.show_config:
+        print(
+            json.dumps(
+                {
+                    "checker": "check_mechanicus_arsenal_foundation_v0_1.py",
+                    "version": CHECKER_VERSION,
+                    "task_id": task_id,
+                    "repo_root": repo_root.as_posix(),
+                    "report_root": report_root.as_posix(),
+                    "default_report_output": report_path_default.as_posix(),
+                    "write_by_default": False,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
 
     violations: list[str] = []
     warnings: list[str] = []
@@ -222,7 +294,7 @@ def main() -> int:
         verdict = "PASS_WITH_WARNINGS"
 
     report_payload = {
-        "task_id": TASK_ID,
+        "task_id": task_id,
         "checked_at_utc": now_utc(),
         "checker": "check_mechanicus_arsenal_foundation_v0_1.py",
         "verdict": verdict,
@@ -239,15 +311,36 @@ def main() -> int:
             "network_install_policy": "heuristic_no_install_receipt_and_no_canon_install",
             "junk_scan_paths": [
                 "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL",
-                f"IMPERIUM_NEW_GENERATION/MECHANICUS/REPORTS/{TASK_ID}",
+                report_root.relative_to(repo_root).as_posix(),
             ],
         },
         "violations": violations,
         "warnings": warnings,
         "info": info,
     }
-    report_root.mkdir(parents=True, exist_ok=True)
-    report_path.write_text(json.dumps(report_payload, indent=2, ensure_ascii=True) + "\n", encoding="utf-8")
+
+    written_report_path = ""
+    if args.report_output:
+        report_output_path = resolve_output_path(repo_root, args.report_output)
+        write_json(report_output_path, report_payload)
+        written_report_path = report_output_path.as_posix()
+    elif args.write_report:
+        write_json(report_path_default, report_payload)
+        written_report_path = report_path_default.as_posix()
+
+    print(
+        json.dumps(
+            {
+                "task_id": task_id,
+                "verdict": verdict,
+                "write_mode": bool(written_report_path),
+                "written_report_path": written_report_path,
+                "violations_count": len(violations),
+                "warnings_count": len(warnings),
+            },
+            ensure_ascii=False,
+        )
+    )
 
     return 0 if verdict in {"PASS", "PASS_WITH_WARNINGS"} else 1
 

@@ -14,6 +14,7 @@ REPORT_ROOT_DEFAULT = (
     "IMPERIUM_NEW_GENERATION/MECHANICUS/REPORTS/"
     "TASK-NEWGEN-MECHANICUS-ARSENAL-OWNER-APPROVAL-MATRIX-PC-V0_1"
 )
+CHECKER_VERSION = "0.2.0"
 RECIPE_JSON_DEFAULT = "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/RECIPES/tool_validation_recipes_v0_1.json"
 
 RECOMMENDATION_ENUM = {
@@ -79,6 +80,24 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--repo-root", default=".")
     parser.add_argument("--report-root", default=REPORT_ROOT_DEFAULT)
     parser.add_argument("--recipe-json", default=RECIPE_JSON_DEFAULT)
+    parser.add_argument(
+        "--write-report",
+        action="store_true",
+        help="Allow writing report file (disabled by default for read-only safety).",
+    )
+    parser.add_argument(
+        "--report-output",
+        default="",
+        help="Explicit output path for report JSON. Implies write mode.",
+    )
+    parser.add_argument(
+        "--list",
+        action="store_true",
+        dest="list_mode",
+        help="List IDs approved for install wave 001 and exit.",
+    )
+    parser.add_argument("--show-config", action="store_true", help="Show resolved config and exit.")
+    parser.add_argument("--version", action="version", version=f"%(prog)s {CHECKER_VERSION}")
     return parser.parse_args()
 
 
@@ -90,6 +109,13 @@ def resolve_repo_root(path_hint: Path) -> Path:
     except Exception:
         pass
     return path_hint
+
+
+def resolve_output_path(repo_root: Path, value: str) -> Path:
+    path = Path(value)
+    if not path.is_absolute():
+        path = repo_root / path
+    return path.resolve()
 
 
 def required_report_files() -> list[str]:
@@ -172,6 +198,30 @@ def main() -> int:
     recipe_json_path = Path(args.recipe_json)
     if not recipe_json_path.is_absolute():
         recipe_json_path = (repo_root / recipe_json_path).resolve()
+    default_output_path = report_root / "matrix_check_report.json"
+
+    if args.list_mode:
+        print(json.dumps({"approved_install_wave_001_ids": sorted(APPROVED_INSTALL_WAVE_001_IDS)}, ensure_ascii=False, indent=2))
+        return 0
+
+    if args.show_config:
+        print(
+            json.dumps(
+                {
+                    "checker": "check_mechanicus_owner_approval_matrix_v0_1.py",
+                    "version": CHECKER_VERSION,
+                    "task_id": args.task_id,
+                    "repo_root": repo_root.as_posix(),
+                    "report_root": report_root.as_posix(),
+                    "recipe_json": recipe_json_path.as_posix(),
+                    "default_report_output": default_output_path.as_posix(),
+                    "write_by_default": False,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return 0
 
     violations: list[str] = []
     warnings: list[str] = []
@@ -279,7 +329,28 @@ def main() -> int:
         "warnings": warnings,
         "info": info,
     }
-    write_json(report_root / "matrix_check_report.json", report_payload)
+    written_report_path = ""
+    if args.report_output:
+        report_output_path = resolve_output_path(repo_root, args.report_output)
+        write_json(report_output_path, report_payload)
+        written_report_path = report_output_path.as_posix()
+    elif args.write_report:
+        write_json(default_output_path, report_payload)
+        written_report_path = default_output_path.as_posix()
+
+    print(
+        json.dumps(
+            {
+                "task_id": args.task_id,
+                "verdict": verdict,
+                "write_mode": bool(written_report_path),
+                "written_report_path": written_report_path,
+                "violations_count": len(violations),
+                "warnings_count": len(warnings),
+            },
+            ensure_ascii=False,
+        )
+    )
     return 0 if verdict in {"PASS", "PASS_WITH_WARNINGS"} else 1
 
 

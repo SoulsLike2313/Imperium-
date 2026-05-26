@@ -1,0 +1,57 @@
+{
+  "checklist_id": "INQUISITION_WORKTREE_PURITY_DEFENSE_CHECKLIST_V0_1",
+  "version": "v0_1",
+  "status": "DRAFT_ACTIVE_FOR_INQUISITION_BODY_BOOTSTRAP",
+  "rules": [
+    {
+      "id": "WPD-01",
+      "title": "Truth Snapshot At Start",
+      "required_evidence": [
+        "git status --short",
+        "git rev-parse HEAD"
+      ],
+      "block_if_missing": true
+    },
+    {
+      "id": "WPD-02",
+      "title": "Runtime Outside Repo",
+      "required_evidence": [
+        "runtime_write_manifest",
+        "absolute_external_path_proof"
+      ],
+      "block_if_missing": true
+    },
+    {
+      "id": "WPD-03",
+      "title": "Read-Only Before/After Hash Match",
+      "required_evidence": [
+        "git_status_before_hash",
+        "git_status_after_hash"
+      ],
+      "block_if_missing": true
+    },
+    {
+      "id": "WPD-04",
+      "title": "Out-Of-Scope Dirty Classification",
+      "required_evidence": [
+        "dirty_classification_report",
+        "quarantine_or_restore_receipt"
+      ],
+      "block_if_missing": true
+    },
+    {
+      "id": "WPD-05",
+      "title": "Clean Commit Point",
+      "required_evidence": [
+        "git status --short (clean)",
+        "commit_sha",
+        "origin_sync_proof"
+      ],
+      "block_if_missing": true
+    }
+  ],
+  "external_runtime_roots": [
+    "E:/IMPERIUM_CONTEXT/LOCAL/RUNTIME_QUARANTINE",
+    "E:/IMPERIUM_CONTEXT/LOCAL/SCRIPT_BUFFER"
+  ]
+}
