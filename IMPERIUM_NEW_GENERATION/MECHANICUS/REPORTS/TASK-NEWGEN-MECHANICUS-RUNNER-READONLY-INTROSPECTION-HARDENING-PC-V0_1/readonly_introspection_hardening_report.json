@@ -328,10 +328,10 @@
     "Initial WARN cause (pre-existing out-of-scope deletion + no commit) was resolved on 2026-05-27 before commit phase."
   ],
   "commit": {
-    "committed": false,
-    "commit_sha": "bee2d984fa673f596de344350082e15f5f9429c0",
-    "pushed": false,
+    "committed": true,
+    "commit_sha": "fdd98a7916b0c242102f1c5f5ffb11f9aff09a16",
+    "pushed": true,
     "origin_master_synced": true,
-    "worktree_clean": false
+    "worktree_clean": true
   }
 }
