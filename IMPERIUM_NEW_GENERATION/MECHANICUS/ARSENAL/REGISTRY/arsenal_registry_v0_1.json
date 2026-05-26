@@ -1,13 +1,13 @@
 {
   "schema_version": "arsenal.registry.v0_1",
-  "generated_at_utc": "2026-05-25T21:21:45Z",
-  "task_id": "TASK-NEWGEN-MECHANICUS-OWNER-APPROVED-TOOLS-REGISTRY-NORMALIZATION-PC-V0_1",
+  "generated_at_utc": "2026-05-25T22:54:51Z",
+  "task_id": "TASK-NEWGEN-MECHANICUS-CONTROLLED-INSTALL-WAVE-001-PC-V0_1",
   "root_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL",
   "card_count": 139,
   "status_counts": {
-    "CANDIDATE": 98,
-    "SANDBOX": 37,
-    "CANON": 4
+    "CANDIDATE": 94,
+    "CANON": 4,
+    "SANDBOX": 41
   },
   "cards": [
     {
@@ -184,7 +184,7 @@
       "capability_id": "CHECK_JSONSCHEMA_CLI",
       "name": "check-jsonschema CLI",
       "category": "CODE_QUALITY",
-      "status": "CANDIDATE",
+      "status": "SANDBOX",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/CHECK_JSONSCHEMA_CLI/capability_card.json",
       "owner_organ": "MECHANICUS",
       "source_type": "external_tool",
@@ -274,7 +274,7 @@
       "capability_id": "MARKDOWNLINT_CLI",
       "name": "markdownlint CLI",
       "category": "CODE_QUALITY",
-      "status": "CANDIDATE",
+      "status": "SANDBOX",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/MARKDOWNLINT_CLI/capability_card.json",
       "owner_organ": "MECHANICUS",
       "source_type": "external_tool",
@@ -284,7 +284,7 @@
       "capability_id": "YAMLLINT_CLI",
       "name": "yamllint",
       "category": "CODE_QUALITY",
-      "status": "CANDIDATE",
+      "status": "SANDBOX",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/CODE_QUALITY/YAMLLINT_CLI/capability_card.json",
       "owner_organ": "MECHANICUS",
       "source_type": "external_tool",
@@ -1234,7 +1234,7 @@
       "capability_id": "UTILITIES_7_ZIP",
       "name": "7-Zip",
       "category": "UTILITIES",
-      "status": "CANDIDATE",
+      "status": "SANDBOX",
       "card_path": "IMPERIUM_NEW_GENERATION/MECHANICUS/ARSENAL/CATEGORIES/UTILITIES/UTILITIES_7_ZIP/capability_card.json",
       "owner_organ": "MECHANICUS",
       "source_type": "external_tool",

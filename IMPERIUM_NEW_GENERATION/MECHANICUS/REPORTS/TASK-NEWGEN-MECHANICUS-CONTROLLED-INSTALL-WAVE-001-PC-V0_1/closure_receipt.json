@@ -1,0 +1,14 @@
+{
+  "task_id": "TASK-NEWGEN-MECHANICUS-CONTROLLED-INSTALL-WAVE-001-PC-V0_1",
+  "generated_at_utc": "2026-05-25T22:54:51Z",
+  "verdict": "PASS",
+  "incident_id": "INCIDENT-MECH-RUNNER-HELP-MUTATION-20260526",
+  "incident_contained": true,
+  "all_tools_present": true,
+  "all_validation_pass": true,
+  "all_stability_pass": true,
+  "checker_failed_count": 0,
+  "next_allowed_task": "TASK-NEWGEN-MECHANICUS-RUNNER-READONLY-INTROSPECTION-HARDENING-PC-V0_1",
+  "commit": "PENDING",
+  "push": "PENDING"
+}

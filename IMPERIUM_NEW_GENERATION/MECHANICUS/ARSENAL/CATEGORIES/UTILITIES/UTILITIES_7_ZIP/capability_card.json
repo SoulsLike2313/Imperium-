@@ -2,7 +2,7 @@
   "capability_id": "UTILITIES_7_ZIP",
   "name": "7-Zip",
   "category": "UTILITIES",
-  "status": "CANDIDATE",
+  "status": "SANDBOX",
   "owner_organ": "MECHANICUS",
   "purpose": "Mass intake candidate for 7-Zip in UTILITIES.",
   "what_problem_it_solves": "Mass intake seed for UTILITIES.",
@@ -15,14 +15,15 @@
     "validate:utilities-7-zip"
   ],
   "expected_receipts": [
-    "utilities-7-zip_validation_receipt.json"
+    "utilities-7-zip_validation_receipt.json",
+    "utilities_7_zip_validation_receipt.json"
   ],
   "safety_notes": "Bounded use only; no uncontrolled runtime mutation or hidden side effects.",
   "security_notes": "No secret handling in this task; obey path, scope, and evidence gates.",
   "offline_or_network_dependency": "offline_preferred",
-  "promoted_by_receipt": "NOT_PROMOTED",
-  "last_reviewed_utc": "2026-05-24T16:49:31Z",
-  "next_review_reason": "Mass intake seed; requires bounded validation before SANDBOX promotion.",
+  "promoted_by_receipt": "utilities_7_zip_validation_receipt.json",
+  "last_reviewed_utc": "2026-05-25T22:54:51Z",
+  "next_review_reason": "Wave 001 controlled install validated in task receipts; remains SANDBOX and not CANON.",
   "limitations": "Candidate-only until validation receipts and trust checks exist.",
   "allowed_use_cases": [
     "Capability cataloging and validation planning",
