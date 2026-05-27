@@ -1,8 +1,7 @@
 # FINAL REPORT
 
 1. Step name
-
-task: `TASK-NEWGEN-VM3-CONTOUR-INITIATION-VALIDATION-UBUNTU-V0_1`
+`TASK-NEWGEN-VM3-CONTOUR-INITIATION-VALIDATION-UBUNTU-V0_1`
 
 2. Full path to report/bundle/action card
 `/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ADMINISTRATUM/REPORTS/TASK-NEWGEN-VM3-CONTOUR-INITIATION-VALIDATION-UBUNTU-V0_1`
@@ -15,7 +14,7 @@ task: `TASK-NEWGEN-VM3-CONTOUR-INITIATION-VALIDATION-UBUNTU-V0_1`
 
 5. VM3 HEAD / origin sync
 Start sync gate: `local HEAD = origin/master = REQUIRED_HEAD = 248be568f1e2689d420e72dfb45f79e886c5b4ab`.
-Closure state after commit/push: `local HEAD = origin/master = 9e3ef10ddf8283fb804e8a5f51ae0fd8e4751887`.
+Closure state after commit/push: `local HEAD == origin/master`.
 
 6. Worktree clean yes/no
 `YES`

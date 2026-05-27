@@ -1,8 +1,8 @@
 {
   "task_id": "TASK-NEWGEN-VM3-CONTOUR-INITIATION-VALIDATION-UBUNTU-V0_1",
   "start_required_head": "248be568f1e2689d420e72dfb45f79e886c5b4ab",
-  "current_head": "9e3ef10ddf8283fb804e8a5f51ae0fd8e4751887",
-  "generated_at_utc": "2026-05-27T11:44:10Z",
+  "closure_head_status": "HEAD_EQUALS_ORIGIN_AT_RECORD_TIME",
+  "generated_at_utc": "2026-05-27T11:46:07Z",
   "receipt_files": [
     "vm3_sync_receipt.json",
     "pc_to_vm3_direct_route_delivery_receipt.json",
