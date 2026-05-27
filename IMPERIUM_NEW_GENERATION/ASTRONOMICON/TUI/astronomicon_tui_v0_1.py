@@ -2,116 +2,79 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any
 
 HERE = Path(__file__).resolve()
-NEWGEN_ROOT = HERE.parents[2]
-COMMON_ROOT = NEWGEN_ROOT / "ORGAN_AGENT_COMMON"
-if str(COMMON_ROOT) not in sys.path:
-    sys.path.insert(0, str(COMMON_ROOT))
-
-from organ_agent_runtime_v0_1 import (
-    HAVE_RICH,
-    build_verdict_payload,
-    read_organ_bundle,
-    render_tui,
-    utc_now,
-)
-
-TASK_ID_DEFAULT = "TASK-20260524-NEWGEN-METAOS-LAW-AND-CORE-ORGAN-WAVE2-VM3-V0_1"
-ORGAN_ID = "ASTRONOMICON"
-ORGAN_ROOT = HERE.parents[1]
-COLOR = "bold magenta"
+ASTRONOMICON_ROOT = HERE.parents[1]
+DEFAULT_TASK_ID = "TASK-NEWGEN-VM3-ROUTE-REGISTRY-ASTRONOMICON-BODY-UBUNTU-V0_1"
 
 
-def build_payload(task_id: str) -> Dict[str, Any]:
-    bundle = read_organ_bundle(ORGAN_ROOT)
-    state = bundle.get("state", {})
-    gates = bundle.get("gate_catalog", {}).get("gates", [])
-    applied_rules = [str(g.get("gate_id", "")) for g in gates if isinstance(g, dict)]
-    payload = build_verdict_payload(
-        organ_id=ORGAN_ID,
-        task_id=task_id,
-        mode="SMOKE",
-        verdict=str(state.get("default_verdict", "PASS")),
-        applied_rules=applied_rules,
-        required_actions=state.get("required_actions", []),
-        forbidden_actions=state.get("forbidden_actions", []),
-        evidence_required=[],
-        evidence_refs=state.get("evidence_refs", []),
-        not_proven=[
-            "Strategium/Schola/Custodes/Throne implementation",
-            "live Owner Verdict Needed UI button",
-            "production autonomy",
-            "full organ intelligence",
-            "full external adapter layer",
+def _load_json(path: Path) -> dict[str, Any]:
+    with path.open("r", encoding="utf-8") as handle:
+        payload = json.load(handle)
+    if not isinstance(payload, dict):
+        raise ValueError(f"Expected object JSON at {path}")
+    return payload
+
+
+def build_snapshot(task_id: str) -> dict[str, Any]:
+    route_map = _load_json(ASTRONOMICON_ROOT / "ROUTING" / "organ_route_map_v0_1.json")
+    decision_registry = _load_json(ASTRONOMICON_ROOT / "ROUTING" / "route_decision_registry_v0_1.json")
+    body_manifest = _load_json(ASTRONOMICON_ROOT / "BODY" / "astronomicon_body_manifest_v0_1.json")
+    essence_examples = _load_json(ASTRONOMICON_ROOT / "FIXTURES" / "task_essence_examples_v0_1.json")
+    route_examples = _load_json(ASTRONOMICON_ROOT / "FIXTURES" / "route_packet_examples_v0_1.json")
+
+    route_families = route_map.get("route_families", [])
+    decisions = decision_registry.get("decisions", [])
+
+    return {
+        "schema_version": "astronomicon.tui_snapshot.v0_1",
+        "task_id": task_id,
+        "organ": "ASTRONOMICON",
+        "mode": "READ_ONLY_INSPECTOR",
+        "body_purpose": body_manifest.get("purpose", ""),
+        "route_family_count": len(route_families) if isinstance(route_families, list) else 0,
+        "decision_count": len(decisions) if isinstance(decisions, list) else 0,
+        "task_essence_example_count": len(essence_examples.get("examples", [])) if isinstance(essence_examples.get("examples"), list) else 0,
+        "route_packet_example_count": len(route_examples.get("examples", [])) if isinstance(route_examples.get("examples"), list) else 0,
+        "not_proven_boundary": [
+            "Read-only inspector only",
+            "No runtime WARP implementation",
+            "No Agent IDE integration"
         ],
-        owner_question=None,
-    )
-    payload["generated_at_utc"] = utc_now()
-    return {"bundle": bundle, "verdict_payload": payload}
+    }
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Wave2 ASTRONOMICON Rich TUI.")
-    parser.add_argument("--task-id", default=TASK_ID_DEFAULT)
-    parser.add_argument("--smoke", action="store_true")
+    parser = argparse.ArgumentParser(description="Astronomicon read-only TUI inspector v0.1")
+    parser.add_argument("--task-id", default=DEFAULT_TASK_ID)
     parser.add_argument("--plain-json", action="store_true")
+    parser.add_argument("--smoke", action="store_true")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    data = build_payload(str(args.task_id))
-    bundle = data["bundle"]
-    verdict_payload = data["verdict_payload"]
-    state = bundle.get("state", {})
-
-    if not HAVE_RICH:
-        print("RICH_REQUIRED_BLOCK")
-        print(
-            json.dumps(
-                {
-                    "organ_id": ORGAN_ID,
-                    "error": "Rich renderer is required for Wave2 TUI",
-                    "rich_available": False,
-                },
-                ensure_ascii=False,
-                indent=2,
-            )
-        )
-        return 3
+    snapshot = build_snapshot(str(args.task_id))
 
     if args.plain_json:
-        print(
-            json.dumps(
-                {
-                    "organ_id": ORGAN_ID,
-                    "rich_available": HAVE_RICH,
-                    "smoke_mode": bool(args.smoke),
-                    "responsibility": state.get("responsibility", ""),
-                    "bundle": bundle,
-                    "verdict": verdict_payload,
-                },
-                ensure_ascii=False,
-                indent=2,
-            )
-        )
-        return 0
+        print(json.dumps(snapshot, ensure_ascii=False, indent=2))
+    else:
+        print("ASTRONOMICON READ-ONLY INSPECTOR V0.1")
+        print(f"Task ID: {snapshot['task_id']}")
+        print(f"Body purpose: {snapshot['body_purpose']}")
+        print(f"Route families: {snapshot['route_family_count']}")
+        print(f"Route decisions: {snapshot['decision_count']}")
+        print(f"Task essence examples: {snapshot['task_essence_example_count']}")
+        print(f"Route packet examples: {snapshot['route_packet_example_count']}")
+        print("Not proven boundary:")
+        for item in snapshot["not_proven_boundary"]:
+            print(f"- {item}")
 
-    render_tui(
-        organ_title=ORGAN_ID,
-        color=COLOR,
-        responsibility=str(state.get("responsibility", "")),
-        ask_map=state.get("servitor_ask", []),
-        warn_block_map=state.get("warn_block_profile", []),
-        bundle=bundle,
-        verdict_payload=verdict_payload,
-    )
     if args.smoke:
         print("SMOKE_OK_ASTRONOMICON_TUI_V0_1")
+
     return 0
 
 
