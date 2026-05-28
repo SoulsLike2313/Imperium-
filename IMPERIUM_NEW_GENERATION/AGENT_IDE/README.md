@@ -1,72 +1,51 @@
-# IMPERIUM Agent IDE V0.1 (Read-only)
+# IMPERIUM Agent IDE
 
-Task: `TASK-NEWGEN-READONLY-AGENT-IDE-V0_1-PC`
+## V0.2 (Dual Surface, Read-only)
 
-This module provides a local desktop workbench for Owner visibility across IMPERIUM File Atlas data.
+Task: `TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1`
 
-## V0.1 goals
+### What is included
 
-- Local desktop app (`tkinter`, Python stdlib only).
-- Read-only visibility of five organs and file passports.
-- Role/rule/language gate surfaces.
-- Tools/checkers/TUI/report/receipt surfaces.
-- Route surfaces including `imperium-vm3` alias visibility when present.
-- Owner pain map and gaps/successes.
-- Unknown file kind warning/count.
-- Plugin-ready provider descriptors (no untrusted dynamic code execution).
+- Desktop IDE (`tkinter`) remains read-only and launchable.
+- Shared view model builder:
+  - `VIEW_MODEL/ide_view_model_v0_2.json`
+  - `VIEW_MODEL/dashboard_view_model_v0_1.json`
+  - `VIEW_MODEL/block_view_model_v0_1.json`
+- Web Projection dashboard on `127.0.0.1` reading the same shared model.
+- Self-validator that writes source/view-model/desktop/web/parity receipts.
+- Playwright capture runner (runs if available, otherwise returns warning).
+- Block Foundation seed (`BLOCK_FOUNDATION/*`).
+- Mechanicus tool registration entries for reusable tooling.
 
-## Hard exclusions
-
-- No WARP implementation.
-- No CLI worker.
-- No file editing.
-- No command execution.
-- No commit/push actions.
-- No Officio hardening implementation.
-- No Inquisition V0.2 hardening implementation.
-
-## Launch
-
-PowerShell:
+### Launch V0.2 desktop
 
 ```powershell
 cd E:\IMPERIUM
-.\IMPERIUM_NEW_GENERATION\AGENT_IDE\TUI_OR_LAUNCHERS\LAUNCH_AGENT_IDE_V0_1.ps1
+.\IMPERIUM_NEW_GENERATION\AGENT_IDE\TUI_OR_LAUNCHERS\LAUNCH_AGENT_IDE_V0_2.ps1
 ```
 
-CMD:
-
-```cmd
-cd /d E:\IMPERIUM
-IMPERIUM_NEW_GENERATION\AGENT_IDE\TUI_OR_LAUNCHERS\LAUNCH_AGENT_IDE_V0_1.cmd
-```
-
-Direct Python:
+### Launch web projection
 
 ```powershell
-python IMPERIUM_NEW_GENERATION\AGENT_IDE\APP\agent_ide_app_v0_1.py
+cd E:\IMPERIUM
+.\IMPERIUM_NEW_GENERATION\AGENT_IDE\TUI_OR_LAUNCHERS\LAUNCH_AGENT_IDE_WEB_PROJECTION_V0_1.ps1
 ```
 
-Smoke mode:
+Then open: `http://127.0.0.1:4173/`
+
+### Run self-validator
 
 ```powershell
-python IMPERIUM_NEW_GENERATION\AGENT_IDE\APP\agent_ide_app_v0_1.py --smoke
+cd E:\IMPERIUM
+.\IMPERIUM_NEW_GENERATION\AGENT_IDE\TUI_OR_LAUNCHERS\RUN_AGENT_IDE_SELF_VALIDATOR_V0_1.ps1
 ```
 
-## Input sources
+## V0.1 (Legacy baseline kept usable)
 
-The app reads Administratum File Atlas:
+Task: `TASK-NEWGEN-READONLY-AGENT-IDE-V0_1-PC`
 
-- `IMPERIUM_NEW_GENERATION/ADMINISTRATUM/FILE_ATLAS/file_passports_v0_1.jsonl`
-- `file_atlas_index_v0_1.json`
-- `organ_file_map_v0_1.json`
-- `role_rule_surface_index_v0_1.json`
-- `language_gate_surface_index_v0_1.json`
-- `tui_surface_index_v0_1.json`
-- `checker_tool_index_v0_1.json`
-- `report_receipt_index_v0_1.json`
-- `route_connection_surface_index_v0_1.json`
-- `owner_pain_to_file_map_v0_1.json`
-- `gap_success_index_v0_1.json`
+- `APP/agent_ide_app_v0_1.py`
+- `TUI_OR_LAUNCHERS/LAUNCH_AGENT_IDE_V0_1.ps1`
+- `TUI_OR_LAUNCHERS/LAUNCH_AGENT_IDE_V0_1.cmd`
 
-Missing files are shown as warnings and do not crash the app.
+V0.1 remains available for compatibility, but V0.2 is the primary dual-surface foundation.
