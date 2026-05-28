@@ -1,7 +1,7 @@
 {
   "schema_version": "imperium.agent_ide.block_view_model.v0_1",
-  "generated_at_utc": "2026-05-28T13:41:57.252412+00:00",
-  "task_id": "TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1",
+  "generated_at_utc": "2026-05-28T15:16:32.757453+00:00",
+  "task_id": "TASK-NEWGEN-AGENT-IDE-WEB-SHELL-REACT-TAURI-PLAYWRIGHT-PARITY-PC-V0_1",
   "block_schema": {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "schema_version": "imperium.agent_ide.block_schema.v0_1",

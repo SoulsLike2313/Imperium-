@@ -1,5 +1,5 @@
 {
-  "task_id": "TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1",
+  "task_id": "TASK-NEWGEN-AGENT-IDE-WEB-SHELL-REACT-TAURI-PLAYWRIGHT-PARITY-PC-V0_1",
   "truth": {
     "repo_root": "E:\\IMPERIUM",
     "loaded_sources": {
@@ -19,7 +19,7 @@
     "required_alias": "imperium-vm3",
     "git": {
       "branch": "master",
-      "head": "22ae2830ce55a7c397f83e338f826a15c3049dba"
+      "head": "50c996dfed1af9ae2ff15690917cb248682b5d42"
     }
   },
   "warnings": [
@@ -28865,7 +28865,7 @@
     ]
   },
   "schema_version": "imperium.agent_ide.view_model.v0_2",
-  "generated_at_utc": "2026-05-28T13:41:57.252412+00:00",
+  "generated_at_utc": "2026-05-28T15:16:32.757453+00:00",
   "source_task_id": "TASK-NEWGEN-READONLY-AGENT-IDE-V0_1-PC",
   "classification_surface": {
     "classification_counts": {
@@ -46973,8 +46973,8 @@
     "registry_items_count": 5
   },
   "self_validator_surface": {
-    "status": "PASS",
-    "summary_receipt_path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/self_validation_summary.json",
-    "last_timestamp_utc": "2026-05-28T13:41:53.259904+00:00"
+    "status": "PASS_WITH_WARNINGS",
+    "summary_receipt_path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-WEB-SHELL-REACT-TAURI-PLAYWRIGHT-PARITY-PC-V0_1/self_validation_summary.json",
+    "last_timestamp_utc": "2026-05-28T15:14:47.645723+00:00"
   }
 }
