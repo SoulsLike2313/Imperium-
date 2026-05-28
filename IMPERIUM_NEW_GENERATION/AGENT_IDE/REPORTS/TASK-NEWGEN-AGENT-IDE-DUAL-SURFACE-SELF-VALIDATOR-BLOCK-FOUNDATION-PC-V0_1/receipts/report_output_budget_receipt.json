@@ -1,14 +1,14 @@
 {
   "task_id": "TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1",
-  "timestamp_utc": "2026-05-28T13:42:16.8977259Z",
+  "timestamp_utc": "2026-05-28T13:44:21.3001196Z",
   "status": "PASS",
   "budget": {
+    "max_report_json_kb": 500,
     "max_report_md_kb": 300,
     "max_report_json_lines": 2000,
-    "max_report_json_kb": 500,
     "max_report_md_lines": 800
   },
-  "file_count": 25,
+  "file_count": 26,
   "top_metrics": [
     {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/report_output_budget_receipt.json",
@@ -47,12 +47,6 @@
       "kb": 1.3
     },
     {
-      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/scope_boundary_receipt.json",
-      "kind": "json",
-      "lines": 28,
-      "kb": 1.68
-    },
-    {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/FINAL_REPORT.md",
       "kind": "md",
       "lines": 28,
@@ -71,28 +65,28 @@
       "kb": 0.75
     },
     {
+      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/receipt_index.json",
+      "kind": "json",
+      "lines": 22,
+      "kb": 2.61
+    },
+    {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/EXECUTION_CHRONOLOGY.md",
       "kind": "md",
       "lines": 22,
       "kb": 0.96
     },
     {
-      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/self_validation_summary.json",
-      "kind": "json",
-      "lines": 21,
-      "kb": 1.56
-    },
-    {
-      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/receipt_index.json",
-      "kind": "json",
-      "lines": 21,
-      "kb": 2.47
-    },
-    {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/view_model_receipt.json",
       "kind": "json",
       "lines": 21,
       "kb": 1.14
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/self_validation_summary.json",
+      "kind": "json",
+      "lines": 21,
+      "kb": 1.56
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/desktop_ide_smoke_receipt.json",
@@ -107,22 +101,28 @@
       "kb": 0.59
     },
     {
-      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/git_truth_start_receipt.json",
-      "kind": "json",
-      "lines": 15,
-      "kb": 0.61
-    },
-    {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/SELF_ASSESSMENT.md",
       "kind": "md",
       "lines": 15,
       "kb": 0.94
     },
     {
+      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/git_truth_start_receipt.json",
+      "kind": "json",
+      "lines": 15,
+      "kb": 0.61
+    },
+    {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/block_registry_check_receipt.json",
       "kind": "json",
       "lines": 15,
       "kb": 0.35
+    },
+    {
+      "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/receipts/scope_boundary_receipt.json",
+      "kind": "json",
+      "lines": 14,
+      "kb": 0.71
     },
     {
       "path": "IMPERIUM_NEW_GENERATION/AGENT_IDE/REPORTS/TASK-NEWGEN-AGENT-IDE-DUAL-SURFACE-SELF-VALIDATOR-BLOCK-FOUNDATION-PC-V0_1/web_projection_receipt.json",
