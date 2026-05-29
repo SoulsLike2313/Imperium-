@@ -1,45 +1,64 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "IMPERIUM Matrix Definition V0.4 Candidate Schema",
+  "title": "IMPERIUM Matrix Definition Runtime-Aligned Schema V0.5 Candidate",
   "type": "object",
   "required": [
     "matrix_id",
-    "title",
+    "version",
     "owner_organ",
+    "support_organs",
     "purpose",
     "used_by",
-    "inputs",
-    "outputs",
-    "required_fields",
-    "pass_warn_block",
+    "required_questions",
+    "pass_criteria",
+    "warn_criteria",
+    "block_criteria",
     "fake_green_flags",
     "evidence_requirements",
-    "candidate_repo_location",
     "current_status",
     "next_action"
   ],
   "properties": {
     "matrix_id": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "title": {
       "type": "string"
     },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
     "owner_organ": {
-      "type": "string"
+      "type": "string",
+      "enum": [
+        "Global",
+        "Administratum",
+        "Astronomicon",
+        "Doctrinarium",
+        "Inquisition",
+        "Mechanicus",
+        "Officio Agentis",
+        "Schola Imperialis",
+        "Strategium"
+      ]
     },
     "support_organs": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "purpose": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     },
     "used_by": {
       "type": "array",
       "items": {
+        "type": "string",
         "enum": [
           "INQUISITOR",
           "GPT_LOGOS",
@@ -54,7 +73,8 @@
           "INQUISITION",
           "STRATEGIUM"
         ]
-      }
+      },
+      "minItems": 1
     },
     "inputs": {
       "type": "array",
@@ -72,13 +92,35 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "required_fields": {
       "type": "array",
       "items": {
         "type": "string"
       }
+    },
+    "pass_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "warn_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "block_criteria": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
     },
     "pass_warn_block": {
       "type": "object"
@@ -87,38 +129,58 @@
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "score_caps": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
+      "oneOf": [
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      ]
     },
     "evidence_requirements": {
       "type": "array",
       "items": {
         "type": "string"
-      }
+      },
+      "minItems": 1
     },
     "receipt_schema_reference": {
+      "type": "string"
+    },
+    "expected_repo_location_candidate": {
       "type": "string"
     },
     "candidate_repo_location": {
       "type": "string"
     },
     "current_status": {
+      "type": "string",
       "enum": [
         "CANDIDATE",
-        "PROPOSED_CANON",
-        "MISSING",
-        "DUPLICATE",
-        "CONFLICT",
-        "UNKNOWN"
+        "ACTIVE",
+        "CANON",
+        "DEPRECATED",
+        "QUARANTINE",
+        "BLOCKED",
+        "WARN",
+        "CANDIDATE_NOT_CANON"
       ]
     },
     "next_action": {
-      "type": "string"
+      "type": "string",
+      "minLength": 1
     }
-  }
+  },
+  "additionalProperties": true
 }

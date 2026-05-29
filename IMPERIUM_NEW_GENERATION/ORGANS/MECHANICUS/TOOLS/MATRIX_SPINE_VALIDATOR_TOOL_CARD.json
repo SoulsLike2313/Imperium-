@@ -1,0 +1,30 @@
+{
+  "tool_id": "MATRIX_SPINE_VALIDATOR_V0_1",
+  "owner_organ": "Mechanicus",
+  "support_organs": [
+    "Inquisition",
+    "Administratum",
+    "Officio Agentis"
+  ],
+  "status": "CANDIDATE_RUNTIME_READY",
+  "entrypoints": {
+    "python": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/validate_matrix_spine.py",
+    "shell": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_matrix_spine_validation.sh",
+    "powershell": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_matrix_spine_validation.ps1"
+  },
+  "outputs": [
+    "matrix_spine_validation_receipt.json",
+    "matrix_spine_validation_report.md",
+    "matrix_spine_validation_failures.jsonl",
+    "matrix_spine_validation_summary.json"
+  ],
+  "capability_class": "LOCAL_SCRIPT_FIRST",
+  "dependencies": [
+    "python3 standard library"
+  ],
+  "replay_command": "bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_matrix_spine_validation.sh",
+  "limitations": [
+    "Schema validation uses standard-library checks (required/type/enum/min items), not full external JSON Schema engine.",
+    "Canon admission remains Doctrinarium process outside this validator's authority."
+  ]
+}
