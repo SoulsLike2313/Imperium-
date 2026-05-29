@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IMPERIUM Matrix Definition V0.4 Candidate Schema",
+  "type": "object",
+  "required": [
+    "matrix_id",
+    "title",
+    "owner_organ",
+    "purpose",
+    "used_by",
+    "inputs",
+    "outputs",
+    "required_fields",
+    "pass_warn_block",
+    "fake_green_flags",
+    "evidence_requirements",
+    "candidate_repo_location",
+    "current_status",
+    "next_action"
+  ],
+  "properties": {
+    "matrix_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "owner_organ": {
+      "type": "string"
+    },
+    "support_organs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "used_by": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "INQUISITOR",
+          "GPT_LOGOS",
+          "SERVITOR",
+          "OWNER",
+          "SCHOLA",
+          "MECHANICUS",
+          "OFFICIO",
+          "ADMINISTRATUM",
+          "ASTRONOMICON",
+          "DOCTRINARIUM",
+          "INQUISITION",
+          "STRATEGIUM"
+        ]
+      }
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "outputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "pass_warn_block": {
+      "type": "object"
+    },
+    "fake_green_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "score_caps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_requirements": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "receipt_schema_reference": {
+      "type": "string"
+    },
+    "candidate_repo_location": {
+      "type": "string"
+    },
+    "current_status": {
+      "enum": [
+        "CANDIDATE",
+        "PROPOSED_CANON",
+        "MISSING",
+        "DUPLICATE",
+        "CONFLICT",
+        "UNKNOWN"
+      ]
+    },
+    "next_action": {
+      "type": "string"
+    }
+  }
+}
