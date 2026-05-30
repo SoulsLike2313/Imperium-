@@ -6,5 +6,7 @@
     "Send same final commit URL to Speculum with TASKPACK_SPECULUM_COMMIT_TECHNICAL_REDTEAM_MATRIX_REVIEW_V0_1.zip and phrase 'start task'.",
     "Logos-Prime decides next strike: resolver hardening, first real-use pilot, or organ gap remediation."
   ],
-  "current_stage_verdict": "PASS_WITH_WARNINGS"
+  "current_stage_verdict": "PASS_WITH_WARNINGS",
+  "final_commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/52418438446198649555a419f369e46822ac3458",
+  "artifact_bundle_head": "52418438446198649555a419f369e46822ac3458"
 }
