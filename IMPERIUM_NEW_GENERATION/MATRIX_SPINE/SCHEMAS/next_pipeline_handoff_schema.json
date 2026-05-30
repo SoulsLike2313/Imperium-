@@ -4,10 +4,15 @@
   "type": "object",
   "required": [
     "task_id",
+    "head_taxonomy_manifest_path",
+    "combined_review_adjudication_receipt_path",
     "target_commit_for_review",
+    "review_target_head",
+    "accepted_continuity_head",
     "base_head",
     "implementation_head",
     "proof_head",
+    "artifact_bundle_head",
     "closure_bundle_head",
     "final_verifier_head",
     "remote_head_after_bundle",
@@ -25,7 +30,19 @@
     "task_id": {
       "type": "string"
     },
+    "head_taxonomy_manifest_path": {
+      "type": "string"
+    },
+    "combined_review_adjudication_receipt_path": {
+      "type": "string"
+    },
     "target_commit_for_review": {
+      "type": "string"
+    },
+    "review_target_head": {
+      "type": "string"
+    },
+    "accepted_continuity_head": {
       "type": "string"
     },
     "base_head": {
@@ -35,6 +52,9 @@
       "type": "string"
     },
     "proof_head": {
+      "type": "string"
+    },
+    "artifact_bundle_head": {
       "type": "string"
     },
     "closure_bundle_head": {

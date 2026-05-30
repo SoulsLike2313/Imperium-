@@ -63,6 +63,9 @@ REQUIRED_VALIDATOR_FILES = [
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/score_efficiency_delta.py",
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_efficiency_delta.sh",
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_efficiency_delta.ps1",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_head_taxonomy_adjudication.py",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_head_taxonomy_adjudication.sh",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_head_taxonomy_adjudication.ps1",
 ]
 
 REQUIRED_FINAL_CLOSURE_VERIFIER_FILES = [
@@ -79,6 +82,15 @@ REQUIRED_RECEIPT_CONSISTENCY_TEMPLATES = [
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/HEAD_CONSISTENCY_RECEIPT_TEMPLATE.json",
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/INDEPENDENT_REPLAY_RECEIPT_TEMPLATE.json",
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/RUNTIME_EXCLUDED_OUTPUT_MANIFEST_TEMPLATE.json",
+]
+
+REQUIRED_HEAD_TAXONOMY_FILES = [
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/HEAD_TAXONOMY_MANIFEST_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/REVIEW_TARGET_MANIFEST_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/COMBINED_REVIEW_ADJUDICATION_RECEIPT_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/head_taxonomy_manifest_schema.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/review_target_manifest_schema.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/combined_review_adjudication_receipt_schema.json",
 ]
 
 ALLOWED_CORRIDOR_TYPES = {
@@ -477,6 +489,17 @@ def validate_required_provenance_pipeline_files(repo_root: Path, issues: list[Is
                 "FAIL",
                 "CAP_HEADS_MIXED_OR_AMBIGUOUS",
                 "Head consistency and replay templates are required for closure provenance discipline.",
+                path,
+            )
+
+    for rel_path in REQUIRED_HEAD_TAXONOMY_FILES:
+        path = repo_root / rel_path
+        if not path.exists():
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_HEAD_TAXONOMY_MANIFEST_MISSING",
+                "Head taxonomy/adjudication template or schema is missing.",
                 path,
             )
 

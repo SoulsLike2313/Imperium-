@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-NEWGEN-MATRIX-SPINE-HEAD-TAXONOMY-AND-COMBINED-REVIEW-ADJUDICATION-VM3-V0_1",
+  "timestamp_utc": "PENDING_AFTER_PUSH",
+  "branch": "master",
+  "artifact_bundle_head": "PENDING_AFTER_PUSH",
+  "artifact_bundle_commit_url": "PENDING_AFTER_PUSH",
+  "push_attempted": false,
+  "push_status": "PENDING",
+  "worktree_clean_after_push": false,
+  "origin_master_sync_after_push": false,
+  "origin_master_head_after_push": "PENDING_AFTER_PUSH",
+  "notes": "Will be updated after commit and push attempt."
+}
