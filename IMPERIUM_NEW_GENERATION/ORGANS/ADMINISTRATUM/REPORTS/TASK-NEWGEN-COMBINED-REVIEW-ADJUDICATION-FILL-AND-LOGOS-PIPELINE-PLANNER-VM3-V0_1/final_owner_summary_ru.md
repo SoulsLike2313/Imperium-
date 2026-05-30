@@ -7,11 +7,11 @@ IMPERIUM_NEW_GENERATION/ORGANS/ADMINISTRATUM/REPORTS/TASK-NEWGEN-COMBINED-REVIEW
 
 Вердикт: PASS_WITH_WARNINGS
 
-Commit hash: PENDING_COMMIT
-GitHub commit URL: PENDING_URL
+Commit hash: a60f297f85c7ae7cb4f84993f4e18f03af1616ab
+GitHub commit URL: https://github.com/SoulsLike2313/Imperium-/commit/a60f297f85c7ae7cb4f84993f4e18f03af1616ab
 
-worktree clean: pending
-remote sync: pending
+worktree clean: yes
+remote sync: yes
 
 1) Собран единый `COMBINED_REVIEW_ADJUDICATION_RECEIPT.json` с заполненными слотами Servitor/Mechanicus/Inquisitor/Speculum и кандидатом Logos.
 2) Сведены surviving caps и зафиксирован merged диапазон эффекта `+10..+12` без fake clean PASS.
