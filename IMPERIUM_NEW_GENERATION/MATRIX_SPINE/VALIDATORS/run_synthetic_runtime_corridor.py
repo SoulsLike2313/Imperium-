@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-RECEIPT-HEAD-CONSISTENCY-AND-INDEPENDENT-REPLAY-GATE-VM3-V0_1"
 FIXTURE_ROOT = Path("IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/SYNTHETIC_RUNTIME_CORRIDOR")
 
 
@@ -91,26 +91,38 @@ def validate_final_receipt(data: Any) -> list[str]:
     for key in [
         "base_head",
         "implementation_head",
-        "pre_push_head",
-        "closure_head",
+        "proof_head",
+        "closure_bundle_head",
         "final_verifier_head",
-        "remote_head_after_push",
+        "remote_head_after_bundle",
+        "claim_ledger_path",
     ]:
         if not is_nonempty_string(data.get(key)):
             errors.append(f"{key} is missing or empty")
 
-    if data.get("worktree_clean_after_push") is not True:
-        errors.append("worktree_clean_after_push must be true")
+    if data.get("worktree_clean_after_bundle") is not True:
+        errors.append("worktree_clean_after_bundle must be true")
 
-    if data.get("origin_master_sync_after_push") is not True:
-        errors.append("origin_master_sync_after_push must be true")
+    if data.get("origin_master_sync_after_bundle") is not True:
+        errors.append("origin_master_sync_after_bundle must be true")
 
     verdict = data.get("verdict")
-    if verdict in {"PASS", "PASS_WITH_WARNINGS"} and not is_nonempty_string(data.get("red_team_verdict_path")):
-        errors.append("red_team_verdict_path required for PASS/PASS_WITH_WARNINGS")
+    if verdict in {"PASS", "PASS_WITH_WARNINGS"} and not is_nonempty_string(data.get("hard_red_team_verdict_path")):
+        errors.append("hard_red_team_verdict_path required for PASS/PASS_WITH_WARNINGS")
 
     if not is_nonempty_string(data.get("implementation_commit_url")):
         errors.append("implementation_commit_url is required")
+    if not is_nonempty_string(data.get("proof_commit_url")):
+        errors.append("proof_commit_url is required")
+    if not is_nonempty_string(data.get("closure_bundle_commit_url")):
+        errors.append("closure_bundle_commit_url is required")
+
+    replay_status = data.get("independent_replay_status")
+    allowed_replay_status = {"INQUISITOR", "SPECULUM", "SEPARATE_REPLAY_RUNNER", "NONE"}
+    if replay_status not in allowed_replay_status:
+        errors.append("independent_replay_status must be typed")
+    if replay_status == "NONE" and verdict == "PASS":
+        errors.append("clean PASS forbidden when independent_replay_status is NONE")
 
     return errors
 

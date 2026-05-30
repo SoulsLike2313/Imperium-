@@ -6,15 +6,24 @@
     "task_id",
     "base_head",
     "implementation_head",
-    "pre_push_head",
-    "closure_head",
+    "proof_head",
+    "closure_bundle_head",
     "final_verifier_head",
-    "remote_head_after_push",
-    "worktree_clean_after_push",
-    "origin_master_sync_after_push",
+    "remote_head_after_bundle",
+    "worktree_clean_after_bundle",
+    "origin_master_sync_after_bundle",
+    "base_commit_url",
     "implementation_commit_url",
-    "closure_commit_url",
+    "proof_commit_url",
+    "closure_bundle_commit_url",
+    "remote_commit_url",
+    "hard_red_team_verdict_path",
+    "next_pipeline_handoff_path",
+    "independent_replay_status",
+    "claim_ledger_path",
+    "claim_statuses_seen",
     "runtime_outputs",
+    "caps_triggered",
     "verdict"
   ],
   "properties": {
@@ -27,38 +36,84 @@
     "implementation_head": {
       "type": "string"
     },
-    "pre_push_head": {
+    "proof_head": {
       "type": "string"
     },
-    "closure_head": {
+    "closure_bundle_head": {
       "type": "string"
     },
     "final_verifier_head": {
       "type": "string"
     },
-    "remote_head_after_push": {
+    "remote_head_after_bundle": {
       "type": "string"
     },
-    "worktree_clean_after_push": {
+    "worktree_clean_after_bundle": {
       "type": "boolean"
     },
-    "origin_master_sync_after_push": {
+    "origin_master_sync_after_bundle": {
       "type": "boolean"
+    },
+    "base_commit_url": {
+      "type": "string"
     },
     "implementation_commit_url": {
       "type": "string"
     },
-    "closure_commit_url": {
+    "proof_commit_url": {
+      "type": "string"
+    },
+    "closure_bundle_commit_url": {
       "type": "string"
     },
     "final_verifier_commit_url": {
       "type": "string"
     },
-    "red_team_verdict_path": {
+    "remote_commit_url": {
+      "type": "string"
+    },
+    "hard_red_team_verdict_path": {
       "type": "string"
     },
     "next_pipeline_handoff_path": {
       "type": "string"
+    },
+    "independent_replay_status": {
+      "type": "string",
+      "enum": [
+        "INQUISITOR",
+        "SPECULUM",
+        "SEPARATE_REPLAY_RUNNER",
+        "NONE"
+      ]
+    },
+    "independent_replay_receipt_path": {
+      "type": "string"
+    },
+    "independent_replay_head": {
+      "type": "string"
+    },
+    "claim_ledger_path": {
+      "type": "string"
+    },
+    "claim_statuses_seen": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "TRUE",
+          "TRUE_WITH_SCOPE",
+          "PARTIAL",
+          "OVERCLAIM",
+          "UNKNOWN",
+          "FALSE_IF_CLAIMED",
+          "UNPROVEN",
+          "BLOCKED_BY_CAP"
+        ]
+      }
+    },
+    "heads_intentionally_collapsed": {
+      "type": "boolean"
     },
     "runtime_outputs": {
       "type": "array",
@@ -95,9 +150,36 @@
           },
           "reason": {
             "type": "string"
+          },
+          "sha256": {
+            "type": "string"
+          },
+          "retention_or_quarantine_policy": {
+            "type": "string",
+            "enum": [
+              "DELETE",
+              "QUARANTINE",
+              "KEEP_OUTSIDE_GIT",
+              "OWNER_REVIEW"
+            ]
+          },
+          "quarantine_path": {
+            "type": "string"
+          },
+          "private_or_secret_risk": {
+            "type": "boolean"
+          },
+          "owner_visible_summary": {
+            "type": "string"
           }
         },
         "additionalProperties": true
+      }
+    },
+    "empty_or_ambiguous_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
       }
     },
     "caps_triggered": {

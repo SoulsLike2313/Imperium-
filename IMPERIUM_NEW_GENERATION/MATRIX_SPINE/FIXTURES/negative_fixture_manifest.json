@@ -1,6 +1,6 @@
 {
-  "manifest_id": "MATRIX_SPINE_NEGATIVE_FIXTURES_V0_3",
-  "minimum_negative_fixtures": 16,
+  "manifest_id": "MATRIX_SPINE_NEGATIVE_FIXTURES_V0_4_HEAD_REPLAY_GATE",
+  "minimum_negative_fixtures": 24,
   "fixtures": [
     {
       "fixture_id": "NF01",
@@ -49,14 +49,14 @@
       "title": "missing implementation head in closure receipt",
       "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_closure_missing_implementation_head.json",
       "fixture_type": "closure_receipt",
-      "expected_issue_code": "CLOSURE_RECEIPT_IMPLEMENTATION_HEAD_MISSING"
+      "expected_issue_code": "CAP_EMPTY_IMPLEMENTATION_HEAD"
     },
     {
       "fixture_id": "NF08",
-      "title": "missing closure head in closure receipt",
+      "title": "empty closure bundle head in closure receipt",
       "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_closure_missing_closure_head.json",
       "fixture_type": "closure_receipt",
-      "expected_issue_code": "CLOSURE_RECEIPT_CLOSURE_HEAD_MISSING"
+      "expected_issue_code": "CAP_EMPTY_CLOSURE_BUNDLE_HEAD"
     },
     {
       "fixture_id": "NF09",
@@ -127,6 +127,48 @@
       "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_warp_claim_without_unlock.json",
       "fixture_type": "corridor_claim",
       "expected_issue_code": "CAP_WARP_CLAIMED_WITHOUT_UNLOCK"
+    },
+    {
+      "fixture_id": "NF19",
+      "title": "missing remote head in closure receipt",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_closure_missing_remote_head.json",
+      "fixture_type": "closure_receipt",
+      "expected_issue_code": "CAP_EMPTY_REMOTE_HEAD"
+    },
+    {
+      "fixture_id": "NF20",
+      "title": "self-score high without independent replay",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_efficiency_self_score_high_without_independent_replay.json",
+      "fixture_type": "efficiency_delta",
+      "expected_issue_code": "CAP_NO_INDEPENDENT_REPLAY"
+    },
+    {
+      "fixture_id": "NF21",
+      "title": "clean pass with CAP_NO_INDEPENDENT_REPLAY",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_clean_pass_with_no_independent_replay.json",
+      "fixture_type": "final_closure_verifier",
+      "expected_issue_code": "CAP_NO_INDEPENDENT_REPLAY"
+    },
+    {
+      "fixture_id": "NF22",
+      "title": "missing claim ledger in final closure verifier",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_missing_claim_ledger_closure.json",
+      "fixture_type": "final_closure_verifier",
+      "expected_issue_code": "CAP_CLAIM_LEDGER_MISSING"
+    },
+    {
+      "fixture_id": "NF23",
+      "title": "excluded runtime output without hash",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_runtime_excluded_output_without_hash.json",
+      "fixture_type": "runtime_output",
+      "expected_issue_code": "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH"
+    },
+    {
+      "fixture_id": "NF24",
+      "title": "final receipt with implementation and closure mixed",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_heads_mixed_or_ambiguous.json",
+      "fixture_type": "final_closure_verifier",
+      "expected_issue_code": "CAP_HEADS_MIXED_OR_AMBIGUOUS"
     }
   ]
 }

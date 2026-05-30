@@ -7,8 +7,12 @@
     "target_commit_for_review",
     "base_head",
     "implementation_head",
-    "closure_head",
+    "proof_head",
+    "closure_bundle_head",
     "final_verifier_head",
+    "remote_head_after_bundle",
+    "claim_ledger_path",
+    "independent_replay_status",
     "commit_urls",
     "changed_paths_summary",
     "primary_report_paths",
@@ -30,24 +34,50 @@
     "implementation_head": {
       "type": "string"
     },
-    "closure_head": {
+    "proof_head": {
+      "type": "string"
+    },
+    "closure_bundle_head": {
       "type": "string"
     },
     "final_verifier_head": {
       "type": "string"
     },
+    "remote_head_after_bundle": {
+      "type": "string"
+    },
+    "claim_ledger_path": {
+      "type": "string"
+    },
+    "independent_replay_status": {
+      "type": "string",
+      "enum": [
+        "INQUISITOR",
+        "SPECULUM",
+        "SEPARATE_REPLAY_RUNNER",
+        "NONE"
+      ]
+    },
     "commit_urls": {
       "type": "object",
       "required": [
         "implementation",
-        "closure",
+        "proof",
+        "closure_bundle",
+        "remote",
         "final_verifier"
       ],
       "properties": {
         "implementation": {
           "type": "string"
         },
-        "closure": {
+        "proof": {
+          "type": "string"
+        },
+        "closure_bundle": {
+          "type": "string"
+        },
+        "remote": {
           "type": "string"
         },
         "final_verifier": {

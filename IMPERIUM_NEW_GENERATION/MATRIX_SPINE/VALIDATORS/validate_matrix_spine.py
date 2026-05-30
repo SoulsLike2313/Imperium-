@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-RECEIPT-HEAD-CONSISTENCY-AND-INDEPENDENT-REPLAY-GATE-VM3-V0_1"
 
 DEFAULT_ALLOWED_STATUS_VOCAB = {
     "CANDIDATE",
@@ -75,6 +75,12 @@ REQUIRED_NEXT_PIPELINE_HANDOFF_FILES = [
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/next_pipeline_handoff_schema.json",
 ]
 
+REQUIRED_RECEIPT_CONSISTENCY_TEMPLATES = [
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/HEAD_CONSISTENCY_RECEIPT_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/INDEPENDENT_REPLAY_RECEIPT_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/RUNTIME_EXCLUDED_OUTPUT_MANIFEST_TEMPLATE.json",
+]
+
 ALLOWED_CORRIDOR_TYPES = {
     "synthetic_corridor",
     "real_runtime_corridor",
@@ -91,6 +97,20 @@ ALLOWED_RUNTIME_OUTPUT_CLASSES = {
 }
 
 ALLOWED_RUNTIME_COMMIT_DECISIONS = {"COMMIT", "EXCLUDE", "QUARANTINE"}
+
+ALLOWED_INDEPENDENT_REPLAY_STATUS = {
+    "INQUISITOR",
+    "SPECULUM",
+    "SEPARATE_REPLAY_RUNNER",
+    "NONE",
+}
+
+ALLOWED_RETENTION_POLICIES = {
+    "DELETE",
+    "QUARANTINE",
+    "KEEP_OUTSIDE_GIT",
+    "OWNER_REVIEW",
+}
 
 CANON_CLAIM_STATUSES = {
     "TRUE",
@@ -154,6 +174,24 @@ def read_json(path: Path) -> tuple[Any | None, str | None]:
     except Exception as exc:  # pragma: no cover - defensive
         return None, str(exc)
     return data, None
+
+
+def is_nonempty_string(value: Any) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def collect_caps_from_payload(payload: Any) -> set[str]:
+    if not isinstance(payload, dict):
+        return set()
+    caps: set[str] = set()
+    for key in ["caps_triggered", "known_caps_or_warnings", "downgrade_rules_applied"]:
+        value = payload.get(key)
+        if not isinstance(value, list):
+            continue
+        for item in value:
+            if isinstance(item, str) and item.startswith("CAP_"):
+                caps.add(item)
+    return caps
 
 
 def validate_value_against_rule(value: Any, rule: dict[str, Any]) -> list[str]:
@@ -431,6 +469,17 @@ def validate_required_provenance_pipeline_files(repo_root: Path, issues: list[Is
                 path,
             )
 
+    for rel_path in REQUIRED_RECEIPT_CONSISTENCY_TEMPLATES:
+        path = repo_root / rel_path
+        if not path.exists():
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_HEADS_MIXED_OR_AMBIGUOUS",
+                "Head consistency and replay templates are required for closure provenance discipline.",
+                path,
+            )
+
 
 def validate_schema_file(
     repo_root: Path,
@@ -653,129 +702,159 @@ def validate_capability_split_payload(data: dict[str, Any], path: Path, issues: 
 
 
 def validate_closure_receipt_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
-    required_nonempty = [
-        ("base_head", "CLOSURE_RECEIPT_BASE_HEAD_MISSING"),
-        ("implementation_head", "CLOSURE_RECEIPT_IMPLEMENTATION_HEAD_MISSING"),
-        ("pre_push_head", "CLOSURE_RECEIPT_PRE_PUSH_HEAD_MISSING"),
-        ("closure_head", "CLOSURE_RECEIPT_CLOSURE_HEAD_MISSING"),
-        ("final_verifier_head", "CLOSURE_RECEIPT_FINAL_VERIFIER_HEAD_MISSING"),
-        ("remote_head_after_push", "CLOSURE_RECEIPT_REMOTE_HEAD_MISSING"),
+    required_head_fields = [
+        ("base_head", "CAP_HEADS_MIXED_OR_AMBIGUOUS"),
+        ("implementation_head", "CAP_EMPTY_IMPLEMENTATION_HEAD"),
+        ("proof_head", "CAP_HEADS_MIXED_OR_AMBIGUOUS"),
+        ("closure_bundle_head", "CAP_EMPTY_CLOSURE_BUNDLE_HEAD"),
+        ("remote_head_after_bundle", "CAP_EMPTY_REMOTE_HEAD"),
     ]
-    for key, code in required_nonempty:
-        value = data.get(key)
-        if not isinstance(value, str) or not value.strip():
+
+    for key, cap_code in required_head_fields:
+        if not is_nonempty_string(data.get(key)):
             add_issue(
                 issues,
                 "FAIL",
-                code,
+                cap_code,
                 f"{key} is missing or empty in closure receipt.",
                 path,
             )
 
-    clean = data.get("worktree_clean_after_push")
-    if clean is not True:
+    if data.get("worktree_clean_after_bundle") is not True:
         add_issue(
             issues,
             "FAIL",
             "CLOSURE_RECEIPT_WORKTREE_NOT_CLEAN",
-            "worktree_clean_after_push must be true for closure PASS claims.",
+            "worktree_clean_after_bundle must be true for closure PASS claims.",
             path,
         )
 
-    if data.get("origin_master_sync_after_push") is not True:
+    if data.get("origin_master_sync_after_bundle") is not True:
         add_issue(
             issues,
             "FAIL",
             "CLOSURE_RECEIPT_REMOTE_NOT_SYNCED",
-            "origin_master_sync_after_push must be true for closure PASS claims.",
+            "origin_master_sync_after_bundle must be true for closure PASS claims.",
+            path,
+        )
+
+    commit_url_requirements = [
+        "base_commit_url",
+        "implementation_commit_url",
+        "proof_commit_url",
+        "closure_bundle_commit_url",
+        "remote_commit_url",
+    ]
+    for key in commit_url_requirements:
+        if not is_nonempty_string(data.get(key)):
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_HEADS_MIXED_OR_AMBIGUOUS",
+                "Head consistency receipt requires commit URL for each provenance head.",
+                path,
+                {"missing_key": key},
+            )
+
+    implementation_head = data.get("implementation_head")
+    closure_bundle_head = data.get("closure_bundle_head")
+    proof_head = data.get("proof_head")
+    heads_collapsed = data.get("heads_intentionally_collapsed") is True
+    if not heads_collapsed and isinstance(implementation_head, str) and implementation_head == closure_bundle_head:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_HEADS_MIXED_OR_AMBIGUOUS",
+            "implementation_head and closure_bundle_head are mixed without explicit collapsed-head acknowledgement.",
+            path,
+        )
+    if not heads_collapsed and isinstance(proof_head, str) and proof_head == closure_bundle_head:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_HEADS_MIXED_OR_AMBIGUOUS",
+            "proof_head and closure_bundle_head are mixed without explicit collapsed-head acknowledgement.",
             path,
         )
 
     verdict = data.get("verdict")
-    if verdict in {"PASS", "PASS_WITH_WARNINGS"}:
-        red_team = data.get("red_team_verdict_path")
-        if not isinstance(red_team, str) or not red_team.strip():
-            add_issue(
-                issues,
-                "FAIL",
-                "CLOSURE_RECEIPT_RED_TEAM_MISSING",
-                "PASS/PASS_WITH_WARNINGS closure receipt requires red_team_verdict_path.",
-                path,
-            )
-
-    implementation_head = data.get("implementation_head")
-    closure_head = data.get("closure_head")
-    implementation_url = data.get("implementation_commit_url")
-    closure_url = data.get("closure_commit_url")
-    final_verifier_head = data.get("final_verifier_head")
-    final_verifier_url = data.get("final_verifier_commit_url")
-
-    if not isinstance(implementation_url, str) or not implementation_url.strip():
+    if verdict in {"PASS", "PASS_WITH_WARNINGS"} and not is_nonempty_string(data.get("hard_red_team_verdict_path")):
         add_issue(
             issues,
             "FAIL",
-            "CLOSURE_RECEIPT_IMPLEMENTATION_URL_MISSING",
-            "implementation_commit_url is required for provenance closure.",
+            "CLOSURE_RECEIPT_RED_TEAM_MISSING",
+            "PASS/PASS_WITH_WARNINGS closure receipt requires hard_red_team_verdict_path.",
             path,
         )
 
-    if isinstance(implementation_head, str) and isinstance(closure_head, str) and implementation_head != closure_head:
-        if not isinstance(closure_url, str) or not closure_url.strip():
+    replay_status = data.get("independent_replay_status")
+    if replay_status not in ALLOWED_INDEPENDENT_REPLAY_STATUS:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_INDEPENDENT_REPLAY",
+            "independent_replay_status must be typed as INQUISITOR/SPECULUM/SEPARATE_REPLAY_RUNNER/NONE.",
+            path,
+            {"independent_replay_status": replay_status},
+        )
+    else:
+        caps_declared = collect_caps_from_payload(data)
+        if replay_status == "NONE":
+            severity = "FAIL" if verdict == "PASS" else "WARN"
             add_issue(
                 issues,
-                "FAIL",
-                "CLOSURE_RECEIPT_CLOSURE_URL_MISSING",
-                "closure_commit_url is required when implementation_head and closure_head differ.",
+                severity,
+                "CAP_NO_INDEPENDENT_REPLAY",
+                "Independent replay is missing; clean PASS is forbidden.",
                 path,
             )
+            if "CAP_NO_INDEPENDENT_REPLAY" not in caps_declared:
+                add_issue(
+                    issues,
+                    "WARN",
+                    "CAP_NO_INDEPENDENT_REPLAY",
+                    "Independent replay missing but CAP_NO_INDEPENDENT_REPLAY is not declared in caps_triggered.",
+                    path,
+                )
 
-    if isinstance(final_verifier_head, str) and isinstance(closure_head, str) and final_verifier_head != closure_head:
-        if not isinstance(final_verifier_url, str) or not final_verifier_url.strip():
-            add_issue(
-                issues,
-                "FAIL",
-                "CAP_NO_FINAL_CLOSURE_VERIFIER",
-                "final_verifier_commit_url is required when final_verifier_head differs from closure_head.",
-                path,
-            )
+    claim_ledger_path = data.get("claim_ledger_path")
+    claim_statuses_seen = data.get("claim_statuses_seen")
+    if not is_nonempty_string(claim_ledger_path) or not isinstance(claim_statuses_seen, list) or not claim_statuses_seen:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_CLAIM_LEDGER_MISSING",
+            "Closure receipt must include claim_ledger_path and non-empty claim_statuses_seen.",
+            path,
+        )
+    elif any(not isinstance(item, str) or item not in CANON_CLAIM_STATUSES for item in claim_statuses_seen):
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_CLAIM_LEDGER_MISSING",
+            "claim_statuses_seen contains non-canonical claim status.",
+            path,
+            {"claim_statuses_seen": claim_statuses_seen},
+        )
 
 
 def validate_final_closure_verifier_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
-    required_nonempty = [
-        "base_head",
-        "implementation_head",
-        "pre_push_head",
-        "closure_head",
+    validate_closure_receipt_payload(data, path, issues)
+
+    required_verifier_fields = [
         "final_verifier_head",
-        "remote_head_after_push",
+        "final_verifier_commit_url",
+        "next_pipeline_handoff_path",
     ]
-    missing = [key for key in required_nonempty if not isinstance(data.get(key), str) or not str(data.get(key)).strip()]
+    missing = [key for key in required_verifier_fields if not is_nonempty_string(data.get(key))]
     if missing:
         add_issue(
             issues,
             "FAIL",
             "CAP_NO_FINAL_CLOSURE_VERIFIER",
-            "Final closure verifier payload is missing required provenance fields.",
+            "Final closure verifier payload is missing required verifier fields.",
             path,
             {"missing": missing},
-        )
-
-    if data.get("worktree_clean_after_push") is not True:
-        add_issue(
-            issues,
-            "FAIL",
-            "CAP_NO_FINAL_CLOSURE_VERIFIER",
-            "Final closure verifier requires worktree_clean_after_push=true.",
-            path,
-        )
-
-    if data.get("origin_master_sync_after_push") is not True:
-        add_issue(
-            issues,
-            "FAIL",
-            "CAP_NO_FINAL_CLOSURE_VERIFIER",
-            "Final closure verifier requires origin_master_sync_after_push=true.",
-            path,
         )
 
     if not isinstance(data.get("runtime_outputs"), list) or not data.get("runtime_outputs"):
@@ -814,7 +893,7 @@ def validate_runtime_output_payload(data: dict[str, Any], path: Path, issues: li
             )
             continue
 
-        if not isinstance(item.get("path"), str) or not item.get("path", "").strip():
+        if not is_nonempty_string(item.get("path")):
             add_issue(
                 issues,
                 "FAIL",
@@ -858,17 +937,77 @@ def validate_runtime_output_payload(data: dict[str, Any], path: Path, issues: li
                 {"index": index, "classification": classification, "commit_decision": commit_decision},
             )
 
+        if commit_decision in {"EXCLUDE", "QUARANTINE"}:
+            if not is_nonempty_string(item.get("sha256")):
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH",
+                    "Excluded/quarantined runtime output requires sha256 hash.",
+                    path,
+                    {"index": index},
+                )
+            if not is_nonempty_string(item.get("reason")):
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH",
+                    "Excluded/quarantined runtime output requires reason.",
+                    path,
+                    {"index": index},
+                )
+            retention = item.get("retention_or_quarantine_policy")
+            if retention not in ALLOWED_RETENTION_POLICIES:
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH",
+                    "Excluded/quarantined runtime output requires valid retention_or_quarantine_policy.",
+                    path,
+                    {"index": index, "retention_or_quarantine_policy": retention},
+                )
+            if not isinstance(item.get("private_or_secret_risk"), bool):
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH",
+                    "Excluded/quarantined runtime output requires private_or_secret_risk boolean.",
+                    path,
+                    {"index": index},
+                )
+            if not is_nonempty_string(item.get("owner_visible_summary")):
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH",
+                    "Excluded/quarantined runtime output requires owner_visible_summary.",
+                    path,
+                    {"index": index},
+                )
+            if commit_decision == "QUARANTINE" and not is_nonempty_string(item.get("quarantine_path")):
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_RUNTIME_EXCLUDED_OUTPUT_WITHOUT_HASH",
+                    "Quarantined runtime output requires quarantine_path.",
+                    path,
+                    {"index": index},
+                )
+
 
 def validate_next_pipeline_handoff_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
     required_nonempty = [
         "target_commit_for_review",
         "base_head",
         "implementation_head",
-        "closure_head",
+        "proof_head",
+        "closure_bundle_head",
         "final_verifier_head",
+        "remote_head_after_bundle",
         "next_allowed_task_candidate",
+        "claim_ledger_path",
     ]
-    missing = [key for key in required_nonempty if not isinstance(data.get(key), str) or not str(data.get(key)).strip()]
+    missing = [key for key in required_nonempty if not is_nonempty_string(data.get(key))]
     if missing:
         add_issue(
             issues,
@@ -889,9 +1028,9 @@ def validate_next_pipeline_handoff_payload(data: dict[str, Any], path: Path, iss
             path,
         )
     else:
-        for key in ["implementation", "closure"]:
+        for key in ["implementation", "proof", "closure_bundle", "remote"]:
             value = commit_urls.get(key)
-            if not isinstance(value, str) or not value.strip():
+            if not is_nonempty_string(value):
                 add_issue(
                     issues,
                     "FAIL",
@@ -921,6 +1060,76 @@ def validate_next_pipeline_handoff_payload(data: dict[str, Any], path: Path, iss
             "CAP_NO_NEXT_PIPELINE_HANDOFF",
             "NEXT_PIPELINE_HANDOFF requires servitor_claimed_efficiency_delta object.",
             path,
+        )
+
+    replay_status = data.get("independent_replay_status")
+    if replay_status not in ALLOWED_INDEPENDENT_REPLAY_STATUS:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_INDEPENDENT_REPLAY",
+            "NEXT_PIPELINE_HANDOFF must include typed independent_replay_status.",
+            path,
+            {"independent_replay_status": replay_status},
+        )
+
+
+def validate_efficiency_delta_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
+    if not isinstance(data, dict):
+        add_issue(
+            issues,
+            "FAIL",
+            "EFFICIENCY_DELTA_PAYLOAD_NOT_OBJECT",
+            "Efficiency delta payload root must be an object.",
+            path,
+        )
+        return
+
+    scales = data.get("scales")
+    overall_delta: int | float | None = None
+    if isinstance(scales, dict):
+        overall = scales.get("overall")
+        if isinstance(overall, dict):
+            delta_value = overall.get("delta")
+            if isinstance(delta_value, (int, float)):
+                overall_delta = delta_value
+
+    if overall_delta is None:
+        delta_map = data.get("delta")
+        if isinstance(delta_map, dict):
+            fallback_delta = delta_map.get("overall_candidate_usefulness")
+            if isinstance(fallback_delta, (int, float)):
+                overall_delta = fallback_delta
+
+    replay_status = data.get("independent_replay_status")
+    final_verdict = data.get("final_verdict", data.get("verdict"))
+    if replay_status == "NONE":
+        if isinstance(overall_delta, (int, float)) and overall_delta > 13:
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_NO_INDEPENDENT_REPLAY",
+                "Self-score overclaim: overall synthetic delta exceeds +13 without independent replay.",
+                path,
+                {"overall_delta": overall_delta},
+            )
+        if final_verdict == "PASS":
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_NO_INDEPENDENT_REPLAY",
+                "Clean PASS is forbidden when independent replay status is NONE.",
+                path,
+            )
+
+    if isinstance(overall_delta, (int, float)) and overall_delta <= 0:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_EFFICIENCY_DELTA",
+            "overall delta must be positive for Ghost_Evolve V2 admission.",
+            path,
+            {"overall_delta": overall_delta},
         )
 
 
@@ -1251,6 +1460,7 @@ def run_negative_fixtures(
         "runtime_output",
         "corridor_claim",
         "owner_language_contract",
+        "efficiency_delta",
     }
 
     for entry in manifest_entries:
@@ -1367,6 +1577,8 @@ def run_negative_fixtures(
                     validate_corridor_claim_payload(data, path, local_issues)
                 elif fixture_type == "owner_language_contract":
                     validate_owner_language_contract_payload(data, path, local_issues)
+                elif fixture_type == "efficiency_delta":
+                    validate_efficiency_delta_payload(data, path, local_issues)
 
         detected_codes = [issue.code for issue in local_issues]
         detected = expected_code in detected_codes

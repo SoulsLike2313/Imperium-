@@ -33,6 +33,7 @@
   "limitations": [
     "Schema validation uses standard-library checks (required/type/enum/min items), not full external JSON Schema engine.",
     "Synthetic corridor proves taskpack flow but does not activate real_runtime_corridor or warp_corridor.",
+    "Clean PASS is forbidden when independent replay status is NONE.",
     "Canon admission remains Doctrinarium process outside this validator's authority."
   ]
 }

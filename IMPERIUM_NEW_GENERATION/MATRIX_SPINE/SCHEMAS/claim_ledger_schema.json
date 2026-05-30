@@ -61,10 +61,7 @@
         "UNKNOWN",
         "FALSE_IF_CLAIMED",
         "UNPROVEN",
-        "BLOCKED_BY_CAP",
-        "SUPPORTED",
-        "WARN",
-        "BLOCKED"
+        "BLOCKED_BY_CAP"
       ]
     }
   },
