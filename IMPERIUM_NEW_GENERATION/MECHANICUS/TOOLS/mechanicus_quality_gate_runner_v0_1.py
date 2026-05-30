@@ -573,7 +573,7 @@ def build_final_report_md(
     ]
     scope_rows = scope_report.get("consumed_scope_packs", [])
     ack_status = officio_report.get("ack_status", {})
-    ending_head = run_git(repo_root, "rev-parse", "HEAD")
+    ending_head = run_git(repo_root, "rev-parse", "@")
     status_end = run_git(repo_root, "status", "--short")
     worktree_clean = "yes" if not status_end.strip() else "no"
 
@@ -688,7 +688,7 @@ def main() -> int:
     taskpack_zip = Path(args.taskpack_zip).resolve()
     taskpack_dir = Path(args.taskpack_dir).resolve() if args.taskpack_dir else None
 
-    starting_head = run_git(repo_root, "rev-parse", "HEAD")
+    starting_head = run_git(repo_root, "rev-parse", "@")
     starting_branch = run_git(repo_root, "branch", "--show-current")
     starting_status = run_git(repo_root, "status", "--short")
     starting_log = run_git(repo_root, "log", "-8", "--oneline")
@@ -858,9 +858,10 @@ def main() -> int:
     evidence_map = build_administratum_evidence_map(args.task_id, repo_root=repo_root, report_root=report_root)
     write_json(report_root / "administratum_evidence_map.json", evidence_map)
 
-    ending_head = run_git(repo_root, "rev-parse", "HEAD")
+    ending_head = run_git(repo_root, "rev-parse", "@")
     remote_master = run_git(repo_root, "ls-remote", "origin", "refs/heads/master")
-    remote_head = remote_master.split()[0] if remote_master else ""
+    origin_master_ref = remote_master.split()[0] if remote_master else ""
+    remote_sync_after_push = bool(origin_master_ref) and ending_head == origin_master_ref
     worktree_clean = run_git(repo_root, "status", "--short").strip() == ""
     overall = str(quality_gate_report.get("overall_verdict", "FAIL"))
     next_allowed = NEXT_ALLOWED_TASK_PASS if overall == "PASS" else NEXT_ALLOWED_TASK_WARN
@@ -872,10 +873,20 @@ def main() -> int:
         "repo_root": repo_root.as_posix(),
         "starting_head": starting_head,
         "ending_head": ending_head,
+        "external_finalization_semantics": {
+            "receipt_subject_head": starting_head,
+            "receipt_content_head": ending_head,
+            "external_delivery_head": origin_master_ref,
+            "remote_head_after_push": origin_master_ref,
+            "followup_finalization_receipt_head": "",
+            "self_head_paradox_handled": True,
+            "clean_pass_allowed": False,
+            "caps_triggered": ["CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING"],
+        },
         "commit": "NOT_PERFORMED_BY_RUNNER",
         "push": "NOT_PERFORMED_BY_RUNNER",
         "worktree_clean": "yes" if worktree_clean else "no",
-        "remote_sync": "yes" if ending_head == remote_head else "no",
+        "remote_sync": "yes" if remote_sync_after_push else "no",
         "owner_facing_language": "RU",
         "officio_gate_used": bool(officio_status == "PASS"),
         "mechanicus_scopes_consumed": [row.get("scope_id", "") for row in scope_report.get("consumed_scope_packs", [])],

@@ -610,7 +610,7 @@ class ImportantSixDashboardActions:
 
     def _git_head(self) -> str:
         result = run_cmd(
-            ["git", "rev-parse", "HEAD"],
+            ["git", "rev-parse", "@"],
             cwd=self.repo_root,
             timeout_sec=10,
             repo_root=self.repo_root,
@@ -746,7 +746,7 @@ class ImportantSixDashboardActions:
         build_dir.mkdir(parents=True, exist_ok=True)
 
         local_head = self._git_head()
-        remote_head = self._git_remote_master_head()
+        origin_master_ref = self._git_remote_master_head()
         branch = run_cmd(
             ["git", "branch", "--show-current"],
             cwd=self.repo_root,
@@ -767,7 +767,7 @@ class ImportantSixDashboardActions:
             "task_id": TASK_ID,
             "generated_at_utc": utc_now(),
             "local_head": local_head,
-            "remote_master_head": remote_head,
+            "remote_master_head": origin_master_ref,
             "branch": branch,
             "dashboard_mode": "L2_SAFE_CONTROL_ACTION_SURFACE",
             "actions_count": len(self.actions),
@@ -1244,9 +1244,9 @@ class ImportantSixDashboardActions:
 
     def _build_diff_status_payload(self) -> dict[str, Any]:
         local_head = self._git_head()
-        remote_head = self._git_remote_master_head()
+        origin_master_ref = self._git_remote_master_head()
         previous = run_cmd(
-            ["git", "rev-parse", "HEAD~1"],
+            ["git", "rev-parse", "@~1"],
             cwd=self.repo_root,
             timeout_sec=10,
             repo_root=self.repo_root,
@@ -1283,7 +1283,7 @@ class ImportantSixDashboardActions:
             repo_root=self.repo_root,
             allow_read_only_fallback=True,
         ).get("stdout", "")
-        remote_sync = local_head != "UNKNOWN" and local_head == remote_head
+        remote_sync = local_head != "UNKNOWN" and local_head == origin_master_ref
 
         payload = {
             "schema_id": "important_six_diff_status_v0_1",
@@ -1291,9 +1291,19 @@ class ImportantSixDashboardActions:
             "generated_at_utc": utc_now(),
             "branch": branch,
             "local_head": local_head,
-            "remote_master_head": remote_head,
+            "remote_master_head": origin_master_ref,
             "previous_head": previous,
             "remote_sync": remote_sync,
+            "external_finalization_semantics": {
+                "receipt_subject_head": previous,
+                "receipt_content_head": local_head,
+                "external_delivery_head": origin_master_ref,
+                "remote_head_after_push": origin_master_ref,
+                "followup_finalization_receipt_head": "",
+                "self_head_paradox_handled": True,
+                "clean_pass_allowed": False,
+                "caps_triggered": ["CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING"],
+            },
             "working_tree_dirty": bool(changed_files),
             "changed_files": changed_files,
             "diff_stat": diff_stat,
@@ -1339,7 +1349,9 @@ class ImportantSixDashboardActions:
             "author": str(payload.get("author", "OWNER")).strip() or "OWNER",
             "created_at_utc": utc_now(),
             "local_head": diff_payload.get("local_head"),
-            "remote_head": diff_payload.get("remote_master_head"),
+            "external_delivery_head": diff_payload.get("remote_master_head"),
+            "remote_head_after_push": diff_payload.get("remote_master_head"),
+            "followup_finalization_receipt_head": "",
             "source": source,
         }
         self._assert_schema_valid(record, self.owner_diff_schema, "owner_diff_decision")

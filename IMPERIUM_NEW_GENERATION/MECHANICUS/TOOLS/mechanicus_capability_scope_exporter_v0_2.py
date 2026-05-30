@@ -425,9 +425,9 @@ def resolve_repo_root(path_hint: Path) -> Path:
     return path_hint
 
 
-def get_git_head(repo_root: Path) -> str:
+def get_subject_implementation_ref(repo_root: Path) -> str:
     try:
-        return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=repo_root, text=True).strip()
+        return subprocess.check_output(["git", "rev-parse", "@"], cwd=repo_root, text=True).strip()
     except Exception:
         return "UNKNOWN"
 
@@ -440,7 +440,7 @@ def build_pack(
     common_owner_decision_ids: set[str],
     generated_at: str,
     source_registry: str,
-    commit_hash: str,
+    subject_implementation_ref: str,
 ) -> tuple[dict[str, Any], list[str]]:
     canon_allowed: set[str] = set()
     sandbox_allowed: set[str] = set()
@@ -503,7 +503,14 @@ def build_pack(
         "examples_of_use": list(config.examples_of_use),
         "future_promotion_candidates": list(config.future_promotion_candidates),
         "forbidden_actions": list(config.forbidden_actions),
-        "last_generated_from_commit": commit_hash,
+        "last_generated_from_commit": subject_implementation_ref,
+        "receipt_subject_head": subject_implementation_ref,
+        "receipt_content_head": "PENDING_COMMIT",
+        "external_delivery_head": "PENDING_PUSH",
+        "remote_head_after_push": "PENDING_PUSH",
+        "self_head_paradox_handled": True,
+        "clean_pass_allowed": False,
+        "caps_triggered": ["CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING"],
     }
     return pack, missing_focus
 
@@ -534,6 +541,13 @@ def build_schema_payload() -> dict[str, Any]:
             "future_promotion_candidates",
             "forbidden_actions",
             "last_generated_from_commit",
+            "receipt_subject_head",
+            "receipt_content_head",
+            "external_delivery_head",
+            "remote_head_after_push",
+            "self_head_paradox_handled",
+            "clean_pass_allowed",
+            "caps_triggered",
         ],
         "properties": {
             "scope_id": {"type": "string"},
@@ -554,6 +568,13 @@ def build_schema_payload() -> dict[str, Any]:
             "future_promotion_candidates": array_of_strings,
             "forbidden_actions": array_of_strings,
             "last_generated_from_commit": {"type": "string"},
+            "receipt_subject_head": {"type": "string"},
+            "receipt_content_head": {"type": "string"},
+            "external_delivery_head": {"type": "string"},
+            "remote_head_after_push": {"type": "string"},
+            "self_head_paradox_handled": {"type": "boolean"},
+            "clean_pass_allowed": {"type": "boolean"},
+            "caps_triggered": array_of_strings,
         },
     }
 
@@ -674,7 +695,7 @@ def main() -> int:
     }
 
     generated_at = utc_now()
-    head = get_git_head(repo_root)
+    subject_implementation_ref = get_subject_implementation_ref(repo_root)
     source_registry_rel = registry_path.relative_to(repo_root).as_posix()
 
     output_root.mkdir(parents=True, exist_ok=True)
@@ -689,7 +710,7 @@ def main() -> int:
             common_owner_decision_ids=common_owner_decision_ids,
             generated_at=generated_at,
             source_registry=source_registry_rel,
-            commit_hash=head,
+            subject_implementation_ref=subject_implementation_ref,
         )
         output_path = output_root / config.filename
         write_json(output_path, pack)
@@ -726,7 +747,14 @@ def main() -> int:
         "scope_packs": summaries,
         "missing_focus_capabilities_by_scope": missing_focus_by_scope,
         "reserved_owner_decision_capabilities": sorted(common_owner_decision_ids),
-        "last_generated_from_commit": head,
+        "last_generated_from_commit": subject_implementation_ref,
+        "receipt_subject_head": subject_implementation_ref,
+        "receipt_content_head": "PENDING_COMMIT",
+        "external_delivery_head": "PENDING_PUSH",
+        "remote_head_after_push": "PENDING_PUSH",
+        "self_head_paradox_handled": True,
+        "clean_pass_allowed": False,
+        "caps_triggered": ["CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING"],
     }
     write_json(manifest_path, manifest)
 
