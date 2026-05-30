@@ -1,0 +1,25 @@
+{
+  "task_id": "TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-STATUS-NORMALIZATION-AND-RUNTIME-CORRIDOR-PROOF-VM3-V0_1",
+  "builder_claims": [
+    {
+      "claim_id": "C01",
+      "claim": "Synthetic runtime corridor steps are replayable.",
+      "evidence": [
+        "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_synthetic_runtime_corridor.sh"
+      ]
+    }
+  ],
+  "attacks": [
+    {
+      "attack_id": "A01",
+      "target_claim_id": "C01",
+      "attack": "Could be fake if replay command missing.",
+      "result": "RESISTED",
+      "downgrade_needed": false
+    }
+  ],
+  "downgrade_rules_applied": [
+    "SYNTHETIC_NOT_REAL_WARP"
+  ],
+  "final_verdict": "PASS_WITH_WARNINGS"
+}

@@ -1,0 +1,9 @@
+{
+  "task_id": "TASK-NEGATIVE-FIXTURE",
+  "runtime_outputs": [
+    {
+      "path": "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/REPORTS/example.unknown",
+      "output_kind": "UNKNOWN_KIND"
+    }
+  ]
+}

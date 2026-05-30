@@ -1,0 +1,45 @@
+{
+  "task_id": "TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-STATUS-NORMALIZATION-AND-RUNTIME-CORRIDOR-PROOF-VM3-V0_1",
+  "run_id": "synthetic-corridor-entry-001",
+  "repo_head": "922160728f64482a83f88e1e873a99b460094f8a",
+  "contour": "VM3",
+  "read_files": [
+    "AGENTS.md",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/INDEX/MATRIX_SPINE_INDEX.md"
+  ],
+  "organ_packets": [
+    {
+      "organ": "Mechanicus",
+      "path": "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/READ_FIRST_GHOST_EVOLVE_PACKET.md"
+    },
+    {
+      "organ": "Inquisition",
+      "path": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/READ_FIRST_GHOST_EVOLVE_PACKET.md"
+    }
+  ],
+  "matrix_packs": [
+    {
+      "path": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/INDEX/MATRIX_SPINE_INDEX.json",
+      "status": "read"
+    }
+  ],
+  "scope": {
+    "allowed_write_paths": [
+      "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/",
+      "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/REPORTS/"
+    ],
+    "forbidden_paths": [
+      "THRONE/",
+      "CUSTODES/",
+      "WARP/"
+    ]
+  },
+  "capability_gaps": [
+    {
+      "gap": "Synthetic corridor does not activate real WARP runtime.",
+      "owner": "Mechanicus + Inquisition",
+      "next_action": "Use dedicated WARP taskpack if needed."
+    }
+  ],
+  "verdict": "PASS_WITH_WARNINGS"
+}
