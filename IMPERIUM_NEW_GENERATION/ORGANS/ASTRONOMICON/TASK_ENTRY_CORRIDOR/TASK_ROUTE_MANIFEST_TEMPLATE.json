@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-NEWGEN-EIGHT-ORGAN-MOBILIZATION-AND-ASTRONOMICON-TASK-ENTRY-FORM-PC-V0_1",
+  "taskpack_path": "c:/Users/PC/Downloads/TASKPACK_NEWGEN_EIGHT_ORGAN_MOBILIZATION_ASTRONOMICON_TASK_ENTRY_FORM_PC_V0_1.zip",
+  "read_order": [
+    "AGENTS.md",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/INDEX/MATRIX_SPINE_INDEX.md",
+    "8 organ task participation packets"
+  ],
+  "required_organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "MECHANICUS",
+    "INQUISITION",
+    "STRATEGIUM",
+    "SCHOLA_IMPERIALIS"
+  ],
+  "stage1_caps_to_carry": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_LEGACY_RECEIPT_PRODUCERS_UNCLASSIFIED",
+    "CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING_OR_NEEDS_FOLLOWUP",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME"
+  ],
+  "entry_ack_required": true,
+  "synthetic_only": true
+}

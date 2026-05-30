@@ -1,0 +1,27 @@
+{
+  "contract_id": "TASKPACK_ADMISSION_CONTRACT_V0_1",
+  "required_files": [
+    "000_START_TASK_READ_ORDER.md",
+    "TASK_SPEC.md",
+    "ACCEPTANCE_GATES.md",
+    "OUTPUT_REQUIREMENTS.md",
+    "MANIFEST.json"
+  ],
+  "required_manifest_fields": [
+    "taskpack_id",
+    "task_id",
+    "target_contour",
+    "expected_start_head",
+    "owner_launch_phrase",
+    "organs"
+  ],
+  "launch_phrase_must_equal": "start task",
+  "forbidden_overrides": [
+    "OFFICIO_ROLE_OVERRIDE",
+    "DOCTRINARIUM_AUTHORITY_OVERRIDE",
+    "INQUISITION_CAP_OVERRIDE",
+    "MECHANICUS_TOOL_BOUNDARY_OVERRIDE"
+  ],
+  "on_missing_required_file": "BLOCK",
+  "on_missing_non_critical_reference": "WARN"
+}

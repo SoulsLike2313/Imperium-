@@ -1,0 +1,23 @@
+{
+  "organ": "ADMINISTRATUM",
+  "local_script_first": [
+    "scripts/administratum_task_start_v0_1.py",
+    "scripts/administratum_task_close_v0_1.py"
+  ],
+  "local_manual_command": [
+    "git status --short",
+    "git rev-parse HEAD",
+    "git rev-parse origin/master"
+  ],
+  "candidate_script_first": [
+    "scripts/administratum_check_all_v0_1.py"
+  ],
+  "agent_reasoning_only": [
+    "Map evidence caps to owner-facing risk text without fake PASS."
+  ],
+  "external_research": [],
+  "owner_manual_confirmation": [],
+  "future_capability_gap": [
+    "Need universal legacy receipt schema migration tooling."
+  ]
+}

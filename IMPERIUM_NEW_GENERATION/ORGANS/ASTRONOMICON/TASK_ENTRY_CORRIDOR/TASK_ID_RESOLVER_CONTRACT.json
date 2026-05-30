@@ -1,0 +1,23 @@
+{
+  "contract_id": "TASK_ID_RESOLVER_CONTRACT_V0_1",
+  "resolver_owner": "ASTRONOMICON",
+  "lookup_order": [
+    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/TASK_ID_REGISTRY_STAGE1.json",
+    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/SYNTHETIC_STAGE1_TASKPACK_REFERENCE.json"
+  ],
+  "required_match_fields": [
+    "task_id",
+    "taskpack_path",
+    "expected_start_head",
+    "target_contour"
+  ],
+  "on_missing_task_id": "BLOCK",
+  "on_head_mismatch": "WARN",
+  "response_fields": [
+    "task_id",
+    "taskpack_path",
+    "expected_start_head",
+    "read_order",
+    "required_organs"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-NEWGEN-EIGHT-ORGAN-MOBILIZATION-AND-ASTRONOMICON-TASK-ENTRY-FORM-PC-V0_1",
+  "launch_phrase": "start task",
+  "contour": "PC",
+  "role": "PC_SERVITOR",
+  "mode": "GHOST_EVOLVE_V2",
+  "required_checks": [
+    "repo_truth_probe",
+    "ghost_evolve_entry_ack",
+    "all_organ_entry_ack_fixture",
+    "synthetic_task_entry_checker_receipt"
+  ],
+  "owner_language_contract": "RU_FOR_OWNER_EN_FOR_MACHINE_ARTIFACTS",
+  "readiness": "WARN"
+}
