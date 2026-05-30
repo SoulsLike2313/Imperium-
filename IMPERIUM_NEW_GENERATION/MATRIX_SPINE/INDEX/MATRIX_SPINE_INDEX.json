@@ -212,6 +212,27 @@
       "repo_md": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/MATRICES/CLAIM_LEDGER_MATRIX.md",
       "repo_json": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/MATRICES/CLAIM_LEDGER_MATRIX.json",
       "status": "CANDIDATE_ADDED_BY_LOGOS_PRIME_V0_1"
+    },
+    {
+      "matrix_id": "EXTERNAL_FINALIZATION_RECEIPT_MATRIX",
+      "owner_organ": "Administratum",
+      "repo_md": "IMPERIUM_NEW_GENERATION/ORGANS/ADMINISTRATUM/MATRICES/EXTERNAL_FINALIZATION_RECEIPT_MATRIX.md",
+      "repo_json": "IMPERIUM_NEW_GENERATION/ORGANS/ADMINISTRATUM/MATRICES/EXTERNAL_FINALIZATION_RECEIPT_MATRIX.json",
+      "status": "CANDIDATE_ADDED_BY_TASKPACK_EXTERNAL_FINALIZATION_V0_1"
+    },
+    {
+      "matrix_id": "CAP_CLOSURE_SEMANTICS_MATRIX",
+      "owner_organ": "Inquisition",
+      "repo_md": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/MATRICES/CAP_CLOSURE_SEMANTICS_MATRIX.md",
+      "repo_json": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/MATRICES/CAP_CLOSURE_SEMANTICS_MATRIX.json",
+      "status": "CANDIDATE_ADDED_BY_TASKPACK_EXTERNAL_FINALIZATION_V0_1"
+    },
+    {
+      "matrix_id": "INDEPENDENT_REPLAY_STATE_TAXONOMY_MATRIX",
+      "owner_organ": "Mechanicus",
+      "repo_md": "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/MATRICES/INDEPENDENT_REPLAY_STATE_TAXONOMY_MATRIX.md",
+      "repo_json": "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/MATRICES/INDEPENDENT_REPLAY_STATE_TAXONOMY_MATRIX.json",
+      "status": "CANDIDATE_ADDED_BY_TASKPACK_EXTERNAL_FINALIZATION_V0_1"
     }
   ],
   "critical_corrections": [
@@ -220,6 +241,7 @@
     "Added TASK_FOCUS_PACKET_MATRIX",
     "Added CLAIM_LEDGER_MATRIX",
     "Moved VISUAL_BLOCK_SPINE_ACCEPTANCE_MATRIX ownership from Officio Agentis to Mechanicus with Inquisition/Strategium support",
-    "Added root AGENTS.md minimal bootloader/router"
+    "Added root AGENTS.md minimal bootloader/router",
+    "Added External Finalization / Cap Closure / Independent Replay matrices"
   ]
 }
