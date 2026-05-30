@@ -1,11 +1,11 @@
 {
-  "contract_id": "TASKPACK_ADMISSION_CONTRACT_V0_1",
+  "contract_id": "TASKPACK_ADMISSION_CONTRACT_V0_2",
+  "owner": "ASTRONOMICON",
   "required_files": [
-    "000_START_TASK_READ_ORDER.md",
-    "TASK_SPEC.md",
-    "ACCEPTANCE_GATES.md",
-    "OUTPUT_REQUIREMENTS.md",
-    "MANIFEST.json"
+    "MANIFEST.json",
+    "TASK_SPEC.md|01_TASK_SPEC.md|02_TASK_SPEC.json",
+    "ACCEPTANCE_GATES.md|03_ACCEPTANCE_GATES.json",
+    "OUTPUT_REQUIREMENTS.md|06_EVIDENCE_REQUIREMENTS.md|07_EXPECTED_OUTPUTS.md"
   ],
   "required_manifest_fields": [
     "taskpack_id",
@@ -15,7 +15,21 @@
     "owner_launch_phrase",
     "organs"
   ],
+  "required_checks": [
+    "zip_exists",
+    "zip_readable",
+    "zip_sha256_computed",
+    "task_id_not_duplicate",
+    "safe_extraction_path",
+    "route_manifest_can_be_created",
+    "read_route_contains_8_organs"
+  ],
   "launch_phrase_must_equal": "start task",
+  "admission_verdicts": [
+    "ADMISSION_PASS",
+    "ADMISSION_PASS_WITH_WARNINGS",
+    "ADMISSION_BLOCK"
+  ],
   "forbidden_overrides": [
     "OFFICIO_ROLE_OVERRIDE",
     "DOCTRINARIUM_AUTHORITY_OVERRIDE",

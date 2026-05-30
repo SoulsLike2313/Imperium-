@@ -1,23 +1,35 @@
 {
-  "contract_id": "TASK_ID_RESOLVER_CONTRACT_V0_1",
+  "contract_id": "TASK_ID_RESOLVER_CONTRACT_V0_2",
   "resolver_owner": "ASTRONOMICON",
   "lookup_order": [
-    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/TASK_ID_REGISTRY_STAGE1.json",
-    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/SYNTHETIC_STAGE1_TASKPACK_REFERENCE.json"
+    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/task_registry.json",
+    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/current_expected_task.json",
+    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/TASK_ID_REGISTRY_STAGE1.json"
   ],
   "required_match_fields": [
     "task_id",
-    "taskpack_path",
-    "expected_start_head",
-    "target_contour"
+    "registered_path",
+    "taskpack_zip_path",
+    "extracted_path",
+    "route_manifest_path"
+  ],
+  "must_detect": [
+    "missing_task",
+    "duplicate_task_id",
+    "registry_corruption",
+    "missing_registered_artifact"
   ],
   "on_missing_task_id": "BLOCK",
   "on_head_mismatch": "WARN",
   "response_fields": [
     "task_id",
-    "taskpack_path",
-    "expected_start_head",
-    "read_order",
-    "required_organs"
+    "registered_task_path",
+    "taskpack_zip_path",
+    "extracted_path",
+    "route_manifest_path",
+    "current_expected_task_path",
+    "task_start_ack",
+    "resolver_verdict",
+    "caps_triggered"
   ]
 }

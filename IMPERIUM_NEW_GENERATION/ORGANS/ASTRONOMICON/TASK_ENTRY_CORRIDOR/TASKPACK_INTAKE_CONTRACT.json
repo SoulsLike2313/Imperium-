@@ -1,0 +1,39 @@
+{
+  "contract_id": "TASKPACK_INTAKE_CONTRACT_V0_1",
+  "owner": "ASTRONOMICON",
+  "status": "CANDIDATE_NOT_CANON",
+  "required_inputs": [
+    "taskpack_zip_path"
+  ],
+  "required_outputs": [
+    "taskpack_admission_receipt",
+    "task_route_manifest",
+    "task_start_ack_template",
+    "task_registry_entry",
+    "current_expected_task"
+  ],
+  "required_checks": [
+    "zip_exists",
+    "zip_readable",
+    "zip_sha256",
+    "manifest_found",
+    "task_id_found",
+    "task_spec_found",
+    "acceptance_gates_found",
+    "output_requirements_found",
+    "duplicate_task_id_blocked",
+    "safe_extraction_path",
+    "route_manifest_8_organs"
+  ],
+  "admission_verdicts": [
+    "ADMISSION_PASS",
+    "ADMISSION_PASS_WITH_WARNINGS",
+    "ADMISSION_BLOCK"
+  ],
+  "blocking_caps": [
+    "CAP_TASKPACK_ADMISSION_MISSING",
+    "CAP_DUPLICATE_TASK_ID_NOT_DETECTED",
+    "CAP_UNSAFE_EXTRACTION_PATH_NOT_BLOCKED",
+    "CAP_ROUTE_DOES_NOT_INCLUDE_8_ORGANS"
+  ]
+}
