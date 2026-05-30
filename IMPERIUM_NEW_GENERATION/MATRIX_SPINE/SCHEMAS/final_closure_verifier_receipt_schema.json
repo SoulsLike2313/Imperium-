@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Final Closure Verifier Receipt Schema",
+  "type": "object",
+  "required": [
+    "task_id",
+    "base_head",
+    "implementation_head",
+    "pre_push_head",
+    "closure_head",
+    "final_verifier_head",
+    "remote_head_after_push",
+    "worktree_clean_after_push",
+    "origin_master_sync_after_push",
+    "implementation_commit_url",
+    "closure_commit_url",
+    "runtime_outputs",
+    "verdict"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "base_head": {
+      "type": "string"
+    },
+    "implementation_head": {
+      "type": "string"
+    },
+    "pre_push_head": {
+      "type": "string"
+    },
+    "closure_head": {
+      "type": "string"
+    },
+    "final_verifier_head": {
+      "type": "string"
+    },
+    "remote_head_after_push": {
+      "type": "string"
+    },
+    "worktree_clean_after_push": {
+      "type": "boolean"
+    },
+    "origin_master_sync_after_push": {
+      "type": "boolean"
+    },
+    "implementation_commit_url": {
+      "type": "string"
+    },
+    "closure_commit_url": {
+      "type": "string"
+    },
+    "final_verifier_commit_url": {
+      "type": "string"
+    },
+    "red_team_verdict_path": {
+      "type": "string"
+    },
+    "next_pipeline_handoff_path": {
+      "type": "string"
+    },
+    "runtime_outputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "classification",
+          "commit_decision",
+          "reason"
+        ],
+        "properties": {
+          "path": {
+            "type": "string"
+          },
+          "classification": {
+            "type": "string",
+            "enum": [
+              "SOURCE",
+              "CURATED_EVIDENCE",
+              "RUNTIME_EPHEMERAL",
+              "REPEATED_RUNTIME_OUTPUT",
+              "QUARANTINE",
+              "PRIVATE_OR_SECRET_DO_NOT_COMMIT"
+            ]
+          },
+          "commit_decision": {
+            "type": "string",
+            "enum": [
+              "COMMIT",
+              "EXCLUDE",
+              "QUARANTINE"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "caps_triggered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "WARN",
+        "BLOCK"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

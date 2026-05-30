@@ -5,13 +5,12 @@ from __future__ import annotations
 
 import argparse
 import json
-import math
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-STATUS-NORMALIZATION-AND-RUNTIME-CORRIDOR-PROOF-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1"
 
 BASELINE = {
     "mechanicus_validator_readiness": 64,
@@ -19,6 +18,15 @@ BASELINE = {
     "officio_entry_contract_readiness": 44,
     "administratum_receipt_closure_readiness": 46,
     "overall_candidate_usefulness": 69,
+}
+
+SEVERE_RED_TEAM_CAPS = {
+    "CAP_UNTYPED_RUNTIME_CLAIM",
+    "CAP_SYNTHETIC_CLAIMED_AS_REAL",
+    "CAP_WARP_CLAIMED_WITHOUT_UNLOCK",
+    "CAP_NO_FINAL_CLOSURE_VERIFIER",
+    "CAP_NO_NEXT_PIPELINE_HANDOFF",
+    "CAP_RUNTIME_OUTPUT_UNCLASSIFIED",
 }
 
 
@@ -35,6 +43,20 @@ def load_json(path: Path) -> tuple[Any | None, str | None]:
 
 def clamp(value: int) -> int:
     return max(0, min(100, value))
+
+
+def collect_cap_codes(payload: Any) -> list[str]:
+    if not isinstance(payload, dict):
+        return []
+
+    caps: set[str] = set()
+    for key in ["cap_codes_detected", "caps_triggered", "known_caps_or_warnings", "downgrade_rules_applied"]:
+        value = payload.get(key)
+        if isinstance(value, list):
+            for item in value:
+                if isinstance(item, str) and item.startswith("CAP_"):
+                    caps.add(item)
+    return sorted(caps)
 
 
 def main() -> int:
@@ -57,6 +79,7 @@ def main() -> int:
 
     validator_summary_path = output_dir / "matrix_validator_run" / "matrix_spine_validation_summary.json"
     corridor_receipt_path = output_dir / "synthetic_corridor_receipt.json"
+    red_team_path = output_dir / "hard_red_team_verdict.json"
 
     summary, summary_error = load_json(validator_summary_path)
     corridor, corridor_error = load_json(corridor_receipt_path)
@@ -67,6 +90,8 @@ def main() -> int:
     if corridor_error is not None or not isinstance(corridor, dict):
         print(f"[efficiency-delta] unable to read corridor receipt: {corridor_error}", file=sys.stderr)
         return 1
+
+    red_team, red_team_error = load_json(red_team_path)
 
     issue_counts = summary.get("issue_counts", {})
     fail_count = int(issue_counts.get("FAIL", 0)) if isinstance(issue_counts, dict) else 0
@@ -82,16 +107,49 @@ def main() -> int:
     if isinstance(corridor_steps, list):
         passed_steps = sum(1 for item in corridor_steps if isinstance(item, dict) and item.get("status") == "PASS")
 
-    mechanicus_after = clamp(BASELINE["mechanicus_validator_readiness"] + 8 + min(12, negative_detected) - (3 * fail_count) - warn_count)
-    inquisition_after = clamp(BASELINE["inquisition_fake_green_resistance"] + min(15, negative_detected) + (6 if fail_count == 0 else 0))
-    officio_after = clamp(BASELINE["officio_entry_contract_readiness"] + (8 if passed_steps >= 1 else 0) + (3 if negative_detected >= 12 else 0))
-    administratum_after = clamp(BASELINE["administratum_receipt_closure_readiness"] + (10 if passed_steps >= 5 else 0) + (4 if corridor.get("overall") == "PASS" else 0))
+    summary_caps = collect_cap_codes(summary)
+    red_team_caps = collect_cap_codes(red_team)
+    combined_caps = sorted(set(summary_caps) | set(red_team_caps))
+    severe_caps_detected = sorted(cap for cap in combined_caps if cap in SEVERE_RED_TEAM_CAPS)
+    red_team_missing = red_team_error is not None or not isinstance(red_team, dict)
+
+    severe_cap_penalty = len(severe_caps_detected)
+    if red_team_missing:
+        severe_cap_penalty += 1
+
+    mechanicus_after = clamp(
+        BASELINE["mechanicus_validator_readiness"]
+        + 8
+        + min(12, negative_detected)
+        - (3 * fail_count)
+        - warn_count
+        - (2 * severe_cap_penalty)
+    )
+    inquisition_after = clamp(
+        BASELINE["inquisition_fake_green_resistance"]
+        + min(15, negative_detected)
+        + (6 if fail_count == 0 else 0)
+        - (3 * severe_cap_penalty)
+    )
+    officio_after = clamp(
+        BASELINE["officio_entry_contract_readiness"]
+        + (8 if passed_steps >= 1 else 0)
+        + (3 if negative_detected >= 12 else 0)
+        - (2 * severe_cap_penalty)
+    )
+    administratum_after = clamp(
+        BASELINE["administratum_receipt_closure_readiness"]
+        + (10 if passed_steps >= 5 else 0)
+        + (4 if corridor.get("overall") == "PASS" else 0)
+        - (2 * severe_cap_penalty)
+    )
 
     overall_after = clamp(
         BASELINE["overall_candidate_usefulness"]
         + min(20, (2 * passed_steps) + (negative_detected // 2))
         - (4 * fail_count)
         - (2 * warn_count)
+        - (6 * severe_cap_penalty)
     )
 
     after = {
@@ -104,12 +162,24 @@ def main() -> int:
 
     delta = {key: after[key] - BASELINE[key] for key in BASELINE}
     positive_delta = all(value > 0 for value in delta.values())
-    verdict = "PASS_WITH_WARNINGS" if positive_delta else "WARN"
+
+    caps_triggered: set[str] = set(severe_caps_detected)
+    if red_team_missing:
+        caps_triggered.add("CAP_REDTEAM_CAPS_NOT_APPLIED_TO_SCORE")
+    if not positive_delta:
+        caps_triggered.add("CAP_NO_EFFICIENCY_DELTA")
+
+    if "CAP_WARP_CLAIMED_WITHOUT_UNLOCK" in caps_triggered or "CAP_SYNTHETIC_CLAIMED_AS_REAL" in caps_triggered:
+        verdict = "BLOCK"
+    elif positive_delta and not caps_triggered:
+        verdict = "PASS_WITH_WARNINGS"
+    else:
+        verdict = "WARN"
 
     receipt = {
         "task_id": args.task_id,
         "timestamp_utc": utc_now(),
-        "base_head": "922160728f64482a83f88e1e873a99b460094f8a",
+        "base_head": "935dc33b52e8915aae71611fad48c91135c4e800",
         "implementation_head": "",
         "closure_head": "",
         "baseline": BASELINE,
@@ -148,8 +218,8 @@ def main() -> int:
             },
         },
         "verdict": verdict,
-        "confidence": "HIGH" if positive_delta else "MEDIUM",
-        "caps_triggered": [] if positive_delta else ["CAP_NO_EFFICIENCY_DELTA"],
+        "confidence": "HIGH" if positive_delta and not caps_triggered else "MEDIUM",
+        "caps_triggered": sorted(caps_triggered),
         "evidence": [
             {
                 "path": str(validator_summary_path),
@@ -163,10 +233,17 @@ def main() -> int:
                 "passed_steps": passed_steps,
                 "overall": corridor.get("overall"),
             },
+            {
+                "path": str(red_team_path),
+                "read_ok": not red_team_missing,
+                "caps_detected": red_team_caps,
+                "error": red_team_error if red_team_missing else "",
+            },
         ],
         "notes": [
             "Five-scale score is deterministic and stdlib-only.",
-            "Synthetic corridor is accepted by taskpack and marked not_real_warp=true.",
+            "Synthetic corridor is accepted by taskpack and marked synthetic-only.",
+            "Red-team caps are consumed by scorer penalties before verdict emission.",
         ],
     }
 
@@ -180,7 +257,7 @@ def main() -> int:
         + f"overall_after={overall_after} "
         + f"delta={delta['overall_candidate_usefulness']}"
     )
-    return 0 if positive_delta else 1
+    return 0 if verdict == "PASS_WITH_WARNINGS" else 1
 
 
 if __name__ == "__main__":

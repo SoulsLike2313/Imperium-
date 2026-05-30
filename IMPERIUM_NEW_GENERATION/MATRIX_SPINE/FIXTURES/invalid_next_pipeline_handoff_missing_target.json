@@ -1,0 +1,31 @@
+{
+  "task_id": "TASK-NEGATIVE-FIXTURE",
+  "target_commit_for_review": "",
+  "base_head": "922160728f64482a83f88e1e873a99b460094f8a",
+  "implementation_head": "922160728f64482a83f88e1e873a99b460094f8a",
+  "closure_head": "922160728f64482a83f88e1e873a99b460094f8a",
+  "final_verifier_head": "922160728f64482a83f88e1e873a99b460094f8a",
+  "commit_urls": {
+    "implementation": "https://github.com/example/commit/1",
+    "closure": "https://github.com/example/commit/1",
+    "final_verifier": "https://github.com/example/commit/1"
+  },
+  "changed_paths_summary": [
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/validate_matrix_spine.py"
+  ],
+  "primary_report_paths": [
+    "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/REPORTS/example/final_owner_summary_ru.md"
+  ],
+  "replay_commands": [
+    "bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_matrix_spine_validation.sh"
+  ],
+  "servitor_claimed_efficiency_delta": {
+    "mechanicus": 1,
+    "inquisition": 1,
+    "officio": 1,
+    "administratum": 1,
+    "overall": 1
+  },
+  "known_caps_or_warnings": [],
+  "next_allowed_task_candidate": "TASK-NEXT"
+}

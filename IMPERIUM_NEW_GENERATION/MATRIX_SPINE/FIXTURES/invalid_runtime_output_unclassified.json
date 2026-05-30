@@ -3,7 +3,9 @@
   "runtime_outputs": [
     {
       "path": "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/REPORTS/example.unknown",
-      "output_kind": "UNKNOWN_KIND"
+      "classification": "UNKNOWN_KIND",
+      "commit_decision": "COMMIT",
+      "reason": "invalid class should be rejected"
     }
   ]
 }

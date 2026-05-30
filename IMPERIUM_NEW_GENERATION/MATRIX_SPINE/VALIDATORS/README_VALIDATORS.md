@@ -25,7 +25,7 @@ This suite validates Ghost_Evolve V2 Matrix Spine JSON, schema readiness, packet
 - `matrix_spine_validation_summary.json`
 
 Default output directory:
-- `IMPERIUM_NEW_GENERATION/MATRIX_SPINE/REPORTS/TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-VALIDATOR-SUITE-VM3-V0_1/`
+- `IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/REPORTS/TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1/`
 
 ## Scope
 The validator checks:
@@ -36,7 +36,9 @@ The validator checks:
 - required READ_FIRST packet presence;
 - bootloader shape constraints in `AGENTS.md`;
 - claim ledger/capability split/red-team/efficiency schema presence and JSON syntax;
-- manifest-driven negative fixtures proving detection of broken cases (13 fixtures in V0.2).
+- closure provenance/NEXT_PIPELINE_HANDOFF template+schema presence;
+- typed corridor claim caps and runtime output classification policy;
+- manifest-driven negative fixtures proving detection of broken cases.
 
 ## Fixture Manifests
 - `IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/negative_fixture_manifest.json`
@@ -46,3 +48,4 @@ The validator checks:
 - `synthetic_corridor_receipt.json`
 - `synthetic_runtime_corridor_report.md`
 - `efficiency_delta_receipt.json`
+- `matrix_validator_run/matrix_spine_validation_summary.json`

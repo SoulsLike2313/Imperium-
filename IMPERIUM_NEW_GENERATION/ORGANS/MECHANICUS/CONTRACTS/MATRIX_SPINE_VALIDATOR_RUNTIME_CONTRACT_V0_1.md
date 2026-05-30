@@ -11,7 +11,9 @@ When replayed through the provided runner scripts, the validator must:
 3. verify required READ_FIRST packet and schema/template presence;
 4. execute manifest-driven negative fixtures and prove expected failures are detected;
 5. produce compact machine and human receipts;
-6. support a synthetic `start task` corridor proof (entry ACK -> validation -> capability split -> red-team -> closure).
+6. support a synthetic `start task` corridor proof (entry ACK -> validation -> capability split -> red-team -> closure);
+7. enforce typed corridor terms (`synthetic_corridor`, `real_runtime_corridor`, `warp_corridor`) and deny untyped `runtime corridor` claim;
+8. enforce closure provenance fields and NEXT_PIPELINE_HANDOFF readiness.
 
 ## Replay commands
 - `bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_matrix_spine_validation.sh`
@@ -27,8 +29,11 @@ When replayed through the provided runner scripts, the validator must:
 - `synthetic_corridor_receipt.json`
 - `synthetic_runtime_corridor_report.md`
 - `efficiency_delta_receipt.json`
+- `final_closure_verifier_receipt.json`
+- `NEXT_PIPELINE_HANDOFF.json`
 
 ## Boundaries
 - This validator does not grant canon admission.
 - Synthetic corridor proof does not grant real WARP runtime admission.
 - PASS claims must still pass Inquisition red-team gate and efficiency delta evidence.
+- Efficiency score must consume red-team caps before final verdict.

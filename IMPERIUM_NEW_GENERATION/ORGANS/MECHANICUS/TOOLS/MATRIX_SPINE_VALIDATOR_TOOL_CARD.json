@@ -21,7 +21,9 @@
     "matrix_spine_validation_summary.json",
     "synthetic_corridor_receipt.json",
     "synthetic_runtime_corridor_report.md",
-    "efficiency_delta_receipt.json"
+    "efficiency_delta_receipt.json",
+    "final_closure_verifier_receipt.json",
+    "NEXT_PIPELINE_HANDOFF.json"
   ],
   "capability_class": "LOCAL_SCRIPT_FIRST",
   "dependencies": [
@@ -30,7 +32,7 @@
   "replay_command": "bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_matrix_spine_validation.sh && bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_synthetic_runtime_corridor.sh && bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_efficiency_delta.sh",
   "limitations": [
     "Schema validation uses standard-library checks (required/type/enum/min items), not full external JSON Schema engine.",
-    "Synthetic runtime corridor proves taskpack flow but does not activate real WARP runtime.",
+    "Synthetic corridor proves taskpack flow but does not activate real_runtime_corridor or warp_corridor.",
     "Canon admission remains Doctrinarium process outside this validator's authority."
   ]
 }

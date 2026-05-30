@@ -1,0 +1,27 @@
+{
+  "task_id": "",
+  "base_head": "",
+  "implementation_head": "",
+  "pre_push_head": "",
+  "closure_head": "",
+  "final_verifier_head": "",
+  "remote_head_after_push": "",
+  "worktree_clean_after_push": true,
+  "origin_master_sync_after_push": true,
+  "implementation_commit_url": "",
+  "closure_commit_url": "",
+  "final_verifier_commit_url": "",
+  "red_team_verdict_path": "",
+  "next_pipeline_handoff_path": "NEXT_PIPELINE_HANDOFF.json",
+  "runtime_outputs": [
+    {
+      "path": "",
+      "classification": "SOURCE",
+      "commit_decision": "COMMIT",
+      "reason": ""
+    }
+  ],
+  "caps_triggered": [],
+  "verdict": "PASS_WITH_WARNINGS",
+  "notes": ""
+}

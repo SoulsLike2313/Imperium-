@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-STATUS-NORMALIZATION-AND-RUNTIME-CORRIDOR-PROOF-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1"
 FIXTURE_ROOT = Path("IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/SYNTHETIC_RUNTIME_CORRIDOR")
 
 
@@ -88,16 +88,29 @@ def validate_final_receipt(data: Any) -> list[str]:
         return ["final_receipt root is not an object"]
 
     errors: list[str] = []
-    for key in ["base_head", "implementation_head", "closure_head", "remote_head_after_push"]:
+    for key in [
+        "base_head",
+        "implementation_head",
+        "pre_push_head",
+        "closure_head",
+        "final_verifier_head",
+        "remote_head_after_push",
+    ]:
         if not is_nonempty_string(data.get(key)):
             errors.append(f"{key} is missing or empty")
 
     if data.get("worktree_clean_after_push") is not True:
         errors.append("worktree_clean_after_push must be true")
 
+    if data.get("origin_master_sync_after_push") is not True:
+        errors.append("origin_master_sync_after_push must be true")
+
     verdict = data.get("verdict")
     if verdict in {"PASS", "PASS_WITH_WARNINGS"} and not is_nonempty_string(data.get("red_team_verdict_path")):
         errors.append("red_team_verdict_path required for PASS/PASS_WITH_WARNINGS")
+
+    if not is_nonempty_string(data.get("implementation_commit_url")):
+        errors.append("implementation_commit_url is required")
 
     return errors
 
@@ -168,6 +181,18 @@ def main() -> int:
     else:
         if summary_data.get("verdict") not in {"PASS", "PASS_WITH_WARNINGS"}:
             s2_errors.append("matrix validator verdict is not PASS/PASS_WITH_WARNINGS")
+        negative_results = summary_data.get("negative_fixture_results")
+        if isinstance(negative_results, list):
+            typed_corridor_caught = any(
+                isinstance(item, dict)
+                and item.get("expected_issue_code") == "CAP_UNTYPED_RUNTIME_CLAIM"
+                and item.get("detected") is True
+                for item in negative_results
+            )
+            if not typed_corridor_caught:
+                s2_errors.append("corridor naming negative fixture CAP_UNTYPED_RUNTIME_CLAIM not detected")
+        else:
+            s2_errors.append("negative_fixture_results missing in validator summary")
 
     steps.append(
         step_result(
@@ -197,8 +222,9 @@ def main() -> int:
 
     receipt = {
         "task_id": args.task_id,
-        "corridor_type": "SYNTHETIC_GHOST_EVOLVE_START_TASK_CORRIDOR",
+        "corridor_type": "synthetic_corridor",
         "not_real_warp": True,
+        "typed_runtime_claim_allowed": ["synthetic_corridor", "real_runtime_corridor", "warp_corridor"],
         "timestamp_utc": utc_now(),
         "steps": steps,
         "overall": overall,
@@ -229,7 +255,8 @@ def main() -> int:
         "",
         "## Overall",
         f"- Verdict: {overall}",
-        "- Synthetic only: real WARP corridor is intentionally out of scope.",
+        "- Corridor type: synthetic_corridor (training/replay only).",
+        "- Synthetic only: real_runtime_corridor and warp_corridor are intentionally out of scope.",
         "",
         "## Replay",
         "- bash IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_synthetic_runtime_corridor.sh",

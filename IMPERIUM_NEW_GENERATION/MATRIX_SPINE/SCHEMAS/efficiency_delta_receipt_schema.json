@@ -8,6 +8,7 @@
     "after",
     "delta",
     "verdict",
+    "caps_triggered",
     "evidence"
   ],
   "properties": {
@@ -40,6 +41,12 @@
         "WARN",
         "BLOCK"
       ]
+    },
+    "caps_triggered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     },
     "evidence": {
       "type": "array",

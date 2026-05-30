@@ -1,0 +1,27 @@
+{
+  "task_id": "",
+  "target_commit_for_review": "",
+  "base_head": "",
+  "implementation_head": "",
+  "closure_head": "",
+  "final_verifier_head": "",
+  "commit_urls": {
+    "implementation": "",
+    "closure": "",
+    "final_verifier": ""
+  },
+  "changed_paths_summary": [],
+  "primary_report_paths": [],
+  "replay_commands": [],
+  "servitor_claimed_efficiency_delta": {
+    "mechanicus": null,
+    "inquisition": null,
+    "officio": null,
+    "administratum": null,
+    "overall": null
+  },
+  "known_caps_or_warnings": [],
+  "suggested_inquisitor_review_taskpack": "TASKPACK_INQUISITOR_COMMIT_MATRIX_SEMANTIC_REVIEW_V0_1.zip",
+  "suggested_speculum_review_taskpack": "TASKPACK_SPECULUM_COMMIT_TECHNICAL_REDTEAM_MATRIX_REVIEW_V0_1.zip",
+  "next_allowed_task_candidate": ""
+}

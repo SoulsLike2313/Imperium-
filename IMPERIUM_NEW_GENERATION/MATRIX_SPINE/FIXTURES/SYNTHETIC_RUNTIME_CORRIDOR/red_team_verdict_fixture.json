@@ -1,9 +1,9 @@
 {
-  "task_id": "TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-STATUS-NORMALIZATION-AND-RUNTIME-CORRIDOR-PROOF-VM3-V0_1",
+  "task_id": "TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1",
   "builder_claims": [
     {
       "claim_id": "C01",
-      "claim": "Synthetic runtime corridor steps are replayable.",
+      "claim": "Synthetic corridor steps are replayable.",
       "evidence": [
         "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_synthetic_runtime_corridor.sh"
       ]
@@ -19,7 +19,8 @@
     }
   ],
   "downgrade_rules_applied": [
-    "SYNTHETIC_NOT_REAL_WARP"
+    "CAP_UNTYPED_RUNTIME_CLAIM"
   ],
+  "caps_triggered": [],
   "final_verdict": "PASS_WITH_WARNINGS"
 }

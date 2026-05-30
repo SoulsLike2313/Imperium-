@@ -1,6 +1,6 @@
 {
-  "manifest_id": "MATRIX_SPINE_NEGATIVE_FIXTURES_V0_2",
-  "minimum_negative_fixtures": 10,
+  "manifest_id": "MATRIX_SPINE_NEGATIVE_FIXTURES_V0_3",
+  "minimum_negative_fixtures": 16,
   "fixtures": [
     {
       "fixture_id": "NF01",
@@ -74,10 +74,10 @@
     },
     {
       "fixture_id": "NF11",
-      "title": "unclassified runtime output kind",
+      "title": "unclassified runtime output",
       "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_runtime_output_unclassified.json",
       "fixture_type": "runtime_output",
-      "expected_issue_code": "RUNTIME_OUTPUT_UNCLASSIFIED"
+      "expected_issue_code": "CAP_RUNTIME_OUTPUT_UNCLASSIFIED"
     },
     {
       "fixture_id": "NF12",
@@ -92,6 +92,41 @@
       "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_red_team_verdict.json",
       "fixture_type": "red_team_schema",
       "expected_issue_code": "RED_TEAM_SCHEMA_REQUIRED_MISSING"
+    },
+    {
+      "fixture_id": "NF14",
+      "title": "final closure verifier missing final_verifier_head",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_final_closure_verifier_missing_final_head.json",
+      "fixture_type": "final_closure_verifier",
+      "expected_issue_code": "CAP_NO_FINAL_CLOSURE_VERIFIER"
+    },
+    {
+      "fixture_id": "NF15",
+      "title": "next pipeline handoff missing target commit",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_next_pipeline_handoff_missing_target.json",
+      "fixture_type": "next_pipeline_handoff",
+      "expected_issue_code": "CAP_NO_NEXT_PIPELINE_HANDOFF"
+    },
+    {
+      "fixture_id": "NF16",
+      "title": "untyped runtime corridor claim",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_untyped_runtime_corridor_claim.json",
+      "fixture_type": "corridor_claim",
+      "expected_issue_code": "CAP_UNTYPED_RUNTIME_CLAIM"
+    },
+    {
+      "fixture_id": "NF17",
+      "title": "synthetic proof claimed as real runtime corridor",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_synthetic_claimed_as_real_runtime_corridor.json",
+      "fixture_type": "corridor_claim",
+      "expected_issue_code": "CAP_SYNTHETIC_CLAIMED_AS_REAL"
+    },
+    {
+      "fixture_id": "NF18",
+      "title": "warp corridor claimed without unlock",
+      "fixture_relpath": "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/FIXTURES/invalid_warp_claim_without_unlock.json",
+      "fixture_type": "corridor_claim",
+      "expected_issue_code": "CAP_WARP_CLAIMED_WITHOUT_UNLOCK"
     }
   ]
 }

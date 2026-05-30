@@ -11,7 +11,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-TASK_ID_DEFAULT = "TASK-NEWGEN-MECHANICUS-MATRIX-SPINE-VALIDATOR-SUITE-VM3-V0_1"
+TASK_ID_DEFAULT = "TASK-NEWGEN-MATRIX-SPINE-CLOSURE-PROVENANCE-CORRIDOR-NAMING-AND-REVIEW-PIPELINE-HARDENING-VM3-V0_1"
 
 DEFAULT_ALLOWED_STATUS_VOCAB = {
     "CANDIDATE",
@@ -64,6 +64,44 @@ REQUIRED_VALIDATOR_FILES = [
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_efficiency_delta.sh",
     "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/VALIDATORS/run_efficiency_delta.ps1",
 ]
+
+REQUIRED_FINAL_CLOSURE_VERIFIER_FILES = [
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/FINAL_CLOSURE_VERIFIER_RECEIPT_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/final_closure_verifier_receipt_schema.json",
+]
+
+REQUIRED_NEXT_PIPELINE_HANDOFF_FILES = [
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/TEMPLATES/NEXT_PIPELINE_HANDOFF_TEMPLATE.json",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/next_pipeline_handoff_schema.json",
+]
+
+ALLOWED_CORRIDOR_TYPES = {
+    "synthetic_corridor",
+    "real_runtime_corridor",
+    "warp_corridor",
+}
+
+ALLOWED_RUNTIME_OUTPUT_CLASSES = {
+    "SOURCE",
+    "CURATED_EVIDENCE",
+    "RUNTIME_EPHEMERAL",
+    "REPEATED_RUNTIME_OUTPUT",
+    "QUARANTINE",
+    "PRIVATE_OR_SECRET_DO_NOT_COMMIT",
+}
+
+ALLOWED_RUNTIME_COMMIT_DECISIONS = {"COMMIT", "EXCLUDE", "QUARANTINE"}
+
+CANON_CLAIM_STATUSES = {
+    "TRUE",
+    "TRUE_WITH_SCOPE",
+    "PARTIAL",
+    "OVERCLAIM",
+    "UNKNOWN",
+    "FALSE_IF_CLAIMED",
+    "UNPROVEN",
+    "BLOCKED_BY_CAP",
+}
 
 
 @dataclass
@@ -370,6 +408,30 @@ def validate_required_validator_files(repo_root: Path, issues: list[Issue]) -> N
             )
 
 
+def validate_required_provenance_pipeline_files(repo_root: Path, issues: list[Issue]) -> None:
+    for rel_path in REQUIRED_FINAL_CLOSURE_VERIFIER_FILES:
+        path = repo_root / rel_path
+        if not path.exists():
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_NO_FINAL_CLOSURE_VERIFIER",
+                "Final closure verifier template/schema is missing.",
+                path,
+            )
+
+    for rel_path in REQUIRED_NEXT_PIPELINE_HANDOFF_FILES:
+        path = repo_root / rel_path
+        if not path.exists():
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_NO_NEXT_PIPELINE_HANDOFF",
+                "NEXT_PIPELINE_HANDOFF template/schema is missing.",
+                path,
+            )
+
+
 def validate_schema_file(
     repo_root: Path,
     rel_path: str,
@@ -594,7 +656,9 @@ def validate_closure_receipt_payload(data: dict[str, Any], path: Path, issues: l
     required_nonempty = [
         ("base_head", "CLOSURE_RECEIPT_BASE_HEAD_MISSING"),
         ("implementation_head", "CLOSURE_RECEIPT_IMPLEMENTATION_HEAD_MISSING"),
+        ("pre_push_head", "CLOSURE_RECEIPT_PRE_PUSH_HEAD_MISSING"),
         ("closure_head", "CLOSURE_RECEIPT_CLOSURE_HEAD_MISSING"),
+        ("final_verifier_head", "CLOSURE_RECEIPT_FINAL_VERIFIER_HEAD_MISSING"),
         ("remote_head_after_push", "CLOSURE_RECEIPT_REMOTE_HEAD_MISSING"),
     ]
     for key, code in required_nonempty:
@@ -618,6 +682,15 @@ def validate_closure_receipt_payload(data: dict[str, Any], path: Path, issues: l
             path,
         )
 
+    if data.get("origin_master_sync_after_push") is not True:
+        add_issue(
+            issues,
+            "FAIL",
+            "CLOSURE_RECEIPT_REMOTE_NOT_SYNCED",
+            "origin_master_sync_after_push must be true for closure PASS claims.",
+            path,
+        )
+
     verdict = data.get("verdict")
     if verdict in {"PASS", "PASS_WITH_WARNINGS"}:
         red_team = data.get("red_team_verdict_path")
@@ -630,18 +703,94 @@ def validate_closure_receipt_payload(data: dict[str, Any], path: Path, issues: l
                 path,
             )
 
+    implementation_head = data.get("implementation_head")
+    closure_head = data.get("closure_head")
+    implementation_url = data.get("implementation_commit_url")
+    closure_url = data.get("closure_commit_url")
+    final_verifier_head = data.get("final_verifier_head")
+    final_verifier_url = data.get("final_verifier_commit_url")
+
+    if not isinstance(implementation_url, str) or not implementation_url.strip():
+        add_issue(
+            issues,
+            "FAIL",
+            "CLOSURE_RECEIPT_IMPLEMENTATION_URL_MISSING",
+            "implementation_commit_url is required for provenance closure.",
+            path,
+        )
+
+    if isinstance(implementation_head, str) and isinstance(closure_head, str) and implementation_head != closure_head:
+        if not isinstance(closure_url, str) or not closure_url.strip():
+            add_issue(
+                issues,
+                "FAIL",
+                "CLOSURE_RECEIPT_CLOSURE_URL_MISSING",
+                "closure_commit_url is required when implementation_head and closure_head differ.",
+                path,
+            )
+
+    if isinstance(final_verifier_head, str) and isinstance(closure_head, str) and final_verifier_head != closure_head:
+        if not isinstance(final_verifier_url, str) or not final_verifier_url.strip():
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_NO_FINAL_CLOSURE_VERIFIER",
+                "final_verifier_commit_url is required when final_verifier_head differs from closure_head.",
+                path,
+            )
+
+
+def validate_final_closure_verifier_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
+    required_nonempty = [
+        "base_head",
+        "implementation_head",
+        "pre_push_head",
+        "closure_head",
+        "final_verifier_head",
+        "remote_head_after_push",
+    ]
+    missing = [key for key in required_nonempty if not isinstance(data.get(key), str) or not str(data.get(key)).strip()]
+    if missing:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_FINAL_CLOSURE_VERIFIER",
+            "Final closure verifier payload is missing required provenance fields.",
+            path,
+            {"missing": missing},
+        )
+
+    if data.get("worktree_clean_after_push") is not True:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_FINAL_CLOSURE_VERIFIER",
+            "Final closure verifier requires worktree_clean_after_push=true.",
+            path,
+        )
+
+    if data.get("origin_master_sync_after_push") is not True:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_FINAL_CLOSURE_VERIFIER",
+            "Final closure verifier requires origin_master_sync_after_push=true.",
+            path,
+        )
+
+    if not isinstance(data.get("runtime_outputs"), list) or not data.get("runtime_outputs"):
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_RUNTIME_OUTPUT_UNCLASSIFIED",
+            "Final closure verifier must include runtime_outputs classification.",
+            path,
+        )
+    else:
+        validate_runtime_output_payload({"runtime_outputs": data.get("runtime_outputs")}, path, issues)
+
 
 def validate_runtime_output_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
-    allowed_output_kinds = {
-        "REPORT",
-        "RECEIPT",
-        "TRANSCRIPT",
-        "LOG",
-        "FIXTURE",
-        "SCHEMA",
-        "SCRIPT",
-        "SUMMARY",
-    }
     outputs = data.get("runtime_outputs")
     if not isinstance(outputs, list) or not outputs:
         add_issue(
@@ -664,16 +813,162 @@ def validate_runtime_output_payload(data: dict[str, Any], path: Path, issues: li
                 {"index": index},
             )
             continue
-        kind = item.get("output_kind")
-        if not isinstance(kind, str) or kind not in allowed_output_kinds:
+
+        if not isinstance(item.get("path"), str) or not item.get("path", "").strip():
             add_issue(
                 issues,
                 "FAIL",
-                "RUNTIME_OUTPUT_UNCLASSIFIED",
-                "runtime output has unknown output_kind classification.",
+                "RUNTIME_OUTPUT_PATH_MISSING",
+                "runtime output entry must include non-empty path.",
                 path,
-                {"index": index, "output_kind": kind},
+                {"index": index},
             )
+
+        classification = item.get("classification")
+        if not isinstance(classification, str) or classification not in ALLOWED_RUNTIME_OUTPUT_CLASSES:
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_RUNTIME_OUTPUT_UNCLASSIFIED",
+                "runtime output has unknown classification.",
+                path,
+                {"index": index, "classification": classification},
+            )
+            continue
+
+        commit_decision = item.get("commit_decision")
+        if not isinstance(commit_decision, str) or commit_decision not in ALLOWED_RUNTIME_COMMIT_DECISIONS:
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_RUNTIME_OUTPUT_UNCLASSIFIED",
+                "runtime output has unknown commit_decision.",
+                path,
+                {"index": index, "commit_decision": commit_decision},
+            )
+            continue
+
+        if classification in {"REPEATED_RUNTIME_OUTPUT", "PRIVATE_OR_SECRET_DO_NOT_COMMIT"} and commit_decision == "COMMIT":
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_RUNTIME_OUTPUT_UNCLASSIFIED",
+                "repeated/private runtime output cannot be committed.",
+                path,
+                {"index": index, "classification": classification, "commit_decision": commit_decision},
+            )
+
+
+def validate_next_pipeline_handoff_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
+    required_nonempty = [
+        "target_commit_for_review",
+        "base_head",
+        "implementation_head",
+        "closure_head",
+        "final_verifier_head",
+        "next_allowed_task_candidate",
+    ]
+    missing = [key for key in required_nonempty if not isinstance(data.get(key), str) or not str(data.get(key)).strip()]
+    if missing:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_NEXT_PIPELINE_HANDOFF",
+            "NEXT_PIPELINE_HANDOFF payload is missing required routing fields.",
+            path,
+            {"missing": missing},
+        )
+
+    commit_urls = data.get("commit_urls")
+    if not isinstance(commit_urls, dict):
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_NEXT_PIPELINE_HANDOFF",
+            "NEXT_PIPELINE_HANDOFF requires commit_urls object.",
+            path,
+        )
+    else:
+        for key in ["implementation", "closure"]:
+            value = commit_urls.get(key)
+            if not isinstance(value, str) or not value.strip():
+                add_issue(
+                    issues,
+                    "FAIL",
+                    "CAP_NO_NEXT_PIPELINE_HANDOFF",
+                    "NEXT_PIPELINE_HANDOFF commit_urls missing required URL.",
+                    path,
+                    {"key": key},
+                )
+
+    for key in ["changed_paths_summary", "primary_report_paths", "replay_commands"]:
+        value = data.get(key)
+        if not isinstance(value, list) or not value:
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_NO_NEXT_PIPELINE_HANDOFF",
+                "NEXT_PIPELINE_HANDOFF requires non-empty list field.",
+                path,
+                {"field": key},
+            )
+
+    efficiency = data.get("servitor_claimed_efficiency_delta")
+    if not isinstance(efficiency, dict):
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_NO_NEXT_PIPELINE_HANDOFF",
+            "NEXT_PIPELINE_HANDOFF requires servitor_claimed_efficiency_delta object.",
+            path,
+        )
+
+
+def validate_corridor_claim_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
+    corridor_type = data.get("corridor_type")
+    if not isinstance(corridor_type, str) or corridor_type not in ALLOWED_CORRIDOR_TYPES:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_UNTYPED_RUNTIME_CLAIM",
+            "corridor_type must be one of synthetic_corridor/real_runtime_corridor/warp_corridor.",
+            path,
+            {"corridor_type": corridor_type},
+        )
+
+    owner_report_line = data.get("owner_report_line")
+    if isinstance(owner_report_line, str):
+        lowered = owner_report_line.lower()
+        has_untyped = "runtime corridor" in lowered
+        typed_markers = [marker for marker in ALLOWED_CORRIDOR_TYPES if marker in owner_report_line]
+        if has_untyped and not typed_markers:
+            add_issue(
+                issues,
+                "FAIL",
+                "CAP_UNTYPED_RUNTIME_CLAIM",
+                "Owner-facing claim uses untyped 'runtime corridor' phrase.",
+                path,
+                {"owner_report_line": owner_report_line},
+            )
+
+    proof_kind = data.get("proof_kind")
+    if proof_kind == "synthetic" and corridor_type == "real_runtime_corridor":
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_SYNTHETIC_CLAIMED_AS_REAL",
+            "Synthetic proof cannot be claimed as real_runtime_corridor.",
+            path,
+        )
+
+    if corridor_type == "warp_corridor" and data.get("warp_unlocked") is not True:
+        add_issue(
+            issues,
+            "FAIL",
+            "CAP_WARP_CLAIMED_WITHOUT_UNLOCK",
+            "warp_corridor cannot be claimed unless warp_unlocked=true.",
+            path,
+        )
 
 
 def validate_owner_language_contract_payload(data: dict[str, Any], path: Path, issues: list[Issue]) -> None:
@@ -864,6 +1159,17 @@ def validate_claim_ledger_template(
                     {"line": idx, "missing": missing},
                 )
 
+        status = entry.get("final_claim_status")
+        if isinstance(status, str) and status and status not in CANON_CLAIM_STATUSES:
+            add_issue(
+                issues,
+                "WARN",
+                "CLAIM_LEDGER_STATUS_NON_CANON",
+                "final_claim_status is outside canonical Ghost_Evolve V2 claim status set.",
+                template_path,
+                {"line": idx, "final_claim_status": status, "canonical_statuses": sorted(CANON_CLAIM_STATUSES)},
+            )
+
 
 def collect_matrix_files(repo_root: Path) -> list[Path]:
     matrix_root = repo_root / "IMPERIUM_NEW_GENERATION"
@@ -939,8 +1245,11 @@ def run_negative_fixtures(
         "malformed_json",
         "stale_receipt",
         "closure_receipt",
+        "final_closure_verifier",
+        "next_pipeline_handoff",
         "capability_split",
         "runtime_output",
+        "corridor_claim",
         "owner_language_contract",
     }
 
@@ -1046,10 +1355,16 @@ def run_negative_fixtures(
                     validate_stale_receipt_payload(data, path, local_issues)
                 elif fixture_type == "closure_receipt":
                     validate_closure_receipt_payload(data, path, local_issues)
+                elif fixture_type == "final_closure_verifier":
+                    validate_final_closure_verifier_payload(data, path, local_issues)
+                elif fixture_type == "next_pipeline_handoff":
+                    validate_next_pipeline_handoff_payload(data, path, local_issues)
                 elif fixture_type == "capability_split":
                     validate_capability_split_payload(data, path, local_issues)
                 elif fixture_type == "runtime_output":
                     validate_runtime_output_payload(data, path, local_issues)
+                elif fixture_type == "corridor_claim":
+                    validate_corridor_claim_payload(data, path, local_issues)
                 elif fixture_type == "owner_language_contract":
                     validate_owner_language_contract_payload(data, path, local_issues)
 
@@ -1192,9 +1507,22 @@ def main() -> int:
         issues,
         "EFFICIENCY_DELTA_SCHEMA",
     )
+    validate_schema_file(
+        repo_root,
+        "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/final_closure_verifier_receipt_schema.json",
+        issues,
+        "FINAL_CLOSURE_VERIFIER_SCHEMA",
+    )
+    validate_schema_file(
+        repo_root,
+        "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/SCHEMAS/next_pipeline_handoff_schema.json",
+        issues,
+        "NEXT_PIPELINE_HANDOFF_SCHEMA",
+    )
     allowed_status_vocab = load_status_policy(repo_root, issues, matrix_schema)
 
     validate_required_validator_files(repo_root, issues)
+    validate_required_provenance_pipeline_files(repo_root, issues)
     validate_read_first_packets(repo_root, issues)
     validate_agents_bootloader(repo_root, issues)
     validate_claim_ledger_template(repo_root, issues, claim_ledger_schema)
@@ -1274,6 +1602,7 @@ def main() -> int:
         verdict = "PASS"
 
     timestamp = utc_now()
+    cap_codes_detected = sorted({issue.code for issue in issues if issue.code.startswith("CAP_")})
     summary = {
         "task_id": args.task_id,
         "timestamp_utc": timestamp,
@@ -1288,6 +1617,7 @@ def main() -> int:
         "verdict": verdict,
         "allowed_status_vocab": sorted(allowed_status_vocab),
         "negative_fixture_results": negative_fixture_results,
+        "cap_codes_detected": cap_codes_detected,
     }
 
     summary_path = output_dir / "matrix_spine_validation_summary.json"
