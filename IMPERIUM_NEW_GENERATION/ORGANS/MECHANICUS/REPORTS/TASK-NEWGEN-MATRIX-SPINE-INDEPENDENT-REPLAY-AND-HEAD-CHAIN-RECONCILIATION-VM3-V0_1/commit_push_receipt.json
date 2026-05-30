@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-NEWGEN-MATRIX-SPINE-INDEPENDENT-REPLAY-AND-HEAD-CHAIN-RECONCILIATION-VM3-V0_1",
+  "timestamp_utc": "2026-05-30T16:48:10Z",
+  "branch": "master",
+  "head_before_task_commit": "10d4649e64bb9b3565e579c00af88d7bd8f93ba7",
+  "push_attempted": false,
+  "push_status": "PENDING_PRE_COMMIT",
+  "final_head": "PENDING_FINAL_HEAD",
+  "commit_url": "PENDING_FINAL_COMMIT_URL",
+  "worktree_clean_after_push": false,
+  "origin_master_sync_after_push": false,
+  "notes": "This receipt is finalized after git commit/push stage."
+}
