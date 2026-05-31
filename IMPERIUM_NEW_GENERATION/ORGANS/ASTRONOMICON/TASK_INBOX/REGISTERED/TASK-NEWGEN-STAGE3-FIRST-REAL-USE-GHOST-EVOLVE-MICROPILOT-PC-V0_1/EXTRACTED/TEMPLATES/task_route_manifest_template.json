@@ -1,7 +1,5 @@
 {
-  "schema_version": "0.1",
-  "template_id": "TASK_ROUTE_MANIFEST_TEMPLATE_V0_1",
-  "task_id": "",
+  "task_id": "TASK-NEWGEN-STAGE3-FIRST-REAL-USE-GHOST-EVOLVE-MICROPILOT-PC-V0_1",
   "taskpack_zip_path": "",
   "extracted_taskpack_path": "",
   "read_order": [
@@ -26,12 +24,13 @@
     "STRATEGIUM",
     "SCHOLA_IMPERIALIS"
   ],
-  "entry_ack_required": true,
-  "resolver_receipt_required": true,
   "caps_to_carry": [
     "CAP_STAGE1_WITH_WARNINGS_ONLY",
     "CAP_SYNTHETIC_ONLY_UNTIL_REAL_USE_PILOT",
     "CAP_NO_IDE_VISUAL_RELEASE_YET",
-    "CAP_NO_WARP_RUNTIME"
-  ]
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_LEGACY_RECEIPT_PRODUCERS_UNCLASSIFIED"
+  ],
+  "entry_ack_required": true,
+  "resolver_receipt_required": true
 }
