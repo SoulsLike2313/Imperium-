@@ -1,4 +1,4 @@
-# TASK_ENTRY_CORRIDOR_CONTRACT — Stage2 V0.2
+# TASK_ENTRY_CORRIDOR_CONTRACT — Stage2.1 V0.3
 
 Status: `CANDIDATE_NOT_CANON`
 Owner organ: `ASTRONOMICON`
@@ -17,6 +17,7 @@ Owner provides ZIP path, Astronomicon admits/registers the taskpack, marks `NEXT
 4. Update `TASK_REGISTRY/current_expected_task.json`.
 5. Build route manifest with all 8 required organs.
 6. Resolve by exact `task_id` and emit resolver receipt + start ACK.
+7. Block malformed admission receipt, unsafe registered paths, manifest mismatch, and root `_TASKPACK_INBOX` canonical misuse.
 
 ## Forbidden claims
 

@@ -1,4 +1,4 @@
-# TASKPACK_INTAKE_CONTRACT — Stage2 V0.1
+# TASKPACK_INTAKE_CONTRACT — Stage2.1 V0.2
 
 Status: `CANDIDATE_NOT_CANON`
 Owner organ: `ASTRONOMICON`
@@ -18,6 +18,7 @@ Define canonical intake from ZIP path to registered task entry:
 
 - ZIP exists and is readable;
 - `MANIFEST.json` exists and has `task_id`;
+- `MANIFEST.json` declares all 8 required organs;
 - taskpack has Task Spec, Acceptance Gates, and Output Requirements equivalents;
 - duplicate task ID is blocked;
 - extraction path never escapes canonical registered root;

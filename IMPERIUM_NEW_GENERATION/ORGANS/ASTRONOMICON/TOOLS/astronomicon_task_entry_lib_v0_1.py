@@ -32,6 +32,7 @@ MANIFEST_ENTRY_NAMES = ["MANIFEST.json"]
 TASK_SPEC_ENTRY_NAMES = ["TASK_SPEC.md", "01_TASK_SPEC.md", "02_TASK_SPEC.json"]
 ACCEPTANCE_ENTRY_NAMES = ["ACCEPTANCE_GATES.md", "03_ACCEPTANCE_GATES.json"]
 OUTPUT_ENTRY_NAMES = ["OUTPUT_REQUIREMENTS.md", "06_EVIDENCE_REQUIREMENTS.md", "07_EXPECTED_OUTPUTS.md"]
+ADMISSION_VERDICTS = {"ADMISSION_PASS", "ADMISSION_PASS_WITH_WARNINGS", "ADMISSION_BLOCK"}
 
 
 def utc_now() -> str:
@@ -188,6 +189,99 @@ def validate_route_template(route_template_data: dict[str, Any]) -> list[str]:
     if not isinstance(read_order, list):
         issues.append("Route template read_order is not a list.")
     return issues
+
+
+def normalize_slashes(path_value: str | Path) -> str:
+    return str(path_value).replace("\\", "/")
+
+
+def contains_root_taskpack_inbox_marker(path_value: str | Path) -> bool:
+    normalized = normalize_slashes(path_value).lower()
+    return (
+        normalized.startswith("_taskpack_inbox/")
+        or normalized.startswith("./_taskpack_inbox/")
+        or "/_taskpack_inbox/" in normalized
+    )
+
+
+def validate_registered_paths(
+    ctx: dict[str, Path],
+    *,
+    registered_task_path: Path,
+    taskpack_zip_path: Path,
+    extracted_path: Path,
+    route_manifest_path: Path,
+) -> list[str]:
+    issues: list[str] = []
+    if not is_within(ctx["registered_root"], registered_task_path):
+        issues.append("registered_task_path escapes TASK_INBOX/REGISTERED root.")
+    if not is_within(registered_task_path, taskpack_zip_path):
+        issues.append("taskpack_zip_path is outside registered task path.")
+    if not is_within(registered_task_path, extracted_path):
+        issues.append("extracted_path is outside registered task path.")
+    if not is_within(registered_task_path, route_manifest_path):
+        issues.append("route_manifest_path is outside registered task path.")
+    return issues
+
+
+def load_admission_receipt(
+    receipt_path: Path,
+    expected_task_id: str,
+) -> tuple[dict[str, Any] | None, list[str]]:
+    issues: list[str] = []
+    if not receipt_path.exists():
+        issues.append(f"Admission receipt missing: {receipt_path}")
+        return None, issues
+    try:
+        payload = read_json(receipt_path)
+    except Exception as exc:
+        issues.append(f"Admission receipt JSON invalid: {exc}")
+        return None, issues
+    if not isinstance(payload, dict):
+        issues.append("Admission receipt root is not a JSON object.")
+        return None, issues
+
+    receipt_task_id = str(payload.get("task_id", "")).strip()
+    if not receipt_task_id:
+        issues.append("Admission receipt missing task_id.")
+    elif receipt_task_id != expected_task_id:
+        issues.append(
+            f"Admission receipt task_id mismatch: expected '{expected_task_id}', got '{receipt_task_id}'."
+        )
+
+    verdict = str(payload.get("admission_verdict", "")).strip()
+    if verdict not in ADMISSION_VERDICTS:
+        issues.append(f"Admission receipt has unknown admission_verdict: '{verdict}'.")
+
+    return payload, issues
+
+
+def read_extracted_manifest_task_id(extracted_path: Path) -> tuple[str | None, list[str]]:
+    warnings: list[str] = []
+    if not extracted_path.exists():
+        return None, warnings
+    manifests = sorted(path for path in extracted_path.rglob("MANIFEST.json") if path.is_file())
+    if not manifests:
+        warnings.append("No MANIFEST.json found under extracted taskpack path.")
+        return None, warnings
+
+    for manifest_path in manifests:
+        try:
+            payload = read_json(manifest_path)
+        except Exception as exc:
+            warnings.append(f"Cannot parse extracted manifest '{manifest_path}': {exc}")
+            continue
+        task_id = str(payload.get("task_id", "")).strip()
+        if task_id:
+            if len(manifests) > 1:
+                warnings.append(
+                    f"Multiple MANIFEST.json files detected under extracted path; "
+                    f"using '{manifest_path}'."
+                )
+            return task_id, warnings
+
+    warnings.append("Extracted MANIFEST.json files found, but none contain task_id.")
+    return None, warnings
 
 
 def build_route_manifest(
@@ -376,6 +470,25 @@ def register_taskpack(
                 "caps_triggered": caps,
                 "warnings": ["MANIFEST.json exists but task_id is missing."],
             }
+
+        manifest_organs = manifest.get("organs", [])
+        if not isinstance(manifest_organs, list):
+            caps.append("CAP_ROUTE_DOES_NOT_INCLUDE_8_ORGANS")
+            return block_admission_result(
+                source_zip,
+                caps,
+                warnings,
+                "MANIFEST.organs is missing or not a list.",
+            )
+        missing_manifest_organs = [organ for organ in REQUIRED_ORGANS if organ not in manifest_organs]
+        if missing_manifest_organs:
+            caps.append("CAP_ROUTE_DOES_NOT_INCLUDE_8_ORGANS")
+            return block_admission_result(
+                source_zip,
+                caps,
+                warnings,
+                "MANIFEST.organs missing required organs: " + ", ".join(missing_manifest_organs),
+            )
 
         if not task_spec_found:
             caps.append("CAP_TASKPACK_ADMISSION_MISSING")
@@ -636,12 +749,17 @@ def resolve_task_id(
             "warnings": ["task_registry.json is missing."],
         }
 
-    resolved_task_id = task_id.strip() if isinstance(task_id, str) else None
+    explicit_task_id = task_id.strip() if isinstance(task_id, str) else None
+    resolved_from_current_expected = False
+    resolved_task_id = explicit_task_id
     if not resolved_task_id:
+        resolved_from_current_expected = True
         resolved_task_id, current_warnings = _load_current_expected(ctx["current_expected"])
         warnings.extend(current_warnings)
         if not resolved_task_id:
+            caps.append("CAP_START_TASK_WITHOUT_TASK_ID")
             caps.append("CAP_CURRENT_EXPECTED_TASK_MISSING")
+            caps.append("CAP_CURRENT_EXPECTED_TASK_NOT_RESOLVABLE")
             return {
                 "timestamp_utc": started_at,
                 "resolver_verdict": "BLOCK",
@@ -661,19 +779,30 @@ def resolve_task_id(
             "warnings": warnings + [f"Duplicate task_id entries found: {resolved_task_id}"],
         }
 
-    payload: dict[str, Any]
     route_manifest_path: Path | None = None
     registered_task_path: Path | None = None
     taskpack_zip_path: Path | None = None
     extracted_path: Path | None = None
     source = "stage2_registry"
 
+    payload: dict[str, Any]
+    registered_path_raw = ""
+    taskpack_zip_raw = ""
+    extracted_path_raw = ""
+    route_manifest_raw = ""
+    admission_receipt_raw = ""
+
     if len(matches) == 1:
         payload = matches[0]
-        registered_task_path = normalize_path(ctx["repo_root"] / str(payload.get("registered_path", "")))
-        taskpack_zip_path = normalize_path(ctx["repo_root"] / str(payload.get("taskpack_zip_path", "")))
-        extracted_path = normalize_path(ctx["repo_root"] / str(payload.get("extracted_path", "")))
-        route_manifest_path = normalize_path(ctx["repo_root"] / str(payload.get("route_manifest_path", "")))
+        registered_path_raw = str(payload.get("registered_path", "")).strip()
+        taskpack_zip_raw = str(payload.get("taskpack_zip_path", "")).strip()
+        extracted_path_raw = str(payload.get("extracted_path", "")).strip()
+        route_manifest_raw = str(payload.get("route_manifest_path", "")).strip()
+        admission_receipt_raw = str(payload.get("admission_receipt_path", "")).strip()
+        registered_task_path = normalize_path(ctx["repo_root"] / registered_path_raw)
+        taskpack_zip_path = normalize_path(ctx["repo_root"] / taskpack_zip_raw)
+        extracted_path = normalize_path(ctx["repo_root"] / extracted_path_raw)
+        route_manifest_path = normalize_path(ctx["repo_root"] / route_manifest_raw)
     else:
         source = "stage1_registry_fallback"
         legacy_entries = load_stage1_entries(ctx["legacy_stage1_registry"])
@@ -688,6 +817,10 @@ def resolve_task_id(
                 "warnings": warnings + [f"Duplicate task_id in stage1 registry: {resolved_task_id}"],
             }
         if not legacy_matches:
+            if resolved_from_current_expected:
+                caps.append("CAP_CURRENT_EXPECTED_TASK_NOT_RESOLVABLE")
+            else:
+                caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
             caps.append("CAP_TASK_ID_RESOLVER_MISSING")
             return {
                 "timestamp_utc": started_at,
@@ -697,8 +830,13 @@ def resolve_task_id(
                 "warnings": warnings + ["Task ID not found in stage2 or stage1 registry."],
             }
         payload = legacy_matches[0]
-        taskpack_zip_path = normalize_path(str(payload.get("taskpack_path", "")))
-        extracted_rel = str(payload.get("extracted_reference", ""))
+        taskpack_zip_raw = str(payload.get("taskpack_path", "")).strip()
+        extracted_rel = str(payload.get("extracted_reference", "")).strip()
+        extracted_path_raw = extracted_rel
+        registered_path_raw = str(Path(extracted_rel).parent).strip()
+        route_manifest_raw = str(ctx["task_route_manifest_template"].relative_to(ctx["repo_root"])).replace("\\", "/")
+        admission_receipt_raw = ""
+        taskpack_zip_path = normalize_path(taskpack_zip_raw)
         extracted_path = normalize_path(ctx["repo_root"] / extracted_rel)
         registered_task_path = extracted_path.parent
         route_manifest_path = ctx["task_route_manifest_template"]
@@ -709,15 +847,58 @@ def resolve_task_id(
     assert extracted_path is not None
     assert route_manifest_path is not None
 
+    if contains_root_taskpack_inbox_marker(registered_path_raw) or contains_root_taskpack_inbox_marker(extracted_path_raw):
+        caps.append("CAP_ROOT_TASKPACK_INBOX_CANON_MISUSE")
+        warnings.append("Registry path points to root _TASKPACK_INBOX staging instead of canonical REGISTERED path.")
+
+    path_issues = validate_registered_paths(
+        ctx,
+        registered_task_path=registered_task_path,
+        taskpack_zip_path=taskpack_zip_path,
+        extracted_path=extracted_path,
+        route_manifest_path=route_manifest_path,
+    )
+    if path_issues:
+        caps.append("CAP_UNSAFE_EXTRACTION_PATH_NOT_BLOCKED")
+        caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
+        warnings.extend(path_issues)
+
     if not taskpack_zip_path.exists():
         caps.append("CAP_TASKPACK_ADMISSION_MISSING")
+        caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
         warnings.append(f"Taskpack ZIP missing: {taskpack_zip_path}")
     if not extracted_path.exists():
         caps.append("CAP_REGISTERED_ARTIFACT_MISSING")
+        caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
         warnings.append(f"Extracted taskpack missing: {extracted_path}")
+    else:
+        extracted_manifest_task_id, extracted_manifest_warnings = read_extracted_manifest_task_id(extracted_path)
+        warnings.extend(extracted_manifest_warnings)
+        if extracted_manifest_task_id and extracted_manifest_task_id != resolved_task_id:
+            caps.append("CAP_EXTRACTED_MANIFEST_TASK_ID_MISMATCH")
+            caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
+            warnings.append(
+                f"Extracted manifest task_id mismatch: expected '{resolved_task_id}', got '{extracted_manifest_task_id}'."
+            )
     if not route_manifest_path.exists():
         caps.append("CAP_ROUTE_MANIFEST_MISSING")
+        caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
         warnings.append(f"Route manifest missing: {route_manifest_path}")
+
+    if admission_receipt_raw:
+        admission_receipt_path = normalize_path(ctx["repo_root"] / admission_receipt_raw)
+    else:
+        admission_receipt_path = registered_task_path / "TASKPACK_ADMISSION_RECEIPT.json"
+    if not is_within(registered_task_path, admission_receipt_path):
+        caps.append("CAP_UNSAFE_EXTRACTION_PATH_NOT_BLOCKED")
+        caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
+        warnings.append("Admission receipt path is outside registered task path.")
+    else:
+        _, admission_receipt_issues = load_admission_receipt(admission_receipt_path, resolved_task_id)
+        if admission_receipt_issues:
+            caps.append("CAP_MALFORMED_ADMISSION_RECEIPT")
+            caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
+            warnings.extend(admission_receipt_issues)
 
     route_manifest: dict[str, Any] = {}
     if route_manifest_path.exists():
@@ -725,6 +906,7 @@ def resolve_task_id(
             route_manifest = read_json(route_manifest_path)
         except Exception as exc:
             caps.append("CAP_ROUTE_MANIFEST_MISSING")
+            caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
             warnings.append(f"Route manifest JSON invalid: {exc}")
         else:
             missing_organs = [
@@ -732,22 +914,29 @@ def resolve_task_id(
             ]
             if missing_organs:
                 caps.append("CAP_ROUTE_DOES_NOT_INCLUDE_8_ORGANS")
+                caps.append("CAP_REGISTERED_TASK_NOT_RESOLVABLE")
                 warnings.append("Missing organs in route manifest: " + ", ".join(missing_organs))
 
     start_ack = build_start_ack_template(resolved_task_id, ctx["repo_root"])
     if not start_ack["all_required_organs_reachable"]:
         caps.append("CAP_ORGAN_READ_FIRST_ACK_MISSING")
 
+    if resolved_from_current_expected and "CAP_REGISTERED_TASK_NOT_RESOLVABLE" in caps:
+        caps.append("CAP_CURRENT_EXPECTED_TASK_NOT_RESOLVABLE")
+
     verdict = "PASS_WITH_WARNINGS" if not caps else "BLOCK"
     receipt = {
         "timestamp_utc": started_at,
         "resolved_by": actor,
         "resolver_source": source,
+        "resolved_from_current_expected": resolved_from_current_expected,
+        "start_task_request_without_task_id": resolved_from_current_expected,
         "task_id": resolved_task_id,
         "registered_task_path": str(registered_task_path).replace("\\", "/"),
         "taskpack_zip_path": str(taskpack_zip_path).replace("\\", "/"),
         "extracted_path": str(extracted_path).replace("\\", "/"),
         "route_manifest_path": str(route_manifest_path).replace("\\", "/"),
+        "admission_receipt_path": str(admission_receipt_path).replace("\\", "/"),
         "current_expected_task_path": str(ctx["current_expected"]).replace("\\", "/"),
         "current_expected_task_found": ctx["current_expected"].exists(),
         "task_start_ack": start_ack,
