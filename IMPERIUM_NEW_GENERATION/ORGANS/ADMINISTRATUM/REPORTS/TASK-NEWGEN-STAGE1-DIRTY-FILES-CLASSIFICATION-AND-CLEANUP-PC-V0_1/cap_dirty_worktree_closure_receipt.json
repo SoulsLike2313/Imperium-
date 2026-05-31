@@ -23,7 +23,7 @@
   "cap_before": "CAP_DIRTY_WORKTREE_UNCLASSIFIED",
   "cap_after_state": "CLOSED_CLEAN",
   "worktree_clean_after": true,
-  "remote_sync_after": null,
+  "remote_sync_after": true,
   "clean_pass_allowed": false,
-  "notes": "Pre-existing dirty paths resolved. Final pass still depends on commit/push verification and stage-level caps."
+  "notes": "Pre-existing dirty paths resolved and push verified in commit_push_receipt."
 }
