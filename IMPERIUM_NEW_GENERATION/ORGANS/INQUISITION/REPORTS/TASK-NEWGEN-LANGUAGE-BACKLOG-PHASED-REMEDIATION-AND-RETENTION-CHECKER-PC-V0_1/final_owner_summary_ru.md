@@ -22,5 +22,5 @@ HEAD на момент сборки отчёта: `23727b55020775827aa0473f72e91
 - Clean global language PASS не заявляется и запрещён пока legacy backlog не закрыт.
 - В retention inventory остаются записи класса `REVIEW_ARTIFACT_PAYLOAD_REVIEW_REQUIRED` для последующего hash/quarantine route.
 
-Git closure:
-- Commit/push будет зафиксирован в `commit_push_receipt.json` после финализации изменений.
+Git closure:`n- Артефактный commit/push выполнен: `3ec5c5c11cdcfba04e9014371bf5bba8bb3b35a3`.
+- `commit_push_receipt.json` оформлен в follow-up meta-commit без self-head paradox.
