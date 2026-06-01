@@ -1,6 +1,6 @@
 {
   "task_id": "TASK-NEWGEN-STAGE2-MICROPILOT-VM3-CONTEXT-PACK-EXECUTION-V0_1",
-  "generated_at_utc": "2026-06-01T10:50:59Z",
+  "generated_at_utc": "2026-06-01T10:52:24Z",
   "checks": {
     "head_matches_required": true,
     "resolver_verdict": "PASS_WITH_WARNINGS",
@@ -17,10 +17,14 @@
       "manual_read_log.jsonl": true,
       "llm_focus_claim_ledger.jsonl": true,
       "cap_carry_forward_receipt.json": true,
-      "hard_red_team_verdict.json": false,
-      "final_owner_summary_ru.md": false,
-      "commit_push_receipt.json": false
-    }
+      "hard_red_team_verdict.json": true,
+      "final_owner_summary_ru.md": true,
+      "commit_push_receipt.json": true
+    },
+    "final_worktree_clean_after_push": true,
+    "origin_master_equals_head_after_push": true,
+    "commit_push_receipt_present": true,
+    "latest_commit_head": "5fe85a57e76b9e05ab04dcb067191945d9f81b8b"
   },
   "caps_triggered": [
     "CAP_STAGE1_WITH_WARNINGS_ONLY",
