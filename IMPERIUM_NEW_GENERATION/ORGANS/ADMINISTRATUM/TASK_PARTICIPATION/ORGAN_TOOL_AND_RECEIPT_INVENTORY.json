@@ -7,7 +7,8 @@
   "local_manual_command": [
     "git status --short",
     "git rev-parse HEAD",
-    "git rev-parse origin/master"
+    "git rev-parse origin/master",
+    "git add -A && git commit -m '<task closure>' && git push origin <branch>"
   ],
   "candidate_script_first": [
     "scripts/administratum_check_all_v0_1.py"
@@ -18,6 +19,7 @@
   "external_research": [],
   "owner_manual_confirmation": [],
   "future_capability_gap": [
-    "Need universal legacy receipt schema migration tooling."
+    "Need universal legacy receipt schema migration tooling.",
+    "Need helper that auto-enforces commit/push policy exception only for BLOCK_OWNER_INPUT_REQUIRED_TO_CONTINUE."
   ]
 }

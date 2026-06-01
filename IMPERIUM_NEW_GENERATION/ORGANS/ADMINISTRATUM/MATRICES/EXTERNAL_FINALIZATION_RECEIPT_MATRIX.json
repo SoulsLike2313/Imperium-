@@ -7,7 +7,7 @@
     "Mechanicus",
     "Astronomicon"
   ],
-  "purpose": "Defines honest commit finalization semantics and external verification fields that avoid the self-head paradox.",
+  "purpose": "Defines honest commit finalization semantics, owner-visible commit/push policy, and external verification fields that avoid the self-head paradox.",
   "used_by": [
     "SERVITOR",
     "GPT_LOGOS",
@@ -19,27 +19,33 @@
     "What head does the receipt content describe?",
     "What head was verified after push?",
     "Is external/follow-up delivery explicitly recorded?",
-    "Can clean PASS be blocked when semantics contradict?"
+    "Can clean PASS be blocked when semantics contradict?",
+    "Was commit/push executed, or explicitly blocked by required owner input?"
   ],
   "pass_criteria": [
     "No ambiguous final_head authority claim for clean PASS",
     "Pre-commit and post-push head fields are separated",
-    "Self-head paradox is explicitly handled"
+    "Self-head paradox is explicitly handled",
+    "Commit/push executed for substantial task residue or explicit owner-input block is documented"
   ],
   "warn_criteria": [
     "External finalization pending but capped",
-    "Legacy receipts still in migration"
+    "Legacy receipts still in migration",
+    "Commit/push skipped only due to BLOCK_OWNER_INPUT_REQUIRED_TO_CONTINUE with actionable owner question"
   ],
   "block_criteria": [
     "Strict self-finalization claim inside containing commit",
     "Contradictory semantics with clean PASS still allowed",
-    "Missing verification booleans"
+    "Missing verification booleans",
+    "Commit/push skipped without explicit BLOCK_OWNER_INPUT_REQUIRED_TO_CONTINUE"
   ],
   "fake_green_flags": [
     "SELF_HEAD_PARADOX_UNHANDLED",
     "AMBIGUOUS_FINAL_HEAD",
     "EXTERNAL_FINALIZATION_RECEIPT_MISSING",
-    "FINALIZATION_SEMANTICS_CONTRADICTORY"
+    "FINALIZATION_SEMANTICS_CONTRADICTORY",
+    "COMMIT_PUSH_POLICY_VIOLATION",
+    "COMMIT_PUSH_SKIPPED_WITHOUT_OWNER_BLOCK"
   ],
   "evidence_requirements": [
     "external_finalization_receipt.json",

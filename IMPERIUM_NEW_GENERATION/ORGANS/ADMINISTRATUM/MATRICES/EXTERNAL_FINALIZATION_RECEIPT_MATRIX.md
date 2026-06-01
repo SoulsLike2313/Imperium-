@@ -8,6 +8,7 @@ Support organs: Inquisition, Mechanicus, Astronomicon
 
 Defines honest commit finalization semantics that avoid the self-head paradox.
 A file inside commit X must not pretend it can know hash X before commit X exists.
+Also enforces commit/push visibility policy for Owner.
 
 ## Required fields
 
@@ -22,6 +23,11 @@ A file inside commit X must not pretend it can know hash X before commit X exist
 - `origin_master_sync_after_push`
 - `verification_method`
 - `self_head_paradox_handled`
+- `commit_performed`
+- `push_performed`
+- `block_reason_class`
+- `owner_action_required`
+- `owner_question_or_instruction`
 - `caps_triggered`
 - `clean_pass_allowed`
 
@@ -30,17 +36,20 @@ A file inside commit X must not pretend it can know hash X before commit X exist
 - No ambiguous `final_head` authority claim is used for clean PASS.
 - Receipt clearly separates pre-commit known head and post-push verified head.
 - External/follow-up delivery verification is explicit.
+- Commit/push is executed for substantial tasks, or explicit owner-input block is documented.
 
 ## WARN criteria
 
 - External delivery verification is pending but explicitly capped.
 - Historical legacy receipt still uses transitional fields without clean PASS claim.
+- Commit/push skipped only because `BLOCK_OWNER_INPUT_REQUIRED_TO_CONTINUE`, with clear owner question.
 
 ## BLOCK criteria
 
 - Receipt claims strict self-finalization from inside containing commit.
 - Contradictory finalization semantics still allow clean PASS.
 - Required verification booleans are missing or unknown.
+- Commit/push skipped without explicit owner-input block reason and action request.
 
 ## Fake-green flags
 
@@ -48,6 +57,8 @@ A file inside commit X must not pretend it can know hash X before commit X exist
 - `AMBIGUOUS_FINAL_HEAD`
 - `EXTERNAL_FINALIZATION_RECEIPT_MISSING`
 - `FINALIZATION_SEMANTICS_CONTRADICTORY`
+- `COMMIT_PUSH_POLICY_VIOLATION`
+- `COMMIT_PUSH_SKIPPED_WITHOUT_OWNER_BLOCK`
 
 ## Evidence requirements
 
