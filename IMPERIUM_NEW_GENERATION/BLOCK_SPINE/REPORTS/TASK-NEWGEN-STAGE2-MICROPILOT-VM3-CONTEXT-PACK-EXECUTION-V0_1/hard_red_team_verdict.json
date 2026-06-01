@@ -24,7 +24,7 @@
     "final_worktree_clean_after_push": true,
     "origin_master_equals_head_after_push": true,
     "commit_push_receipt_present": true,
-    "latest_commit_head": "5fe85a57e76b9e05ab04dcb067191945d9f81b8b"
+    "checked_commit_subject": "5fe85a57e76b9e05ab04dcb067191945d9f81b8b"
   },
   "caps_triggered": [
     "CAP_STAGE1_WITH_WARNINGS_ONLY",
