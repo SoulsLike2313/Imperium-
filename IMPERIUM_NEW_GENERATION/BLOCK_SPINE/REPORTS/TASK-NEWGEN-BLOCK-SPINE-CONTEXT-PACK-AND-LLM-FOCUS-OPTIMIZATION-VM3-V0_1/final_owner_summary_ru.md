@@ -1,6 +1,6 @@
 # FINAL_OWNER_SUMMARY_RU
 
-Задача `TASK-NEWGEN-BLOCK-SPINE-CONTEXT-PACK-AND-LLM-FOCUS-OPTIMIZATION-VM3-V0_1` выполнена в режиме `PASS_WITH_WARNINGS` на этапе Stage1.
+Задача `TASK-NEWGEN-BLOCK-SPINE-CONTEXT-PACK-AND-LLM-FOCUS-OPTIMIZATION-VM3-V0_1` закрыта с вердиктом `BLOCK_SPINE_CONTEXT_OPTIMIZATION_PASS_WITH_WARNINGS`.
 
 Сделано:
 
@@ -10,15 +10,14 @@
   - `build_task_context_pack_v0_1.py`
   - `context_bloat_detector_v0_1.py`
 - сформирован context pack и получен `PASS` от bloat detector для текущего `TASK_ID`;
-- оформлены learning/ improvement contracts и candidate-only требования для future IDE workbench;
-- добавлены candidate cards для tool-surface без runtime интеграции.
+- оформлены learning/improvement contracts и candidate-only требования для future IDE workbench;
+- добавлены candidate cards для tool-surface без runtime интеграции;
+- выполнены commit и push, `origin/master` синхронизирован, worktree чистый.
 
-Ограничения и предупреждения:
+Почему не clean PASS:
 
-- clean pass не заявляется, так как по правилам Stage1 и red-team требуется явное финальное подтверждение commit/push receipt;
-- исходное dirty-состояние регистрации задачи было обнаружено и не скрывалось;
-- scope-forbidden зоны (IDE runtime, API runtime, browser automation runtime) не запускались.
+- по правилам taskpack clean PASS запрещен до внешнего принятия block-spine candidate-комплекта.
 
 Рекомендованный следующий шаг:
 
-1. подтвердить текущий candidate-пакет и выполнить следующий VM3 micro-pilot уже через сформированный context pack + block passports.
+1. запуск следующего VM3 micro-pilot уже через новый context pack + organ block passports.
