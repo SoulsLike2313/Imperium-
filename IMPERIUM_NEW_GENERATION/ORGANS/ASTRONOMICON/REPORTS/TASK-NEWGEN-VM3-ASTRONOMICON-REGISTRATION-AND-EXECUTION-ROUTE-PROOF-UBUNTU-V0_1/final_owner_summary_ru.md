@@ -6,9 +6,9 @@
 
 Proof-bundle commit: `7b372ef09b483a6ed08328dcb2fe384da3df194b`
 GitHub commit URL: `https://github.com/SoulsLike2313/Imperium-/commit/7b372ef09b483a6ed08328dcb2fe384da3df194b`
-remote `origin/master`: `7b372ef09b483a6ed08328dcb2fe384da3df194b`
-worktree clean after push verification: `yes`
-remote sync with proof-bundle head: `yes`
+remote head at proof-bundle verification timestamp: `7b372ef09b483a6ed08328dcb2fe384da3df194b`
+worktree clean after proof-bundle push verification: `yes`
+proof-bundle sync status at verification timestamp: `yes`
 
 - VM3 маршрут через `TASK_ID + start task` доказан: admission receipt, route manifest, resolver receipt и 8-органный route receipt сформированы.
 - Выполнен commit/push proof-bundle и закрыты route-proof caps по commit/push/worktree чистоте в red-team receipt.
