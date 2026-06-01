@@ -1,0 +1,22 @@
+{
+  "task_id": "TASK-NEWGEN-BLOCK-SPINE-CONTEXT-PACK-AND-LLM-FOCUS-OPTIMIZATION-VM3-V0_1",
+  "generated_at_utc": "2026-06-01T09:26:00Z",
+  "checks": {
+    "role_and_authority_read": true,
+    "head_and_branch_known": true,
+    "dirty_state_disclosed": true,
+    "manual_reasoning_not_claimed_as_system_capability": true,
+    "replayable_script_artifacts_present": true,
+    "context_pack_builder_executed": true,
+    "context_bloat_detector_executed": true,
+    "forbidden_scope_violations_detected": false,
+    "output_contract_shape_complete_except_commit_push": true
+  },
+  "caps_triggered": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY"
+  ],
+  "downgrades": [
+    "Clean pass remains blocked until commit/push receipt is finalized and external review accepts block spine."
+  ],
+  "verdict": "BLOCK_SPINE_CONTEXT_OPTIMIZATION_PASS_WITH_WARNINGS"
+}
