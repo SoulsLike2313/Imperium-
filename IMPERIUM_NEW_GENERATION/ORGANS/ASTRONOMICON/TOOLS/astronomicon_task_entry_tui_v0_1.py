@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -56,13 +57,26 @@ def resolve_flow(repo_root: str | Path, task_id: str | None = None) -> int:
     return 0 if result.get("resolver_verdict") in {"PASS", "PASS_WITH_WARNINGS"} else 1
 
 
+def registration_skill_flow(repo_root: str | Path) -> int:
+    skill_script = (
+        Path(__file__).resolve().parents[1]
+        / "SKILLS/TASKPACK_REGISTRATION_SKILL/astronomicon_taskpack_registration_skill_v0_1.py"
+    )
+    if not skill_script.exists():
+        print(f"Registration Skill script not found: {skill_script}")
+        return 1
+    cmd = [sys.executable, str(skill_script), "--repo-root", str(repo_root), "--interactive"]
+    return subprocess.run(cmd, check=False).returncode
+
+
 def interactive_loop(repo_root: str | Path) -> int:
     while True:
         print("\n== ASTRONOMICON TASK ENTRY TUI V0.1 ==")
         print("1) Show current expected task")
         print("2) Register taskpack ZIP path")
         print("3) Resolve task_id")
-        print("4) Exit")
+        print("4) Open Taskpack Registration Skill (PC/VM3/VM2)")
+        print("5) Exit")
         choice = input("Select: ").strip()
 
         if choice == "1":
@@ -74,6 +88,8 @@ def interactive_loop(repo_root: str | Path) -> int:
             task_id = input("task_id (empty => current expected): ").strip()
             resolve_flow(repo_root, task_id if task_id else None)
         elif choice == "4":
+            registration_skill_flow(repo_root)
+        elif choice == "5":
             print("Exit.")
             return 0
         else:
@@ -87,6 +103,7 @@ def main() -> int:
     parser.add_argument("--register-zip", default="", help="Register provided ZIP path and exit.")
     parser.add_argument("--resolve-task-id", default="", help="Resolve given task_id and exit.")
     parser.add_argument("--resolve-current", action="store_true", help="Resolve current expected task and exit.")
+    parser.add_argument("--registration-skill", action="store_true", help="Open registration skill interactive flow.")
     args = parser.parse_args()
 
     repo_root = args.repo_root
@@ -99,6 +116,8 @@ def main() -> int:
         return resolve_flow(repo_root, args.resolve_task_id)
     if args.resolve_current:
         return resolve_flow(repo_root, None)
+    if args.registration_skill:
+        return registration_skill_flow(repo_root)
     return interactive_loop(repo_root)
 
 
