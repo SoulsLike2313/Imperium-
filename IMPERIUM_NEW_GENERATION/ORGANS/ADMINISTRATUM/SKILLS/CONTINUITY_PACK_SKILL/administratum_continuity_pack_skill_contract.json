@@ -16,6 +16,8 @@
     "source_index.json",
     "private_data_exclusion_receipt.json",
     "stale_context_audit.json",
+    "continuity_recipient_selector_schema.json",
+    "role_pack_matrix_v0_1.json",
     "logos_prime_handoff_ru.md",
     "logos_prime_handoff_en.md",
     "continuity_pack_sha256s.txt"

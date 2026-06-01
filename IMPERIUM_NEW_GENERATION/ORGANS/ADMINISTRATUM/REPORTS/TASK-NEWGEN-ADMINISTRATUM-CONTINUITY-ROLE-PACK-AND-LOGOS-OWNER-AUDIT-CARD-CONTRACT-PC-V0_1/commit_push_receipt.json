@@ -1,0 +1,13 @@
+{
+  "task_id": "TASK-NEWGEN-ADMINISTRATUM-CONTINUITY-ROLE-PACK-AND-LOGOS-OWNER-AUDIT-CARD-CONTRACT-PC-V0_1",
+  "receipt_subject": "TASK_ARTIFACT_PREPARED_LOCAL",
+  "commit_performed": false,
+  "push_performed": false,
+  "block_reason_class": "PENDING_COMMIT_PUSH_PHASE",
+  "owner_action_required": false,
+  "owner_question_or_instruction": "",
+  "clean_pass_allowed": false,
+  "caps_triggered": [
+    "CAP_COMMIT_PUSH_POLICY_PENDING"
+  ]
+}

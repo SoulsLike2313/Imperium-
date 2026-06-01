@@ -32,3 +32,4 @@ Default output bundle path:
 - Produces RU Owner-facing handoff and EN machine handoff.
 - Produces SHA256 + ZIP receipts and validation receipts.
 - Keeps clean PASS blocked when global Stage1/IDE/WARP caps are active.
+- Supports recipient-target separation (`LOGOS_PRIME`, `INQUISITOR`, `SPECULUM`) through role-pack bridge artifacts without mutating core continuity truth.
