@@ -19,7 +19,10 @@ Define canonical intake from ZIP path to registered task entry:
 - ZIP exists and is readable;
 - `MANIFEST.json` exists and has `task_id`;
 - `MANIFEST.json` declares all 8 required organs;
+- `MANIFEST.language_and_encoding_policy` exists with explicit Officio-routed owner runtime lane;
 - taskpack has Task Spec, Acceptance Gates, and Output Requirements equivalents;
+- taskpack required root files are UTF-8 without BOM;
+- taskpack required root files are free from Cyrillic, replacement character, and named mojibake signatures;
 - duplicate task ID is blocked;
 - extraction path never escapes canonical registered root;
 - route manifest includes all 8 required organs.

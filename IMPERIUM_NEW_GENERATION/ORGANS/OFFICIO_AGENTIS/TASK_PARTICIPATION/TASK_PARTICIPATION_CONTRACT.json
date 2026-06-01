@@ -11,7 +11,8 @@
   ],
   "matrix_responsibilities": [
     "ROLE_ROUTE_MATRIX",
-    "LLM_FORCE_FOCUS_MATRIX"
+    "LLM_FORCE_FOCUS_MATRIX",
+    "LANGUAGE_AUTHORITY_MATRIX"
   ],
   "tools_or_receipts_used": [
     "scripts/officio_agentis_check_all_v0_1.py",

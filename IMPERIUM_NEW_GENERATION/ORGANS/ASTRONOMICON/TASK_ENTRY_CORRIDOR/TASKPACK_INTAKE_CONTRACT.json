@@ -19,9 +19,15 @@
     "manifest_found",
     "task_id_found",
     "manifest_organs_include_8",
+    "manifest_language_policy_present",
+    "manifest_owner_runtime_routed_through_officio",
     "task_spec_found",
     "acceptance_gates_found",
     "output_requirements_found",
+    "taskpack_root_utf8_no_bom",
+    "taskpack_root_non_english_absent",
+    "taskpack_root_replacement_character_absent",
+    "taskpack_root_mojibake_signature_absent",
     "duplicate_task_id_blocked",
     "safe_extraction_path",
     "route_manifest_8_organs"
@@ -35,6 +41,12 @@
     "CAP_TASKPACK_ADMISSION_MISSING",
     "CAP_DUPLICATE_TASK_ID_NOT_DETECTED",
     "CAP_UNSAFE_EXTRACTION_PATH_NOT_BLOCKED",
-    "CAP_ROUTE_DOES_NOT_INCLUDE_8_ORGANS"
+    "CAP_ROUTE_DOES_NOT_INCLUDE_8_ORGANS",
+    "CAP_ASTRONOMICON_ADMISSION_LANGUAGE_GATE_MISSING",
+    "CAP_NON_ENGLISH_TASKPACK_INTERNAL_TEXT",
+    "CAP_OWNER_LANGUAGE_NOT_ROUTED_THROUGH_OFFICIO",
+    "CAP_UTF8_BOM_NOT_DETECTED",
+    "CAP_REPLACEMENT_CHARACTER_NOT_DETECTED",
+    "CAP_MOJIBAKE_SIGNATURE_NOT_DETECTED"
   ]
 }

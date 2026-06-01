@@ -13,13 +13,20 @@
     "target_contour",
     "expected_start_head",
     "owner_launch_phrase",
-    "organs"
+    "organs",
+    "language_and_encoding_policy"
   ],
   "required_checks": [
     "zip_exists",
     "zip_readable",
     "zip_sha256_computed",
     "manifest_organs_include_8",
+    "manifest_language_policy_present",
+    "manifest_owner_runtime_routed_through_officio",
+    "taskpack_root_utf8_no_bom",
+    "taskpack_root_non_english_absent",
+    "taskpack_root_replacement_character_absent",
+    "taskpack_root_mojibake_signature_absent",
     "task_id_not_duplicate",
     "safe_extraction_path",
     "route_manifest_can_be_created",

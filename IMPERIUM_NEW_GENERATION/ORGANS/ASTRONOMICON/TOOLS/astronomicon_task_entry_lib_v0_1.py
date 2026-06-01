@@ -6,6 +6,7 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import json
+import re
 import shutil
 import zipfile
 from pathlib import Path
@@ -33,6 +34,33 @@ TASK_SPEC_ENTRY_NAMES = ["TASK_SPEC.md", "01_TASK_SPEC.md", "02_TASK_SPEC.json"]
 ACCEPTANCE_ENTRY_NAMES = ["ACCEPTANCE_GATES.md", "03_ACCEPTANCE_GATES.json"]
 OUTPUT_ENTRY_NAMES = ["OUTPUT_REQUIREMENTS.md", "06_EVIDENCE_REQUIREMENTS.md", "07_EXPECTED_OUTPUTS.md"]
 ADMISSION_VERDICTS = {"ADMISSION_PASS", "ADMISSION_PASS_WITH_WARNINGS", "ADMISSION_BLOCK"}
+
+TASKPACK_LANGUAGE_ROOT_ENTRY_NAMES = [
+    "000_START_TASK_READ_ORDER.md",
+    "MANIFEST.json",
+    "TASK_SPEC.md",
+    "ACCEPTANCE_GATES.md",
+    "OUTPUT_REQUIREMENTS.md",
+    "TASK_ROUTE_MANIFEST_TEMPLATE.json",
+    "TASK_START_ACK_TEMPLATE.json",
+]
+
+LANGUAGE_POLICY_REQUIRED_FIELDS = [
+    "taskpack_internal_files",
+    "canonical_repo_artifacts",
+    "owner_facing_russian_runtime_output",
+    "cyrillic_in_taskpack",
+    "localization_exception",
+]
+
+TASKPACK_CYRILLIC_RE = re.compile(r"[\u0400-\u04ff]")
+TASKPACK_REPLACEMENT_RE = re.compile(r"\ufffd")
+TASKPACK_MOJIBAKE_PATTERNS = [
+    ("MOJIBAKE_UTF8_LATIN1_C3", re.compile(r"\u00c3[\u0080-\u00bf]")),
+    ("MOJIBAKE_UTF8_LATIN1_C2", re.compile(r"\u00c2[\u0080-\u00bf]")),
+    ("MOJIBAKE_CP1252_QUOTES", re.compile(r"\u00e2\u0080[\u0098-\u009f]")),
+    ("MOJIBAKE_D0_D1_SEQUENCE", re.compile(r"[\u00d0\u00d1][\u0080-\u00bf]")),
+]
 
 
 def utc_now() -> str:
@@ -160,6 +188,80 @@ def find_zip_member(names: list[str], candidates: list[str]) -> str | None:
         if len(matches) == 1:
             return matches[0]
     return None
+
+
+def has_utf8_bom(raw: bytes) -> bool:
+    return raw.startswith(b"\xef\xbb\xbf")
+
+
+def validate_manifest_language_policy(manifest: dict[str, Any]) -> tuple[list[str], list[str]]:
+    issues: list[str] = []
+    caps: list[str] = []
+    language_policy = manifest.get("language_and_encoding_policy")
+    if not isinstance(language_policy, dict):
+        issues.append("MANIFEST.language_and_encoding_policy is missing or not an object.")
+        caps.append("CAP_ASTRONOMICON_ADMISSION_LANGUAGE_GATE_MISSING")
+        caps.append("CAP_OWNER_LANGUAGE_NOT_ROUTED_THROUGH_OFFICIO")
+        return issues, caps
+
+    missing_fields = [field for field in LANGUAGE_POLICY_REQUIRED_FIELDS if field not in language_policy]
+    if missing_fields:
+        issues.append(
+            "MANIFEST.language_and_encoding_policy missing required fields: " + ", ".join(missing_fields)
+        )
+        caps.append("CAP_ASTRONOMICON_ADMISSION_LANGUAGE_GATE_MISSING")
+
+    owner_runtime = str(language_policy.get("owner_facing_russian_runtime_output", "")).upper()
+    if "OFFICIO" not in owner_runtime:
+        issues.append(
+            "MANIFEST owner-facing Russian runtime policy is not routed through Officio authority."
+        )
+        caps.append("CAP_OWNER_LANGUAGE_NOT_ROUTED_THROUGH_OFFICIO")
+
+    taskpack_policy = str(language_policy.get("taskpack_internal_files", "")).upper()
+    canonical_policy = str(language_policy.get("canonical_repo_artifacts", "")).upper()
+    if "ENGLISH" not in taskpack_policy or "UTF8" not in taskpack_policy:
+        issues.append("MANIFEST taskpack_internal_files policy is not explicit ENGLISH + UTF8.")
+        caps.append("CAP_NON_ENGLISH_TASKPACK_INTERNAL_TEXT")
+    if "ENGLISH" not in canonical_policy or "UTF8" not in canonical_policy:
+        issues.append("MANIFEST canonical_repo_artifacts policy is not explicit ENGLISH + UTF8.")
+        caps.append("CAP_OWNER_LANGUAGE_NOT_ROUTED_THROUGH_OFFICIO")
+
+    return issues, caps
+
+
+def validate_taskpack_language_root_files(
+    zip_file: zipfile.ZipFile,
+    zip_names: list[str],
+) -> tuple[list[str], list[str]]:
+    issues: list[str] = []
+    caps: list[str] = []
+    for candidate in TASKPACK_LANGUAGE_ROOT_ENTRY_NAMES:
+        member = find_zip_member(zip_names, [candidate])
+        if member is None:
+            continue
+        raw = zip_file.read(member)
+        if has_utf8_bom(raw):
+            issues.append(f"UTF-8 BOM detected in root taskpack file: {candidate}")
+            caps.append("CAP_UTF8_BOM_NOT_DETECTED")
+        try:
+            text = raw.decode("utf-8")
+        except UnicodeDecodeError as exc:
+            issues.append(f"UTF-8 decode error in root taskpack file {candidate}: {exc}")
+            caps.append("CAP_MOJIBAKE_SIGNATURE_NOT_DETECTED")
+            continue
+        if TASKPACK_REPLACEMENT_RE.search(text):
+            issues.append(f"Replacement character detected in root taskpack file: {candidate}")
+            caps.append("CAP_REPLACEMENT_CHARACTER_NOT_DETECTED")
+        if TASKPACK_CYRILLIC_RE.search(text):
+            issues.append(f"Cyrillic detected in root taskpack file: {candidate}")
+            caps.append("CAP_NON_ENGLISH_TASKPACK_INTERNAL_TEXT")
+        for signature_id, pattern in TASKPACK_MOJIBAKE_PATTERNS:
+            if pattern.search(text):
+                issues.append(f"Mojibake signature {signature_id} detected in root taskpack file: {candidate}")
+                caps.append("CAP_MOJIBAKE_SIGNATURE_NOT_DETECTED")
+                break
+    return issues, caps
 
 
 def detect_unsafe_members(infos: list[zipfile.ZipInfo], extract_root: Path) -> list[str]:
@@ -346,6 +448,7 @@ def block_admission_result(
         "timestamp_utc": utc_now(),
         "source_zip_path": str(source_zip_path).replace("\\", "/"),
         "admission_verdict": "ADMISSION_BLOCK",
+        "language_gate_passed": False,
         "manifest_found": False,
         "task_id_found": False,
         "task_spec_found": False,
@@ -446,6 +549,35 @@ def register_taskpack(
         except Exception as exc:
             caps.append("CAP_TASKPACK_ADMISSION_MISSING")
             return block_admission_result(source_zip, caps, warnings, f"Cannot parse MANIFEST.json: {exc}")
+
+        language_policy_issues, language_policy_caps = validate_manifest_language_policy(manifest)
+        root_language_issues, root_language_caps = validate_taskpack_language_root_files(zip_file, zip_names)
+        if language_policy_issues or root_language_issues:
+            caps.extend(language_policy_caps)
+            caps.extend(root_language_caps)
+            warnings.extend(language_policy_issues)
+            warnings.extend(root_language_issues)
+            return {
+                "timestamp_utc": utc_now(),
+                "source_zip_path": str(source_zip).replace("\\", "/"),
+                "zip_sha256": zip_sha256,
+                "task_id": str(manifest.get("task_id", "")).strip(),
+                "admission_verdict": "ADMISSION_BLOCK",
+                "manifest_found": True,
+                "task_id_found": bool(str(manifest.get("task_id", "")).strip()),
+                "task_spec_found": task_spec_found,
+                "acceptance_gates_found": acceptance_found,
+                "output_requirements_found": output_found,
+                "duplicate_task_id": False,
+                "safe_extraction_path": False,
+                "registered_task_path": "",
+                "extracted_path": "",
+                "route_manifest_path": "",
+                "current_expected_task_updated": False,
+                "language_gate_passed": False,
+                "caps_triggered": sorted(set(caps)),
+                "warnings": warnings,
+            }
 
         task_id = str(manifest.get("task_id", "")).strip()
         task_id_found = bool(task_id)
@@ -670,7 +802,7 @@ def register_taskpack(
         "status": "NEXT_EXPECTED_TASK",
         "registered_path": entry["registered_path"],
         "route_manifest_path": route_rel,
-        "owner_instruction_ru": f"Передай Servitor: TASK_ID: {task_id} и start task",
+        "owner_instruction_ru": f"Send to Servitor: TASK_ID: {task_id} and start task",
         "updated_at_utc": utc_now(),
         "updated_by": actor,
     }
@@ -685,6 +817,7 @@ def register_taskpack(
         "source_zip_path": str(source_zip).replace("\\", "/"),
         "zip_sha256": zip_sha256,
         "admission_verdict": admission_verdict,
+        "language_gate_passed": True,
         "manifest_found": True,
         "task_id_found": True,
         "task_spec_found": True,

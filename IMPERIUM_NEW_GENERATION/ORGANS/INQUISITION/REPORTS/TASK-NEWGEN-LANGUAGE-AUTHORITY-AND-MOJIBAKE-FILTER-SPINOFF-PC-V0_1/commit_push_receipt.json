@@ -1,0 +1,15 @@
+{
+  "task_id": "TASK-NEWGEN-LANGUAGE-AUTHORITY-AND-MOJIBAKE-FILTER-SPINOFF-PC-V0_1",
+  "timestamp_utc": "2026-06-01T05:41:57Z",
+  "branch": "master",
+  "verification_method": "pending_commit_push",
+  "caps_triggered": [
+    "CAP_CANONICAL_ARTIFACT_CONTAINS_CYRILLIC",
+    "CAP_NON_ENGLISH_TASKPACK_INTERNAL_TEXT",
+    "CAP_REPLACEMENT_CHARACTER_NOT_DETECTED",
+    "CAP_UTF8_BOM_NOT_DETECTED"
+  ],
+  "clean_pass_allowed": false,
+  "notes": "Commit/push receipt will be finalized after admitted changes are committed and pushed.",
+  "commit_push_executed": false
+}
