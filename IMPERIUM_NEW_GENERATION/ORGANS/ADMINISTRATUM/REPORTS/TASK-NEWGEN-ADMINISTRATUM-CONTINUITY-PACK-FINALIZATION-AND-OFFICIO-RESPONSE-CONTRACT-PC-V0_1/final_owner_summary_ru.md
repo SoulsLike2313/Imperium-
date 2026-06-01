@@ -8,7 +8,7 @@
 - Выпущены fresh continuity artifacts и handoff RU/EN для нового Logos-Prime.
 - Зарегистрированы Officio final response contract и Doctrinarium non-BLOCK git closure law.
 - Добавлены Inquisition guard и Mechanicus validation receipts, а также next Skill candidates registry.
+- Основной артефактный commit запушен; commit_push_receipt зафиксирован follow-up meta commit без self-head paradox.
 
 Ограничения:
-- Активные глобальные caps Stage1/IDE/WARP сохраняются.
-- Финальный commit_push_receipt будет зафиксирован отдельным follow-up после push основного артефактного commit.
+- Активные глобальные caps Stage1/IDE/WARP сохраняются, clean PASS не заявляется.
