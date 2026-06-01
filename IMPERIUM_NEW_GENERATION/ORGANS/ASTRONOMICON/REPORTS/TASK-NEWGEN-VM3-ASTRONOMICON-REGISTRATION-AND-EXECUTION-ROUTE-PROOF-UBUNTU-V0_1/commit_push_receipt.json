@@ -1,25 +1,25 @@
 {
   "task_id": "TASK-NEWGEN-VM3-ASTRONOMICON-REGISTRATION-AND-EXECUTION-ROUTE-PROOF-UBUNTU-V0_1",
-  "timestamp_utc": "2026-06-01T08:24:05Z",
+  "timestamp_utc": "2026-06-01T08:26:33Z",
   "branch": "master",
-  "receipt_subject_head": "06ea677b46d40c092cb38ffb883ed8f00a566b25",
-  "last_verified_head_before_this_commit": "06ea677b46d40c092cb38ffb883ed8f00a566b25",
-  "receipt_content_head": "06ea677b46d40c092cb38ffb883ed8f00a566b25",
-  "external_delivery_head": "06ea677b46d40c092cb38ffb883ed8f00a566b25",
-  "remote_head_after_push": "06ea677b46d40c092cb38ffb883ed8f00a566b25",
-  "verification_timestamp_utc": "2026-06-01T08:24:05Z",
+  "receipt_subject_head": "7b372ef09b483a6ed08328dcb2fe384da3df194b",
+  "last_verified_head_before_this_commit": "7b372ef09b483a6ed08328dcb2fe384da3df194b",
+  "receipt_content_head": "7b372ef09b483a6ed08328dcb2fe384da3df194b",
+  "external_delivery_head": "7b372ef09b483a6ed08328dcb2fe384da3df194b",
+  "remote_head_after_push": "7b372ef09b483a6ed08328dcb2fe384da3df194b",
+  "verification_timestamp_utc": "2026-06-01T08:26:33Z",
   "verification_actor": "VM3_SERVITOR",
   "verification_method": "git commit + git push origin master + git rev-parse HEAD + git rev-parse origin/master",
   "self_head_paradox_handled": true,
-  "worktree_clean_after_push": false,
+  "worktree_clean_after_push": true,
   "origin_master_sync_after_push": true,
-  "push_attempted": false,
-  "push_status": "NOT_ATTEMPTED_AT_RECEIPT_RENDER_TIME",
+  "push_attempted": true,
+  "push_status": "SUCCESS",
   "caps_triggered": [
     "CAP_STAGE1_WITH_WARNINGS_ONLY",
-    "CAP_VM3_COMMIT_PUSH_NOT_PROVEN",
-    "CAP_VM3_WORKTREE_NOT_CLEAN_AFTER_TASK"
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME"
   ],
   "clean_pass_allowed": false,
-  "notes": "Receipt generated before commit/push execution due self-head paradox semantics; post-push truth is delivered externally in final owner summary."
+  "notes": "This receipt finalizes externally verified delivery of the proof-bundle commit head; clean PASS remains disabled by inherited caps and external-review pending."
 }
