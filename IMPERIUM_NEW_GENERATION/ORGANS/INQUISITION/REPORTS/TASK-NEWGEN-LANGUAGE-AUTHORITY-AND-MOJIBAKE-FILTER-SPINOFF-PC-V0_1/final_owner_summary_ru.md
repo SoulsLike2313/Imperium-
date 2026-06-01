@@ -9,7 +9,7 @@ officio_authorized_lane=OWNER_FACING_RUNTIME_RU
 Шаг: `Stage 3.2 Language Authority and Mojibake Filter Spinoff`
 Путь отчёта: `IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-LANGUAGE-AUTHORITY-AND-MOJIBAKE-FILTER-SPINOFF-PC-V0_1/`
 Текущий вердикт: `LANGUAGE_AUTHORITY_FILTER_PASS_WITH_WARNINGS`
-HEAD на момент отчёта: `91956647d56eec266183bc4bb4b853cb349c94c7`
+HEAD артефактного пакета: `aed6cbfbd44fad10263371e2fb434b4e32173388`
 
 Сделано:
 - Введена политика Officio для языковой authority (MD + JSON).
@@ -22,4 +22,4 @@ HEAD на момент отчёта: `91956647d56eec266183bc4bb4b853cb349c94c7`
 Ограничения:
 - Legacy нарушения в репозитории остаются и отмечены как WARN/LEGACY_TO_REMEDIATE.
 - Чистый PASS запрещён до независимого Inquisitor/Speculum review.
-- Commit/push ещё не зафиксирован в этом файле и должен быть закрыт отдельным receipt после git-операций.
+- Commit/push закрыт: артефактный коммит `aed6cbfbd44fad10263371e2fb434b4e32173388` запушен, commit_push_receipt финализирован отдельным meta-коммитом.
