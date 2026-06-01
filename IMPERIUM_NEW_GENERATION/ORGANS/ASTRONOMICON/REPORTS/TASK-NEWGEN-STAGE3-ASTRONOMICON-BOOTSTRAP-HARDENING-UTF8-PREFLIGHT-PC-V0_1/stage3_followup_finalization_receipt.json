@@ -1,6 +1,6 @@
 {
   "task_id": "TASK-NEWGEN-STAGE3-ASTRONOMICON-BOOTSTRAP-HARDENING-UTF8-PREFLIGHT-PC-V0_1",
-  "timestamp_utc": "2026-06-01T04:52:52Z",
+  "timestamp_utc": "2026-06-01T05:06:03Z",
   "subject_stage3_task_id": "TASK-NEWGEN-STAGE3-FIRST-REAL-USE-GHOST-EVOLVE-MICROPILOT-PC-V0_1",
   "subject_stage3_commit_head": "9b421cabc2cf781a47bf90d31c233fe96e6d8fbd",
   "followup_task_id": "TASK-NEWGEN-STAGE3-ASTRONOMICON-BOOTSTRAP-HARDENING-UTF8-PREFLIGHT-PC-V0_1",
@@ -13,19 +13,18 @@
   ],
   "semantic_split": {
     "last_verified_head_before_this_followup": "9b421cabc2cf781a47bf90d31c233fe96e6d8fbd",
-    "receipt_content_head": "9b421cabc2cf781a47bf90d31c233fe96e6d8fbd",
-    "external_delivery_head": "PENDING_AFTER_FOLLOWUP_COMMIT_PUSH",
-    "remote_head_after_push": "PENDING_AFTER_FOLLOWUP_COMMIT_PUSH",
+    "receipt_content_head": "e691495ec48e2bfd41091dfe6ae11ab4de545376",
+    "external_delivery_head": "e691495ec48e2bfd41091dfe6ae11ab4de545376",
+    "remote_head_after_push": "e691495ec48e2bfd41091dfe6ae11ab4de545376",
     "self_head_paradox_handled": true
   },
   "notes": [
     "No Stage3 history rewrite performed.",
     "Subject Stage3 commit is treated as immutable reference.",
-    "Current task closure commit will carry follow-up semantics and explicit cap if push remains pending."
+    "Follow-up task commit was pushed; external/remote heads are now explicit and non-pending."
   ],
   "clean_pass_allowed": false,
   "caps_triggered": [
-    "CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING_OR_PENDING",
     "CAP_STAGE1_WITH_WARNINGS_ONLY"
   ]
 }

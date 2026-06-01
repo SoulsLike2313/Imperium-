@@ -1,6 +1,6 @@
 {
   "task_id": "TASK-NEWGEN-STAGE3-ASTRONOMICON-BOOTSTRAP-HARDENING-UTF8-PREFLIGHT-PC-V0_1",
-  "timestamp_utc": "2026-06-01T04:53:42Z",
+  "timestamp_utc": "2026-06-01T05:05:26Z",
   "builder_claims": [
     {
       "claim_id": "ST3_1-C01",
@@ -75,15 +75,14 @@
     {
       "attack_id": "RT-ST3_1-06",
       "target_claim_id": "ST3_1-C01",
-      "attack": "Claim clean PASS despite Stage1 warnings and no external push verification.",
+      "attack": "Claim clean PASS despite Stage1 warning cap.",
       "result": "PARTIAL",
       "downgrade_needed": true,
-      "applied_downgrade": "FORCE_BOOTSTRAP_HARDENING_PARTIAL"
+      "applied_downgrade": "FORCE_PASS_WITH_WARNINGS_ONLY"
     }
   ],
   "caps_triggered": [
-    "CAP_STAGE1_WITH_WARNINGS_ONLY",
-    "CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING_OR_PENDING"
+    "CAP_STAGE1_WITH_WARNINGS_ONLY"
   ],
   "repo_truth": {
     "head": "9b421cabc2cf781a47bf90d31c233fe96e6d8fbd",
@@ -91,6 +90,6 @@
     "origin_sync_now": true,
     "worktree_dirty_now": true
   },
-  "final_verdict": "BOOTSTRAP_HARDENING_PARTIAL",
+  "final_verdict": "BOOTSTRAP_HARDENING_PASS_WITH_WARNINGS",
   "clean_pass_allowed": false
 }

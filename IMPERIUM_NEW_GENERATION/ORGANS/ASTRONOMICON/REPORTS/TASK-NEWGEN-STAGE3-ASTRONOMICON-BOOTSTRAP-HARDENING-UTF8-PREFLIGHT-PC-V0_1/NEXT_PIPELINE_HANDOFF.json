@@ -1,7 +1,7 @@
 {
   "task_id": "TASK-NEWGEN-STAGE3-ASTRONOMICON-BOOTSTRAP-HARDENING-UTF8-PREFLIGHT-PC-V0_1",
-  "timestamp_utc": "2026-06-01T04:52:52Z",
-  "current_stage_verdict": "BOOTSTRAP_HARDENING_PARTIAL",
+  "timestamp_utc": "2026-06-01T05:05:26Z",
+  "current_stage_verdict": "BOOTSTRAP_HARDENING_PASS_WITH_WARNINGS",
   "next_allowed_tasks": [
     {
       "task_id": "TASK-NEWGEN-STAGE3-ASTRONOMICON-STARTACK-SCHEMA-LOCK-PC-V0_1",
