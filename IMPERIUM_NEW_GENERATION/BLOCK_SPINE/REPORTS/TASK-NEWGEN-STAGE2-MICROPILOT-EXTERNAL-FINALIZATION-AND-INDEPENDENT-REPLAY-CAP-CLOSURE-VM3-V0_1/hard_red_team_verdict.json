@@ -1,6 +1,6 @@
 {
   "task_id": "TASK-NEWGEN-STAGE2-MICROPILOT-EXTERNAL-FINALIZATION-AND-INDEPENDENT-REPLAY-CAP-CLOSURE-VM3-V0_1",
-  "generated_at_utc": "2026-06-01T11:47:57Z",
+  "generated_at_utc": "2026-06-01T11:49:38Z",
   "mode": "HARD_RED_TEAM",
   "checks": {
     "head_status_boundary_checked": true,
@@ -12,7 +12,9 @@
     "replay_command_or_receipt_missing": false,
     "output_format_mismatch": false,
     "private_local_leak_risk": false,
-    "git_closure_pending": true
+    "git_closure_pending": false,
+    "commit_push_receipt_present": true,
+    "checked_commit_subject": "f771403a79712db8d6500bec3f10098ac20f4ae0"
   },
   "attacked_claims": [
     "External finalization closure attempt",
