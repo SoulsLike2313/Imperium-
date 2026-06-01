@@ -1,4 +1,4 @@
-﻿# Dirty Worktree Classification Matrix
+# Dirty Worktree Classification Matrix
 
 Task: TASK-NEWGEN-STAGE1-DIRTY-FILES-CLASSIFICATION-AND-CLEANUP-PC-V0_1
 

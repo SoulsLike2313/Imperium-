@@ -1,4 +1,4 @@
-﻿# Dirty Cleanup Before/After Report
+# Dirty Cleanup Before/After Report
 
 Task ID: TASK-NEWGEN-STAGE1-DIRTY-FILES-CLASSIFICATION-AND-CLEANUP-PC-V0_1
 
