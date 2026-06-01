@@ -3,4 +3,4 @@
 Вердикт: PASS_WITH_WARNINGS
 Закрыто/сужено: CAP_NO_LOCAL_INDEPENDENT_REPLAY_IN_REVIEW_ENVIRONMENT -> CLOSED; CAP_EXTERNAL_FINALIZATION_RECEIPT_MISSING_OR_NEEDS_FOLLOWUP -> NARROWED (без raw external bundles).
 Перенесено без расширения: CAP_STAGE1_WITH_WARNINGS_ONLY, CAP_NO_IDE_VISUAL_RELEASE_YET, CAP_NO_WARP_RUNTIME, CAP_DIRTY_START_OWNER_APPROVED_CONTINUATION.
-HEAD: 0feda137dfed679b78a51dc9d3f25ad097f16d80; origin/master=HEAD; рабочее дерево чистое.
+HEAD-цепочка закрытия зафиксирована в артефактах: f771403a (evidence pack) -> 0feda137 (closure receipt + bundle) -> c24bb511 (summary normalization); синхронизация с origin/master подтверждена на каждом шаге push.
