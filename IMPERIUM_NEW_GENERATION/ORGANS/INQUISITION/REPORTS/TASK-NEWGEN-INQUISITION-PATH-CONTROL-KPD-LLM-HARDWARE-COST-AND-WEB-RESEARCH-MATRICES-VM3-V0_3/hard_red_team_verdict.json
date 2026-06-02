@@ -1,6 +1,6 @@
 {
   "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
-  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "timestamp_utc": "2026-06-02T20:24:06Z",
   "builder_claims": [
     {
       "claim_id": "HM-C01",
@@ -77,6 +77,11 @@
     "CAP_STAGE1_WITH_WARNINGS_ONLY",
     "CAP_DIRTY_PROVENANCE_AT_START"
   ],
-  "final_verdict": "PASS_WITH_WARNINGS_PENDING_COMMIT_PUSH",
-  "clean_pass_allowed": false
+  "final_verdict": "PASS_WITH_WARNINGS",
+  "clean_pass_allowed": false,
+  "repo_truth": {
+    "artifact_commit_head": "c6a31077991263161e2bfe78d01856b8435efb2a",
+    "artifact_commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/c6a31077991263161e2bfe78d01856b8435efb2a",
+    "origin_master_sync_after_artifact_push": true
+  }
 }

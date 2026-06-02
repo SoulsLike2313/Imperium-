@@ -1,6 +1,6 @@
 {
   "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
-  "timestamp_utc": "2026-06-02T20:21:17Z",
+  "timestamp_utc": "2026-06-02T20:24:21Z",
   "validator": "hard_mode_validator_v0_3.py",
   "report_dir": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
   "checks": [
@@ -89,7 +89,7 @@
   "warnings": [],
   "source_count": 16,
   "primary_source_count": 15,
-  "wall_seconds": 0.002455,
+  "wall_seconds": 0.002962,
   "validated_files": [
     {
       "path": "matrix_spine_hard_mode_cost_v0_3.md",
@@ -165,11 +165,11 @@
     },
     {
       "path": "final_owner_summary_ru.md",
-      "sha256": "818134af7b19d46ea26b2f13b42e013f8bb61dacb28a3086e3c173af72a07827"
+      "sha256": "e1846c600b307519f0f5f9b9d970f358360af134e8b7234b1590e5bb891eae33"
     },
     {
       "path": "commit_push_receipt.json",
-      "sha256": "7bbb731e232861e2613482c1c66a85948b7d3fc814981c62b02d72d0a0854267"
+      "sha256": "b1ba42402bc40938a0dc8a6e32381996144564cc6374a63dce64143fed36c22b"
     }
   ],
   "verdict": "PASS_WITH_WARNINGS",

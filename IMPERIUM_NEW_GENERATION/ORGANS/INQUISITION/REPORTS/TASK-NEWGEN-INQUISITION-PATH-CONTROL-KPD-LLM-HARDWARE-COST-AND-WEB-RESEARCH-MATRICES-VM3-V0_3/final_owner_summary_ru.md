@@ -1,8 +1,8 @@
 # FINAL_OWNER_SUMMARY_RU
 
 1. Step name: Inquisition hard-mode cost/KPD/web-research matrix pack V0_3.
-2. Step verdict: LOCAL_PASS_WITH_GLOBAL_CAPS_CARRIED; clean PASS is blocked by Stage1/global caps until external review.
-3. Commit links: pending until commit/push closure.
+2. Step verdict: PASS_WITH_WARNINGS; local step PASS is separated from global carried caps, clean PASS remains blocked by Stage1/global caps.
+3. Commit links: artifact commit `c6a31077` https://github.com/SoulsLike2313/Imperium-/commit/c6a31077991263161e2bfe78d01856b8435efb2a; receipt commit pending follow-up push.
 4. Owner comments:
 - Матрицы отделяют локальный PASS от глобальных долгов и не дают carried caps портить локальный verdict.
 - Фальшивая экономия теперь FAIL, если она режет receipts, sources, red-team или evidence boundary.
