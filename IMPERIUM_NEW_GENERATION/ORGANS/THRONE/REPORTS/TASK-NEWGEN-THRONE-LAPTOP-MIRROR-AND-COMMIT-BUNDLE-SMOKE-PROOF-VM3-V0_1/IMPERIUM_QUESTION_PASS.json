@@ -8,15 +8,15 @@
     },
     {
       "question": "What proves local git truth on Throne?",
-      "answer": "Remote bare mirror head equals target commit and git cat-file verifies the commit object."
+      "answer": "Remote bare mirror head equals artifact commit and git cat-file verifies the commit object."
     },
     {
       "question": "What proves bundle export?",
-      "answer": "Throne-side exporter wrote manifest, metadata, diff, changed files, receipts and SHA256 sums; local and remote sha256sum -c passed."
+      "answer": "Throne-side exporter wrote manifest, metadata, diff, changed files, receipts and SHA256 sums for artifact commit; local and remote sha256sum -c passed."
     },
     {
       "question": "What blocks clean PASS?",
-      "answer": "Global Stage1/IDE/WARP caps remain and tree archive is omitted in prototype smoke bundle."
+      "answer": "Global Stage1/IDE/WARP caps remain, route manifest target_contour was blank in intake metadata, and tree archive is omitted in prototype smoke bundle."
     }
   ]
 }

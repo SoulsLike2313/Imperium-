@@ -1,8 +1,9 @@
 {
   "schema_version": "MECHANICUS_VALIDATION_RECEIPT_V0_1",
   "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
-  "generated_at_utc": "2026-06-02T19:18:42Z",
+  "generated_at_utc": "2026-06-02T19:24:41Z",
   "status": "PASS_WITH_WARNINGS",
+  "validated_target_commit": "93c730251a0926c3eaf17feaa1b1edcc283347d4",
   "checks": {
     "required_files_present": true,
     "json_parse_passed": true,
@@ -18,15 +19,15 @@
   "jsonl_failures": [],
   "schema_detail": "",
   "root_sha256sum_stdout": [
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/changed_files_manifest.json: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_manifest.json: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_smoke.tar.gz: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_metadata.json: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/diff.patch: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/git_show.txt: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/receipts_manifest.json: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/sha256sums.txt: OK",
-    "BUNDLES/THRONE_LAPTOP_commit_677810f0/tree_archive_omission_reason.txt: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/changed_files_manifest.json: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/commit_evidence_bundle_manifest.json: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/commit_evidence_bundle_smoke.tar.gz: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/commit_metadata.json: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/diff.patch: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/git_show.txt: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/receipts_manifest.json: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/sha256sums.txt: OK",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/tree_archive_omission_reason.txt: OK",
     "commit_bundle_manifest.json: OK"
   ],
   "bundle_sha256sum_stdout": [
@@ -40,8 +41,12 @@
     "commit_evidence_bundle_manifest.json: OK"
   ],
   "secret_hits": [],
-  "cyrillic_hits_outside_owner_summary": [],
+  "cyrillic_hits_outside_allowed_owner_evidence": [],
+  "allowed_cyrillic_evidence_paths": [
+    "final_owner_summary_ru.md",
+    "BUNDLES/THRONE_LAPTOP_commit_93c73025/diff.patch"
+  ],
   "warnings": [
-    "Validation status remains PASS_WITH_WARNINGS because global Stage1 caps and tree archive omission cap remain."
+    "Validation status remains PASS_WITH_WARNINGS because global Stage1 caps, route metadata warning, tree archive omission cap, and controlled RU evidence-diff exception remain."
   ]
 }

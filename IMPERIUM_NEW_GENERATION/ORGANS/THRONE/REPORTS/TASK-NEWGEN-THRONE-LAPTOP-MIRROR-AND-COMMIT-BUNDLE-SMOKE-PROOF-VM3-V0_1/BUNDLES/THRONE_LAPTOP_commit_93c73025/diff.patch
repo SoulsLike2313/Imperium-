@@ -1,0 +1,2538 @@
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/ACCEPTANCE_GATES.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/ACCEPTANCE_GATES.md
+new file mode 100644
+index 00000000..50a75648
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/ACCEPTANCE_GATES.md
+@@ -0,0 +1,37 @@
++# ACCEPTANCE GATES
++
++## PASS gate
++
++PASS or PASS_WITH_WARNINGS is allowed only if all are true:
++
++- Throne route status is explicitly reported as LIVE, PARTIAL, or BLOCKED_WITH_REASON.
++- No private key, token, or credential is committed.
++- SSH probe receipt exists.
++- Git truth/mirror smoke receipt exists.
++- Commit bundle smoke receipt exists.
++- If live route succeeded, at least one commit object is verified from Throne local git object storage.
++- If bundle export succeeded, SHA256SUMS and metadata are present.
++- If live route failed, the task does not claim live proof and provides exact owner action required.
++- Inquisition red-team verdict exists.
++- Mechanicus validation receipt exists.
++- Git closure receipt exists for non-BLOCK result.
++- Final Owner response uses the 4-part contract.
++
++## Clean PASS block conditions
++
++Clean PASS is forbidden if any are true:
++
++- Laptop/Throne route is not live-proven.
++- No commit object was verified on Throne.
++- No bundle or bundle-manifest was produced.
++- Any global cap is mixed into local step verdict without classification.
++- Any credential was exposed or copied into repo artifacts.
++- Public server or Cloudflare route was introduced.
++
++## BLOCK gate
++
++Return BLOCK if:
++
++- SSH work would require copying secrets into the repo.
++- A destructive operation on laptop or repo would be needed.
++- The task cannot determine a safe route and cannot produce a useful plan/receipt.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/MATRIX_NOTE.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/MATRIX_NOTE.md
+new file mode 100644
+index 00000000..8715cc87
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/MATRIX_NOTE.md
+@@ -0,0 +1,9 @@
++# MATRIX NOTE
++
++Classify local step result separately from global carried caps.
++
++For this step:
++- Local proof matrix: SSH route, mirror probe, commit object probe, bundle export.
++- Global carried caps: IDE/WARP/Custodes/Codex not implemented.
++
++Do not let unrelated global caps hide whether the smoke proof succeeded or failed.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/OWNER_DIRECTION.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/OWNER_DIRECTION.md
+new file mode 100644
+index 00000000..8b89622c
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/OWNER_DIRECTION.md
+@@ -0,0 +1,13 @@
++# OWNER DIRECTION
++
++The Owner wants Throne to live on the laptop and to be used over SSH only inside the local network. Throne is more than a GitHub backup. It is the future place of life for IMPERIUM truth, while PC remains the active IDE/WARP/execution surface.
++
++Near term:
++- Before Custodes exists, Servitor commits/pushes to GitHub and the system also asks Throne to export a latest commit bundle.
++- GitHub link may still be checked, but GitHub 404 must not create fake green.
++- Throne bundle should become authoritative review evidence when web links fail.
++
++Future:
++- Custodes will introduce a supervised admission zone for candidate commits.
++- Dirty candidates will be rejected and reported to Owner, Logos, Inquisition, and Speculum.
++- The system will learn to tell Servitor exactly what is wrong and demand corrected output.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/THRONE_ROLE_BOUNDARY.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/THRONE_ROLE_BOUNDARY.md
+new file mode 100644
+index 00000000..39ad9a0c
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/CONTEXT/THRONE_ROLE_BOUNDARY.md
+@@ -0,0 +1,18 @@
++# THRONE ROLE BOUNDARY
++
++Throne owns:
++- local git/admission truth;
++- commit index;
++- commit and task grouping;
++- evidence bundles;
++- runtime/review artifact vault;
++- SSH-only local access doctrine.
++
++Throne does not yet own:
++- final Custodes admission verdicts;
++- public web serving;
++- IDE execution;
++- WARP runtime;
++- Codex CLI bridge.
++
++Throne stores the seal. Custodes later decides who may receive the seal.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/MANIFEST.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/MANIFEST.json
+new file mode 100644
+index 00000000..d2b8b4d2
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/MANIFEST.json
+@@ -0,0 +1,54 @@
++{
++  "manifest_version": "TASKPACK_MANIFEST_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "title": "Throne laptop mirror and commit bundle smoke proof",
++  "step_name": "THRONE LAPTOP MIRROR AND COMMIT BUNDLE SMOKE PROOF",
++  "contour": "VM3",
++  "created_utc": "2026-06-02T18:56:59Z",
++  "taskpack_type": "IMPERIUM_NEW_GENERATION_TASKPACK",
++  "organs": [
++    "DOCTRINARIUM",
++    "OFFICIO_AGENTIS",
++    "ASTRONOMICON",
++    "ADMINISTRATUM",
++    "MECHANICUS",
++    "INQUISITION",
++    "STRATEGIUM",
++    "SCHOLA_IMPERIALIS"
++  ],
++  "language_and_encoding_policy": {
++    "taskpack_internal_files": "ENGLISH_UTF8_NO_BOM_ONLY",
++    "canonical_repo_artifacts": "ENGLISH_UTF8_NO_BOM_ONLY",
++    "owner_facing_russian_runtime_output": {
++      "allowed": true,
++      "authority": "OFFICIO_AGENTIS",
++      "scope": "runtime_owner_facing_only"
++    },
++    "cyrillic_in_taskpack": "FORBIDDEN",
++    "localization_exception": "NONE"
++  },
++  "scope": {
++    "allowed_root": "IMPERIUM_NEW_GENERATION",
++    "forbidden": [
++      "IDE runtime release",
++      "WARP runtime implementation",
++      "public server exposure",
++      "credential export or private key copy into repository",
++      "Custodes implementation unless explicitly scoped",
++      "destructive rewrite of existing task registries"
++    ],
++    "purpose": "Throne laptop mirror and commit bundle smoke proof"
++  },
++  "expected_caps_carried": [
++    "CAP_STAGE1_WITH_WARNINGS_ONLY",
++    "CAP_NO_IDE_VISUAL_RELEASE_YET",
++    "CAP_NO_WARP_RUNTIME"
++  ],
++  "required_root_files": [
++    "MANIFEST.json",
++    "TASK_SPEC.md",
++    "ACCEPTANCE_GATES.md",
++    "OUTPUT_REQUIREMENTS.md",
++    "START_HERE.md"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/OUTPUT_REQUIREMENTS.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/OUTPUT_REQUIREMENTS.md
+new file mode 100644
+index 00000000..39d1f319
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/OUTPUT_REQUIREMENTS.md
+@@ -0,0 +1,27 @@
++# OUTPUT REQUIREMENTS
++
++Create a task report folder:
++
++`IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/`
++
++Required files:
++
++- `throne_ssh_route_probe_receipt.json`
++- `throne_laptop_root_receipt.json`
++- `throne_git_mirror_smoke_receipt.json`
++- `throne_commit_object_probe_receipt.json`
++- `throne_commit_bundle_smoke_receipt.json`
++- `commit_bundle_manifest.json`
++- `commit_bundle_sha256s.txt`
++- `throne_runtime_gap_or_live_status.md`
++- `mechanicus_validation_receipt.json`
++- `inquisition_red_team_verdict.json`
++- `speculum_notes_for_future_custodes.md`
++- `final_owner_summary_ru.md`
++- `commit_push_receipt.json`
++
++If a real ZIP bundle is created, place it under:
++
++`IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/.../BUNDLES/`
++
++Do not place private keys or secrets in any output.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/RECEIPT_TEMPLATES/throne_commit_bundle_smoke_receipt.template.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/RECEIPT_TEMPLATES/throne_commit_bundle_smoke_receipt.template.json
+new file mode 100644
+index 00000000..917c6d21
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/RECEIPT_TEMPLATES/throne_commit_bundle_smoke_receipt.template.json
+@@ -0,0 +1,10 @@
++{
++  "timestamp_utc": "",
++  "commit": "",
++  "commit_object_verified": false,
++  "bundle_created": false,
++  "bundle_path": "",
++  "sha256s_path": "",
++  "verdict": "PASS_OR_WARN_OR_BLOCK",
++  "warnings": []
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/RECEIPT_TEMPLATES/throne_ssh_route_probe_receipt.template.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/RECEIPT_TEMPLATES/throne_ssh_route_probe_receipt.template.json
+new file mode 100644
+index 00000000..e81617c5
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/RECEIPT_TEMPLATES/throne_ssh_route_probe_receipt.template.json
+@@ -0,0 +1,13 @@
++{
++  "timestamp_utc": "",
++  "source_contour": "VM3",
++  "target": "THRONE_LAPTOP",
++  "route_attempted": true,
++  "route_mode": "DIRECT_OR_BRIDGE_OR_BLOCKED",
++  "host_hint": "192.168.0.18",
++  "user_hint": "owner",
++  "alias_used": "",
++  "ssh_probe_verdict": "PASS_OR_BLOCK",
++  "credentials_exported": false,
++  "warnings": []
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/START_HERE.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/START_HERE.md
+new file mode 100644
+index 00000000..8ad93a7e
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/START_HERE.md
+@@ -0,0 +1,18 @@
++# START HERE
++
++Task: `TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1`
++
++Step: THRONE LAPTOP MIRROR AND COMMIT BUNDLE SMOKE PROOF
++
++Read order:
++
++1. `MANIFEST.json`
++2. `TASK_SPEC.md`
++3. `ACCEPTANCE_GATES.md`
++4. `OUTPUT_REQUIREMENTS.md`
++5. Files under `CONTEXT/`
++6. Files under `RECEIPT_TEMPLATES/`
++
++This taskpack is English-only and UTF-8 no BOM. Owner-facing runtime summaries may be Russian only under Officio Agentis authority.
++
++Do not claim Clean PASS unless all step-specific gates pass and global carried caps are separated from local step verdict.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/TASK_SPEC.md b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/TASK_SPEC.md
+new file mode 100644
+index 00000000..0f637ff8
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED/TASK_SPEC.md
+@@ -0,0 +1,79 @@
++# TASK SPEC
++
++## Task ID
++
++`TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1`
++
++## Intent
++
++Turn the Throne foundation into the first live smoke proof of local git truth. The target is not a public server and not a full Custodes implementation. The target is a small, auditable, SSH-only proof that the laptop/Throne can hold or prepare a local Imperium git mirror and export a commit evidence bundle.
++
++## Operating contour
++
++Primary execution contour: VM3.
++
++Allowed operational freedom:
++- VM3 may use SSH to reach the laptop/Throne if a route exists.
++- VM3 may use SSH to PC as a bridge only if a safe route already exists.
++- VM3 must not copy private keys into the repository or into task artifacts.
++- If direct SSH to Throne is unavailable, record a precise `BLOCK_NEEDS_OWNER_ROUTE` or `PASS_WITH_WARNINGS_ROUTE_NOT_LIVE` depending on what was still completed.
++- Do not fake a live Throne proof.
++
++## Known SSH hints from Owner
++
++The Owner provided the following rough route hints. Treat them as operator hints, not secrets to store in the repo.
++
++PC to Throne candidate:
++- user: `owner`
++- host: `192.168.0.18`
++- key hint: `%USERPROFILE%\.ssh\imperium_pc_to_throne_ed25519`
++- known hosts hint: `%USERPROFILE%\.ssh\known_hosts_throne`
++- suggested options: `IdentitiesOnly=yes`, `StrictHostKeyChecking=accept-new`, `HostKeyAlgorithms=ssh-ed25519`, `KexAlgorithms=curve25519-sha256@libssh.org`
++
++Throne to PC candidate:
++- user: `PC`
++- host: `192.168.0.27`
++- key hint: `~/.ssh/throne_to_pc_ed25519`
++- suggested options: `IdentitiesOnly=yes`, `StrictHostKeyChecking=accept-new`
++
++Do not require these exact commands if aliases already exist. First inspect available safe SSH config and report what route was used.
++
++## Scope
++
++Create or update Throne artifacts under `IMPERIUM_NEW_GENERATION/ORGANS/THRONE/` only, plus task reports/receipts under the standard task report location.
++
++Allowed outputs:
++- Throne laptop route card.
++- SSH probe receipt.
++- local mirror plan and smoke receipt.
++- commit index smoke receipt.
++- commit bundle smoke artifact or a precise route-blocked receipt.
++- task reports and validation tools if needed.
++
++Forbidden:
++- public server exposure.
++- Cloudflare Tunnel implementation.
++- Custodes implementation.
++- Codex CLI bridge implementation.
++- moving the main repo place of life in this task.
++- storing private keys, tokens, credentials, or local secret material.
++
++## Required behavior
++
++1. Read the current Throne foundation artifacts first.
++2. Record the exact current HEAD and origin/master state.
++3. Probe for a Throne SSH route from VM3 or via an existing safe bridge.
++4. If a live route exists, create or validate a Throne root folder on the laptop and initialize or update a local mirror/evidence-vault skeleton.
++5. Verify at least one commit object by hash using local git object truth on Throne if possible.
++6. Export a smoke commit bundle for the latest known commit or a selected commit:
++   - metadata
++   - git show
++   - diff or parent relation
++   - changed files manifest
++   - receipts manifest
++   - tree archive or clear reason if unavailable
++   - SHA256 manifest
++7. Copy the evidence bundle or a bundle manifest back into the VM3 repo report if safely possible.
++8. Record whether this smoke proof is live, partial, or blocked.
++9. Commit and push every non-BLOCK result.
++10. Final answer must obey Officio 4-part contract.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK.zip b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK.zip
+new file mode 100644
+index 0000000000000000000000000000000000000000..e0f436f8089bc4ca35642a2db153c707b05e7b86
+GIT binary patch
+literal 6990
+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
+XovIQVB58hsJzOLcL@Ljb|N8b{RSxgp
+
+literal 0
+HcmV?d00001
+
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json
+new file mode 100644
+index 00000000..12656e27
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json
+@@ -0,0 +1,25 @@
++{
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "timestamp_utc": "2026-06-02T18:57:40Z",
++  "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_LAPTOP_MIRROR_AND_COMMIT_BUNDLE_SMOKE_PROOF_VM3_V0_1.zip",
++  "zip_sha256": "28d9ed20a0e51dadf2c13959450e4ddf9dd6fc0ca5de8f4b3270e417ed660ad0",
++  "admission_verdict": "ADMISSION_PASS",
++  "language_gate_passed": true,
++  "manifest_found": true,
++  "task_id_found": true,
++  "task_spec_found": true,
++  "acceptance_gates_found": true,
++  "output_requirements_found": true,
++  "duplicate_task_id": false,
++  "safe_extraction_path": true,
++  "registered_task_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "extracted_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED",
++  "route_manifest_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
++  "current_expected_task_updated": true,
++  "caps_triggered": [
++    "CAP_NO_IDE_VISUAL_RELEASE_YET",
++    "CAP_NO_WARP_RUNTIME",
++    "CAP_STAGE1_WITH_WARNINGS_ONLY"
++  ],
++  "warnings": []
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json
+new file mode 100644
+index 00000000..07a1361b
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json
+@@ -0,0 +1,40 @@
++{
++  "schema_version": "0.1",
++  "template_id": "TASK_ROUTE_MANIFEST_TEMPLATE_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "taskpack_zip_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK.zip",
++  "extracted_taskpack_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED",
++  "read_order": [
++    "AGENTS.md",
++    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/INDEX/MATRIX_SPINE_INDEX.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/DOCTRINARIUM/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/OFFICIO_AGENTIS/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/ADMINISTRATUM/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/STRATEGIUM/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++    "IMPERIUM_NEW_GENERATION/ORGANS/SCHOLA_IMPERIALIS/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md"
++  ],
++  "required_organs": [
++    "DOCTRINARIUM",
++    "OFFICIO_AGENTIS",
++    "ASTRONOMICON",
++    "ADMINISTRATUM",
++    "MECHANICUS",
++    "INQUISITION",
++    "STRATEGIUM",
++    "SCHOLA_IMPERIALIS"
++  ],
++  "entry_ack_required": true,
++  "resolver_receipt_required": true,
++  "caps_to_carry": [
++    "CAP_STAGE1_WITH_WARNINGS_ONLY",
++    "CAP_NO_IDE_VISUAL_RELEASE_YET",
++    "CAP_NO_WARP_RUNTIME"
++  ],
++  "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_LAPTOP_MIRROR_AND_COMMIT_BUNDLE_SMOKE_PROOF_VM3_V0_1.zip",
++  "taskpack_id": "",
++  "expected_start_head": "",
++  "target_contour": ""
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_START_ACK_TEMPLATE.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_START_ACK_TEMPLATE.json
+new file mode 100644
+index 00000000..ceff9224
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_START_ACK_TEMPLATE.json
+@@ -0,0 +1,50 @@
++{
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "resolved": true,
++  "route_manifest_found": true,
++  "all_required_organs_reachable": true,
++  "organs": {
++    "DOCTRINARIUM": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/DOCTRINARIUM/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "OFFICIO_AGENTIS": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/OFFICIO_AGENTIS/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "ASTRONOMICON": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "ADMINISTRATUM": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/ADMINISTRATUM/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "MECHANICUS": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/MECHANICUS/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "INQUISITION": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "STRATEGIUM": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/STRATEGIUM/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    },
++    "SCHOLA_IMPERIALIS": {
++      "read_first_path": "IMPERIUM_NEW_GENERATION/ORGANS/SCHOLA_IMPERIALIS/TASK_PARTICIPATION/READ_FIRST_TASK_PARTICIPATION.md",
++      "found": true,
++      "status": "ACTIVE_FOR_STAGE1"
++    }
++  },
++  "caps_triggered": [],
++  "verdict": "PASS_WITH_WARNINGS"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/current_expected_task.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/current_expected_task.json
+index c1ded0d6..1becf6b4 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/current_expected_task.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/current_expected_task.json
+@@ -1,9 +1,9 @@
+ {
+-  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+   "status": "NEXT_EXPECTED_TASK",
+-  "registered_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+-  "route_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
+-  "owner_instruction_ru": "Send to Servitor: TASK_ID: TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1 and start task",
+-  "updated_at_utc": "2026-06-02T18:17:44Z",
++  "registered_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "route_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
++  "owner_instruction_ru": "Send to Servitor: TASK_ID: TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1 and start task",
++  "updated_at_utc": "2026-06-02T18:57:40Z",
+   "updated_by": "astronomicon_taskpack_intake_v0_1.py"
+ }
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/task_registry.json b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/task_registry.json
+index 42bdaec7..2d3260bb 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/task_registry.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/task_registry.json
+@@ -190,7 +190,7 @@
+     },
+     {
+       "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+-      "status": "NEXT_EXPECTED",
++      "status": "REGISTERED",
+       "registered_at_utc": "2026-06-02T18:17:44Z",
+       "source_zip_sha256": "c9508e3ece23f7e94c16521cc458a16fadd18e3107d0316de233748ecc08a4df",
+       "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_ORGAN_FOUNDATION_SSH_GIT_TRUTH_AND_COMMIT_BUNDLE_PLAN_VM3_V0_1.zip",
+@@ -199,7 +199,7 @@
+       "extracted_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EXTRACTED",
+       "route_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
+       "admission_receipt_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json",
+-      "current_expected": true,
++      "current_expected": false,
+       "owner_launch_phrase": "start task",
+       "expected_start_head": "",
+       "target_contour": "VM3",
+@@ -272,6 +272,23 @@
+       "expected_start_head": "",
+       "target_contour": "PC",
+       "notes": "Registered via Stage2 Astronomicon intake corridor."
++    },
++    {
++      "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++      "status": "NEXT_EXPECTED",
++      "registered_at_utc": "2026-06-02T18:57:40Z",
++      "source_zip_sha256": "28d9ed20a0e51dadf2c13959450e4ddf9dd6fc0ca5de8f4b3270e417ed660ad0",
++      "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_LAPTOP_MIRROR_AND_COMMIT_BUNDLE_SMOKE_PROOF_VM3_V0_1.zip",
++      "registered_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++      "taskpack_zip_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK.zip",
++      "extracted_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED",
++      "route_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
++      "admission_receipt_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json",
++      "current_expected": true,
++      "owner_launch_phrase": "start task",
++      "expected_start_head": "",
++      "target_contour": "",
++      "notes": "Registered via Stage2 Astronomicon intake corridor."
+     }
+   ]
+ }
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/changed_files_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/changed_files_manifest.json
+new file mode 100644
+index 00000000..70fa030b
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/changed_files_manifest.json
+@@ -0,0 +1,40 @@
++{
++  "schema_version": "THRONE_CHANGED_FILES_MANIFEST_V0_1",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "changed_files_count": 8,
++  "changed_files": [
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json"
++    }
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_manifest.json
+new file mode 100644
+index 00000000..2a7d788d
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_manifest.json
+@@ -0,0 +1,17 @@
++{
++  "schema_version": "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "exported_for": "OWNER",
++  "exported_at_utc": "2026-06-02T19:15:12Z",
++  "git_object_verified": true,
++  "tree_archive_included": false,
++  "diff_patch_included": true,
++  "changed_files_manifest_included": true,
++  "receipts_manifest_included": true,
++  "sha256sums_included": true,
++  "bundle_sha256": "9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899",
++  "caps_triggered": [
++    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_smoke.tar.gz b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_smoke.tar.gz
+new file mode 100644
+index 0000000000000000000000000000000000000000..19805df9b979cda1113f9bcc86c28d51064c675b
+GIT binary patch
+literal 5196
+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
+Gpa1~-WfeaF
+
+literal 0
+HcmV?d00001
+
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_metadata.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_metadata.json
+new file mode 100644
+index 00000000..e64f52d1
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_metadata.json
+@@ -0,0 +1,15 @@
++{
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_shas": [
++    "6b730f1be4b207847287868b2e58b8ef1801641e"
++  ],
++  "primary_parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "tree_sha": "df0c927f63329ab6acec525779170f1bc6047990",
++  "author_name": "VM3 Servitor",
++  "author_email": "vm3-servitor@imperium.local",
++  "author_date": "2026-06-02T18:43:34+00:00",
++  "committer_name": "VM3 Servitor",
++  "committer_email": "vm3-servitor@imperium.local",
++  "committer_date": "2026-06-02T18:43:34+00:00",
++  "subject": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/diff.patch b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/diff.patch
+new file mode 100644
+index 00000000..d01849a1
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/diff.patch
+@@ -0,0 +1,255 @@
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
++index d5630171..45443d78 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
++@@ -4,4 +4,4 @@
++ {"claim_id":"C04","claim":"SSH-only local-network operation is explicitly written and no SSH probe was used.","owner_organ":"THRONE","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["SSH_ONLY_LOCAL_NETWORK_POLICY.md","ssh_only_policy_receipt.json","ssh_probe_not_used_receipt.json"],"cap":"CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK","red_team_status":"RESISTED_WITH_CAP"}
++ {"claim_id":"C05","claim":"Required JSON schemas exist and validate as Draft7 schemas.","owner_organ":"MECHANICUS","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["json_schema_validation_receipt.json"],"cap":null,"red_team_status":"RESISTED"}
++ {"claim_id":"C06","claim":"Read-only commit index prototype ran and wrote a sample index receipt.","owner_organ":"MECHANICUS","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["sample_commit_index_receipt.json","commit_index_contract_receipt.json"],"cap":null,"red_team_status":"RESISTED"}
++-{"claim_id":"C07","claim":"Non-BLOCK result will be committed, pushed, and verified after push.","owner_organ":"ADMINISTRATUM","capability_class":"LOCAL_MANUAL_COMMAND","evidence_level":"E0_PENDING","evidence":["commit_push_receipt.json"],"cap":"CAP_EXTERNAL_FINALIZATION_PENDING","red_team_status":"DOWNGRADED_UNTIL_POST_PUSH"}
+++{"claim_id":"C07","claim":"Non-BLOCK artifact result was committed, pushed, and verified after push.","owner_organ":"ADMINISTRATUM","capability_class":"LOCAL_MANUAL_COMMAND","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["commit_push_receipt.json"],"cap":null,"red_team_status":"RESISTED_WITH_POST_PUSH_PROOF"}
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
++index 9b9b59bb..994c9a8d 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
++@@ -1,7 +1,7 @@
++ {
++   "schema_version": "EVIDENCE_BOUNDARY_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "timestamp_utc": "2026-06-02T18:31:01Z",
+++  "timestamp_utc": "2026-06-02T18:41:50Z",
++   "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
++   "branch": "master",
++   "head_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
++@@ -26,6 +26,11 @@
++       "id": "E04",
++       "level": "E3_EXECUTED_BEHAVIOR",
++       "source": "git cat-file local object proof for start HEAD"
+++    },
+++    {
+++      "id": "E05",
+++      "level": "E3_EXECUTED_BEHAVIOR",
+++      "source": "artifact commit push proof: local HEAD equals ls-remote origin refs/heads/master at 6b730f1be4b207847287868b2e58b8ef1801641e"
++     }
++   ],
++   "excluded_evidence": [
++@@ -38,8 +43,6 @@
++       "reason": "No laptop or PC SSH state was collected."
++     }
++   ],
++-  "pending_evidence": [
++-    "Post-commit push receipt",
++-    "Final origin/master == HEAD runtime proof"
++-  ]
+++  "pending_evidence": [],
+++  "closure_note": "The finalization receipt commit cannot embed its own commit hash without changing that hash. Final HEAD and remote equality are therefore verified by runtime closure commands after the finalization commit push."
++ }
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
++index 7c25e7cf..20165b15 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
++@@ -1,11 +1,12 @@
++ # Final Report
++ 
++ TASK_ID: TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1
++-VERDICT: PASS_WITH_WARNINGS_PENDING_PUSH
+++VERDICT: PASS_WITH_WARNINGS
++ HEAD_START: 1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860
++-HEAD_FINAL: PENDING_POST_COMMIT_PUSH
++-REMOTE_SYNC: PENDING_POST_COMMIT_PUSH
++-WORKTREE_CLEAN: PENDING_POST_COMMIT_PUSH
+++HEAD_ARTIFACT: 6b730f1be4b207847287868b2e58b8ef1801641e
+++HEAD_FINALIZATION_RECEIPT: SELF_HEAD_PROOF_BY_CLOSURE_COMMANDS
+++REMOTE_SYNC: ARTIFACT_COMMIT_VERIFIED_PUSHED
+++WORKTREE_CLEAN: VERIFIED_AFTER_ARTIFACT_PUSH_BEFORE_FINALIZATION_RECEIPT
++ 
++ ## Summary
++ 
++@@ -44,7 +45,7 @@ Custodes is explicitly future-only. Throne prepares handoff fields but does not
++ 
++ ## Matrix Spine Hard Mode candidate
++ 
++-This task carries Stage1 warnings and records capability split, evidence boundary, claim ledger, and hard red-team verdict. Clean finalization depends on post-push verification to avoid self-head paradox.
+++This task carries Stage1 warnings and records capability split, evidence boundary, claim ledger, and hard red-team verdict. Artifact commit push was verified against `origin/master`; the finalization receipt commit is closed by runtime HEAD/remote equality commands after push.
++ 
++ ## Checks
++ 
++@@ -52,6 +53,8 @@ This task carries Stage1 warnings and records capability split, evidence boundar
++ - `throne_commit_index_v0_1.py`: PASS
++ - `git cat-file -e HEAD^{commit}`: PASS
++ - `git rev-parse origin/master`: matched starting HEAD before implementation
+++- `git push origin master`: PASS for artifact commit
+++- `git ls-remote origin refs/heads/master`: matched artifact commit after push
++ 
++ ## Caps carried
++ 
++@@ -61,4 +64,3 @@ This task carries Stage1 warnings and records capability split, evidence boundar
++ - `CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK`
++ - `CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK`
++ - `CAP_CODEX_CLI_BRIDGE_NOT_IMPLEMENTED_IN_THIS_TASK`
++-- `CAP_EXTERNAL_FINALIZATION_PENDING`
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
++index 3615892d..e6b96e9d 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
++@@ -1,8 +1,8 @@
++ {
++   "schema_version": "RED_TEAM_VERDICT_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "timestamp_utc": "2026-06-02T18:31:01Z",
++-  "mode": "PRE_COMMIT_BUILDER_RED_TEAM",
+++  "timestamp_utc": "2026-06-02T18:41:50Z",
+++  "mode": "POST_ARTIFACT_PUSH_RED_TEAM",
++   "builder_claims_attacked": [
++     {
++       "claim_id": "C01",
++@@ -30,18 +30,17 @@
++     {
++       "claim_id": "C07",
++       "attack": "Commit/push truth cannot be clean before a post-push command verifies origin/master.",
++-      "result": "DOWNGRADED_UNTIL_POST_PUSH",
++-      "downgrade_needed": true,
+++      "result": "RESISTED_WITH_POST_PUSH_PROOF",
+++      "downgrade_needed": false,
++       "counter_evidence": [
++         "commit_push_receipt.json"
++-      ],
++-      "cap_carried": "CAP_EXTERNAL_FINALIZATION_PENDING"
+++      ]
++     }
++   ],
++   "dirty_provenance_review": {
++     "initial_dirty_state": "Task registration files plus registered taskpack.",
++     "unrelated_dirty_state_found": false,
++-    "current_task_outputs_dirty": true
+++    "current_task_outputs_dirty_after_artifact_push": false
++   },
++   "fake_green_flags_reviewed": [
++     "CLAIM_WITHOUT_REPLAY",
++@@ -53,9 +52,8 @@
++   "caps_triggered": [
++     "CAP_STAGE1_WITH_WARNINGS_ONLY",
++     "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
++-    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
++-    "CAP_EXTERNAL_FINALIZATION_PENDING"
+++    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
++   ],
++-  "final_verdict": "PASS_WITH_WARNINGS_PENDING_PUSH",
+++  "final_verdict": "PASS_WITH_WARNINGS",
++   "clean_pass_allowed": false
++ }
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
++index 5a45b263..35020fab 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
++@@ -1,24 +1,22 @@
++ {
++   "schema_version": "THRONE_COMMIT_PUSH_RECEIPT_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "step": "pre_commit_placeholder",
++-  "generated_at_utc": "2026-06-02T18:31:01Z",
+++  "step": "post_artifact_push_verification",
+++  "generated_at_utc": "2026-06-02T18:41:50Z",
++   "branch": "master",
++   "last_verified_head_before_this_commit": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
++-  "receipt_subject_head": "",
++-  "artifact_bundle_head": "",
++-  "artifact_bundle_commit_url": "",
++-  "external_delivery_head": "",
++-  "remote_head_after_push": "",
++-  "push_attempted": false,
++-  "push_status": "PENDING",
++-  "worktree_clean_after_push": false,
++-  "origin_master_sync_after_push": false,
++-  "verification_method": "PENDING_POST_COMMIT_PUSH",
+++  "receipt_subject_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "artifact_bundle_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "artifact_bundle_commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "external_delivery_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "remote_head_after_push": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "push_attempted": true,
+++  "push_status": "PASS",
+++  "worktree_clean_after_push": true,
+++  "origin_master_sync_after_push": true,
+++  "verification_method": "git push origin master; git rev-parse HEAD; git ls-remote origin refs/heads/master; git status --porcelain=v1",
++   "self_head_paradox_handled": true,
++-  "caps_triggered": [
++-    "CAP_EXTERNAL_FINALIZATION_PENDING"
++-  ],
++-  "clean_pass_allowed": false,
++-  "note": "This placeholder is expected to be replaced in a follow-up finalization receipt after the artifact bundle commit is pushed."
+++  "caps_triggered": [],
+++  "clean_pass_allowed": true,
+++  "note": "This receipt proves the artifact bundle commit was pushed. The follow-up receipt commit cannot embed its own final hash; final HEAD and remote equality are verified by closure commands after that commit is pushed."
++ }
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
++index a11cbd46..2bff43a6 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
++@@ -1,6 +1,6 @@
++ {
++   "schema_version": "THRONE_FOUNDATION_VALIDATION_RECEIPT_V0_1",
++-  "generated_at_utc": "2026-06-02T18:39:18Z",
+++  "generated_at_utc": "2026-06-02T18:43:07Z",
++   "status": "PASS",
++   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
++   "checked_files": 43,
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
++index 3349a656..b6c991df 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
++@@ -7,14 +7,14 @@
++ | Input type | Registered Astronomicon taskpack |
++ | Reviewed target | Throne organ foundation candidate |
++ | Role mode | Servitor build plus hard red-team |
++-| Evidence boundary | Local files, schemas, validators, git object proof, pending post-push proof |
+++| Evidence boundary | Local files, schemas, validators, git object proof, artifact post-push proof |
++ 
++ ## 2. Quick verdict
++ 
++ | Field | Value |
++ |---|---|
++-| Verdict | PASS_WITH_WARNINGS_PENDING_PUSH |
++-| Clean PASS allowed | No before post-push sync proof |
+++| Verdict | PASS_WITH_WARNINGS |
+++| Clean PASS allowed | No; Stage1, laptop runtime, and Custodes caps remain |
++ | Main accepted value | Throne now has organ foundation, contracts, schemas, and read-only index prototype |
++ | Main blocker | Laptop runtime and Custodes are intentionally not implemented |
++ | Next task | TASK-NEWGEN-THRONE-SSH-GIT-MIRROR-AND-COMMIT-BUNDLE-SKILL-LAPTOP-V0_1 |
++@@ -33,10 +33,10 @@
++ 
++ | Point | Comment |
++ |---|---|
++-| Cleanliness | Initial dirty state is task-registration scoped; final clean state requires post-push verification |
+++| Cleanliness | Initial dirty state is task-registration scoped; artifact commit push is verified |
++ | Fake-green risk | Custodes and laptop runtime are explicitly capped |
++ | Discipline | GitHub URL is optional and not treated as stronger than local object proof |
++-| Required correction | Replace pending commit_push_receipt after artifact commit is pushed |
+++| Required correction | Finalization commit requires runtime HEAD/remote equality proof after push |
++ 
++ ## 5. Speculum comments
++ 
++@@ -53,7 +53,7 @@
++ |---|---:|---|
++ | Laptop runtime not provisioned | Medium | Run laptop mirror and bundle skill task |
++ | Custodes absent | Medium | Run Custodes foundation after Throne evidence stabilizes |
++-| Post-push proof pending | High until push | Commit, push, verify origin/master |
+++| Finalization self-head proof | Medium until closure | Push finalization commit and verify origin/master |
++ 
++ ## 7. KPI / KPD
++ 
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
++index 48db714d..4a21a6a3 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
++@@ -1,8 +1,8 @@
++ {
++   "schema_version": "THRONE_FOUNDATION_RECEIPT_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "timestamp_utc": "2026-06-02T18:31:01Z",
++-  "status": "PASS_WITH_WARNINGS_PENDING_PUSH",
+++  "timestamp_utc": "2026-06-02T18:41:50Z",
+++  "status": "PASS_WITH_WARNINGS",
++   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
++   "created_foundation_files": [
++     "ORGAN_MANIFEST.json",
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/git_show.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/git_show.txt
+new file mode 100644
+index 00000000..aba1a5ee
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/git_show.txt
+@@ -0,0 +1,17 @@
++commit 677810f03f64eb8ffdbf02573bd7ac90cad5dd0e
++Author:     VM3 Servitor <vm3-servitor@imperium.local>
++AuthorDate: Tue Jun 2 18:43:34 2026 +0000
++Commit:     VM3 Servitor <vm3-servitor@imperium.local>
++CommitDate: Tue Jun 2 18:43:34 2026 +0000
++
++    TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt
++
++ .../CLAIM_LEDGER.jsonl                             |  2 +-
++ .../EVIDENCE_BOUNDARY.json                         | 13 +++++----
++ .../FINAL_REPORT.md                                | 14 ++++++----
++ .../RED_TEAM_VERDICT.json                          | 18 ++++++------
++ .../commit_push_receipt.json                       | 32 ++++++++++------------
++ .../json_schema_validation_receipt.json            |  2 +-
++ .../owner_audit_card.md                            | 12 ++++----
++ .../throne_foundation_receipt.json                 |  4 +--
++ 8 files changed, 49 insertions(+), 48 deletions(-)
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/receipts_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/receipts_manifest.json
+new file mode 100644
+index 00000000..ed2876f6
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/receipts_manifest.json
+@@ -0,0 +1,12 @@
++{
++  "schema_version": "THRONE_RECEIPTS_MANIFEST_V0_1",
++  "generated_at_utc": "2026-06-02T19:15:12Z",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "files": [
++    "commit_metadata.json",
++    "changed_files_manifest.json",
++    "git_show.txt",
++    "diff.patch",
++    "tree_archive_omission_reason.txt"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/sha256sums.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/sha256sums.txt
+new file mode 100644
+index 00000000..cf4ef1c5
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/sha256sums.txt
+@@ -0,0 +1,8 @@
++ab29954c8e1084ffe3a9f3348ed03982e9190b47860f5f856b86dcb27664d320  commit_metadata.json
++3f7936d44e776bfb2aa6e20764821dd396c531cd5895814c30f3441bfe07df3b  changed_files_manifest.json
++f3a57d4bd49924a3427906bd95b3c5bfcb40a80e147abd58c8a85abf3655dc81  git_show.txt
++be6eb5e7684758dbd928be8cb9236889d253acc2a123210bdf8bfe5827790edc  diff.patch
++8509cb2d94f8c037646ffca96ca425a59e44db98a21b390ccbe103356e20e6c2  tree_archive_omission_reason.txt
++60c3b00c50077435ade0953fc98d0a2183a0267fa4fa6049320c83548f0f2504  receipts_manifest.json
++9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899  commit_evidence_bundle_smoke.tar.gz
++3a58507a25ceeb7a5bd576b254284d13f1c761aca12c3e348b19f3761b0dbcdc  commit_evidence_bundle_manifest.json
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/tree_archive_omission_reason.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/tree_archive_omission_reason.txt
+new file mode 100644
+index 00000000..66a27eb4
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0/tree_archive_omission_reason.txt
+@@ -0,0 +1 @@
++Tree archive omitted in this smoke bundle to avoid committing a duplicate repository snapshot; the verified commit SHA can reproduce the tree from the Throne mirror.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/changed_files_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/changed_files_manifest.json
+new file mode 100644
+index 00000000..70fa030b
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/changed_files_manifest.json
+@@ -0,0 +1,40 @@
++{
++  "schema_version": "THRONE_CHANGED_FILES_MANIFEST_V0_1",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "changed_files_count": 8,
++  "changed_files": [
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md"
++    },
++    {
++      "status": "M",
++      "path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json"
++    }
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_evidence_bundle_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_evidence_bundle_manifest.json
+new file mode 100644
+index 00000000..aff9af99
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_evidence_bundle_manifest.json
+@@ -0,0 +1,17 @@
++{
++  "schema_version": "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "exported_for": "OWNER",
++  "exported_at_utc": "2026-06-02T19:14:45Z",
++  "git_object_verified": true,
++  "tree_archive_included": false,
++  "diff_patch_included": true,
++  "changed_files_manifest_included": true,
++  "receipts_manifest_included": true,
++  "sha256sums_included": true,
++  "bundle_sha256": "4d3ce042fc7c091172c8bc296288e5e38faa01ee46cd7610e821c6dc27341e2f",
++  "caps_triggered": [
++    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_evidence_bundle_smoke.tar.gz b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_evidence_bundle_smoke.tar.gz
+new file mode 100644
+index 0000000000000000000000000000000000000000..6b01d4accb5947c7de0ac3e2420ded76f094ec34
+GIT binary patch
+literal 5206
+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
+Q^0k%!2S%jmp8%i$0NV#avj6}9
+
+literal 0
+HcmV?d00001
+
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_metadata.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_metadata.json
+new file mode 100644
+index 00000000..e64f52d1
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/commit_metadata.json
+@@ -0,0 +1,15 @@
++{
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_shas": [
++    "6b730f1be4b207847287868b2e58b8ef1801641e"
++  ],
++  "primary_parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "tree_sha": "df0c927f63329ab6acec525779170f1bc6047990",
++  "author_name": "VM3 Servitor",
++  "author_email": "vm3-servitor@imperium.local",
++  "author_date": "2026-06-02T18:43:34+00:00",
++  "committer_name": "VM3 Servitor",
++  "committer_email": "vm3-servitor@imperium.local",
++  "committer_date": "2026-06-02T18:43:34+00:00",
++  "subject": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/diff.patch b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/diff.patch
+new file mode 100644
+index 00000000..d01849a1
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/diff.patch
+@@ -0,0 +1,255 @@
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
++index d5630171..45443d78 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
++@@ -4,4 +4,4 @@
++ {"claim_id":"C04","claim":"SSH-only local-network operation is explicitly written and no SSH probe was used.","owner_organ":"THRONE","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["SSH_ONLY_LOCAL_NETWORK_POLICY.md","ssh_only_policy_receipt.json","ssh_probe_not_used_receipt.json"],"cap":"CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK","red_team_status":"RESISTED_WITH_CAP"}
++ {"claim_id":"C05","claim":"Required JSON schemas exist and validate as Draft7 schemas.","owner_organ":"MECHANICUS","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["json_schema_validation_receipt.json"],"cap":null,"red_team_status":"RESISTED"}
++ {"claim_id":"C06","claim":"Read-only commit index prototype ran and wrote a sample index receipt.","owner_organ":"MECHANICUS","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["sample_commit_index_receipt.json","commit_index_contract_receipt.json"],"cap":null,"red_team_status":"RESISTED"}
++-{"claim_id":"C07","claim":"Non-BLOCK result will be committed, pushed, and verified after push.","owner_organ":"ADMINISTRATUM","capability_class":"LOCAL_MANUAL_COMMAND","evidence_level":"E0_PENDING","evidence":["commit_push_receipt.json"],"cap":"CAP_EXTERNAL_FINALIZATION_PENDING","red_team_status":"DOWNGRADED_UNTIL_POST_PUSH"}
+++{"claim_id":"C07","claim":"Non-BLOCK artifact result was committed, pushed, and verified after push.","owner_organ":"ADMINISTRATUM","capability_class":"LOCAL_MANUAL_COMMAND","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["commit_push_receipt.json"],"cap":null,"red_team_status":"RESISTED_WITH_POST_PUSH_PROOF"}
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
++index 9b9b59bb..994c9a8d 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
++@@ -1,7 +1,7 @@
++ {
++   "schema_version": "EVIDENCE_BOUNDARY_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "timestamp_utc": "2026-06-02T18:31:01Z",
+++  "timestamp_utc": "2026-06-02T18:41:50Z",
++   "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
++   "branch": "master",
++   "head_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
++@@ -26,6 +26,11 @@
++       "id": "E04",
++       "level": "E3_EXECUTED_BEHAVIOR",
++       "source": "git cat-file local object proof for start HEAD"
+++    },
+++    {
+++      "id": "E05",
+++      "level": "E3_EXECUTED_BEHAVIOR",
+++      "source": "artifact commit push proof: local HEAD equals ls-remote origin refs/heads/master at 6b730f1be4b207847287868b2e58b8ef1801641e"
++     }
++   ],
++   "excluded_evidence": [
++@@ -38,8 +43,6 @@
++       "reason": "No laptop or PC SSH state was collected."
++     }
++   ],
++-  "pending_evidence": [
++-    "Post-commit push receipt",
++-    "Final origin/master == HEAD runtime proof"
++-  ]
+++  "pending_evidence": [],
+++  "closure_note": "The finalization receipt commit cannot embed its own commit hash without changing that hash. Final HEAD and remote equality are therefore verified by runtime closure commands after the finalization commit push."
++ }
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
++index 7c25e7cf..20165b15 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
++@@ -1,11 +1,12 @@
++ # Final Report
++ 
++ TASK_ID: TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1
++-VERDICT: PASS_WITH_WARNINGS_PENDING_PUSH
+++VERDICT: PASS_WITH_WARNINGS
++ HEAD_START: 1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860
++-HEAD_FINAL: PENDING_POST_COMMIT_PUSH
++-REMOTE_SYNC: PENDING_POST_COMMIT_PUSH
++-WORKTREE_CLEAN: PENDING_POST_COMMIT_PUSH
+++HEAD_ARTIFACT: 6b730f1be4b207847287868b2e58b8ef1801641e
+++HEAD_FINALIZATION_RECEIPT: SELF_HEAD_PROOF_BY_CLOSURE_COMMANDS
+++REMOTE_SYNC: ARTIFACT_COMMIT_VERIFIED_PUSHED
+++WORKTREE_CLEAN: VERIFIED_AFTER_ARTIFACT_PUSH_BEFORE_FINALIZATION_RECEIPT
++ 
++ ## Summary
++ 
++@@ -44,7 +45,7 @@ Custodes is explicitly future-only. Throne prepares handoff fields but does not
++ 
++ ## Matrix Spine Hard Mode candidate
++ 
++-This task carries Stage1 warnings and records capability split, evidence boundary, claim ledger, and hard red-team verdict. Clean finalization depends on post-push verification to avoid self-head paradox.
+++This task carries Stage1 warnings and records capability split, evidence boundary, claim ledger, and hard red-team verdict. Artifact commit push was verified against `origin/master`; the finalization receipt commit is closed by runtime HEAD/remote equality commands after push.
++ 
++ ## Checks
++ 
++@@ -52,6 +53,8 @@ This task carries Stage1 warnings and records capability split, evidence boundar
++ - `throne_commit_index_v0_1.py`: PASS
++ - `git cat-file -e HEAD^{commit}`: PASS
++ - `git rev-parse origin/master`: matched starting HEAD before implementation
+++- `git push origin master`: PASS for artifact commit
+++- `git ls-remote origin refs/heads/master`: matched artifact commit after push
++ 
++ ## Caps carried
++ 
++@@ -61,4 +64,3 @@ This task carries Stage1 warnings and records capability split, evidence boundar
++ - `CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK`
++ - `CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK`
++ - `CAP_CODEX_CLI_BRIDGE_NOT_IMPLEMENTED_IN_THIS_TASK`
++-- `CAP_EXTERNAL_FINALIZATION_PENDING`
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
++index 3615892d..e6b96e9d 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
++@@ -1,8 +1,8 @@
++ {
++   "schema_version": "RED_TEAM_VERDICT_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "timestamp_utc": "2026-06-02T18:31:01Z",
++-  "mode": "PRE_COMMIT_BUILDER_RED_TEAM",
+++  "timestamp_utc": "2026-06-02T18:41:50Z",
+++  "mode": "POST_ARTIFACT_PUSH_RED_TEAM",
++   "builder_claims_attacked": [
++     {
++       "claim_id": "C01",
++@@ -30,18 +30,17 @@
++     {
++       "claim_id": "C07",
++       "attack": "Commit/push truth cannot be clean before a post-push command verifies origin/master.",
++-      "result": "DOWNGRADED_UNTIL_POST_PUSH",
++-      "downgrade_needed": true,
+++      "result": "RESISTED_WITH_POST_PUSH_PROOF",
+++      "downgrade_needed": false,
++       "counter_evidence": [
++         "commit_push_receipt.json"
++-      ],
++-      "cap_carried": "CAP_EXTERNAL_FINALIZATION_PENDING"
+++      ]
++     }
++   ],
++   "dirty_provenance_review": {
++     "initial_dirty_state": "Task registration files plus registered taskpack.",
++     "unrelated_dirty_state_found": false,
++-    "current_task_outputs_dirty": true
+++    "current_task_outputs_dirty_after_artifact_push": false
++   },
++   "fake_green_flags_reviewed": [
++     "CLAIM_WITHOUT_REPLAY",
++@@ -53,9 +52,8 @@
++   "caps_triggered": [
++     "CAP_STAGE1_WITH_WARNINGS_ONLY",
++     "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
++-    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
++-    "CAP_EXTERNAL_FINALIZATION_PENDING"
+++    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
++   ],
++-  "final_verdict": "PASS_WITH_WARNINGS_PENDING_PUSH",
+++  "final_verdict": "PASS_WITH_WARNINGS",
++   "clean_pass_allowed": false
++ }
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
++index 5a45b263..35020fab 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
++@@ -1,24 +1,22 @@
++ {
++   "schema_version": "THRONE_COMMIT_PUSH_RECEIPT_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "step": "pre_commit_placeholder",
++-  "generated_at_utc": "2026-06-02T18:31:01Z",
+++  "step": "post_artifact_push_verification",
+++  "generated_at_utc": "2026-06-02T18:41:50Z",
++   "branch": "master",
++   "last_verified_head_before_this_commit": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
++-  "receipt_subject_head": "",
++-  "artifact_bundle_head": "",
++-  "artifact_bundle_commit_url": "",
++-  "external_delivery_head": "",
++-  "remote_head_after_push": "",
++-  "push_attempted": false,
++-  "push_status": "PENDING",
++-  "worktree_clean_after_push": false,
++-  "origin_master_sync_after_push": false,
++-  "verification_method": "PENDING_POST_COMMIT_PUSH",
+++  "receipt_subject_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "artifact_bundle_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "artifact_bundle_commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "external_delivery_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "remote_head_after_push": "6b730f1be4b207847287868b2e58b8ef1801641e",
+++  "push_attempted": true,
+++  "push_status": "PASS",
+++  "worktree_clean_after_push": true,
+++  "origin_master_sync_after_push": true,
+++  "verification_method": "git push origin master; git rev-parse HEAD; git ls-remote origin refs/heads/master; git status --porcelain=v1",
++   "self_head_paradox_handled": true,
++-  "caps_triggered": [
++-    "CAP_EXTERNAL_FINALIZATION_PENDING"
++-  ],
++-  "clean_pass_allowed": false,
++-  "note": "This placeholder is expected to be replaced in a follow-up finalization receipt after the artifact bundle commit is pushed."
+++  "caps_triggered": [],
+++  "clean_pass_allowed": true,
+++  "note": "This receipt proves the artifact bundle commit was pushed. The follow-up receipt commit cannot embed its own final hash; final HEAD and remote equality are verified by closure commands after that commit is pushed."
++ }
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
++index a11cbd46..2bff43a6 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
++@@ -1,6 +1,6 @@
++ {
++   "schema_version": "THRONE_FOUNDATION_VALIDATION_RECEIPT_V0_1",
++-  "generated_at_utc": "2026-06-02T18:39:18Z",
+++  "generated_at_utc": "2026-06-02T18:43:07Z",
++   "status": "PASS",
++   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
++   "checked_files": 43,
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
++index 3349a656..b6c991df 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
++@@ -7,14 +7,14 @@
++ | Input type | Registered Astronomicon taskpack |
++ | Reviewed target | Throne organ foundation candidate |
++ | Role mode | Servitor build plus hard red-team |
++-| Evidence boundary | Local files, schemas, validators, git object proof, pending post-push proof |
+++| Evidence boundary | Local files, schemas, validators, git object proof, artifact post-push proof |
++ 
++ ## 2. Quick verdict
++ 
++ | Field | Value |
++ |---|---|
++-| Verdict | PASS_WITH_WARNINGS_PENDING_PUSH |
++-| Clean PASS allowed | No before post-push sync proof |
+++| Verdict | PASS_WITH_WARNINGS |
+++| Clean PASS allowed | No; Stage1, laptop runtime, and Custodes caps remain |
++ | Main accepted value | Throne now has organ foundation, contracts, schemas, and read-only index prototype |
++ | Main blocker | Laptop runtime and Custodes are intentionally not implemented |
++ | Next task | TASK-NEWGEN-THRONE-SSH-GIT-MIRROR-AND-COMMIT-BUNDLE-SKILL-LAPTOP-V0_1 |
++@@ -33,10 +33,10 @@
++ 
++ | Point | Comment |
++ |---|---|
++-| Cleanliness | Initial dirty state is task-registration scoped; final clean state requires post-push verification |
+++| Cleanliness | Initial dirty state is task-registration scoped; artifact commit push is verified |
++ | Fake-green risk | Custodes and laptop runtime are explicitly capped |
++ | Discipline | GitHub URL is optional and not treated as stronger than local object proof |
++-| Required correction | Replace pending commit_push_receipt after artifact commit is pushed |
+++| Required correction | Finalization commit requires runtime HEAD/remote equality proof after push |
++ 
++ ## 5. Speculum comments
++ 
++@@ -53,7 +53,7 @@
++ |---|---:|---|
++ | Laptop runtime not provisioned | Medium | Run laptop mirror and bundle skill task |
++ | Custodes absent | Medium | Run Custodes foundation after Throne evidence stabilizes |
++-| Post-push proof pending | High until push | Commit, push, verify origin/master |
+++| Finalization self-head proof | Medium until closure | Push finalization commit and verify origin/master |
++ 
++ ## 7. KPI / KPD
++ 
++diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
++index 48db714d..4a21a6a3 100644
++--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
+++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
++@@ -1,8 +1,8 @@
++ {
++   "schema_version": "THRONE_FOUNDATION_RECEIPT_V0_1",
++   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
++-  "timestamp_utc": "2026-06-02T18:31:01Z",
++-  "status": "PASS_WITH_WARNINGS_PENDING_PUSH",
+++  "timestamp_utc": "2026-06-02T18:41:50Z",
+++  "status": "PASS_WITH_WARNINGS",
++   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
++   "created_foundation_files": [
++     "ORGAN_MANIFEST.json",
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/git_show.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/git_show.txt
+new file mode 100644
+index 00000000..aba1a5ee
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/git_show.txt
+@@ -0,0 +1,17 @@
++commit 677810f03f64eb8ffdbf02573bd7ac90cad5dd0e
++Author:     VM3 Servitor <vm3-servitor@imperium.local>
++AuthorDate: Tue Jun 2 18:43:34 2026 +0000
++Commit:     VM3 Servitor <vm3-servitor@imperium.local>
++CommitDate: Tue Jun 2 18:43:34 2026 +0000
++
++    TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt
++
++ .../CLAIM_LEDGER.jsonl                             |  2 +-
++ .../EVIDENCE_BOUNDARY.json                         | 13 +++++----
++ .../FINAL_REPORT.md                                | 14 ++++++----
++ .../RED_TEAM_VERDICT.json                          | 18 ++++++------
++ .../commit_push_receipt.json                       | 32 ++++++++++------------
++ .../json_schema_validation_receipt.json            |  2 +-
++ .../owner_audit_card.md                            | 12 ++++----
++ .../throne_foundation_receipt.json                 |  4 +--
++ 8 files changed, 49 insertions(+), 48 deletions(-)
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/receipts_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/receipts_manifest.json
+new file mode 100644
+index 00000000..67115608
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/receipts_manifest.json
+@@ -0,0 +1,12 @@
++{
++  "schema_version": "THRONE_RECEIPTS_MANIFEST_V0_1",
++  "generated_at_utc": "2026-06-02T19:14:45Z",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "files": [
++    "commit_metadata.json",
++    "changed_files_manifest.json",
++    "git_show.txt",
++    "diff.patch",
++    "tree_archive_omission_reason.txt"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/sha256sums.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/sha256sums.txt
+new file mode 100644
+index 00000000..f30a05bb
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/sha256sums.txt
+@@ -0,0 +1,8 @@
++ab29954c8e1084ffe3a9f3348ed03982e9190b47860f5f856b86dcb27664d320  commit_metadata.json
++3f7936d44e776bfb2aa6e20764821dd396c531cd5895814c30f3441bfe07df3b  changed_files_manifest.json
++f3a57d4bd49924a3427906bd95b3c5bfcb40a80e147abd58c8a85abf3655dc81  git_show.txt
++be6eb5e7684758dbd928be8cb9236889d253acc2a123210bdf8bfe5827790edc  diff.patch
++8509cb2d94f8c037646ffca96ca425a59e44db98a21b390ccbe103356e20e6c2  tree_archive_omission_reason.txt
++7ec134f89b2a794760f255eeda0d4d551ba5f27b70003e7f5d0870468ef4e590  receipts_manifest.json
++4d3ce042fc7c091172c8bc296288e5e38faa01ee46cd7610e821c6dc27341e2f  commit_evidence_bundle_smoke.tar.gz
++c492292d805c98455ea68031dbf0c56c7a1280d9d5039fcf73474dba8e66a20d  commit_evidence_bundle_manifest.json
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/tree_archive_omission_reason.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/tree_archive_omission_reason.txt
+new file mode 100644
+index 00000000..66a27eb4
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/VM3_LOCAL_commit_677810f0/tree_archive_omission_reason.txt
+@@ -0,0 +1 @@
++Tree archive omitted in this smoke bundle to avoid committing a duplicate repository snapshot; the verified commit SHA can reproduce the tree from the Throne mirror.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/CAPABILITY_SPLIT_RECEIPT.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/CAPABILITY_SPLIT_RECEIPT.json
+new file mode 100644
+index 00000000..9397b5eb
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/CAPABILITY_SPLIT_RECEIPT.json
+@@ -0,0 +1,27 @@
++{
++  "schema_version": "CAPABILITY_SPLIT_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "local_script_first": [
++    "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_bundle_smoke_v0_1.py",
++    "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_index_v0_1.py"
++  ],
++  "local_manual_command": [
++    "ssh BatchMode probe to owner@192.168.0.18",
++    "scp temporary git bundle to Throne inbox",
++    "git clone --mirror or fetch on Throne laptop",
++    "sha256sum -c for local and remote smoke bundle"
++  ],
++  "candidate_script_first": [
++    "Future validator can promote this smoke exporter into canon Throne bundle skill."
++  ],
++  "agent_reasoning_only": [
++    "Final red-team downgrade text and owner-facing Russian summary."
++  ],
++  "external_research": [],
++  "owner_manual_confirmation": [],
++  "future_capability_gap": [
++    "Tree archive omitted from committed smoke bundle by prototype cap.",
++    "Custodes admission remains future-only.",
++    "No public IDE/WARP runtime release in this task."
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/CLAIM_LEDGER.jsonl b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/CLAIM_LEDGER.jsonl
+new file mode 100644
+index 00000000..63161c73
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/CLAIM_LEDGER.jsonl
+@@ -0,0 +1,4 @@
++{"claim_id": "C001", "claim": "Direct VM3 to Throne laptop SSH route is live.", "owner_organ": "THRONE", "capability_class": "LOCAL_MANUAL_COMMAND", "evidence_level": "E3_EXECUTED_BEHAVIOR", "evidence": "throne_ssh_route_probe_receipt.json", "cap": null, "red_team_status": "SUPPORTED"}
++{"claim_id": "C002", "claim": "Throne laptop mirror contains the target commit object.", "owner_organ": "THRONE", "capability_class": "LOCAL_MANUAL_COMMAND", "evidence_level": "E3_EXECUTED_BEHAVIOR", "evidence": "throne_git_mirror_smoke_receipt.json + throne_commit_object_probe_receipt.json", "cap": null, "red_team_status": "SUPPORTED"}
++{"claim_id": "C003", "claim": "A Throne-produced smoke commit evidence bundle exists and hashes validate.", "owner_organ": "THRONE", "capability_class": "LOCAL_SCRIPT_FIRST", "evidence_level": "E4_STABLE_PASS", "evidence": "commit_bundle_manifest.json + commit_bundle_sha256s.txt + sha256sum -c receipts", "cap": "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE", "red_team_status": "PASS_WITH_WARNINGS"}
++{"claim_id": "C004", "claim": "This task does not implement Custodes, IDE visual release, or WARP runtime.", "owner_organ": "INQUISITION", "capability_class": "AGENT_REASONING_ONLY", "evidence_level": "E2_FILE_CONTENT_AND_SCOPE", "evidence": "taskpack scope and generated artifacts", "cap": "CAP_STAGE1_WITH_WARNINGS_ONLY,CAP_NO_IDE_VISUAL_RELEASE_YET,CAP_NO_WARP_RUNTIME", "red_team_status": "WARN_CARRIED_CAPS"}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EVIDENCE_BOUNDARY.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EVIDENCE_BOUNDARY.json
+new file mode 100644
+index 00000000..4cd91e25
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EVIDENCE_BOUNDARY.json
+@@ -0,0 +1,20 @@
++{
++  "schema_version": "EVIDENCE_BOUNDARY_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "generated_at_utc": "2026-06-02T19:17:27Z",
++  "repo_head_at_smoke_start": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "origin_master_at_smoke_start": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "remote_throne_host": "owner@192.168.0.18",
++  "remote_throne_root": "~/IMPERIUM_THRONE",
++  "remote_mirror_path": "~/IMPERIUM_THRONE/git_mirrors/Imperium-.git",
++  "remote_evidence_vault_path": "~/IMPERIUM_THRONE/evidence_vault/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_677810f0",
++  "local_report_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "local_copied_bundle_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0",
++  "excluded_from_evidence": [
++    "private key files",
++    "known_hosts contents",
++    "credential material",
++    "unrelated laptop private files"
++  ],
++  "runtime_claim_boundary": "Live SSH, remote mirror update, and remote commit object proof are supported by commands run in this task."
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/IMPERIUM_QUESTION_PASS.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/IMPERIUM_QUESTION_PASS.json
+new file mode 100644
+index 00000000..e1dd8bc8
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/IMPERIUM_QUESTION_PASS.json
+@@ -0,0 +1,22 @@
++{
++  "schema_version": "IMPERIUM_QUESTION_PASS_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "questions": [
++    {
++      "question": "What is the source of truth for the live route claim?",
++      "answer": "SSH probe returned THRONE_SSH_OK from owner@192.168.0.18."
++    },
++    {
++      "question": "What proves local git truth on Throne?",
++      "answer": "Remote bare mirror head equals target commit and git cat-file verifies the commit object."
++    },
++    {
++      "question": "What proves bundle export?",
++      "answer": "Throne-side exporter wrote manifest, metadata, diff, changed files, receipts and SHA256 sums; local and remote sha256sum -c passed."
++    },
++    {
++      "question": "What blocks clean PASS?",
++      "answer": "Global Stage1/IDE/WARP caps remain and tree archive is omitted in prototype smoke bundle."
++    }
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/ROLE_ENTRY_ACK.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/ROLE_ENTRY_ACK.json
+new file mode 100644
+index 00000000..c7bf8d01
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/ROLE_ENTRY_ACK.json
+@@ -0,0 +1,31 @@
++{
++  "schema_version": "ROLE_ENTRY_ACK_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "role_mode": "Codex / Servitor Ghost_Evolve",
++  "contour": "VM3",
++  "branch": "master",
++  "head_at_entry": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "task_source_boundary": "Registered Astronomicon taskpack plus required organ authority files.",
++  "sources_read": [
++    "MATRIX_SPINE_INDEX",
++    "Doctrinarium Ghost_Evolve packet and matrices",
++    "Officio Agentis Ghost_Evolve packet, role pack, RU contract",
++    "Astronomicon Ghost_Evolve packet, task route manifest, taskpack",
++    "Administratum Ghost_Evolve packet and finalization contracts",
++    "Mechanicus Ghost_Evolve packet and replay contracts",
++    "Inquisition Ghost_Evolve packet and red-team contracts",
++    "Strategium Ghost_Evolve packet and matrices",
++    "Schola Imperialis Ghost_Evolve packet and lesson contract",
++    "Throne read-first packet, doctrine, policy, contracts, schemas, tools"
++  ],
++  "missing_authorities": [],
++  "owner_facing_language_contract": "Russian for owner-facing status/final/action text; English for machine artifacts.",
++  "forbidden_claims_acknowledged": [
++    "no clean pass without live route and Throne object proof",
++    "no credential export",
++    "no public server or tunnel",
++    "no Custodes admission claim",
++    "no self-head paradox claim"
++  ],
++  "readiness_to_start": "PASS"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_FOCUS_PACKET.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_FOCUS_PACKET.json
+new file mode 100644
+index 00000000..94b38ac4
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_FOCUS_PACKET.json
+@@ -0,0 +1,44 @@
++{
++  "schema_version": "TASK_FOCUS_PACKET_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "intent": "Produce first live SSH-only Throne laptop mirror and commit bundle smoke proof for local git truth.",
++  "allowed_scope": [
++    "IMPERIUM_NEW_GENERATION/ORGANS/THRONE artifacts",
++    "standard task report residue",
++    "safe SSH probe and focused Throne laptop root/mirror/evidence-vault mutation"
++  ],
++  "forbidden_scope": [
++    "public server exposure",
++    "Cloudflare tunnel",
++    "Custodes implementation",
++    "private key/token/credential copy",
++    "destructive registry rewrite",
++    "moving main repo place of life"
++  ],
++  "target_contour": "VM3 to THRONE_LAPTOP over local SSH",
++  "target_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "acceptance_gates": [
++    "route status explicit",
++    "SSH probe receipt exists",
++    "git mirror smoke receipt exists",
++    "commit object verified on Throne if route live",
++    "bundle manifest and SHA256 exist",
++    "Mechanicus validation receipt exists",
++    "Inquisition red-team verdict exists",
++    "git closure receipt exists"
++  ],
++  "carried_caps": [
++    "CAP_STAGE1_WITH_WARNINGS_ONLY",
++    "CAP_NO_IDE_VISUAL_RELEASE_YET",
++    "CAP_NO_WARP_RUNTIME"
++  ],
++  "local_caps": [
++    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++  ],
++  "stop_conditions": [
++    "secret copying would be required",
++    "destructive laptop/repo operation would be required",
++    "safe route cannot be determined and no useful receipt can be produced"
++  ],
++  "evidence_boundary": "Receipts and copied Throne-produced bundle under this report folder; remote laptop paths are recorded without secrets."
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_manifest.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_manifest.json
+new file mode 100644
+index 00000000..2a7d788d
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_manifest.json
+@@ -0,0 +1,17 @@
++{
++  "schema_version": "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1",
++  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "exported_for": "OWNER",
++  "exported_at_utc": "2026-06-02T19:15:12Z",
++  "git_object_verified": true,
++  "tree_archive_included": false,
++  "diff_patch_included": true,
++  "changed_files_manifest_included": true,
++  "receipts_manifest_included": true,
++  "sha256sums_included": true,
++  "bundle_sha256": "9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899",
++  "caps_triggered": [
++    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_sha256s.txt b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_sha256s.txt
+new file mode 100644
+index 00000000..7ce4cc9b
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_sha256s.txt
+@@ -0,0 +1,10 @@
++3f7936d44e776bfb2aa6e20764821dd396c531cd5895814c30f3441bfe07df3b  BUNDLES/THRONE_LAPTOP_commit_677810f0/changed_files_manifest.json
++3a58507a25ceeb7a5bd576b254284d13f1c761aca12c3e348b19f3761b0dbcdc  BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_manifest.json
++9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899  BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_smoke.tar.gz
++ab29954c8e1084ffe3a9f3348ed03982e9190b47860f5f856b86dcb27664d320  BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_metadata.json
++be6eb5e7684758dbd928be8cb9236889d253acc2a123210bdf8bfe5827790edc  BUNDLES/THRONE_LAPTOP_commit_677810f0/diff.patch
++f3a57d4bd49924a3427906bd95b3c5bfcb40a80e147abd58c8a85abf3655dc81  BUNDLES/THRONE_LAPTOP_commit_677810f0/git_show.txt
++60c3b00c50077435ade0953fc98d0a2183a0267fa4fa6049320c83548f0f2504  BUNDLES/THRONE_LAPTOP_commit_677810f0/receipts_manifest.json
++221220565cc5f95eaf3d5d007b80b65e9321a7db72a65f178098c0a8b0b4223f  BUNDLES/THRONE_LAPTOP_commit_677810f0/sha256sums.txt
++8509cb2d94f8c037646ffca96ca425a59e44db98a21b390ccbe103356e20e6c2  BUNDLES/THRONE_LAPTOP_commit_677810f0/tree_archive_omission_reason.txt
++3a58507a25ceeb7a5bd576b254284d13f1c761aca12c3e348b19f3761b0dbcdc  commit_bundle_manifest.json
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_push_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_push_receipt.json
+new file mode 100644
+index 00000000..a47ec64a
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_push_receipt.json
+@@ -0,0 +1,25 @@
++{
++  "schema_version": "EXTERNAL_FINALIZATION_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "receipt_subject_head": "PENDING_ARTIFACT_COMMIT",
++  "last_verified_head_before_this_commit": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "receipt_content_head": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "external_delivery_head": "PENDING_ARTIFACT_COMMIT_PUSH",
++  "remote_head_after_push": "PENDING_ARTIFACT_COMMIT_PUSH",
++  "followup_finalization_receipt_head": "PENDING_AFTER_ARTIFACT_COMMIT",
++  "verification_timestamp_utc": "2026-06-02T19:17:27Z",
++  "verification_actor": "Codex Servitor VM3",
++  "worktree_clean_after_push": false,
++  "origin_master_sync_after_push": false,
++  "verification_method": "pre-commit receipt; will be updated after artifact commit push",
++  "self_head_paradox_handled": true,
++  "commit_performed": false,
++  "push_performed": false,
++  "block_reason_class": "PENDING_COMMIT_PUSH",
++  "owner_action_required": false,
++  "owner_question_or_instruction": "",
++  "caps_triggered": [
++    "CAP_EXTERNAL_FINALIZATION_PENDING_UNTIL_COMMIT_PUSH"
++  ],
++  "clean_pass_allowed": false
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/final_owner_summary_ru.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/final_owner_summary_ru.md
+new file mode 100644
+index 00000000..bf12acf1
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/final_owner_summary_ru.md
+@@ -0,0 +1,23 @@
++# Финальная сводка для Owner
++
++## Статус
++
++Локальный smoke proof выполнен как `PASS_WITH_WARNINGS`, но git closure еще ожидает commit/push.
++
++## Что доказано
++
++- VM3 подключился к Throne laptop по SSH: `owner@192.168.0.18`.
++- На laptop создан/проверен `~/IMPERIUM_THRONE` с mirror/evidence folders.
++- Bare mirror на Throne содержит commit `677810f03f64eb8ffdbf02573bd7ac90cad5dd0e`.
++- `git cat-file` на Throne подтвердил commit object.
++- Throne-side exporter создал smoke commit bundle; SHA256 проверены на laptop и в VM3 report.
++
++## Ограничения
++
++- Clean PASS не заявляется: tree archive omitted как prototype cap.
++- Custodes, WARP runtime и IDE visual release не реализованы этой задачей.
++- Git closure будет обновлен после commit/push.
++
++## Следующее
++
++После commit/push нужно обновить `commit_push_receipt.json` и red-team verdict, затем финально сверить remote HEAD.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/inquisition_red_team_verdict.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/inquisition_red_team_verdict.json
+new file mode 100644
+index 00000000..c68a6037
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/inquisition_red_team_verdict.json
+@@ -0,0 +1,54 @@
++{
++  "schema_version": "INQUISITION_RED_TEAM_VERDICT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "generated_at_utc": "2026-06-02T19:18:08Z",
++  "mode": "HARD_RED_TEAM_CLOSURE_GATE",
++  "local_step_verdict": "PASS_WITH_WARNINGS",
++  "clean_pass_allowed": false,
++  "final_verdict": "PASS_WITH_WARNINGS_PENDING_GIT_CLOSURE",
++  "attacks": [
++    {
++      "attack": "Could the route be fake?",
++      "finding": "SSH probe returned marker and later remote git commands executed on owner@192.168.0.18.",
++      "downgrade": null
++    },
++    {
++      "attack": "Could the mirror proof be local-only?",
++      "finding": "Commit object was verified using git on Throne laptop bare mirror path after scp bundle transfer.",
++      "downgrade": null
++    },
++    {
++      "attack": "Could the bundle be stale or mismatched?",
++      "finding": "Bundle manifest commit equals verified target commit and sha256 checks passed both remotely and locally.",
++      "downgrade": null
++    },
++    {
++      "attack": "Could credentials have leaked?",
++      "finding": "No key contents or tokens were read, copied, or committed; receipts record only host/user/paths.",
++      "downgrade": null
++    },
++    {
++      "attack": "Could clean PASS hide missing tree archive?",
++      "finding": "Tree archive omitted and explicitly capped.",
++      "downgrade": "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++    },
++    {
++      "attack": "Could global capabilities be overclaimed?",
++      "finding": "IDE/WARP/Custodes remain carried caps and are not claimed.",
++      "downgrade": "CAP_STAGE1_WITH_WARNINGS_ONLY"
++    },
++    {
++      "attack": "Could commit/push be fake green?",
++      "finding": "Git closure is pending until artifact commit and follow-up receipt update.",
++      "downgrade": "CAP_EXTERNAL_FINALIZATION_PENDING_UNTIL_COMMIT_PUSH"
++    }
++  ],
++  "caps_active": [
++    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE",
++    "CAP_STAGE1_WITH_WARNINGS_ONLY",
++    "CAP_NO_IDE_VISUAL_RELEASE_YET",
++    "CAP_NO_WARP_RUNTIME",
++    "CAP_EXTERNAL_FINALIZATION_PENDING_UNTIL_COMMIT_PUSH"
++  ],
++  "required_followup_before_final_owner_claim": "Commit/push artifacts and update commit_push_receipt.json."
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/mechanicus_validation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/mechanicus_validation_receipt.json
+new file mode 100644
+index 00000000..78cd2d67
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/mechanicus_validation_receipt.json
+@@ -0,0 +1,47 @@
++{
++  "schema_version": "MECHANICUS_VALIDATION_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "generated_at_utc": "2026-06-02T19:18:42Z",
++  "status": "PASS_WITH_WARNINGS",
++  "checks": {
++    "required_files_present": true,
++    "json_parse_passed": true,
++    "jsonl_parse_passed": true,
++    "commit_bundle_schema_passed": true,
++    "root_sha256sum_check_passed": true,
++    "bundle_sha256sum_check_passed": true,
++    "secret_marker_scan_passed": true,
++    "language_lane_passed": true
++  },
++  "missing_required_files": [],
++  "json_failures": [],
++  "jsonl_failures": [],
++  "schema_detail": "",
++  "root_sha256sum_stdout": [
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/changed_files_manifest.json: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_manifest.json: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_evidence_bundle_smoke.tar.gz: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/commit_metadata.json: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/diff.patch: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/git_show.txt: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/receipts_manifest.json: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/sha256sums.txt: OK",
++    "BUNDLES/THRONE_LAPTOP_commit_677810f0/tree_archive_omission_reason.txt: OK",
++    "commit_bundle_manifest.json: OK"
++  ],
++  "bundle_sha256sum_stdout": [
++    "commit_metadata.json: OK",
++    "changed_files_manifest.json: OK",
++    "git_show.txt: OK",
++    "diff.patch: OK",
++    "tree_archive_omission_reason.txt: OK",
++    "receipts_manifest.json: OK",
++    "commit_evidence_bundle_smoke.tar.gz: OK",
++    "commit_evidence_bundle_manifest.json: OK"
++  ],
++  "secret_hits": [],
++  "cyrillic_hits_outside_owner_summary": [],
++  "warnings": [
++    "Validation status remains PASS_WITH_WARNINGS because global Stage1 caps and tree archive omission cap remain."
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/speculum_notes_for_future_custodes.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/speculum_notes_for_future_custodes.md
+new file mode 100644
+index 00000000..a5c1a5fd
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/speculum_notes_for_future_custodes.md
+@@ -0,0 +1,17 @@
++# Speculum Notes For Future Custodes
++
++Task: `TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1`
++
++The useful future handoff is now concrete: Custodes should consume a Throne mirror path, target commit SHA, bundle manifest path, and cap list rather than trusting a GitHub URL or agent summary.
++
++## Verified Inputs For Future Handoff
++
++- `candidate_commit_sha`: `677810f03f64eb8ffdbf02573bd7ac90cad5dd0e`
++- `local_git_object_verified`: `true` on Throne laptop mirror
++- `bundle_manifest_path`: `IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_manifest.json`
++- `task_group_id`: `TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1`
++- `known_caps`: `CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE`, `CAP_STAGE1_WITH_WARNINGS_ONLY`, `CAP_NO_IDE_VISUAL_RELEASE_YET`, `CAP_NO_WARP_RUNTIME`
++
++## Next Checker Hook
++
++Promote `throne_commit_bundle_smoke_v0_1.py` into a stricter bundle exporter with fixture tests for manifest/commit mismatch, stale mirror head, missing SHA256 entry, and accidental credential inclusion.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_commit_bundle_smoke_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_commit_bundle_smoke_receipt.json
+new file mode 100644
+index 00000000..ee980777
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_commit_bundle_smoke_receipt.json
+@@ -0,0 +1,18 @@
++{
++  "schema_version": "THRONE_COMMIT_BUNDLE_SMOKE_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "timestamp_utc": "2026-06-02T19:17:27Z",
++  "commit": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "commit_object_verified": true,
++  "bundle_created": true,
++  "bundle_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0",
++  "remote_bundle_path": "~/IMPERIUM_THRONE/evidence_vault/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_677810f0",
++  "sha256s_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_sha256s.txt",
++  "bundle_artifact_sha256": "9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899",
++  "tree_archive_included": false,
++  "tree_archive_omission_reason": "Prototype smoke bundle omits duplicate tree archive; verified commit in Throne mirror reproduces tree.",
++  "verdict": "PASS_WITH_WARNINGS",
++  "warnings": [
++    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_commit_object_probe_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_commit_object_probe_receipt.json
+new file mode 100644
+index 00000000..04d524b7
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_commit_object_probe_receipt.json
+@@ -0,0 +1,13 @@
++{
++  "schema_version": "THRONE_COMMIT_OBJECT_PROBE_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "timestamp_utc": "2026-06-02T19:17:27Z",
++  "target_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "remote_mirror_path": "~/IMPERIUM_THRONE/git_mirrors/Imperium-.git",
++  "verification_command": "git --git-dir=$HOME/IMPERIUM_THRONE/git_mirrors/Imperium-.git cat-file -e 677810f03f64eb8ffdbf02573bd7ac90cad5dd0e^{commit}",
++  "commit_object_verified_on_throne": true,
++  "remote_commit_subject": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt",
++  "remote_commit_datetime": "2026-06-02T18:43:34+00:00",
++  "verdict": "PASS"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_git_mirror_smoke_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_git_mirror_smoke_receipt.json
+new file mode 100644
+index 00000000..b05248b0
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_git_mirror_smoke_receipt.json
+@@ -0,0 +1,19 @@
++{
++  "schema_version": "THRONE_GIT_MIRROR_SMOKE_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "timestamp_utc": "2026-06-02T19:17:27Z",
++  "source_contour": "VM3",
++  "target_contour": "THRONE_LAPTOP",
++  "source_head": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "source_origin_master": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "transfer_artifact": "temporary git bundle --all copied over SSH; not committed to repo",
++  "transfer_bundle_sha256": "8cd5590d3d0393eba3d4725c0d4fc4866b915bcebbac22bf77f1c328ae73faef",
++  "remote_bundle_sha256": "8cd5590d3d0393eba3d4725c0d4fc4866b915bcebbac22bf77f1c328ae73faef",
++  "remote_mirror_path": "~/IMPERIUM_THRONE/git_mirrors/Imperium-.git",
++  "remote_mirror_action": "clone_mirror",
++  "remote_mirror_head": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
++  "mirror_head_matches_source_head": true,
++  "credentials_exported": false,
++  "private_data_collected": false,
++  "verdict": "PASS"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_laptop_root_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_laptop_root_receipt.json
+new file mode 100644
+index 00000000..11c4c997
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_laptop_root_receipt.json
+@@ -0,0 +1,20 @@
++{
++  "schema_version": "THRONE_LAPTOP_ROOT_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "timestamp_utc": "2026-06-02T19:17:27Z",
++  "route_status": "LIVE",
++  "remote_os_summary": "Linux imperium-core 6.17.0-29-generic x86_64",
++  "remote_home": "/home/owner",
++  "root_path": "~/IMPERIUM_THRONE",
++  "directories_validated_or_created": [
++    "git_mirrors",
++    "evidence_vault",
++    "inbox",
++    "tools"
++  ],
++  "mutation_performed": true,
++  "mutation_scope": "mkdir -p focused Throne root folders only",
++  "credentials_exported": false,
++  "private_data_collected": false,
++  "verdict": "PASS"
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_runtime_gap_or_live_status.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_runtime_gap_or_live_status.md
+new file mode 100644
+index 00000000..6c821da4
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_runtime_gap_or_live_status.md
+@@ -0,0 +1,23 @@
++# Throne Runtime Gap Or Live Status
++
++Task: `TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1`
++
++## Local Step Status
++
++- SSH route: `LIVE` from VM3 to `owner@192.168.0.18`.
++- Throne root: `~/IMPERIUM_THRONE` exists with focused mirror/evidence folders.
++- Mirror status: `LIVE`; `refs/heads/master` equals `677810f03f64eb8ffdbf02573bd7ac90cad5dd0e`.
++- Commit object probe: `PASS` on Throne mirror for `677810f03f64eb8ffdbf02573bd7ac90cad5dd0e`.
++- Commit bundle smoke: `PASS_WITH_WARNINGS`; bundle copied back into this report.
++
++## Local Warning
++
++`CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE` remains because the committed smoke bundle omits a duplicate tree archive and records a reproducibility note instead.
++
++## Carried Global Caps
++
++- `CAP_STAGE1_WITH_WARNINGS_ONLY`
++- `CAP_NO_IDE_VISUAL_RELEASE_YET`
++- `CAP_NO_WARP_RUNTIME`
++
++No public server, Cloudflare route, Custodes admission gate, private key copy, or credential export was introduced.
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_ssh_route_probe_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_ssh_route_probe_receipt.json
+new file mode 100644
+index 00000000..25d05a65
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/throne_ssh_route_probe_receipt.json
+@@ -0,0 +1,21 @@
++{
++  "schema_version": "THRONE_SSH_ROUTE_PROBE_RECEIPT_V0_1",
++  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
++  "timestamp_utc": "2026-06-02T19:17:27Z",
++  "source_contour": "VM3",
++  "target": "THRONE_LAPTOP",
++  "route_attempted": true,
++  "route_mode": "DIRECT",
++  "host_hint": "192.168.0.18",
++  "user_hint": "owner",
++  "alias_used": "",
++  "probe_command_class": "ssh BatchMode with ConnectTimeout and no secret reads",
++  "ssh_probe_verdict": "PASS_LIVE",
++  "probe_marker_returned": "THRONE_SSH_OK",
++  "credentials_exported": false,
++  "private_data_collected": false,
++  "mutation_performed": false,
++  "warnings": [
++    "PC bridge probe not used because direct Throne route passed."
++  ]
++}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_bundle_smoke_v0_1.py b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_bundle_smoke_v0_1.py
+new file mode 100755
+index 00000000..ffe7e122
+--- /dev/null
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_bundle_smoke_v0_1.py
+@@ -0,0 +1,253 @@
++#!/usr/bin/env python3
++"""Export a minimal Throne commit evidence smoke bundle."""
++
++from __future__ import annotations
++
++import argparse
++import hashlib
++import json
++import subprocess
++import sys
++import tarfile
++from datetime import datetime, timezone
++from pathlib import Path
++
++
++SCHEMA_VERSION = "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1"
++CAP_TREE_ARCHIVE_OMITTED = "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
++
++
++def utc_now() -> str:
++    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
++
++
++def run_git(git_args: list[str], repo_root: Path | None, git_dir: Path | None) -> str:
++    base = ["git"]
++    if git_dir is not None:
++        base.extend([f"--git-dir={git_dir}"])
++    elif repo_root is not None:
++        base.extend(["-C", str(repo_root)])
++    else:
++        raise ValueError("repo_root or git_dir is required")
++
++    completed = subprocess.run(
++        [*base, *git_args],
++        check=True,
++        text=True,
++        stdout=subprocess.PIPE,
++        stderr=subprocess.PIPE,
++    )
++    return completed.stdout
++
++
++def write_text(path: Path, text: str) -> None:
++    path.parent.mkdir(parents=True, exist_ok=True)
++    path.write_text(text, encoding="utf-8")
++
++
++def write_json(path: Path, payload: object) -> None:
++    write_text(path, json.dumps(payload, ensure_ascii=True, indent=2) + "\n")
++
++
++def sha256_file(path: Path) -> str:
++    digest = hashlib.sha256()
++    with path.open("rb") as handle:
++        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
++            digest.update(chunk)
++    return digest.hexdigest()
++
++
++def git_lines(git_args: list[str], repo_root: Path | None, git_dir: Path | None) -> list[str]:
++    output = run_git(git_args, repo_root, git_dir).strip()
++    return [line for line in output.splitlines() if line.strip()]
++
++
++def commit_metadata(commit: str, repo_root: Path | None, git_dir: Path | None) -> dict:
++    fmt = "%H%x1f%P%x1f%T%x1f%an%x1f%ae%x1f%aI%x1f%cn%x1f%ce%x1f%cI%x1f%s"
++    raw = run_git(["show", "-s", f"--format={fmt}", commit], repo_root, git_dir).strip()
++    (
++        full_sha,
++        parents,
++        tree_sha,
++        author_name,
++        author_email,
++        author_date,
++        committer_name,
++        committer_email,
++        committer_date,
++        subject,
++    ) = raw.split("\x1f", 9)
++    return {
++        "commit_sha": full_sha,
++        "parent_shas": parents.split() if parents.strip() else [],
++        "primary_parent_sha": parents.split()[0] if parents.strip() else None,
++        "tree_sha": tree_sha,
++        "author_name": author_name,
++        "author_email": author_email,
++        "author_date": author_date,
++        "committer_name": committer_name,
++        "committer_email": committer_email,
++        "committer_date": committer_date,
++        "subject": subject,
++    }
++
++
++def changed_files(commit: str, parent_sha: str | None, repo_root: Path | None, git_dir: Path | None) -> list[dict]:
++    if parent_sha:
++        args = ["diff", "--name-status", parent_sha, commit]
++    else:
++        args = ["diff-tree", "--root", "--no-commit-id", "--name-status", "-r", commit]
++    records = []
++    for line in git_lines(args, repo_root, git_dir):
++        parts = line.split("\t")
++        records.append({"status": parts[0], "path": parts[-1]})
++    return records
++
++
++def create_content_tar(output_dir: Path, files: list[Path]) -> Path:
++    tar_path = output_dir / "commit_evidence_bundle_smoke.tar.gz"
++    with tarfile.open(tar_path, "w:gz") as tar:
++        for path in files:
++            tar.add(path, arcname=path.name)
++    return tar_path
++
++
++def write_sha256s(output_dir: Path, paths: list[Path]) -> Path:
++    sha_path = output_dir / "sha256sums.txt"
++    lines = [f"{sha256_file(path)}  {path.name}" for path in paths]
++    write_text(sha_path, "\n".join(lines) + "\n")
++    return sha_path
++
++
++def export_bundle(args: argparse.Namespace) -> dict:
++    repo_root = Path(args.repo_root).resolve() if args.repo_root else None
++    git_dir = Path(args.git_dir).resolve() if args.git_dir else None
++    output_dir = Path(args.output_dir).resolve()
++    output_dir.mkdir(parents=True, exist_ok=True)
++
++    commit = run_git(["rev-parse", args.commit], repo_root, git_dir).strip()
++    run_git(["cat-file", "-e", f"{commit}^{{commit}}"], repo_root, git_dir)
++
++    metadata = commit_metadata(commit, repo_root, git_dir)
++    parent_sha = metadata["primary_parent_sha"]
++    changed = changed_files(commit, parent_sha, repo_root, git_dir)
++
++    metadata_path = output_dir / "commit_metadata.json"
++    changed_path = output_dir / "changed_files_manifest.json"
++    show_path = output_dir / "git_show.txt"
++    diff_path = output_dir / "diff.patch"
++    receipts_path = output_dir / "receipts_manifest.json"
++    tree_note_path = output_dir / "tree_archive_omission_reason.txt"
++
++    write_json(metadata_path, metadata)
++    write_json(
++        changed_path,
++        {
++            "schema_version": "THRONE_CHANGED_FILES_MANIFEST_V0_1",
++            "commit_sha": commit,
++            "parent_sha": parent_sha,
++            "changed_files_count": len(changed),
++            "changed_files": changed,
++        },
++    )
++    write_text(show_path, run_git(["show", "--stat", "--summary", "--format=fuller", commit], repo_root, git_dir))
++    if parent_sha:
++        diff_text = run_git(["diff", "--binary", parent_sha, commit], repo_root, git_dir)
++    else:
++        diff_text = run_git(["show", "--binary", "--format=", commit], repo_root, git_dir)
++    write_text(diff_path, diff_text)
++
++    content_files = [metadata_path, changed_path, show_path, diff_path]
++    caps_triggered: list[str] = []
++    tree_archive_included = False
++    if args.include_tree_archive:
++        tree_path = output_dir / "tree_archive.tar"
++        archive_base = ["git"]
++        if git_dir is not None:
++            archive_base.extend([f"--git-dir={git_dir}"])
++        else:
++            archive_base.extend(["-C", str(repo_root)])
++        with tree_path.open("wb") as handle:
++            subprocess.run([*archive_base, "archive", "--format=tar", commit], check=True, stdout=handle)
++        content_files.append(tree_path)
++        tree_archive_included = True
++    else:
++        write_text(
++            tree_note_path,
++            "Tree archive omitted in this smoke bundle to avoid committing a duplicate repository snapshot; "
++            "the verified commit SHA can reproduce the tree from the Throne mirror.\n",
++        )
++        content_files.append(tree_note_path)
++        caps_triggered.append(CAP_TREE_ARCHIVE_OMITTED)
++
++    write_json(
++        receipts_path,
++        {
++            "schema_version": "THRONE_RECEIPTS_MANIFEST_V0_1",
++            "generated_at_utc": utc_now(),
++            "commit_sha": commit,
++            "files": [path.name for path in content_files],
++        },
++    )
++    content_files.append(receipts_path)
++    content_tar = create_content_tar(output_dir, content_files)
++
++    manifest_path = output_dir / "commit_evidence_bundle_manifest.json"
++    manifest = {
++        "schema_version": SCHEMA_VERSION,
++        "commit_sha": commit,
++        "parent_sha": parent_sha,
++        "exported_for": args.exported_for,
++        "exported_at_utc": utc_now(),
++        "git_object_verified": True,
++        "tree_archive_included": tree_archive_included,
++        "diff_patch_included": True,
++        "changed_files_manifest_included": True,
++        "receipts_manifest_included": True,
++        "sha256sums_included": True,
++        "bundle_sha256": sha256_file(content_tar),
++        "caps_triggered": caps_triggered,
++    }
++    write_json(manifest_path, manifest)
++
++    sha_path = write_sha256s(output_dir, [*content_files, content_tar, manifest_path])
++    return {
++        "status": "PASS",
++        "commit_sha": commit,
++        "output_dir": str(output_dir),
++        "manifest_path": str(manifest_path),
++        "sha256sums_path": str(sha_path),
++        "bundle_artifact_path": str(content_tar),
++        "bundle_sha256": manifest["bundle_sha256"],
++        "tree_archive_included": tree_archive_included,
++        "caps_triggered": caps_triggered,
++    }
++
++
++def parse_args() -> argparse.Namespace:
++    parser = argparse.ArgumentParser()
++    source = parser.add_mutually_exclusive_group(required=True)
++    source.add_argument("--repo-root")
++    source.add_argument("--git-dir")
++    parser.add_argument("--commit", required=True)
++    parser.add_argument("--output-dir", required=True)
++    parser.add_argument("--exported-for", default="OWNER", choices=["LOGOS_PRIME", "INQUISITION", "SPECULUM", "OWNER", "GENERAL_REVIEW"])
++    parser.add_argument("--include-tree-archive", action="store_true")
++    return parser.parse_args()
++
++
++def main() -> int:
++    try:
++        result = export_bundle(parse_args())
++    except subprocess.CalledProcessError as exc:
++        print(json.dumps({"status": "BLOCK", "reason": "git_command_failed", "stderr": exc.stderr}, ensure_ascii=True))
++        return 2
++    except Exception as exc:
++        print(json.dumps({"status": "BLOCK", "reason": repr(exc)}, ensure_ascii=True))
++        return 2
++    print(json.dumps(result, ensure_ascii=True))
++    return 0
++
++
++if __name__ == "__main__":
++    sys.exit(main())

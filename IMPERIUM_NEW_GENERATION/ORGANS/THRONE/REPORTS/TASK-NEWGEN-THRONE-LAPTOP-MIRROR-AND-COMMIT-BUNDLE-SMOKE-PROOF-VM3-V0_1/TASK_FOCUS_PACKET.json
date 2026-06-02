@@ -16,7 +16,8 @@
     "moving main repo place of life"
   ],
   "target_contour": "VM3 to THRONE_LAPTOP over local SSH",
-  "target_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "bootstrap_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "target_commit_sha": "93c730251a0926c3eaf17feaa1b1edcc283347d4",
   "acceptance_gates": [
     "route status explicit",
     "SSH probe receipt exists",
@@ -33,12 +34,13 @@
     "CAP_NO_WARP_RUNTIME"
   ],
   "local_caps": [
-    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
+    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE",
+    "WARN_ROUTE_MANIFEST_TARGET_CONTOUR_BLANK"
   ],
   "stop_conditions": [
     "secret copying would be required",
     "destructive laptop/repo operation would be required",
     "safe route cannot be determined and no useful receipt can be produced"
   ],
-  "evidence_boundary": "Receipts and copied Throne-produced bundle under this report folder; remote laptop paths are recorded without secrets."
+  "evidence_boundary": "Receipts and copied Throne-produced artifact-commit bundle under this report folder; remote laptop paths are recorded without secrets."
 }

@@ -1,13 +1,13 @@
 {
   "schema_version": "THRONE_COMMIT_OBJECT_PROBE_RECEIPT_V0_1",
   "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
-  "timestamp_utc": "2026-06-02T19:17:27Z",
-  "target_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
-  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
+  "timestamp_utc": "2026-06-02T19:22:18Z",
+  "target_commit_sha": "93c730251a0926c3eaf17feaa1b1edcc283347d4",
+  "parent_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "bootstrap_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
   "remote_mirror_path": "~/IMPERIUM_THRONE/git_mirrors/Imperium-.git",
-  "verification_command": "git --git-dir=$HOME/IMPERIUM_THRONE/git_mirrors/Imperium-.git cat-file -e 677810f03f64eb8ffdbf02573bd7ac90cad5dd0e^{commit}",
+  "verification_command": "git --git-dir=$HOME/IMPERIUM_THRONE/git_mirrors/Imperium-.git cat-file -e 93c730251a0926c3eaf17feaa1b1edcc283347d4^{commit}",
   "commit_object_verified_on_throne": true,
-  "remote_commit_subject": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt",
-  "remote_commit_datetime": "2026-06-02T18:43:34+00:00",
+  "remote_commit_subject": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1: add Throne mirror smoke proof",
   "verdict": "PASS"
 }
