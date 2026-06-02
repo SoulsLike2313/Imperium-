@@ -1,0 +1,15 @@
+{
+  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "parent_shas": [
+    "6b730f1be4b207847287868b2e58b8ef1801641e"
+  ],
+  "primary_parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
+  "tree_sha": "df0c927f63329ab6acec525779170f1bc6047990",
+  "author_name": "VM3 Servitor",
+  "author_email": "vm3-servitor@imperium.local",
+  "author_date": "2026-06-02T18:43:34+00:00",
+  "committer_name": "VM3 Servitor",
+  "committer_email": "vm3-servitor@imperium.local",
+  "committer_date": "2026-06-02T18:43:34+00:00",
+  "subject": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1: finalize Throne delivery receipt"
+}

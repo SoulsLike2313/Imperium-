@@ -1,0 +1,25 @@
+{
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:57:40Z",
+  "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_LAPTOP_MIRROR_AND_COMMIT_BUNDLE_SMOKE_PROOF_VM3_V0_1.zip",
+  "zip_sha256": "28d9ed20a0e51dadf2c13959450e4ddf9dd6fc0ca5de8f4b3270e417ed660ad0",
+  "admission_verdict": "ADMISSION_PASS",
+  "language_gate_passed": true,
+  "manifest_found": true,
+  "task_id_found": true,
+  "task_spec_found": true,
+  "acceptance_gates_found": true,
+  "output_requirements_found": true,
+  "duplicate_task_id": false,
+  "safe_extraction_path": true,
+  "registered_task_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "extracted_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED",
+  "route_manifest_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
+  "current_expected_task_updated": true,
+  "caps_triggered": [
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_STAGE1_WITH_WARNINGS_ONLY"
+  ],
+  "warnings": []
+}

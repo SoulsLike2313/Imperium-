@@ -1,0 +1,18 @@
+{
+  "schema_version": "THRONE_COMMIT_BUNDLE_SMOKE_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T19:17:27Z",
+  "commit": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "commit_object_verified": true,
+  "bundle_created": true,
+  "bundle_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/BUNDLES/THRONE_LAPTOP_commit_677810f0",
+  "remote_bundle_path": "~/IMPERIUM_THRONE/evidence_vault/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_677810f0",
+  "sha256s_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/commit_bundle_sha256s.txt",
+  "bundle_artifact_sha256": "9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899",
+  "tree_archive_included": false,
+  "tree_archive_omission_reason": "Prototype smoke bundle omits duplicate tree archive; verified commit in Throne mirror reproduces tree.",
+  "verdict": "PASS_WITH_WARNINGS",
+  "warnings": [
+    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
+  ]
+}

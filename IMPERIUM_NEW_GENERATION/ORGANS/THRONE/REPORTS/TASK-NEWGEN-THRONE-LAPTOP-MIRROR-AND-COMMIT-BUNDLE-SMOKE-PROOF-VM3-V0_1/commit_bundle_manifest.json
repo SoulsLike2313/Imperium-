@@ -1,0 +1,17 @@
+{
+  "schema_version": "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1",
+  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "parent_sha": "6b730f1be4b207847287868b2e58b8ef1801641e",
+  "exported_for": "OWNER",
+  "exported_at_utc": "2026-06-02T19:15:12Z",
+  "git_object_verified": true,
+  "tree_archive_included": false,
+  "diff_patch_included": true,
+  "changed_files_manifest_included": true,
+  "receipts_manifest_included": true,
+  "sha256sums_included": true,
+  "bundle_sha256": "9d2174171c0424a96f3760a900291cb0244097a06dc151d4ce301c7cb5fdc899",
+  "caps_triggered": [
+    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
+  ]
+}

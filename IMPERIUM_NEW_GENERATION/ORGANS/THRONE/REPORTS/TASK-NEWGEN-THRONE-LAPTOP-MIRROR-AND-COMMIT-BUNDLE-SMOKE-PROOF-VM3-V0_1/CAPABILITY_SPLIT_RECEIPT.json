@@ -1,0 +1,27 @@
+{
+  "schema_version": "CAPABILITY_SPLIT_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "local_script_first": [
+    "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_bundle_smoke_v0_1.py",
+    "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_index_v0_1.py"
+  ],
+  "local_manual_command": [
+    "ssh BatchMode probe to owner@192.168.0.18",
+    "scp temporary git bundle to Throne inbox",
+    "git clone --mirror or fetch on Throne laptop",
+    "sha256sum -c for local and remote smoke bundle"
+  ],
+  "candidate_script_first": [
+    "Future validator can promote this smoke exporter into canon Throne bundle skill."
+  ],
+  "agent_reasoning_only": [
+    "Final red-team downgrade text and owner-facing Russian summary."
+  ],
+  "external_research": [],
+  "owner_manual_confirmation": [],
+  "future_capability_gap": [
+    "Tree archive omitted from committed smoke bundle by prototype cap.",
+    "Custodes admission remains future-only.",
+    "No public IDE/WARP runtime release in this task."
+  ]
+}

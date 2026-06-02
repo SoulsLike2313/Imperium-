@@ -190,7 +190,7 @@
     },
     {
       "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
-      "status": "NEXT_EXPECTED",
+      "status": "REGISTERED",
       "registered_at_utc": "2026-06-02T18:17:44Z",
       "source_zip_sha256": "c9508e3ece23f7e94c16521cc458a16fadd18e3107d0316de233748ecc08a4df",
       "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_ORGAN_FOUNDATION_SSH_GIT_TRUTH_AND_COMMIT_BUNDLE_PLAN_VM3_V0_1.zip",
@@ -199,7 +199,7 @@
       "extracted_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EXTRACTED",
       "route_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
       "admission_receipt_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json",
-      "current_expected": true,
+      "current_expected": false,
       "owner_launch_phrase": "start task",
       "expected_start_head": "",
       "target_contour": "VM3",
@@ -271,6 +271,23 @@
       "owner_launch_phrase": "start task",
       "expected_start_head": "",
       "target_contour": "PC",
+      "notes": "Registered via Stage2 Astronomicon intake corridor."
+    },
+    {
+      "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+      "status": "NEXT_EXPECTED",
+      "registered_at_utc": "2026-06-02T18:57:40Z",
+      "source_zip_sha256": "28d9ed20a0e51dadf2c13959450e4ddf9dd6fc0ca5de8f4b3270e417ed660ad0",
+      "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_LAPTOP_MIRROR_AND_COMMIT_BUNDLE_SMOKE_PROOF_VM3_V0_1.zip",
+      "registered_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+      "taskpack_zip_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK.zip",
+      "extracted_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/EXTRACTED",
+      "route_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
+      "admission_receipt_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1/TASKPACK_ADMISSION_RECEIPT.json",
+      "current_expected": true,
+      "owner_launch_phrase": "start task",
+      "expected_start_head": "",
+      "target_contour": "",
       "notes": "Registered via Stage2 Astronomicon intake corridor."
     }
   ]

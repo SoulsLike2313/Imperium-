@@ -1,0 +1,255 @@
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
+index d5630171..45443d78 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/CLAIM_LEDGER.jsonl
+@@ -4,4 +4,4 @@
+ {"claim_id":"C04","claim":"SSH-only local-network operation is explicitly written and no SSH probe was used.","owner_organ":"THRONE","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["SSH_ONLY_LOCAL_NETWORK_POLICY.md","ssh_only_policy_receipt.json","ssh_probe_not_used_receipt.json"],"cap":"CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK","red_team_status":"RESISTED_WITH_CAP"}
+ {"claim_id":"C05","claim":"Required JSON schemas exist and validate as Draft7 schemas.","owner_organ":"MECHANICUS","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["json_schema_validation_receipt.json"],"cap":null,"red_team_status":"RESISTED"}
+ {"claim_id":"C06","claim":"Read-only commit index prototype ran and wrote a sample index receipt.","owner_organ":"MECHANICUS","capability_class":"LOCAL_SCRIPT_FIRST","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["sample_commit_index_receipt.json","commit_index_contract_receipt.json"],"cap":null,"red_team_status":"RESISTED"}
+-{"claim_id":"C07","claim":"Non-BLOCK result will be committed, pushed, and verified after push.","owner_organ":"ADMINISTRATUM","capability_class":"LOCAL_MANUAL_COMMAND","evidence_level":"E0_PENDING","evidence":["commit_push_receipt.json"],"cap":"CAP_EXTERNAL_FINALIZATION_PENDING","red_team_status":"DOWNGRADED_UNTIL_POST_PUSH"}
++{"claim_id":"C07","claim":"Non-BLOCK artifact result was committed, pushed, and verified after push.","owner_organ":"ADMINISTRATUM","capability_class":"LOCAL_MANUAL_COMMAND","evidence_level":"E3_EXECUTED_BEHAVIOR","evidence":["commit_push_receipt.json"],"cap":null,"red_team_status":"RESISTED_WITH_POST_PUSH_PROOF"}
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
+index 9b9b59bb..994c9a8d 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EVIDENCE_BOUNDARY.json
+@@ -1,7 +1,7 @@
+ {
+   "schema_version": "EVIDENCE_BOUNDARY_V0_1",
+   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+-  "timestamp_utc": "2026-06-02T18:31:01Z",
++  "timestamp_utc": "2026-06-02T18:41:50Z",
+   "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
+   "branch": "master",
+   "head_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+@@ -26,6 +26,11 @@
+       "id": "E04",
+       "level": "E3_EXECUTED_BEHAVIOR",
+       "source": "git cat-file local object proof for start HEAD"
++    },
++    {
++      "id": "E05",
++      "level": "E3_EXECUTED_BEHAVIOR",
++      "source": "artifact commit push proof: local HEAD equals ls-remote origin refs/heads/master at 6b730f1be4b207847287868b2e58b8ef1801641e"
+     }
+   ],
+   "excluded_evidence": [
+@@ -38,8 +43,6 @@
+       "reason": "No laptop or PC SSH state was collected."
+     }
+   ],
+-  "pending_evidence": [
+-    "Post-commit push receipt",
+-    "Final origin/master == HEAD runtime proof"
+-  ]
++  "pending_evidence": [],
++  "closure_note": "The finalization receipt commit cannot embed its own commit hash without changing that hash. Final HEAD and remote equality are therefore verified by runtime closure commands after the finalization commit push."
+ }
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
+index 7c25e7cf..20165b15 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/FINAL_REPORT.md
+@@ -1,11 +1,12 @@
+ # Final Report
+ 
+ TASK_ID: TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1
+-VERDICT: PASS_WITH_WARNINGS_PENDING_PUSH
++VERDICT: PASS_WITH_WARNINGS
+ HEAD_START: 1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860
+-HEAD_FINAL: PENDING_POST_COMMIT_PUSH
+-REMOTE_SYNC: PENDING_POST_COMMIT_PUSH
+-WORKTREE_CLEAN: PENDING_POST_COMMIT_PUSH
++HEAD_ARTIFACT: 6b730f1be4b207847287868b2e58b8ef1801641e
++HEAD_FINALIZATION_RECEIPT: SELF_HEAD_PROOF_BY_CLOSURE_COMMANDS
++REMOTE_SYNC: ARTIFACT_COMMIT_VERIFIED_PUSHED
++WORKTREE_CLEAN: VERIFIED_AFTER_ARTIFACT_PUSH_BEFORE_FINALIZATION_RECEIPT
+ 
+ ## Summary
+ 
+@@ -44,7 +45,7 @@ Custodes is explicitly future-only. Throne prepares handoff fields but does not
+ 
+ ## Matrix Spine Hard Mode candidate
+ 
+-This task carries Stage1 warnings and records capability split, evidence boundary, claim ledger, and hard red-team verdict. Clean finalization depends on post-push verification to avoid self-head paradox.
++This task carries Stage1 warnings and records capability split, evidence boundary, claim ledger, and hard red-team verdict. Artifact commit push was verified against `origin/master`; the finalization receipt commit is closed by runtime HEAD/remote equality commands after push.
+ 
+ ## Checks
+ 
+@@ -52,6 +53,8 @@ This task carries Stage1 warnings and records capability split, evidence boundar
+ - `throne_commit_index_v0_1.py`: PASS
+ - `git cat-file -e HEAD^{commit}`: PASS
+ - `git rev-parse origin/master`: matched starting HEAD before implementation
++- `git push origin master`: PASS for artifact commit
++- `git ls-remote origin refs/heads/master`: matched artifact commit after push
+ 
+ ## Caps carried
+ 
+@@ -61,4 +64,3 @@ This task carries Stage1 warnings and records capability split, evidence boundar
+ - `CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK`
+ - `CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK`
+ - `CAP_CODEX_CLI_BRIDGE_NOT_IMPLEMENTED_IN_THIS_TASK`
+-- `CAP_EXTERNAL_FINALIZATION_PENDING`
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
+index 3615892d..e6b96e9d 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/RED_TEAM_VERDICT.json
+@@ -1,8 +1,8 @@
+ {
+   "schema_version": "RED_TEAM_VERDICT_V0_1",
+   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+-  "timestamp_utc": "2026-06-02T18:31:01Z",
+-  "mode": "PRE_COMMIT_BUILDER_RED_TEAM",
++  "timestamp_utc": "2026-06-02T18:41:50Z",
++  "mode": "POST_ARTIFACT_PUSH_RED_TEAM",
+   "builder_claims_attacked": [
+     {
+       "claim_id": "C01",
+@@ -30,18 +30,17 @@
+     {
+       "claim_id": "C07",
+       "attack": "Commit/push truth cannot be clean before a post-push command verifies origin/master.",
+-      "result": "DOWNGRADED_UNTIL_POST_PUSH",
+-      "downgrade_needed": true,
++      "result": "RESISTED_WITH_POST_PUSH_PROOF",
++      "downgrade_needed": false,
+       "counter_evidence": [
+         "commit_push_receipt.json"
+-      ],
+-      "cap_carried": "CAP_EXTERNAL_FINALIZATION_PENDING"
++      ]
+     }
+   ],
+   "dirty_provenance_review": {
+     "initial_dirty_state": "Task registration files plus registered taskpack.",
+     "unrelated_dirty_state_found": false,
+-    "current_task_outputs_dirty": true
++    "current_task_outputs_dirty_after_artifact_push": false
+   },
+   "fake_green_flags_reviewed": [
+     "CLAIM_WITHOUT_REPLAY",
+@@ -53,9 +52,8 @@
+   "caps_triggered": [
+     "CAP_STAGE1_WITH_WARNINGS_ONLY",
+     "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+-    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
+-    "CAP_EXTERNAL_FINALIZATION_PENDING"
++    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
+   ],
+-  "final_verdict": "PASS_WITH_WARNINGS_PENDING_PUSH",
++  "final_verdict": "PASS_WITH_WARNINGS",
+   "clean_pass_allowed": false
+ }
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
+index 5a45b263..35020fab 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/commit_push_receipt.json
+@@ -1,24 +1,22 @@
+ {
+   "schema_version": "THRONE_COMMIT_PUSH_RECEIPT_V0_1",
+   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+-  "step": "pre_commit_placeholder",
+-  "generated_at_utc": "2026-06-02T18:31:01Z",
++  "step": "post_artifact_push_verification",
++  "generated_at_utc": "2026-06-02T18:41:50Z",
+   "branch": "master",
+   "last_verified_head_before_this_commit": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+-  "receipt_subject_head": "",
+-  "artifact_bundle_head": "",
+-  "artifact_bundle_commit_url": "",
+-  "external_delivery_head": "",
+-  "remote_head_after_push": "",
+-  "push_attempted": false,
+-  "push_status": "PENDING",
+-  "worktree_clean_after_push": false,
+-  "origin_master_sync_after_push": false,
+-  "verification_method": "PENDING_POST_COMMIT_PUSH",
++  "receipt_subject_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "artifact_bundle_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "artifact_bundle_commit_url": "https://github.com/SoulsLike2313/Imperium-/commit/6b730f1be4b207847287868b2e58b8ef1801641e",
++  "external_delivery_head": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "remote_head_after_push": "6b730f1be4b207847287868b2e58b8ef1801641e",
++  "push_attempted": true,
++  "push_status": "PASS",
++  "worktree_clean_after_push": true,
++  "origin_master_sync_after_push": true,
++  "verification_method": "git push origin master; git rev-parse HEAD; git ls-remote origin refs/heads/master; git status --porcelain=v1",
+   "self_head_paradox_handled": true,
+-  "caps_triggered": [
+-    "CAP_EXTERNAL_FINALIZATION_PENDING"
+-  ],
+-  "clean_pass_allowed": false,
+-  "note": "This placeholder is expected to be replaced in a follow-up finalization receipt after the artifact bundle commit is pushed."
++  "caps_triggered": [],
++  "clean_pass_allowed": true,
++  "note": "This receipt proves the artifact bundle commit was pushed. The follow-up receipt commit cannot embed its own final hash; final HEAD and remote equality are verified by closure commands after that commit is pushed."
+ }
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
+index a11cbd46..2bff43a6 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/json_schema_validation_receipt.json
+@@ -1,6 +1,6 @@
+ {
+   "schema_version": "THRONE_FOUNDATION_VALIDATION_RECEIPT_V0_1",
+-  "generated_at_utc": "2026-06-02T18:39:18Z",
++  "generated_at_utc": "2026-06-02T18:43:07Z",
+   "status": "PASS",
+   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
+   "checked_files": 43,
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
+index 3349a656..b6c991df 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/owner_audit_card.md
+@@ -7,14 +7,14 @@
+ | Input type | Registered Astronomicon taskpack |
+ | Reviewed target | Throne organ foundation candidate |
+ | Role mode | Servitor build plus hard red-team |
+-| Evidence boundary | Local files, schemas, validators, git object proof, pending post-push proof |
++| Evidence boundary | Local files, schemas, validators, git object proof, artifact post-push proof |
+ 
+ ## 2. Quick verdict
+ 
+ | Field | Value |
+ |---|---|
+-| Verdict | PASS_WITH_WARNINGS_PENDING_PUSH |
+-| Clean PASS allowed | No before post-push sync proof |
++| Verdict | PASS_WITH_WARNINGS |
++| Clean PASS allowed | No; Stage1, laptop runtime, and Custodes caps remain |
+ | Main accepted value | Throne now has organ foundation, contracts, schemas, and read-only index prototype |
+ | Main blocker | Laptop runtime and Custodes are intentionally not implemented |
+ | Next task | TASK-NEWGEN-THRONE-SSH-GIT-MIRROR-AND-COMMIT-BUNDLE-SKILL-LAPTOP-V0_1 |
+@@ -33,10 +33,10 @@
+ 
+ | Point | Comment |
+ |---|---|
+-| Cleanliness | Initial dirty state is task-registration scoped; final clean state requires post-push verification |
++| Cleanliness | Initial dirty state is task-registration scoped; artifact commit push is verified |
+ | Fake-green risk | Custodes and laptop runtime are explicitly capped |
+ | Discipline | GitHub URL is optional and not treated as stronger than local object proof |
+-| Required correction | Replace pending commit_push_receipt after artifact commit is pushed |
++| Required correction | Finalization commit requires runtime HEAD/remote equality proof after push |
+ 
+ ## 5. Speculum comments
+ 
+@@ -53,7 +53,7 @@
+ |---|---:|---|
+ | Laptop runtime not provisioned | Medium | Run laptop mirror and bundle skill task |
+ | Custodes absent | Medium | Run Custodes foundation after Throne evidence stabilizes |
+-| Post-push proof pending | High until push | Commit, push, verify origin/master |
++| Finalization self-head proof | Medium until closure | Push finalization commit and verify origin/master |
+ 
+ ## 7. KPI / KPD
+ 
+diff --git a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
+index 48db714d..4a21a6a3 100644
+--- a/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
++++ b/IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/throne_foundation_receipt.json
+@@ -1,8 +1,8 @@
+ {
+   "schema_version": "THRONE_FOUNDATION_RECEIPT_V0_1",
+   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+-  "timestamp_utc": "2026-06-02T18:31:01Z",
+-  "status": "PASS_WITH_WARNINGS_PENDING_PUSH",
++  "timestamp_utc": "2026-06-02T18:41:50Z",
++  "status": "PASS_WITH_WARNINGS",
+   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
+   "created_foundation_files": [
+     "ORGAN_MANIFEST.json",

@@ -1,0 +1,25 @@
+{
+  "schema_version": "EXTERNAL_FINALIZATION_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "receipt_subject_head": "PENDING_ARTIFACT_COMMIT",
+  "last_verified_head_before_this_commit": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "receipt_content_head": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "external_delivery_head": "PENDING_ARTIFACT_COMMIT_PUSH",
+  "remote_head_after_push": "PENDING_ARTIFACT_COMMIT_PUSH",
+  "followup_finalization_receipt_head": "PENDING_AFTER_ARTIFACT_COMMIT",
+  "verification_timestamp_utc": "2026-06-02T19:17:27Z",
+  "verification_actor": "Codex Servitor VM3",
+  "worktree_clean_after_push": false,
+  "origin_master_sync_after_push": false,
+  "verification_method": "pre-commit receipt; will be updated after artifact commit push",
+  "self_head_paradox_handled": true,
+  "commit_performed": false,
+  "push_performed": false,
+  "block_reason_class": "PENDING_COMMIT_PUSH",
+  "owner_action_required": false,
+  "owner_question_or_instruction": "",
+  "caps_triggered": [
+    "CAP_EXTERNAL_FINALIZATION_PENDING_UNTIL_COMMIT_PUSH"
+  ],
+  "clean_pass_allowed": false
+}

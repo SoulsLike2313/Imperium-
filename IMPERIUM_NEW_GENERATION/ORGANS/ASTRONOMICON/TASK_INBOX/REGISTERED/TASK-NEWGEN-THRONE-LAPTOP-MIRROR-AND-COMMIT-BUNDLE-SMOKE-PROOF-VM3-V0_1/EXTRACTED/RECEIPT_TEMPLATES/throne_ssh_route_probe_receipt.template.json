@@ -1,0 +1,13 @@
+{
+  "timestamp_utc": "",
+  "source_contour": "VM3",
+  "target": "THRONE_LAPTOP",
+  "route_attempted": true,
+  "route_mode": "DIRECT_OR_BRIDGE_OR_BLOCKED",
+  "host_hint": "192.168.0.18",
+  "user_hint": "owner",
+  "alias_used": "",
+  "ssh_probe_verdict": "PASS_OR_BLOCK",
+  "credentials_exported": false,
+  "warnings": []
+}

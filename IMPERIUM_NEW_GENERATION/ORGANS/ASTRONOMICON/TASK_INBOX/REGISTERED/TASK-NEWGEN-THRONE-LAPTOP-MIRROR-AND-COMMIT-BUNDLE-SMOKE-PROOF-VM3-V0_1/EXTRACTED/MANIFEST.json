@@ -1,0 +1,54 @@
+{
+  "manifest_version": "TASKPACK_MANIFEST_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "title": "Throne laptop mirror and commit bundle smoke proof",
+  "step_name": "THRONE LAPTOP MIRROR AND COMMIT BUNDLE SMOKE PROOF",
+  "contour": "VM3",
+  "created_utc": "2026-06-02T18:56:59Z",
+  "taskpack_type": "IMPERIUM_NEW_GENERATION_TASKPACK",
+  "organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "MECHANICUS",
+    "INQUISITION",
+    "STRATEGIUM",
+    "SCHOLA_IMPERIALIS"
+  ],
+  "language_and_encoding_policy": {
+    "taskpack_internal_files": "ENGLISH_UTF8_NO_BOM_ONLY",
+    "canonical_repo_artifacts": "ENGLISH_UTF8_NO_BOM_ONLY",
+    "owner_facing_russian_runtime_output": {
+      "allowed": true,
+      "authority": "OFFICIO_AGENTIS",
+      "scope": "runtime_owner_facing_only"
+    },
+    "cyrillic_in_taskpack": "FORBIDDEN",
+    "localization_exception": "NONE"
+  },
+  "scope": {
+    "allowed_root": "IMPERIUM_NEW_GENERATION",
+    "forbidden": [
+      "IDE runtime release",
+      "WARP runtime implementation",
+      "public server exposure",
+      "credential export or private key copy into repository",
+      "Custodes implementation unless explicitly scoped",
+      "destructive rewrite of existing task registries"
+    ],
+    "purpose": "Throne laptop mirror and commit bundle smoke proof"
+  },
+  "expected_caps_carried": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME"
+  ],
+  "required_root_files": [
+    "MANIFEST.json",
+    "TASK_SPEC.md",
+    "ACCEPTANCE_GATES.md",
+    "OUTPUT_REQUIREMENTS.md",
+    "START_HERE.md"
+  ]
+}

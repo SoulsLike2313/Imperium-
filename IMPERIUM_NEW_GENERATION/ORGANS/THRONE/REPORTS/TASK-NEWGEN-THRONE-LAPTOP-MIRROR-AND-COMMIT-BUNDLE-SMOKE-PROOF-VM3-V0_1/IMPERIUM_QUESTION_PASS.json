@@ -1,0 +1,22 @@
+{
+  "schema_version": "IMPERIUM_QUESTION_PASS_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "questions": [
+    {
+      "question": "What is the source of truth for the live route claim?",
+      "answer": "SSH probe returned THRONE_SSH_OK from owner@192.168.0.18."
+    },
+    {
+      "question": "What proves local git truth on Throne?",
+      "answer": "Remote bare mirror head equals target commit and git cat-file verifies the commit object."
+    },
+    {
+      "question": "What proves bundle export?",
+      "answer": "Throne-side exporter wrote manifest, metadata, diff, changed files, receipts and SHA256 sums; local and remote sha256sum -c passed."
+    },
+    {
+      "question": "What blocks clean PASS?",
+      "answer": "Global Stage1/IDE/WARP caps remain and tree archive is omitted in prototype smoke bundle."
+    }
+  ]
+}

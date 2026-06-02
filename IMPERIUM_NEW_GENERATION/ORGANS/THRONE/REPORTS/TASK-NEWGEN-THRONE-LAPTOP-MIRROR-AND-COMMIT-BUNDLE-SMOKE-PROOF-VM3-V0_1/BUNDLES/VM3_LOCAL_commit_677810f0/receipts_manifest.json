@@ -1,0 +1,12 @@
+{
+  "schema_version": "THRONE_RECEIPTS_MANIFEST_V0_1",
+  "generated_at_utc": "2026-06-02T19:14:45Z",
+  "commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "files": [
+    "commit_metadata.json",
+    "changed_files_manifest.json",
+    "git_show.txt",
+    "diff.patch",
+    "tree_archive_omission_reason.txt"
+  ]
+}

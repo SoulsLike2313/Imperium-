@@ -1,0 +1,54 @@
+{
+  "schema_version": "INQUISITION_RED_TEAM_VERDICT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "generated_at_utc": "2026-06-02T19:18:08Z",
+  "mode": "HARD_RED_TEAM_CLOSURE_GATE",
+  "local_step_verdict": "PASS_WITH_WARNINGS",
+  "clean_pass_allowed": false,
+  "final_verdict": "PASS_WITH_WARNINGS_PENDING_GIT_CLOSURE",
+  "attacks": [
+    {
+      "attack": "Could the route be fake?",
+      "finding": "SSH probe returned marker and later remote git commands executed on owner@192.168.0.18.",
+      "downgrade": null
+    },
+    {
+      "attack": "Could the mirror proof be local-only?",
+      "finding": "Commit object was verified using git on Throne laptop bare mirror path after scp bundle transfer.",
+      "downgrade": null
+    },
+    {
+      "attack": "Could the bundle be stale or mismatched?",
+      "finding": "Bundle manifest commit equals verified target commit and sha256 checks passed both remotely and locally.",
+      "downgrade": null
+    },
+    {
+      "attack": "Could credentials have leaked?",
+      "finding": "No key contents or tokens were read, copied, or committed; receipts record only host/user/paths.",
+      "downgrade": null
+    },
+    {
+      "attack": "Could clean PASS hide missing tree archive?",
+      "finding": "Tree archive omitted and explicitly capped.",
+      "downgrade": "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
+    },
+    {
+      "attack": "Could global capabilities be overclaimed?",
+      "finding": "IDE/WARP/Custodes remain carried caps and are not claimed.",
+      "downgrade": "CAP_STAGE1_WITH_WARNINGS_ONLY"
+    },
+    {
+      "attack": "Could commit/push be fake green?",
+      "finding": "Git closure is pending until artifact commit and follow-up receipt update.",
+      "downgrade": "CAP_EXTERNAL_FINALIZATION_PENDING_UNTIL_COMMIT_PUSH"
+    }
+  ],
+  "caps_active": [
+    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE",
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_EXTERNAL_FINALIZATION_PENDING_UNTIL_COMMIT_PUSH"
+  ],
+  "required_followup_before_final_owner_claim": "Commit/push artifacts and update commit_push_receipt.json."
+}

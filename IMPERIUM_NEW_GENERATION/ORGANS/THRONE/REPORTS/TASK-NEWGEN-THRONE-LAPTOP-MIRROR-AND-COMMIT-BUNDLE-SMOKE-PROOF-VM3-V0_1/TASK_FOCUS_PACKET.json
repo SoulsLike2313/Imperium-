@@ -1,0 +1,44 @@
+{
+  "schema_version": "TASK_FOCUS_PACKET_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-LAPTOP-MIRROR-AND-COMMIT-BUNDLE-SMOKE-PROOF-VM3-V0_1",
+  "intent": "Produce first live SSH-only Throne laptop mirror and commit bundle smoke proof for local git truth.",
+  "allowed_scope": [
+    "IMPERIUM_NEW_GENERATION/ORGANS/THRONE artifacts",
+    "standard task report residue",
+    "safe SSH probe and focused Throne laptop root/mirror/evidence-vault mutation"
+  ],
+  "forbidden_scope": [
+    "public server exposure",
+    "Cloudflare tunnel",
+    "Custodes implementation",
+    "private key/token/credential copy",
+    "destructive registry rewrite",
+    "moving main repo place of life"
+  ],
+  "target_contour": "VM3 to THRONE_LAPTOP over local SSH",
+  "target_commit_sha": "677810f03f64eb8ffdbf02573bd7ac90cad5dd0e",
+  "acceptance_gates": [
+    "route status explicit",
+    "SSH probe receipt exists",
+    "git mirror smoke receipt exists",
+    "commit object verified on Throne if route live",
+    "bundle manifest and SHA256 exist",
+    "Mechanicus validation receipt exists",
+    "Inquisition red-team verdict exists",
+    "git closure receipt exists"
+  ],
+  "carried_caps": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME"
+  ],
+  "local_caps": [
+    "CAP_TREE_ARCHIVE_OMITTED_PROTOTYPE_SMOKE"
+  ],
+  "stop_conditions": [
+    "secret copying would be required",
+    "destructive laptop/repo operation would be required",
+    "safe route cannot be determined and no useful receipt can be produced"
+  ],
+  "evidence_boundary": "Receipts and copied Throne-produced bundle under this report folder; remote laptop paths are recorded without secrets."
+}

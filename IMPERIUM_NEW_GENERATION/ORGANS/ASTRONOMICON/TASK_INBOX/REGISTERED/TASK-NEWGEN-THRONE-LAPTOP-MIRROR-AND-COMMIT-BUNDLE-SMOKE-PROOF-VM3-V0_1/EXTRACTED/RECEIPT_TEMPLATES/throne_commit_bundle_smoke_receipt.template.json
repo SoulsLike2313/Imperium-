@@ -1,0 +1,10 @@
+{
+  "timestamp_utc": "",
+  "commit": "",
+  "commit_object_verified": false,
+  "bundle_created": false,
+  "bundle_path": "",
+  "sha256s_path": "",
+  "verdict": "PASS_OR_WARN_OR_BLOCK",
+  "warnings": []
+}
