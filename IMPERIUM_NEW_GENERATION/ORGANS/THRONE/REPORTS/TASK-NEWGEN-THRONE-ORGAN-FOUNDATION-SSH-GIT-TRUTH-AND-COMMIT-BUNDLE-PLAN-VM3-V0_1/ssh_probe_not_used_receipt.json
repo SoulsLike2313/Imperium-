@@ -1,0 +1,14 @@
+{
+  "schema_version": "THRONE_SSH_PROBE_NOT_USED_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "probe_used": false,
+  "source_contour": "VM3",
+  "target_host_alias": "",
+  "commands_attempted": [],
+  "commands_succeeded": [],
+  "commands_failed": [],
+  "mutation_performed": false,
+  "private_data_collected": false,
+  "safety_note": "Task is foundation and contract work. No safe PC or laptop access details were required or used."
+}

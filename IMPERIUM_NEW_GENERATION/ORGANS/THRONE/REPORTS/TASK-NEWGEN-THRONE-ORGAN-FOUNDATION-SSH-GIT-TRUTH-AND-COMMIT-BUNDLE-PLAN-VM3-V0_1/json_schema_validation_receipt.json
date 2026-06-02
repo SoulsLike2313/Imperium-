@@ -1,0 +1,14 @@
+{
+  "schema_version": "THRONE_FOUNDATION_VALIDATION_RECEIPT_V0_1",
+  "generated_at_utc": "2026-06-02T18:39:18Z",
+  "status": "PASS",
+  "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
+  "checked_files": 43,
+  "failures": {
+    "missing_required_files": [],
+    "json_parse_failures": [],
+    "schema_failures": [],
+    "encoding_failures": [],
+    "policy_failures": []
+  }
+}

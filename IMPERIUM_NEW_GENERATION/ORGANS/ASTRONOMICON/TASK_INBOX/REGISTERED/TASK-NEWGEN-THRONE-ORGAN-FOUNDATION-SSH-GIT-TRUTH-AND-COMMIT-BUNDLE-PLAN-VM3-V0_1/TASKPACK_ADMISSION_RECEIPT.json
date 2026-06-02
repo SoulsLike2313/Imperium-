@@ -1,0 +1,25 @@
+{
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:17:44Z",
+  "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_THRONE_ORGAN_FOUNDATION_SSH_GIT_TRUTH_AND_COMMIT_BUNDLE_PLAN_VM3_V0_1.zip",
+  "zip_sha256": "c9508e3ece23f7e94c16521cc458a16fadd18e3107d0316de233748ecc08a4df",
+  "admission_verdict": "ADMISSION_PASS",
+  "language_gate_passed": true,
+  "manifest_found": true,
+  "task_id_found": true,
+  "task_spec_found": true,
+  "acceptance_gates_found": true,
+  "output_requirements_found": true,
+  "duplicate_task_id": false,
+  "safe_extraction_path": true,
+  "registered_task_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "extracted_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/EXTRACTED",
+  "route_manifest_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/TASK_ROUTE_MANIFEST.json",
+  "current_expected_task_updated": true,
+  "caps_triggered": [
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_STAGE1_WITH_WARNINGS_ONLY"
+  ],
+  "warnings": []
+}

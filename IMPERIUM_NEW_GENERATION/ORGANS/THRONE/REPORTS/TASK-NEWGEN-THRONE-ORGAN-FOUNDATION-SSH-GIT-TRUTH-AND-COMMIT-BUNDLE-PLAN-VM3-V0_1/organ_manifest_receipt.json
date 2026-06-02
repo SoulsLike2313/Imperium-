@@ -1,0 +1,12 @@
+{
+  "schema_version": "THRONE_ORGAN_MANIFEST_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/ORGAN_MANIFEST.json",
+  "manifest_status": "CANDIDATE_ORGAN_FOUNDATION",
+  "json_parse_status": "PASS",
+  "scope_declared": true,
+  "non_goals_declared": true,
+  "authority_boundary_declared": true,
+  "custodes_future_only": true
+}

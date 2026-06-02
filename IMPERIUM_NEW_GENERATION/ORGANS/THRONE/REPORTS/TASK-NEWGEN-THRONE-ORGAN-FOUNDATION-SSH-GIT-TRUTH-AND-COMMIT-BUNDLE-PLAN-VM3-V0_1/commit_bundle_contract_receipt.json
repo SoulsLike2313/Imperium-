@@ -1,0 +1,13 @@
+{
+  "schema_version": "THRONE_COMMIT_BUNDLE_CONTRACT_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "contract_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/CONTRACTS/COMMIT_EVIDENCE_BUNDLE_CONTRACT.md",
+  "schema_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/SCHEMAS/commit_evidence_bundle_manifest.schema.json",
+  "skill_manifest_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/SKILLS/COMMIT_BUNDLE_SKILL/SKILL_MANIFEST.json",
+  "required_bundle_sections_defined": true,
+  "recipient_boundary_defined": true,
+  "github_url_optional_rule_defined": true,
+  "full_bundle_runtime_implemented": false,
+  "cap_for_runtime_gap": "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK"
+}

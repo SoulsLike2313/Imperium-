@@ -1,0 +1,24 @@
+{
+  "schema_version": "THRONE_COMMIT_PUSH_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "step": "pre_commit_placeholder",
+  "generated_at_utc": "2026-06-02T18:31:01Z",
+  "branch": "master",
+  "last_verified_head_before_this_commit": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "receipt_subject_head": "",
+  "artifact_bundle_head": "",
+  "artifact_bundle_commit_url": "",
+  "external_delivery_head": "",
+  "remote_head_after_push": "",
+  "push_attempted": false,
+  "push_status": "PENDING",
+  "worktree_clean_after_push": false,
+  "origin_master_sync_after_push": false,
+  "verification_method": "PENDING_POST_COMMIT_PUSH",
+  "self_head_paradox_handled": true,
+  "caps_triggered": [
+    "CAP_EXTERNAL_FINALIZATION_PENDING"
+  ],
+  "clean_pass_allowed": false,
+  "note": "This placeholder is expected to be replaced in a follow-up finalization receipt after the artifact bundle commit is pushed."
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "THRONE_COMMIT_INDEX_RECORD_V0_1",
+  "commit_sha": "FULL_SHA",
+  "short_sha": "SHORT_SHA",
+  "parent_sha": "PARENT_SHA_OR_NULL",
+  "commit_datetime_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "branch": "master",
+  "task_id": "TASK_ID_OR_UNKNOWN",
+  "summary": "short human-readable summary",
+  "changed_files_count": 0,
+  "task_group_id": "TASK_ID_OR_COMMIT_SHA",
+  "bundle_available": false,
+  "admission_status": "INDEXED_ONLY"
+}

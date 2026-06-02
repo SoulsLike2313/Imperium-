@@ -1,0 +1,12 @@
+{
+  "schema_version": "THRONE_SSH_ONLY_POLICY_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "policy_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/POLICIES/SSH_ONLY_LOCAL_NETWORK_POLICY.md",
+  "ssh_only_local_network_written": true,
+  "public_server_forbidden": true,
+  "cloudflare_tunnel_forbidden": true,
+  "private_data_collection_forbidden": true,
+  "mutation_requires_receipt": true,
+  "current_task_ssh_probe_required": false
+}

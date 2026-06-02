@@ -1,0 +1,21 @@
+{
+  "schema_version": "STRATEGIUM_EFFICIENCY_DELTA_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "owner_pain_reduced": [
+    "GitHub web commit 404 no longer blocks review when local git object proof exists.",
+    "Future reviewers get a bundle-first contract instead of asking for broad repo context."
+  ],
+  "kpd_estimate": {
+    "task_usefulness": 8,
+    "evidence_strength": 7,
+    "risk_control": 8,
+    "reusability": 8,
+    "overall_kpd": 7.75
+  },
+  "next_strike_recommended": "TASK-NEWGEN-THRONE-SSH-GIT-MIRROR-AND-COMMIT-BUNDLE-SKILL-LAPTOP-V0_1",
+  "caps_affecting_score": [
+    "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
+  ]
+}

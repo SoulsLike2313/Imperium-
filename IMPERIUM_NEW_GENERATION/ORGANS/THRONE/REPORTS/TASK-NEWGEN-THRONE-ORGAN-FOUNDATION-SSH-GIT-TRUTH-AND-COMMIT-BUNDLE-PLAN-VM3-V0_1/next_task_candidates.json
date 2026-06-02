@@ -1,0 +1,32 @@
+{
+  "schema_version": "THRONE_NEXT_TASK_CANDIDATES_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "candidates": [
+    {
+      "task_id": "TASK-NEWGEN-THRONE-SSH-GIT-MIRROR-AND-COMMIT-BUNDLE-SKILL-LAPTOP-V0_1",
+      "purpose": "Provision the laptop Throne contour over SSH, sync git mirror, list commits, and export latest or selected commit bundle.",
+      "recommended_rank": 1
+    },
+    {
+      "task_id": "TASK-NEWGEN-SERVITOR-CODEX-CLI-BRIDGE-PC-ASTRONOMICON-START-TASK-HANDOFF-V0_1",
+      "purpose": "Build first local Codex CLI Servitor bridge so Astronomicon can hand off registered tasks to a CLI Servitor.",
+      "recommended_rank": 2
+    },
+    {
+      "task_id": "TASK-NEWGEN-MATRIX-SPINE-HARD-MODE-STEP-VS-GLOBAL-CAPS-PC-V0_1",
+      "purpose": "Separate step-local clean PASS from global carried caps and compute KPD dynamics from Logos, Inquisition, and Speculum.",
+      "recommended_rank": 3
+    },
+    {
+      "task_id": "TASK-NEWGEN-DECLARATION-OF-ADMISSION-CAMPAIGN-PC-V0_1",
+      "purpose": "Formalize unified Servitor control and admission settings across organs.",
+      "recommended_rank": 4
+    },
+    {
+      "task_id": "TASK-NEWGEN-CUSTODES-ADMISSION-GUARDIAN-FOUNDATION-PC-V0_1",
+      "purpose": "Build strict admission guardian after Throne evidence truth is stable.",
+      "recommended_rank": 5
+    }
+  ]
+}

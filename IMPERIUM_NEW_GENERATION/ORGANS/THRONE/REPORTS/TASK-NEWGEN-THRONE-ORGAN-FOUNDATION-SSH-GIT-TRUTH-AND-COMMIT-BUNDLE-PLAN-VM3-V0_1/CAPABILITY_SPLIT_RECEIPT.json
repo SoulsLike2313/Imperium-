@@ -1,0 +1,36 @@
+{
+  "schema_version": "CAPABILITY_SPLIT_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "LOCAL_SCRIPT_FIRST": [
+    "python3 IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/validate_throne_foundation_v0_1.py --throne-root IMPERIUM_NEW_GENERATION/ORGANS/THRONE --report-path <receipt>",
+    "python3 IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_index_v0_1.py --repo-root . --limit 10 --output <receipt>",
+    "python3 -m json.tool for JSON parse checks",
+    "git cat-file -e <sha>^{commit}"
+  ],
+  "LOCAL_MANUAL_COMMAND": [
+    "git status --porcelain=v1",
+    "git rev-parse HEAD",
+    "git rev-parse origin/master",
+    "git push origin master",
+    "git ls-remote origin refs/heads/master"
+  ],
+  "CANDIDATE_SCRIPT_FIRST": [
+    "THRONE/TOOLS/throne_commit_index_v0_1.py",
+    "THRONE/TOOLS/validate_throne_foundation_v0_1.py"
+  ],
+  "AGENT_REASONING_ONLY": [
+    "Doctrine wording",
+    "Contract boundary mapping",
+    "Owner audit card risk/KPD interpretation",
+    "Red-team attack narrative"
+  ],
+  "EXTERNAL_RESEARCH": [],
+  "OWNER_MANUAL_CONFIRMATION": [],
+  "FUTURE_CAPABILITY_GAP": [
+    "Laptop Throne contour provisioning",
+    "Full bundle export runtime",
+    "Custodes strict admission guardian",
+    "Codex CLI bridge"
+  ]
+}

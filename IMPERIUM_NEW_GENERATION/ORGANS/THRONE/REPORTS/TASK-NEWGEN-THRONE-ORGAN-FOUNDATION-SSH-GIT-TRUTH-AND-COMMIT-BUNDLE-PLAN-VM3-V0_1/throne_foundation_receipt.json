@@ -1,0 +1,49 @@
+{
+  "schema_version": "THRONE_FOUNDATION_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "status": "PASS_WITH_WARNINGS_PENDING_PUSH",
+  "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
+  "created_foundation_files": [
+    "ORGAN_MANIFEST.json",
+    "README.md",
+    "READ_FIRST_GHOST_EVOLVE_PACKET.md",
+    "DOCTRINE/THRONE_DOCTRINE.md",
+    "POLICIES/SSH_ONLY_LOCAL_NETWORK_POLICY.md",
+    "CONTRACTS/THRONE_GIT_TRUTH_CONTRACT.md",
+    "CONTRACTS/COMMIT_INDEX_CONTRACT.md",
+    "CONTRACTS/COMMIT_EVIDENCE_BUNDLE_CONTRACT.md",
+    "CONTRACTS/PRE_CUSTODES_FLOW.md",
+    "CONTRACTS/FUTURE_CUSTODES_ADMISSION_HANDOFF.md",
+    "SCHEMAS/commit_index.schema.json",
+    "SCHEMAS/commit_evidence_bundle_manifest.schema.json",
+    "SCHEMAS/task_commit_group.schema.json",
+    "SCHEMAS/admission_truth_record.schema.json",
+    "SKILLS/COMMIT_BUNDLE_SKILL/SKILL_MANIFEST.json",
+    "SKILLS/COMMIT_BUNDLE_SKILL/README.md",
+    "TUI/THRONE_TUI_V0_1_SPEC.md",
+    "CONFIG/throne_contour_profile.template.json",
+    "TOOLS/throne_commit_index_v0_1.py",
+    "TOOLS/validate_throne_foundation_v0_1.py"
+  ],
+  "owned_scope_limited_to": [
+    "local git truth",
+    "commit object verification",
+    "commit index",
+    "task/commit grouping",
+    "admission truth records",
+    "evidence bundle export"
+  ],
+  "custodes_implemented": false,
+  "public_exposure_created": false,
+  "ssh_probe_used": false,
+  "validation_receipts": [
+    "json_schema_validation_receipt.json",
+    "sample_commit_index_receipt.json"
+  ],
+  "caps_triggered": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
+  ]
+}

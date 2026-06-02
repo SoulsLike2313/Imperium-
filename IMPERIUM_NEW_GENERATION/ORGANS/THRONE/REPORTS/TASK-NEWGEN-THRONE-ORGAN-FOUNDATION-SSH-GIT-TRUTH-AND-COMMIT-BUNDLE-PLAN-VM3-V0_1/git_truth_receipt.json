@@ -1,0 +1,17 @@
+{
+  "schema_version": "THRONE_GIT_TRUTH_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
+  "branch": "master",
+  "head_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "origin_master_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "head_object_verified": true,
+  "verification_command": "git cat-file -e HEAD^{commit}",
+  "github_url_checked": false,
+  "github_url_status": "NOT_CHECKED",
+  "github_url_authority": "OPTIONAL_PRESENTATION_ONLY",
+  "local_git_truth_authoritative": true,
+  "worktree_dirty_at_build": true,
+  "dirty_state_classification": "TASK_REGISTRATION_AND_CURRENT_TASK_OUTPUTS"
+}

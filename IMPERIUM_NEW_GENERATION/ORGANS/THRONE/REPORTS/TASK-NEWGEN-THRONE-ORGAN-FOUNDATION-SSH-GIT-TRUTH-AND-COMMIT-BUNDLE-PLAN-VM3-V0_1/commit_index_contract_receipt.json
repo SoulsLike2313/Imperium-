@@ -1,0 +1,12 @@
+{
+  "schema_version": "THRONE_COMMIT_INDEX_CONTRACT_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "contract_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/CONTRACTS/COMMIT_INDEX_CONTRACT.md",
+  "schema_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/SCHEMAS/commit_index.schema.json",
+  "prototype_tool_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/TOOLS/throne_commit_index_v0_1.py",
+  "sample_receipt_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/REPORTS/TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1/sample_commit_index_receipt.json",
+  "record_fields_defined": true,
+  "fake_green_rules_included": true,
+  "replay_command_included": true
+}

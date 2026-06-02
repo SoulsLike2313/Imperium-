@@ -1,0 +1,45 @@
+{
+  "schema_version": "EVIDENCE_BOUNDARY_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "repo_root": "/home/vboxuser3/IMPERIUM_WORK/Imperium-",
+  "branch": "master",
+  "head_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "origin_master_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "accepted_evidence": [
+    {
+      "id": "E01",
+      "level": "E1_FILE_EXISTS",
+      "source": "Throne foundation paths created under IMPERIUM_NEW_GENERATION/ORGANS/THRONE"
+    },
+    {
+      "id": "E02",
+      "level": "E3_EXECUTED_BEHAVIOR",
+      "source": "validate_throne_foundation_v0_1.py PASS receipt"
+    },
+    {
+      "id": "E03",
+      "level": "E3_EXECUTED_BEHAVIOR",
+      "source": "throne_commit_index_v0_1.py PASS sample commit index receipt"
+    },
+    {
+      "id": "E04",
+      "level": "E3_EXECUTED_BEHAVIOR",
+      "source": "git cat-file local object proof for start HEAD"
+    }
+  ],
+  "excluded_evidence": [
+    {
+      "id": "X01",
+      "reason": "GitHub URL availability is not used as local truth proof."
+    },
+    {
+      "id": "X02",
+      "reason": "No laptop or PC SSH state was collected."
+    }
+  ],
+  "pending_evidence": [
+    "Post-commit push receipt",
+    "Final origin/master == HEAD runtime proof"
+  ]
+}

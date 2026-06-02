@@ -1,0 +1,61 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://imperium.local/schemas/throne/task_commit_group.schema.json",
+  "title": "Throne Task Commit Group",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "task_group_id",
+    "task_id",
+    "branch",
+    "selected_commit_shas",
+    "grouping_basis",
+    "bundle_recommendation",
+    "admission_claim_allowed"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "THRONE_TASK_COMMIT_GROUP_V0_1"
+    },
+    "task_group_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selected_commit_shas": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[0-9a-f]{40}$"
+      }
+    },
+    "grouping_basis": {
+      "enum": [
+        "TASK_ID_IN_COMMIT_MESSAGE",
+        "REPORT_PATH_MATCH",
+        "OWNER_SELECTED",
+        "MANUAL_REVIEW_SELECTED"
+      ]
+    },
+    "bundle_recommendation": {
+      "enum": [
+        "LATEST_COMMIT",
+        "FULL_TASK_GROUP",
+        "SELECTED_COMMITS"
+      ]
+    },
+    "admission_claim_allowed": {
+      "type": "boolean",
+      "const": false
+    }
+  }
+}

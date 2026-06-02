@@ -1,0 +1,61 @@
+{
+  "schema_version": "RED_TEAM_VERDICT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "mode": "PRE_COMMIT_BUILDER_RED_TEAM",
+  "builder_claims_attacked": [
+    {
+      "claim_id": "C01",
+      "attack": "A new folder could be only decorative, not an organ.",
+      "result": "RESISTED",
+      "downgrade_needed": false,
+      "counter_evidence": [
+        "ORGAN_MANIFEST.json",
+        "READ_FIRST_GHOST_EVOLVE_PACKET.md",
+        "THRONE_DOCTRINE.md"
+      ]
+    },
+    {
+      "claim_id": "C03",
+      "attack": "The task might smuggle in Custodes by defining admission status values.",
+      "result": "RESISTED_WITH_CAP",
+      "downgrade_needed": false,
+      "counter_evidence": [
+        "FUTURE_CUSTODES_ADMISSION_HANDOFF.md",
+        "admission_truth_record.schema.json",
+        "future_custodes_handoff_receipt.json"
+      ],
+      "cap_carried": "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
+    },
+    {
+      "claim_id": "C07",
+      "attack": "Commit/push truth cannot be clean before a post-push command verifies origin/master.",
+      "result": "DOWNGRADED_UNTIL_POST_PUSH",
+      "downgrade_needed": true,
+      "counter_evidence": [
+        "commit_push_receipt.json"
+      ],
+      "cap_carried": "CAP_EXTERNAL_FINALIZATION_PENDING"
+    }
+  ],
+  "dirty_provenance_review": {
+    "initial_dirty_state": "Task registration files plus registered taskpack.",
+    "unrelated_dirty_state_found": false,
+    "current_task_outputs_dirty": true
+  },
+  "fake_green_flags_reviewed": [
+    "CLAIM_WITHOUT_REPLAY",
+    "AGENT_REASONING_AS_SYSTEM_CAPABILITY",
+    "DIRTY_STATE_HIDDEN",
+    "OWNER_DECISION_MISSING",
+    "SELF_HEAD_PARADOX_UNHANDLED"
+  ],
+  "caps_triggered": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
+    "CAP_EXTERNAL_FINALIZATION_PENDING"
+  ],
+  "final_verdict": "PASS_WITH_WARNINGS_PENDING_PUSH",
+  "clean_pass_allowed": false
+}

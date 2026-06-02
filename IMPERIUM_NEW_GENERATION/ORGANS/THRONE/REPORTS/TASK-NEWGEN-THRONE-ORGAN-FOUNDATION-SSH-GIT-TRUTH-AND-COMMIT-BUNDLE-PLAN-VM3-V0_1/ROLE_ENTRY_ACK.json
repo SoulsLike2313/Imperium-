@@ -1,0 +1,34 @@
+{
+  "schema_version": "IMPERIUM_ROLE_ENTRY_ACK_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "role_mode": "SERVITOR_GHOST_EVOLVE_DEFAULT_EXECUTION",
+  "task_source_boundary": "Registered Astronomicon taskpack plus current repository files; no broad repository read.",
+  "declared_contour": "VM3_PRIMARY_CURRENT_FILES",
+  "branch": "master",
+  "head_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "origin_master_start": "1c435a944ed6fbf8bbe5ef7c24a0b8a29c1c9860",
+  "sources_read": [
+    "AGENTS.md user-provided router",
+    "IMPERIUM_NEW_GENERATION/MATRIX_SPINE/INDEX/MATRIX_SPINE_INDEX.md",
+    "Required organ READ_FIRST_GHOST_EVOLVE_PACKET.md files",
+    "Required organ matrices and contracts",
+    "Strategium and Schola READ_FIRST packets",
+    "Eight organ TASK_PARTICIPATION packets",
+    "Taskpack manifest, route manifest, spec, gates, output requirements, architecture, templates, admission receipt"
+  ],
+  "missing_authorities": [],
+  "new_authority_created": "THRONE candidate authority is created by this task and cannot be treated as pre-existing canon.",
+  "owner_facing_language_contract": "Russian runtime/final Owner-facing text through Officio; machine artifacts remain English UTF-8 no BOM.",
+  "forbidden_claims_acknowledged": [
+    "No Custodes implementation",
+    "No laptop provisioning",
+    "No public server",
+    "No Cloudflare tunnel",
+    "No private data collection",
+    "No GitHub URL as stronger truth than local git object proof",
+    "No clean PASS while dirty/provenance contradiction remains"
+  ],
+  "readiness_to_start": "WARN",
+  "readiness_reason": "Taskpack resolved and all required authorities reachable; initial dirty state is task-registration scoped, but Stage1 caps and post-push proof remain open."
+}

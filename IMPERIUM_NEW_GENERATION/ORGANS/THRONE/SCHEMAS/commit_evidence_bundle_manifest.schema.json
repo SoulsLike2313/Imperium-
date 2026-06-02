@@ -1,0 +1,79 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://imperium.local/schemas/throne/commit_evidence_bundle_manifest.schema.json",
+  "title": "Throne Commit Evidence Bundle Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "commit_sha",
+    "parent_sha",
+    "exported_for",
+    "exported_at_utc",
+    "git_object_verified",
+    "tree_archive_included",
+    "diff_patch_included",
+    "changed_files_manifest_included",
+    "receipts_manifest_included",
+    "sha256sums_included",
+    "bundle_sha256",
+    "caps_triggered"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1"
+    },
+    "commit_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "parent_sha": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "exported_for": {
+      "enum": [
+        "LOGOS_PRIME",
+        "INQUISITION",
+        "SPECULUM",
+        "OWNER",
+        "GENERAL_REVIEW"
+      ]
+    },
+    "exported_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "git_object_verified": {
+      "type": "boolean"
+    },
+    "tree_archive_included": {
+      "type": "boolean"
+    },
+    "diff_patch_included": {
+      "type": "boolean"
+    },
+    "changed_files_manifest_included": {
+      "type": "boolean"
+    },
+    "receipts_manifest_included": {
+      "type": "boolean"
+    },
+    "sha256sums_included": {
+      "type": "boolean"
+    },
+    "bundle_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "caps_triggered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

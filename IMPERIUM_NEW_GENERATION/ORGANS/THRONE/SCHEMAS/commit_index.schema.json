@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://imperium.local/schemas/throne/commit_index.schema.json",
+  "title": "Throne Commit Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "generated_at_utc",
+    "repo_root",
+    "branch",
+    "head",
+    "limit",
+    "records"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "THRONE_COMMIT_INDEX_V0_1"
+    },
+    "generated_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "repo_root": {
+      "type": "string",
+      "minLength": 1
+    },
+    "branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "head": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/commit_index_record"
+      }
+    }
+  },
+  "definitions": {
+    "commit_index_record": {
+      "type": "object",
+      "required": [
+        "schema_version",
+        "commit_sha",
+        "short_sha",
+        "parent_sha",
+        "commit_datetime_utc",
+        "branch",
+        "task_id",
+        "summary",
+        "changed_files_count",
+        "task_group_id",
+        "bundle_available",
+        "admission_status"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "schema_version": {
+          "const": "THRONE_COMMIT_INDEX_RECORD_V0_1"
+        },
+        "commit_sha": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "short_sha": {
+          "type": "string",
+          "minLength": 7,
+          "maxLength": 12
+        },
+        "parent_sha": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "commit_datetime_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1
+        },
+        "task_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "changed_files_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "task_group_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bundle_available": {
+          "type": "boolean"
+        },
+        "admission_status": {
+          "enum": [
+            "INDEXED_ONLY",
+            "BUNDLE_EXPORTED",
+            "REVIEW_REQUESTED",
+            "OWNER_ACCEPTED_WITH_WARNING",
+            "CUSTODES_PENDING",
+            "CUSTODES_REJECTED",
+            "CUSTODES_ACCEPTED"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": "IMPERIUM_QUESTION_PASS_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "questions": [
+    {
+      "question": "What is the source of truth for Throne git claims?",
+      "answer": "Local git object verification plus bundle manifest; GitHub URL is optional presentation evidence.",
+      "owner_organ": "THRONE"
+    },
+    {
+      "question": "Which organ owns language and role output?",
+      "answer": "Officio Agentis owns Owner-facing Russian runtime language; machine artifacts remain English UTF-8 no BOM.",
+      "owner_organ": "OFFICIO_AGENTIS"
+    },
+    {
+      "question": "What cap applies if laptop runtime is missing?",
+      "answer": "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK; it blocks runtime provisioning claims, not foundation contracts.",
+      "owner_organ": "INQUISITION"
+    },
+    {
+      "question": "What would make the task fake-green?",
+      "answer": "Claiming Custodes, claiming GitHub URL authority over local git object proof, hiding dirty state, or claiming push sync before post-push verification.",
+      "owner_organ": "INQUISITION"
+    }
+  ],
+  "open_owner_questions": []
+}

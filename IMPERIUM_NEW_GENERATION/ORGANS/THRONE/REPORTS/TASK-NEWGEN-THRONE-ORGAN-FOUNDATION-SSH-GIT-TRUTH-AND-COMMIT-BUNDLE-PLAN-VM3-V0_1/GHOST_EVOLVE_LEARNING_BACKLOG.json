@@ -1,0 +1,19 @@
+{
+  "schema_version": "SCHOLA_LEARNING_BACKLOG_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "items": [
+    {
+      "lesson_id": "L01",
+      "pattern": "Self-head paradox appears whenever a task requires a commit/push receipt inside the same commit.",
+      "future_checker_candidate": "Require semantic split or follow-up finalization receipt.",
+      "owner_pain_reduced": "Prevents fake clean PASS on commit delivery."
+    },
+    {
+      "lesson_id": "L02",
+      "pattern": "New organ foundation should include a read-first packet and local validator, even when taskpack only lists contracts.",
+      "future_checker_candidate": "Organ foundation skeleton validator.",
+      "owner_pain_reduced": "Makes future organ entry cheaper and less ambiguous."
+    }
+  ]
+}

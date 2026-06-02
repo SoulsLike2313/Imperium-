@@ -1,0 +1,14 @@
+{
+  "schema_version": "THRONE_COMMIT_EVIDENCE_BUNDLE_MANIFEST_V0_1",
+  "commit_sha": "FULL_SHA",
+  "parent_sha": "PARENT_SHA",
+  "exported_for": "LOGOS_PRIME",
+  "exported_at_utc": "YYYY-MM-DDTHH:MM:SSZ",
+  "git_object_verified": true,
+  "tree_archive_included": true,
+  "diff_patch_included": true,
+  "changed_files_manifest_included": true,
+  "receipts_manifest_included": true,
+  "sha256sums_included": true,
+  "bundle_sha256": "SHA256"
+}

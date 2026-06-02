@@ -1,0 +1,67 @@
+{
+  "schema_version": "TASK_FOCUS_PACKET_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "intent": "Create the Throne organ foundation for local SSH-only git/admission truth, commit indexing, task/commit grouping, and commit evidence bundle export.",
+  "allowed_scope": [
+    "Create IMPERIUM_NEW_GENERATION/ORGANS/THRONE foundation files",
+    "Define contracts and schemas",
+    "Create read-only prototype index/checker tools",
+    "Create task receipts and report bundle",
+    "Commit and push completed non-BLOCK result"
+  ],
+  "forbidden_scope": [
+    "Implement Custodes",
+    "Provision laptop runtime",
+    "Mutate PC or laptop state",
+    "Expose public server",
+    "Set up Cloudflare tunnel",
+    "Collect private data"
+  ],
+  "owner_organs": [
+    "THRONE",
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "MECHANICUS",
+    "INQUISITION",
+    "STRATEGIUM",
+    "SCHOLA_IMPERIALIS"
+  ],
+  "required_outputs": [
+    "ORGAN_MANIFEST.json",
+    "README.md",
+    "DOCTRINE/THRONE_DOCTRINE.md",
+    "POLICIES/SSH_ONLY_LOCAL_NETWORK_POLICY.md",
+    "CONTRACTS/*.md",
+    "SCHEMAS/*.schema.json",
+    "SKILLS/COMMIT_BUNDLE_SKILL/*",
+    "TUI/THRONE_TUI_V0_1_SPEC.md",
+    "CONFIG/throne_contour_profile.template.json",
+    "REPORTS/<TASK_ID>/* receipts"
+  ],
+  "evidence_boundary": [
+    "Local file existence",
+    "JSON parse",
+    "JSON Schema Draft7 check",
+    "UTF-8 no BOM and no Cyrillic canonical artifact guard",
+    "Read-only commit index prototype run",
+    "Git object proof for starting HEAD",
+    "Post-commit push and origin/master sync proof"
+  ],
+  "stop_conditions": [
+    "Unrelated dirty state cannot be separated",
+    "Required authority missing",
+    "Invalid JSON or schema",
+    "Push cannot be completed"
+  ],
+  "caps_carried": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
+    "CAP_CODEX_CLI_BRIDGE_NOT_IMPLEMENTED_IN_THIS_TASK"
+  ]
+}

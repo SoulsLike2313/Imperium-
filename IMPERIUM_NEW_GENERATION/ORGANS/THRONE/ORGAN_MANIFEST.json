@@ -1,0 +1,78 @@
+{
+  "schema_version": "THRONE_ORGAN_MANIFEST_V0_1",
+  "organ_id": "THRONE",
+  "organ_name": "Throne",
+  "status": "CANDIDATE_ORGAN_FOUNDATION",
+  "created_by_task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "owner_scope": [
+    "local_git_truth_storage",
+    "commit_object_verification",
+    "commit_indexing",
+    "task_commit_grouping",
+    "admission_truth_records",
+    "commit_evidence_bundle_export",
+    "local_ssh_only_operator_commands_for_commit_evidence"
+  ],
+  "explicit_non_goals": [
+    "public_server",
+    "cloudflare_tunnel",
+    "github_replacement_service",
+    "custodes_runtime_admission_gate",
+    "laptop_provisioning_in_this_task",
+    "private_data_collection"
+  ],
+  "deployment_boundary": {
+    "primary_future_runtime": "owner_laptop",
+    "current_task_contour": "VM3",
+    "network_policy": "SSH_ONLY_LOCAL_NETWORK",
+    "public_exposure_default": false
+  },
+  "authority_boundary": {
+    "does_not_override": [
+      "DOCTRINARIUM",
+      "OFFICIO_AGENTIS",
+      "ASTRONOMICON",
+      "ADMINISTRATUM",
+      "MECHANICUS",
+      "INQUISITION",
+      "STRATEGIUM",
+      "SCHOLA_IMPERIALIS"
+    ],
+    "future_handoff_to": [
+      "CUSTODES"
+    ]
+  },
+  "required_contracts": [
+    "CONTRACTS/THRONE_GIT_TRUTH_CONTRACT.md",
+    "CONTRACTS/COMMIT_INDEX_CONTRACT.md",
+    "CONTRACTS/COMMIT_EVIDENCE_BUNDLE_CONTRACT.md",
+    "CONTRACTS/PRE_CUSTODES_FLOW.md",
+    "CONTRACTS/FUTURE_CUSTODES_ADMISSION_HANDOFF.md"
+  ],
+  "schemas": [
+    "SCHEMAS/commit_index.schema.json",
+    "SCHEMAS/commit_evidence_bundle_manifest.schema.json",
+    "SCHEMAS/task_commit_group.schema.json",
+    "SCHEMAS/admission_truth_record.schema.json"
+  ],
+  "tools": [
+    {
+      "tool_id": "throne_commit_index_v0_1",
+      "path": "TOOLS/throne_commit_index_v0_1.py",
+      "class": "LOCAL_SCRIPT_FIRST",
+      "mode": "read_only"
+    },
+    {
+      "tool_id": "validate_throne_foundation_v0_1",
+      "path": "TOOLS/validate_throne_foundation_v0_1.py",
+      "class": "LOCAL_SCRIPT_FIRST",
+      "mode": "read_only_except_receipt_output"
+    }
+  ],
+  "caps_carried": [
+    "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
+    "CAP_CODEX_CLI_BRIDGE_NOT_IMPLEMENTED_IN_THIS_TASK",
+    "CAP_STAGE1_WITH_WARNINGS_ONLY"
+  ]
+}

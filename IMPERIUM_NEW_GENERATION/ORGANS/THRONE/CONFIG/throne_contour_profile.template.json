@@ -1,0 +1,33 @@
+{
+  "schema_version": "THRONE_CONTOUR_PROFILE_TEMPLATE_V0_1",
+  "contour_id": "OWNER_LAPTOP_LOCAL_SSH",
+  "status": "TEMPLATE_ONLY",
+  "network_policy": "SSH_ONLY_LOCAL_NETWORK",
+  "repo_mirror_path": "/path/to/Imperium-",
+  "allowed_source_hosts": [
+    "OWNER_PC",
+    "OWNER_VM3"
+  ],
+  "ssh": {
+    "host_alias": "throne-local",
+    "port": 22,
+    "user": "owner",
+    "identity_file": "~/.ssh/id_ed25519"
+  },
+  "git": {
+    "remote_name": "origin",
+    "accepted_branch": "master",
+    "fetch_before_index": true
+  },
+  "bundle": {
+    "default_output_root": "/path/to/throne/bundles",
+    "include_tree_archive_by_default": true,
+    "include_changed_file_snapshots_by_default": true
+  },
+  "safety": {
+    "public_exposure_allowed": false,
+    "cloudflare_tunnel_allowed": false,
+    "private_data_collection_allowed": false,
+    "mutation_requires_task_receipt": true
+  }
+}

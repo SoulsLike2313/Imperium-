@@ -1,0 +1,31 @@
+{
+  "schema_version": "THRONE_SKILL_MANIFEST_V0_1",
+  "skill_id": "THRONE_COMMIT_BUNDLE_SKILL",
+  "status": "CANDIDATE_SKILL_CONTRACT",
+  "owner_organ": "THRONE",
+  "purpose": "Export local git commit evidence bundles for IMPERIUM review roles.",
+  "current_task_scope": "contract_only_with_read_only_index_prototype",
+  "future_commands": [
+    "throne bundle latest --for LOGOS_PRIME",
+    "throne bundle commit <SHA> --for INQUISITION",
+    "throne bundle task <TASK_ID> --for SPECULUM"
+  ],
+  "required_inputs": [
+    "repo_root",
+    "commit_sha_or_task_id",
+    "review_recipient"
+  ],
+  "required_outputs": [
+    "commit_evidence_bundle_manifest",
+    "diff_patch",
+    "changed_files_manifest",
+    "receipt_manifest",
+    "sha256sums"
+  ],
+  "fake_green_guards": [
+    "local_git_object_verification_required",
+    "bundle_manifest_required",
+    "recipient_truth_must_not_change",
+    "github_url_optional"
+  ]
+}

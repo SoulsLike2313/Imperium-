@@ -1,0 +1,11 @@
+{
+  "schema_version": "THRONE_PRE_CUSTODES_FLOW_RECEIPT_V0_1",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "timestamp_utc": "2026-06-02T18:31:01Z",
+  "contract_path": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE/CONTRACTS/PRE_CUSTODES_FLOW.md",
+  "servitor_commit_push_flow_defined": true,
+  "throne_fetch_and_local_object_proof_defined": true,
+  "bundle_to_review_roles_defined": true,
+  "github_url_optional_defined": true,
+  "strict_admission_claim_allowed": false
+}

@@ -1,0 +1,59 @@
+{
+  "schema_version": "IMPERIUM_TASKPACK_MANIFEST_V0_4",
+  "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
+  "task_name": "Throne organ foundation, SSH git truth, and commit bundle plan",
+  "task_type": "ORGAN_FOUNDATION_AND_SKILL_CONTRACT",
+  "target_contour": "VM3",
+  "primary_repo_scope": "IMPERIUM_NEW_GENERATION",
+  "execution_mode": "VM3_PRIMARY_WITH_LIMITED_PC_SSH_OPTION",
+  "created_utc": "2026-06-02T18:14:45Z",
+  "language_and_encoding_policy": {
+    "taskpack_internal_files": "ENGLISH_UTF8_NO_BOM",
+    "canonical_repo_artifacts": "ENGLISH_UTF8_NO_BOM",
+    "owner_facing_russian_runtime_output": "ALLOWED_ONLY_THROUGH_OFFICIO_AGENTIS",
+    "cyrillic_in_taskpack": "FORBIDDEN",
+    "localization_exception": "NONE"
+  },
+  "organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "MECHANICUS",
+    "INQUISITION",
+    "STRATEGIUM",
+    "SCHOLA_IMPERIALIS"
+  ],
+  "new_organ_candidate": "THRONE",
+  "future_organ_candidate": "CUSTODES",
+  "required_root_files": [
+    "MANIFEST.json",
+    "TASK_SPEC.md",
+    "ACCEPTANCE_GATES.md",
+    "OUTPUT_REQUIREMENTS.md",
+    "00_START_HERE_SERVITOR.md",
+    "00_START_MESSAGE_FOR_SERVITOR.txt"
+  ],
+  "caps_carried": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
+    "CAP_CODEX_CLI_BRIDGE_NOT_IMPLEMENTED_IN_THIS_TASK"
+  ],
+  "hard_locks": [
+    "NO_PUBLIC_SERVER",
+    "NO_CLOUDFLARE_TUNNEL_IMPLEMENTATION",
+    "NO_IDE_RUNTIME",
+    "NO_WARP_RUNTIME",
+    "NO_REAL_CUSTODES_ADMISSION_GATE",
+    "NO_AUTONOMOUS_PC_MUTATION_WITHOUT_RECEIPT",
+    "NO_PRIVATE_DATA_COLLECTION"
+  ],
+  "operator_notes": {
+    "owner_language": "Russian runtime commentary is allowed through Officio only.",
+    "internal_artifacts": "All committed artifacts must be English UTF-8 no BOM.",
+    "taskpack_registration": "Register through Astronomicon Taskpack Registration Skill. The task runs on VM3. If PC probes are needed, use SSH with receipts."
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://imperium.local/schemas/throne/admission_truth_record.schema.json",
+  "title": "Throne Admission Truth Record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "candidate_commit_sha",
+    "local_git_object_verified",
+    "github_url_status",
+    "bundle_manifest_path",
+    "throne_truth_status",
+    "custodes_admission_status",
+    "known_caps",
+    "created_at_utc"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "THRONE_ADMISSION_TRUTH_RECORD_V0_1"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "candidate_commit_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "local_git_object_verified": {
+      "type": "boolean"
+    },
+    "github_url_status": {
+      "enum": [
+        "NOT_CHECKED",
+        "AVAILABLE",
+        "UNAVAILABLE",
+        "FAILED"
+      ]
+    },
+    "bundle_manifest_path": {
+      "type": "string"
+    },
+    "throne_truth_status": {
+      "enum": [
+        "INDEXED_ONLY",
+        "LOCAL_OBJECT_VERIFIED",
+        "BUNDLE_EXPORTED",
+        "REVIEW_PACKET_READY"
+      ]
+    },
+    "custodes_admission_status": {
+      "enum": [
+        "NOT_IMPLEMENTED",
+        "NOT_EVALUATED",
+        "PENDING",
+        "REJECTED",
+        "ACCEPTED"
+      ]
+    },
+    "known_caps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at_utc": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}
