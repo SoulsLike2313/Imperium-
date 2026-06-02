@@ -7,14 +7,14 @@
 | Input type | Registered Astronomicon taskpack |
 | Reviewed target | Throne organ foundation candidate |
 | Role mode | Servitor build plus hard red-team |
-| Evidence boundary | Local files, schemas, validators, git object proof, pending post-push proof |
+| Evidence boundary | Local files, schemas, validators, git object proof, artifact post-push proof |
 
 ## 2. Quick verdict
 
 | Field | Value |
 |---|---|
-| Verdict | PASS_WITH_WARNINGS_PENDING_PUSH |
-| Clean PASS allowed | No before post-push sync proof |
+| Verdict | PASS_WITH_WARNINGS |
+| Clean PASS allowed | No; Stage1, laptop runtime, and Custodes caps remain |
 | Main accepted value | Throne now has organ foundation, contracts, schemas, and read-only index prototype |
 | Main blocker | Laptop runtime and Custodes are intentionally not implemented |
 | Next task | TASK-NEWGEN-THRONE-SSH-GIT-MIRROR-AND-COMMIT-BUNDLE-SKILL-LAPTOP-V0_1 |
@@ -33,10 +33,10 @@
 
 | Point | Comment |
 |---|---|
-| Cleanliness | Initial dirty state is task-registration scoped; final clean state requires post-push verification |
+| Cleanliness | Initial dirty state is task-registration scoped; artifact commit push is verified |
 | Fake-green risk | Custodes and laptop runtime are explicitly capped |
 | Discipline | GitHub URL is optional and not treated as stronger than local object proof |
-| Required correction | Replace pending commit_push_receipt after artifact commit is pushed |
+| Required correction | Finalization commit requires runtime HEAD/remote equality proof after push |
 
 ## 5. Speculum comments
 
@@ -53,7 +53,7 @@
 |---|---:|---|
 | Laptop runtime not provisioned | Medium | Run laptop mirror and bundle skill task |
 | Custodes absent | Medium | Run Custodes foundation after Throne evidence stabilizes |
-| Post-push proof pending | High until push | Commit, push, verify origin/master |
+| Finalization self-head proof | Medium until closure | Push finalization commit and verify origin/master |
 
 ## 7. KPI / KPD
 

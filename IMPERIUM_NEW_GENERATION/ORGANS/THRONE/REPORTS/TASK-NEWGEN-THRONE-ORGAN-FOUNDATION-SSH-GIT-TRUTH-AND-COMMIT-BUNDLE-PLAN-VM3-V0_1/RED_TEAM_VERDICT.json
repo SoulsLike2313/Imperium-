@@ -1,8 +1,8 @@
 {
   "schema_version": "RED_TEAM_VERDICT_V0_1",
   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
-  "timestamp_utc": "2026-06-02T18:31:01Z",
-  "mode": "PRE_COMMIT_BUILDER_RED_TEAM",
+  "timestamp_utc": "2026-06-02T18:41:50Z",
+  "mode": "POST_ARTIFACT_PUSH_RED_TEAM",
   "builder_claims_attacked": [
     {
       "claim_id": "C01",
@@ -30,18 +30,17 @@
     {
       "claim_id": "C07",
       "attack": "Commit/push truth cannot be clean before a post-push command verifies origin/master.",
-      "result": "DOWNGRADED_UNTIL_POST_PUSH",
-      "downgrade_needed": true,
+      "result": "RESISTED_WITH_POST_PUSH_PROOF",
+      "downgrade_needed": false,
       "counter_evidence": [
         "commit_push_receipt.json"
-      ],
-      "cap_carried": "CAP_EXTERNAL_FINALIZATION_PENDING"
+      ]
     }
   ],
   "dirty_provenance_review": {
     "initial_dirty_state": "Task registration files plus registered taskpack.",
     "unrelated_dirty_state_found": false,
-    "current_task_outputs_dirty": true
+    "current_task_outputs_dirty_after_artifact_push": false
   },
   "fake_green_flags_reviewed": [
     "CLAIM_WITHOUT_REPLAY",
@@ -53,9 +52,8 @@
   "caps_triggered": [
     "CAP_STAGE1_WITH_WARNINGS_ONLY",
     "CAP_THRONE_LAPTOP_NOT_LIVE_PROVISIONED_IN_THIS_TASK",
-    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK",
-    "CAP_EXTERNAL_FINALIZATION_PENDING"
+    "CAP_CUSTODES_NOT_IMPLEMENTED_IN_THIS_TASK"
   ],
-  "final_verdict": "PASS_WITH_WARNINGS_PENDING_PUSH",
+  "final_verdict": "PASS_WITH_WARNINGS",
   "clean_pass_allowed": false
 }

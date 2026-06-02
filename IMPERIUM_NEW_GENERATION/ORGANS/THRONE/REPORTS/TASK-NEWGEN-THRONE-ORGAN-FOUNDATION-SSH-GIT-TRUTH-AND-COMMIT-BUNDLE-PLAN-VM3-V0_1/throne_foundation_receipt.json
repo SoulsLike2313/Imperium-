@@ -1,8 +1,8 @@
 {
   "schema_version": "THRONE_FOUNDATION_RECEIPT_V0_1",
   "task_id": "TASK-NEWGEN-THRONE-ORGAN-FOUNDATION-SSH-GIT-TRUTH-AND-COMMIT-BUNDLE-PLAN-VM3-V0_1",
-  "timestamp_utc": "2026-06-02T18:31:01Z",
-  "status": "PASS_WITH_WARNINGS_PENDING_PUSH",
+  "timestamp_utc": "2026-06-02T18:41:50Z",
+  "status": "PASS_WITH_WARNINGS",
   "throne_root": "IMPERIUM_NEW_GENERATION/ORGANS/THRONE",
   "created_foundation_files": [
     "ORGAN_MANIFEST.json",
