@@ -1,0 +1,7 @@
+{
+  "task_id": "EXAMPLE",
+  "case": "FAKE_COST_SAVING_FAIL",
+  "context_reduction_percent": 90,
+  "evidence_loss": true,
+  "final": "FAIL"
+}

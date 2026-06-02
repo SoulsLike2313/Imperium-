@@ -1,0 +1,16 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "verdict": "PENDING",
+  "llm_context_items": 0,
+  "estimated_context_chars": 0,
+  "estimated_output_chars": 0,
+  "broad_read_detected": false,
+  "local_hardware_metrics": {
+    "wall_seconds": "UNKNOWN_NOT_INSTRUMENTED",
+    "peak_memory_mb": "UNKNOWN_NOT_INSTRUMENTED",
+    "disk_written_bytes": "UNKNOWN_NOT_INSTRUMENTED"
+  },
+  "manual_owner_interactions": 0,
+  "kpd_delta_percent": "PENDING",
+  "notes": []
+}

@@ -1,0 +1,7 @@
+{
+  "task_id": "EXAMPLE",
+  "case": "COST_IMPROVEMENT_PASS",
+  "context_reduction_percent": 80,
+  "evidence_loss": false,
+  "final": "PASS"
+}

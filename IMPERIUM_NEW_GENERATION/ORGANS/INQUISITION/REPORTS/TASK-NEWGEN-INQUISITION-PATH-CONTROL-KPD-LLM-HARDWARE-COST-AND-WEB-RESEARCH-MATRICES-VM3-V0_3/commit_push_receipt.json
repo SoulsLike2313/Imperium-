@@ -1,0 +1,24 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "receipt_subject_head": "53085cad8e56771d1e696b04c066b7ed14253d77",
+  "last_verified_head_before_this_commit": "53085cad8e56771d1e696b04c066b7ed14253d77",
+  "receipt_content_head": "53085cad8e56771d1e696b04c066b7ed14253d77",
+  "external_delivery_head": "PENDING_COMMIT_PUSH",
+  "remote_head_after_push": "PENDING_COMMIT_PUSH",
+  "verification_actor": "VM3_SERVITOR",
+  "verification_method": "PENDING: git commit + git push origin master + git rev-parse origin/master",
+  "self_head_paradox_handled": true,
+  "commit_performed": false,
+  "push_performed": false,
+  "worktree_clean_after_push": "PENDING",
+  "origin_master_sync_after_push": "PENDING",
+  "block_reason_class": "",
+  "owner_action_required": false,
+  "owner_question_or_instruction": "",
+  "caps_triggered": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_EXTERNAL_FINALIZATION_PENDING"
+  ],
+  "clean_pass_allowed": false
+}

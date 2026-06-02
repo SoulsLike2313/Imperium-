@@ -1,0 +1,48 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "LOCAL_SCRIPT_FIRST": [
+    "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/TOOLS/build_hard_mode_cost_pack_v0_3.py",
+    "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/hard_mode_validator_v0_3.py"
+  ],
+  "LOCAL_MANUAL_COMMAND": [
+    "git status --short --branch",
+    "python .../build_hard_mode_cost_pack_v0_3.py --repo-root .",
+    "python IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/hard_mode_validator_v0_3.py --report-dir IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3 --write-receipt",
+    "ssh/scp route discovery and transfer attempt",
+    "git add/commit/push"
+  ],
+  "CANDIDATE_SCRIPT_FIRST": [
+    "Future token/context estimator",
+    "Future hardware /usr/bin/time wrapper",
+    "Future PC route verifier"
+  ],
+  "AGENT_REASONING_ONLY": [
+    "Research synthesis and prioritization",
+    "Red-team downgrade interpretation"
+  ],
+  "EXTERNAL_RESEARCH": [
+    "https://developers.openai.com/api/docs/guides/cost-optimization",
+    "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "https://developers.openai.com/api/docs/guides/latency-optimization",
+    "https://developers.openai.com/api/docs/guides/structured-outputs",
+    "https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb",
+    "https://platform.claude.com/docs/en/about-claude/pricing",
+    "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview",
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+    "https://docs.langchain.com/langsmith/cost-tracking",
+    "https://langfuse.com/docs/observability/features/token-and-cost-tracking",
+    "https://developers.llamaindex.ai/python/framework/understanding/evaluating/cost_analysis/",
+    "https://docs.vllm.ai/en/v0.15.0/features/automatic_prefix_caching/",
+    "https://www.finops.org/framework/technology-categories/ai/",
+    "https://arxiv.org/abs/2307.03172",
+    "https://docs.litellm.ai/"
+  ],
+  "OWNER_MANUAL_CONFIRMATION": [],
+  "FUTURE_CAPABILITY_GAP": [
+    "Provider usage metadata not available for this artifact-only task",
+    "Task-wide CPU/memory/disk instrumentation not yet automatic",
+    "External independent review not yet performed"
+  ]
+}

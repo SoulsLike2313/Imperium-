@@ -1,0 +1,497 @@
+{
+  "schema_version": "MATRIX_SPINE_HARD_MODE_COST_V0_3",
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "matrix_pack_id": "MATRIX_SPINE_HARD_MODE_COST_V0_3",
+  "created_utc": "2026-06-02T20:17:31Z",
+  "owner_organ": "INQUISITION",
+  "support_organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "MECHANICUS",
+    "STRATEGIUM",
+    "SCHOLA_IMPERIALIS"
+  ],
+  "local_step_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "local_step_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "LOCAL_PASS_WITH_GLOBAL_CAPS_CARRIED",
+    "items": [
+      {
+        "gate_id": "LOCAL_REQUIRED_OUTPUTS_PRESENT",
+        "status": "PASS_PENDING_VALIDATOR",
+        "evidence": [
+          "Output requirements are generated under the report directory and checked by hard_mode_validator_v0_3.py."
+        ]
+      },
+      {
+        "gate_id": "WEB_RESEARCH_DOSSIER_EXISTS",
+        "status": "PASS_PENDING_VALIDATOR",
+        "evidence": [
+          "web_research_sources.json",
+          "web_research_summary.md",
+          "web_research_dossier.zip"
+        ]
+      },
+      {
+        "gate_id": "PC_TRANSFER_RECEIPT_OR_BLOCK_EXISTS",
+        "status": "WARN_ALLOWED",
+        "evidence": [
+          "pc_transfer_receipt.json must record attempted routes and fallback command."
+        ]
+      },
+      {
+        "gate_id": "COMMIT_PUSH_RECEIPT_EXISTS",
+        "status": "WARN_UNTIL_EXTERNAL_FINALIZATION",
+        "evidence": [
+          "commit_push_receipt.json uses split finalization fields; clean PASS remains blocked while Stage1 caps remain."
+        ]
+      }
+    ],
+    "local_pass_rule": "Local PASS is allowed only for step-specific scope; global IDE/WARP/Custodes caps are carried separately."
+  },
+  "global_caps_carry_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "global_caps_carry_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "cap_id": "CAP_STAGE1_WITH_WARNINGS_ONLY",
+        "state": "ACCEPTED_WITH_WARNING",
+        "blocks_local_verdict": false,
+        "owner_organ": "DOCTRINARIUM",
+        "evidence": [
+          "TASK_ROUTE_MANIFEST.json",
+          "TASKPACK_ADMISSION_RECEIPT.json"
+        ]
+      },
+      {
+        "cap_id": "CAP_NO_IDE_VISUAL_RELEASE_YET",
+        "state": "CARRIED_OUT_OF_SCOPE",
+        "blocks_local_verdict": false,
+        "owner_organ": "MECHANICUS",
+        "evidence": [
+          "Task scope forbids IDE/WARP implementation."
+        ]
+      },
+      {
+        "cap_id": "CAP_NO_WARP_RUNTIME",
+        "state": "CARRIED_OUT_OF_SCOPE",
+        "blocks_local_verdict": false,
+        "owner_organ": "INQUISITION",
+        "evidence": [
+          "Task scope forbids WARP runtime implementation."
+        ]
+      },
+      {
+        "cap_id": "CAP_DIRTY_PROVENANCE_AT_START",
+        "state": "OPEN",
+        "blocks_local_verdict": false,
+        "owner_organ": "INQUISITION",
+        "evidence": [
+          "git status at entry had modified registry files and untracked registered taskpack."
+        ]
+      }
+    ]
+  },
+  "path_control_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "path_control_matrix_v0_3",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "path_class": "ALLOWED_REPO_ARTIFACT",
+        "allowed_root": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION",
+        "rule": "Task residue and validator live under Inquisition."
+      },
+      {
+        "path_class": "ALLOWED_TASKPACK_SOURCE",
+        "allowed_root": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+        "rule": "Read-only source boundary for taskpack and seed schemas/examples."
+      },
+      {
+        "path_class": "PC_TRANSFER_ONLY",
+        "allowed_root": "existing SSH PC context route",
+        "rule": "Transfer bundles only; do not modify PC repo or private keys."
+      },
+      {
+        "path_class": "FORBIDDEN",
+        "allowed_root": "VM2 runtime",
+        "rule": "Prepare handoff only; no VM2 execution in this scope."
+      }
+    ]
+  },
+  "kpd_efficiency_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "kpd_efficiency_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "dimension_id": "VALUE_DELIVERED",
+        "status": "HIGH",
+        "evidence": [
+          "Cost/KPD matrix pack, validator seed, web research dossier, VM2 handoff."
+        ],
+        "delta": "Turns cost discussion into required gates and receipts."
+      },
+      {
+        "dimension_id": "CONTEXT_REDUCTION_WITHOUT_EVIDENCE_LOSS",
+        "status": "MEDIUM",
+        "evidence": [
+          "Static-prefix/context-manifest recommendations."
+        ],
+        "delta": "Future tasks can read smaller focused packs instead of broad dumps."
+      },
+      {
+        "dimension_id": "MANUAL_WORK_REDUCTION",
+        "status": "MEDIUM",
+        "evidence": [
+          "Validator checks required outputs and fake-economy traps."
+        ],
+        "delta": "Owner does not need to manually verify the whole bundle inventory."
+      },
+      {
+        "dimension_id": "FUTURE_FRICTION_REDUCTION",
+        "status": "HIGH",
+        "evidence": [
+          "VM2 handoff note and learning backlog."
+        ],
+        "delta": "Next contour receives explicit read order and forbidden assumptions."
+      }
+    ]
+  },
+  "llm_cost_context_output_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "llm_cost_context_output_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "dimension_id": "INPUT_CONTEXT",
+        "measurement_state": "PARTIAL_LOCAL_ESTIMATE",
+        "required_fields": [
+          "estimated_input_chars",
+          "estimated_input_tokens",
+          "cache_read_tokens",
+          "cache_write_tokens"
+        ],
+        "instrumentation_method": "Use provider usage metadata first; fallback to model-specific token estimator with lower evidence level."
+      },
+      {
+        "dimension_id": "OUTPUT_BLOAT",
+        "measurement_state": "SPECIFIED_NOT_FULLY_INSTRUMENTED",
+        "required_fields": [
+          "estimated_output_chars",
+          "max_output_tokens",
+          "structured_output_schema"
+        ],
+        "instrumentation_method": "Route detailed evidence to artifacts and final chat to 4-part summary."
+      },
+      {
+        "dimension_id": "RETRY_REWORK",
+        "measurement_state": "UNKNOWN_NOT_INSTRUMENTED",
+        "required_fields": [
+          "retry_count",
+          "failure_reason",
+          "tokens_resubmitted"
+        ],
+        "instrumentation_method": "Add run ledger entries for every failed/retried LLM call."
+      },
+      {
+        "dimension_id": "WEB_TOOL_COST",
+        "measurement_state": "SPECIFIED_NOT_PROVIDER_METERED",
+        "required_fields": [
+          "search_count",
+          "fetch_count",
+          "source_count",
+          "included_context_chars"
+        ],
+        "instrumentation_method": "Record source count and provider-side web tool usage when available."
+      }
+    ]
+  },
+  "hardware_local_agent_cost_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "hardware_local_agent_cost_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "metric_id": "WALL_TIME",
+        "measurement_state": "PARTIAL_INSTRUMENTED_FOR_VALIDATOR_ONLY",
+        "unit": "seconds",
+        "instrumentation_method": "Use /usr/bin/time or Python perf_counter around validators/builders; task-wide wall time needs session timer."
+      },
+      {
+        "metric_id": "CPU_TIME",
+        "measurement_state": "UNKNOWN_NOT_INSTRUMENTED",
+        "unit": "seconds",
+        "instrumentation_method": "Run validators through /usr/bin/time -v or psutil wrapper."
+      },
+      {
+        "metric_id": "PEAK_MEMORY",
+        "measurement_state": "UNKNOWN_NOT_INSTRUMENTED",
+        "unit": "MiB",
+        "instrumentation_method": "Use /usr/bin/time -v maximum resident set size."
+      },
+      {
+        "metric_id": "DISK_BYTES_WRITTEN",
+        "measurement_state": "PARTIAL_INSTRUMENTED_BY_FILE_SIZE",
+        "unit": "bytes",
+        "instrumentation_method": "Sum report/bundle byte sizes; OS-level write amplification remains unknown."
+      },
+      {
+        "metric_id": "LOCAL_ORGAN_AGENT_TOOL_INVOCATIONS",
+        "measurement_state": "PARTIAL_MANUAL_LEDGER",
+        "unit": "count",
+        "instrumentation_method": "Count validator/build/zip/ssh commands in capability_split_receipt and cost_scoreboard_receipt."
+      },
+      {
+        "metric_id": "MANUAL_OWNER_INTERACTIONS",
+        "measurement_state": "INSTRUMENTED_BY_CHAT_COUNT",
+        "unit": "count",
+        "instrumentation_method": "Count Owner messages required for task execution."
+      }
+    ]
+  },
+  "web_research_cost_source_quality_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "web_research_cost_source_quality_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "source_id": "SRC-001",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Add preflight admission rules for cheap-model triage, no-LLM local validators, and async/batch lanes for non-urgent checks.",
+        "risk_or_limitation": "Provider-specific economics change; IMPERIUM must record model/version/pricing source at task time."
+      },
+      {
+        "source_id": "SRC-002",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Move stable organ contracts and schemas before dynamic taskpack deltas in context manifests; log cached token fields when available.",
+        "risk_or_limitation": "Cache hit claims require provider usage metadata; absence of cache telemetry must remain UNKNOWN_NOT_INSTRUMENTED."
+      },
+      {
+        "source_id": "SRC-003",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Cap final chat verbosity and shift detailed evidence into committed reports without dropping required receipts.",
+        "risk_or_limitation": "Shorter outputs are fake economy if they omit commit links, caps, or evidence boundary."
+      },
+      {
+        "source_id": "SRC-004",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Require JSON schemas for LLM-returned receipts and use validators before any expensive red-team pass.",
+        "risk_or_limitation": "First schema use may add latency for some paths; schema subset limits must be respected."
+      },
+      {
+        "source_id": "SRC-005",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_cookbook",
+        "application": "Add a future token estimator to Task Focus Packet generation and bundle receipts.",
+        "risk_or_limitation": "Local estimates cannot replace provider usage metadata for final billing proof."
+      },
+      {
+        "source_id": "SRC-006",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Record tool-specific cost dimensions rather than one generic token count.",
+        "risk_or_limitation": "Prices and model names are time-sensitive; receipts need accessed date and source URL."
+      },
+      {
+        "source_id": "SRC-007",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Define IMPERIUM context packs with explicit static-prefix and dynamic-suffix lanes.",
+        "risk_or_limitation": "Cache write/read costs differ by TTL and model; false generic discounts are fake economy."
+      },
+      {
+        "source_id": "SRC-008",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Treat repeated organ packs as cacheable context candidates when running Google-backed routes.",
+        "risk_or_limitation": "Model support and explicit cache storage cost must be checked per route."
+      },
+      {
+        "source_id": "SRC-009",
+        "trust_level": "PRIMARY_OFFICIAL",
+        "source_type": "official_vendor_docs",
+        "application": "Record cacheReadInputTokens/cacheWriteInputTokens where Bedrock routes are used.",
+        "risk_or_limitation": "Unsupported in some endpoints; batch and prompt caching interactions differ by provider."
+      },
+      {
+        "source_id": "SRC-010",
+        "trust_level": "PRIMARY_TOOL_DOCS",
+        "source_type": "official_tool_docs",
+        "application": "Mirror trace-tree cost categories in local organ-agent receipts.",
+        "risk_or_limitation": "Requires disciplined trace metadata; child runs without thread IDs can be invisible in aggregates."
+      },
+      {
+        "source_id": "SRC-011",
+        "trust_level": "PRIMARY_TOOL_DOCS",
+        "source_type": "official_tool_docs",
+        "application": "Prioritize provider usage metadata in receipts and mark inferred costs as lower evidence.",
+        "risk_or_limitation": "Tokenizer-based inference can be inaccurate for some providers and model versions."
+      },
+      {
+        "source_id": "SRC-012",
+        "trust_level": "PRIMARY_TOOL_DOCS",
+        "source_type": "official_tool_docs",
+        "application": "Separate retrieval/index build cost from answer synthesis cost in IMPERIUM web research and context packs.",
+        "risk_or_limitation": "Predictors are estimates; final receipts still need actual run counts and token usage where available."
+      },
+      {
+        "source_id": "SRC-013",
+        "trust_level": "PRIMARY_TOOL_DOCS",
+        "source_type": "official_tool_docs",
+        "application": "Future local-agent LLM serving should keep stable organ packs as identical prefixes and measure prefill/decode separately.",
+        "risk_or_limitation": "Prefix caching helps prefill, not long generation; no benefit when prefixes do not match."
+      },
+      {
+        "source_id": "SRC-014",
+        "trust_level": "CREDIBLE_FRAMEWORK",
+        "source_type": "industry_framework",
+        "application": "Tie KPD to task value, Owner pain reduction, and future friction reduction instead of file count.",
+        "risk_or_limitation": "Framework is governance-level; local validators still need concrete metrics and receipts."
+      },
+      {
+        "source_id": "SRC-015",
+        "trust_level": "PRIMARY_RESEARCH",
+        "source_type": "peer_reviewed_research",
+        "application": "Do not treat broad context dumps as quality proof; use context manifests and retrieve only relevant authority slices.",
+        "risk_or_limitation": "Paper results depend on models/tasks; use as design pressure, not universal benchmark."
+      },
+      {
+        "source_id": "SRC-016",
+        "trust_level": "PRIMARY_TOOL_DOCS",
+        "source_type": "official_tool_docs",
+        "application": "Future Codex/Logos routing should pass through a spend-aware gateway or equivalent local budget receipt.",
+        "risk_or_limitation": "Gateway adds operational/security surface; adoption needs private boundary and supply-chain review."
+      }
+    ],
+    "source_count": 16,
+    "official_or_primary_count": 15
+  },
+  "artifact_retention_cost_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "artifact_retention_cost_matrix_v0_3",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "artifact_class": "REPORT_OUTPUT",
+        "retention_rule": "Keep all required outputs in report directory and include in final bundle.",
+        "cost_dimension": "disk_bytes"
+      },
+      {
+        "artifact_class": "WEB_RESEARCH_DOSSIER",
+        "retention_rule": "Zip summary, source JSON, and receipt; transfer to PC if route exists.",
+        "cost_dimension": "bundle_bytes + network_bytes"
+      },
+      {
+        "artifact_class": "TASKPACK_SOURCE",
+        "retention_rule": "Preserve registered taskpack and original zip; do not mutate source package.",
+        "cost_dimension": "storage_bytes"
+      }
+    ]
+  },
+  "throne_evidence_bundle_value_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "throne_evidence_bundle_value_matrix_v0_3",
+    "verdict": "WARN",
+    "items": [
+      {
+        "bundle_id": "THRONE_FUTURE_SUPPORT",
+        "value": "When GitHub or PC verification is unavailable, a signed/hashed evidence bundle becomes the fallback proof route.",
+        "current_scope": "No Throne implementation; define value and future requirement only."
+      }
+    ]
+  },
+  "fake_cost_saving_matrix": {
+    "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "matrix_id": "fake_cost_saving_matrix_v0_3",
+    "owner_organ": "INQUISITION",
+    "verdict": "PASS_WITH_WARNINGS",
+    "items": [
+      {
+        "trap_id": "DROP_REQUIRED_RECEIPT",
+        "fail_condition": "Token/output reduction removes required receipts, commit links, evidence boundary, or red-team verdict.",
+        "verdict_if_triggered": "FAIL",
+        "required_gate": "EVIDENCE_NOT_WEAKENED"
+      },
+      {
+        "trap_id": "SKIP_READ_FIRST",
+        "fail_condition": "Context savings skip required organ authority or taskpack read-order.",
+        "verdict_if_triggered": "FAIL",
+        "required_gate": "AUTHORITY_READ_ORDER_COMPLETE"
+      },
+      {
+        "trap_id": "NO_RESEARCH_CLAIM",
+        "fail_condition": "Web research is not performed but summary claims current best practices.",
+        "verdict_if_triggered": "FAIL",
+        "required_gate": "WEB_RESEARCH_RECEIPT"
+      },
+      {
+        "trap_id": "UNMEASURED_COST_AS_SAVING",
+        "fail_condition": "Unknown hardware, token, transfer, or Owner labor cost is reported as reduced.",
+        "verdict_if_triggered": "FAIL",
+        "required_gate": "UNKNOWN_NOT_INSTRUMENTED_DECLARED"
+      },
+      {
+        "trap_id": "DELETE_EVIDENCE_TO_SAVE_OUTPUT",
+        "fail_condition": "Artifacts are deleted or omitted without retention policy and checksums.",
+        "verdict_if_triggered": "FAIL",
+        "required_gate": "ARTIFACT_RETENTION_GATE"
+      }
+    ]
+  },
+  "matrix_strength_comparison": {
+    "earlier_state": "Generic PASS/WARN/BLOCK matrices capped unsupported claims but did not price LLM/context/output/hardware/web research separately.",
+    "v0_3_strengths": [
+      "Separates local step verdict from carried global caps.",
+      "Adds explicit UNKNOWN_NOT_INSTRUMENTED lane for hardware and token metrics.",
+      "Adds fake-economy traps that fail evidence loss.",
+      "Requires source-quality indexed web research dossier.",
+      "Adds seed validator and examples for replay behavior."
+    ],
+    "remaining_weaknesses": [
+      "Task-wide wall time, CPU, peak memory, and token usage remain only partially instrumented.",
+      "Validator is seed-level and does not yet enforce JSON Schema draft semantics.",
+      "External review and fully independent replay remain future work."
+    ]
+  },
+  "recommended_actions": [
+    {
+      "rank": 1,
+      "class": "can_start_now",
+      "action": "Require every substantial task to record context chars/tokens estimate, output chars, required receipt count, and unknown metric states."
+    },
+    {
+      "rank": 2,
+      "class": "requires_validator",
+      "action": "Add a token/context estimator and output-retention checker to task-start gates."
+    },
+    {
+      "rank": 3,
+      "class": "requires_small_skill",
+      "action": "Create a task-focus context pack skill that emits static-prefix and dynamic-suffix manifests."
+    },
+    {
+      "rank": 4,
+      "class": "requires_throne_support",
+      "action": "Create signed evidence bundle fallback when GitHub/PC verification is unavailable."
+    },
+    {
+      "rank": 5,
+      "class": "should_be_rejected_as_fake_economy",
+      "action": "Any cost saving that drops receipts, red-team, source links, or commit/push proof."
+    }
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:21:17Z",
+  "validator": "hard_mode_validator_v0_3.py",
+  "report_dir": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "checks": [
+    {
+      "check_id": "FILE:matrix_spine_hard_mode_cost_v0_3.md",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:matrix_spine_hard_mode_cost_v0_3.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:local_step_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:global_caps_carry_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:kpd_efficiency_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:llm_cost_context_output_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:hardware_local_agent_cost_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:web_research_cost_source_quality_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:fake_cost_saving_matrix_v0_3.schema.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:matrix_strength_comparison_v0_3.md",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:hard_mode_validator_v0_3.py",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:web_research_summary.md",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:web_research_sources.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:web_research_dossier.zip",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:pc_transfer_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:vm2_next_task_handoff_note.md",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:cost_scoreboard_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:artifact_retention_gate_receipt.json",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:final_owner_summary_ru.md",
+      "status": "PASS"
+    },
+    {
+      "check_id": "FILE:commit_push_receipt.json",
+      "status": "PASS"
+    }
+  ],
+  "failures": [],
+  "warnings": [],
+  "source_count": 16,
+  "primary_source_count": 15,
+  "wall_seconds": 0.002455,
+  "validated_files": [
+    {
+      "path": "matrix_spine_hard_mode_cost_v0_3.md",
+      "sha256": "9f0e59cb179b0b6f263a71158cee9860b4225527f82b2cce4c2730e647312b30"
+    },
+    {
+      "path": "matrix_spine_hard_mode_cost_v0_3.json",
+      "sha256": "29ec29e73286674f8de0ad3ad3c249ee45ce88e145417b08756db289bd15cc3a"
+    },
+    {
+      "path": "local_step_matrix_v0_3.schema.json",
+      "sha256": "5fdd776cd18bb83f7fc66d8e1c230f5b03677bd4ffbf1e11244c5e20c5e7e5fb"
+    },
+    {
+      "path": "global_caps_carry_matrix_v0_3.schema.json",
+      "sha256": "053e6497aeb3b8562f24633676f19dc3d64febe3d367dedcb0fc5efae72754c2"
+    },
+    {
+      "path": "kpd_efficiency_matrix_v0_3.schema.json",
+      "sha256": "9c93f3487a0e4c5e3d902408d84af481274875763b6d9d09b1f391e1c5b6cd7c"
+    },
+    {
+      "path": "llm_cost_context_output_matrix_v0_3.schema.json",
+      "sha256": "fa6c7586a67876c7a6413319fda8a6880c6e754822a2958169cae32f78c1c378"
+    },
+    {
+      "path": "hardware_local_agent_cost_matrix_v0_3.schema.json",
+      "sha256": "d35959998b8f53df20600e34a2cabda0887ee9b394370abca9bc3f663d380f0e"
+    },
+    {
+      "path": "web_research_cost_source_quality_matrix_v0_3.schema.json",
+      "sha256": "991194b564948530846efb6425e34755f07f369691e330eef5e97891257921a7"
+    },
+    {
+      "path": "fake_cost_saving_matrix_v0_3.schema.json",
+      "sha256": "68214f0798f9be415ca70bd5d43f89f3577a16c59745145687e89fff1ef98ff8"
+    },
+    {
+      "path": "matrix_strength_comparison_v0_3.md",
+      "sha256": "241b215294d82811fd3a37c92f16d49fa97cd2b5f17cc8343b6db8936a340760"
+    },
+    {
+      "path": "hard_mode_validator_v0_3.py",
+      "sha256": "e8f56857f35eac3db357a451f7e0fadef80ae143b018f4b09fd6de28325402cb"
+    },
+    {
+      "path": "web_research_summary.md",
+      "sha256": "a452e8ad6f292f9524dc18f922f4978220fdf7b6e400dd04067fd680723fc42b"
+    },
+    {
+      "path": "web_research_sources.json",
+      "sha256": "6b055e1eed872ecc86decda79cf4140b3e075ac0594e0237ffa2d55ca20b7838"
+    },
+    {
+      "path": "web_research_dossier.zip",
+      "sha256": "734b8b879a6e666464b6a6e898a0afe83c4e75a0a146153c2857ee4fc8d1c04a"
+    },
+    {
+      "path": "pc_transfer_receipt.json",
+      "sha256": "8935b96fe6a0005e1b06ec14c353d7182bd45b233e0d5b893e070c1f2738e8d1"
+    },
+    {
+      "path": "vm2_next_task_handoff_note.md",
+      "sha256": "efd6bd22ba3fdb1551141733e48261a9e4d701744c08e7320cf1b61fcfb182c2"
+    },
+    {
+      "path": "cost_scoreboard_receipt.json",
+      "sha256": "5b4e6bb0c6892b41981ef692c092324bd248e8ce5b9bb70cbe82fa4bacc1db42"
+    },
+    {
+      "path": "artifact_retention_gate_receipt.json",
+      "sha256": "fcdee9b56c8a52ae342f4fcb95f930171b743f9226f32b046647183b582fe566"
+    },
+    {
+      "path": "final_owner_summary_ru.md",
+      "sha256": "818134af7b19d46ea26b2f13b42e013f8bb61dacb28a3086e3c173af72a07827"
+    },
+    {
+      "path": "commit_push_receipt.json",
+      "sha256": "7bbb731e232861e2613482c1c66a85948b7d3fc814981c62b02d72d0a0854267"
+    }
+  ],
+  "verdict": "PASS_WITH_WARNINGS",
+  "clean_pass_allowed": false,
+  "replay_state": "INQUISITOR_REPLAY_FOR_TARGET"
+}

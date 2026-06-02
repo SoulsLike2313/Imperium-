@@ -1,0 +1,17 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "items": [
+    {
+      "lesson_id": "HM-LESSON-01",
+      "caught_mistake": "Cost reduction can be faked by dropping receipts or read-order.",
+      "should_become_checker": "fake_cost_saving_matrix validator",
+      "owner_pain_reduced": "Owner can see why cheap is not automatically better."
+    },
+    {
+      "lesson_id": "HM-LESSON-02",
+      "caught_mistake": "Hardware and local-agent costs are often omitted.",
+      "should_become_checker": "task-wide /usr/bin/time and file-size ledger",
+      "owner_pain_reduced": "Future work has explicit UNKNOWN_NOT_INSTRUMENTED fields."
+    }
+  ]
+}

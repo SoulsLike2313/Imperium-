@@ -1,0 +1,59 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:21:05Z",
+  "transfer_attempted": true,
+  "attempted_routes": [
+    {
+      "route": "imperium-pc-local",
+      "result": "FAIL_DNS_NOT_CONFIGURED"
+    },
+    {
+      "route": "vboxuser3@10.0.2.2:2222",
+      "result": "FAIL_CONNECTION_REFUSED"
+    },
+    {
+      "route": "vboxuser3@10.0.2.2:22",
+      "result": "FAIL_PUBLICKEY_PERMISSION_DENIED"
+    },
+    {
+      "route": "PC@10.0.2.2:22",
+      "result": "PASS_WINDOWS_SSH_ROUTE_CONFIRMED"
+    }
+  ],
+  "selected_route": "PC@10.0.2.2:22 using /home/vboxuser3/.ssh/imperium_vm3_to_pc_ed25519_20260418 and temp known_hosts",
+  "source_files": [
+    "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/web_research_dossier.zip",
+    "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/final_output_bundle.zip"
+  ],
+  "target_path": "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/",
+  "transferred_files": [
+    {
+      "name": "web_research_dossier.zip",
+      "local_sha256": "734b8b879a6e666464b6a6e898a0afe83c4e75a0a146153c2857ee4fc8d1c04a",
+      "remote_sha256": "734B8B879A6E666464B6A6E898A0AFE83C4E75A0A146153C2857EE4FC8D1C04A",
+      "sha256_match": true,
+      "remote_path": "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/web_research_dossier.zip"
+    },
+    {
+      "name": "final_output_bundle.zip",
+      "local_sha256_at_transfer_time": "eb087c9ec849b80a3f1ecf580b08da8cd11772d6af6a05e87a6772c15e38c750",
+      "remote_sha256_at_transfer_time": "EB087C9EC849B80A3F1ECF580B08DA8CD11772D6AF6A05E87A6772C15E38C750",
+      "sha256_match_at_transfer_time": true,
+      "remote_path": "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/final_output_bundle.zip",
+      "self_reference_note": "Final bundle is rebuilt after receipt updates; hash of the already transferred bundle is preserved as transfer evidence, while latest local bundle hash is in SHA256SUMS.txt."
+    }
+  ],
+  "sha256_verified": true,
+  "transfer_commands": [
+    "ssh -i ~/.ssh/imperium_vm3_to_pc_ed25519_20260418 -o UserKnownHostsFile=/tmp/imperium_pc_probe_known_hosts -p 22 PC@10.0.2.2 powershell ... New-Item ...",
+    "scp -i ~/.ssh/imperium_vm3_to_pc_ed25519_20260418 -P 22 <zips> PC@10.0.2.2:E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/"
+  ],
+  "fallback_command": "From PC, verify files under E:\\IMPERIUM_CONTEXT\\LOCAL\\TASK_BUNDLES\\TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3\\ with Get-FileHash -Algorithm SHA256.",
+  "verdict": "PASS",
+  "private_key_material_printed": false,
+  "ssh_config_mutated": false,
+  "known_hosts_mutated": false,
+  "notes": [
+    "Used temporary known_hosts at /tmp/imperium_pc_probe_known_hosts to avoid mutating SSH state."
+  ]
+}

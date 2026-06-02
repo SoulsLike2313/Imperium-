@@ -1,0 +1,25 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:02:39Z",
+  "source_zip_path": "/home/vboxuser3/IMPERIUM_VM3_INBOX/TASKPACK_NEWGEN_INQUISITION_PATH_CONTROL_KPD_LLM_HARDWARE_COST_AND_WEB_RESEARCH_MATRICES_VM3_V0_3.zip",
+  "zip_sha256": "5b3ed30c4f881f843566173a68567b276d12d68574bbbc40c9e31c0e1d3cd801",
+  "admission_verdict": "ADMISSION_PASS",
+  "language_gate_passed": true,
+  "manifest_found": true,
+  "task_id_found": true,
+  "task_spec_found": true,
+  "acceptance_gates_found": true,
+  "output_requirements_found": true,
+  "duplicate_task_id": false,
+  "safe_extraction_path": true,
+  "registered_task_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "extracted_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/EXTRACTED",
+  "route_manifest_path": "/home/vboxuser3/IMPERIUM_WORK/Imperium-/IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/TASK_ROUTE_MANIFEST.json",
+  "current_expected_task_updated": true,
+  "caps_triggered": [
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_STAGE1_WITH_WARNINGS_ONLY"
+  ],
+  "warnings": []
+}

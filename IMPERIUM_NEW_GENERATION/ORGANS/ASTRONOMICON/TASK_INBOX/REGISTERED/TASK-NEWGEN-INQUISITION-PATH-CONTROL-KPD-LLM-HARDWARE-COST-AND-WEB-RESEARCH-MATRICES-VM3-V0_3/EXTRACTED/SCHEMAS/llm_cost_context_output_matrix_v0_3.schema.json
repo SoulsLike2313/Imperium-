@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "task_id",
+    "matrix_id",
+    "verdict",
+    "items"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string"
+    },
+    "matrix_id": {
+      "const": "llm_cost_context_output_matrix_v0_3"
+    },
+    "verdict": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true
+}

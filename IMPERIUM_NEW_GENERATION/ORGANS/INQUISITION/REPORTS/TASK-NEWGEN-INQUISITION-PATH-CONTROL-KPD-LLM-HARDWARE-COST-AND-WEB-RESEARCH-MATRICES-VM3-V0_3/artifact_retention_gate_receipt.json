@@ -1,0 +1,8 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "verdict": "PASS_WITH_WARNINGS",
+  "retention_rule": "Keep report dir, required outputs, examples, web dossier, final bundle, and checksums.",
+  "deleted_artifacts": [],
+  "fake_economy_guard": "Deleting artifacts to save output/disk without retention decision is FAIL."
+}

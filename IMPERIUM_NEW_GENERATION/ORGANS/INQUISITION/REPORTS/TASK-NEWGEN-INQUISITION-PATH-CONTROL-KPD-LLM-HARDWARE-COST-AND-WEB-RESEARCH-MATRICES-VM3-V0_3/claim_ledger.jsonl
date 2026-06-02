@@ -1,0 +1,5 @@
+{"claim_id": "HM-C01", "owner_organ": "INQUISITION", "capability_class": "LOCAL_SCRIPT_FIRST", "evidence_level": "E3_PENDING_VALIDATOR", "cap": "CAP_STAGE1_WITH_WARNINGS_ONLY", "red_team": "RT-HM-01"}
+{"claim_id": "HM-C02", "owner_organ": "MECHANICUS", "capability_class": "CANDIDATE_SCRIPT_FIRST", "evidence_level": "E2", "cap": "CAP_UNKNOWN_METRICS_OPEN", "red_team": "RT-HM-02"}
+{"claim_id": "HM-C03", "owner_organ": "INQUISITION", "capability_class": "EXTERNAL_RESEARCH", "evidence_level": "E2", "cap": "CAP_SOURCE_COVERAGE_PARTIAL", "red_team": "RT-HM-03"}
+{"claim_id": "HM-C04", "owner_organ": "MECHANICUS", "capability_class": "LOCAL_SCRIPT_FIRST", "evidence_level": "E3_AFTER_REPLAY", "cap": "CAP_VALIDATOR_SEED_LEVEL", "red_team": "RT-HM-04"}
+{"claim_id": "HM-C05", "owner_organ": "ADMINISTRATUM", "capability_class": "LOCAL_MANUAL_COMMAND", "evidence_level": "E3_AFTER_PUSH", "cap": "CAP_EXTERNAL_FINALIZATION_PENDING", "red_team": "RT-HM-05"}

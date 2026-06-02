@@ -1,0 +1,47 @@
+{
+  "ack_id": "ROLE_ENTRY_ACK",
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "current_role_mode": "VM3_SERVITOR_GHOST_EVOLVE_V2_INQUISITION_HARD_MODE_COST_KPD",
+  "task_source_boundary": {
+    "taskpack_registered_path": "IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "report_path": "IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+    "external_research": "Required and captured in web_research_sources.json"
+  },
+  "declared_contour": "VM3",
+  "git_context": {
+    "branch": "master",
+    "head": "53085cad8e56771d1e696b04c066b7ed14253d77",
+    "origin_master_head": "53085cad8e56771d1e696b04c066b7ed14253d77",
+    "worktree_status_short_at_entry": [
+      "M IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/current_expected_task.json",
+      " M IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_REGISTRY/task_registry.json",
+      "?? IMPERIUM_NEW_GENERATION/ORGANS/ASTRONOMICON/TASK_INBOX/REGISTERED/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/",
+      "?? IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/REPORTS/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/",
+      "?? IMPERIUM_NEW_GENERATION/ORGANS/INQUISITION/TOOLS/build_hard_mode_cost_pack_v0_3.py"
+    ]
+  },
+  "sources_read": [
+    "AGENTS.md",
+    "Matrix Spine Index",
+    "Required Ghost_Evolve organ packets and matrices/contracts",
+    "Eight organ task participation packets",
+    "Taskpack START_HERE/spec/gates/outputs/role/matrix/web/PC/schema/example/templates",
+    "External web research sources listed in web_research_sources.json"
+  ],
+  "missing_authorities": [
+    "Taskpack exact 000_START_TASK_READ_ORDER.md missing; START_HERE.md admitted by TASKPACK_ADMISSION_RECEIPT."
+  ],
+  "owner_facing_language_contract": {
+    "owner_facing_language": "RU",
+    "machine_artifacts_language": "EN_UTF8_SAFE"
+  },
+  "forbidden_claims_acknowledged": [
+    "NO_FAKE_MEASURED_COSTS",
+    "NO_VM2_EXECUTION",
+    "NO_PC_TRANSFER_PASS_WITHOUT_RECEIPT",
+    "NO_EVIDENCE_DELETION_AS_SAVING",
+    "NO_PRIVATE_KEY_CHANGES"
+  ],
+  "readiness_to_start": "WARN"
+}

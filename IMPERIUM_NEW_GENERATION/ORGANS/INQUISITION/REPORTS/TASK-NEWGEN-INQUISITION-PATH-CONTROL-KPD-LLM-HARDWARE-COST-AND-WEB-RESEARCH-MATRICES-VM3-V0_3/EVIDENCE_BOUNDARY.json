@@ -1,0 +1,18 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "evidence_levels": {
+    "file_existence": "E1",
+    "validator_run": "E3 after validator_run_receipt.json",
+    "web_research": "E2 source-indexed external research",
+    "pc_transfer": "E3 only if receipt records successful transfer and hashes",
+    "commit_push": "E3/E4 only after push receipt and remote verification"
+  },
+  "caps_carried": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_NO_IDE_VISUAL_RELEASE_YET",
+    "CAP_NO_WARP_RUNTIME",
+    "CAP_DIRTY_PROVENANCE_AT_START"
+  ],
+  "clean_pass_allowed": false
+}

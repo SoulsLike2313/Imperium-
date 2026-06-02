@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://imperium.local/schemas/global_caps_carry_matrix_v0_3.schema.json",
+  "title": "global_caps_carry_matrix_v0_3",
+  "type": "object",
+  "required": [
+    "task_id",
+    "matrix_id",
+    "verdict",
+    "items"
+  ],
+  "properties": {
+    "task_id": {
+      "const": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3"
+    },
+    "matrix_id": {
+      "const": "global_caps_carry_matrix_v0_3"
+    },
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "PASS",
+        "PASS_WITH_WARNINGS",
+        "WARN",
+        "BLOCK",
+        "FAIL",
+        "LOCAL_PASS_WITH_GLOBAL_CAPS_CARRIED"
+      ]
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "cap_id",
+          "state",
+          "blocks_local_verdict"
+        ],
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true
+}

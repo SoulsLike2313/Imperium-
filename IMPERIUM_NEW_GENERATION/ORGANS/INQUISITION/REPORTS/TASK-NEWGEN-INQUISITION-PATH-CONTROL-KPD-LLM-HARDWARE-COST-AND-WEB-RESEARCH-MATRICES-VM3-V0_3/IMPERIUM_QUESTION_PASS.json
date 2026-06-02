@@ -1,0 +1,18 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "questions": [
+    {
+      "question": "What is the source of truth for cost claims?",
+      "answer": "Receipts, provider metadata when available, local measurements, or UNKNOWN_NOT_INSTRUMENTED."
+    },
+    {
+      "question": "Can local PASS coexist with global caps?",
+      "answer": "Yes, if caps are carried separately and do not block local scope."
+    },
+    {
+      "question": "What makes savings fake?",
+      "answer": "Any reduction that removes authority, receipts, evidence, source links, checksums, or red-team."
+    }
+  ],
+  "verdict": "PASS_WITH_WARNINGS"
+}

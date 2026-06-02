@@ -1,0 +1,82 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "builder_claims": [
+    {
+      "claim_id": "HM-C01",
+      "claim": "Matrix pack separates local verdict from global carried caps."
+    },
+    {
+      "claim_id": "HM-C02",
+      "claim": "Cost/KPD/hardware/web research dimensions are specified without fake measured numbers."
+    },
+    {
+      "claim_id": "HM-C03",
+      "claim": "Web research dossier and source index exist."
+    },
+    {
+      "claim_id": "HM-C04",
+      "claim": "Validator seed exists and can be replayed."
+    },
+    {
+      "claim_id": "HM-C05",
+      "claim": "PC transfer and commit/push closure are receipt-gated."
+    }
+  ],
+  "attacks": [
+    {
+      "attack_id": "RT-HM-01",
+      "target_claim_id": "HM-C01",
+      "attack": "Global caps still poison local PASS through narrative.",
+      "result": "RESISTED_WITH_WARNING",
+      "counter_evidence": [
+        "global_caps_carry_matrix_v0_3",
+        "blocks_local_verdict=false"
+      ]
+    },
+    {
+      "attack_id": "RT-HM-02",
+      "target_claim_id": "HM-C02",
+      "attack": "The task invents cost savings.",
+      "result": "RESISTED",
+      "counter_evidence": [
+        "UNKNOWN_NOT_INSTRUMENTED fields",
+        "fake_cost_saving_matrix_v0_3"
+      ]
+    },
+    {
+      "attack_id": "RT-HM-03",
+      "target_claim_id": "HM-C03",
+      "attack": "Web research is shallow or source-poor.",
+      "result": "RESISTED_WITH_WARNING",
+      "counter_evidence": [
+        "web_research_sources.json with source_count >= 12"
+      ]
+    },
+    {
+      "attack_id": "RT-HM-04",
+      "target_claim_id": "HM-C04",
+      "attack": "Validator is decorative and not run.",
+      "result": "PENDING_UNTIL_VALIDATOR_RECEIPT",
+      "counter_evidence": [
+        "validator_run_receipt.json after replay"
+      ]
+    },
+    {
+      "attack_id": "RT-HM-05",
+      "target_claim_id": "HM-C05",
+      "attack": "PC transfer or push skipped but PASS claimed.",
+      "result": "RESISTED_WITH_WARNING",
+      "counter_evidence": [
+        "pc_transfer_receipt.json",
+        "commit_push_receipt.json"
+      ]
+    }
+  ],
+  "caps_triggered": [
+    "CAP_STAGE1_WITH_WARNINGS_ONLY",
+    "CAP_DIRTY_PROVENANCE_AT_START"
+  ],
+  "final_verdict": "PASS_WITH_WARNINGS_PENDING_COMMIT_PUSH",
+  "clean_pass_allowed": false
+}

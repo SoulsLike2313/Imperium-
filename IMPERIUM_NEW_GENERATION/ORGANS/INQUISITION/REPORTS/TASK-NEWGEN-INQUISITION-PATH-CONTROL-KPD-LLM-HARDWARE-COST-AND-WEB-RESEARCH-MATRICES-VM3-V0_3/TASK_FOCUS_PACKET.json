@@ -1,0 +1,37 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "created_utc": "2026-06-02T20:17:31Z",
+  "intent": "Build Inquisition hard-mode cost/KPD/path-control/web-research matrix pack.",
+  "allowed_scope": [
+    "Inquisition report artifacts",
+    "Inquisition tool builder",
+    "web research dossier",
+    "safe PC SSH transfer attempt"
+  ],
+  "forbidden_scope": [
+    "IDE/WARP runtime",
+    "Custodes implementation",
+    "Codex CLI bridge implementation",
+    "private key edits",
+    "VM2 execution"
+  ],
+  "required_outputs": [
+    "matrix_spine_hard_mode_cost_v0_3.md",
+    "matrix_spine_hard_mode_cost_v0_3.json",
+    "schemas",
+    "hard_mode_validator_v0_3.py",
+    "validator_run_receipt.json",
+    "web_research_dossier.zip",
+    "pc_transfer_receipt.json",
+    "vm2_next_task_handoff_note.md",
+    "commit_push_receipt.json"
+  ],
+  "stop_conditions": [
+    "Resolver cannot resolve task",
+    "Officio role skipped",
+    "Web research skipped without blocker",
+    "Required outputs missing",
+    "Non-BLOCK result cannot be committed/pushed without explicit external blocker"
+  ],
+  "evidence_boundary": "E3 for local validator behavior; E1/E2 for file existence and research source indexing; no clean E4/E5 campaign claim."
+}

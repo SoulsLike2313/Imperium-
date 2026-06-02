@@ -1,0 +1,178 @@
+[
+  {
+    "source_id": "SRC-001",
+    "title": "OpenAI API cost optimization",
+    "url": "https://developers.openai.com/api/docs/guides/cost-optimization",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Reduce request count, minimize input/output tokens, route to smaller models, and use Batch/Flex for asynchronous lower-priority workloads.",
+    "possible_imperium_application": "Add preflight admission rules for cheap-model triage, no-LLM local validators, and async/batch lanes for non-urgent checks.",
+    "risk_or_limitation": "Provider-specific economics change; IMPERIUM must record model/version/pricing source at task time."
+  },
+  {
+    "source_id": "SRC-002",
+    "title": "OpenAI prompt caching",
+    "url": "https://developers.openai.com/api/docs/guides/prompt-caching",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Repeated long prompt prefixes can reduce latency and input cost when static content is placed before dynamic task-specific content.",
+    "possible_imperium_application": "Move stable organ contracts and schemas before dynamic taskpack deltas in context manifests; log cached token fields when available.",
+    "risk_or_limitation": "Cache hit claims require provider usage metadata; absence of cache telemetry must remain UNKNOWN_NOT_INSTRUMENTED."
+  },
+  {
+    "source_id": "SRC-003",
+    "title": "OpenAI latency optimization",
+    "url": "https://developers.openai.com/api/docs/guides/latency-optimization",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Output token reduction, fewer requests, parallelism, and filtering unnecessary context are primary latency/cost controls.",
+    "possible_imperium_application": "Cap final chat verbosity and shift detailed evidence into committed reports without dropping required receipts.",
+    "risk_or_limitation": "Shorter outputs are fake economy if they omit commit links, caps, or evidence boundary."
+  },
+  {
+    "source_id": "SRC-004",
+    "title": "OpenAI Structured Outputs",
+    "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Schema-constrained outputs reduce malformed JSON retries and make refusals programmatically visible.",
+    "possible_imperium_application": "Require JSON schemas for LLM-returned receipts and use validators before any expensive red-team pass.",
+    "risk_or_limitation": "First schema use may add latency for some paths; schema subset limits must be respected."
+  },
+  {
+    "source_id": "SRC-005",
+    "title": "OpenAI token counting with tiktoken",
+    "url": "https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb",
+    "source_type": "official_cookbook",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Token counting before API calls estimates cost and context fit; model-specific encodings matter.",
+    "possible_imperium_application": "Add a future token estimator to Task Focus Packet generation and bundle receipts.",
+    "risk_or_limitation": "Local estimates cannot replace provider usage metadata for final billing proof."
+  },
+  {
+    "source_id": "SRC-006",
+    "title": "Anthropic Claude pricing and tool costs",
+    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Claude pricing separates input, output, cache writes/reads, web search, web fetch, and computer-use overhead.",
+    "possible_imperium_application": "Record tool-specific cost dimensions rather than one generic token count.",
+    "risk_or_limitation": "Prices and model names are time-sensitive; receipts need accessed date and source URL."
+  },
+  {
+    "source_id": "SRC-007",
+    "title": "Anthropic prompt caching",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-caching",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Cache breakpoints should mark the end of reusable static content; moving content before the breakpoint changes cache identity.",
+    "possible_imperium_application": "Define IMPERIUM context packs with explicit static-prefix and dynamic-suffix lanes.",
+    "risk_or_limitation": "Cache write/read costs differ by TTL and model; false generic discounts are fake economy."
+  },
+  {
+    "source_id": "SRC-008",
+    "title": "Google Vertex AI context caching overview",
+    "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/context-cache/context-cache-overview",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Implicit and explicit context caches reduce repeated Gemini context cost/latency; explicit caches have TTL/storage considerations.",
+    "possible_imperium_application": "Treat repeated organ packs as cacheable context candidates when running Google-backed routes.",
+    "risk_or_limitation": "Model support and explicit cache storage cost must be checked per route."
+  },
+  {
+    "source_id": "SRC-009",
+    "title": "Amazon Bedrock prompt caching",
+    "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html",
+    "source_type": "official_vendor_docs",
+    "trust_level": "PRIMARY_OFFICIAL",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Bedrock cache checkpoints can reduce repeated-prefix latency and input token cost, but cache writes may have different billing.",
+    "possible_imperium_application": "Record cacheReadInputTokens/cacheWriteInputTokens where Bedrock routes are used.",
+    "risk_or_limitation": "Unsupported in some endpoints; batch and prompt caching interactions differ by provider."
+  },
+  {
+    "source_id": "SRC-010",
+    "title": "LangSmith cost tracking",
+    "url": "https://docs.langchain.com/langsmith/cost-tracking",
+    "source_type": "official_tool_docs",
+    "trust_level": "PRIMARY_TOOL_DOCS",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Trace-level cost tracking separates input, output, cache reads, reasoning, tool, retrieval, and custom run costs.",
+    "possible_imperium_application": "Mirror trace-tree cost categories in local organ-agent receipts.",
+    "risk_or_limitation": "Requires disciplined trace metadata; child runs without thread IDs can be invisible in aggregates."
+  },
+  {
+    "source_id": "SRC-011",
+    "title": "Langfuse token and cost tracking",
+    "url": "https://langfuse.com/docs/observability/features/token-and-cost-tracking",
+    "source_type": "official_tool_docs",
+    "trust_level": "PRIMARY_TOOL_DOCS",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Ingested provider usage/cost is more accurate than inferred cost; metrics can be filtered for analytics and rate limiting.",
+    "possible_imperium_application": "Prioritize provider usage metadata in receipts and mark inferred costs as lower evidence.",
+    "risk_or_limitation": "Tokenizer-based inference can be inaccurate for some providers and model versions."
+  },
+  {
+    "source_id": "SRC-012",
+    "title": "LlamaIndex cost analysis",
+    "url": "https://developers.llamaindex.ai/python/framework/understanding/evaluating/cost_analysis/",
+    "source_type": "official_tool_docs",
+    "trust_level": "PRIMARY_TOOL_DOCS",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Index construction and query strategy affect LLM call count; token predictors can estimate build/query cost.",
+    "possible_imperium_application": "Separate retrieval/index build cost from answer synthesis cost in IMPERIUM web research and context packs.",
+    "risk_or_limitation": "Predictors are estimates; final receipts still need actual run counts and token usage where available."
+  },
+  {
+    "source_id": "SRC-013",
+    "title": "vLLM Automatic Prefix Caching",
+    "url": "https://docs.vllm.ai/en/v0.15.0/features/automatic_prefix_caching/",
+    "source_type": "official_tool_docs",
+    "trust_level": "PRIMARY_TOOL_DOCS",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Self-hosted inference can reuse KV cache for identical prefixes, improving throughput for repeated long-document and conversation workloads.",
+    "possible_imperium_application": "Future local-agent LLM serving should keep stable organ packs as identical prefixes and measure prefill/decode separately.",
+    "risk_or_limitation": "Prefix caching helps prefill, not long generation; no benefit when prefixes do not match."
+  },
+  {
+    "source_id": "SRC-014",
+    "title": "FinOps for AI",
+    "url": "https://www.finops.org/framework/technology-categories/ai/",
+    "source_type": "industry_framework",
+    "trust_level": "CREDIBLE_FRAMEWORK",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "AI spend needs allocation, forecasting, governance, and optimization aligned to business value.",
+    "possible_imperium_application": "Tie KPD to task value, Owner pain reduction, and future friction reduction instead of file count.",
+    "risk_or_limitation": "Framework is governance-level; local validators still need concrete metrics and receipts."
+  },
+  {
+    "source_id": "SRC-015",
+    "title": "Lost in the Middle: How Language Models Use Long Contexts",
+    "url": "https://arxiv.org/abs/2307.03172",
+    "source_type": "peer_reviewed_research",
+    "trust_level": "PRIMARY_RESEARCH",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "Long context is not automatically effective; relevant information placement can degrade answer quality.",
+    "possible_imperium_application": "Do not treat broad context dumps as quality proof; use context manifests and retrieve only relevant authority slices.",
+    "risk_or_limitation": "Paper results depend on models/tasks; use as design pressure, not universal benchmark."
+  },
+  {
+    "source_id": "SRC-016",
+    "title": "LiteLLM getting started and proxy cost controls",
+    "url": "https://docs.litellm.ai/",
+    "source_type": "official_tool_docs",
+    "trust_level": "PRIMARY_TOOL_DOCS",
+    "date_accessed_utc": "2026-06-02T20:17:31Z",
+    "key_idea": "A gateway can centralize spend tracking, budgets, rate limits, routing, retries, fallbacks, and observability callbacks.",
+    "possible_imperium_application": "Future Codex/Logos routing should pass through a spend-aware gateway or equivalent local budget receipt.",
+    "risk_or_limitation": "Gateway adds operational/security surface; adoption needs private boundary and supply-chain review."
+  }
+]

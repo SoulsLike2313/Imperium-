@@ -1,0 +1,26 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "timestamp_utc": "2026-06-02T20:17:31Z",
+  "verdict": "PASS_WITH_WARNINGS",
+  "llm_context_items": 0,
+  "estimated_context_chars": "UNKNOWN_NOT_PROVIDER_INSTRUMENTED",
+  "estimated_output_chars": "UNKNOWN_NOT_PROVIDER_INSTRUMENTED",
+  "broad_read_detected": true,
+  "local_hardware_metrics": {
+    "wall_seconds": "UNKNOWN_NOT_TASK_WIDE_INSTRUMENTED",
+    "peak_memory_mb": "UNKNOWN_NOT_INSTRUMENTED",
+    "disk_written_bytes": "PARTIAL_COMPUTED_AFTER_BUNDLE"
+  },
+  "manual_owner_interactions": 1,
+  "kpd_delta_percent": "QUALITATIVE_POSITIVE_NOT_NUMERICALLY_INSTRUMENTED",
+  "notes": [
+    "No fake numeric savings claimed.",
+    "Validator run wall_seconds is measured separately in validator_run_receipt.json."
+  ],
+  "pc_transfer": {
+    "attempted": true,
+    "verdict": "PASS",
+    "remote_target_path": "E:/IMPERIUM_CONTEXT/LOCAL/TASK_BUNDLES/TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3/",
+    "verified_file_count": 2
+  }
+}

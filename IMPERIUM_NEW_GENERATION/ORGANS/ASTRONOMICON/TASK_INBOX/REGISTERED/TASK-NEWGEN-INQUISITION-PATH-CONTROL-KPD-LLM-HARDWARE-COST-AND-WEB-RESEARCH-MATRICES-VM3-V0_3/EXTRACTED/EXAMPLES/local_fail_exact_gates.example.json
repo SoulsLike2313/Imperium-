@@ -1,0 +1,12 @@
+{
+  "task_id": "EXAMPLE",
+  "case": "LOCAL_FAIL_EXACT_GATES",
+  "local_step_verdict": "FAIL",
+  "failed_gates": [
+    {
+      "gate": "REQUIRED_RECEIPT_MISSING",
+      "why": "pc_transfer_receipt.json absent"
+    }
+  ],
+  "final": "FAIL"
+}

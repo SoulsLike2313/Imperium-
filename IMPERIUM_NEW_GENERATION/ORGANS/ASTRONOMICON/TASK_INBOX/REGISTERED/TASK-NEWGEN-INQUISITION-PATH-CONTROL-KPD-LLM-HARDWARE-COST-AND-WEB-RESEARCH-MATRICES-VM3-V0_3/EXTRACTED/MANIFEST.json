@@ -1,0 +1,49 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "title": "Inquisition Path Control KPD LLM Hardware Cost and Web Research Matrices Hardened",
+  "version": "V0_3",
+  "created_utc": "2026-06-02T20:00:42Z",
+  "target_contour": "VM3",
+  "task_class": "INQUISITION_MATRIX_HARD_MODE_AND_DEEP_WEB_RESEARCH",
+  "owner_intent": "Harden IMPERIUM cost, KPD, hardware/resource, local-organ, LLM-context, output, and path-control matrices; require deep web research and export research data to PC context folder.",
+  "organs": [
+    "DOCTRINARIUM",
+    "OFFICIO_AGENTIS",
+    "ASTRONOMICON",
+    "ADMINISTRATUM",
+    "MECHANICUS",
+    "INQUISITION",
+    "STRATEGIUM",
+    "SCHOLA_IMPERIALIS"
+  ],
+  "supporting_future_organs": [
+    "THRONE",
+    "CUSTODES"
+  ],
+  "language_and_encoding_policy": {
+    "taskpack_internal_files": "ENGLISH_UTF8_NO_BOM_ONLY",
+    "canonical_repo_artifacts": "ENGLISH_UTF8_NO_BOM_ONLY",
+    "owner_facing_russian_runtime_output": "ALLOWED_ONLY_THROUGH_OFFICIO_AGENTIS_RUNTIME",
+    "cyrillic_in_taskpack": "FORBIDDEN",
+    "localization_exception": "NONE"
+  },
+  "runtime_policy": {
+    "repo_writes_allowed": true,
+    "commit_push_required_for_non_block": true,
+    "external_web_research_required": true,
+    "pc_ssh_transfer_required": true,
+    "private_key_access_forbidden": true,
+    "remote_execution_on_pc_allowed_via_existing_ssh_route_only": true,
+    "vm2_execution_deferred": true,
+    "ide_warp_runtime_forbidden": true,
+    "freelance_trading_forbidden": true
+  },
+  "admission_expectations": {
+    "root_manifest_json": true,
+    "root_task_spec_md": true,
+    "root_acceptance_gates_md": true,
+    "root_output_requirements_md": true,
+    "eight_organ_route_required": true
+  },
+  "next_task_hint": "After this VM3 task, prepare VM2 contour entry for the next task, but do not execute VM2 work in this scope."
+}

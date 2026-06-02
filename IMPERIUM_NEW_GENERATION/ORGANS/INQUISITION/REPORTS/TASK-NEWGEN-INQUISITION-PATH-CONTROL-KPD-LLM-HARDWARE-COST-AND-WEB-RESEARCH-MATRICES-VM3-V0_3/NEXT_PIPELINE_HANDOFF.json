@@ -1,0 +1,11 @@
+{
+  "task_id": "TASK-NEWGEN-INQUISITION-PATH-CONTROL-KPD-LLM-HARDWARE-COST-AND-WEB-RESEARCH-MATRICES-VM3-V0_3",
+  "next_contour": "VM2",
+  "next_step": "Use V0_3 cost/KPD matrix pack to execute the next VM2 task with explicit budget and context manifest.",
+  "must_not_assume": [
+    "PC transfer success without receipt",
+    "global caps closed",
+    "provider token metrics measured"
+  ],
+  "priority": "HIGH"
+}

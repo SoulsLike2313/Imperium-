@@ -1,0 +1,9 @@
+{
+  "task_id": "EXAMPLE",
+  "case": "LOCAL_PASS_GLOBAL_CAPS_CARRIED",
+  "local_step_verdict": "PASS",
+  "global_caps": [
+    "CAP_NO_IDE_VISUAL_RELEASE_YET"
+  ],
+  "final": "LOCAL_PASS_WITH_GLOBAL_CAPS_CARRIED"
+}
